@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "best_model_name": "hist_gradient_boosting",
+  "best_model_path": "models\\improved\\best_improved_model.joblib",
+  "trained_models": [
+    "hist_gradient_boosting"
+  ],
+  "skipped_models": [
+    "calibrated_hist_gradient_boosting",
+    "calibrated_random_forest"
+  ],
+  "train_rows": 3,
+  "calibration_rows": 1,
+  "test_rows": 4,
+  "feature_count": 10,
+  "test_start_date": "2022-01-01",
+  "class_order": [
+    0,
+    1,
+    2
+  ],
+  "improved_metrics_path": "reports\\improved_model_metrics.csv",
+  "baseline_vs_improved_path": "reports\\baseline_vs_improved_metrics.csv",
+  "backtest_results_path": "reports\\temporal_backtest_results.csv",
+  "probability_quality_report_path": "reports\\probability_quality_report.csv"
+}

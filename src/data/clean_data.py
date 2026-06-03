@@ -6,17 +6,61 @@ import hashlib
 
 import pandas as pd
 
-from src.utils.constants import (
-    CANONICAL_MATCH_COLUMNS,
-    RESULT_LABELS,
-    SHOOTOUT_OUTCOME_COLUMNS,
-    TEAM_REGISTRY_COLUMNS,
-    WORLD_CUP_2026_HOSTS,
-)
+import src.utils.constants as C
 from src.utils.team_name_mapping import (
     slugify_team_name,
     standardize_team_name,
 )
+
+CANONICAL_MATCH_COLUMNS = getattr(
+    C,
+    "CANONICAL_MATCH_COLUMNS",
+    [
+        "match_id",
+        "date",
+        "year",
+        "team_a",
+        "team_b",
+        "team_a_score",
+        "team_b_score",
+        "score_difference",
+        "total_goals",
+        "result",
+        "result_label",
+        "winner",
+        "loser",
+        "is_draw",
+        "tournament",
+        "city",
+        "country",
+        "neutral",
+        "has_shootout",
+        "shootout_winner",
+        "shootout_loser",
+        "progression_winner",
+        "data_source",
+    ],
+)
+RESULT_LABELS = getattr(C, "RESULT_LABELS", {0: "team_a_loss", 1: "draw", 2: "team_a_win"})
+SHOOTOUT_OUTCOME_COLUMNS = getattr(
+    C,
+    "SHOOTOUT_OUTCOME_COLUMNS",
+    ["date", "team_a", "team_b", "shootout_winner", "shootout_loser"],
+)
+TEAM_REGISTRY_COLUMNS = getattr(
+    C,
+    "TEAM_REGISTRY_COLUMNS",
+    [
+        "team_id",
+        "team",
+        "team_slug",
+        "first_match_date",
+        "last_match_date",
+        "matches_played",
+        "is_world_cup_2026_host",
+    ],
+)
+WORLD_CUP_2026_HOSTS = getattr(C, "WORLD_CUP_2026_HOSTS", ["Canada", "Mexico", "United States"])
 
 # Minimal canonical schema kept for backward compatibility with Step 1/2 code.
 BASIC_CANONICAL_COLUMNS: list[str] = [

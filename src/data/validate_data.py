@@ -4,18 +4,44 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.utils.constants import (
-    BASIC_REQUIRED_MATCH_COLUMNS,
-    CANONICAL_MATCH_COLUMNS,
-    ELO_RATINGS_REQUIRED_COLUMNS,
-    FIFA_RANKINGS_REQUIRED_COLUMNS,
-    HISTORICAL_RESULTS_REQUIRED_COLUMNS,
-    RESULT_LABELS,
-    TEAM_REGISTRY_COLUMNS,
-    WC2026_GROUPS_REQUIRED_COLUMNS,
-    WC2026_SCHEDULE_REQUIRED_COLUMNS,
-    WC2026_TEAMS_REQUIRED_COLUMNS,
+import src.utils.constants as C
+
+BASIC_REQUIRED_MATCH_COLUMNS = getattr(
+    C,
+    "BASIC_REQUIRED_MATCH_COLUMNS",
+    ["date", "team_a", "team_b", "team_a_score", "team_b_score", "result"],
 )
+CANONICAL_MATCH_COLUMNS = getattr(C, "CANONICAL_MATCH_COLUMNS", list(BASIC_REQUIRED_MATCH_COLUMNS))
+ELO_RATINGS_REQUIRED_COLUMNS = getattr(C, "ELO_RATINGS_REQUIRED_COLUMNS", ["team", "rating_date", "elo"])
+FIFA_RANKINGS_REQUIRED_COLUMNS = getattr(
+    C, "FIFA_RANKINGS_REQUIRED_COLUMNS", ["team", "ranking_date", "rank", "points"]
+)
+HISTORICAL_RESULTS_REQUIRED_COLUMNS = getattr(
+    C,
+    "HISTORICAL_RESULTS_REQUIRED_COLUMNS",
+    ["date", "home_team", "away_team", "home_score", "away_score", "tournament", "city", "country", "neutral"],
+)
+RESULT_LABELS = getattr(C, "RESULT_LABELS", {0: "team_a_loss", 1: "draw", 2: "team_a_win"})
+TEAM_REGISTRY_COLUMNS = getattr(
+    C,
+    "TEAM_REGISTRY_COLUMNS",
+    [
+        "team_id",
+        "team",
+        "team_slug",
+        "first_match_date",
+        "last_match_date",
+        "matches_played",
+        "is_world_cup_2026_host",
+    ],
+)
+WC2026_GROUPS_REQUIRED_COLUMNS = getattr(C, "WC2026_GROUPS_REQUIRED_COLUMNS", ["group", "team"])
+WC2026_SCHEDULE_REQUIRED_COLUMNS = getattr(
+    C,
+    "WC2026_SCHEDULE_REQUIRED_COLUMNS",
+    ["match_id", "date", "team_a", "team_b", "city", "country", "stage"],
+)
+WC2026_TEAMS_REQUIRED_COLUMNS = getattr(C, "WC2026_TEAMS_REQUIRED_COLUMNS", ["team"])
 
 
 def validate_required_columns(

@@ -13,15 +13,19 @@ from src.features.build_features import (
     create_feature_quality_report,
     create_feature_summary,
 )
-from src.utils.constants import (
-    CANONICAL_MATCHES_FILE,
-    CANONICAL_MATCHES_SAMPLE_FILE,
-    FEATURE_DATASET_FILE,
-    FEATURE_DATASET_SAMPLE_FILE,
-    FEATURE_QUALITY_REPORT_FILE,
-    FEATURE_SUMMARY_FILE,
-    PROCESSED_DATA_DIR,
+import src.utils.constants as C
+
+CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
+CANONICAL_MATCHES_SAMPLE_FILE = getattr(
+    C, "CANONICAL_MATCHES_SAMPLE_FILE", "canonical_matches_sample.csv"
 )
+FEATURE_DATASET_FILE = getattr(C, "FEATURE_DATASET_FILE", "feature_dataset.csv")
+FEATURE_DATASET_SAMPLE_FILE = getattr(
+    C, "FEATURE_DATASET_SAMPLE_FILE", "feature_dataset_sample.csv"
+)
+FEATURE_QUALITY_REPORT_FILE = getattr(C, "FEATURE_QUALITY_REPORT_FILE", "feature_quality_report.csv")
+FEATURE_SUMMARY_FILE = getattr(C, "FEATURE_SUMMARY_FILE", "feature_summary.json")
+PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
 
 
 def _load_canonical_matches() -> tuple[pd.DataFrame, Path, bool]:

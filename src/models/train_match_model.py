@@ -27,26 +27,30 @@ from src.models.model_features import (
     select_model_features,
 )
 from src.models.split_data import chronological_train_test_split, summarize_split
-from src.utils.constants import (
-    BASELINE_MODEL_DIR,
-    BEST_BASELINE_MODEL_FILE,
-    CLASSIFICATION_REPORT_DUMMY_FILE,
-    CLASSIFICATION_REPORT_LOGISTIC_FILE,
-    CLASSIFICATION_REPORT_RF_FILE,
-    CONFUSION_MATRIX_DUMMY_FILE,
-    CONFUSION_MATRIX_LOGISTIC_FILE,
-    CONFUSION_MATRIX_RF_FILE,
-    DEFAULT_TEST_START_DATE,
-    DUMMY_MODEL_FILE,
-    FEATURE_COLUMNS_FILE,
-    FEATURE_IMPORTANCE_RF_FILE,
-    LOGISTIC_REGRESSION_MODEL_FILE,
-    MODEL_METADATA_FILE,
-    MODEL_METRICS_FILE,
-    RANDOM_SEED,
-    RANDOM_FOREST_MODEL_FILE,
-    TARGET_CLASS_ORDER,
+import src.utils.constants as C
+
+BASELINE_MODEL_DIR = getattr(C, "BASELINE_MODEL_DIR", "models/baseline")
+BEST_BASELINE_MODEL_FILE = getattr(C, "BEST_BASELINE_MODEL_FILE", "best_baseline_model.joblib")
+CLASSIFICATION_REPORT_DUMMY_FILE = getattr(C, "CLASSIFICATION_REPORT_DUMMY_FILE", "classification_report_dummy.csv")
+CLASSIFICATION_REPORT_LOGISTIC_FILE = getattr(
+    C, "CLASSIFICATION_REPORT_LOGISTIC_FILE", "classification_report_logistic_regression.csv"
 )
+CLASSIFICATION_REPORT_RF_FILE = getattr(C, "CLASSIFICATION_REPORT_RF_FILE", "classification_report_random_forest.csv")
+CONFUSION_MATRIX_DUMMY_FILE = getattr(C, "CONFUSION_MATRIX_DUMMY_FILE", "confusion_matrix_dummy.csv")
+CONFUSION_MATRIX_LOGISTIC_FILE = getattr(
+    C, "CONFUSION_MATRIX_LOGISTIC_FILE", "confusion_matrix_logistic_regression.csv"
+)
+CONFUSION_MATRIX_RF_FILE = getattr(C, "CONFUSION_MATRIX_RF_FILE", "confusion_matrix_random_forest.csv")
+DEFAULT_TEST_START_DATE = getattr(C, "DEFAULT_TEST_START_DATE", "2022-01-01")
+DUMMY_MODEL_FILE = getattr(C, "DUMMY_MODEL_FILE", "dummy_classifier.joblib")
+FEATURE_COLUMNS_FILE = getattr(C, "FEATURE_COLUMNS_FILE", "feature_columns.json")
+FEATURE_IMPORTANCE_RF_FILE = getattr(C, "FEATURE_IMPORTANCE_RF_FILE", "feature_importance_random_forest.csv")
+LOGISTIC_REGRESSION_MODEL_FILE = getattr(C, "LOGISTIC_REGRESSION_MODEL_FILE", "logistic_regression.joblib")
+MODEL_METADATA_FILE = getattr(C, "MODEL_METADATA_FILE", "model_metadata.json")
+MODEL_METRICS_FILE = getattr(C, "MODEL_METRICS_FILE", "model_metrics.csv")
+RANDOM_SEED = getattr(C, "RANDOM_SEED", 42)
+RANDOM_FOREST_MODEL_FILE = getattr(C, "RANDOM_FOREST_MODEL_FILE", "random_forest.joblib")
+TARGET_CLASS_ORDER = getattr(C, "TARGET_CLASS_ORDER", [0, 1, 2])
 
 # The reports directory already exists in the repo; keeping a local helper here
 # avoids adding another global constant just for Step 5.

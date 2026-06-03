@@ -311,3 +311,40 @@ NON_FEATURE_COLUMNS: list[str] = [
     "country",
     "data_source",
 ]
+
+# -----------------------------------------------------------------------------
+# Step 6 improved model constants
+# -----------------------------------------------------------------------------
+
+IMPROVED_MODEL_DIR: str = "models/improved"
+
+XGBOOST_MODEL_FILE: str = "xgboost_model.joblib"
+LIGHTGBM_MODEL_FILE: str = "lightgbm_model.joblib"
+HIST_GRADIENT_BOOSTING_MODEL_FILE: str = "hist_gradient_boosting_model.joblib"
+
+CALIBRATED_RANDOM_FOREST_FILE: str = "calibrated_random_forest.joblib"
+CALIBRATED_XGBOOST_FILE: str = "calibrated_xgboost.joblib"
+CALIBRATED_LIGHTGBM_FILE: str = "calibrated_lightgbm.joblib"
+CALIBRATED_HIST_GB_FILE: str = "calibrated_hist_gradient_boosting.joblib"
+
+BEST_IMPROVED_MODEL_FILE: str = "best_improved_model.joblib"
+IMPROVED_FEATURE_COLUMNS_FILE: str = "improved_feature_columns.json"
+IMPROVED_MODEL_METADATA_FILE: str = "improved_model_metadata.json"
+
+IMPROVED_MODEL_METRICS_FILE: str = "improved_model_metrics.csv"
+BASELINE_VS_IMPROVED_METRICS_FILE: str = "baseline_vs_improved_metrics.csv"
+TEMPORAL_BACKTEST_RESULTS_FILE: str = "temporal_backtest_results.csv"
+CALIBRATION_REPORT_FILE: str = "calibration_report.csv"
+PROBABILITY_QUALITY_REPORT_FILE: str = "probability_quality_report.csv"
+IMPROVED_FEATURE_IMPORTANCE_FILE: str = "improved_feature_importance.csv"
+MODEL_COMPARISON_SUMMARY_FILE: str = "model_comparison_summary.json"
+
+BACKTEST_WINDOWS: list[dict[str, str]] = [
+    {"name": "test_2018_onward", "test_start_date": "2018-01-01"},
+    {"name": "test_2020_onward", "test_start_date": "2020-01-01"},
+    {"name": "test_2022_onward", "test_start_date": "2022-01-01"},
+    {"name": "test_2024_onward", "test_start_date": "2024-01-01"},
+]
+
+CALIBRATION_METHODS: list[str] = ["sigmoid"]
+DEFAULT_CALIBRATION_METHOD: str = "sigmoid"

@@ -8,15 +8,39 @@ from pathlib import Path
 import pandas as pd
 
 from src.features.prepare_features import prepare_step4_features
-from src.utils.constants import (
-    FEATURE_DATASET_FILE,
-    FEATURE_DATASET_SAMPLE_FILE,
-    LEAKAGE_COLUMNS,
-    NON_FEATURE_COLUMNS,
-    PROCESSED_DATA_DIR,
-    TARGET_CLASS_ORDER,
-    TARGET_COLUMN,
+import src.utils.constants as C
+
+FEATURE_DATASET_FILE = getattr(C, "FEATURE_DATASET_FILE", "feature_dataset.csv")
+FEATURE_DATASET_SAMPLE_FILE = getattr(
+    C, "FEATURE_DATASET_SAMPLE_FILE", "feature_dataset_sample.csv"
 )
+LEAKAGE_COLUMNS = getattr(
+    C,
+    "LEAKAGE_COLUMNS",
+    [
+        "team_a_score",
+        "team_b_score",
+        "score_difference",
+        "total_goals",
+        "winner",
+        "loser",
+        "is_draw",
+        "has_shootout",
+        "shootout_winner",
+        "shootout_loser",
+        "progression_winner",
+        "result",
+        "result_label",
+    ],
+)
+NON_FEATURE_COLUMNS = getattr(
+    C,
+    "NON_FEATURE_COLUMNS",
+    ["match_id", "date", "year", "team_a", "team_b", "tournament", "city", "country", "data_source"],
+)
+PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
+TARGET_CLASS_ORDER = getattr(C, "TARGET_CLASS_ORDER", [0, 1, 2])
+TARGET_COLUMN = getattr(C, "TARGET_COLUMN", "result")
 
 
 def load_feature_dataset() -> pd.DataFrame:

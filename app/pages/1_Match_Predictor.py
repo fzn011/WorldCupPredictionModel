@@ -28,7 +28,7 @@ def _load_features() -> pd.DataFrame:
 
 st.title("Match Predictor")
 st.caption(
-    "Step 5 supports predicting matches that already exist in the engineered feature dataset."
+    "Predict existing engineered matches using the best available trained model (improved preferred, baseline fallback)."
 )
 
 feature_df = _load_features()
@@ -61,6 +61,7 @@ if mode == "Existing Match Prediction Demo":
             try:
                 prediction = predict_existing_match_by_id(options[selected_label])
                 st.subheader("Prediction")
+                st.write(f"**Model type used:** {prediction.get('model_type', 'baseline')}")
                 st.write(f"**Team A loss probability:** {prediction['probabilities']['team_a_loss']:.3f}")
                 st.write(f"**Draw probability:** {prediction['probabilities']['draw']:.3f}")
                 st.write(f"**Team A win probability:** {prediction['probabilities']['team_a_win']:.3f}")

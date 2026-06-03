@@ -5,19 +5,48 @@ from __future__ import annotations
 import pandas as pd
 
 from src.features.historical_features import build_historical_feature_dataset
-from src.utils.constants import (
-    BASIC_FEATURE_COLUMNS,
-    FEATURE_QUALITY_REPORT_FILE,
-    FRIENDLY_KEYWORDS,
-    MAJOR_TOURNAMENT_KEYWORDS,
-    RECENT_FORM_WINDOWS,
-    RESULT_LABELS,
-    WORLD_CUP_2026_HOSTS,
-    WORLD_CUP_QUALIFIER_KEYWORDS,
-    WORLD_CUP_TOURNAMENT_KEYWORDS,
-    CONTINENTAL_TOURNAMENT_KEYWORDS,
-)
+import src.utils.constants as C
 from src.utils.team_name_mapping import standardize_team_name
+
+BASIC_FEATURE_COLUMNS = getattr(C, "BASIC_FEATURE_COLUMNS", [])
+FEATURE_QUALITY_REPORT_FILE = getattr(C, "FEATURE_QUALITY_REPORT_FILE", "feature_quality_report.csv")
+FRIENDLY_KEYWORDS = getattr(C, "FRIENDLY_KEYWORDS", ["Friendly"])
+MAJOR_TOURNAMENT_KEYWORDS = getattr(
+    C,
+    "MAJOR_TOURNAMENT_KEYWORDS",
+    [
+        "FIFA World Cup",
+        "UEFA Euro",
+        "Copa América",
+        "Copa America",
+        "African Cup of Nations",
+        "AFC Asian Cup",
+        "CONCACAF Gold Cup",
+    ],
+)
+RECENT_FORM_WINDOWS = getattr(C, "RECENT_FORM_WINDOWS", [5, 10])
+RESULT_LABELS = getattr(C, "RESULT_LABELS", {0: "team_a_loss", 1: "draw", 2: "team_a_win"})
+WORLD_CUP_2026_HOSTS = getattr(C, "WORLD_CUP_2026_HOSTS", ["Canada", "Mexico", "United States"])
+WORLD_CUP_QUALIFIER_KEYWORDS = getattr(
+    C,
+    "WORLD_CUP_QUALIFIER_KEYWORDS",
+    ["FIFA World Cup qualification", "World Cup qualification"],
+)
+WORLD_CUP_TOURNAMENT_KEYWORDS = getattr(C, "WORLD_CUP_TOURNAMENT_KEYWORDS", ["FIFA World Cup"])
+CONTINENTAL_TOURNAMENT_KEYWORDS = getattr(
+    C,
+    "CONTINENTAL_TOURNAMENT_KEYWORDS",
+    [
+        "UEFA Euro",
+        "Copa América",
+        "Copa America",
+        "African Cup of Nations",
+        "AFC Asian Cup",
+        "CONCACAF Gold Cup",
+        "Oceania Nations Cup",
+        "UEFA Nations League",
+    ],
+)
 
 
 def build_basic_features(df: pd.DataFrame) -> pd.DataFrame:

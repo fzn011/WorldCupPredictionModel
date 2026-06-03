@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.utils.constants import RECENT_FORM_WINDOWS
+import src.utils.constants as C
+
+RECENT_FORM_WINDOWS = getattr(C, "RECENT_FORM_WINDOWS", [5, 10])
 
 
 def get_team_match_history(

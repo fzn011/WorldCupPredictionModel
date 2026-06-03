@@ -39,15 +39,17 @@ from src.data.validate_data import (
     validate_wc2026_schedule,
     validate_wc2026_teams,
 )
-from src.utils.constants import (
-    CANONICAL_MATCHES_FILE,
-    CANONICAL_MATCHES_SAMPLE_FILE,
-    CLEANING_SUMMARY_FILE,
-    DATA_QUALITY_REPORT_FILE,
-    PROCESSED_DATA_DIR,
-    SHOOTOUT_OUTCOMES_FILE,
-    TEAM_REGISTRY_FILE,
+import src.utils.constants as C
+
+CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
+CANONICAL_MATCHES_SAMPLE_FILE = getattr(
+    C, "CANONICAL_MATCHES_SAMPLE_FILE", "canonical_matches_sample.csv"
 )
+CLEANING_SUMMARY_FILE = getattr(C, "CLEANING_SUMMARY_FILE", "cleaning_summary.json")
+DATA_QUALITY_REPORT_FILE = getattr(C, "DATA_QUALITY_REPORT_FILE", "data_quality_report.csv")
+PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
+SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
+TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
 
 CANONICAL_SAMPLE_FILENAME = "canonical_matches_sample.csv"
 
