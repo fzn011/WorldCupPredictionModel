@@ -15,6 +15,11 @@ BASELINE_VS_IMPROVED_METRICS_FILE = getattr(
 )
 TEMPORAL_BACKTEST_RESULTS_FILE = getattr(C, "TEMPORAL_BACKTEST_RESULTS_FILE", "temporal_backtest_results.csv")
 PROBABILITY_QUALITY_REPORT_FILE = getattr(C, "PROBABILITY_QUALITY_REPORT_FILE", "probability_quality_report.csv")
+RANKING_ENHANCED_MODEL_METRICS_FILE = getattr(
+    C, "RANKING_ENHANCED_MODEL_METRICS_FILE", "ranking_enhanced_model_metrics.csv"
+)
+RANKING_VS_PREVIOUS_METRICS_FILE = getattr(C, "RANKING_VS_PREVIOUS_METRICS_FILE", "ranking_vs_previous_metrics.csv")
+RANKING_FEATURE_IMPORTANCE_FILE = getattr(C, "RANKING_FEATURE_IMPORTANCE_FILE", "ranking_feature_importance.csv")
 
 st.title("Model Explanation")
 
@@ -50,8 +55,41 @@ if probability_quality_path.is_file():
     quality_df = pd.read_csv(probability_quality_path)
     st.dataframe(quality_df, use_container_width=True)
 
+ranking_metrics_path = reports_dir / RANKING_ENHANCED_MODEL_METRICS_FILE
+if ranking_metrics_path.is_file():
+    st.subheader("Ranking-Enhanced Model Metrics")
+    ranking_df = pd.read_csv(ranking_metrics_path)
+    if "log_loss" in ranking_df.columns:
+        ranking_df = ranking_df.sort_values("log_loss", ascending=True)
+    st.dataframe(ranking_df, use_container_width=True)
+
+ranking_vs_previous_path = reports_dir / RANKING_VS_PREVIOUS_METRICS_FILE
+if ranking_vs_previous_path.is_file():
+    st.subheader("Ranking vs Previous Model Comparison")
+    st.dataframe(pd.read_csv(ranking_vs_previous_path), use_container_width=True)
+
+ranking_importance_path = reports_dir / RANKING_FEATURE_IMPORTANCE_FILE
+if ranking_importance_path.is_file():
+    st.subheader("Ranking Feature Importance")
+    st.dataframe(pd.read_csv(ranking_importance_path).head(30), use_container_width=True)
+
+st.info(
+    "Snapshot ranking limitation: the latest available FIFA/Elo snapshot is used across historical rows. "
+    "For strict historical backtesting, add date-aware historical ranking joins in a later refinement."
+)
+
 if not any(
     path.is_file()
-    for path in [comparison_path, improved_metrics_path, backtest_path, probability_quality_path]
+    for path in [
+        comparison_path,
+        improved_metrics_path,
+        backtest_path,
+        probability_quality_path,
+        ranking_metrics_path,
+        ranking_vs_previous_path,
+        ranking_importance_path,
+    ]
 ):
-    st.info("No Step 6 reports found yet. Run `python scripts/train_improved_models.py` first.")
+    st.info(
+        "No Step 6/7 reports found yet. Run `python scripts/train_improved_models.py` or `python scripts/train_ranking_enhanced_model.py` first."
+    )

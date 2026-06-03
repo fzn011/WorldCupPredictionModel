@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "source_feature_path": "in_memory",
+  "test_start_date": "2022-01-01",
+  "train_rows": 4,
+  "test_rows": 4,
+  "feature_count": 29,
+  "trained_models": [
+    "hist_gradient_boosting"
+  ],
+  "skipped_models": [],
+  "best_model_name": "hist_gradient_boosting",
+  "best_model_path": "models\\ranking_enhanced\\best_ranking_enhanced_model.joblib",
+  "ranking_metrics_path": "reports\\ranking_enhanced_model_metrics.csv",
+  "ranking_vs_previous_path": "reports\\ranking_vs_previous_metrics.csv",
+  "notes": [
+    "Snapshot ranking experiment: latest available FIFA/Elo tables are applied across historical rows. For strict historical backtesting, add date-aware historical ranking joins in a later refinement."
+  ]
+}

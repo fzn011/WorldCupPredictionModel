@@ -20,7 +20,7 @@ def test_load_best_available_model_falls_back_to_baseline_if_missing_improved(tm
     train_baseline_models(feature_df=_synthetic_feature_df(), test_start_date="2022-01-01")
 
     with patch("src.models.predict_match.IMPROVED_MODEL_DIR", str(tmp_path / "no_improved")):
-        model, model_type = load_best_available_model(prefer_improved=True)
+        model, model_type = load_best_available_model(prefer_ranking=False, prefer_improved=True)
         assert model is not None
         assert model_type == "baseline"
 
@@ -44,12 +44,24 @@ def test_predict_from_feature_row_prefers_improved_when_available(tmp_path) -> N
 
     row = feature_df.iloc[0]
     with patch("src.models.predict_match.IMPROVED_MODEL_DIR", str(improved_dir)):
-        prediction = predict_from_feature_row(row, prefer_improved=True)
+        prediction = predict_from_feature_row(row, prefer_ranking=False, prefer_improved=True)
 
     assert prediction["model_type"] == "improved"
     assert set(prediction["probabilities"].keys()) == {"team_a_loss", "draw", "team_a_win"}
 
 
-def test_future_arbitrary_prediction_still_placeholder() -> None:
+def test_predict_match_result_returns_real_future_prediction(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "src.models.predict_match.predict_future_match",
+        lambda **_: {
+            "team_a": "France",
+            "team_b": "Brazil",
+            "model_type": "ranking_enhanced",
+            "predicted_class": 2,
+            "predicted_label": "team_a_win",
+            "probabilities": {"team_a_loss": 0.2, "draw": 0.3, "team_a_win": 0.5},
+            "notes": [],
+        },
+    )
     payload = predict_match_result("France", "Brazil")
-    assert "Future match prediction" in payload["message"]
+    assert payload["predicted_label"] == "team_a_win"

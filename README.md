@@ -13,6 +13,8 @@ Golden Ball / best player candidates.
 
 - [Upstream repository](#upstream-repository)
 - [Step 6: Model Improvement Part 1](#step-6-model-improvement-part-1)
+- [Step 7: FIFA Rankings and Elo Integration](#step-7-fifa-rankings-and-elo-integration)
+- [Step 8: Future Match Feature Generator](#step-8-future-match-feature-generator)
 
 ## Current Snapshot
 
@@ -148,5 +150,56 @@ python scripts/train_improved_models.py
 python scripts/inspect_improved_model_results.py
 python main.py
 python -m pytest -q
+```
+
+## Step 7: FIFA Rankings and Elo Integration
+
+Step 7 adds external team-strength signals from FIFA rankings and Elo ratings.
+
+- FIFA ranking and Elo snapshot features are merged into the feature dataset.
+- Team-level strength score is computed from normalized FIFA points and Elo.
+- Ranking-enhanced dataset is saved under `data/processed/`.
+- Ranking-enhanced model is trained and saved under `models/ranking_enhanced/`.
+- Step 7 reports are saved under `reports/`.
+- Snapshot-ranking limitation is documented in metadata and summaries.
+
+### Snapshot limitation
+
+This Step 7 version is a **snapshot ranking experiment**: latest available
+FIFA/Elo snapshots are applied across historical rows. For strict historical
+backtesting, date-aware historical ranking joins should be added in a later
+refinement.
+
+### Step 7 commands
+
+```bash
+python scripts/prepare_ranking_features.py
+python scripts/inspect_ranking_features.py
+python scripts/train_ranking_enhanced_model.py
+python scripts/inspect_ranking_model_results.py
+python main.py
+python -m pytest -q
+```
+
+## Step 8: Future Match Feature Generator
+
+Step 8 enables **real arbitrary future match prediction** by generating a fresh
+pre-match feature row at inference time.
+
+- Arbitrary future match prediction is now supported.
+- Historical features are generated from matches strictly before the selected match date.
+- Ranking/Elo snapshot features are added when available.
+- The best available model is used in this order:
+	`ranking_enhanced -> improved -> baseline`.
+- Future predictions are no longer placeholders.
+- CLI scripts are available for inspection and prediction.
+
+### Step 8 commands
+
+```bash
+python scripts/inspect_future_feature_row.py --team-a Argentina --team-b France --date 2026-06-11
+python scripts/predict_future_match.py --team-a Argentina --team-b France --date 2026-06-11 --tournament "FIFA World Cup" --neutral 1
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
 ```
 

@@ -1,0 +1,2 @@
+prediction_timestamp,team_a,team_b,match_date,tournament,city,country,neutral,model_type,predicted_class,predicted_label,team_a_loss_probability,draw_probability,team_a_win_probability
+2026-06-03T20:08:45.086761+00:00,Argentina,France,2026-06-11 00:00:00,FIFA World Cup,Unknown,Unknown,1,ranking_enhanced,0,team_a_loss,0.5,0.25,0.25

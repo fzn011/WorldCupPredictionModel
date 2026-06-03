@@ -348,3 +348,75 @@ BACKTEST_WINDOWS: list[dict[str, str]] = [
 
 CALIBRATION_METHODS: list[str] = ["sigmoid"]
 DEFAULT_CALIBRATION_METHOD: str = "sigmoid"
+
+# -----------------------------------------------------------------------------
+# Step 7 ranking + Elo integration constants
+# -----------------------------------------------------------------------------
+
+RANKING_FEATURE_DATASET_FILE: str = "ranking_feature_dataset.csv"
+RANKING_FEATURE_DATASET_SAMPLE_FILE: str = "ranking_feature_dataset_sample.csv"
+RANKING_MERGE_REPORT_FILE: str = "ranking_merge_report.csv"
+RANKING_FEATURE_SUMMARY_FILE: str = "ranking_feature_summary.json"
+TEAM_STRENGTH_SNAPSHOT_FILE: str = "team_strength_snapshot.csv"
+
+RANKING_ENHANCED_MODEL_DIR: str = "models/ranking_enhanced"
+
+RANKING_ENHANCED_MODEL_FILE: str = "ranking_enhanced_model.joblib"
+BEST_RANKING_ENHANCED_MODEL_FILE: str = "best_ranking_enhanced_model.joblib"
+RANKING_FEATURE_COLUMNS_FILE: str = "ranking_feature_columns.json"
+RANKING_MODEL_METADATA_FILE: str = "ranking_model_metadata.json"
+
+RANKING_ENHANCED_MODEL_METRICS_FILE: str = "ranking_enhanced_model_metrics.csv"
+RANKING_VS_PREVIOUS_METRICS_FILE: str = "ranking_vs_previous_metrics.csv"
+RANKING_FEATURE_IMPORTANCE_FILE: str = "ranking_feature_importance.csv"
+RANKING_MODEL_SUMMARY_FILE: str = "ranking_model_summary.json"
+
+FIFA_RANKING_FEATURE_COLUMNS: list[str] = [
+    "team_a_fifa_rank",
+    "team_b_fifa_rank",
+    "diff_fifa_rank",
+    "team_a_fifa_points",
+    "team_b_fifa_points",
+    "diff_fifa_points",
+    "team_a_has_fifa_ranking",
+    "team_b_has_fifa_ranking",
+]
+
+ELO_FEATURE_COLUMNS: list[str] = [
+    "team_a_elo_rank",
+    "team_b_elo_rank",
+    "diff_elo_rank",
+    "team_a_elo",
+    "team_b_elo",
+    "diff_elo",
+    "team_a_has_elo",
+    "team_b_has_elo",
+]
+
+TEAM_STRENGTH_FEATURE_COLUMNS: list[str] = [
+    "team_a_strength_score",
+    "team_b_strength_score",
+    "diff_strength_score",
+]
+
+RANKING_SNAPSHOT_MODE: str = "snapshot"
+RANKING_HISTORICAL_MODE: str = "historical"
+
+# -----------------------------------------------------------------------------
+# Step 8 future match feature generation + prediction constants
+# -----------------------------------------------------------------------------
+
+FUTURE_PREDICTION_REPORT_FILE: str = "future_prediction_report.csv"
+FUTURE_PREDICTION_LOG_FILE: str = "future_prediction_log.csv"
+
+DEFAULT_FUTURE_MATCH_DATE: str = "2026-06-11"
+DEFAULT_FUTURE_TOURNAMENT: str = "FIFA World Cup"
+DEFAULT_FUTURE_CITY: str = "Unknown"
+DEFAULT_FUTURE_COUNTRY: str = "Unknown"
+DEFAULT_FUTURE_NEUTRAL: int = 1
+
+MODEL_PREFERENCE_ORDER: list[str] = [
+    "ranking_enhanced",
+    "improved",
+    "baseline",
+]

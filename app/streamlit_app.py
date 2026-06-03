@@ -45,6 +45,20 @@ TEMPORAL_BACKTEST_RESULTS_FILE = getattr(C, "TEMPORAL_BACKTEST_RESULTS_FILE", "t
 PROBABILITY_QUALITY_REPORT_FILE = getattr(
     C, "PROBABILITY_QUALITY_REPORT_FILE", "probability_quality_report.csv"
 )
+RANKING_FEATURE_DATASET_FILE = getattr(C, "RANKING_FEATURE_DATASET_FILE", "ranking_feature_dataset.csv")
+TEAM_STRENGTH_SNAPSHOT_FILE = getattr(C, "TEAM_STRENGTH_SNAPSHOT_FILE", "team_strength_snapshot.csv")
+RANKING_MERGE_REPORT_FILE = getattr(C, "RANKING_MERGE_REPORT_FILE", "ranking_merge_report.csv")
+RANKING_ENHANCED_MODEL_DIR = getattr(C, "RANKING_ENHANCED_MODEL_DIR", "models/ranking_enhanced")
+BEST_RANKING_ENHANCED_MODEL_FILE = getattr(
+    C, "BEST_RANKING_ENHANCED_MODEL_FILE", "best_ranking_enhanced_model.joblib"
+)
+RANKING_ENHANCED_MODEL_METRICS_FILE = getattr(
+    C, "RANKING_ENHANCED_MODEL_METRICS_FILE", "ranking_enhanced_model_metrics.csv"
+)
+RANKING_VS_PREVIOUS_METRICS_FILE = getattr(
+    C, "RANKING_VS_PREVIOUS_METRICS_FILE", "ranking_vs_previous_metrics.csv"
+)
+FUTURE_PREDICTION_LOG_FILE = getattr(C, "FUTURE_PREDICTION_LOG_FILE", "future_prediction_log.csv")
 PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
 TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
@@ -71,10 +85,12 @@ st.success(
     "Step 3: Data cleaning and canonical dataset completed.\n\n"
     "Step 4: Feature engineering completed.\n\n"
     "Step 5: Baseline model completed.\n\n"
-    "Step 6: Improved model completed."
+    "Step 6: Improved model completed.\n\n"
+    "Step 7: FIFA rankings and Elo integration completed.\n\n"
+    "Step 8: Future match prediction completed."
 )
 st.caption(
-    "The project includes baseline + improved classifiers, calibration artifacts, and temporal backtesting reports."
+    "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
 )
 
 st.subheader("Step 3: Processed Outputs")
@@ -188,6 +204,55 @@ improved_rows = [
 st.dataframe(pd.DataFrame(improved_rows), use_container_width=True)
 st.caption("Step 6 adds optional XGBoost/LightGBM, calibrated probabilities, and temporal backtesting.")
 
+st.subheader("Step 7: Ranking + Elo Outputs")
+step7_rows = [
+    {
+        "file": RANKING_FEATURE_DATASET_FILE,
+        "path": str(PROCESSED_DATA_DIR / RANKING_FEATURE_DATASET_FILE),
+        "present": (PROCESSED_DATA_DIR / RANKING_FEATURE_DATASET_FILE).is_file(),
+    },
+    {
+        "file": TEAM_STRENGTH_SNAPSHOT_FILE,
+        "path": str(PROCESSED_DATA_DIR / TEAM_STRENGTH_SNAPSHOT_FILE),
+        "present": (PROCESSED_DATA_DIR / TEAM_STRENGTH_SNAPSHOT_FILE).is_file(),
+    },
+    {
+        "file": RANKING_MERGE_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / RANKING_MERGE_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / RANKING_MERGE_REPORT_FILE).is_file(),
+    },
+    {
+        "file": BEST_RANKING_ENHANCED_MODEL_FILE,
+        "path": str(Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE),
+        "present": (Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE).is_file(),
+    },
+    {
+        "file": RANKING_ENHANCED_MODEL_METRICS_FILE,
+        "path": str(Path("reports") / RANKING_ENHANCED_MODEL_METRICS_FILE),
+        "present": (Path("reports") / RANKING_ENHANCED_MODEL_METRICS_FILE).is_file(),
+    },
+    {
+        "file": RANKING_VS_PREVIOUS_METRICS_FILE,
+        "path": str(Path("reports") / RANKING_VS_PREVIOUS_METRICS_FILE),
+        "present": (Path("reports") / RANKING_VS_PREVIOUS_METRICS_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step7_rows), use_container_width=True)
+st.caption(
+    "Step 7 adds snapshot FIFA/Elo team-strength signals. For strict historical backtesting, date-aware historical ranking joins are recommended."
+)
+
+st.subheader("Step 8: Future Match Prediction Outputs")
+step8_rows = [
+    {
+        "file": FUTURE_PREDICTION_LOG_FILE,
+        "path": str(Path("reports") / FUTURE_PREDICTION_LOG_FILE),
+        "present": (Path("reports") / FUTURE_PREDICTION_LOG_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step8_rows), use_container_width=True)
+st.caption("Step 8 supports real arbitrary future match predictions and logs them under `reports/`.")
+
 st.subheader("Planned Datasets")
 rows = []
 for key, cfg in DATA_SOURCES.items():
@@ -210,7 +275,7 @@ st.caption(
 st.subheader("Planned Modules")
 st.markdown(
     """
-    - **Match Predictor** — win / draw / loss probabilities and likely scoreline.
+    - **Match Predictor** — real arbitrary future-match probabilities from generated pre-match features.
     - **Tournament Simulator** — Monte Carlo simulation of the full World Cup.
     - **Golden Ball Predictor** — best-player candidates and probabilities.
     - **Model Explanation** — feature importance, SHAP values, calibration.
