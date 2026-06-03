@@ -420,3 +420,29 @@ MODEL_PREFERENCE_ORDER: list[str] = [
     "improved",
     "baseline",
 ]
+
+# -----------------------------------------------------------------------------
+# Step 9 predictor UI + API polishing constants
+# -----------------------------------------------------------------------------
+
+PREDICTION_HISTORY_FILE: str = "future_prediction_log.csv"
+LATEST_PREDICTION_REPORT_FILE: str = "latest_prediction_report.csv"
+
+PREDICTION_EXPLANATION_COLUMNS: list[str] = [
+    "team_a_last_5_win_rate",
+    "team_b_last_5_win_rate",
+    "diff_last_5_win_rate",
+    "team_a_goals_scored_avg_before",
+    "team_b_goals_scored_avg_before",
+    "diff_goal_diff_avg_before",
+    "team_a_fifa_rank",
+    "team_b_fifa_rank",
+    "diff_fifa_rank",
+    "team_a_elo",
+    "team_b_elo",
+    "diff_elo",
+    "diff_strength_score",
+]
+
+HIGH_CONFIDENCE_THRESHOLD: float = 0.60
+MEDIUM_CONFIDENCE_THRESHOLD: float = 0.45

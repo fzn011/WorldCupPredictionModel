@@ -59,6 +59,7 @@ RANKING_VS_PREVIOUS_METRICS_FILE = getattr(
     C, "RANKING_VS_PREVIOUS_METRICS_FILE", "ranking_vs_previous_metrics.csv"
 )
 FUTURE_PREDICTION_LOG_FILE = getattr(C, "FUTURE_PREDICTION_LOG_FILE", "future_prediction_log.csv")
+LATEST_PREDICTION_REPORT_FILE = getattr(C, "LATEST_PREDICTION_REPORT_FILE", "latest_prediction_report.csv")
 PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
 TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
@@ -87,10 +88,22 @@ st.success(
     "Step 5: Baseline model completed.\n\n"
     "Step 6: Improved model completed.\n\n"
     "Step 7: FIFA rankings and Elo integration completed.\n\n"
-    "Step 8: Future match prediction completed."
+    "Step 8: Future match prediction completed.\n\n"
+    "Step 9: Predictor UI and API polishing completed."
 )
 st.caption(
-    "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
+    "The project includes confidence labels, probability charting, prediction history, downloadable latest reports, and optional FastAPI endpoint support."
+)
+
+st.markdown(
+    """
+    **Step 9 capabilities**
+    - Confidence labels
+    - Probability chart
+    - Prediction history
+    - Downloadable latest prediction report
+    - Optional FastAPI endpoint
+    """
 )
 
 st.subheader("Step 3: Processed Outputs")
@@ -243,15 +256,22 @@ st.caption(
 )
 
 st.subheader("Step 8: Future Match Prediction Outputs")
-step8_rows = [
+step9_rows = [
     {
         "file": FUTURE_PREDICTION_LOG_FILE,
         "path": str(Path("reports") / FUTURE_PREDICTION_LOG_FILE),
         "present": (Path("reports") / FUTURE_PREDICTION_LOG_FILE).is_file(),
     },
+    {
+        "file": LATEST_PREDICTION_REPORT_FILE,
+        "path": str(Path("reports") / LATEST_PREDICTION_REPORT_FILE),
+        "present": (Path("reports") / LATEST_PREDICTION_REPORT_FILE).is_file(),
+    },
 ]
-st.dataframe(pd.DataFrame(step8_rows), use_container_width=True)
-st.caption("Step 8 supports real arbitrary future match predictions and logs them under `reports/`.")
+st.dataframe(pd.DataFrame(step9_rows), use_container_width=True)
+st.caption(
+    "Step 9 adds confidence labels, probability charting, prediction history, and downloadable latest prediction reports."
+)
 
 st.subheader("Planned Datasets")
 rows = []

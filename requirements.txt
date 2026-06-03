@@ -12,3 +12,5 @@ joblib
 pytest
 shap
 kaggle
+fastapi
+uvicorn

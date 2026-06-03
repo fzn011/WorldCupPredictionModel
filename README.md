@@ -15,6 +15,7 @@ Golden Ball / best player candidates.
 - [Step 6: Model Improvement Part 1](#step-6-model-improvement-part-1)
 - [Step 7: FIFA Rankings and Elo Integration](#step-7-fifa-rankings-and-elo-integration)
 - [Step 8: Future Match Feature Generator](#step-8-future-match-feature-generator)
+- [Step 9: Match Predictor UI and API Polishing](#step-9-match-predictor-ui-and-api-polishing)
 
 ## Current Snapshot
 
@@ -199,6 +200,27 @@ pre-match feature row at inference time.
 ```bash
 python scripts/inspect_future_feature_row.py --team-a Argentina --team-b France --date 2026-06-11
 python scripts/predict_future_match.py --team-a Argentina --team-b France --date 2026-06-11 --tournament "FIFA World Cup" --neutral 1
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 9: Match Predictor UI and API Polishing
+
+Step 9 improves the prediction experience to be portfolio-ready.
+
+- Match Predictor UI now includes polished future-match inputs and outputs.
+- Predictions include confidence labels derived from model probabilities.
+- Prediction history is logged and visible in the app.
+- Latest prediction report can be downloaded as CSV.
+- Feature preview/explanation signals are shown for each prediction.
+- Optional FastAPI endpoint is available for programmatic inference.
+
+### Step 9 commands
+
+```bash
+python scripts/predict_future_match.py --team-a Argentina --team-b France --date 2026-06-11 --tournament "FIFA World Cup" --neutral 1
+python scripts/show_prediction_history.py
+uvicorn api.main:app --reload
 python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```

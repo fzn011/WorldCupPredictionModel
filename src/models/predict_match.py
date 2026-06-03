@@ -9,6 +9,7 @@ import pandas as pd
 
 from src.features.future_match_features import generate_future_match_feature_row
 from src.models.model_features import load_feature_columns, load_feature_dataset
+from src.models.prediction_utils import get_prediction_confidence
 import src.utils.constants as C
 
 BEST_BASELINE_MODEL_FILE = getattr(C, "BEST_BASELINE_MODEL_FILE", "best_baseline_model.joblib")
@@ -34,6 +35,7 @@ DEFAULT_FUTURE_TOURNAMENT = getattr(C, "DEFAULT_FUTURE_TOURNAMENT", "FIFA World 
 DEFAULT_FUTURE_CITY = getattr(C, "DEFAULT_FUTURE_CITY", "Unknown")
 DEFAULT_FUTURE_COUNTRY = getattr(C, "DEFAULT_FUTURE_COUNTRY", "Unknown")
 DEFAULT_FUTURE_NEUTRAL = getattr(C, "DEFAULT_FUTURE_NEUTRAL", 1)
+PREDICTION_EXPLANATION_COLUMNS = getattr(C, "PREDICTION_EXPLANATION_COLUMNS", [])
 
 
 def load_baseline_model(model_path: str | None = None):
@@ -201,6 +203,7 @@ def predict_future_match(
     probabilities = get_probability_dict_from_model(model, X_row)
     predicted_label = max(probabilities, key=probabilities.get)
     predicted_class = {value: key for key, value in RESULT_LABELS.items()}[predicted_label]
+    confidence = get_prediction_confidence(probabilities)
 
     notes: list[str] = []
     if "team_a_has_fifa_ranking" in feature_row.columns and int(feature_row.iloc[0]["team_a_has_fifa_ranking"]) == 0:
@@ -212,32 +215,29 @@ def predict_future_match(
     if "team_b_has_elo" in feature_row.columns and int(feature_row.iloc[0]["team_b_has_elo"]) == 0:
         notes.append("Elo snapshot missing for team_b.")
 
-    preview_columns = [
-        "team_a_last_5_win_rate",
-        "team_b_last_5_win_rate",
-        "diff_last_5_win_rate",
-        "team_a_fifa_rank",
-        "team_b_fifa_rank",
-        "diff_fifa_rank",
-        "team_a_elo",
-        "team_b_elo",
-        "diff_elo",
-    ]
+    preview_columns = list(PREDICTION_EXPLANATION_COLUMNS)
     feature_preview = {
         column: feature_row.iloc[0].get(column)
         for column in preview_columns
         if column in feature_row.columns
     }
 
+    row = feature_row.iloc[0]
+    match_date_value = pd.to_datetime(row.get("date"), errors="coerce")
+
     return {
-        "team_a": str(feature_row.iloc[0].get("team_a", team_a)),
-        "team_b": str(feature_row.iloc[0].get("team_b", team_b)),
-        "match_date": str(pd.to_datetime(feature_row.iloc[0].get("date"), errors="coerce").date()),
-        "tournament": feature_row.iloc[0].get("tournament", tournament),
+        "team_a": str(row.get("team_a", team_a)),
+        "team_b": str(row.get("team_b", team_b)),
+        "match_date": str(match_date_value.date()) if pd.notna(match_date_value) else str(match_date),
+        "tournament": row.get("tournament", tournament),
+        "city": row.get("city", city),
+        "country": row.get("country", country),
+        "neutral": int(pd.to_numeric(row.get("neutral", neutral), errors="coerce") if pd.notna(row.get("neutral", neutral)) else neutral),
         "model_type": model_type,
         "predicted_class": predicted_class,
         "predicted_label": predicted_label,
         "probabilities": probabilities,
+        "confidence": confidence,
         "features_used": feature_columns,
         "feature_preview": feature_preview,
         "notes": notes,
