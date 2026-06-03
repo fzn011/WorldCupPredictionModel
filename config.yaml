@@ -1,0 +1,21 @@
+project:
+  name: "FIFA World Cup 2026 AI Predictor"
+  version: "0.1.0"
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  external_data: "data/external"
+  sample_data: "data/sample"
+  models: "models"
+  reports: "reports"
+  figures: "reports/figures"
+
+simulation:
+  default_num_simulations: 10000
+  random_seed: 42
+
+model:
+  target_column: "result"
+  test_size: 0.2
+  random_state: 42

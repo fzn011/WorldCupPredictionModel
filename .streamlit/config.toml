@@ -1,0 +1,14 @@
+[server]
+# Reload automatically whenever a source file changes on disk.
+runOnSave = true
+# Poll-based file watcher is more reliable on Windows and network drives.
+fileWatcherType = "poll"
+
+[runner]
+# Force a full reimport of all modules on each reload instead of hot-patching.
+# This prevents stale __pycache__ bytecode from surviving between restarts.
+fastReruns = false
+
+[browser]
+# Don't open a new tab automatically (handy when launching from scripts).
+gatherUsageStats = false

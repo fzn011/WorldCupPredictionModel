@@ -1,0 +1,11 @@
+feature,importance
+team_a_points_per_match_before,0.3103448275862069
+is_friendly,0.20689655172413793
+is_world_cup,0.1724137931034483
+team_a_last_5_win_rate,0.13793103448275862
+team_b_last_5_win_rate,0.10344827586206896
+team_b_points_per_match_before,0.06896551724137931
+diff_points_per_match_before,0.0
+diff_last_5_win_rate,0.0
+team_b_is_host_2026,0.0
+team_a_is_host_2026,0.0

@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "test_start_date": "2022-01-01",
+  "train_rows": 4,
+  "test_rows": 4,
+  "feature_count": 10,
+  "best_model_name": "random_forest",
+  "feature_columns_path": "models\\baseline\\feature_columns.json",
+  "best_model_path": "models\\baseline\\best_baseline_model.joblib",
+  "metrics_path": "reports\\model_metrics.csv",
+  "class_order": [
+    0,
+    1,
+    2
+  ]
+}

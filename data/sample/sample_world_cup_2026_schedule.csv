@@ -1,0 +1,5 @@
+match_id,stage,group,date,venue,city,country,team_a,team_b
+1,group_stage,A,2026-06-11,Estadio Azteca,Mexico City,Mexico,Mexico,South Africa
+2,group_stage,A,2026-06-12,Sample Venue,Sample City,Sample Country,South Korea,Czech Republic
+3,group_stage,B,2026-06-12,Sample Venue,Sample City,Sample Country,Canada,Bosnia and Herzegovina
+4,group_stage,B,2026-06-13,Sample Venue,Sample City,Sample Country,Qatar,Switzerland
