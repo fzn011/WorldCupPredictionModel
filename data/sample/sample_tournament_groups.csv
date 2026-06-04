@@ -1,0 +1,49 @@
+group,slot,team,confederation,is_host
+A,1,Mexico,CONCACAF,1
+A,2,South Africa,CAF,0
+A,3,South Korea,AFC,0
+A,4,Czechia,UEFA,0
+B,1,Canada,CONCACAF,1
+B,2,Switzerland,UEFA,0
+B,3,Qatar,AFC,0
+B,4,Bosnia and Herzegovina,UEFA,0
+C,1,United States,CONCACAF,1
+C,2,Japan,AFC,0
+C,3,Nigeria,CAF,0
+C,4,Serbia,UEFA,0
+D,1,Brazil,CONMEBOL,0
+D,2,Croatia,UEFA,0
+D,3,Egypt,CAF,0
+D,4,Australia,AFC,0
+E,1,Argentina,CONMEBOL,0
+E,2,Denmark,UEFA,0
+E,3,Ghana,CAF,0
+E,4,Costa Rica,CONCACAF,0
+F,1,France,UEFA,0
+F,2,Morocco,CAF,0
+F,3,Ecuador,CONMEBOL,0
+F,4,Poland,UEFA,0
+G,1,England,UEFA,0
+G,2,Iran,AFC,0
+G,3,Tunisia,CAF,0
+G,4,Peru,CONMEBOL,0
+H,1,Spain,UEFA,0
+H,2,Cameroon,CAF,0
+H,3,Uruguay,CONMEBOL,0
+H,4,Sweden,UEFA,0
+I,1,Germany,UEFA,0
+I,2,Algeria,CAF,0
+I,3,Colombia,CONMEBOL,0
+I,4,Scotland,UEFA,0
+J,1,Portugal,UEFA,0
+J,2,Senegal,CAF,0
+J,3,United Arab Emirates,AFC,0
+J,4,Austria,UEFA,0
+K,1,Netherlands,UEFA,0
+K,2,Côte d'Ivoire,CAF,0
+K,3,Chile,CONMEBOL,0
+K,4,Norway,UEFA,0
+L,1,Belgium,UEFA,0
+L,2,Turkey,UEFA,0
+L,3,Paraguay,CONMEBOL,0
+L,4,New Zealand,OFC,0

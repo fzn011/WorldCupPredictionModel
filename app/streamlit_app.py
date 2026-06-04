@@ -59,7 +59,33 @@ RANKING_VS_PREVIOUS_METRICS_FILE = getattr(
     C, "RANKING_VS_PREVIOUS_METRICS_FILE", "ranking_vs_previous_metrics.csv"
 )
 FUTURE_PREDICTION_LOG_FILE = getattr(C, "FUTURE_PREDICTION_LOG_FILE", "future_prediction_log.csv")
-LATEST_PREDICTION_REPORT_FILE = getattr(C, "LATEST_PREDICTION_REPORT_FILE", "latest_prediction_report.csv")
+EXPLANATION_REPORT_FILE = getattr(C, "EXPLANATION_REPORT_FILE", "prediction_explanation_report.csv")
+EXPLANATION_HISTORY_FILE = getattr(C, "EXPLANATION_HISTORY_FILE", "prediction_explanation_history.csv")
+GLOBAL_EXPLANATION_REPORT_FILE = getattr(C, "GLOBAL_EXPLANATION_REPORT_FILE", "global_model_explanation.csv")
+TOURNAMENT_GROUPS_FILE = getattr(C, "TOURNAMENT_GROUPS_FILE", "tournament_groups.csv")
+TOURNAMENT_FIXTURES_FILE = getattr(C, "TOURNAMENT_FIXTURES_FILE", "tournament_fixtures.csv")
+KNOCKOUT_PLACEHOLDER_FILE = getattr(C, "KNOCKOUT_PLACEHOLDER_FILE", "knockout_placeholders.csv")
+KNOCKOUT_BRACKET_FILLED_FILE = getattr(C, "KNOCKOUT_BRACKET_FILLED_FILE", "knockout_bracket_filled.csv")
+KNOCKOUT_SIMULATED_MATCHES_FILE = getattr(C, "KNOCKOUT_SIMULATED_MATCHES_FILE", "knockout_simulated_matches.csv")
+SINGLE_TOURNAMENT_RESULT_FILE = getattr(C, "SINGLE_TOURNAMENT_RESULT_FILE", "single_tournament_result.json")
+KNOCKOUT_SIMULATION_SUMMARY_FILE = getattr(C, "KNOCKOUT_SIMULATION_SUMMARY_FILE", "knockout_simulation_summary.json")
+KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE = getattr(
+    C,
+    "KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE",
+    "knockout_simulation_validation_report.csv",
+)
+TOURNAMENT_STRUCTURE_FILE = getattr(C, "TOURNAMENT_STRUCTURE_FILE", "tournament_structure.json")
+TOURNAMENT_VALIDATION_REPORT_FILE = getattr(
+    C, "TOURNAMENT_VALIDATION_REPORT_FILE", "tournament_validation_report.csv"
+)
+GROUP_STAGE_SIMULATED_MATCHES_FILE = getattr(C, "GROUP_STAGE_SIMULATED_MATCHES_FILE", "group_stage_simulated_matches.csv")
+GROUP_STAGE_TABLES_FILE = getattr(C, "GROUP_STAGE_TABLES_FILE", "group_stage_tables.csv")
+GROUP_STAGE_RANKINGS_FILE = getattr(C, "GROUP_STAGE_RANKINGS_FILE", "group_stage_rankings.csv")
+BEST_THIRD_PLACED_TEAMS_FILE = getattr(C, "BEST_THIRD_PLACED_TEAMS_FILE", "best_third_placed_teams.csv")
+ROUND_OF_32_QUALIFIERS_FILE = getattr(C, "ROUND_OF_32_QUALIFIERS_FILE", "round_of_32_qualifiers.csv")
+GROUP_STAGE_SIMULATION_SUMMARY_FILE = getattr(
+    C, "GROUP_STAGE_SIMULATION_SUMMARY_FILE", "group_stage_simulation_summary.json"
+)
 PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
 TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
@@ -89,21 +115,14 @@ st.success(
     "Step 6: Improved model completed.\n\n"
     "Step 7: FIFA rankings and Elo integration completed.\n\n"
     "Step 8: Future match prediction completed.\n\n"
-    "Step 9: Predictor UI and API polishing completed."
+    "Step 9: Predictor UI and API polishing completed.\n\n"
+    "Step 10: Prediction explainability completed.\n\n"
+    "Step 11: Tournament fixture and group setup completed.\n\n"
+    "Step 12: Group-stage simulation completed.\n\n"
+    "Step 13: Knockout simulation completed."
 )
 st.caption(
-    "The project includes confidence labels, probability charting, prediction history, downloadable latest reports, and optional FastAPI endpoint support."
-)
-
-st.markdown(
-    """
-    **Step 9 capabilities**
-    - Confidence labels
-    - Probability chart
-    - Prediction history
-    - Downloadable latest prediction report
-    - Optional FastAPI endpoint
-    """
+    "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
 )
 
 st.subheader("Step 3: Processed Outputs")
@@ -256,22 +275,133 @@ st.caption(
 )
 
 st.subheader("Step 8: Future Match Prediction Outputs")
-step9_rows = [
+step8_rows = [
     {
         "file": FUTURE_PREDICTION_LOG_FILE,
         "path": str(Path("reports") / FUTURE_PREDICTION_LOG_FILE),
         "present": (Path("reports") / FUTURE_PREDICTION_LOG_FILE).is_file(),
     },
+]
+st.dataframe(pd.DataFrame(step8_rows), use_container_width=True)
+st.caption("Step 8 supports real arbitrary future match predictions and logs them under `reports/`.")
+
+st.subheader("Step 10: Explainability Outputs")
+step10_rows = [
     {
-        "file": LATEST_PREDICTION_REPORT_FILE,
-        "path": str(Path("reports") / LATEST_PREDICTION_REPORT_FILE),
-        "present": (Path("reports") / LATEST_PREDICTION_REPORT_FILE).is_file(),
+        "file": EXPLANATION_REPORT_FILE,
+        "path": str(Path("reports") / EXPLANATION_REPORT_FILE),
+        "present": (Path("reports") / EXPLANATION_REPORT_FILE).is_file(),
+    },
+    {
+        "file": EXPLANATION_HISTORY_FILE,
+        "path": str(Path("reports") / EXPLANATION_HISTORY_FILE),
+        "present": (Path("reports") / EXPLANATION_HISTORY_FILE).is_file(),
+    },
+    {
+        "file": GLOBAL_EXPLANATION_REPORT_FILE,
+        "path": str(Path("reports") / GLOBAL_EXPLANATION_REPORT_FILE),
+        "present": (Path("reports") / GLOBAL_EXPLANATION_REPORT_FILE).is_file(),
     },
 ]
-st.dataframe(pd.DataFrame(step9_rows), use_container_width=True)
-st.caption(
-    "Step 9 adds confidence labels, probability charting, prediction history, and downloadable latest prediction reports."
-)
+st.dataframe(pd.DataFrame(step10_rows), use_container_width=True)
+
+st.subheader("Step 11: Tournament Setup Outputs")
+step11_rows = [
+    {
+        "file": TOURNAMENT_GROUPS_FILE,
+        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_GROUPS_FILE),
+        "present": (PROCESSED_DATA_DIR / TOURNAMENT_GROUPS_FILE).is_file(),
+    },
+    {
+        "file": TOURNAMENT_FIXTURES_FILE,
+        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE),
+        "present": (PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE).is_file(),
+    },
+    {
+        "file": KNOCKOUT_PLACEHOLDER_FILE,
+        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE),
+        "present": (PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE).is_file(),
+    },
+    {
+        "file": TOURNAMENT_STRUCTURE_FILE,
+        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_STRUCTURE_FILE),
+        "present": (PROCESSED_DATA_DIR / TOURNAMENT_STRUCTURE_FILE).is_file(),
+    },
+    {
+        "file": TOURNAMENT_VALIDATION_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step11_rows), use_container_width=True)
+st.caption("Step 11 prepares validated group/fixture/knockout structure only (no outcome simulation yet).")
+
+st.subheader("Step 12: Group-Stage Simulation Outputs")
+step12_rows = [
+    {
+        "file": GROUP_STAGE_SIMULATED_MATCHES_FILE,
+        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATED_MATCHES_FILE),
+        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATED_MATCHES_FILE).is_file(),
+    },
+    {
+        "file": GROUP_STAGE_TABLES_FILE,
+        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_TABLES_FILE),
+        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_TABLES_FILE).is_file(),
+    },
+    {
+        "file": GROUP_STAGE_RANKINGS_FILE,
+        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_RANKINGS_FILE),
+        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_RANKINGS_FILE).is_file(),
+    },
+    {
+        "file": BEST_THIRD_PLACED_TEAMS_FILE,
+        "path": str(PROCESSED_DATA_DIR / BEST_THIRD_PLACED_TEAMS_FILE),
+        "present": (PROCESSED_DATA_DIR / BEST_THIRD_PLACED_TEAMS_FILE).is_file(),
+    },
+    {
+        "file": ROUND_OF_32_QUALIFIERS_FILE,
+        "path": str(PROCESSED_DATA_DIR / ROUND_OF_32_QUALIFIERS_FILE),
+        "present": (PROCESSED_DATA_DIR / ROUND_OF_32_QUALIFIERS_FILE).is_file(),
+    },
+    {
+        "file": GROUP_STAGE_SIMULATION_SUMMARY_FILE,
+        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATION_SUMMARY_FILE),
+        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATION_SUMMARY_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step12_rows), use_container_width=True)
+st.caption("Step 12 simulates group stage only and prepares Round-of-32 qualifiers.")
+
+st.subheader("Step 13: Knockout Simulation Outputs")
+step13_rows = [
+    {
+        "file": KNOCKOUT_BRACKET_FILLED_FILE,
+        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_BRACKET_FILLED_FILE),
+        "present": (PROCESSED_DATA_DIR / KNOCKOUT_BRACKET_FILLED_FILE).is_file(),
+    },
+    {
+        "file": KNOCKOUT_SIMULATED_MATCHES_FILE,
+        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATED_MATCHES_FILE),
+        "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATED_MATCHES_FILE).is_file(),
+    },
+    {
+        "file": SINGLE_TOURNAMENT_RESULT_FILE,
+        "path": str(PROCESSED_DATA_DIR / SINGLE_TOURNAMENT_RESULT_FILE),
+        "present": (PROCESSED_DATA_DIR / SINGLE_TOURNAMENT_RESULT_FILE).is_file(),
+    },
+    {
+        "file": KNOCKOUT_SIMULATION_SUMMARY_FILE,
+        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_SUMMARY_FILE),
+        "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_SUMMARY_FILE).is_file(),
+    },
+    {
+        "file": KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step13_rows), use_container_width=True)
+st.caption("Step 13 simulates one knockout bracket only and saves the full path plus validation report.")
 
 st.subheader("Planned Datasets")
 rows = []
@@ -296,6 +426,8 @@ st.subheader("Planned Modules")
 st.markdown(
     """
     - **Match Predictor** — real arbitrary future-match probabilities from generated pre-match features.
+    - **Knockout Simulation** — single-bracket knockout path and bracket path reporting.
+    - **Tournament Orchestrator** — full single-run tournament flow from groups to champion.
     - **Tournament Simulator** — Monte Carlo simulation of the full World Cup.
     - **Golden Ball Predictor** — best-player candidates and probabilities.
     - **Model Explanation** — feature importance, SHAP values, calibration.

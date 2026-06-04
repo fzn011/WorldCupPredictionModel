@@ -1,0 +1,3 @@
+feature,readable_feature,feature_value,contribution,direction,method
+team_a_last_5_win_rate,Team A recent win rate,0.7,0.035,supports,permutation
+team_b_last_5_win_rate,Team B recent win rate,0.6,0.0,neutral,permutation

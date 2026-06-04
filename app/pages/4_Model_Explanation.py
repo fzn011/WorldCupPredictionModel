@@ -20,6 +20,7 @@ RANKING_ENHANCED_MODEL_METRICS_FILE = getattr(
 )
 RANKING_VS_PREVIOUS_METRICS_FILE = getattr(C, "RANKING_VS_PREVIOUS_METRICS_FILE", "ranking_vs_previous_metrics.csv")
 RANKING_FEATURE_IMPORTANCE_FILE = getattr(C, "RANKING_FEATURE_IMPORTANCE_FILE", "ranking_feature_importance.csv")
+GLOBAL_EXPLANATION_REPORT_FILE = getattr(C, "GLOBAL_EXPLANATION_REPORT_FILE", "global_model_explanation.csv")
 
 st.title("Model Explanation")
 
@@ -33,7 +34,7 @@ comparison_path = reports_dir / BASELINE_VS_IMPROVED_METRICS_FILE
 if comparison_path.is_file():
     st.subheader("Baseline vs Improved Metrics")
     comparison_df = pd.read_csv(comparison_path)
-    st.dataframe(comparison_df, use_container_width=True)
+    st.dataframe(comparison_df, width="stretch")
 
 improved_metrics_path = reports_dir / IMPROVED_MODEL_METRICS_FILE
 if improved_metrics_path.is_file():
@@ -41,19 +42,19 @@ if improved_metrics_path.is_file():
     improved_df = pd.read_csv(improved_metrics_path)
     if "log_loss" in improved_df.columns:
         improved_df = improved_df.sort_values("log_loss", ascending=True)
-    st.dataframe(improved_df, use_container_width=True)
+    st.dataframe(improved_df, width="stretch")
 
 backtest_path = reports_dir / TEMPORAL_BACKTEST_RESULTS_FILE
 if backtest_path.is_file():
     st.subheader("Temporal Backtesting")
     backtest_df = pd.read_csv(backtest_path)
-    st.dataframe(backtest_df, use_container_width=True)
+    st.dataframe(backtest_df, width="stretch")
 
 probability_quality_path = reports_dir / PROBABILITY_QUALITY_REPORT_FILE
 if probability_quality_path.is_file():
     st.subheader("Probability Quality Ranking")
     quality_df = pd.read_csv(probability_quality_path)
-    st.dataframe(quality_df, use_container_width=True)
+    st.dataframe(quality_df, width="stretch")
 
 ranking_metrics_path = reports_dir / RANKING_ENHANCED_MODEL_METRICS_FILE
 if ranking_metrics_path.is_file():
@@ -61,17 +62,35 @@ if ranking_metrics_path.is_file():
     ranking_df = pd.read_csv(ranking_metrics_path)
     if "log_loss" in ranking_df.columns:
         ranking_df = ranking_df.sort_values("log_loss", ascending=True)
-    st.dataframe(ranking_df, use_container_width=True)
+    st.dataframe(ranking_df, width="stretch")
 
 ranking_vs_previous_path = reports_dir / RANKING_VS_PREVIOUS_METRICS_FILE
 if ranking_vs_previous_path.is_file():
     st.subheader("Ranking vs Previous Model Comparison")
-    st.dataframe(pd.read_csv(ranking_vs_previous_path), use_container_width=True)
+    st.dataframe(pd.read_csv(ranking_vs_previous_path), width="stretch")
 
 ranking_importance_path = reports_dir / RANKING_FEATURE_IMPORTANCE_FILE
 if ranking_importance_path.is_file():
     st.subheader("Ranking Feature Importance")
-    st.dataframe(pd.read_csv(ranking_importance_path).head(30), use_container_width=True)
+    st.dataframe(pd.read_csv(ranking_importance_path).head(30), width="stretch")
+
+st.subheader("Local Prediction Explanation")
+st.markdown(
+    "- Prediction explanations are generated using **SHAP** when available.\n"
+    "- If SHAP is unavailable, the app uses a **model-agnostic local sensitivity** fallback.\n"
+    "- Explanations are approximate and should be used for interpretation, not certainty."
+)
+
+global_explanation_path = reports_dir / GLOBAL_EXPLANATION_REPORT_FILE
+if global_explanation_path.is_file():
+    st.subheader("Global Model Explanation")
+    global_df = pd.read_csv(global_explanation_path)
+    st.dataframe(global_df.head(30), width="stretch")
+else:
+    st.info(
+        "No normalized global explanation report found yet. "
+        "Run `python scripts/inspect_global_explanation.py` to generate it."
+    )
 
 st.info(
     "Snapshot ranking limitation: the latest available FIFA/Elo snapshot is used across historical rows. "

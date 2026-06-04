@@ -15,7 +15,9 @@ Golden Ball / best player candidates.
 - [Step 6: Model Improvement Part 1](#step-6-model-improvement-part-1)
 - [Step 7: FIFA Rankings and Elo Integration](#step-7-fifa-rankings-and-elo-integration)
 - [Step 8: Future Match Feature Generator](#step-8-future-match-feature-generator)
-- [Step 9: Match Predictor UI and API Polishing](#step-9-match-predictor-ui-and-api-polishing)
+- [Step 10: Match Prediction Explainability](#step-10-match-prediction-explainability)
+- [Step 11: Tournament Fixture and Group Setup](#step-11-tournament-fixture-and-group-setup)
+- [Step 12: Group-Stage Simulation Engine](#step-12-group-stage-simulation-engine)
 
 ## Current Snapshot
 
@@ -204,23 +206,89 @@ python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```
 
-## Step 9: Match Predictor UI and API Polishing
+## Step 10: Match Prediction Explainability
 
-Step 9 improves the prediction experience to be portfolio-ready.
+Step 10 adds **local prediction explanations** for future match predictions.
 
-- Match Predictor UI now includes polished future-match inputs and outputs.
-- Predictions include confidence labels derived from model probabilities.
-- Prediction history is logged and visible in the app.
-- Latest prediction report can be downloaded as CSV.
-- Feature preview/explanation signals are shown for each prediction.
-- Optional FastAPI endpoint is available for programmatic inference.
+- Local explanations are generated from the actual future feature row and saved model.
+- **SHAP** is used when available and compatible with the selected model.
+- If SHAP is unavailable/incompatible, a **model-agnostic local sensitivity fallback** is used.
+- Natural-language explanation text is generated for faster interpretation.
+- Global feature-importance inspection is available via CLI.
+- Explanation artifacts are saved under `reports/`.
 
-### Step 9 commands
+### Step 10 commands
 
 ```bash
-python scripts/predict_future_match.py --team-a Argentina --team-b France --date 2026-06-11 --tournament "FIFA World Cup" --neutral 1
-python scripts/show_prediction_history.py
+python scripts/explain_future_match.py --team-a Argentina --team-b France --date 2026-06-11 --tournament "FIFA World Cup" --neutral 1
+python scripts/inspect_global_explanation.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
 uvicorn api.main:app --reload
+```
+
+## Step 11: Tournament Fixture and Group Setup
+
+Step 11 builds simulation-ready tournament infrastructure for the 2026 format.
+
+- 48 teams, 12 groups, 4 teams per group.
+- Group-stage fixtures are generated/validated from editable group slots.
+- 72 group-stage fixtures are prepared (6 per group).
+- Knockout placeholders are created for Round of 32 through Final.
+- Output files are saved under `data/processed/`.
+- This step **does not** simulate results or predict standings.
+
+> The sample group and schedule CSV files are intentionally editable templates.
+> Update them from official FIFA sources when final data is available.
+
+### Step 11 commands
+
+```bash
+python scripts/prepare_tournament_setup.py
+python scripts/inspect_tournament_setup.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 12: Group-Stage Simulation Engine
+
+Step 12 simulates all **72 group-stage fixtures** using the trained match prediction system.
+
+- Uses `predict_future_match()` per fixture to get win/draw/loss probabilities.
+- Samples realistic outcomes from model probabilities (instead of always taking argmax).
+- Generates transparent approximate scorelines for table metrics.
+- Builds group tables and rankings.
+- Selects top two from each group + best eight third-placed teams.
+- Produces a Round-of-32 qualifier list.
+- Does **not** simulate knockout rounds yet.
+
+### Step 12 commands
+
+```bash
+python scripts/simulate_group_stage.py --seed 42
+python scripts/inspect_group_stage_results.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 13: Knockout Simulation Engine
+
+Step 13 simulates one complete knockout bracket from the 32 Round-of-32 qualifiers produced in Step 12.
+
+- Consumes the saved Round-of-32 qualifier list.
+- Creates a deterministic simulation seed-order bracket.
+- Simulates Round of 32, Round of 16, Quarter-finals, Semi-finals, Third-place match, and Final.
+- Uses no-draw adjusted probabilities so every knockout match has a winner.
+- Produces champion, runner-up, third place, and fourth place for one tournament run.
+- Saves the filled bracket, simulated matches, single-tournament result, summary, and validation report.
+- Does **not** run Monte Carlo yet.
+- Does **not** produce champion probabilities yet.
+
+### Step 13 commands
+
+```bash
+python scripts/simulate_knockout_stage.py --seed 42
+python scripts/inspect_knockout_results.py
 python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```

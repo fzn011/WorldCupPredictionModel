@@ -56,19 +56,14 @@ def test_predict_future_match_main_smoke(monkeypatch, tmp_path) -> None:
         "predicted_class": 2,
         "predicted_label": "team_a_win",
         "probabilities": {"team_a_loss": 0.31, "draw": 0.25, "team_a_win": 0.44},
-        "confidence": {"max_probability": 0.44, "confidence_label": "Low"},
         "feature_row": _feature_row(),
         "notes": [],
     }
 
     monkeypatch.setattr("scripts.predict_future_match.predict_future_match", lambda **_: prediction)
     monkeypatch.setattr(
-        "scripts.predict_future_match.append_prediction_history",
-        lambda _pred: str(tmp_path / "future_prediction_log.csv"),
-    )
-    monkeypatch.setattr(
-        "scripts.predict_future_match.save_latest_prediction_report",
-        lambda _pred: str(tmp_path / "latest_prediction_report.csv"),
+        "scripts.predict_future_match._append_prediction_log",
+        lambda _df: tmp_path / "future_prediction_log.csv",
     )
 
     code = predict_main(["--team-a", "Argentina", "--team-b", "France", "--date", "2026-06-11"])

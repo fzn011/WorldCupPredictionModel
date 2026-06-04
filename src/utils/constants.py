@@ -422,27 +422,145 @@ MODEL_PREFERENCE_ORDER: list[str] = [
 ]
 
 # -----------------------------------------------------------------------------
-# Step 9 predictor UI + API polishing constants
+# Step 9/10 prediction-reporting + explainability constants
 # -----------------------------------------------------------------------------
 
-PREDICTION_HISTORY_FILE: str = "future_prediction_log.csv"
+PREDICTION_HISTORY_FILE: str = "prediction_history.csv"
 LATEST_PREDICTION_REPORT_FILE: str = "latest_prediction_report.csv"
-
 PREDICTION_EXPLANATION_COLUMNS: list[str] = [
-    "team_a_last_5_win_rate",
-    "team_b_last_5_win_rate",
-    "diff_last_5_win_rate",
-    "team_a_goals_scored_avg_before",
-    "team_b_goals_scored_avg_before",
-    "diff_goal_diff_avg_before",
-    "team_a_fifa_rank",
-    "team_b_fifa_rank",
-    "diff_fifa_rank",
-    "team_a_elo",
-    "team_b_elo",
-    "diff_elo",
-    "diff_strength_score",
+    "team_a",
+    "team_b",
+    "match_date",
+    "model_type",
+    "predicted_label",
+    "confidence_label",
+    "top_supporting_factors",
+    "top_opposing_factors",
 ]
 
 HIGH_CONFIDENCE_THRESHOLD: float = 0.60
 MEDIUM_CONFIDENCE_THRESHOLD: float = 0.45
+
+EXPLANATION_REPORT_FILE: str = "prediction_explanation_report.csv"
+EXPLANATION_HISTORY_FILE: str = "prediction_explanation_history.csv"
+GLOBAL_EXPLANATION_REPORT_FILE: str = "global_model_explanation.csv"
+
+TOP_EXPLANATION_FEATURES: int = 10
+
+EXPLANATION_METHOD_SHAP: str = "shap"
+EXPLANATION_METHOD_PERMUTATION: str = "permutation"
+EXPLANATION_METHOD_FEATURE_IMPORTANCE: str = "feature_importance"
+EXPLANATION_METHOD_FALLBACK: str = "fallback"
+
+READABLE_FEATURE_NAMES: dict[str, str] = {
+    "team_a_last_5_win_rate": "Team A recent win rate",
+    "team_b_last_5_win_rate": "Team B recent win rate",
+    "diff_last_5_win_rate": "Recent win-rate advantage",
+    "team_a_goals_scored_avg_before": "Team A historical goals scored average",
+    "team_b_goals_scored_avg_before": "Team B historical goals scored average",
+    "diff_goal_diff_avg_before": "Historical goal-difference advantage",
+    "team_a_fifa_rank": "Team A FIFA rank",
+    "team_b_fifa_rank": "Team B FIFA rank",
+    "diff_fifa_rank": "FIFA ranking advantage",
+    "team_a_elo": "Team A Elo rating",
+    "team_b_elo": "Team B Elo rating",
+    "diff_elo": "Elo rating advantage",
+    "diff_strength_score": "Overall team-strength advantage",
+}
+
+# -----------------------------------------------------------------------------
+# Step 11 tournament fixture/group setup constants
+# -----------------------------------------------------------------------------
+
+WC2026_GROUPS: list[str] = [
+    "A", "B", "C", "D", "E", "F",
+    "G", "H", "I", "J", "K", "L",
+]
+
+WC2026_TEAMS_PER_GROUP: int = 4
+WC2026_GROUP_MATCHES_PER_GROUP: int = 6
+WC2026_TOTAL_GROUP_MATCHES: int = 72
+WC2026_TOTAL_TEAMS: int = 48
+WC2026_QUALIFIED_FROM_GROUP_TOP_N: int = 2
+WC2026_BEST_THIRD_PLACED_QUALIFIERS: int = 8
+
+TOURNAMENT_GROUPS_FILE: str = "tournament_groups.csv"
+TOURNAMENT_FIXTURES_FILE: str = "tournament_fixtures.csv"
+TOURNAMENT_STRUCTURE_FILE: str = "tournament_structure.json"
+TOURNAMENT_VALIDATION_REPORT_FILE: str = "tournament_validation_report.csv"
+KNOCKOUT_PLACEHOLDER_FILE: str = "knockout_placeholders.csv"
+
+TOURNAMENT_STAGE_GROUP: str = "group_stage"
+TOURNAMENT_STAGE_ROUND_OF_32: str = "round_of_32"
+TOURNAMENT_STAGE_ROUND_OF_16: str = "round_of_16"
+TOURNAMENT_STAGE_QUARTER_FINAL: str = "quarter_final"
+TOURNAMENT_STAGE_SEMI_FINAL: str = "semi_final"
+TOURNAMENT_STAGE_THIRD_PLACE: str = "third_place"
+TOURNAMENT_STAGE_FINAL: str = "final"
+
+# -----------------------------------------------------------------------------
+# Step 12 group-stage simulation constants
+# -----------------------------------------------------------------------------
+
+GROUP_STAGE_SIMULATED_MATCHES_FILE: str = "group_stage_simulated_matches.csv"
+GROUP_STAGE_TABLES_FILE: str = "group_stage_tables.csv"
+GROUP_STAGE_RANKINGS_FILE: str = "group_stage_rankings.csv"
+BEST_THIRD_PLACED_TEAMS_FILE: str = "best_third_placed_teams.csv"
+ROUND_OF_32_QUALIFIERS_FILE: str = "round_of_32_qualifiers.csv"
+GROUP_STAGE_SIMULATION_SUMMARY_FILE: str = "group_stage_simulation_summary.json"
+GROUP_STAGE_SIMULATION_VALIDATION_REPORT_FILE: str = "group_stage_simulation_validation_report.csv"
+
+SCORELINE_TEMPLATES: dict[str, list[tuple[int, int]]] = {
+    "team_a_win": [(1, 0), (2, 0), (2, 1), (3, 1), (3, 2)],
+    "draw": [(0, 0), (1, 1), (2, 2)],
+    "team_a_loss": [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)],
+}
+
+GROUP_TABLE_COLUMNS: list[str] = [
+    "group",
+    "team",
+    "played",
+    "wins",
+    "draws",
+    "losses",
+    "goals_for",
+    "goals_against",
+    "goal_difference",
+    "points",
+    "group_rank",
+]
+
+# -----------------------------------------------------------------------------
+# Step 13 knockout simulation constants
+# -----------------------------------------------------------------------------
+
+KNOCKOUT_BRACKET_FILLED_FILE: str = "knockout_bracket_filled.csv"
+KNOCKOUT_SIMULATED_MATCHES_FILE: str = "knockout_simulated_matches.csv"
+SINGLE_TOURNAMENT_RESULT_FILE: str = "single_tournament_result.json"
+KNOCKOUT_SIMULATION_SUMMARY_FILE: str = "knockout_simulation_summary.json"
+KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE: str = "knockout_simulation_validation_report.csv"
+
+KNOCKOUT_ROUNDS: list[str] = [
+    "round_of_32",
+    "round_of_16",
+    "quarter_final",
+    "semi_final",
+    "third_place",
+    "final",
+]
+
+KNOCKOUT_ROUND_MATCH_COUNTS: dict[str, int] = {
+    "round_of_32": 16,
+    "round_of_16": 8,
+    "quarter_final": 4,
+    "semi_final": 2,
+    "third_place": 1,
+    "final": 1,
+}
+
+KNOCKOUT_SCORELINE_TEMPLATES: dict[str, list[tuple[int, int]]] = {
+    "team_a_win_regular": [(1, 0), (2, 0), (2, 1), (3, 1), (3, 2)],
+    "team_b_win_regular": [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)],
+    "team_a_win_extra": [(1, 1), (2, 2), (0, 0)],
+    "team_b_win_extra": [(1, 1), (2, 2), (0, 0)],
+}

@@ -16,15 +16,13 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.features.future_match_features import get_available_teams  # noqa: E402
+from src.models.explain_prediction import explain_future_match_prediction  # noqa: E402
 from src.models.model_features import load_feature_dataset  # noqa: E402
-from src.models.prediction_utils import (  # noqa: E402
-    append_prediction_history,
-    extract_prediction_explanation_features,
-    format_probability,
-    load_prediction_history,
-    save_latest_prediction_report,
-)
 import src.models.predict_match as predict_match_module  # noqa: E402
+from src.models.prediction_utils import (  # noqa: E402
+    format_explanation_table_for_display,
+    get_prediction_confidence,
+)
 import src.utils.constants as C  # noqa: E402
 
 DEFAULT_FUTURE_MATCH_DATE = getattr(C, "DEFAULT_FUTURE_MATCH_DATE", "2026-06-11")
@@ -32,7 +30,6 @@ DEFAULT_FUTURE_TOURNAMENT = getattr(C, "DEFAULT_FUTURE_TOURNAMENT", "FIFA World 
 DEFAULT_FUTURE_CITY = getattr(C, "DEFAULT_FUTURE_CITY", "Unknown")
 DEFAULT_FUTURE_COUNTRY = getattr(C, "DEFAULT_FUTURE_COUNTRY", "Unknown")
 DEFAULT_FUTURE_NEUTRAL = getattr(C, "DEFAULT_FUTURE_NEUTRAL", 1)
-LATEST_PREDICTION_REPORT_FILE = getattr(C, "LATEST_PREDICTION_REPORT_FILE", "latest_prediction_report.csv")
 
 predict_existing_match_by_id = getattr(predict_match_module, "predict_existing_match_by_id", None)
 predict_future_match = getattr(predict_match_module, "predict_future_match", None)
@@ -60,20 +57,6 @@ def _load_available_teams() -> list[str]:
     return get_available_teams()
 
 
-def _render_probability_chart(probabilities: dict) -> None:
-    chart_df = pd.DataFrame(
-        {
-            "result": ["team_a_loss", "draw", "team_a_win"],
-            "probability": [
-                float(probabilities.get("team_a_loss", 0.0)),
-                float(probabilities.get("draw", 0.0)),
-                float(probabilities.get("team_a_win", 0.0)),
-            ],
-        }
-    )
-    st.bar_chart(chart_df.set_index("result"))
-
-
 st.title("Match Predictor")
 st.caption(
     "Predict arbitrary future matches from generated pre-match features (ranking-enhanced preferred, then improved, then baseline)."
@@ -82,9 +65,13 @@ st.caption(
 available_teams = _load_available_teams()
 feature_df = _load_features()
 
-future_tab, existing_tab = st.tabs(["Future Match Prediction", "Existing Match Prediction Demo"])
+mode = st.radio(
+    "Prediction mode",
+    ["Future Match Prediction", "Existing Match Prediction Demo"],
+    horizontal=True,
+)
 
-with future_tab:
+if mode == "Future Match Prediction":
     if predict_future_match is None:
         st.error(
             "Predictor import is out of sync in the current Streamlit process. "
@@ -139,26 +126,16 @@ with future_tab:
             st.stop()
 
         probabilities = prediction["probabilities"]
-        confidence = prediction.get("confidence", {})
-
-        history_path = append_prediction_history(prediction)
-        latest_report_path = save_latest_prediction_report(prediction)
-
         st.subheader("Prediction")
-        st.write(f"**Predicted label:** {prediction.get('predicted_label')} ")
         st.write(f"**Model type used:** {prediction.get('model_type')} ")
-        st.write(
-            f"**Confidence:** {confidence.get('confidence_label', 'Unknown')} "
-            f"({format_probability(confidence.get('max_probability', 0.0))})"
-        )
+        st.write(f"**Predicted label:** {prediction.get('predicted_label')} ")
+        confidence_label, confidence_score = get_prediction_confidence(probabilities)
+        st.write(f"**Confidence:** {confidence_label} ({confidence_score:.3f})")
 
         m1, m2, m3 = st.columns(3)
-        m1.metric("Team A loss", format_probability(probabilities["team_a_loss"]))
-        m2.metric("Draw", format_probability(probabilities["draw"]))
-        m3.metric("Team A win", format_probability(probabilities["team_a_win"]))
-
-        st.markdown("**Probability chart**")
-        _render_probability_chart(probabilities)
+        m1.metric("Team A loss", f"{probabilities['team_a_loss']:.3f}")
+        m2.metric("Draw", f"{probabilities['draw']:.3f}")
+        m3.metric("Team A win", f"{probabilities['team_a_win']:.3f}")
 
         notes = prediction.get("notes", [])
         if notes:
@@ -166,40 +143,59 @@ with future_tab:
             for note in notes:
                 st.write(f"- {note}")
 
-        st.markdown("**Feature preview / explanation**")
-        explanation_df = extract_prediction_explanation_features(prediction.get("feature_row", pd.DataFrame()))
-        st.dataframe(explanation_df, use_container_width=True)
+        preview = prediction.get("feature_preview", {})
+        if preview:
+            st.markdown("**Selected feature preview**")
+            st.dataframe(pd.DataFrame([preview]), width="stretch")
 
-        report_file = Path(latest_report_path)
-        if report_file.is_file():
-            st.download_button(
-                label="Download latest prediction report",
-                data=report_file.read_bytes(),
-                file_name=LATEST_PREDICTION_REPORT_FILE,
-                mime="text/csv",
-            )
+        with st.expander("Why did the model predict this?"):
+            try:
+                explanation_result = explain_future_match_prediction(
+                    team_a=team_a,
+                    team_b=team_b,
+                    match_date=str(match_date_value),
+                    tournament=tournament,
+                    city=city,
+                    country=country,
+                    neutral=int(neutral),
+                )
 
-        history_df = load_prediction_history(history_path)
-        if history_df.empty:
-            st.info("No prediction history yet.")
-        else:
-            show_columns = [
-                "prediction_timestamp",
-                "team_a",
-                "team_b",
-                "match_date",
-                "tournament",
-                "model_type",
-                "predicted_label",
-                "team_a_loss_probability",
-                "draw_probability",
-                "team_a_win_probability",
-            ]
-            show_columns = [col for col in show_columns if col in history_df.columns]
-            st.markdown("**Prediction history (recent)**")
-            st.dataframe(history_df.tail(20)[show_columns].iloc[::-1], use_container_width=True)
+                method = explanation_result.get("explanation_method", "fallback")
+                st.write(f"**Explanation method:** {method}")
+                if method != "shap":
+                    st.warning(
+                        "SHAP is unavailable or incompatible for this model/runtime. "
+                        "Using a model-agnostic local sensitivity fallback."
+                    )
 
-with existing_tab:
+                st.markdown("**Natural-language explanation**")
+                st.write(explanation_result.get("natural_language_explanation", "No explanation available."))
+
+                support_df = format_explanation_table_for_display(
+                    explanation_result.get("top_supporting_factors", pd.DataFrame())
+                )
+                oppose_df = format_explanation_table_for_display(
+                    explanation_result.get("top_opposing_factors", pd.DataFrame())
+                )
+
+                st.markdown("**Top supporting factors**")
+                if support_df.empty:
+                    st.info("No clear supporting factors were detected for this prediction.")
+                else:
+                    st.dataframe(support_df, width="stretch")
+
+                st.markdown("**Top opposing factors**")
+                if oppose_df.empty:
+                    st.info("No clear opposing factors were detected for this prediction.")
+                else:
+                    st.dataframe(oppose_df, width="stretch")
+            except Exception as exc:  # pragma: no cover - UI safety
+                st.warning(
+                    "Prediction explanation is currently unavailable. "
+                    f"The prediction itself is still valid. Details: {exc}"
+                )
+
+else:
     if predict_existing_match_by_id is None:
         st.error(
             "Predictor import is out of sync in the current Streamlit process. "
@@ -228,10 +224,10 @@ with existing_tab:
                 prediction = predict_existing_match_by_id(options[selected_label])
                 st.subheader("Prediction")
                 st.write(f"**Model type used:** {prediction.get('model_type', 'baseline')}")
-                st.write(f"**Actual label:** {prediction.get('actual_label')}")
-                st.write(f"**Predicted label:** {prediction['predicted_label']}")
                 st.write(f"**Team A loss probability:** {prediction['probabilities']['team_a_loss']:.3f}")
                 st.write(f"**Draw probability:** {prediction['probabilities']['draw']:.3f}")
                 st.write(f"**Team A win probability:** {prediction['probabilities']['team_a_win']:.3f}")
+                st.write(f"**Predicted label:** {prediction['predicted_label']}")
+                st.write(f"**Actual label:** {prediction.get('actual_label')}")
             except Exception as exc:  # pragma: no cover - UI safety
                 st.error(str(exc))

@@ -1,0 +1,73 @@
+match_id,stage,group,matchday,date,venue,city,country,team_a_slot,team_b_slot,team_a,team_b
+G-A-01,group_stage,A,1,2026-06-11,TBD Venue A,TBD City,TBD Country,1,2,Mexico,South Africa
+G-A-02,group_stage,A,1,2026-06-11,TBD Venue A,TBD City,TBD Country,3,4,South Korea,Czechia
+G-A-03,group_stage,A,2,2026-06-16,TBD Venue A,TBD City,TBD Country,1,3,Mexico,South Korea
+G-A-04,group_stage,A,2,2026-06-16,TBD Venue A,TBD City,TBD Country,4,2,Czechia,South Africa
+G-A-05,group_stage,A,3,2026-06-21,TBD Venue A,TBD City,TBD Country,4,1,Czechia,Mexico
+G-A-06,group_stage,A,3,2026-06-21,TBD Venue A,TBD City,TBD Country,2,3,South Africa,South Korea
+G-B-01,group_stage,B,1,2026-06-12,TBD Venue B,TBD City,TBD Country,1,2,Canada,Switzerland
+G-B-02,group_stage,B,1,2026-06-12,TBD Venue B,TBD City,TBD Country,3,4,Qatar,Bosnia and Herzegovina
+G-B-03,group_stage,B,2,2026-06-17,TBD Venue B,TBD City,TBD Country,1,3,Canada,Qatar
+G-B-04,group_stage,B,2,2026-06-17,TBD Venue B,TBD City,TBD Country,4,2,Bosnia and Herzegovina,Switzerland
+G-B-05,group_stage,B,3,2026-06-22,TBD Venue B,TBD City,TBD Country,4,1,Bosnia and Herzegovina,Canada
+G-B-06,group_stage,B,3,2026-06-22,TBD Venue B,TBD City,TBD Country,2,3,Switzerland,Qatar
+G-C-01,group_stage,C,1,2026-06-13,TBD Venue C,TBD City,TBD Country,1,2,United States,Japan
+G-C-02,group_stage,C,1,2026-06-13,TBD Venue C,TBD City,TBD Country,3,4,Nigeria,Serbia
+G-C-03,group_stage,C,2,2026-06-18,TBD Venue C,TBD City,TBD Country,1,3,United States,Nigeria
+G-C-04,group_stage,C,2,2026-06-18,TBD Venue C,TBD City,TBD Country,4,2,Serbia,Japan
+G-C-05,group_stage,C,3,2026-06-23,TBD Venue C,TBD City,TBD Country,4,1,Serbia,United States
+G-C-06,group_stage,C,3,2026-06-23,TBD Venue C,TBD City,TBD Country,2,3,Japan,Nigeria
+G-D-01,group_stage,D,1,2026-06-14,TBD Venue D,TBD City,TBD Country,1,2,Brazil,Croatia
+G-D-02,group_stage,D,1,2026-06-14,TBD Venue D,TBD City,TBD Country,3,4,Egypt,Australia
+G-D-03,group_stage,D,2,2026-06-19,TBD Venue D,TBD City,TBD Country,1,3,Brazil,Egypt
+G-D-04,group_stage,D,2,2026-06-19,TBD Venue D,TBD City,TBD Country,4,2,Australia,Croatia
+G-D-05,group_stage,D,3,2026-06-24,TBD Venue D,TBD City,TBD Country,4,1,Australia,Brazil
+G-D-06,group_stage,D,3,2026-06-24,TBD Venue D,TBD City,TBD Country,2,3,Croatia,Egypt
+G-E-01,group_stage,E,1,2026-06-15,TBD Venue E,TBD City,TBD Country,1,2,Argentina,Denmark
+G-E-02,group_stage,E,1,2026-06-15,TBD Venue E,TBD City,TBD Country,3,4,Ghana,Costa Rica
+G-E-03,group_stage,E,2,2026-06-20,TBD Venue E,TBD City,TBD Country,1,3,Argentina,Ghana
+G-E-04,group_stage,E,2,2026-06-20,TBD Venue E,TBD City,TBD Country,4,2,Costa Rica,Denmark
+G-E-05,group_stage,E,3,2026-06-25,TBD Venue E,TBD City,TBD Country,4,1,Costa Rica,Argentina
+G-E-06,group_stage,E,3,2026-06-25,TBD Venue E,TBD City,TBD Country,2,3,Denmark,Ghana
+G-F-01,group_stage,F,1,2026-06-16,TBD Venue F,TBD City,TBD Country,1,2,France,Morocco
+G-F-02,group_stage,F,1,2026-06-16,TBD Venue F,TBD City,TBD Country,3,4,Ecuador,Poland
+G-F-03,group_stage,F,2,2026-06-21,TBD Venue F,TBD City,TBD Country,1,3,France,Ecuador
+G-F-04,group_stage,F,2,2026-06-21,TBD Venue F,TBD City,TBD Country,4,2,Poland,Morocco
+G-F-05,group_stage,F,3,2026-06-26,TBD Venue F,TBD City,TBD Country,4,1,Poland,France
+G-F-06,group_stage,F,3,2026-06-26,TBD Venue F,TBD City,TBD Country,2,3,Morocco,Ecuador
+G-G-01,group_stage,G,1,2026-06-17,TBD Venue G,TBD City,TBD Country,1,2,England,Iran
+G-G-02,group_stage,G,1,2026-06-17,TBD Venue G,TBD City,TBD Country,3,4,Tunisia,Peru
+G-G-03,group_stage,G,2,2026-06-22,TBD Venue G,TBD City,TBD Country,1,3,England,Tunisia
+G-G-04,group_stage,G,2,2026-06-22,TBD Venue G,TBD City,TBD Country,4,2,Peru,Iran
+G-G-05,group_stage,G,3,2026-06-27,TBD Venue G,TBD City,TBD Country,4,1,Peru,England
+G-G-06,group_stage,G,3,2026-06-27,TBD Venue G,TBD City,TBD Country,2,3,Iran,Tunisia
+G-H-01,group_stage,H,1,2026-06-18,TBD Venue H,TBD City,TBD Country,1,2,Spain,Cameroon
+G-H-02,group_stage,H,1,2026-06-18,TBD Venue H,TBD City,TBD Country,3,4,Uruguay,Sweden
+G-H-03,group_stage,H,2,2026-06-23,TBD Venue H,TBD City,TBD Country,1,3,Spain,Uruguay
+G-H-04,group_stage,H,2,2026-06-23,TBD Venue H,TBD City,TBD Country,4,2,Sweden,Cameroon
+G-H-05,group_stage,H,3,2026-06-27,TBD Venue H,TBD City,TBD Country,4,1,Sweden,Spain
+G-H-06,group_stage,H,3,2026-06-27,TBD Venue H,TBD City,TBD Country,2,3,Cameroon,Uruguay
+G-I-01,group_stage,I,1,2026-06-19,TBD Venue I,TBD City,TBD Country,1,2,Germany,Algeria
+G-I-02,group_stage,I,1,2026-06-19,TBD Venue I,TBD City,TBD Country,3,4,Colombia,Scotland
+G-I-03,group_stage,I,2,2026-06-24,TBD Venue I,TBD City,TBD Country,1,3,Germany,Colombia
+G-I-04,group_stage,I,2,2026-06-24,TBD Venue I,TBD City,TBD Country,4,2,Scotland,Algeria
+G-I-05,group_stage,I,3,2026-06-27,TBD Venue I,TBD City,TBD Country,4,1,Scotland,Germany
+G-I-06,group_stage,I,3,2026-06-27,TBD Venue I,TBD City,TBD Country,2,3,Algeria,Colombia
+G-J-01,group_stage,J,1,2026-06-20,TBD Venue J,TBD City,TBD Country,1,2,Portugal,Senegal
+G-J-02,group_stage,J,1,2026-06-20,TBD Venue J,TBD City,TBD Country,3,4,United Arab Emirates,Austria
+G-J-03,group_stage,J,2,2026-06-25,TBD Venue J,TBD City,TBD Country,1,3,Portugal,United Arab Emirates
+G-J-04,group_stage,J,2,2026-06-25,TBD Venue J,TBD City,TBD Country,4,2,Austria,Senegal
+G-J-05,group_stage,J,3,2026-06-27,TBD Venue J,TBD City,TBD Country,4,1,Austria,Portugal
+G-J-06,group_stage,J,3,2026-06-27,TBD Venue J,TBD City,TBD Country,2,3,Senegal,United Arab Emirates
+G-K-01,group_stage,K,1,2026-06-21,TBD Venue K,TBD City,TBD Country,1,2,Netherlands,Côte d'Ivoire
+G-K-02,group_stage,K,1,2026-06-21,TBD Venue K,TBD City,TBD Country,3,4,Chile,Norway
+G-K-03,group_stage,K,2,2026-06-26,TBD Venue K,TBD City,TBD Country,1,3,Netherlands,Chile
+G-K-04,group_stage,K,2,2026-06-26,TBD Venue K,TBD City,TBD Country,4,2,Norway,Côte d'Ivoire
+G-K-05,group_stage,K,3,2026-06-27,TBD Venue K,TBD City,TBD Country,4,1,Norway,Netherlands
+G-K-06,group_stage,K,3,2026-06-27,TBD Venue K,TBD City,TBD Country,2,3,Côte d'Ivoire,Chile
+G-L-01,group_stage,L,1,2026-06-22,TBD Venue L,TBD City,TBD Country,1,2,Belgium,Turkey
+G-L-02,group_stage,L,1,2026-06-22,TBD Venue L,TBD City,TBD Country,3,4,Paraguay,New Zealand
+G-L-03,group_stage,L,2,2026-06-26,TBD Venue L,TBD City,TBD Country,1,3,Belgium,Paraguay
+G-L-04,group_stage,L,2,2026-06-26,TBD Venue L,TBD City,TBD Country,4,2,New Zealand,Turkey
+G-L-05,group_stage,L,3,2026-06-27,TBD Venue L,TBD City,TBD Country,4,1,New Zealand,Belgium
+G-L-06,group_stage,L,3,2026-06-27,TBD Venue L,TBD City,TBD Country,2,3,Turkey,Paraguay
