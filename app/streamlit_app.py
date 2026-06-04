@@ -74,6 +74,25 @@ KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE = getattr(
     "KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE",
     "knockout_simulation_validation_report.csv",
 )
+FULL_TOURNAMENT_SIMULATED_MATCHES_FILE = getattr(C, "FULL_TOURNAMENT_SIMULATED_MATCHES_FILE", "full_tournament_simulated_matches.csv")
+FULL_TOURNAMENT_GROUP_TABLES_FILE = getattr(C, "FULL_TOURNAMENT_GROUP_TABLES_FILE", "full_tournament_group_tables.csv")
+FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE = getattr(C, "FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE", "full_tournament_knockout_matches.csv")
+FULL_TOURNAMENT_STAGE_RESULTS_FILE = getattr(C, "FULL_TOURNAMENT_STAGE_RESULTS_FILE", "full_tournament_stage_results.csv")
+FULL_TOURNAMENT_PATH_REPORT_FILE = getattr(C, "FULL_TOURNAMENT_PATH_REPORT_FILE", "full_tournament_path_report.csv")
+FULL_TOURNAMENT_RESULT_FILE = getattr(C, "FULL_TOURNAMENT_RESULT_FILE", "single_world_cup_result.json")
+FULL_TOURNAMENT_SUMMARY_FILE = getattr(C, "FULL_TOURNAMENT_SUMMARY_FILE", "full_tournament_summary.json")
+FULL_TOURNAMENT_VALIDATION_REPORT_FILE = getattr(
+    C,
+    "FULL_TOURNAMENT_VALIDATION_REPORT_FILE",
+    "full_tournament_validation_report.csv",
+)
+MONTE_CARLO_SIMULATION_RESULTS_FILE = getattr(C, "MONTE_CARLO_SIMULATION_RESULTS_FILE", "monte_carlo_simulation_results.csv")
+MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE = getattr(C, "MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE", "monte_carlo_team_stage_probabilities.csv")
+MONTE_CARLO_CHAMPION_PROBABILITIES_FILE = getattr(C, "MONTE_CARLO_CHAMPION_PROBABILITIES_FILE", "monte_carlo_champion_probabilities.csv")
+MONTE_CARLO_FINALISTS_FILE = getattr(C, "MONTE_CARLO_FINALISTS_FILE", "monte_carlo_finalists.csv")
+MONTE_CARLO_SEMIFINALISTS_FILE = getattr(C, "MONTE_CARLO_SEMIFINALISTS_FILE", "monte_carlo_semifinalists.csv")
+MONTE_CARLO_SUMMARY_FILE = getattr(C, "MONTE_CARLO_SUMMARY_FILE", "monte_carlo_summary.json")
+MONTE_CARLO_VALIDATION_REPORT_FILE = getattr(C, "MONTE_CARLO_VALIDATION_REPORT_FILE", "monte_carlo_validation_report.csv")
 TOURNAMENT_STRUCTURE_FILE = getattr(C, "TOURNAMENT_STRUCTURE_FILE", "tournament_structure.json")
 TOURNAMENT_VALIDATION_REPORT_FILE = getattr(
     C, "TOURNAMENT_VALIDATION_REPORT_FILE", "tournament_validation_report.csv"
@@ -119,7 +138,9 @@ st.success(
     "Step 10: Prediction explainability completed.\n\n"
     "Step 11: Tournament fixture and group setup completed.\n\n"
     "Step 12: Group-stage simulation completed.\n\n"
-    "Step 13: Knockout simulation completed."
+    "Step 13: Knockout simulation completed.\n\n"
+    "Step 14: Full tournament single-run completed.\n\n"
+    "Step 15: Monte Carlo simulator completed."
 )
 st.caption(
     "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
@@ -402,6 +423,93 @@ step13_rows = [
 ]
 st.dataframe(pd.DataFrame(step13_rows), use_container_width=True)
 st.caption("Step 13 simulates one knockout bracket only and saves the full path plus validation report.")
+
+st.subheader("Step 14: Full Tournament Single-Run Outputs")
+step14_rows = [
+    {
+        "file": FULL_TOURNAMENT_SIMULATED_MATCHES_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_SIMULATED_MATCHES_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_SIMULATED_MATCHES_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_GROUP_TABLES_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_GROUP_TABLES_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_GROUP_TABLES_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_STAGE_RESULTS_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_STAGE_RESULTS_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_STAGE_RESULTS_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_PATH_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_PATH_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_PATH_REPORT_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_RESULT_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_RESULT_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_RESULT_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_SUMMARY_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_SUMMARY_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_SUMMARY_FILE).is_file(),
+    },
+    {
+        "file": FULL_TOURNAMENT_VALIDATION_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_VALIDATION_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_VALIDATION_REPORT_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step14_rows), use_container_width=True)
+st.caption("Step 14 connects group + knockout stages into one complete sampled tournament path.")
+
+st.subheader("Step 15: Monte Carlo Simulation Outputs")
+step15_rows = [
+    {
+        "file": MONTE_CARLO_SIMULATION_RESULTS_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SIMULATION_RESULTS_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SIMULATION_RESULTS_FILE).is_file(),
+    },
+    {
+        "file": MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE).is_file(),
+    },
+    {
+        "file": MONTE_CARLO_CHAMPION_PROBABILITIES_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE).is_file(),
+    },
+    {
+        "file": MONTE_CARLO_FINALISTS_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_FINALISTS_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_FINALISTS_FILE).is_file(),
+    },
+    {
+        "file": MONTE_CARLO_SEMIFINALISTS_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SEMIFINALISTS_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SEMIFINALISTS_FILE).is_file(),
+    },
+    {
+        "file": MONTE_CARLO_SUMMARY_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE).is_file(),
+    },
+    {
+        "file": MONTE_CARLO_VALIDATION_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_VALIDATION_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_VALIDATION_REPORT_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step15_rows), use_container_width=True)
+st.caption("Step 15 runs repeated full tournament samples to estimate progression/champion probabilities.")
 
 st.subheader("Planned Datasets")
 rows = []

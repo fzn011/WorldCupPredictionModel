@@ -1,3 +1,3 @@
 model_name,accuracy,macro_f1,weighted_f1,log_loss,multiclass_brier_score,model_group,is_calibrated,eligible_for_best
 hist_gradient_boosting,0.25,0.1333333333333333,0.1,1.0986122886681098,0.2222222222222222,previous_improved,False,True
-hist_gradient_boosting,0.25,0.13333333333333333,0.1,1.2130075659799042,0.25,ranking_enhanced,,
+hist_gradient_boosting,0.5816143497757847,0.4408838594616425,0.5144537963946885,0.9139590688523049,0.17939190835097918,ranking_enhanced,,

@@ -564,3 +564,52 @@ KNOCKOUT_SCORELINE_TEMPLATES: dict[str, list[tuple[int, int]]] = {
     "team_a_win_extra": [(1, 1), (2, 2), (0, 0)],
     "team_b_win_extra": [(1, 1), (2, 2), (0, 0)],
 }
+
+# -----------------------------------------------------------------------------
+# Step 14 full-tournament single-run constants
+# -----------------------------------------------------------------------------
+
+FULL_TOURNAMENT_SIMULATED_MATCHES_FILE: str = "full_tournament_simulated_matches.csv"
+FULL_TOURNAMENT_GROUP_TABLES_FILE: str = "full_tournament_group_tables.csv"
+FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE: str = "full_tournament_knockout_matches.csv"
+FULL_TOURNAMENT_STAGE_RESULTS_FILE: str = "full_tournament_stage_results.csv"
+FULL_TOURNAMENT_PATH_REPORT_FILE: str = "full_tournament_path_report.csv"
+FULL_TOURNAMENT_RESULT_FILE: str = "single_world_cup_result.json"
+FULL_TOURNAMENT_SUMMARY_FILE: str = "full_tournament_summary.json"
+FULL_TOURNAMENT_VALIDATION_REPORT_FILE: str = "full_tournament_validation_report.csv"
+
+FULL_TOURNAMENT_RUN_TYPE_SINGLE: str = "single_run"
+FULL_TOURNAMENT_STAGE_GROUP: str = "group_stage"
+FULL_TOURNAMENT_STAGE_KNOCKOUT: str = "knockout_stage"
+
+# -----------------------------------------------------------------------------
+# Step 15 Monte Carlo tournament simulation constants
+# -----------------------------------------------------------------------------
+
+MONTE_CARLO_SIMULATION_RESULTS_FILE: str = "monte_carlo_simulation_results.csv"
+MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE: str = "monte_carlo_team_stage_probabilities.csv"
+MONTE_CARLO_CHAMPION_PROBABILITIES_FILE: str = "monte_carlo_champion_probabilities.csv"
+MONTE_CARLO_FINALISTS_FILE: str = "monte_carlo_finalists.csv"
+MONTE_CARLO_SEMIFINALISTS_FILE: str = "monte_carlo_semifinalists.csv"
+MONTE_CARLO_SUMMARY_FILE: str = "monte_carlo_summary.json"
+MONTE_CARLO_VALIDATION_REPORT_FILE: str = "monte_carlo_validation_report.csv"
+
+DEFAULT_MONTE_CARLO_SIMULATIONS: int = 100
+DEFAULT_MONTE_CARLO_SEED: int = 42
+
+MONTE_CARLO_STAGE_COLUMNS: list[str] = [
+    "group_stage",
+    "round_of_32",
+    "round_of_16",
+    "quarter_final",
+    "semi_final",
+    "final",
+    "champion",
+]
+
+MONTE_CARLO_FINAL_POSITIONS: list[str] = [
+    "champion",
+    "runner_up",
+    "third_place",
+    "fourth_place",
+]

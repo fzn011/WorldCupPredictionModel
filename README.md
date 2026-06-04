@@ -18,6 +18,7 @@ Golden Ball / best player candidates.
 - [Step 10: Match Prediction Explainability](#step-10-match-prediction-explainability)
 - [Step 11: Tournament Fixture and Group Setup](#step-11-tournament-fixture-and-group-setup)
 - [Step 12: Group-Stage Simulation Engine](#step-12-group-stage-simulation-engine)
+- [Step 15: Monte Carlo Tournament Simulator](#step-15-monte-carlo-tournament-simulator)
 
 ## Current Snapshot
 
@@ -289,6 +290,49 @@ Step 13 simulates one complete knockout bracket from the 32 Round-of-32 qualifie
 ```bash
 python scripts/simulate_knockout_stage.py --seed 42
 python scripts/inspect_knockout_results.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 14: Full Tournament Single-Run Orchestrator
+
+Step 14 combines the Step 12 group-stage simulation and Step 13 knockout simulation into one complete sampled tournament run.
+
+- Runs group-stage simulation and selects Round-of-32 qualifiers.
+- Passes fresh in-memory qualifiers directly into the knockout simulator.
+- Produces one full tournament path from group stage to champion.
+- Saves champion, runner-up, third place, and fourth place.
+- Saves full match logs, stage summaries, path reports, and validation reports.
+- This is **not** Monte Carlo yet and does **not** produce probability tables.
+- Monte Carlo simulation will be added in Step 15.
+
+### Step 14 commands
+
+```bash
+python scripts/simulate_full_tournament.py --seed 42
+python scripts/inspect_full_tournament_results.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 15: Monte Carlo Tournament Simulator
+
+Step 15 repeats the full tournament single-run simulation many times and aggregates probability estimates.
+
+- Repeats full tournament simulation for a configurable number of runs.
+- Produces champion probabilities.
+- Produces stage progression probabilities.
+- Produces finalists and semifinalists frequency tables.
+- Saves summary and validation reports to `data/processed/`.
+- Default simulation count is **100** for local development.
+- Larger simulation counts can be run later after performance optimization.
+- Results are simulation estimates, not certainties.
+
+### Step 15 commands
+
+```bash
+python scripts/run_monte_carlo.py --simulations 100 --seed 42
+python scripts/inspect_monte_carlo_results.py
 python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```
