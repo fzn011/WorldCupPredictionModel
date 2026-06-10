@@ -1,4 +1,4 @@
-"""Reusable Streamlit UI components — World Cup analytics command center."""
+"""Reusable Streamlit UI components — unified blood-red theme."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ BadgeKind = Literal["ok", "warn", "danger", "muted"]
 
 
 def inject_page_theme() -> None:
-    """Apply global World Cup theme CSS to the current page."""
+    """Apply global theme CSS to the current page."""
     inject_worldcup_css()
 
 
@@ -22,9 +22,7 @@ def render_hero(title: str, subtitle: str, *, eyebrow: str = "FIFA World Cup 202
     st.markdown(
         f"""
 <div class="wc-hero">
-  <div style="color:{COLORS['gold']}; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.35rem;">
-    {eyebrow}
-  </div>
+  <div class="wc-hero-eyebrow">{eyebrow}</div>
   <h1>{title}</h1>
   <p>{subtitle}</p>
 </div>
@@ -44,13 +42,20 @@ def render_status_badge(label: str, kind: BadgeKind = "muted") -> str:
     return f'<span class="wc-badge wc-badge-{kind}">{label}</span>'
 
 
-def render_metric_card(label: str, value: str, *, sub: str | None = None) -> None:
+def render_metric_card(
+    label: str,
+    value: str,
+    *,
+    sub: str | None = None,
+    accent_value: bool = False,
+) -> None:
+    value_class = "wc-card-value wc-card-value-accent" if accent_value else "wc-card-value"
     sub_html = f'<div class="wc-card-sub">{sub}</div>' if sub else ""
     st.markdown(
         f"""
 <div class="wc-card">
   <div class="wc-card-label">{label}</div>
-  <div class="wc-card-value">{value}</div>
+  <div class="{value_class}">{value}</div>
   {sub_html}
 </div>
         """,
@@ -67,7 +72,8 @@ def render_status_card(
 ) -> None:
     badge_html = ""
     if badge:
-        badge_html = f'<div style="margin-top:0.45rem;">{render_status_badge(value if badge == "ok" else label, badge)}</div>'
+        badge_label = {"ok": "Ready", "warn": "Attention", "danger": "Blocked", "muted": "N/A"}.get(badge, value)
+        badge_html = f'<div style="margin-top:0.45rem;">{render_status_badge(badge_label, badge)}</div>'
     st.markdown(
         f"""
 <div class="wc-card">
@@ -89,8 +95,16 @@ def render_success_panel(message: str) -> None:
     st.markdown(f'<div class="wc-panel-success">{message}</div>', unsafe_allow_html=True)
 
 
+def render_error_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-error">{message}</div>', unsafe_allow_html=True)
+
+
+def render_info_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-info">{message}</div>', unsafe_allow_html=True)
+
+
 def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
-    """Render numbered demo flow steps: (number, title, description)."""
+    """Render flow steps: (number, title, description)."""
     for num, title, desc in steps:
         st.markdown(
             f'<div class="wc-step"><span class="wc-step-num">{num}.</span><strong>{title}</strong> — {desc}</div>',
@@ -99,7 +113,6 @@ def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
 
 
 def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
-    """Render quick-link cards. Each item: label, hint, page (sidebar page path)."""
     cols = st.columns(min(len(items), 4))
     for idx, item in enumerate(items):
         with cols[idx % len(cols)]:
@@ -118,7 +131,6 @@ def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
 
 
 def render_action_cards(items: list[dict[str, str]]) -> None:
-    """Primary navigation actions: title, description, page path."""
     cols = st.columns(min(len(items), 3))
     for idx, item in enumerate(items):
         with cols[idx % len(cols)]:
@@ -142,7 +154,7 @@ def render_data_table(
     hide_index: bool = True,
 ) -> None:
     if df.empty:
-        st.info("No data available.")
+        render_info_panel("No data available.")
         return
     kwargs: dict[str, Any] = {"use_container_width": True, "hide_index": hide_index}
     if height is not None:
@@ -174,6 +186,7 @@ def render_download_card(
             file_name=file_name or path.name,
             mime=mime,
             use_container_width=True,
+            type="primary",
         )
     else:
         st.caption("Not generated yet")
@@ -206,7 +219,6 @@ def render_data_quality_card(
 
 
 def render_formation_diagram(players_by_line: list[list[str]]) -> None:
-    """Render ASCII-style formation blocks (GK at bottom)."""
     lines: list[str] = []
     for row in players_by_line:
         lines.append("    ".join(row))
@@ -224,7 +236,7 @@ def render_podium_cards(
     award_labels: dict[int, str] | None = None,
 ) -> None:
     if df.empty:
-        st.info("No podium data yet.")
+        render_info_panel("No podium data yet.")
         return
     labels = award_labels or {1: "Gold", 2: "Silver", 3: "Bronze"}
     top = df.sort_values(rank_col).head(3)
@@ -242,6 +254,7 @@ def render_podium_cards(
                 medal,
                 str(row.get(name_col, "—")),
                 sub=f"{row.get(team_col, '')} {('· ' + score) if score else ''}".strip(),
+                accent_value=True,
             )
 
 

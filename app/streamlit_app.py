@@ -224,37 +224,10 @@ def _render_reports_hub() -> None:
 
 
 def _render_technical_diagnostics() -> None:
-    st.subheader("Current Project Status")
-    st.success(
-        "Step 1: Foundation completed.\n\n"
-        "Step 2: Dataset setup completed.\n\n"
-        "Step 3: Data cleaning and canonical dataset completed.\n\n"
-        "Step 4: Feature engineering completed.\n\n"
-        "Step 5: Baseline model completed.\n\n"
-        "Step 6: Improved model completed.\n\n"
-        "Step 7: FIFA rankings and Elo integration completed.\n\n"
-        "Step 8: Future match prediction completed.\n\n"
-        "Step 9: Predictor UI and API polishing completed.\n\n"
-        "Step 10: Prediction explainability completed.\n\n"
-        "Step 11: Tournament fixture and group setup completed.\n\n"
-        "Step 12: Group-stage simulation completed.\n\n"
-        "Step 13: Knockout simulation completed.\n\n"
-        "Step 14: Full tournament single-run completed.\n\n"
-        "Step 15: Monte Carlo simulator completed.\n\n"
-        "Step 16: Monte Carlo dashboard and report polish completed.\n\n"
-        "Step 17A: Official World Cup 2026 data lock completed.\n\n"
-        "Step 17B: Official squads and player priors merge completed.\n\n"
-        "Step 17C: Official final readiness workflow completed.\n\n"
-        "Step 17D: Official data population pack completed.\n\n"
-        "Step 17E: Source-assisted official FIFA data population completed.\n\n"
-        "Step 17F: Official FIFA data population workflow completed.\n\n"
-        "Step 17G: Official data import execution workflow completed.\n\n"
-        "Step 17H: Official data apply blocker cleanup completed.\n\n"
-        "Step 18: FIFA World Cup Awards Predictor completed.\n\n"
-        "Step 19: Final polish, player prior enrichment, and portfolio packaging completed."
-    )
+    st.subheader("Artifact inventory")
     st.caption(
-        "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
+        "Developer diagnostics only — verify generated files on disk. "
+        "Use the Command Center tab for the normal demo flow."
     )
 
     st.subheader("Step 3: Processed Outputs")
@@ -1059,6 +1032,7 @@ with tab_command:
             sub=f"Probability: {float(_mc_summary.get('top_champion_probability', 0) or 0):.1%}"
             if _mc_summary.get("top_champion")
             else "Run Monte Carlo simulator",
+            accent_value=True,
         )
     with h2:
         render_metric_card(
@@ -1067,6 +1041,7 @@ with tab_command:
             sub=f"Golden Boot: {_awards_summary.get('top_golden_boot_player', '—')}"
             if _awards_summary
             else "Generate awards on Awards page",
+            accent_value=True,
         )
 
     render_section_header("Recommended flow")

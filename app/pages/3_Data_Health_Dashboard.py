@@ -80,7 +80,7 @@ render_section_header("Controls")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    if st.button("Refresh evaluation", use_container_width=True):
+    if st.button("Refresh evaluation", use_container_width=True, type="primary"):
         st.session_state.readiness_report = evaluate_official_final_readiness()
         st.rerun()
 

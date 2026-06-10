@@ -23,12 +23,13 @@ def _load_module(path: Path, name: str):
 def test_worldcup_theme_colors_palette() -> None:
     theme = _load_module(THEME_PATH, "worldcup_theme_test")
     colors = theme.COLORS
-    assert colors["background"] == "#07111F"
-    assert colors["card"] == "#0E1B2A"
-    assert colors["gold"] == "#D6A84F"
+    assert colors["background"] == "#0B0B0B"
+    assert colors["card"] == "#0B0B0B"
+    assert colors["primary"] == "#8B0000"
     assert colors["green"] == "#16A36A"
-    assert colors["white"] == "#F8FAFC"
-    assert colors["muted"] == "#94A3B8"
+    assert colors["white"] == "#F8F8F8"
+    assert colors["muted"] == "#C0C0C0"
+    assert colors["input_bg"] == "#1F1F1F"
     assert colors["warning"] == "#F59E0B"
     assert colors["danger"] == "#EF4444"
 
@@ -37,7 +38,16 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
     theme = _load_module(THEME_PATH, "worldcup_theme_css_test")
     # inject_worldcup_css uses streamlit; verify source contains expected selectors.
     source = THEME_PATH.read_text(encoding="utf-8")
-    for token in (".wc-hero", ".wc-card", ".wc-badge-ok", ".wc-formation", "inject_worldcup_css"):
+    for token in (
+        ".wc-hero",
+        ".wc-card",
+        ".wc-badge-ok",
+        ".wc-formation",
+        "inject_worldcup_css",
+        ".stTextInput input",
+        "#8B0000",
+        "#1F1F1F",
+    ):
         assert token in source
 
 
@@ -51,6 +61,8 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_pipeline_stepper",
         "render_action_cards",
         "render_download_card",
+        "render_error_panel",
+        "render_info_panel",
         "render_warning_panel",
         "render_success_panel",
         "render_podium_cards",
@@ -63,7 +75,7 @@ def test_ui_module_exports_render_helpers() -> None:
 def test_app_styles_package_exports() -> None:
     from app.styles import COLORS, inject_worldcup_css
 
-    assert COLORS["gold"] == "#D6A84F"
+    assert COLORS["primary"] == "#8B0000"
     assert callable(inject_worldcup_css)
 
 
