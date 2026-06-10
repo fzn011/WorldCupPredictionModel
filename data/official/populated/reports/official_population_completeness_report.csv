@@ -1,0 +1,12 @@
+category,target,actual,complete,blocking,notes
+teams,48,48,True,False,48 official teams required
+groups,12,12,True,False,12 groups required
+group_rows,48,48,True,False,4 teams per group
+fixtures,104,0,False,True,104 official fixtures
+group_stage_fixtures,72,0,False,True,72 group-stage matches
+knockout_fixtures,32,0,False,True,32 knockout/bracket matches
+players,1248,0,False,True,"1,248 official players"
+teams_with_26_players,48,0,False,True,26 players per team
+sample_to_be_verified,0,112,False,True,No unverified source rows
+placeholder_issues,0,112,False,True,No TBD/Unknown placeholders
+missing_required_values,0,7,False,True,Required fields filled

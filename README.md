@@ -491,42 +491,45 @@ python -m streamlit run app/streamlit_app.py
 
 ---
 
-## Step 17F: Fill and Verify Official Squads and Player Priors
+## Step 17F: Populate Official FIFA World Cup Data
 
-> **Data population step — requires Step 17E staging/apply workflow.**
+Step 17F consumes official FIFA schedule/squad files, staged Step 17E data, or saved FIFA snapshots to build **populated official import files**.
 
-### Target after Step 17F
+- Builds populated datasets under `data/official/populated/`.
+- Checks completeness against final targets (48 teams, 104 fixtures, 1,248 players).
+- Creates an official-ready import pack ZIP.
+- Does **not** fake missing values or bypass readiness.
+- Applies populated data only when `population_is_ready_for_apply` is true.
+- **`official_final` remains blocked** while data is incomplete — correct behavior.
+- **Step 18 Awards must wait** until `official_final` is ready.
 
-| Dataset | Required |
-|---------|----------|
-| Players | 1,248 rows (48 × 26) |
-| Teams with full squads | 48 / 48 |
-| Player priors | 1,248 rows |
-| `sample_to_be_verified` rows | 0 |
-| Blocking placeholders | 0 |
-
-### Step 17F fill order
-
-5. **Players** — 26 players per team; shirt number, position, DOB, club
-6. **Player priors** — editable estimates for the awards model (fill after players)
-
-### Step 17F apply commands
+### Step 17F commands
 
 ```bash
-python scripts/apply_official_import.py --target players       --file data/official/import_templates/official_players_import_template.csv --preview
-python scripts/apply_official_import.py --target players       --file data/official/import_templates/official_players_import_template.csv
-python scripts/apply_official_import.py --target player_priors --file data/official/import_templates/player_award_priors_import_template.csv
+python scripts/prepare_populated_official_data.py
+python scripts/import_fifa_schedule_file.py --file path/to/fifa_schedule.xlsx
+python scripts/import_fifa_squad_file.py --file path/to/fifa_squads.csv
+python scripts/prepare_populated_official_data.py --schedule-file path/to/fifa_schedule.xlsx --squad-file path/to/fifa_squads.csv
+python scripts/apply_populated_official_data.py --preview
+python scripts/apply_populated_official_data.py --apply
 python scripts/evaluate_official_final_readiness.py
-python scripts/promote_official_final.py --confirm
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
 ```
 
-### Step 17F checklist
+### Step 17F outputs
 
-- [ ] 1,248 players across 48 squads
-- [ ] 26 players per team exactly
-- [ ] No `sample_to_be_verified` players
-- [ ] Player priors filled for all official squad players
-- [ ] `official_final` promotion succeeds
+| Artifact | Path |
+|----------|------|
+| Populated teams | `data/official/populated/populated_official_teams.csv` |
+| Populated groups | `data/official/populated/populated_official_groups.csv` |
+| Populated fixtures | `data/official/populated/populated_official_fixtures.csv` |
+| Populated venues | `data/official/populated/populated_official_venues.csv` |
+| Populated players | `data/official/populated/populated_official_players.csv` |
+| Populated priors | `data/official/populated/populated_player_award_priors.csv` |
+| Completeness report | `data/official/populated/reports/official_population_completeness_report.csv` |
+| Final summary | `data/official/populated/reports/official_population_final_summary.json` |
+| Import pack ZIP | `data/official/populated/exports/official_ready_import_pack.zip` |
 
 ---
 

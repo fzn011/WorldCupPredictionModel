@@ -1236,3 +1236,55 @@ OFFICIAL_SOURCE_APPLY_ORDER: list[str] = [
     "players",
     "player_priors",
 ]
+
+# -----------------------------------------------------------------------------
+# Step 17F populate official FIFA World Cup data constants
+# -----------------------------------------------------------------------------
+
+OFFICIAL_POPULATED_DATA_DIR: str = "data/official/populated"
+OFFICIAL_POPULATED_REPORTS_DIR: str = "data/official/populated/reports"
+OFFICIAL_POPULATED_EXPORTS_DIR: str = "data/official/populated/exports"
+
+POPULATED_OFFICIAL_TEAMS_FILE: str = "populated_official_teams.csv"
+POPULATED_OFFICIAL_GROUPS_FILE: str = "populated_official_groups.csv"
+POPULATED_OFFICIAL_FIXTURES_FILE: str = "populated_official_fixtures.csv"
+POPULATED_OFFICIAL_VENUES_FILE: str = "populated_official_venues.csv"
+POPULATED_OFFICIAL_PLAYERS_FILE: str = "populated_official_players.csv"
+POPULATED_PLAYER_AWARD_PRIORS_FILE: str = "populated_player_award_priors.csv"
+
+OFFICIAL_POPULATION_SOURCE_AUDIT_FILE: str = "official_population_source_audit.csv"
+OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE: str = "official_population_completeness_report.csv"
+OFFICIAL_POPULATION_APPLY_REPORT_FILE: str = "official_population_apply_report.csv"
+OFFICIAL_POPULATION_FINAL_SUMMARY_FILE: str = "official_population_final_summary.json"
+
+OFFICIAL_READY_IMPORT_PACK_FILE: str = "official_ready_import_pack.zip"
+
+OFFICIAL_SOURCE_PRIORITY: list[str] = [
+    "fifa_teams_page",
+    "fifa_schedule_page",
+    "fifa_scores_fixtures_page",
+    "fifa_squad_announcements_page",
+    "fifa_squad_confirmation_page",
+    "fifa_downloadable_schedule",
+]
+
+POPULATION_TARGET_COUNTS: dict[str, int] = {
+    "teams": 48,
+    "groups": 12,
+    "group_rows": 48,
+    "fixtures": 104,
+    "group_stage_fixtures": 72,
+    "knockout_fixtures": 32,
+    "players": 1248,
+    "players_per_team": 26,
+}
+
+FIFA_TEAM_NAME_ALIASES: dict[str, str] = {
+    "Korea Republic": "South Korea",
+    "USA": "United States",
+    "USMNT": "United States",
+    "Türkiye": "Turkey",
+    "Turkiye": "Turkey",
+    "Curaçao": "Curaçao",
+    "Curacao": "Curaçao",
+}
