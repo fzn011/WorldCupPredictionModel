@@ -1,4 +1,4 @@
-"""Streamlit page: Official Data Population Completion (Step 17F)."""
+"""Streamlit page: Official Data Population Completion."""
 
 from __future__ import annotations
 
@@ -56,12 +56,12 @@ from src.official.blocker_cleanup import analyze_apply_blockers, apply_safe_bloc
 from src.official.loaders import get_official_team_list
 from src.official.population_completeness import create_population_completeness_report
 
-st.set_page_config(page_title="Official Data Population", layout="wide", initial_sidebar_state="expanded")
+
 inject_page_theme()
 render_hero(
     "Population Completion",
     "Build populated official import files from FIFA schedule/squad uploads. No auto-apply — official_final stays gated.",
-    eyebrow="Step 17F–17H workflow",
+    eyebrow="Population completion",
 )
 render_warning_panel(
     "Step 18 Awards must wait until official_final readiness passes. Uploads stage data only until you explicitly apply."
@@ -221,7 +221,7 @@ python scripts/evaluate_official_final_readiness.py
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_bytes(exec_workbook.getvalue())
             wb_path = str(p)
-        with st.spinner("Running Step 17G import execution..."):
+        with st.spinner("Running import execution..."):
             st.session_state["step17g_result"] = prepare_step17g_official_import_execution(
                 schedule_file=sched_path,
                 squad_file=squad_path,

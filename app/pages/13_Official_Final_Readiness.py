@@ -51,7 +51,7 @@ from src.official.promotion import load_official_final_mode, can_promote_to_offi
 from src.utils.constants import OFFICIAL_POPULATION_DIR, OFFICIAL_POPULATION_GUIDE_FILE, OFFICIAL_IMPORT_TEMPLATES_DIR
 
 
-st.set_page_config(page_title="Official Final Readiness", layout="wide", initial_sidebar_state="expanded")
+
 inject_page_theme()
 render_hero(
     "Official Data Readiness",
@@ -305,7 +305,7 @@ with col2:
 st.divider()
 
 # ===== STEP 17D POPULATION WORKFLOW =====
-st.header("Step 17D: Population Workflow")
+render_section_header("Data population workflow")
 
 pop_col1, pop_col2, pop_col3 = st.columns(3)
 
@@ -348,7 +348,7 @@ pc3.metric("Blockers", promo_summary.get("blocker_count", 0))
 
 st.markdown("""
 **Population workflow:** Generate pack → fill templates from FIFA → preview → apply → re-evaluate readiness.
-See the **Official Data Population** page (Step 17D) for the full workflow.
+See the <strong>Data Health</strong> page for the full population workflow.
 
 Promotion to `official_final` requires confirmation and full readiness. It cannot be one-click promoted while blockers remain.
 """)
@@ -390,7 +390,7 @@ st.divider()
 st.markdown("""
 ### About This Page
 
-This page provides the final readiness evaluation for Step 17C of the FIFA World Cup 2026 AI Predictor.
+This page provides the final readiness evaluation for official final mode.
 
 **Readiness Checks:**
 - **Teams**: All 48 teams verified with no placeholder values

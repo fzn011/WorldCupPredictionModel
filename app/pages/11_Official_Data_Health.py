@@ -1,4 +1,4 @@
-"""Streamlit page for Step 17A official World Cup data health."""
+"""Streamlit page: Official World Cup data health."""
 
 from __future__ import annotations
 
@@ -49,12 +49,12 @@ def _load_json(path: Path) -> dict:
         return json.load(f)
 
 
-st.set_page_config(page_title="Official Data Health", layout="wide", initial_sidebar_state="expanded")
+
 inject_page_theme()
 render_hero(
     "Official Data Health",
     "Official-mode data lock, validation reports, and sample vs official visibility.",
-    eyebrow="Step 17A",
+    eyebrow="Official data",
 )
 
 render_section_header("Overview")

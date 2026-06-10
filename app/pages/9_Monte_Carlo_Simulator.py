@@ -72,12 +72,11 @@ def _load_json(file_name: str) -> dict:
         return json.load(f)
 
 
-st.set_page_config(page_title="Monte Carlo Simulator", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
     "Monte Carlo Forecast",
-    "Repeated full-tournament simulations to estimate champion and stage progression probabilities.",
-    eyebrow="Tournament simulation",
+    "Run thousands of full-tournament simulations to estimate champion and stage progression probabilities.",
+    eyebrow="Probabilistic tournament forecast",
 )
 
 tab_overview, tab_results, tab_downloads = st.tabs(["Overview & settings", "Results & charts", "Downloads"])

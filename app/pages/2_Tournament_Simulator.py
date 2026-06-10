@@ -22,17 +22,16 @@ except ModuleNotFoundError:
 
 from src.simulation.simulate_tournament import simulate_tournament  # noqa: E402
 
-st.set_page_config(page_title="Tournament Simulator", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
     "Tournament Simulator",
-    "Quick champion probability estimates from the legacy placeholder simulator. "
-    "For full World Cup Monte Carlo forecasts, use the Monte Carlo Simulator page.",
-    eyebrow="Legacy placeholder",
+    "Lightweight quick-run bracket simulation to estimate champion probabilities. "
+    "For full probabilistic forecasts, use the Monte Carlo Forecast page.",
+    eyebrow="Quick bracket simulation",
 )
 render_warning_panel(
-    "This page runs a lightweight placeholder simulation. Production demo flow uses "
-    "<strong>Monte Carlo Simulator</strong> (sidebar) for official bracket progression."
+    "This simulator uses a simplified probability model for quick estimates. "
+    "For production-grade forecasts use <strong>Monte Carlo Forecast</strong> in the sidebar."
 )
 
 render_section_header("Simulation settings")

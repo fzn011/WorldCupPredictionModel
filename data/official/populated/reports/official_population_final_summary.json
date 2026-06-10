@@ -1,7 +1,7 @@
 {
-  "status": "applied",
+  "status": "ready_for_apply",
   "ready_for_apply": true,
-  "applied": true,
+  "applied": false,
   "teams_count": 48,
   "fixtures_count": 104,
   "group_stage_fixtures_count": 72,
@@ -11,17 +11,19 @@
   "teams_with_26_players": 48,
   "sample_to_be_verified_count": 0,
   "placeholder_issues_count": 0,
-  "completeness_report_path": "/workspace/data/official/populated/reports/official_population_completeness_report.csv",
-  "import_pack_path": "/workspace/data/official/populated/exports/official_ready_import_pack.zip",
-  "final_ready": true,
+  "completeness_report_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\reports\\official_population_completeness_report.csv",
+  "import_pack_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\exports\\official_ready_import_pack.zip",
+  "final_ready": false,
   "build_paths": {
-    "teams": "/workspace/data/official/populated/populated_official_teams.csv",
-    "groups": "/workspace/data/official/populated/populated_official_groups.csv",
-    "fixtures": "/workspace/data/official/populated/populated_official_fixtures.csv",
-    "venues": "/workspace/data/official/populated/populated_official_venues.csv",
-    "players": "/workspace/data/official/populated/populated_official_players.csv",
-    "player_priors": "/workspace/data/official/populated/populated_player_award_priors.csv"
+    "teams": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\populated_official_teams.csv",
+    "groups": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\populated_official_groups.csv",
+    "fixtures": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\populated_official_fixtures.csv",
+    "venues": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\populated_official_venues.csv",
+    "players": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\populated_official_players.csv",
+    "player_priors": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\populated_player_award_priors.csv"
   },
-  "notes": [],
-  "updated_at": "2026-06-10T15:56:15.000573+00:00"
+  "notes": [
+    "Population complete \u2014 run apply_populated_official_data.py --apply to promote."
+  ],
+  "updated_at": "2026-06-10T19:34:22.509035+00:00"
 }

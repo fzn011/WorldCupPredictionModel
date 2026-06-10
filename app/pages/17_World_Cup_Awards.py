@@ -1,4 +1,4 @@
-"""Streamlit page for Step 18 FIFA World Cup Awards Predictor."""
+"""Streamlit page: FIFA World Cup 2026 Awards Predictor."""
 
 from __future__ import annotations
 
@@ -127,12 +127,12 @@ def _formation_lines(team_df: pd.DataFrame, name_col: str) -> list[list[str]]:
     ]
 
 
-st.set_page_config(page_title="World Cup Awards", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
-    "Awards Predictor",
-    "Explainable Golden Ball, Golden Boot, Golden Glove, and team awards using official squads and Monte Carlo progression.",
-    eyebrow="Step 18 analytics",
+    "World Cup Awards",
+    "Predicted Golden Ball, Golden Boot, Golden Glove, Best Young Player, "
+    "and team awards based on official squads and Monte Carlo progression data.",
+    eyebrow="Awards analytics",
 )
 
 render_warning_panel(AWARDS_ANALYTICS_DISCLAIMER)
@@ -183,7 +183,7 @@ tab_overview, tab_awards, tab_tools, tab_downloads = st.tabs(
 monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
 
 with tab_tools:
-    render_section_header("Prior enrichment (Step 19)")
+    render_section_header("Prior enrichment")
     st.caption(
         "Player priors are heuristic position/role estimates unless you manually edit "
         "`player_award_priors.csv`. Enrichment improves differentiation for demo outputs."
@@ -222,7 +222,7 @@ with tab_tools:
             except Exception as exc:
                 st.error(str(exc))
 
-    render_section_header("Manual star-player priors (Step 20)")
+    render_section_header("Manual star-player priors")
     st.caption(MANUAL_PRIOR_DISCLAIMER)
     prior_mode = "official candidates only"
     if enriched_path.is_file() and "manual" in str(summary_pre.get("candidate_source", "")).lower():

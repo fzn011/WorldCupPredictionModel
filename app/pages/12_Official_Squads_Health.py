@@ -41,12 +41,12 @@ def format_bytes(num_bytes: int) -> str:
     return f"{num_bytes:.1f} GB"
 
 
-st.set_page_config(page_title="Official Squads Health", layout="wide", initial_sidebar_state="expanded")
+
 inject_page_theme()
 render_hero(
     "Official Squads & Player Priors",
     "Squad validation layer — official players gate award predictions in official mode.",
-    eyebrow="Step 17B",
+    eyebrow="Squads & players",
 )
 
 render_section_header("Controls")

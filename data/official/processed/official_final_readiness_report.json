@@ -101,17 +101,17 @@
     },
     {
       "id": "award_candidates_ready",
-      "passed": true,
+      "passed": false,
       "details": {
-        "candidate_count": 1248
+        "candidate_count": 65
       }
     },
     {
       "id": "player_priors_merged",
       "passed": true,
       "details": {
-        "players_with_priors": 1248,
-        "total_players": 1248
+        "players_with_priors": 65,
+        "total_players": 65
       }
     },
     {
@@ -145,17 +145,25 @@
       }
     }
   ],
-  "warnings": [],
+  "warnings": [
+    {
+      "id": "award_candidates_ready",
+      "passed": false,
+      "details": {
+        "candidate_count": 65
+      }
+    }
+  ],
   "summary": {
     "total_checks": 15,
-    "passed_checks": 14,
-    "failed_checks": 1,
+    "passed_checks": 13,
+    "failed_checks": 2,
     "blocker_count": 1,
-    "warning_count": 0,
+    "warning_count": 1,
     "teams_count": 48,
     "players_count": 1248,
     "teams_with_26_players": 48
   },
-  "timestamp": "2026-06-10T15:54:53.401372+00:00",
+  "timestamp": "2026-06-10T19:34:27.194106+00:00",
   "is_official_final_ready": false
 }

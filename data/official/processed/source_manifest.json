@@ -9,5 +9,14 @@
   "notes": [
     "Official data should be refreshed if FIFA updates teams, fixtures, venues, kickoff times, or squads.",
     "This manifest records source intent; users should verify final data against FIFA before final use."
+  ],
+  "step17f_populated_at": "2026-06-10T19:34:22.387945+00:00",
+  "population_sources": [
+    "fifa_teams_page",
+    "fifa_schedule_page",
+    "fifa_scores_fixtures_page",
+    "fifa_squad_announcements_page",
+    "fifa_squad_confirmation_page",
+    "fifa_downloadable_schedule"
   ]
 }

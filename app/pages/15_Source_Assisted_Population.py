@@ -1,4 +1,4 @@
-"""Streamlit page: Source-Assisted Official FIFA Data Population (Step 17E)."""
+"""Streamlit page: Source-Assisted Official FIFA Data Population."""
 
 from __future__ import annotations
 
@@ -49,12 +49,12 @@ from src.official.prepare_source_population import prepare_step17e_source_assist
 from src.official.source_registry import load_official_source_registry
 from src.official.staging_validation import load_staged_data, validate_all_staged_data
 
-st.set_page_config(page_title="Source-Assisted Population", layout="wide", initial_sidebar_state="expanded")
+
 inject_page_theme()
 render_hero(
     "Source-Assisted Population",
     "Official FIFA sources first, manual CSV/XLSX fallback. Staging only — does not auto-promote official_final.",
-    eyebrow="Step 17E workflow",
+    eyebrow="Source-assisted population",
 )
 render_warning_panel(
     "No whole-internet scraping. Only fifa.com / fdp.fifa.org URLs or user-provided files. "
@@ -101,7 +101,7 @@ with tab_overview:
     dl = st.checkbox("Download official FIFA source snapshots", value=False)
     force = st.checkbox("Force re-download", value=False)
     if st.button("Generate source population pack", use_container_width=True, key="gen_17e"):
-        with st.spinner("Running Step 17E orchestrator..."):
+        with st.spinner("Running source-assisted population..."):
             result = prepare_step17e_source_assisted_population(
                 download_sources=dl,
                 parse_sources=True,
@@ -173,4 +173,4 @@ python scripts/evaluate_official_final_readiness.py
     else:
         st.success("All checks passed — promotion available via Official Data Population page.")
 
-    st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open Step 17F completion page", icon="⚽")
+    st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open population completion", icon="⚽")

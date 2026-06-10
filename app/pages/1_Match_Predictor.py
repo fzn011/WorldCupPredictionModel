@@ -80,12 +80,12 @@ def _official_team_lock_enabled() -> bool:
         return False
 
 
-st.set_page_config(page_title="Match Predictor", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
     "Match Predictor",
-    "Select two teams, set venue context, and inspect win/draw/loss probabilities with optional explainability.",
-    eyebrow="Core analytics",
+    "Select two teams, set venue context, and inspect win / draw / loss probabilities "
+    "with optional explainability.",
+    eyebrow="Match outcome prediction",
 )
 render_section_header("Match setup")
 
