@@ -15,7 +15,13 @@ if str(ROOT) not in sys.path:
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 
-PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
+# Path bootstrap — must stay immediately after constants import (used below).
+PROJECT_ROOT = Path(getattr(C, "PROJECT_ROOT", ROOT))
+PROCESSED_DATA_DIR = Path(getattr(C, "PROCESSED_DATA_DIR", PROJECT_ROOT / "data" / "processed"))
+REPORTS_DIR = PROJECT_ROOT / "reports"
+FIGURES_DIR = REPORTS_DIR / "figures"
+OFFICIAL_DATA_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_DATA_DIR", "data/official"))
+OFFICIAL_PROCESSED_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_PROCESSED_DIR", "data/official/processed"))
 
 CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
 CANONICAL_MATCHES_SAMPLE_FILE = getattr(
@@ -115,8 +121,6 @@ WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE = getattr(
     "world_cup_awards_validation_report.csv",
 )
 WORLD_CUP_AWARDS_REPORT_FILE = getattr(C, "WORLD_CUP_AWARDS_REPORT_FILE", "world_cup_awards_report.md")
-OFFICIAL_DATA_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_DATA_DIR", "data/official"))
-OFFICIAL_PROCESSED_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_PROCESSED_DIR", "data/official/processed"))
 OFFICIAL_TEAMS_FILE = getattr(C, "OFFICIAL_TEAMS_FILE", "official_teams.csv")
 OFFICIAL_GROUPS_FILE = getattr(C, "OFFICIAL_GROUPS_FILE", "official_groups.csv")
 OFFICIAL_FIXTURES_FILE = getattr(C, "OFFICIAL_FIXTURES_FILE", "official_fixtures.csv")
@@ -137,9 +141,6 @@ ROUND_OF_32_QUALIFIERS_FILE = getattr(C, "ROUND_OF_32_QUALIFIERS_FILE", "round_o
 GROUP_STAGE_SIMULATION_SUMMARY_FILE = getattr(
     C, "GROUP_STAGE_SIMULATION_SUMMARY_FILE", "group_stage_simulation_summary.json"
 )
-PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
-REPORTS_DIR = PROJECT_ROOT / "reports"
-FIGURES_DIR = REPORTS_DIR / "figures"
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
 TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
 

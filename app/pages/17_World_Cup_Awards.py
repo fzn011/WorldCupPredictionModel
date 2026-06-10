@@ -10,18 +10,21 @@ import pandas as pd
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[2]
+APP_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+try:
+    from app.streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR
+except ModuleNotFoundError:
+    from streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR
 
 from src.awards.prepare_awards import prepare_step18_world_cup_awards  # noqa: E402
 from src.official.final_readiness import evaluate_official_final_readiness  # noqa: E402
 from src.official.promotion import load_official_final_mode  # noqa: E402
 import src.utils.constants as C  # noqa: E402
-
-PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
-PROCESSED_DATA_DIR = PROJECT_ROOT / str(getattr(C, "PROCESSED_DATA_DIR", "data/processed"))
-REPORTS_DIR = PROJECT_ROOT / str(getattr(C, "AWARDS_REPORT_DIR", "reports"))
-OFFICIAL_PROCESSED_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_PROCESSED_DIR", "data/official/processed"))
 AWARDS_ANALYTICS_DISCLAIMER = str(getattr(C, "AWARDS_ANALYTICS_DISCLAIMER", "Analytics estimate only."))
 
 MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE = getattr(
