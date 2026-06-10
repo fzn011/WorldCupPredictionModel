@@ -8,6 +8,7 @@ from typing import Any
 import pandas as pd
 
 import src.utils.constants as C
+from src.awards.award_data import resolve_player_sort_column
 
 PROJECT_ROOT = C.PROJECT_ROOT
 REPORTS_DIR = PROJECT_ROOT / C.AWARDS_REPORT_DIR
@@ -37,10 +38,13 @@ def _dataframe_to_markdown(df: pd.DataFrame) -> str:
     return "\n".join([header_row, separator_row, *data_rows])
 
 
-def _player_col(df: pd.DataFrame) -> str:
-    if "player_name" in df.columns:
-        return "player_name"
-    return "player"
+def _player_col(df: pd.DataFrame) -> str | None:
+    if df.empty:
+        return None
+    try:
+        return resolve_player_sort_column(df)
+    except KeyError:
+        return None
 
 
 def _top_value(df: pd.DataFrame, column: str) -> str:
@@ -85,6 +89,7 @@ def create_combined_awards_table(outputs: dict) -> pd.DataFrame:
         if df.empty:
             continue
         pname = _player_col(df)
+        player_values = df[pname] if pname and pname in df.columns else ""
         pos = df.get("position_group", df.get("position", pd.Series("", index=df.index)))
         frames.append(
             pd.DataFrame(
@@ -93,8 +98,8 @@ def create_combined_awards_table(outputs: dict) -> pd.DataFrame:
                     "rank": df[rank_col] if rank_col in df.columns else range(1, len(df) + 1),
                     "award": df[award_col] if award_col in df.columns else "",
                     "player_id": df.get("player_id", ""),
-                    "player_name": df.get(pname, ""),
-                    "player": df.get(pname, ""),
+                    "player_name": player_values,
+                    "player": player_values,
                     "team": df.get("team", ""),
                     "position": pos,
                     "position_code": df.get("position_code", ""),
@@ -108,6 +113,7 @@ def create_combined_awards_table(outputs: dict) -> pd.DataFrame:
     team_df = outputs.get("team_of_tournament", pd.DataFrame())
     if not team_df.empty:
         pname = _player_col(team_df)
+        player_values = team_df[pname] if pname and pname in team_df.columns else ""
         frames.append(
             pd.DataFrame(
                 {
@@ -115,8 +121,8 @@ def create_combined_awards_table(outputs: dict) -> pd.DataFrame:
                     "rank": range(1, len(team_df) + 1),
                     "award": team_df.get("award", "Predicted Team of the Tournament"),
                     "player_id": team_df.get("player_id", ""),
-                    "player_name": team_df.get(pname, ""),
-                    "player": team_df.get(pname, ""),
+                    "player_name": player_values,
+                    "player": player_values,
                     "team": team_df.get("team", ""),
                     "position": team_df.get("position", ""),
                     "position_code": team_df.get("position_code", ""),

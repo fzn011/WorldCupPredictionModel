@@ -9,7 +9,7 @@ from typing import Any
 import pandas as pd
 
 import src.utils.constants as C
-from src.awards.award_data import merge_players_with_team_progression, normalize_official_award_candidates
+from src.awards.award_data import merge_players_with_team_progression, normalize_official_award_candidates, resolve_player_sort_column
 from src.awards.player_awards import (
     calculate_golden_ball_predictions,
     calculate_golden_boot_predictions,
@@ -250,7 +250,7 @@ def _rank_snapshot(players_df: pd.DataFrame, team_stage_df: pd.DataFrame | None 
 
 
 def _snapshot_rank_map(snapshot_df: pd.DataFrame, rank_col: str) -> dict[str, int]:
-    name_col = "player_name" if "player_name" in snapshot_df.columns else "player"
+    name_col = resolve_player_sort_column(snapshot_df)
     mapping: dict[str, int] = {}
     for _, row in snapshot_df.iterrows():
         key = f"{row.get(name_col)}|{row.get('team')}"

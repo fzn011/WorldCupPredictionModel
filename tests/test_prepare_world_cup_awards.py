@@ -9,6 +9,7 @@ import pandas as pd
 import src.utils.constants as C
 from src.awards import award_reports as reports_mod
 from src.awards import prepare_awards as prepare_mod
+from src.awards.award_data import normalize_official_award_candidates
 from src.awards.prepare_awards import prepare_step17_world_cup_awards
 
 
@@ -73,6 +74,39 @@ def _stage_df() -> pd.DataFrame:
             "champion_probability": [0.05, 0.04],
         }
     )
+
+
+def test_prepare_step17_world_cup_awards_player_name_only_candidates(monkeypatch, tmp_path: Path) -> None:
+    """Regression: official candidates may omit legacy player column."""
+    processed = tmp_path / "processed"
+    processed.mkdir(parents=True)
+    teams = pd.DataFrame({"team": ["France", "Brazil"]})
+    candidates = normalize_official_award_candidates(_official_candidates())
+    if "player" in candidates.columns:
+        candidates = candidates.drop(columns=["player"])
+
+    monkeypatch.setattr(prepare_mod, "PROCESSED_DATA_DIR", processed)
+    monkeypatch.setattr(reports_mod, "REPORTS_DIR", tmp_path / "reports")
+    monkeypatch.setattr("src.awards.award_data.require_official_final_ready", lambda: {"official_final_enabled": True, "final_ready": True})
+    monkeypatch.setattr("src.awards.prepare_awards.require_official_final_ready", lambda: {"official_final_enabled": True, "final_ready": True})
+    monkeypatch.setattr("src.awards.prepare_awards.load_official_award_candidates", lambda **kwargs: candidates)
+    monkeypatch.setattr("src.awards.prepare_awards.load_team_stage_probabilities", lambda: _stage_df())
+    monkeypatch.setattr("src.awards.prepare_awards.load_official_teams_for_awards", lambda: teams)
+    monkeypatch.setattr("src.awards.team_awards.load_official_teams_for_awards", lambda: teams)
+    monkeypatch.setattr("src.awards.prepare_awards.load_team_award_profiles", lambda: _team_profiles_df())
+
+    def _save_report(text: str) -> str:
+        report_path = tmp_path / "report.md"
+        report_path.write_text(text, encoding="utf-8")
+        return str(report_path)
+
+    monkeypatch.setattr("src.awards.prepare_awards.save_world_cup_awards_report", _save_report)
+
+    summary = prepare_step17_world_cup_awards()
+    assert summary["status"] == "ok"
+    golden_ball = pd.read_csv(processed / C.GOLDEN_BALL_PREDICTIONS_FILE)
+    assert "player_name" in golden_ball.columns
+    assert "player" in golden_ball.columns
 
 
 def test_prepare_step17_world_cup_awards_returns_status_ok(monkeypatch, tmp_path: Path) -> None:

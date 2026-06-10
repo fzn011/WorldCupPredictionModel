@@ -15,6 +15,7 @@ from src.awards.award_data import (
     merge_players_with_team_progression,
     normalize_official_award_candidates,
     require_official_final_ready,
+    resolve_player_sort_column,
 )
 
 PROGRESSION_COLUMNS: list[str] = [
@@ -109,17 +110,6 @@ def _normalize_probability(scores: pd.Series) -> pd.Series:
     return positive / total if total > 0 else 0.0
 
 
-def _player_sort_column(df: pd.DataFrame) -> str:
-    """Return a stable player label column for tie-break sorting."""
-    if "player_name" in df.columns:
-        return "player_name"
-    if "player" in df.columns:
-        return "player"
-    if "player_id" in df.columns:
-        return "player_id"
-    raise KeyError("Award candidates missing player_name, player, and player_id columns")
-
-
 def calculate_golden_ball_predictions(players_df: pd.DataFrame) -> pd.DataFrame:
     """Estimate Golden/Silver/Bronze Ball rankings and probabilities."""
     out = calculate_player_impact_components(players_df)
@@ -138,7 +128,7 @@ def calculate_golden_ball_predictions(players_df: pd.DataFrame) -> pd.DataFrame:
     out["final_golden_ball_score"] = (out["golden_ball_score"] * out["expected_minutes_share"]).clip(lower=0.0)
     out["golden_ball_probability"] = _normalize_probability(out["final_golden_ball_score"])
 
-    sort_name = _player_sort_column(out)
+    sort_name = resolve_player_sort_column(out)
     out = out.sort_values(
         ["golden_ball_probability", "final_golden_ball_score", sort_name],
         ascending=[False, False, True],
@@ -165,7 +155,7 @@ def calculate_golden_boot_predictions(players_df: pd.DataFrame) -> pd.DataFrame:
     out["expected_goals_score"] = out["expected_goals"]
     out["golden_boot_probability"] = _normalize_probability(out["boot_tiebreak_score"])
 
-    sort_name = _player_sort_column(out)
+    sort_name = resolve_player_sort_column(out)
     out = out.sort_values(["boot_tiebreak_score", "expected_goals", sort_name], ascending=[False, False, True]).reset_index(
         drop=True
     )
@@ -183,7 +173,7 @@ def calculate_golden_glove_predictions(players_df: pd.DataFrame) -> pd.DataFrame
     pos_group = out.get("position_group", out.get("position", pd.Series("", index=out.index))).astype(str).str.lower()
     mask = (pos_code == "GK") | pos_group.eq("goalkeeper")
     out = out[mask].copy()
-    out = ensure_numeric_award_columns(out)
+    out = ensure_numeric_award_columns(ensure_player_identity_columns(out))
 
     out["golden_glove_score"] = (
         out["base_player_rating"]
@@ -194,7 +184,7 @@ def calculate_golden_glove_predictions(players_df: pd.DataFrame) -> pd.DataFrame
     ).clip(lower=0.0)
     out["golden_glove_probability"] = _normalize_probability(out["golden_glove_score"])
 
-    sort_name = _player_sort_column(out)
+    sort_name = resolve_player_sort_column(out)
     out = out.sort_values(["golden_glove_score", sort_name], ascending=[False, True]).reset_index(drop=True)
     out["golden_glove_rank"] = range(1, len(out) + 1)
     out["award"] = out["golden_glove_rank"].map({1: "Golden Glove"}).fillna("")
@@ -227,7 +217,7 @@ def calculate_young_player_predictions(players_df: pd.DataFrame) -> pd.DataFrame
     scored = calculate_golden_ball_predictions(eligible)
     scored["young_player_score"] = scored["final_golden_ball_score"]
     scored["young_player_probability"] = _normalize_probability(scored["young_player_score"])
-    sort_name = "player_name" if "player_name" in scored.columns else "player"
+    sort_name = resolve_player_sort_column(scored)
     scored = scored.sort_values(["young_player_score", sort_name], ascending=[False, True]).reset_index(drop=True)
     scored["young_player_rank"] = range(1, len(scored) + 1)
     scored["award"] = scored["young_player_rank"].map({1: "Young Player Award"}).fillna("")
@@ -245,7 +235,7 @@ def calculate_player_of_match_proxy(players_df: pd.DataFrame) -> pd.DataFrame:
     out["player_impact_share"] = out["final_golden_ball_score"] / team_totals
     out["player_impact_share_proxy"] = out["player_impact_share"]
     out["estimated_potm_count"] = out["expected_matches"] * out["player_impact_share"]
-    sort_name = _player_sort_column(out)
+    sort_name = resolve_player_sort_column(out)
     out = out.sort_values(["estimated_potm_count", sort_name], ascending=[False, True]).reset_index(drop=True)
     out["player_of_match_proxy_rank"] = range(1, len(out) + 1)
     return out
@@ -265,7 +255,7 @@ def calculate_goal_of_tournament_proxy(players_df: pd.DataFrame) -> pd.DataFrame
         + out["semi_final_probability"]
     ).clip(lower=0.0)
     out["goal_of_tournament_proxy_probability"] = _normalize_probability(out["goal_of_tournament_proxy_score"])
-    sort_name = _player_sort_column(out)
+    sort_name = resolve_player_sort_column(out)
     out = out.sort_values(["goal_of_tournament_proxy_score", sort_name], ascending=[False, True]).reset_index(drop=True)
     out["goal_of_tournament_proxy_rank"] = range(1, len(out) + 1)
     return out

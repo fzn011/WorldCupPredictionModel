@@ -10,6 +10,7 @@ import pandas as pd
 
 import src.utils.constants as C
 from src.awards.award_data import (
+    ensure_player_identity_columns,
     get_award_candidate_source,
     load_official_award_candidates,
     load_official_teams_for_awards,
@@ -71,7 +72,7 @@ def prepare_step18_world_cup_awards(
     """Generate Step 18 World Cup awards analytics outputs (official_final required)."""
     readiness = require_official_final_ready()
 
-    players_df = load_official_award_candidates(use_enriched_candidates=use_enriched_candidates)
+    players_df = ensure_player_identity_columns(load_official_award_candidates(use_enriched_candidates=use_enriched_candidates))
     candidate_source = get_award_candidate_source(use_enriched_candidates=use_enriched_candidates)
     team_stage_df = load_team_stage_probabilities()
 

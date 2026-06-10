@@ -82,6 +82,38 @@ def test_calculate_golden_ball_predictions_with_player_name_only():
     assert abs(result["golden_ball_probability"].sum() - 1.0) < 1e-6
 
 
+def test_calculate_golden_ball_predictions_with_player_id_only():
+    """Regression: player_id-only rows must not KeyError on sort."""
+    df = _sample_players()
+    df = df.drop(columns=["player_name"])
+    if "player" in df.columns:
+        df = df.drop(columns=["player"])
+    result = calculate_golden_ball_predictions(df)
+    assert "player_name" in result.columns
+    assert "player" in result.columns
+    assert abs(result["golden_ball_probability"].sum() - 1.0) < 1e-6
+
+
+def test_calculate_golden_glove_predictions_with_player_name_only():
+    df = _sample_players()
+    if "player" in df.columns:
+        df = df.drop(columns=["player"])
+    result = calculate_golden_glove_predictions(df)
+    assert len(result) == 1
+    assert "golden_glove_rank" in result.columns
+
+
+def test_calculate_young_player_predictions_with_player_name_only():
+    players = _sample_players()
+    if "player" in players.columns:
+        players = players.drop(columns=["player"])
+    players.loc[0, "age_at_tournament_start"] = 19
+    players.loc[1, "age_at_tournament_start"] = 30
+    result = calculate_young_player_predictions(players)
+    assert len(result) == 1
+    assert "young_player_rank" in result.columns
+
+
 def test_calculate_golden_boot_predictions_probability_sum():
     df = calculate_golden_boot_predictions(_sample_players())
     assert abs(df["golden_boot_probability"].sum() - 1.0) < 1e-6

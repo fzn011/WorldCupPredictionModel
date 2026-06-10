@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pandas as pd
 
+from src.awards.award_data import resolve_player_sort_column
 from src.awards.player_awards import calculate_golden_ball_predictions
 
 FORMATION_REQUIREMENTS: list[tuple[str, int, str]] = [
@@ -41,7 +42,7 @@ def select_team_of_the_tournament(golden_ball_df: pd.DataFrame) -> pd.DataFrame:
                 f"(need {count}, found {len(position_df)})"
             )
         sort_cols = ["final_golden_ball_score", "golden_ball_probability"]
-        name_col = "player_name" if "player_name" in position_df.columns else "player"
+        name_col = resolve_player_sort_column(position_df)
         sort_cols.append(name_col)
         position_df = position_df.sort_values(sort_cols, ascending=[False, False, True]).head(count).copy()
         position_df["formation_slot"] = [f"{slot_prefix}{i}" for i in range(1, count + 1)]

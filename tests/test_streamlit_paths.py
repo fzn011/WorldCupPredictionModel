@@ -102,7 +102,5 @@ def test_streamlit_app_module_loads() -> None:
 @pytest.mark.parametrize("page_path", sorted((APP_DIR / "pages").glob("*.py")))
 def test_streamlit_page_modules_import_without_project_root_name_error(page_path: Path) -> None:
     """Smoke-import each Streamlit page (catches undefined PROJECT_ROOT in pages)."""
-    if page_path.name == "10_World_Cup_Awards.py":
-        pytest.skip("Legacy redirect page")
     # run_path executes module-level code; NameError fails the test.
     runpy.run_path(str(page_path), run_name=f"page_test_{page_path.stem}")
