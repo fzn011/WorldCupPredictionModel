@@ -1,26 +1,30 @@
-"""World Cup dark premium theme — colour tokens + full CSS injection."""
+"""Unified blood-red + black + green Streamlit theme (Step 20B)."""
 
 from __future__ import annotations
 
 import streamlit as st
 
 COLORS: dict[str, str] = {
-    "background": "#07111F",
-    "card": "#0E1B2A",
-    "card_border": "#1E3A5F",
-    "card_hover": "#142235",
-    "gold": "#D6A84F",
-    "gold_light": "#F0C97A",
+    "background": "#0B0B0B",
+    "card": "#0B0B0B",
+    "card_border": "#2A2A2A",
+    "card_hover": "#1A1A1A",
+    "primary": "#8B0000",
+    "primary_hover": "#A50000",
+    "gold": "#8B0000",
+    "gold_light": "#A50000",
     "green": "#16A36A",
     "green_dim": "#0d7a50",
-    "white": "#F8FAFC",
-    "muted": "#94A3B8",
-    "muted_dark": "#64748B",
+    "white": "#F8F8F8",
+    "muted": "#C0C0C0",
+    "muted_dark": "#909090",
+    "input_bg": "#1F1F1F",
+    "input_border": "#8B0000",
     "warning": "#F59E0B",
     "danger": "#EF4444",
-    "info": "#38BDF8",
-    "sidebar_bg": "#060e1a",
-    "nav_active": "rgba(214,168,79,0.12)",
+    "info": "#16A36A",
+    "sidebar_bg": "#080808",
+    "nav_active": "rgba(139,0,0,0.2)",
 }
 
 
@@ -490,6 +494,59 @@ section[data-testid="stSidebar"] .block-container {{
 .wc-dot-warn   {{ background: {c['warning']}; }}
 .wc-dot-danger {{ background: {c['danger']}; }}
 .wc-dot-muted  {{ background: {c['muted']}; }}
+
+
+/* ─── Inputs (readable contrast) ─────────────────────────── */
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input,
+.stTextArea textarea,
+.stDateInput [data-baseweb="input"] input {{
+  background-color: #1F1F1F !important;
+  color: #F8F8F8 !important;
+  border: 1px solid #8B0000 !important;
+  border-radius: 8px !important;
+}}
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {{
+  color: #C0C0C0 !important;
+}}
+.stButton > button[kind="primary"] {{
+  background: linear-gradient(135deg, #6d0000 0%, #8B0000 100%) !important;
+  border: none !important;
+  color: #F8F8F8 !important;
+  box-shadow: 0 4px 14px rgba(139,0,0,0.35);
+}}
+.stButton > button[kind="primary"]:hover {{
+  background: #A50000 !important;
+  box-shadow: 0 8px 20px rgba(165,0,0,0.45) !important;
+}}
+.stDownloadButton > button {{
+  background: #8B0000 !important;
+  border: 1px solid #8B0000 !important;
+  color: #F8F8F8 !important;
+}}
+.stDownloadButton > button:hover {{
+  background: #A50000 !important;
+  border-color: #A50000 !important;
+}}
+.wc-panel-warning {{
+  background: #F59E0B !important;
+  border: 1px solid #F59E0B !important;
+  border-left: 4px solid #F59E0B !important;
+  color: #0B0B0B !important;
+}}
+.wc-panel-success {{
+  background: #16A36A !important;
+  border: 1px solid #16A36A !important;
+  border-left: 4px solid #16A36A !important;
+  color: #F8F8F8 !important;
+}}
+.wc-panel-info {{
+  background: #1F1F1F !important;
+  border: 1px solid #16A36A !important;
+  border-left: 4px solid #16A36A !important;
+}}
 
 /* ─── Divider ─────────────────────────────────────────────── */
 hr {{ border-color: {c['card_border']} !important; opacity: 0.5; }}
