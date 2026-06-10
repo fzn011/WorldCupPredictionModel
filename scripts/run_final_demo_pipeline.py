@@ -31,6 +31,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Run final demo pipeline")
     parser.add_argument("--simulations", type=int, default=10, help="Monte Carlo simulation count")
     parser.add_argument("--seed", type=int, default=42, help="Monte Carlo random seed")
+    parser.add_argument(
+        "--use-manual-priors",
+        action="store_true",
+        help="Generate awards with optional manual star-player prior overrides",
+    )
+    parser.add_argument(
+        "--manual-prior-file",
+        default=None,
+        help="Manual prior CSV path for awards generation",
+    )
     args = parser.parse_args()
 
     mode = load_official_final_mode()
@@ -51,8 +61,13 @@ def main() -> int:
         ],
         [sys.executable, "scripts/enrich_player_priors.py"],
         [sys.executable, "scripts/enrich_player_priors.py", "--update-award-candidates"],
-        [sys.executable, "scripts/generate_world_cup_awards.py", "--use-enriched"],
     ]
+    awards_cmd = [sys.executable, "scripts/generate_world_cup_awards.py", "--use-enriched"]
+    if args.use_manual_priors:
+        awards_cmd.append("--use-manual-priors")
+        if args.manual_prior_file:
+            awards_cmd.extend(["--manual-prior-file", args.manual_prior_file])
+    steps.append(awards_cmd)
     for cmd in steps:
         script = cmd[1] if len(cmd) > 1 else ""
         if script.endswith("evaluate_official_final_readiness.py"):
@@ -79,6 +94,8 @@ def main() -> int:
     print(f"top_golden_ball_player: {summary.get('top_golden_ball_player')}")
     print(f"top_golden_boot_player: {summary.get('top_golden_boot_player')}")
     print(f"candidate_source: {summary.get('candidate_source')}")
+    print(f"use_manual_priors: {summary.get('use_manual_priors')}")
+    print(f"manual_priors_applied: {summary.get('manual_priors_applied')}")
     print(f"summary_path: {summary_path}")
     print(f"portfolio_readme: {portfolio.get('portfolio_readme')}")
     print(f"demo_script: {portfolio.get('demo_script')}")

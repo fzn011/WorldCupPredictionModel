@@ -21,12 +21,14 @@ try:
 except ModuleNotFoundError:
     from streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR
 
+from src.awards.manual_priors import resolve_manual_prior_file  # noqa: E402
 from src.awards.prior_enrichment import create_enriched_player_priors, merge_enriched_priors_into_award_candidates  # noqa: E402
 from src.awards.prepare_awards import prepare_step18_world_cup_awards  # noqa: E402
 from src.official.final_readiness import evaluate_official_final_readiness  # noqa: E402
 from src.official.promotion import load_official_final_mode  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 AWARDS_ANALYTICS_DISCLAIMER = str(getattr(C, "AWARDS_ANALYTICS_DISCLAIMER", "Analytics estimate only."))
+MANUAL_PRIOR_DISCLAIMER = str(getattr(C, "MANUAL_PRIOR_DISCLAIMER", "Manual priors are optional user-provided adjustments."))
 
 MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE = getattr(
     C, "MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE", "monte_carlo_team_stage_probabilities.csv"
@@ -142,6 +144,66 @@ with col_e2:
             st.json(result)
         except Exception as exc:
             st.error(str(exc))
+
+st.subheader("Manual star-player priors (Step 20)")
+st.info(MANUAL_PRIOR_DISCLAIMER)
+prior_mode = "official candidates only"
+if enriched_path.is_file() and "manual" in str(summary_pre.get("candidate_source", "")).lower():
+    prior_mode = "enriched + manual priors"
+elif enriched_path.is_file():
+    prior_mode = "enriched priors"
+elif summary_pre.get("use_manual_priors"):
+    prior_mode = "official + manual priors"
+st.metric("Prior mode", prior_mode)
+manual_summary_path = PROCESSED_DATA_DIR / getattr(C, "MANUAL_PRIOR_SUMMARY_FILE", "manual_prior_summary.json")
+manual_report_path = PROCESSED_DATA_DIR / getattr(C, "MANUAL_PRIOR_VALIDATION_REPORT_FILE", "manual_prior_validation_report.csv")
+if manual_summary_path.is_file():
+    manual_summary = _load_json(getattr(C, "MANUAL_PRIOR_SUMMARY_FILE", "manual_prior_summary.json"))
+    st.caption(
+        f"Manual overrides applied: {manual_summary.get('overrides_applied', 0)} | "
+        f"Unmatched ignored: {manual_summary.get('unmatched_manual_rows_ignored', 0)}"
+    )
+if manual_report_path.is_file():
+    manual_report_df = pd.read_csv(manual_report_path)
+    boost_rows = manual_report_df[manual_report_df.get("section", pd.Series(dtype=str)) == "applied_boost"]
+    movement_rows = manual_report_df[manual_report_df.get("section", pd.Series(dtype=str)) == "rank_movement"]
+    if not boost_rows.empty:
+        st.markdown("**Manual boosts applied (sample)**")
+        st.dataframe(
+            boost_rows[["player_name", "team", "boost_column", "boost_value"]].head(20),
+            use_container_width=True,
+        )
+    if not movement_rows.empty:
+        st.markdown("**Ranking movement (manual overrides)**")
+        st.dataframe(
+            movement_rows[
+                ["award", "player_name", "team", "rank_before", "rank_after", "rank_movement"]
+            ].head(20),
+            use_container_width=True,
+        )
+
+col_m1, col_m2 = st.columns(2)
+with col_m1:
+    if st.button("Generate awards (enriched + manual demo priors)"):
+        try:
+            demo_path = resolve_manual_prior_file(None)
+            if not enriched_path.is_file():
+                create_enriched_player_priors()
+                merge_enriched_priors_into_award_candidates(update_official=False)
+            result = prepare_step18_world_cup_awards(
+                use_enriched_candidates=True,
+                use_manual_priors=True,
+                manual_prior_file=demo_path,
+            )
+            st.success("Awards regenerated with enriched + manual demo priors.")
+            st.json(result)
+        except Exception as exc:
+            st.error(str(exc))
+with col_m2:
+    st.caption(
+        "Edit `data/templates/player_award_manual_priors_demo.csv` or export a full template via "
+        "`python scripts/export_player_award_prior_template.py`."
+    )
 
 st.subheader("Overview")
 st.markdown(

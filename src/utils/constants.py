@@ -880,6 +880,82 @@ PRIOR_NUMERIC_COLUMNS: list[str] = [
 ]
 
 # -----------------------------------------------------------------------------
+# Step 20: Manual star-player prior overrides
+# -----------------------------------------------------------------------------
+
+MANUAL_PRIOR_TEMPLATE_FILE: str = "player_award_priors_manual_template.csv"
+MANUAL_PRIOR_VALIDATION_REPORT_FILE: str = "manual_prior_validation_report.csv"
+MANUAL_PRIOR_SUMMARY_FILE: str = "manual_prior_summary.json"
+PLAYER_AWARD_MANUAL_PRIORS_DEMO_FILE: str = "data/templates/player_award_manual_priors_demo.csv"
+
+MANUAL_PRIOR_MATCH_COLUMNS: list[str] = ["player_id", "player_name", "team"]
+
+MANUAL_PRIOR_EDITABLE_COLUMNS: list[str] = [
+    "manual_star_tier",
+    "manual_goal_prior_boost",
+    "manual_assist_prior_boost",
+    "manual_golden_ball_boost",
+    "manual_golden_boot_boost",
+    "manual_young_player_boost",
+    "manual_golden_glove_boost",
+    "manual_minutes_confidence",
+    "manual_notes",
+    "manual_prior_source",
+    "apply_manual_override",
+]
+
+MANUAL_PRIOR_TEMPLATE_COLUMNS: list[str] = [
+    "player_id",
+    "player_name",
+    "team",
+    "position_code",
+    "position",
+    "age_at_tournament_start",
+    "date_of_birth",
+    "eligible_awards",
+    "base_player_rating",
+    "expected_minutes_share",
+    "goals_prior",
+    "assists_prior",
+    "chance_creation_prior",
+    "defensive_actions_prior",
+    "goalkeeper_actions_prior",
+    "discipline_risk",
+    "star_role_score",
+    "flair_score",
+    *MANUAL_PRIOR_EDITABLE_COLUMNS,
+]
+
+MANUAL_PRIOR_REQUIRED_COLUMNS: list[str] = [
+    "player_id",
+    "player_name",
+    "team",
+    "apply_manual_override",
+]
+
+MANUAL_BOOST_CLIP_RANGES: dict[str, tuple[float, float]] = {
+    "manual_goal_prior_boost": (0.0, 3.0),
+    "manual_assist_prior_boost": (0.0, 2.0),
+    "manual_golden_ball_boost": (0.0, 0.15),
+    "manual_golden_boot_boost": (0.0, 2.5),
+    "manual_young_player_boost": (0.0, 0.15),
+    "manual_golden_glove_boost": (0.0, 3.0),
+    "manual_minutes_confidence": (0.0, 0.30),
+}
+
+MANUAL_STAR_TIER_BONUSES: dict[str, dict[str, float]] = {
+    "none": {"base_player_rating": 0.0, "star_role_score": 0.0, "flair_score": 0.0},
+    "star": {"base_player_rating": 3.0, "star_role_score": 1.0, "flair_score": 0.3},
+    "superstar": {"base_player_rating": 6.0, "star_role_score": 2.5, "flair_score": 0.8},
+}
+
+MANUAL_PRIOR_DISCLAIMER: str = (
+    "Manual priors are optional user-provided adjustments applied only to official candidate "
+    "players. They improve portfolio demonstration quality but do not represent official FIFA "
+    "predictions."
+)
+
+# -----------------------------------------------------------------------------
 # Step 17A official World Cup 2026 data lock constants
 # -----------------------------------------------------------------------------
 
