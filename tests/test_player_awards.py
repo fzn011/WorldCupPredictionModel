@@ -65,6 +65,23 @@ def test_calculate_golden_ball_predictions_probability_sum():
     assert abs(df["golden_ball_probability"].sum() - 1.0) < 1e-6
 
 
+def test_calculate_golden_ball_predictions_with_player_column_only():
+    """Regression: candidates may expose player_name without a separate player column."""
+    df = _sample_players()
+    df = df.drop(columns=["player_name"])
+    df["player"] = [f"Player {i}" for i in range(len(df))]
+    result = calculate_golden_ball_predictions(df)
+    assert "player_name" in result.columns
+    assert abs(result["golden_ball_probability"].sum() - 1.0) < 1e-6
+
+
+def test_calculate_golden_ball_predictions_with_player_name_only():
+    df = _sample_players()
+    result = calculate_golden_ball_predictions(df)
+    assert "player" in result.columns
+    assert abs(result["golden_ball_probability"].sum() - 1.0) < 1e-6
+
+
 def test_calculate_golden_boot_predictions_probability_sum():
     df = calculate_golden_boot_predictions(_sample_players())
     assert abs(df["golden_boot_probability"].sum() - 1.0) < 1e-6

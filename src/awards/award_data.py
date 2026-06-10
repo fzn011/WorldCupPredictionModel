@@ -50,13 +50,39 @@ def require_official_final_ready() -> dict[str, Any]:
     }
 
 
+def ensure_player_identity_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Ensure player_name and player columns exist for sorting and reports."""
+    out = df.copy()
+    lower_map = {str(c).lower().replace(" ", "_"): c for c in out.columns}
+
+    if "player_name" not in out.columns:
+        for key in ("player", "name", "player_name"):
+            if key in lower_map:
+                out["player_name"] = out[lower_map[key]].astype(str)
+                break
+
+    if "player_name" not in out.columns and "player_id" in out.columns:
+        out["player_name"] = out["player_id"].astype(str)
+
+    if "player" not in out.columns:
+        if "player_name" in out.columns:
+            out["player"] = out["player_name"].astype(str)
+        elif "player_id" in out.columns:
+            out["player"] = out["player_id"].astype(str)
+            if "player_name" not in out.columns:
+                out["player_name"] = out["player"]
+        else:
+            out["player_name"] = ""
+            out["player"] = ""
+    elif "player_name" not in out.columns:
+        out["player_name"] = out["player"].astype(str)
+
+    return out
+
+
 def normalize_official_award_candidates(df: pd.DataFrame) -> pd.DataFrame:
     """Normalize official candidate schema for award scoring."""
-    out = df.copy()
-    if "player_name" in out.columns:
-        out["player"] = out["player_name"].astype(str)
-    elif "player" not in out.columns:
-        out["player"] = ""
+    out = ensure_player_identity_columns(df.copy())
 
     out["team"] = out["team"].map(standardize_team_name)
 
