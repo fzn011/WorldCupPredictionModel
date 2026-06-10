@@ -184,8 +184,9 @@ st.code("""
 # Preview before applying
 python scripts/preview_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
 
-# Apply verified import
-python scripts/apply_official_import.py --type players data/official/import_templates/official_players_import_template.csv
+# Apply verified import (preview first, then apply for real)
+python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv --preview
+python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
 
 # Re-check readiness
 python scripts/evaluate_official_final_readiness.py

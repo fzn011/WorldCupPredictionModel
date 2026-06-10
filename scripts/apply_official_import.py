@@ -4,15 +4,31 @@
 This script applies verified import CSV files and updates the official
 data files, optionally re-validating and re-preparing the data.
 
-Usage:
-    python scripts/apply_official_import.py <file_or_directory> [--no-backup] [--no-reprepare]
-    python scripts/apply_official_import.py --type <type> <file> [--preview]
-    python scripts/apply_official_import.py --target players --file <csv> --preview
+Canonical usage (--target / --file form):
+    # Step 1: preview diff before applying
+    python scripts/apply_official_import.py --target <type> --file <csv> --preview
+
+    # Step 2: apply for real (creates automatic backup)
+    python scripts/apply_official_import.py --target <type> --file <csv>
+
+    # Apply all imports in a directory
+    python scripts/apply_official_import.py <directory>
+
+Supported target types: teams, groups, fixtures, venues, players, player_priors
+
+Import order (each file depends on the previous ones):
+    teams → groups → venues → fixtures → players → player_priors
 
 Examples:
-    python scripts/apply_official_import.py import_teams_template.csv
-    python scripts/apply_official_import.py --type teams my_teams_data.csv
-    python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv --preview
+    python scripts/apply_official_import.py --target teams   --file data/official/import_templates/official_teams_import_template.csv   --preview
+    python scripts/apply_official_import.py --target teams   --file data/official/import_templates/official_teams_import_template.csv
+    python scripts/apply_official_import.py --target groups  --file data/official/import_templates/official_groups_import_template.csv
+    python scripts/apply_official_import.py --target venues  --file data/official/import_templates/official_venues_import_template.csv
+    python scripts/apply_official_import.py --target fixtures --file data/official/import_templates/official_fixtures_import_template.csv
+    python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
+    python scripts/apply_official_import.py --target player_priors --file data/official/import_templates/player_award_priors_import_template.csv
+
+Note: --type is accepted as an alias for --target.
 """
 
 from __future__ import annotations

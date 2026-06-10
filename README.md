@@ -411,12 +411,118 @@ Step 17D creates a complete manual data population workflow for verified FIFA Wo
 ```bash
 python scripts/prepare_official_population_pack.py
 python scripts/generate_official_import_templates.py
-python scripts/preview_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
-python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv --preview
+
+# Preview before applying (always preview first)
+python scripts/preview_official_import.py --target teams    --file data/official/import_templates/official_teams_import_template.csv
+python scripts/preview_official_import.py --target players  --file data/official/import_templates/official_players_import_template.csv
+
+# Apply in dependency order: teams → groups → venues → fixtures → players → player_priors
+python scripts/apply_official_import.py --target teams         --file data/official/import_templates/official_teams_import_template.csv    --preview
+python scripts/apply_official_import.py --target teams         --file data/official/import_templates/official_teams_import_template.csv
+python scripts/apply_official_import.py --target groups        --file data/official/import_templates/official_groups_import_template.csv
+python scripts/apply_official_import.py --target venues        --file data/official/import_templates/official_venues_import_template.csv
+python scripts/apply_official_import.py --target fixtures      --file data/official/import_templates/official_fixtures_import_template.csv
+python scripts/apply_official_import.py --target players       --file data/official/import_templates/official_players_import_template.csv
+python scripts/apply_official_import.py --target player_priors --file data/official/import_templates/player_award_priors_import_template.csv
+
 python scripts/evaluate_official_final_readiness.py
 python scripts/promote_official_final.py
 python scripts/promote_official_final.py --confirm
 python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```
+
+## Step 17E: Fill and Verify Official Teams, Groups, Venues, and Fixtures
+
+> **Data population step — no code changes required.**
+
+Fill these four templates from verified FIFA sources before touching players or awards.
+
+### Target after Step 17E
+
+| Dataset | Required | Source template |
+|---------|----------|-----------------|
+| Teams | 48 rows | `official_teams_import_template.csv` |
+| Groups | 48 rows (12 × 4) | `official_groups_import_template.csv` |
+| Venues | 16+ rows | `official_venues_import_template.csv` |
+| Fixtures | 104 rows (72 group + 32 KO) | `official_fixtures_import_template.csv` |
+
+Templates live in `data/official/import_templates/`.
+
+### Step 17E fill order
+
+1. **Teams** — 48 qualified nations, group assignments, confederation, host flags
+2. **Groups** — 12 groups × 4 teams; must match teams file exactly
+3. **Venues** — stadiums, cities, countries, timezones, capacity
+4. **Fixtures** — all 104 matches; kickoff times (local + UTC), venue, team codes
+
+### Step 17E apply commands
+
+```bash
+python scripts/apply_official_import.py --target teams    --file data/official/import_templates/official_teams_import_template.csv    --preview
+python scripts/apply_official_import.py --target teams    --file data/official/import_templates/official_teams_import_template.csv
+python scripts/apply_official_import.py --target groups   --file data/official/import_templates/official_groups_import_template.csv
+python scripts/apply_official_import.py --target venues   --file data/official/import_templates/official_venues_import_template.csv
+python scripts/apply_official_import.py --target fixtures --file data/official/import_templates/official_fixtures_import_template.csv
+python scripts/evaluate_official_final_readiness.py
+```
+
+### Step 17E checklist
+
+- [ ] 48 teams, no `sample_to_be_verified`
+- [ ] 12 groups, each with exactly 4 teams
+- [ ] Groups match teams (team names identical)
+- [ ] 16+ venues with city, country, timezone
+- [ ] 72 group-stage fixtures with kickoff times
+- [ ] 32 knockout fixtures/placeholders
+- [ ] No blocking placeholder values in any of the above
+
+---
+
+## Step 17F: Fill and Verify Official Squads and Player Priors
+
+> **Data population step — no code changes required. Requires Step 17E to pass first.**
+
+### Target after Step 17F
+
+| Dataset | Required |
+|---------|----------|
+| Players | 1,248 rows (48 × 26) |
+| Teams with full squads | 48 / 48 |
+| Player priors | 1,248 rows |
+| `sample_to_be_verified` rows | 0 |
+| Blocking placeholders | 0 |
+
+### Step 17F fill order
+
+5. **Players** — 26 players per team; shirt number, position, DOB, club
+6. **Player priors** — editable estimates for the awards model (fill after players)
+
+### Step 17F apply commands
+
+```bash
+python scripts/apply_official_import.py --target players       --file data/official/import_templates/official_players_import_template.csv --preview
+python scripts/apply_official_import.py --target players       --file data/official/import_templates/official_players_import_template.csv
+python scripts/apply_official_import.py --target player_priors --file data/official/import_templates/player_award_priors_import_template.csv
+python scripts/evaluate_official_final_readiness.py
+python scripts/promote_official_final.py --confirm
+```
+
+### Step 17F checklist
+
+- [ ] 1,248 players across 48 squads
+- [ ] 26 players per team exactly
+- [ ] No `sample_to_be_verified` players
+- [ ] Player priors filled for all official squad players
+- [ ] `official_final` promotion succeeds
+
+---
+
+## Step 18: FIFA World Cup Awards Predictor
+
+> **Code step — blocked until Steps 17E and 17F are complete and `official_final = true`.**
+
+Awards predictions (Golden Ball, Golden Boot, Golden Glove, Young Player, Team of the Tournament)
+are only trustworthy when official squads are complete. Do not implement Step 18 while
+`official_final_enabled = false`.
 
