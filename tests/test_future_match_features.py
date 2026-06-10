@@ -147,5 +147,5 @@ def test_get_available_teams_returns_sorted_non_empty(monkeypatch: pytest.Monkey
         },
     )
 
-    teams = get_available_teams()
+    teams = get_available_teams(official_only=False)
     assert teams == ["Argentina", "Brazil", "France"]

@@ -1,0 +1,17 @@
+venue_id,stadium,venue,city,country,timezone,capacity,latitude,longitude,source
+v_metlife,MetLife Stadium,MetLife Stadium,East Rutherford,USA,America/New_York,82500,40.8135,-74.0745,ai_prefilled_needs_verification
+v_rosebowl,Rose Bowl Stadium,Rose Bowl,Pasadena,USA,America/Los_Angeles,92542,34.1614,-118.1676,ai_prefilled_needs_verification
+v_att,AT&T Stadium,AT&T Stadium,Arlington,USA,America/Chicago,80000,32.7479,-97.0928,ai_prefilled_needs_verification
+v_sofi,SoFi Stadium,SoFi Stadium,Inglewood,USA,America/Los_Angeles,70240,33.9535,-118.3392,ai_prefilled_needs_verification
+v_levis,Levi's Stadium,Levi's Stadium,Santa Clara,USA,America/Los_Angeles,68500,37.4033,-121.9694,ai_prefilled_needs_verification
+v_hardrock,Hard Rock Stadium,Hard Rock Stadium,Miami Gardens,USA,America/New_York,64767,25.958,-80.2389,ai_prefilled_needs_verification
+v_arrowhead,Arrowhead Stadium,Arrowhead Stadium,Kansas City,USA,America/Chicago,76416,39.0489,-94.4839,ai_prefilled_needs_verification
+v_gillette,Gillette Stadium,Gillette Stadium,Foxborough,USA,America/New_York,65878,42.0909,-71.2643,ai_prefilled_needs_verification
+v_lincoln,Lincoln Financial Field,Lincoln Financial Field,Philadelphia,USA,America/New_York,69328,39.9008,-75.1675,ai_prefilled_needs_verification
+v_lumen,Lumen Field,Lumen Field,Seattle,USA,America/Los_Angeles,72000,47.5952,-122.3316,ai_prefilled_needs_verification
+v_nrg,NRG Stadium,NRG Stadium,Houston,USA,America/Chicago,72220,29.6847,-95.4107,ai_prefilled_needs_verification
+v_bcplace,BC Place,BC Place,Vancouver,Canada,America/Vancouver,54500,49.2768,-123.1119,ai_prefilled_needs_verification
+v_bmo,BMO Field,BMO Field,Toronto,Canada,America/Toronto,45736,43.6333,-79.4179,ai_prefilled_needs_verification
+v_azteca,Estadio Azteca,Estadio Azteca,Mexico City,Mexico,America/Mexico_City,87523,19.3029,-99.1505,ai_prefilled_needs_verification
+v_akron,Estadio Akron,Estadio Akron,Guadalajara,Mexico,America/Mexico_City,49850,20.6854,-103.4666,ai_prefilled_needs_verification
+v_bbva,Estadio BBVA,Estadio BBVA,Monterrey,Mexico,America/Monterrey,53500,25.6694,-100.2436,ai_prefilled_needs_verification

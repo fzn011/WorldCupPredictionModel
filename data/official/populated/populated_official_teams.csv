@@ -1,0 +1,49 @@
+team,team_code,confederation,group,group_slot,is_host,qualified,source
+Mexico,MEX,CONCACAF,A,1.0,1.0,1.0,ai_prefilled_needs_verification
+South Africa,RSA,CAF,A,2.0,0.0,1.0,ai_prefilled_needs_verification
+South Korea,KOR,AFC,A,3.0,0.0,1.0,ai_prefilled_needs_verification
+Czechia,CZE,UEFA,A,4.0,0.0,1.0,ai_prefilled_needs_verification
+Canada,CAN,CONCACAF,B,1.0,1.0,1.0,ai_prefilled_needs_verification
+Switzerland,SUI,UEFA,B,2.0,0.0,1.0,ai_prefilled_needs_verification
+Qatar,QAT,AFC,B,3.0,0.0,1.0,ai_prefilled_needs_verification
+Bosnia and Herzegovina,BIH,UEFA,B,4.0,0.0,1.0,ai_prefilled_needs_verification
+United States,USA,CONCACAF,C,1.0,1.0,1.0,ai_prefilled_needs_verification
+Japan,JPN,AFC,C,2.0,0.0,1.0,ai_prefilled_needs_verification
+Nigeria,NGA,CAF,C,3.0,0.0,1.0,ai_prefilled_needs_verification
+Serbia,SRB,UEFA,C,4.0,0.0,1.0,ai_prefilled_needs_verification
+Brazil,BRA,CONMEBOL,D,1.0,0.0,1.0,ai_prefilled_needs_verification
+Croatia,CRO,UEFA,D,2.0,0.0,1.0,ai_prefilled_needs_verification
+Egypt,EGY,CAF,D,3.0,0.0,1.0,ai_prefilled_needs_verification
+Australia,AUS,AFC,D,4.0,0.0,1.0,ai_prefilled_needs_verification
+Argentina,ARG,CONMEBOL,E,1.0,0.0,1.0,ai_prefilled_needs_verification
+Denmark,DEN,UEFA,E,2.0,0.0,1.0,ai_prefilled_needs_verification
+Ghana,GHA,CAF,E,3.0,0.0,1.0,ai_prefilled_needs_verification
+Costa Rica,CRC,CONCACAF,E,4.0,0.0,1.0,ai_prefilled_needs_verification
+France,FRA,UEFA,F,1.0,0.0,1.0,ai_prefilled_needs_verification
+Morocco,MAR,CAF,F,2.0,0.0,1.0,ai_prefilled_needs_verification
+Ecuador,ECU,CONMEBOL,F,3.0,0.0,1.0,ai_prefilled_needs_verification
+Poland,POL,UEFA,F,4.0,0.0,1.0,ai_prefilled_needs_verification
+England,ENG,UEFA,G,1.0,0.0,1.0,ai_prefilled_needs_verification
+Iran,IRN,AFC,G,2.0,0.0,1.0,ai_prefilled_needs_verification
+Tunisia,TUN,CAF,G,3.0,0.0,1.0,ai_prefilled_needs_verification
+Peru,PER,CONMEBOL,G,4.0,0.0,1.0,ai_prefilled_needs_verification
+Spain,SPA,UEFA,H,1.0,0.0,1.0,ai_prefilled_needs_verification
+Cameroon,CAM,CAF,H,2.0,0.0,1.0,ai_prefilled_needs_verification
+Uruguay,URU,CONMEBOL,H,3.0,0.0,1.0,ai_prefilled_needs_verification
+Sweden,SWE,UEFA,H,4.0,0.0,1.0,ai_prefilled_needs_verification
+Germany,GER,UEFA,I,1.0,0.0,1.0,ai_prefilled_needs_verification
+Algeria,ALG,CAF,I,2.0,0.0,1.0,ai_prefilled_needs_verification
+Colombia,COL,CONMEBOL,I,3.0,0.0,1.0,ai_prefilled_needs_verification
+Scotland,SCO,UEFA,I,4.0,0.0,1.0,ai_prefilled_needs_verification
+Portugal,POR,UEFA,J,1.0,0.0,1.0,ai_prefilled_needs_verification
+Senegal,SEN,CAF,J,2.0,0.0,1.0,ai_prefilled_needs_verification
+United Arab Emirates,UAE,AFC,J,3.0,0.0,1.0,ai_prefilled_needs_verification
+Austria,AUT,UEFA,J,4.0,0.0,1.0,ai_prefilled_needs_verification
+Netherlands,NED,UEFA,K,1.0,0.0,1.0,ai_prefilled_needs_verification
+Côte d'Ivoire,CIV,CAF,K,2.0,0.0,1.0,ai_prefilled_needs_verification
+Chile,CHI,CONMEBOL,K,3.0,0.0,1.0,ai_prefilled_needs_verification
+Norway,NOR,UEFA,K,4.0,0.0,1.0,ai_prefilled_needs_verification
+Belgium,BEL,UEFA,L,1.0,0.0,1.0,ai_prefilled_needs_verification
+Turkey,TUR,UEFA,L,2.0,0.0,1.0,ai_prefilled_needs_verification
+Paraguay,PAR,CONMEBOL,L,3.0,0.0,1.0,ai_prefilled_needs_verification
+New Zealand,NZL,OFC,L,4.0,0.0,1.0,ai_prefilled_needs_verification

@@ -157,4 +157,16 @@ else:
     st.success("All checks passed — promotion available via Official Data Population page.")
 
 st.divider()
+st.header("Step 17F: Populate Official Data")
+st.markdown("""
+Upload official FIFA schedule/squad files, run the populated-data builder, review completeness, and download the import pack.
+**Does not auto-apply** uploaded data.
+""")
+st.code("""
+python scripts/prepare_populated_official_data.py
+python scripts/import_fifa_schedule_file.py --file path/to/fifa_schedule.xlsx
+python scripts/import_fifa_squad_file.py --file path/to/fifa_squads.csv
+python scripts/apply_populated_official_data.py --preview
+""", language="bash")
+st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open Step 17F completion page", icon="📋")
 st.caption("Step 17E: Source-assisted ingestion only. Step 18 Awards remains blocked until official_final.")

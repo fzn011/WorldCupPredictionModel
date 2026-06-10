@@ -88,7 +88,15 @@ def get_official_team_list() -> list[str]:
     teams_df = load_official_teams()
     if "team" not in teams_df.columns:
         return []
-    teams = sorted({standardize_team_name(value) for value in teams_df["team"].astype(str).tolist() if str(value).strip()})
+    teams = sorted(
+        {
+            standardize_team_name(value)
+            for value in teams_df["team"].tolist()
+            if pd.notna(value)
+            and str(value).strip()
+            and str(value).strip().lower() not in {"nan", "none", ""}
+        }
+    )
     return teams
 
 

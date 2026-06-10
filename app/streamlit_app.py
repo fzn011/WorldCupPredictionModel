@@ -180,7 +180,9 @@ st.success(
     "Step 17B: Official squads and player priors merge completed.\n\n"
     "Step 17C: Official final readiness workflow completed.\n\n"
     "Step 17D: Official data population pack completed.\n\n"
-    "Step 17E: Source-assisted official FIFA data population completed."
+    "Step 17E: Source-assisted official FIFA data population completed.\n\n"
+    "Step 17F: Official FIFA data population workflow completed.\n\n"
+    "Step 17G: Official data import execution workflow completed."
 )
 st.caption(
     "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
@@ -749,6 +751,80 @@ step17e_rows = [
 ]
 st.dataframe(pd.DataFrame(step17e_rows), use_container_width=True)
 st.caption("Step 17E stages official FIFA source data for review; official_final stays blocked until readiness passes.")
+
+st.subheader("Step 17F: Populate Official FIFA World Cup Data Outputs")
+
+OFFICIAL_POPULATED_DATA_DIR = getattr(C, "OFFICIAL_POPULATED_DATA_DIR", "data/official/populated")
+OFFICIAL_POPULATED_REPORTS_DIR = getattr(C, "OFFICIAL_POPULATED_REPORTS_DIR", "data/official/populated/reports")
+OFFICIAL_POPULATED_EXPORTS_DIR = getattr(C, "OFFICIAL_POPULATED_EXPORTS_DIR", "data/official/populated/exports")
+POPULATED_OFFICIAL_TEAMS_FILE = getattr(C, "POPULATED_OFFICIAL_TEAMS_FILE", "populated_official_teams.csv")
+POPULATED_OFFICIAL_GROUPS_FILE = getattr(C, "POPULATED_OFFICIAL_GROUPS_FILE", "populated_official_groups.csv")
+POPULATED_OFFICIAL_FIXTURES_FILE = getattr(C, "POPULATED_OFFICIAL_FIXTURES_FILE", "populated_official_fixtures.csv")
+POPULATED_OFFICIAL_VENUES_FILE = getattr(C, "POPULATED_OFFICIAL_VENUES_FILE", "populated_official_venues.csv")
+POPULATED_OFFICIAL_PLAYERS_FILE = getattr(C, "POPULATED_OFFICIAL_PLAYERS_FILE", "populated_official_players.csv")
+POPULATED_PLAYER_AWARD_PRIORS_FILE = getattr(C, "POPULATED_PLAYER_AWARD_PRIORS_FILE", "populated_player_award_priors.csv")
+OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE = getattr(
+    C, "OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE", "official_population_completeness_report.csv"
+)
+OFFICIAL_POPULATION_FINAL_SUMMARY_FILE = getattr(
+    C, "OFFICIAL_POPULATION_FINAL_SUMMARY_FILE", "official_population_final_summary.json"
+)
+OFFICIAL_READY_IMPORT_PACK_FILE = getattr(C, "OFFICIAL_READY_IMPORT_PACK_FILE", "official_ready_import_pack.zip")
+
+POP_ROOT = PROJECT_ROOT / str(OFFICIAL_POPULATED_DATA_DIR)
+POP_REPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATED_REPORTS_DIR)
+POP_EXPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATED_EXPORTS_DIR)
+
+step17f_rows = [
+    {"file": POPULATED_OFFICIAL_TEAMS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_TEAMS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_TEAMS_FILE).is_file()},
+    {"file": POPULATED_OFFICIAL_GROUPS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_GROUPS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_GROUPS_FILE).is_file()},
+    {"file": POPULATED_OFFICIAL_FIXTURES_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_FIXTURES_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_FIXTURES_FILE).is_file()},
+    {"file": POPULATED_OFFICIAL_VENUES_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_VENUES_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_VENUES_FILE).is_file()},
+    {"file": POPULATED_OFFICIAL_PLAYERS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_PLAYERS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_PLAYERS_FILE).is_file()},
+    {"file": POPULATED_PLAYER_AWARD_PRIORS_FILE, "path": str(POP_ROOT / POPULATED_PLAYER_AWARD_PRIORS_FILE), "present": (POP_ROOT / POPULATED_PLAYER_AWARD_PRIORS_FILE).is_file()},
+    {"file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE, "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE), "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file()},
+    {"file": OFFICIAL_POPULATION_FINAL_SUMMARY_FILE, "path": str(POP_REPORTS / OFFICIAL_POPULATION_FINAL_SUMMARY_FILE), "present": (POP_REPORTS / OFFICIAL_POPULATION_FINAL_SUMMARY_FILE).is_file()},
+    {"file": OFFICIAL_READY_IMPORT_PACK_FILE, "path": str(POP_EXPORTS / OFFICIAL_READY_IMPORT_PACK_FILE), "present": (POP_EXPORTS / OFFICIAL_READY_IMPORT_PACK_FILE).is_file()},
+]
+st.dataframe(pd.DataFrame(step17f_rows), use_container_width=True)
+st.caption("Step 17F builds populated import files from FIFA sources; apply only when completeness checks pass.")
+
+st.subheader("Step 17G: Official Data Import Execution Outputs")
+
+OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE = getattr(
+    C, "OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE", "official_import_execution_summary.json"
+)
+OFFICIAL_FINAL_READINESS_REPORT_FILE = getattr(
+    C, "OFFICIAL_FINAL_READINESS_REPORT_FILE", "official_final_readiness_report.json"
+)
+OFFICIAL_FINAL_READINESS_CHECKLIST_FILE = getattr(
+    C, "OFFICIAL_FINAL_READINESS_CHECKLIST_FILE", "official_final_readiness_checklist.csv"
+)
+
+step17g_rows = [
+    {
+        "file": OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE,
+        "path": str(POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE),
+        "present": (POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE).is_file(),
+    },
+    {
+        "file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE,
+        "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE),
+        "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file(),
+    },
+    {
+        "file": OFFICIAL_FINAL_READINESS_REPORT_FILE,
+        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE),
+        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE).is_file(),
+    },
+    {
+        "file": OFFICIAL_FINAL_READINESS_CHECKLIST_FILE,
+        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE),
+        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step17g_rows), use_container_width=True)
+st.caption("Step 17G runs staging, preview, optional apply, and final readiness — without forcing official_final.")
 
 st.subheader("Planned Datasets")
 rows = []
