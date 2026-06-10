@@ -638,8 +638,11 @@ STAGE_PROBABILITY_DISPLAY_COLUMNS: list[str] = [
 ]
 
 # -----------------------------------------------------------------------------
-# Step 17 FIFA World Cup awards predictor constants
+# Step 17/18 FIFA World Cup awards predictor constants
 # -----------------------------------------------------------------------------
+
+AWARDS_OUTPUT_DIR: str = "data/processed"
+AWARDS_REPORT_DIR: str = "reports"
 
 PLAYER_CANDIDATES_FILE: str = "player_candidates.csv"
 SAMPLE_PLAYER_CANDIDATES_FILE: str = "sample_player_candidates.csv"
@@ -729,8 +732,59 @@ TEAM_PROGRESSION_WEIGHTS: dict[str, float] = {
     "champion_probability": 5.0,
 }
 
+AWARD_POSITION_GROUPS: dict[str, str] = {
+    "GK": "goalkeeper",
+    "DF": "defender",
+    "MF": "midfielder",
+    "FW": "forward",
+}
+
+AWARD_POSITION_WEIGHTS: dict[str, dict[str, float]] = {
+    "goalkeeper": {
+        "golden_ball": 0.85,
+        "golden_boot": 0.02,
+        "golden_glove": 1.50,
+        "defensive": 1.20,
+        "creative": 0.10,
+        "attacking": 0.02,
+    },
+    "defender": {
+        "golden_ball": 0.95,
+        "golden_boot": 0.15,
+        "golden_glove": 0.00,
+        "defensive": 1.35,
+        "creative": 0.50,
+        "attacking": 0.25,
+    },
+    "midfielder": {
+        "golden_ball": 1.10,
+        "golden_boot": 0.65,
+        "golden_glove": 0.00,
+        "defensive": 0.75,
+        "creative": 1.35,
+        "attacking": 0.80,
+    },
+    "forward": {
+        "golden_ball": 1.15,
+        "golden_boot": 1.40,
+        "golden_glove": 0.00,
+        "defensive": 0.20,
+        "creative": 0.80,
+        "attacking": 1.50,
+    },
+}
+
+AWARD_TEAM_PROGRESSION_WEIGHTS: dict[str, float] = {
+    "round_of_32_probability": 0.5,
+    "round_of_16_probability": 1.0,
+    "quarter_final_probability": 1.5,
+    "semi_final_probability": 2.5,
+    "final_probability": 3.5,
+    "champion_probability": 5.0,
+}
+
 AWARDS_ANALYTICS_DISCLAIMER: str = (
-    "These awards are explainable analytics estimates based on manually editable player priors, "
+    "These are explainable analytics estimates based on official squads, editable player priors, "
     "team profiles, and Monte Carlo team progression probabilities. They are not official FIFA predictions."
 )
 

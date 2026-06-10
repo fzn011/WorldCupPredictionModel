@@ -1,4 +1,4 @@
-"""Predicted Team of the Tournament selection utilities."""
+"""Predicted Team of the Tournament selection utilities (Step 18)."""
 
 from __future__ import annotations
 
@@ -14,33 +14,64 @@ FORMATION_REQUIREMENTS: list[tuple[str, int, str]] = [
 ]
 
 
-def select_team_of_tournament(players_df: pd.DataFrame) -> pd.DataFrame:
-    """Select an unofficial analytics 4-3-3 Team of the Tournament."""
-    out = players_df.copy()
-    if "final_golden_ball_score" not in out.columns or "golden_ball_probability" not in out.columns:
+def _position_group(row: pd.Series) -> str:
+    group = str(row.get("position_group", "")).strip().lower()
+    if group:
+        return group
+    code = str(row.get("position_code", "")).strip().upper()
+    mapping = {"GK": "goalkeeper", "DF": "defender", "MF": "midfielder", "FW": "forward"}
+    if code in mapping:
+        return mapping[code]
+    return str(row.get("position", "midfielder")).strip().lower()
+
+
+def select_team_of_the_tournament(golden_ball_df: pd.DataFrame) -> pd.DataFrame:
+    """Select unofficial analytics 4-3-3 Team of the Tournament."""
+    out = golden_ball_df.copy()
+    if "final_golden_ball_score" not in out.columns:
         out = calculate_golden_ball_predictions(out)
+    out["position_group"] = out.apply(_position_group, axis=1)
 
     picks: list[pd.DataFrame] = []
     for position, count, slot_prefix in FORMATION_REQUIREMENTS:
-        position_df = out[out["position"].astype(str).str.lower() == position].copy()
-        position_df = position_df.sort_values(["final_golden_ball_score", "golden_ball_probability", "player"], ascending=[False, False, True]).head(count).copy()
-        position_df["formation_slot"] = [f"{slot_prefix}{i}" for i in range(1, len(position_df) + 1)]
+        position_df = out[out["position_group"] == position].copy()
+        if len(position_df) < count:
+            raise ValueError(
+                f"Insufficient {position} players for Team of the Tournament "
+                f"(need {count}, found {len(position_df)})"
+            )
+        sort_cols = ["final_golden_ball_score", "golden_ball_probability"]
+        name_col = "player_name" if "player_name" in position_df.columns else "player"
+        sort_cols.append(name_col)
+        position_df = position_df.sort_values(sort_cols, ascending=[False, False, True]).head(count).copy()
+        position_df["formation_slot"] = [f"{slot_prefix}{i}" for i in range(1, count + 1)]
         picks.append(position_df)
 
-    team_df = pd.concat(picks, ignore_index=True) if picks else pd.DataFrame()
-    if not team_df.empty:
-        keep_cols = [
-            col
-            for col in [
-                "player",
-                "team",
-                "position",
-                "formation_slot",
-                "final_golden_ball_score",
-                "golden_ball_probability",
-            ]
-            if col in team_df.columns
+    team_df = pd.concat(picks, ignore_index=True)
+    keep_cols = [
+        c
+        for c in [
+            "formation_slot",
+            "player_id",
+            "player_name",
+            "player",
+            "team",
+            "position_group",
+            "position",
+            "position_code",
+            "club",
+            "final_golden_ball_score",
+            "golden_ball_probability",
         ]
-        team_df = team_df[keep_cols].copy()
-        team_df["award"] = "Predicted Team of the Tournament"
+        if c in team_df.columns
+    ]
+    team_df = team_df[keep_cols].copy()
+    team_df["position"] = team_df.get("position_group", team_df.get("position", ""))
+    team_df["award"] = "Predicted Team of the Tournament"
     return team_df
+
+
+def select_team_of_tournament(players_df: pd.DataFrame) -> pd.DataFrame:
+    """Backward-compatible alias."""
+    ball_df = players_df if "final_golden_ball_score" in players_df.columns else calculate_golden_ball_predictions(players_df)
+    return select_team_of_the_tournament(ball_df)

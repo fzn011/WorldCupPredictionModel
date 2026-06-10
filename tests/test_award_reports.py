@@ -35,7 +35,7 @@ def test_create_world_cup_awards_markdown_report_returns_markdown_string() -> No
     summary = create_world_cup_awards_summary(outputs, validation_passed=True)
     report = create_world_cup_awards_markdown_report(outputs, summary)
     assert isinstance(report, str)
-    assert "# FIFA World Cup Awards Predictor Report" in report
+    assert "# FIFA World Cup 2026 Awards Predictor Report" in report
 
 
 def test_create_combined_awards_table_returns_expected_columns() -> None:

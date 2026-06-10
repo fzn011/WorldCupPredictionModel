@@ -57,7 +57,7 @@ def main() -> int:
     with summary_path.open("r", encoding="utf-8") as f:
         summary = json.load(f)
 
-    print("=== Step 17 World Cup Awards Inspection ===")
+    print("=== Step 18 World Cup Awards Inspection ===")
     print("summary:")
     for key, value in summary.items():
         print(f"  {key}: {value}")
