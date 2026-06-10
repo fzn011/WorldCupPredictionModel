@@ -6,6 +6,8 @@
 
 Single Python monolith: **FIFA World Cup 2026 AI Predictor** (ML pipeline + Streamlit dashboard + FastAPI). No Docker, database, or Node.js. All interfaces import `src/` directly and read/write local CSV/JSON/joblib artifacts under `data/` and `models/`.
 
+For the complete step-by-step roadmap, architecture, CLI reference, and official-data pipeline details, see [docs/PROJECT_REFERENCE.md](docs/PROJECT_REFERENCE.md).
+
 ### Python environment
 
 - Use the project venv: `source .venv/bin/activate` (create with `python3 -m venv .venv` if missing).
