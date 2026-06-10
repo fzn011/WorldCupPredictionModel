@@ -1,4 +1,4 @@
-"""Streamlit page: Official Data Population (Step 17D)."""
+"""Streamlit page: Official Data Population."""
 
 from __future__ import annotations
 
@@ -54,12 +54,12 @@ from src.official.population_status import load_population_status, summarize_pop
 from src.official.prepare_population_pack import prepare_step17d_official_data_population_pack
 from src.official.promotion import can_promote_to_official_final, load_official_final_mode, promote_to_official_final
 
-st.set_page_config(page_title="Official Data Population", layout="wide", initial_sidebar_state="expanded")
+
 inject_page_theme()
 render_hero(
     "Official Data Population",
     "Fill, validate, preview, and apply verified World Cup 2026 data. Manual FIFA verification only — no scraping.",
-    eyebrow="Step 17D workflow",
+    eyebrow="Data population",
 )
 
 render_warning_panel(
@@ -103,7 +103,7 @@ with tab_overview:
         pack = st.session_state.population_pack
         st.json({k: pack[k] for k in ("status", "final_ready", "teams_count", "fixtures_count", "players_count") if k in pack})
 
-    st.page_link("pages/15_Source_Assisted_Population.py", label="Continue to Step 17E (source-assisted)", icon="⚽")
+    st.page_link("pages/15_Source_Assisted_Population.py", label="Source-Assisted Population", icon="⚽")
 
 with tab_status:
     render_section_header("Population status")

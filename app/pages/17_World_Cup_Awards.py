@@ -1,4 +1,4 @@
-"""Streamlit page: World Cup Awards analytics."""
+"""Streamlit page: FIFA World Cup 2026 Awards Predictor."""
 
 from __future__ import annotations
 
@@ -28,7 +28,6 @@ try:
         render_download_card,
         render_formation_diagram,
         render_hero,
-        render_info_panel,
         render_metric_card,
         render_podium_cards,
         render_section_header,
@@ -43,7 +42,6 @@ except ModuleNotFoundError:
         render_download_card,
         render_formation_diagram,
         render_hero,
-        render_info_panel,
         render_metric_card,
         render_podium_cards,
         render_section_header,
@@ -129,11 +127,11 @@ def _formation_lines(team_df: pd.DataFrame, name_col: str) -> list[list[str]]:
     ]
 
 
-st.set_page_config(page_title="World Cup Awards", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
-    "Awards Predictor",
-    "Explainable Golden Ball, Golden Boot, Golden Glove, and team awards using official squads and Monte Carlo progression.",
+    "World Cup Awards",
+    "Predicted Golden Ball, Golden Boot, Golden Glove, Best Young Player, "
+    "and team awards based on official squads and Monte Carlo progression data.",
     eyebrow="Awards analytics",
 )
 

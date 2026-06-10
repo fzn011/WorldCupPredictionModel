@@ -6,19 +6,19 @@
       "notes": ""
     },
     "fill_groups": {
-      "status": "needs_review",
+      "status": "in_progress",
       "notes": ""
     },
     "fill_fixtures": {
-      "status": "needs_review",
+      "status": "in_progress",
       "notes": ""
     },
     "fill_venues": {
-      "status": "needs_review",
+      "status": "in_progress",
       "notes": ""
     },
     "fill_players": {
-      "status": "needs_review",
+      "status": "in_progress",
       "notes": ""
     },
     "fill_player_priors": {
@@ -42,7 +42,7 @@
       "notes": ""
     }
   },
-  "last_updated_at": "2026-06-10T13:56:07.535081+00:00",
+  "last_updated_at": "2026-06-10T19:34:27.210350+00:00",
   "official_final_ready": false,
   "notes": [
     "Population pack generated. Manual FIFA verification required before official_final."

@@ -93,13 +93,26 @@ Required columns: player, team, base_player_rating, expected_minutes_share, goal
 ## 10. Applying imports
 
 ```bash
-# Preview changes before applying
+# Step 1: preview diff (always preview first)
 python scripts/preview_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
 python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv --preview
 
-# Apply verified import (creates backup automatically)
-python scripts/apply_official_import.py --type players data/official/import_templates/official_players_import_template.csv
+# Step 2: apply for real (creates automatic backup)
+python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
 ```
+
+Apply in dependency order — teams before groups, groups before fixtures, players before priors:
+
+```bash
+python scripts/apply_official_import.py --target teams         --file data/official/import_templates/official_teams_import_template.csv
+python scripts/apply_official_import.py --target groups        --file data/official/import_templates/official_groups_import_template.csv
+python scripts/apply_official_import.py --target venues        --file data/official/import_templates/official_venues_import_template.csv
+python scripts/apply_official_import.py --target fixtures      --file data/official/import_templates/official_fixtures_import_template.csv
+python scripts/apply_official_import.py --target players       --file data/official/import_templates/official_players_import_template.csv
+python scripts/apply_official_import.py --target player_priors --file data/official/import_templates/player_award_priors_import_template.csv
+```
+
+See `data/official/population/FILL_DATA_CHECKLIST.md` for column-by-column instructions.
 
 After each import, re-run readiness:
 

@@ -1,18 +1,49 @@
 team,team_code,player_count,goalkeepers,defenders,midfielders,forwards,avg_age,avg_height_cm,source
-Argentina,ARG,6,1,1,1,3,,,sample_to_be_verified
-Belgium,BEL,5,1,0,2,2,,,sample_to_be_verified
-Brazil,BRA,5,1,1,1,2,,,sample_to_be_verified
-Canada,CAN,2,0,1,0,1,,,sample_to_be_verified
-Croatia,CRO,2,1,0,1,0,,,sample_to_be_verified
-England,ENG,6,1,0,3,2,,,sample_to_be_verified
-France,FRA,5,1,1,1,2,,,sample_to_be_verified
-Germany,GER,5,1,1,2,1,,,sample_to_be_verified
-Japan,JAP,2,0,0,2,0,,,sample_to_be_verified
-Mexico,MEX,2,0,0,0,2,,,sample_to_be_verified
-Morocco,MOR,3,1,1,1,0,,,sample_to_be_verified
-Netherlands,NET,2,0,1,0,1,,,sample_to_be_verified
-Portugal,POR,6,1,1,2,2,,,sample_to_be_verified
-South Korea,SOU,3,0,1,1,1,,,sample_to_be_verified
-Spain,SPA,5,1,0,2,2,,,sample_to_be_verified
-United States,UNI,2,0,0,1,1,,,sample_to_be_verified
-Uruguay,URU,4,1,1,1,1,,,sample_to_be_verified
+Algeria,ALG,26,3,9,7,7,,,fifa_squad_pdf
+Argentina,ARG,26,3,8,8,7,,,fifa_squad_pdf
+Australia,AUS,26,3,10,5,8,,,fifa_squad_pdf
+Austria,AUT,26,3,8,11,4,,,fifa_squad_pdf
+Belgium,BEL,26,3,9,8,6,,,fifa_squad_pdf
+Bosnia And Herzegovina,BIH,26,3,8,8,7,,,fifa_squad_pdf
+Brazil,BRA,26,3,8,6,9,,,fifa_squad_pdf
+Cabo Verde,CPV,26,3,8,12,3,,,fifa_squad_pdf
+Canada,CAN,26,3,9,8,6,,,fifa_squad_pdf
+Colombia,COL,26,3,9,8,6,,,fifa_squad_pdf
+Congo DR,COD,26,3,8,8,7,,,fifa_squad_pdf
+Croatia,CRO,26,3,8,9,6,,,fifa_squad_pdf
+Curaçao,CUW,26,3,8,7,8,,,fifa_squad_pdf
+Czechia,CZE,26,3,9,7,7,,,fifa_squad_pdf
+Côte D'Ivoire,CIV,26,3,8,6,9,,,fifa_squad_pdf
+Ecuador,ECU,26,3,8,8,7,,,fifa_squad_pdf
+Egypt,EGY,26,4,8,7,7,,,fifa_squad_pdf
+England,ENG,26,3,9,7,7,,,fifa_squad_pdf
+France,FRA,26,3,9,7,7,,,fifa_squad_pdf
+Germany,GER,26,3,8,11,4,,,fifa_squad_pdf
+Ghana,GHA,26,3,9,6,8,,,fifa_squad_pdf
+Haiti,HAI,26,3,8,6,9,,,fifa_squad_pdf
+Iran,IRN,26,3,9,8,6,,,fifa_squad_pdf
+Iraq,IRQ,26,3,9,7,7,,,fifa_squad_pdf
+Japan,JPN,26,3,9,10,4,,,fifa_squad_pdf
+Jordan,JOR,26,3,9,8,6,,,fifa_squad_pdf
+Mexico,MEX,26,3,7,8,8,,,fifa_squad_pdf
+Morocco,MAR,26,3,9,9,5,,,fifa_squad_pdf
+Netherlands,NED,26,3,8,8,7,,,fifa_squad_pdf
+New Zealand,NZL,26,3,9,10,4,,,fifa_squad_pdf
+Norway,NOR,26,3,8,10,5,,,fifa_squad_pdf
+Panama,PAN,26,3,11,8,4,,,fifa_squad_pdf
+Paraguay,PAR,26,3,8,9,6,,,fifa_squad_pdf
+Portugal,POR,26,3,9,6,8,,,fifa_squad_pdf
+Qatar,QAT,26,3,9,5,9,,,fifa_squad_pdf
+Saudi Arabia,KSA,26,3,10,6,7,,,fifa_squad_pdf
+Scotland,SCO,26,3,10,6,7,,,fifa_squad_pdf
+Senegal,SEN,26,3,8,7,8,,,fifa_squad_pdf
+South Africa,RSA,26,3,10,5,8,,,fifa_squad_pdf
+South Korea,KOR,26,3,9,11,3,,,fifa_squad_pdf
+Spain,ESP,26,3,8,7,8,,,fifa_squad_pdf
+Sweden,SWE,26,3,11,7,5,,,fifa_squad_pdf
+Switzerland,SUI,26,3,8,8,7,,,fifa_squad_pdf
+Tunisia,TUN,26,3,10,8,5,,,fifa_squad_pdf
+Turkey,TUR,26,3,9,5,9,,,fifa_squad_pdf
+United States,USA,26,3,10,6,7,,,fifa_squad_pdf
+Uruguay,URU,26,3,7,11,5,,,fifa_squad_pdf
+Uzbekistan,UZB,26,3,10,10,3,,,fifa_squad_pdf

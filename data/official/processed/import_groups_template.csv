@@ -1,49 +1,49 @@
 group,slot,team,team_code,confederation,is_host,source
-A,1,Mexico,MEX,CONCACAF,1,sample_to_be_verified
-A,2,South Africa,SAF,CAF,0,sample_to_be_verified
-A,3,South Korea,SKO,AFC,0,sample_to_be_verified
-A,4,Czechia,CZE,UEFA,0,sample_to_be_verified
-B,1,Canada,CAN,CONCACAF,1,sample_to_be_verified
-B,2,Switzerland,SWI,UEFA,0,sample_to_be_verified
-B,3,Qatar,QAT,AFC,0,sample_to_be_verified
-B,4,Bosnia and Herzegovina,BAH,UEFA,0,sample_to_be_verified
-C,1,United States,UST,CONCACAF,1,sample_to_be_verified
-C,2,Japan,JAP,AFC,0,sample_to_be_verified
-C,3,Nigeria,NIG,CAF,0,sample_to_be_verified
-C,4,Serbia,SER,UEFA,0,sample_to_be_verified
-D,1,Brazil,BRA,CONMEBOL,0,sample_to_be_verified
-D,2,Croatia,CRO,UEFA,0,sample_to_be_verified
-D,3,Egypt,EGY,CAF,0,sample_to_be_verified
-D,4,Australia,AUS,AFC,0,sample_to_be_verified
-E,1,Argentina,ARG,CONMEBOL,0,sample_to_be_verified
-E,2,Denmark,DEN,UEFA,0,sample_to_be_verified
-E,3,Ghana,GHA,CAF,0,sample_to_be_verified
-E,4,Costa Rica,CRI,CONCACAF,0,sample_to_be_verified
-F,1,France,FRA,UEFA,0,sample_to_be_verified
-F,2,Morocco,MOR,CAF,0,sample_to_be_verified
-F,3,Ecuador,ECU,CONMEBOL,0,sample_to_be_verified
-F,4,Poland,POL,UEFA,0,sample_to_be_verified
-G,1,England,ENG,UEFA,0,sample_to_be_verified
-G,2,Iran,IRA,AFC,0,sample_to_be_verified
-G,3,Tunisia,TUN,CAF,0,sample_to_be_verified
-G,4,Peru,PER,CONMEBOL,0,sample_to_be_verified
-H,1,Spain,SPA,UEFA,0,sample_to_be_verified
-H,2,Cameroon,CAM,CAF,0,sample_to_be_verified
-H,3,Uruguay,URU,CONMEBOL,0,sample_to_be_verified
-H,4,Sweden,SWE,UEFA,0,sample_to_be_verified
-I,1,Germany,GER,UEFA,0,sample_to_be_verified
-I,2,Algeria,ALG,CAF,0,sample_to_be_verified
-I,3,Colombia,COL,CONMEBOL,0,sample_to_be_verified
-I,4,Scotland,SCO,UEFA,0,sample_to_be_verified
-J,1,Portugal,POR,UEFA,0,sample_to_be_verified
-J,2,Senegal,SEN,CAF,0,sample_to_be_verified
-J,3,United Arab Emirates,UAE,AFC,0,sample_to_be_verified
-J,4,Austria,AU1,UEFA,0,sample_to_be_verified
-K,1,Netherlands,NET,UEFA,0,sample_to_be_verified
-K,2,Côte d'Ivoire,CDI,CAF,0,sample_to_be_verified
-K,3,Chile,CHI,CONMEBOL,0,sample_to_be_verified
-K,4,Norway,NOR,UEFA,0,sample_to_be_verified
-L,1,Belgium,BEL,UEFA,0,sample_to_be_verified
-L,2,Turkey,TUR,UEFA,0,sample_to_be_verified
-L,3,Paraguay,PAR,CONMEBOL,0,sample_to_be_verified
-L,4,New Zealand,NZE,OFC,0,sample_to_be_verified
+A,1.0,Czechia,CZE,,0.0,fifa_schedule_api
+A,2.0,Mexico,MEX,,0.0,fifa_schedule_api
+A,3.0,South Africa,RSA,,0.0,fifa_schedule_api
+A,4.0,South Korea,KOR,,0.0,fifa_schedule_api
+B,1.0,Bosnia and Herzegovina,,,0.0,fifa_schedule_api
+B,2.0,Canada,CAN,,0.0,fifa_schedule_api
+B,3.0,Qatar,QAT,,0.0,fifa_schedule_api
+B,4.0,Switzerland,SUI,,0.0,fifa_schedule_api
+C,1.0,Brazil,BRA,,0.0,fifa_schedule_api
+C,2.0,Haiti,HAI,,0.0,fifa_schedule_api
+C,3.0,Morocco,MAR,,0.0,fifa_schedule_api
+C,4.0,Scotland,SCO,,0.0,fifa_schedule_api
+D,1.0,Australia,AUS,,0.0,fifa_schedule_api
+D,2.0,Paraguay,PAR,,0.0,fifa_schedule_api
+D,3.0,Turkey,TUR,,0.0,fifa_schedule_api
+D,4.0,United States,USA,,0.0,fifa_schedule_api
+E,1.0,Curaçao,CUW,,0.0,fifa_schedule_api
+E,2.0,Côte d'Ivoire,,,0.0,fifa_schedule_api
+E,3.0,Ecuador,ECU,,0.0,fifa_schedule_api
+E,4.0,Germany,GER,,0.0,fifa_schedule_api
+F,1.0,Japan,JPN,,0.0,fifa_schedule_api
+F,2.0,Netherlands,NED,,0.0,fifa_schedule_api
+F,3.0,Sweden,SWE,,0.0,fifa_schedule_api
+F,4.0,Tunisia,TUN,,0.0,fifa_schedule_api
+G,1.0,Belgium,BEL,,0.0,fifa_schedule_api
+G,2.0,Egypt,EGY,,0.0,fifa_schedule_api
+G,3.0,Iran,IRN,,0.0,fifa_schedule_api
+G,4.0,New Zealand,NZL,,0.0,fifa_schedule_api
+H,1.0,Cabo Verde,CPV,,0.0,fifa_schedule_api
+H,2.0,Saudi Arabia,KSA,,0.0,fifa_schedule_api
+H,3.0,Spain,ESP,,0.0,fifa_schedule_api
+H,4.0,Uruguay,URU,,0.0,fifa_schedule_api
+I,1.0,France,FRA,,0.0,fifa_schedule_api
+I,2.0,Iraq,IRQ,,0.0,fifa_schedule_api
+I,3.0,Norway,NOR,,0.0,fifa_schedule_api
+I,4.0,Senegal,SEN,,0.0,fifa_schedule_api
+J,1.0,Algeria,ALG,,0.0,fifa_schedule_api
+J,2.0,Argentina,ARG,,0.0,fifa_schedule_api
+J,3.0,Austria,AUT,,0.0,fifa_schedule_api
+J,4.0,Jordan,JOR,,0.0,fifa_schedule_api
+K,1.0,Colombia,COL,,0.0,fifa_schedule_api
+K,2.0,Congo DR,COD,,0.0,fifa_schedule_api
+K,3.0,Portugal,POR,,0.0,fifa_schedule_api
+K,4.0,Uzbekistan,UZB,,0.0,fifa_schedule_api
+L,1.0,Croatia,CRO,,0.0,fifa_schedule_api
+L,2.0,England,ENG,,0.0,fifa_schedule_api
+L,3.0,Ghana,GHA,,0.0,fifa_schedule_api
+L,4.0,Panama,PAN,,0.0,fifa_schedule_api

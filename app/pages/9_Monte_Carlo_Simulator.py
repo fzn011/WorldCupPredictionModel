@@ -1,4 +1,4 @@
-"""Streamlit page: Monte Carlo tournament simulator dashboard."""
+"""Streamlit page for Step 16 Monte Carlo dashboard and report polish."""
 
 from __future__ import annotations
 
@@ -26,12 +26,10 @@ try:
         inject_page_theme,
         render_download_card,
         render_hero,
-        render_info_panel,
-        render_metric_card,
         render_section_header,
     )
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_download_card, render_hero, render_info_panel, render_metric_card, render_section_header  # noqa: E402
+    from components.ui import inject_page_theme, render_download_card, render_hero, render_section_header  # noqa: E402
 
 from src.simulation.prepare_monte_carlo import prepare_step15_monte_carlo_simulation  # noqa: E402
 from src.reports.monte_carlo_report import (  # noqa: E402
@@ -74,12 +72,11 @@ def _load_json(file_name: str) -> dict:
         return json.load(f)
 
 
-st.set_page_config(page_title="Monte Carlo Simulator", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
     "Monte Carlo Forecast",
-    "Repeated full-tournament simulations to estimate champion and stage progression probabilities.",
-    eyebrow="Monte Carlo simulation",
+    "Run thousands of full-tournament simulations to estimate champion and stage progression probabilities.",
+    eyebrow="Probabilistic tournament forecast",
 )
 
 tab_overview, tab_results, tab_downloads = st.tabs(["Overview & settings", "Results & charts", "Downloads"])
@@ -131,7 +128,7 @@ with tab_overview:
             st.warning("Monte Carlo simulation completed with validation issues.")
         with st.expander("Run details"):
             st.json(run_summary)
-    if controls_col2.button("Generate report", type="secondary"):
+    if controls_col2.button("Generate report"):
         try:
             report_summary = prepare_step16_monte_carlo_report()
             st.success("Monte Carlo report artifacts generated successfully.")
@@ -142,16 +139,6 @@ with tab_overview:
     st.caption("Outputs are simulation estimates, not certainties.")
 
 with tab_results:
-    if not champion_display_df.empty:
-        render_section_header("Top predicted champions")
-        prob_col = "champion_probability" if "champion_probability" in champion_display_df.columns else champion_display_df.columns[-1]
-        team_col = "team" if "team" in champion_display_df.columns else champion_display_df.columns[0]
-        top3 = champion_display_df.sort_values(prob_col, ascending=False).head(3)
-        t1, t2, t3 = st.columns(3)
-        for col, (_, row) in zip((t1, t2, t3), top3.iterrows()):
-            with col:
-                render_metric_card(str(row[team_col]), f"{float(row[prob_col]):.1%}", sub="Champion probability", accent_value=True)
-
     render_section_header("Simulation summary")
     if summary:
         col1, col2, col3, col4, col5, col6 = st.columns(6)
@@ -166,7 +153,7 @@ with tab_results:
         with st.expander("Raw summary JSON"):
             st.json(summary)
     else:
-        render_info_panel("No Monte Carlo summary yet. Run a simulation from the Overview tab.")
+        st.info("No Monte Carlo summary found yet. Run a simulation from the Overview tab.")
 
     if insights:
         render_section_header("Insights")

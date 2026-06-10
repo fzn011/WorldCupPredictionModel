@@ -1,9 +1,9 @@
 {
   "status": "needs_manual_review",
-  "registry_path": "/workspace/data/official/source_data/official_source_registry.json",
+  "registry_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\source_data\\official_source_registry.json",
   "downloaded_sources": {},
   "parsed_sources": {
-    "parse_report_path": "/workspace/data/official/source_data/reports/official_source_parse_report.csv",
+    "parse_report_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\source_data\\reports\\official_source_parse_report.csv",
     "staged_teams_count": 0,
     "staged_groups_count": 0,
     "staged_fixtures_count": 0,
@@ -18,16 +18,15 @@
   "staged_players_count": 0,
   "staging_validation_passed": false,
   "parse_warnings_count": 3,
-  "coverage_report_path": "/workspace/data/official/source_data/reports/official_source_coverage_report.csv",
-  "import_pack_path": "/workspace/data/official/source_data/exports/official_worldcup_2026_import_pack.zip",
+  "coverage_report_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\source_data\\reports\\official_source_coverage_report.csv",
+  "import_pack_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\source_data\\exports\\official_worldcup_2026_import_pack.zip",
   "final_ready": false,
-  "official_final_status": "blocked",
+  "official_final_status": "warning",
   "notes": [
     "Source download skipped; using existing snapshots or manual staging only.",
     "Parsing produced 3 partial/warning rows; inspect parse report.",
-    "Readiness evaluation error (official_final remains blocked): You are trying to merge on str and float64 columns for key 'team'. If you wish to proceed you should use pd.concat",
     "official_final remains BLOCKED until all readiness checks pass. This is correct \u2014 do not fake readiness.",
     "Staged players count is 0 \u2014 squad data likely requires manual FIFA import."
   ],
-  "updated_at": "2026-06-10T14:36:48.715360+00:00"
+  "updated_at": "2026-06-10T19:31:34.854867+00:00"
 }

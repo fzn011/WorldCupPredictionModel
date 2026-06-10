@@ -1,24 +1,37 @@
-"""Reusable Streamlit UI components — unified blood-red theme."""
+"""Reusable Streamlit UI components — World Cup analytics command center."""
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Literal
 
 import pandas as pd
 import streamlit as st
 
-from app.styles.worldcup_theme import COLORS, inject_worldcup_css
+try:
+    from app.styles.worldcup_theme import COLORS, inject_worldcup_css
+except ModuleNotFoundError:
+    from styles.worldcup_theme import COLORS, inject_worldcup_css
 
-BadgeKind = Literal["ok", "warn", "danger", "muted"]
+BadgeKind = Literal["ok", "warn", "danger", "muted", "gold"]
 
+
+# ─── Theme injection ───────────────────────────────────────────────────────────
 
 def inject_page_theme() -> None:
-    """Apply global theme CSS to the current page."""
+    """Apply global World Cup theme CSS to the current page."""
     inject_worldcup_css()
 
 
-def render_hero(title: str, subtitle: str, *, eyebrow: str = "FIFA World Cup 2026 AI Predictor") -> None:
+# ─── Hero ──────────────────────────────────────────────────────────────────────
+
+def render_hero(
+    title: str,
+    subtitle: str,
+    *,
+    eyebrow: str = "FIFA World Cup 2026 Analytics",
+) -> None:
     st.markdown(
         f"""
 <div class="wc-hero">
@@ -31,37 +44,59 @@ def render_hero(title: str, subtitle: str, *, eyebrow: str = "FIFA World Cup 202
     )
 
 
+# ─── Section header ────────────────────────────────────────────────────────────
+
 def render_section_header(title: str, *, subtitle: str | None = None) -> None:
-    st.markdown(f'<div class="wc-section"><h3>{title}</h3></div>', unsafe_allow_html=True)
+    st.markdown(
+        f'<div class="wc-section"><h3>{title}</h3></div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown('<div class="wc-pitch-line"></div>', unsafe_allow_html=True)
     if subtitle:
         st.caption(subtitle)
-    st.markdown('<div class="wc-pitch-line"></div>', unsafe_allow_html=True)
 
+
+# ─── Status badge ──────────────────────────────────────────────────────────────
 
 def render_status_badge(label: str, kind: BadgeKind = "muted") -> str:
+    """Return an HTML badge string (unsafe_allow_html caller's responsibility)."""
     return f'<span class="wc-badge wc-badge-{kind}">{label}</span>'
 
+
+# ─── Status dot ────────────────────────────────────────────────────────────────
+
+def render_dot(kind: BadgeKind = "muted") -> str:
+    return f'<span class="wc-dot wc-dot-{kind}"></span>'
+
+
+# ─── Metric card ───────────────────────────────────────────────────────────────
 
 def render_metric_card(
     label: str,
     value: str,
     *,
     sub: str | None = None,
-    accent_value: bool = False,
+    variant: str = "",
 ) -> None:
-    value_class = "wc-card-value wc-card-value-accent" if accent_value else "wc-card-value"
+    """A dark glass card with label, bold value, and optional sub-text.
+
+    variant can be 'ok', 'warn', 'danger', 'gold' or '' (default white).
+    """
+    cls = f"wc-card wc-card-{variant}" if variant else "wc-card"
     sub_html = f'<div class="wc-card-sub">{sub}</div>' if sub else ""
     st.markdown(
         f"""
-<div class="wc-card">
+<div class="{cls}">
   <div class="wc-card-label">{label}</div>
-  <div class="{value_class}">{value}</div>
+  <div class="wc-card-value">{value}</div>
   {sub_html}
 </div>
         """,
         unsafe_allow_html=True,
     )
 
+
+# ─── Status card ───────────────────────────────────────────────────────────────
 
 def render_status_card(
     label: str,
@@ -72,8 +107,11 @@ def render_status_card(
 ) -> None:
     badge_html = ""
     if badge:
-        badge_label = {"ok": "Ready", "warn": "Attention", "danger": "Blocked", "muted": "N/A"}.get(badge, value)
-        badge_html = f'<div style="margin-top:0.45rem;">{render_status_badge(badge_label, badge)}</div>'
+        badge_html = (
+            f'<div style="margin-top:0.5rem;">'
+            f'{render_status_badge(value, badge)}'
+            f'</div>'
+        )
     st.markdown(
         f"""
 <div class="wc-card">
@@ -87,110 +125,30 @@ def render_status_card(
     )
 
 
-def render_warning_panel(message: str) -> None:
-    st.markdown(f'<div class="wc-panel-warning">{message}</div>', unsafe_allow_html=True)
+# ─── Progress bar ──────────────────────────────────────────────────────────────
 
-
-def render_success_panel(message: str) -> None:
-    st.markdown(f'<div class="wc-panel-success">{message}</div>', unsafe_allow_html=True)
-
-
-def render_error_panel(message: str) -> None:
-    st.markdown(f'<div class="wc-panel-error">{message}</div>', unsafe_allow_html=True)
-
-
-def render_info_panel(message: str) -> None:
-    st.markdown(f'<div class="wc-panel-info">{message}</div>', unsafe_allow_html=True)
-
-
-def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
-    """Render flow steps: (number, title, description)."""
-    for num, title, desc in steps:
-        st.markdown(
-            f'<div class="wc-step"><span class="wc-step-num">{num}.</span><strong>{title}</strong> — {desc}</div>',
-            unsafe_allow_html=True,
-        )
-
-
-def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
-    cols = st.columns(min(len(items), 4))
-    for idx, item in enumerate(items):
-        with cols[idx % len(cols)]:
-            st.markdown(
-                f"""
-<div class="wc-card">
-  <div class="wc-card-label">{item.get('label', 'Open')}</div>
-  <div class="wc-card-value" style="font-size:1rem;">{item.get('title', '')}</div>
-  <div class="wc-card-sub">{item.get('hint', '')}</div>
-</div>
-                """,
-                unsafe_allow_html=True,
-            )
-            if item.get("page"):
-                st.page_link(item["page"], label=f"Open {item.get('title', 'page')}")
-
-
-def render_action_cards(items: list[dict[str, str]]) -> None:
-    cols = st.columns(min(len(items), 3))
-    for idx, item in enumerate(items):
-        with cols[idx % len(cols)]:
-            st.markdown(
-                f"""
-<div class="wc-card">
-  <div class="wc-card-value" style="font-size:1.05rem;">{item.get('title', '')}</div>
-  <div class="wc-card-sub">{item.get('description', '')}</div>
-</div>
-                """,
-                unsafe_allow_html=True,
-            )
-            if item.get("page"):
-                st.page_link(item["page"], label=item.get("button", "Open"), use_container_width=True)
-
-
-def render_data_table(
-    df: pd.DataFrame,
+def render_progress_bar(
+    value: float,
     *,
-    height: int | None = None,
-    hide_index: bool = True,
+    label: str = "",
+    kind: BadgeKind = "gold",
 ) -> None:
-    if df.empty:
-        render_info_panel("No data available.")
-        return
-    kwargs: dict[str, Any] = {"use_container_width": True, "hide_index": hide_index}
-    if height is not None:
-        kwargs["height"] = height
-    st.dataframe(df, **kwargs)
-
-
-def render_download_card(
-    title: str,
-    description: str,
-    path: Path,
-    *,
-    file_name: str | None = None,
-    mime: str = "text/csv",
-) -> None:
+    """Render a styled progress bar. value is 0.0–1.0."""
+    pct = max(0, min(100, int(value * 100)))
+    label_html = f'<div class="wc-card-label">{label}</div>' if label else ""
     st.markdown(
         f"""
-<div class="wc-download-card">
-  <div class="wc-card-label">{title}</div>
-  <div class="wc-card-value" style="font-size:1rem;">{description}</div>
+{label_html}
+<div class="wc-progress-wrap">
+  <div class="wc-progress-fill wc-progress-fill-{kind}" style="width:{pct}%;"></div>
 </div>
+<div class="wc-card-sub" style="text-align:right;margin-top:0;">{pct}%</div>
         """,
         unsafe_allow_html=True,
     )
-    if path.is_file():
-        st.download_button(
-            label=f"Download {file_name or path.name}",
-            data=path.read_bytes(),
-            file_name=file_name or path.name,
-            mime=mime,
-            use_container_width=True,
-            type="primary",
-        )
-    else:
-        st.caption("Not generated yet")
 
+
+# ─── Data quality card ─────────────────────────────────────────────────────────
 
 def render_data_quality_card(
     title: str,
@@ -204,12 +162,17 @@ def render_data_quality_card(
     prog_html = ""
     if progress is not None:
         pct = int(max(0, min(100, progress * 100)))
-        prog_html = f'<div class="wc-card-sub">Completion: {pct}%</div>'
+        fill_kind = "ok" if pct >= 90 else ("warn" if pct >= 50 else "danger")
+        prog_html = f"""
+<div class="wc-progress-wrap">
+  <div class="wc-progress-fill wc-progress-fill-{fill_kind}" style="width:{pct}%;"></div>
+</div>
+<div class="wc-card-sub" style="text-align:right;margin-top:0;">{pct}%</div>"""
     st.markdown(
         f"""
 <div class="wc-card">
   <div class="wc-card-label">{title}</div>
-  <div>{badge}</div>
+  <div style="margin:0.35rem 0;">{badge}</div>
   {prog_html}
   {f'<div class="wc-card-sub">{detail}</div>' if detail else ''}
 </div>
@@ -218,13 +181,149 @@ def render_data_quality_card(
     )
 
 
+# ─── Readiness checklist row ───────────────────────────────────────────────────
+
+def render_readiness_item(
+    label: str,
+    passed: bool,
+    *,
+    detail: str = "",
+    warn: bool = False,
+) -> None:
+    """One horizontal row in a readiness checklist."""
+    if passed:
+        row_cls, icon_html = "wc-check-row-pass", render_status_badge("Pass", "ok")
+    elif warn:
+        row_cls, icon_html = "wc-check-row-warn", render_status_badge("Warning", "warn")
+    else:
+        row_cls, icon_html = "wc-check-row-fail", render_status_badge("Fail", "danger")
+    detail_html = f'<span class="wc-check-detail">{detail}</span>' if detail else ""
+    st.markdown(
+        f"""
+<div class="wc-check-row {row_cls}">
+  <span class="wc-check-label">{label}</span>
+  {detail_html}
+  {icon_html}
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+# ─── Warning / success panels ──────────────────────────────────────────────────
+
+def render_warning_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-warning">{message}</div>', unsafe_allow_html=True)
+
+
+def render_success_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-success">{message}</div>', unsafe_allow_html=True)
+
+
+def render_info_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-info">{message}</div>', unsafe_allow_html=True)
+
+
+# ─── Pipeline stepper ──────────────────────────────────────────────────────────
+
+def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
+    """Render numbered demo flow steps: (number, title, description)."""
+    for num, title, desc in steps:
+        st.markdown(
+            f"""
+<div class="wc-step">
+  <span class="wc-step-num">{num}</span>
+  <span><strong style="color:{COLORS['white']}">{title}</strong>
+  <span style="color:{COLORS['muted']}"> — {desc}</span></span>
+</div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+# ─── Quick nav cards ───────────────────────────────────────────────────────────
+
+def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
+    """Quick-link action cards. Each item: title, hint, page (sidebar link)."""
+    icons = ["⚽", "📊", "🏆", "🥇", "📋", "✓"]
+    cols = st.columns(min(len(items), 3))
+    for idx, item in enumerate(items):
+        with cols[idx % len(cols)]:
+            icon = item.get("icon", icons[idx % len(icons)])
+            st.markdown(
+                f"""
+<div class="wc-action-card">
+  <div class="wc-action-icon">{icon}</div>
+  <div class="wc-action-title">{item.get('title', '')}</div>
+  <div class="wc-action-hint">{item.get('hint', '')}</div>
+</div>
+                """,
+                unsafe_allow_html=True,
+            )
+            if item.get("page"):
+                st.page_link(item["page"], label=f"Open {item.get('title', 'page')}")
+
+
+# ─── Data table ────────────────────────────────────────────────────────────────
+
+def render_data_table(
+    df: pd.DataFrame,
+    *,
+    height: int | None = None,
+    hide_index: bool = True,
+) -> None:
+    if df.empty:
+        st.info("No data available.")
+        return
+    kwargs: dict[str, Any] = {"use_container_width": True, "hide_index": hide_index}
+    if height is not None:
+        kwargs["height"] = height
+    st.dataframe(df, **kwargs)
+
+
+# ─── Download card ─────────────────────────────────────────────────────────────
+
+def render_download_card(
+    title: str,
+    description: str,
+    path: Path,
+    *,
+    file_name: str | None = None,
+    mime: str = "text/csv",
+) -> None:
+    st.markdown(
+        f"""
+<div class="wc-download-card">
+  <div class="wc-card-label">{title}</div>
+  <div class="wc-card-sub">{description}</div>
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+    if path.is_file():
+        st.download_button(
+            label=f"Download {file_name or path.name}",
+            data=path.read_bytes(),
+            file_name=file_name or path.name,
+            mime=mime,
+            use_container_width=True,
+        )
+    else:
+        st.caption("Not yet generated")
+
+
+# ─── Formation diagram ─────────────────────────────────────────────────────────
+
 def render_formation_diagram(players_by_line: list[list[str]]) -> None:
+    """Render ASCII-style formation blocks (forwards at top, GK at bottom)."""
     lines: list[str] = []
     for row in players_by_line:
         lines.append("    ".join(row))
     body = "\n".join(lines)
     st.markdown(f'<pre class="wc-formation">{body}</pre>', unsafe_allow_html=True)
 
+
+# ─── Podium cards ──────────────────────────────────────────────────────────────
 
 def render_podium_cards(
     df: pd.DataFrame,
@@ -236,32 +335,64 @@ def render_podium_cards(
     award_labels: dict[int, str] | None = None,
 ) -> None:
     if df.empty:
-        render_info_panel("No podium data yet.")
+        st.info("No podium data yet.")
         return
     labels = award_labels or {1: "Gold", 2: "Silver", 3: "Bronze"}
+    podium_extra = {1: "wc-podium-1", 2: "wc-podium-2", 3: "wc-podium-3"}
     top = df.sort_values(rank_col).head(3)
     cols = st.columns(3)
     for i, (_, row) in enumerate(top.iterrows()):
-        medal = labels.get(int(row.get(rank_col, i + 1)), "—")
+        rank = int(row.get(rank_col, i + 1))
+        medal = labels.get(rank, "—")
         score = ""
         if score_col and score_col in row:
             try:
-                score = f"{float(row[score_col]):.2%}" if "prob" in score_col else f"{float(row[score_col]):.3g}"
+                score = (
+                    f"{float(row[score_col]):.2%}"
+                    if "prob" in score_col
+                    else f"{float(row[score_col]):.3g}"
+                )
             except (TypeError, ValueError):
                 score = str(row[score_col])
+        extra_cls = podium_extra.get(rank, "")
         with cols[i]:
-            render_metric_card(
-                medal,
-                str(row.get(name_col, "—")),
-                sub=f"{row.get(team_col, '')} {('· ' + score) if score else ''}".strip(),
-                accent_value=True,
+            sub = f"{row.get(team_col, '')}{'  ·  ' + score if score else ''}".strip()
+            st.markdown(
+                f"""
+<div class="wc-card {extra_cls}">
+  <div class="wc-card-label">{medal}</div>
+  <div class="wc-card-value" style="font-size:1.1rem;">{row.get(name_col, '—')}</div>
+  {f'<div class="wc-card-sub">{sub}</div>' if sub else ''}
+</div>
+                """,
+                unsafe_allow_html=True,
             )
 
+
+# ─── Champion spotlight ────────────────────────────────────────────────────────
+
+def render_champion_spotlight(team: str, probability: float, *, sub: str = "") -> None:
+    """Large featured card for the Monte Carlo top champion."""
+    pct = f"{probability:.1%}"
+    st.markdown(
+        f"""
+<div class="wc-card wc-card-gold" style="text-align:center;padding:1.5rem 1rem;">
+  <div class="wc-card-label" style="font-size:0.7rem;letter-spacing:0.15em;">
+    Most likely champion
+  </div>
+  <div class="wc-card-value" style="font-size:1.9rem;color:{COLORS['gold']};">{team}</div>
+  <div style="font-size:1.25rem;font-weight:700;color:{COLORS['gold_light']};margin-top:0.2rem;">{pct}</div>
+  {f'<div class="wc-card-sub">{sub}</div>' if sub else ''}
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+# ─── Helpers ───────────────────────────────────────────────────────────────────
 
 def load_json_if_exists(path: Path) -> dict[str, Any]:
     if not path.is_file():
         return {}
-    import json
-
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)

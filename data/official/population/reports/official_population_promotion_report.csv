@@ -24,3 +24,6 @@ timestamp,status,official_final_enabled,reason
 2026-06-10T16:15:08.535006+00:00,blocked,False,
 2026-06-10T16:15:53.674872+00:00,blocked,False,
 2026-06-10T16:15:53.677612+00:00,demoted,False,test demote
+2026-06-10T19:34:28.377702+00:00,blocked,False,
+2026-06-10T19:40:35.180363+00:00,blocked,False,
+2026-06-10T19:40:35.196384+00:00,demoted,False,test demote

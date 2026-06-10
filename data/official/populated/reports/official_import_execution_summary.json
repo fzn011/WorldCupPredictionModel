@@ -1,40 +1,39 @@
 {
-  "status": "ready_for_apply",
-  "staged_fixtures_count": 104,
-  "staged_players_count": 1248,
+  "status": "no_input_files",
+  "staged_fixtures_count": 0,
+  "staged_players_count": 0,
   "populated_fixtures_count": 104,
   "populated_players_count": 1248,
   "teams_with_26_players": 48,
   "ready_for_apply": true,
   "applied": false,
-  "final_ready": true,
-  "official_final_enabled": false,
+  "final_ready": false,
+  "official_final_enabled": true,
   "blockers_count": 0,
-  "warnings_count": 0,
-  "next_action": "Run with --apply to import populated official data.",
+  "warnings_count": 1,
+  "next_action": "Provide official FIFA schedule and/or squad files, or fill staged data.",
   "inputs": {
     "has_schedule_file": false,
     "has_squad_file": false,
     "has_workbook_file": false,
-    "has_staged_data": true,
+    "has_staged_data": false,
     "staged_present": {
       "teams": false,
       "groups": false,
-      "fixtures": true,
-      "venues": true,
-      "players": true,
+      "fixtures": false,
+      "venues": false,
+      "players": false,
       "player_priors": false
     },
-    "detected_files": {
-      "staged_fixtures": "/workspace/data/official/source_data/staging/staged_official_fixtures.csv",
-      "staged_venues": "/workspace/data/official/source_data/staging/staged_official_venues.csv",
-      "staged_players": "/workspace/data/official/source_data/staging/staged_official_players.csv"
-    },
-    "missing_expected_inputs": []
+    "detected_files": {},
+    "missing_expected_inputs": [
+      "schedule_file_or_staged_fixtures",
+      "squad_file_or_staged_players"
+    ]
   },
-  "staging_validation_passed": true,
-  "preview_status": "preview_ready",
-  "completeness_report_path": "/workspace/data/official/populated/reports/official_population_completeness_report.csv",
-  "final_readiness_report_path": "/workspace/data/official/processed/official_final_readiness_report.json",
-  "saved_at": "2026-06-10T15:53:59.618927+00:00"
+  "staging_validation_passed": false,
+  "preview_status": "no_staged_data",
+  "completeness_report_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\populated\\reports\\official_population_completeness_report.csv",
+  "final_readiness_report_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\official\\processed\\official_final_readiness_report.json",
+  "saved_at": "2026-06-10T19:33:55.740374+00:00"
 }

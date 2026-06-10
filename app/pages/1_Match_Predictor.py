@@ -22,13 +22,12 @@ try:
     from app.components.ui import (  # noqa: E402
         inject_page_theme,
         render_hero,
-        render_info_panel,
         render_metric_card,
         render_section_header,
         render_warning_panel,
     )
 except ModuleNotFoundError:  # pragma: no cover
-    from components.ui import inject_page_theme, render_hero, render_info_panel, render_metric_card, render_section_header, render_warning_panel  # noqa: E402
+    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_warning_panel  # noqa: E402
 
 from src.features.future_match_features import get_available_teams  # noqa: E402
 from src.official.loaders import get_official_team_list  # noqa: E402
@@ -81,12 +80,12 @@ def _official_team_lock_enabled() -> bool:
         return False
 
 
-st.set_page_config(page_title="Match Predictor", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
     "Match Predictor",
-    "Select two teams, set venue context, and inspect win/draw/loss probabilities with optional explainability.",
-    eyebrow="Core analytics",
+    "Select two teams, set venue context, and inspect win / draw / loss probabilities "
+    "with optional explainability.",
+    eyebrow="Match outcome prediction",
 )
 render_section_header("Match setup")
 
@@ -113,9 +112,7 @@ if mode == "Future Match Prediction":
         st.stop()
 
     if official_team_lock:
-        render_info_panel(
-            "Official data lock is active: future match teams are restricted to the official World Cup 2026 team list."
-        )
+        st.info("Official data lock is active: future match teams are restricted to the official World Cup 2026 team list.")
 
     col1, col2 = st.columns(2)
     with col1:
@@ -137,7 +134,7 @@ if mode == "Future Match Prediction":
 
     neutral = st.checkbox("Neutral venue", value=bool(DEFAULT_FUTURE_NEUTRAL))
 
-    if st.button("Predict match", type="primary"):
+    if st.button("Predict future match"):
         if team_a == team_b:
             st.error("Team A and Team B must be different teams.")
             st.stop()
@@ -169,11 +166,11 @@ if mode == "Future Match Prediction":
 
         p1, p2, p3 = st.columns(3)
         with p1:
-            render_metric_card("Team A loss", f"{probabilities['team_a_loss']:.1%}", accent_value=True)
+            render_metric_card("Team A loss", f"{probabilities['team_a_loss']:.1%}")
         with p2:
-            render_metric_card("Draw", f"{probabilities['draw']:.1%}", accent_value=True)
+            render_metric_card("Draw", f"{probabilities['draw']:.1%}")
         with p3:
-            render_metric_card("Team A win", f"{probabilities['team_a_win']:.1%}", accent_value=True)
+            render_metric_card("Team A win", f"{probabilities['team_a_win']:.1%}")
 
         notes = prediction.get("notes", [])
         if notes:
@@ -186,7 +183,7 @@ if mode == "Future Match Prediction":
             with st.expander("Feature preview (technical)"):
                 st.dataframe(pd.DataFrame([preview]), use_container_width=True)
 
-        with st.expander("Model explanation"):
+        with st.expander("Why did the model predict this?"):
             try:
                 explanation_result = explain_future_match_prediction(
                     team_a=team_a,
