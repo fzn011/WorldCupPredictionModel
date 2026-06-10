@@ -1,73 +1,105 @@
 match_id,match_number,stage,group,date,kickoff_local,kickoff_utc,timezone,venue,city,country,team_a,team_b,status,source,last_verified_at
-G-A-01,1,group_stage,A,2026-06-11,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Mexico,South Africa,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-A-02,2,group_stage,A,2026-06-11,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,South Korea,Czechia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-A-03,3,group_stage,A,2026-06-16,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Mexico,South Korea,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-A-04,4,group_stage,A,2026-06-16,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Czechia,South Africa,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-A-05,5,group_stage,A,2026-06-21,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Czechia,Mexico,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-A-06,6,group_stage,A,2026-06-21,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,South Africa,South Korea,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-B-01,7,group_stage,B,2026-06-12,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Canada,Switzerland,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-B-02,8,group_stage,B,2026-06-12,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Qatar,Bosnia and Herzegovina,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-B-03,9,group_stage,B,2026-06-17,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Canada,Qatar,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-B-04,10,group_stage,B,2026-06-17,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Bosnia and Herzegovina,Switzerland,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-B-05,11,group_stage,B,2026-06-22,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Bosnia and Herzegovina,Canada,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-B-06,12,group_stage,B,2026-06-22,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Switzerland,Qatar,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-C-01,13,group_stage,C,2026-06-13,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,United States,Japan,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-C-02,14,group_stage,C,2026-06-13,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Nigeria,Serbia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-C-03,15,group_stage,C,2026-06-18,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,United States,Nigeria,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-C-04,16,group_stage,C,2026-06-18,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Serbia,Japan,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-C-05,17,group_stage,C,2026-06-23,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Serbia,United States,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-C-06,18,group_stage,C,2026-06-23,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Japan,Nigeria,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-D-01,19,group_stage,D,2026-06-14,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Brazil,Croatia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-D-02,20,group_stage,D,2026-06-14,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Egypt,Australia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-D-03,21,group_stage,D,2026-06-19,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Brazil,Egypt,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-D-04,22,group_stage,D,2026-06-19,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Australia,Croatia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-D-05,23,group_stage,D,2026-06-24,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Australia,Brazil,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-D-06,24,group_stage,D,2026-06-24,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Croatia,Egypt,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-E-01,25,group_stage,E,2026-06-15,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Argentina,Denmark,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-E-02,26,group_stage,E,2026-06-15,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Ghana,Costa Rica,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-E-03,27,group_stage,E,2026-06-20,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Argentina,Ghana,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-E-04,28,group_stage,E,2026-06-20,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Costa Rica,Denmark,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-E-05,29,group_stage,E,2026-06-25,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Costa Rica,Argentina,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-E-06,30,group_stage,E,2026-06-25,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Denmark,Ghana,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-F-01,31,group_stage,F,2026-06-16,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,France,Morocco,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-F-02,32,group_stage,F,2026-06-16,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Ecuador,Poland,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-F-03,33,group_stage,F,2026-06-21,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,France,Ecuador,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-F-04,34,group_stage,F,2026-06-21,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Poland,Morocco,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-F-05,35,group_stage,F,2026-06-26,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Poland,France,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-F-06,36,group_stage,F,2026-06-26,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Morocco,Ecuador,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-G-01,37,group_stage,G,2026-06-17,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,England,Iran,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-G-02,38,group_stage,G,2026-06-17,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Tunisia,Peru,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-G-03,39,group_stage,G,2026-06-22,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,England,Tunisia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-G-04,40,group_stage,G,2026-06-22,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Peru,Iran,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-G-05,41,group_stage,G,2026-06-27,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Peru,England,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-G-06,42,group_stage,G,2026-06-27,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Iran,Tunisia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-H-01,43,group_stage,H,2026-06-18,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Spain,Cameroon,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-H-02,44,group_stage,H,2026-06-18,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Uruguay,Sweden,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-H-03,45,group_stage,H,2026-06-23,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Spain,Uruguay,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-H-04,46,group_stage,H,2026-06-23,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Sweden,Cameroon,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-H-05,47,group_stage,H,2026-06-28,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Sweden,Spain,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-H-06,48,group_stage,H,2026-06-28,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Cameroon,Uruguay,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-I-01,49,group_stage,I,2026-06-19,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Germany,Algeria,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-I-02,50,group_stage,I,2026-06-19,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Colombia,Scotland,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-I-03,51,group_stage,I,2026-06-24,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Germany,Colombia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-I-04,52,group_stage,I,2026-06-24,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Scotland,Algeria,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-I-05,53,group_stage,I,2026-06-29,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Scotland,Germany,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-I-06,54,group_stage,I,2026-06-29,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Algeria,Colombia,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-J-01,55,group_stage,J,2026-06-20,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Portugal,Senegal,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-J-02,56,group_stage,J,2026-06-20,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,United Arab Emirates,Austria,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-J-03,57,group_stage,J,2026-06-25,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Portugal,United Arab Emirates,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-J-04,58,group_stage,J,2026-06-25,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Austria,Senegal,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-J-05,59,group_stage,J,2026-06-30,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Austria,Portugal,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-J-06,60,group_stage,J,2026-06-30,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Senegal,United Arab Emirates,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-K-01,61,group_stage,K,2026-06-21,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Netherlands,Côte d'Ivoire,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-K-02,62,group_stage,K,2026-06-21,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Chile,Norway,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-K-03,63,group_stage,K,2026-06-26,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Netherlands,Chile,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-K-04,64,group_stage,K,2026-06-26,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Norway,Côte d'Ivoire,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-K-05,65,group_stage,K,2026-07-01,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Norway,Netherlands,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-K-06,66,group_stage,K,2026-07-01,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Côte d'Ivoire,Chile,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-L-01,67,group_stage,L,2026-06-22,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Belgium,Turkey,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-L-02,68,group_stage,L,2026-06-22,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Paraguay,New Zealand,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-L-03,69,group_stage,L,2026-06-27,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Belgium,Paraguay,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-L-04,70,group_stage,L,2026-06-27,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,New Zealand,Turkey,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-L-05,71,group_stage,L,2026-07-02,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,New Zealand,Belgium,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
-G-L-06,72,group_stage,L,2026-07-02,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Turkey,Paraguay,scheduled,sample_to_be_verified,MANUALLY_UPDATE_DATE
+G-A-01,1,group_stage,A,2026-06-11,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Mexico,South Africa,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-A-02,2,group_stage,A,2026-06-11,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,South Korea,Czechia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-A-03,3,group_stage,A,2026-06-16,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Mexico,South Korea,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-A-04,4,group_stage,A,2026-06-16,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Czechia,South Africa,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-A-05,5,group_stage,A,2026-06-21,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,Czechia,Mexico,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-A-06,6,group_stage,A,2026-06-21,TBD,TBD,TBD,TBD Venue A,TBD City,TBD Country,South Africa,South Korea,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-B-01,7,group_stage,B,2026-06-12,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Canada,Switzerland,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-B-02,8,group_stage,B,2026-06-12,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Qatar,Bosnia and Herzegovina,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-B-03,9,group_stage,B,2026-06-17,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Canada,Qatar,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-B-04,10,group_stage,B,2026-06-17,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Bosnia and Herzegovina,Switzerland,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-B-05,11,group_stage,B,2026-06-22,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Bosnia and Herzegovina,Canada,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-B-06,12,group_stage,B,2026-06-22,TBD,TBD,TBD,TBD Venue B,TBD City,TBD Country,Switzerland,Qatar,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-C-01,13,group_stage,C,2026-06-13,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,United States,Japan,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-C-02,14,group_stage,C,2026-06-13,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Nigeria,Serbia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-C-03,15,group_stage,C,2026-06-18,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,United States,Nigeria,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-C-04,16,group_stage,C,2026-06-18,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Serbia,Japan,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-C-05,17,group_stage,C,2026-06-23,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Serbia,United States,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-C-06,18,group_stage,C,2026-06-23,TBD,TBD,TBD,TBD Venue C,TBD City,TBD Country,Japan,Nigeria,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-D-01,19,group_stage,D,2026-06-14,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Brazil,Croatia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-D-02,20,group_stage,D,2026-06-14,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Egypt,Australia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-D-03,21,group_stage,D,2026-06-19,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Brazil,Egypt,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-D-04,22,group_stage,D,2026-06-19,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Australia,Croatia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-D-05,23,group_stage,D,2026-06-24,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Australia,Brazil,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-D-06,24,group_stage,D,2026-06-24,TBD,TBD,TBD,TBD Venue D,TBD City,TBD Country,Croatia,Egypt,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-E-01,25,group_stage,E,2026-06-15,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Argentina,Denmark,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-E-02,26,group_stage,E,2026-06-15,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Ghana,Costa Rica,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-E-03,27,group_stage,E,2026-06-20,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Argentina,Ghana,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-E-04,28,group_stage,E,2026-06-20,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Costa Rica,Denmark,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-E-05,29,group_stage,E,2026-06-25,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Costa Rica,Argentina,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-E-06,30,group_stage,E,2026-06-25,TBD,TBD,TBD,TBD Venue E,TBD City,TBD Country,Denmark,Ghana,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-F-01,31,group_stage,F,2026-06-16,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,France,Morocco,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-F-02,32,group_stage,F,2026-06-16,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Ecuador,Poland,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-F-03,33,group_stage,F,2026-06-21,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,France,Ecuador,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-F-04,34,group_stage,F,2026-06-21,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Poland,Morocco,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-F-05,35,group_stage,F,2026-06-26,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Poland,France,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-F-06,36,group_stage,F,2026-06-26,TBD,TBD,TBD,TBD Venue F,TBD City,TBD Country,Morocco,Ecuador,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-G-01,37,group_stage,G,2026-06-17,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,England,Iran,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-G-02,38,group_stage,G,2026-06-17,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Tunisia,Peru,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-G-03,39,group_stage,G,2026-06-22,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,England,Tunisia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-G-04,40,group_stage,G,2026-06-22,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Peru,Iran,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-G-05,41,group_stage,G,2026-06-27,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Peru,England,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-G-06,42,group_stage,G,2026-06-27,TBD,TBD,TBD,TBD Venue G,TBD City,TBD Country,Iran,Tunisia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-H-01,43,group_stage,H,2026-06-18,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Spain,Cameroon,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-H-02,44,group_stage,H,2026-06-18,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Uruguay,Sweden,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-H-03,45,group_stage,H,2026-06-23,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Spain,Uruguay,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-H-04,46,group_stage,H,2026-06-23,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Sweden,Cameroon,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-H-05,47,group_stage,H,2026-06-28,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Sweden,Spain,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-H-06,48,group_stage,H,2026-06-28,TBD,TBD,TBD,TBD Venue H,TBD City,TBD Country,Cameroon,Uruguay,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-I-01,49,group_stage,I,2026-06-19,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Germany,Algeria,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-I-02,50,group_stage,I,2026-06-19,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Colombia,Scotland,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-I-03,51,group_stage,I,2026-06-24,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Germany,Colombia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-I-04,52,group_stage,I,2026-06-24,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Scotland,Algeria,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-I-05,53,group_stage,I,2026-06-29,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Scotland,Germany,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-I-06,54,group_stage,I,2026-06-29,TBD,TBD,TBD,TBD Venue I,TBD City,TBD Country,Algeria,Colombia,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-J-01,55,group_stage,J,2026-06-20,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Portugal,Senegal,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-J-02,56,group_stage,J,2026-06-20,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,United Arab Emirates,Austria,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-J-03,57,group_stage,J,2026-06-25,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Portugal,United Arab Emirates,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-J-04,58,group_stage,J,2026-06-25,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Austria,Senegal,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-J-05,59,group_stage,J,2026-06-30,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Austria,Portugal,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-J-06,60,group_stage,J,2026-06-30,TBD,TBD,TBD,TBD Venue J,TBD City,TBD Country,Senegal,United Arab Emirates,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-K-01,61,group_stage,K,2026-06-21,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Netherlands,Côte d'Ivoire,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-K-02,62,group_stage,K,2026-06-21,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Chile,Norway,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-K-03,63,group_stage,K,2026-06-26,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Netherlands,Chile,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-K-04,64,group_stage,K,2026-06-26,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Norway,Côte d'Ivoire,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-K-05,65,group_stage,K,2026-07-01,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Norway,Netherlands,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-K-06,66,group_stage,K,2026-07-01,TBD,TBD,TBD,TBD Venue K,TBD City,TBD Country,Côte d'Ivoire,Chile,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-L-01,67,group_stage,L,2026-06-22,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Belgium,Turkey,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-L-02,68,group_stage,L,2026-06-22,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Paraguay,New Zealand,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-L-03,69,group_stage,L,2026-06-27,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Belgium,Paraguay,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-L-04,70,group_stage,L,2026-06-27,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,New Zealand,Turkey,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-L-05,71,group_stage,L,2026-07-02,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,New Zealand,Belgium,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+G-L-06,72,group_stage,L,2026-07-02,TBD,TBD,TBD,TBD Venue L,TBD City,TBD Country,Turkey,Paraguay,scheduled,sample_to_be_verified,2026-06-10T14:24:01.850124+00:00
+ROU-01,73,round_of_32,,2026-07-04,TBD,TBD,TBD,TBD,TBD,TBD,TBD1,TBD2,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-02,74,round_of_32,,2026-07-04,TBD,TBD,TBD,TBD,TBD,TBD,TBD3,TBD4,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-03,75,round_of_32,,2026-07-05,TBD,TBD,TBD,TBD,TBD,TBD,TBD5,TBD6,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-04,76,round_of_32,,2026-07-05,TBD,TBD,TBD,TBD,TBD,TBD,TBD7,TBD8,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-05,77,round_of_32,,2026-07-06,TBD,TBD,TBD,TBD,TBD,TBD,TBD9,TBD10,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-06,78,round_of_32,,2026-07-06,TBD,TBD,TBD,TBD,TBD,TBD,TBD11,TBD12,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-07,79,round_of_32,,2026-07-07,TBD,TBD,TBD,TBD,TBD,TBD,TBD13,TBD14,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-08,80,round_of_32,,2026-07-07,TBD,TBD,TBD,TBD,TBD,TBD,TBD15,TBD16,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-09,81,round_of_32,,2026-07-08,TBD,TBD,TBD,TBD,TBD,TBD,TBD17,TBD18,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-10,82,round_of_32,,2026-07-08,TBD,TBD,TBD,TBD,TBD,TBD,TBD19,TBD20,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-11,83,round_of_32,,2026-07-09,TBD,TBD,TBD,TBD,TBD,TBD,TBD21,TBD22,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-12,84,round_of_32,,2026-07-09,TBD,TBD,TBD,TBD,TBD,TBD,TBD23,TBD24,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-13,85,round_of_32,,2026-07-10,TBD,TBD,TBD,TBD,TBD,TBD,TBD25,TBD26,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-14,86,round_of_32,,2026-07-10,TBD,TBD,TBD,TBD,TBD,TBD,TBD27,TBD28,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-15,87,round_of_32,,2026-07-11,TBD,TBD,TBD,TBD,TBD,TBD,TBD29,TBD30,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-16,88,round_of_32,,2026-07-11,TBD,TBD,TBD,TBD,TBD,TBD,TBD31,TBD32,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-01,89,round_of_16,,2026-07-10,TBD,TBD,TBD,TBD,TBD,TBD,TBD1,TBD2,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-02,90,round_of_16,,2026-07-10,TBD,TBD,TBD,TBD,TBD,TBD,TBD3,TBD4,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-03,91,round_of_16,,2026-07-11,TBD,TBD,TBD,TBD,TBD,TBD,TBD5,TBD6,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-04,92,round_of_16,,2026-07-11,TBD,TBD,TBD,TBD,TBD,TBD,TBD7,TBD8,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-05,93,round_of_16,,2026-07-12,TBD,TBD,TBD,TBD,TBD,TBD,TBD9,TBD10,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-06,94,round_of_16,,2026-07-12,TBD,TBD,TBD,TBD,TBD,TBD,TBD11,TBD12,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-07,95,round_of_16,,2026-07-13,TBD,TBD,TBD,TBD,TBD,TBD,TBD13,TBD14,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+ROU-08,96,round_of_16,,2026-07-13,TBD,TBD,TBD,TBD,TBD,TBD,TBD15,TBD16,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+QUA-01,97,quarter_final,,2026-07-15,TBD,TBD,TBD,TBD,TBD,TBD,TBD1,TBD2,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+QUA-02,98,quarter_final,,2026-07-15,TBD,TBD,TBD,TBD,TBD,TBD,TBD3,TBD4,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+QUA-03,99,quarter_final,,2026-07-16,TBD,TBD,TBD,TBD,TBD,TBD,TBD5,TBD6,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+QUA-04,100,quarter_final,,2026-07-16,TBD,TBD,TBD,TBD,TBD,TBD,TBD7,TBD8,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+SEM-01,101,semi_final,,2026-07-18,TBD,TBD,TBD,TBD,TBD,TBD,TBD1,TBD2,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+SEM-02,102,semi_final,,2026-07-18,TBD,TBD,TBD,TBD,TBD,TBD,TBD3,TBD4,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+3P-01,103,third_place,,2026-07-22,TBD,TBD,TBD,TBD,TBD,TBD,TBD,TBD,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00
+FIN-01,104,final,,2026-07-19,TBD,TBD,TBD,AT&T Stadium,Arlington,USA,TBD,TBD,scheduled,ai_prefilled_needs_verification,2026-06-10T14:24:01.850124+00:00

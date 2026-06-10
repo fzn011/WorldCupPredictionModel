@@ -4,16 +4,15 @@
   "strict_full_schedule": false,
   "teams_count": 48,
   "groups_count": 12,
-  "fixtures_count": 72,
-  "venues_count": 12,
+  "fixtures_count": 104,
+  "venues_count": 16,
   "group_stage_matches": 72,
-  "knockout_matches": 0,
+  "knockout_matches": 32,
   "validation_passed": false,
-  "errors_count": 7,
-  "warnings_count": 13,
-  "last_verified_at": "2026-06-10T13:55:50.314499+00:00",
+  "errors_count": 10,
+  "warnings_count": 0,
+  "last_verified_at": "2026-06-10T14:24:01.901627+00:00",
   "notes": [
-    "Official-style template data still contains sample_to_be_verified rows and must be manually checked against FIFA.",
-    "Validation warnings remain; inspect the validation report before treating data as fully verified."
+    "Official-style template data still contains sample_to_be_verified rows and must be manually checked against FIFA."
   ]
 }

@@ -1,1 +1,16 @@
-
+id,passed,details
+teams_complete,True,"{""team_count"": 48, ""required"": 48}"
+teams_no_placeholders,True,"{""placeholder_count"": 0}"
+groups_complete,True,"{""group_count"": 12, ""all_groups_have_4_teams"": true, ""group_sizes"": {""A"": 4, ""B"": 4, ""C"": 4, ""D"": 4, ""E"": 4, ""F"": 4, ""G"": 4, ""H"": 4, ""I"": 4, ""J"": 4, ""K"": 4, ""L"": 4}}"
+groups_no_placeholders,True,"{""placeholder_count"": 0}"
+venues_complete,True,"{""venue_count"": 16, ""expected_min"": 16}"
+venues_no_placeholders,True,"{""placeholder_count"": 0}"
+fixtures_complete,True,"{""fixture_count"": 104, ""required"": 104}"
+fixtures_no_placeholders,False,"{""placeholder_count"": 201}"
+squads_complete,False,"{""teams_with_26_players"": 0, ""total_teams"": 17, ""required"": 48}"
+players_complete,False,"{""player_count"": 65, ""required"": 1248}"
+players_no_placeholders,True,"{""placeholder_count"": 0}"
+award_candidates_ready,False,"{""candidate_count"": 65}"
+player_priors_merged,True,"{""players_with_priors"": 65, ""total_players"": 65}"
+no_sample_rows,False,"{""datasets_checked"": [""teams"", ""groups"", ""fixtures"", ""venues"", ""players""], ""sample_datasets"": [""fixtures"", ""players""]}"
+data_consistency,False,"{""groups_teams_consistent"": true, ""fixtures_consistent"": false}"

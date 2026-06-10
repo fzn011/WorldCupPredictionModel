@@ -1,18 +1,210 @@
 {
   "status": "blocked",
-  "is_official_final_ready": false,
-  "summary": {
-    "teams_count": 0,
-    "players_count": 0,
-    "teams_with_26_players": 0
-  },
-  "blockers": [
+  "checklist": [
     {
-      "id": "validation_failed",
+      "id": "teams_complete",
+      "passed": true,
       "details": {
-        "error": "You are trying to merge on str and float64 columns for key 'team'. If you wish to proceed you should use pd.concat"
+        "team_count": 48,
+        "required": 48
+      }
+    },
+    {
+      "id": "teams_no_placeholders",
+      "passed": true,
+      "details": {
+        "placeholder_count": 0
+      }
+    },
+    {
+      "id": "groups_complete",
+      "passed": true,
+      "details": {
+        "group_count": 12,
+        "all_groups_have_4_teams": true,
+        "group_sizes": {
+          "A": 4,
+          "B": 4,
+          "C": 4,
+          "D": 4,
+          "E": 4,
+          "F": 4,
+          "G": 4,
+          "H": 4,
+          "I": 4,
+          "J": 4,
+          "K": 4,
+          "L": 4
+        }
+      }
+    },
+    {
+      "id": "groups_no_placeholders",
+      "passed": true,
+      "details": {
+        "placeholder_count": 0
+      }
+    },
+    {
+      "id": "venues_complete",
+      "passed": true,
+      "details": {
+        "venue_count": 16,
+        "expected_min": 16
+      }
+    },
+    {
+      "id": "venues_no_placeholders",
+      "passed": true,
+      "details": {
+        "placeholder_count": 0
+      }
+    },
+    {
+      "id": "fixtures_complete",
+      "passed": true,
+      "details": {
+        "fixture_count": 104,
+        "required": 104
+      }
+    },
+    {
+      "id": "fixtures_no_placeholders",
+      "passed": false,
+      "details": {
+        "placeholder_count": 201
+      }
+    },
+    {
+      "id": "squads_complete",
+      "passed": false,
+      "details": {
+        "teams_with_26_players": 0,
+        "total_teams": 17,
+        "required": 48
+      }
+    },
+    {
+      "id": "players_complete",
+      "passed": false,
+      "details": {
+        "player_count": 65,
+        "required": 1248
+      }
+    },
+    {
+      "id": "players_no_placeholders",
+      "passed": true,
+      "details": {
+        "placeholder_count": 0
+      }
+    },
+    {
+      "id": "award_candidates_ready",
+      "passed": false,
+      "details": {
+        "candidate_count": 65
+      }
+    },
+    {
+      "id": "player_priors_merged",
+      "passed": true,
+      "details": {
+        "players_with_priors": 65,
+        "total_players": 65
+      }
+    },
+    {
+      "id": "no_sample_rows",
+      "passed": false,
+      "details": {
+        "datasets_checked": [
+          "teams",
+          "groups",
+          "fixtures",
+          "venues",
+          "players"
+        ],
+        "sample_datasets": [
+          "fixtures",
+          "players"
+        ]
+      }
+    },
+    {
+      "id": "data_consistency",
+      "passed": false,
+      "details": {
+        "groups_teams_consistent": true,
+        "fixtures_consistent": false
       }
     }
   ],
-  "warnings": []
+  "blockers": [
+    {
+      "id": "placeholder_values_detected",
+      "details": {
+        "placeholder_count": 201
+      }
+    },
+    {
+      "id": "incomplete_squads",
+      "details": {
+        "teams_with_26_players": 0,
+        "total_teams": 17,
+        "required": 48
+      }
+    },
+    {
+      "id": "incomplete_squads",
+      "details": {
+        "player_count": 65,
+        "required": 1248
+      }
+    },
+    {
+      "id": "sample_rows_detected",
+      "details": {
+        "datasets_checked": [
+          "teams",
+          "groups",
+          "fixtures",
+          "venues",
+          "players"
+        ],
+        "sample_datasets": [
+          "fixtures",
+          "players"
+        ]
+      }
+    },
+    {
+      "id": "data_inconsistency",
+      "details": {
+        "groups_teams_consistent": true,
+        "fixtures_consistent": false
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "id": "award_candidates_ready",
+      "passed": false,
+      "details": {
+        "candidate_count": 65
+      }
+    }
+  ],
+  "summary": {
+    "total_checks": 15,
+    "passed_checks": 9,
+    "failed_checks": 6,
+    "blocker_count": 5,
+    "warning_count": 1,
+    "teams_count": 48,
+    "players_count": 65,
+    "teams_with_26_players": 0
+  },
+  "timestamp": "2026-06-10T14:24:21.155438+00:00",
+  "is_official_final_ready": false
 }

@@ -1,0 +1,5 @@
+timestamp,target,import_file,rows,overwritten,status,backup_path
+2026-06-10T14:20:44.240105+00:00,teams,data\official\import_templates\official_teams_import_template.csv,48,True,success,
+2026-06-10T14:20:44.830358+00:00,groups,data\official\import_templates\official_groups_import_template.csv,48,True,success,
+2026-06-10T14:20:45.418709+00:00,venues,data\official\import_templates\official_venues_import_template.csv,16,True,success,
+2026-06-10T14:24:01.902917+00:00,fixtures,data\official\import_templates\official_fixtures_import_template.csv,104,True,success,
