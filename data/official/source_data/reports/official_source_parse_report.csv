@@ -1,0 +1,4 @@
+source,entity,status,message,rows_extracted,parsed_at
+teams,teams,failed,HTML snapshot missing,0,2026-06-10T14:36:46.760967+00:00
+schedule,fixtures,failed,HTML snapshot missing,0,2026-06-10T14:36:46.764096+00:00
+squads,players,failed,HTML snapshot missing,0,2026-06-10T14:36:46.764647+00:00

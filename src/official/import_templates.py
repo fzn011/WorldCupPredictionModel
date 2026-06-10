@@ -406,6 +406,7 @@ def validate_import_file(
         "venues": C.IMPORT_VENUES_REQUIRED_COLUMNS,
         "players": C.IMPORT_PLAYERS_REQUIRED_COLUMNS,
         "squads": C.IMPORT_SQUADS_REQUIRED_COLUMNS,
+        "player_priors": C.IMPORT_PLAYER_PRIORS_REQUIRED_COLUMNS,
     }
 
     if template_type not in column_map:

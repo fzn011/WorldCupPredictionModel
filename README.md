@@ -432,56 +432,68 @@ python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```
 
-## Step 17E: Fill and Verify Official Teams, Groups, Venues, and Fixtures
+## Step 17E: Source-Assisted Official FIFA Data Population
 
-> **Data population step — no code changes required.**
+Step 17E adds a **source-assisted** population system that helps fill official World Cup 2026 data using **official FIFA URLs only** (plus manual CSV/XLSX fallback).
 
-Fill these four templates from verified FIFA sources before touching players or awards.
+- Uses official FIFA source URLs only (`fifa.com`, `fdp.fifa.org`) — no whole-internet scraping.
+- Saves raw HTML snapshots for auditability under `data/official/source_data/raw/`.
+- Parses what can be parsed defensively; **does not fake** missing teams, fixtures, venues, or players.
+- Supports manual CSV/XLSX and master workbook ingestion into **staging** before apply.
+- Validates staged data against existing contracts before import.
+- Exports a downloadable import pack ZIP.
+- Applies staged data only through the existing safe import workflow (`apply_staged_official_data.py`).
+- **`official_final` remains blocked** until all 15 readiness checks pass — this is correct.
 
-### Target after Step 17E
+> If FIFA pages are dynamic or parsing is partial, use the manual workbook path:
+> `python scripts/ingest_manual_official_file.py --target workbook --file data/official/population/workbooks/official_worldcup_2026_master_import.xlsx`
 
-| Dataset | Required | Source template |
-|---------|----------|-----------------|
-| Teams | 48 rows | `official_teams_import_template.csv` |
-| Groups | 48 rows (12 × 4) | `official_groups_import_template.csv` |
-| Venues | 16+ rows | `official_venues_import_template.csv` |
-| Fixtures | 104 rows (72 group + 32 KO) | `official_fixtures_import_template.csv` |
+### Step 17E workflow order
 
-Templates live in `data/official/import_templates/`.
+1. **17E-1** — Populate official teams and groups (staging)
+2. **17E-2** — Populate official venues and stadium metadata
+3. **17E-3** — Populate all 104 fixtures
+4. **17E-4** — Populate official squads and players
+5. **17E-5** — Populate editable player priors from official players
+6. **17E-6** — Run readiness; promote only if `final_ready=true`
 
-### Step 17E fill order
-
-1. **Teams** — 48 qualified nations, group assignments, confederation, host flags
-2. **Groups** — 12 groups × 4 teams; must match teams file exactly
-3. **Venues** — stadiums, cities, countries, timezones, capacity
-4. **Fixtures** — all 104 matches; kickoff times (local + UTC), venue, team codes
-
-### Step 17E apply commands
+### Step 17E commands
 
 ```bash
-python scripts/apply_official_import.py --target teams    --file data/official/import_templates/official_teams_import_template.csv    --preview
-python scripts/apply_official_import.py --target teams    --file data/official/import_templates/official_teams_import_template.csv
-python scripts/apply_official_import.py --target groups   --file data/official/import_templates/official_groups_import_template.csv
-python scripts/apply_official_import.py --target venues   --file data/official/import_templates/official_venues_import_template.csv
-python scripts/apply_official_import.py --target fixtures --file data/official/import_templates/official_fixtures_import_template.csv
+python scripts/prepare_source_population.py
+python scripts/prepare_source_population.py --download
+python scripts/export_official_import_pack.py
+
+python scripts/ingest_manual_official_file.py --target workbook --file data/official/population/workbooks/official_worldcup_2026_master_import.xlsx
+
+python scripts/apply_staged_official_data.py --target all --preview
+python scripts/apply_staged_official_data.py --target all --apply
+
 python scripts/evaluate_official_final_readiness.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
 ```
 
-### Step 17E checklist
+### Step 17E outputs
 
-- [ ] 48 teams, no `sample_to_be_verified`
-- [ ] 12 groups, each with exactly 4 teams
-- [ ] Groups match teams (team names identical)
-- [ ] 16+ venues with city, country, timezone
-- [ ] 72 group-stage fixtures with kickoff times
-- [ ] 32 knockout fixtures/placeholders
-- [ ] No blocking placeholder values in any of the above
+| Artifact | Path |
+|----------|------|
+| Source registry | `data/official/source_data/official_source_registry.json` |
+| Snapshot manifest | `data/official/source_data/official_source_snapshot_manifest.json` |
+| Staged teams | `data/official/source_data/staging/staged_official_teams.csv` |
+| Staged fixtures | `data/official/source_data/staging/staged_official_fixtures.csv` |
+| Staged venues | `data/official/source_data/staging/staged_official_venues.csv` |
+| Staged players | `data/official/source_data/staging/staged_official_players.csv` |
+| Parse report | `data/official/source_data/reports/official_source_parse_report.csv` |
+| Staging validation | `data/official/source_data/reports/official_staging_validation_report.csv` |
+| Population summary | `data/official/source_data/reports/official_source_population_summary.json` |
+| Import pack ZIP | `data/official/source_data/exports/official_worldcup_2026_import_pack.zip` |
 
 ---
 
 ## Step 17F: Fill and Verify Official Squads and Player Priors
 
-> **Data population step — no code changes required. Requires Step 17E to pass first.**
+> **Data population step — requires Step 17E staging/apply workflow.**
 
 ### Target after Step 17F
 
