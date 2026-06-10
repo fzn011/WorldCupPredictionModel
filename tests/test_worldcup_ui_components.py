@@ -34,6 +34,12 @@ def test_worldcup_theme_colors_palette() -> None:
     assert colors["danger"] == "#EF4444"
 
 
+def test_worldcup_theme_no_legacy_gold_or_navy() -> None:
+    source = THEME_PATH.read_text(encoding="utf-8")
+    for forbidden in ("#0f2844", "214,168,79", "#b5832a", "rgba(14,27,42"):
+        assert forbidden not in source, f"Legacy color still in theme: {forbidden}"
+
+
 def test_worldcup_theme_inject_css_contains_key_classes() -> None:
     source = THEME_PATH.read_text(encoding="utf-8")
     for token in (
@@ -45,6 +51,7 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         ".stTextInput input",
         "#8B0000",
         "#1F1F1F",
+        '[data-baseweb="select"]',
     ):
         assert token in source
 
@@ -61,6 +68,7 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_warning_panel",
         "render_success_panel",
         "render_info_panel",
+        "render_error_panel",
         "render_podium_cards",
         "render_formation_diagram",
         "render_progress_bar",

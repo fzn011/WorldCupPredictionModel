@@ -82,6 +82,8 @@ def render_metric_card(
 
     variant can be 'ok', 'warn', 'danger', 'gold' or '' (default white).
     """
+    if variant in ("gold", "accent"):
+        variant = "accent"
     cls = f"wc-card wc-card-{variant}" if variant else "wc-card"
     sub_html = f'<div class="wc-card-sub">{sub}</div>' if sub else ""
     st.markdown(
@@ -222,6 +224,10 @@ def render_success_panel(message: str) -> None:
 
 def render_info_panel(message: str) -> None:
     st.markdown(f'<div class="wc-panel-info">{message}</div>', unsafe_allow_html=True)
+
+
+def render_error_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-error">{message}</div>', unsafe_allow_html=True)
 
 
 # ─── Pipeline stepper ──────────────────────────────────────────────────────────
@@ -380,8 +386,8 @@ def render_champion_spotlight(team: str, probability: float, *, sub: str = "") -
   <div class="wc-card-label" style="font-size:0.7rem;letter-spacing:0.15em;">
     Most likely champion
   </div>
-  <div class="wc-card-value" style="font-size:1.9rem;color:{COLORS['gold']};">{team}</div>
-  <div style="font-size:1.25rem;font-weight:700;color:{COLORS['gold_light']};margin-top:0.2rem;">{pct}</div>
+  <div class="wc-card-value" style="font-size:1.9rem;color:{COLORS['primary']};">{team}</div>
+  <div style="font-size:1.25rem;font-weight:700;color:{COLORS['primary_hover']};margin-top:0.2rem;">{pct}</div>
   {f'<div class="wc-card-sub">{sub}</div>' if sub else ''}
 </div>
         """,
