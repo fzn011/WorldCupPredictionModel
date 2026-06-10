@@ -1171,3 +1171,68 @@ IMPORT_PLAYER_PRIORS_REQUIRED_COLUMNS: list[str] = [
     "notes",
     "source",
 ]
+
+# -----------------------------------------------------------------------------
+# Step 17E source-assisted official FIFA data population constants
+# -----------------------------------------------------------------------------
+
+OFFICIAL_SOURCE_DATA_DIR: str = "data/official/source_data"
+OFFICIAL_SOURCE_RAW_DIR: str = "data/official/source_data/raw"
+OFFICIAL_SOURCE_STAGING_DIR: str = "data/official/source_data/staging"
+OFFICIAL_SOURCE_REPORTS_DIR: str = "data/official/source_data/reports"
+OFFICIAL_SOURCE_EXPORTS_DIR: str = "data/official/source_data/exports"
+
+OFFICIAL_SOURCE_REGISTRY_FILE: str = "official_source_registry.json"
+OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE: str = "official_source_snapshot_manifest.json"
+
+STAGED_OFFICIAL_TEAMS_FILE: str = "staged_official_teams.csv"
+STAGED_OFFICIAL_GROUPS_FILE: str = "staged_official_groups.csv"
+STAGED_OFFICIAL_FIXTURES_FILE: str = "staged_official_fixtures.csv"
+STAGED_OFFICIAL_VENUES_FILE: str = "staged_official_venues.csv"
+STAGED_OFFICIAL_PLAYERS_FILE: str = "staged_official_players.csv"
+STAGED_PLAYER_AWARD_PRIORS_FILE: str = "staged_player_award_priors.csv"
+
+OFFICIAL_SOURCE_COVERAGE_REPORT_FILE: str = "official_source_coverage_report.csv"
+OFFICIAL_SOURCE_PARSE_REPORT_FILE: str = "official_source_parse_report.csv"
+OFFICIAL_STAGING_VALIDATION_REPORT_FILE: str = "official_staging_validation_report.csv"
+OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE: str = "official_source_population_summary.json"
+OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE: str = "official_worldcup_2026_import_pack.zip"
+
+OFFICIAL_FIFA_SOURCE_URLS: dict[str, str] = {
+    "teams": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/teams",
+    "schedule": (
+        "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/"
+        "articles/match-schedule-fixtures-results-teams-stadiums"
+    ),
+    "scores_fixtures": (
+        "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    ),
+    "squad_announcements": (
+        "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/"
+        "articles/all-world-cup-squad-announcements"
+    ),
+}
+
+OFFICIAL_SOURCE_ALLOWED_DOMAINS: list[str] = [
+    "fifa.com",
+    "fdp.fifa.org",
+]
+
+OFFICIAL_STAGING_STATUS_VALUES: list[str] = [
+    "not_started",
+    "source_downloaded",
+    "parsed",
+    "partial",
+    "needs_manual_review",
+    "ready_for_import",
+    "failed",
+]
+
+OFFICIAL_SOURCE_APPLY_ORDER: list[str] = [
+    "teams",
+    "groups",
+    "venues",
+    "fixtures",
+    "players",
+    "player_priors",
+]

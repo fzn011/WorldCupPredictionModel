@@ -15,6 +15,8 @@ if str(ROOT) not in sys.path:
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 
+PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
+
 CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
 CANONICAL_MATCHES_SAMPLE_FILE = getattr(
     C, "CANONICAL_MATCHES_SAMPLE_FILE", "canonical_matches_sample.csv"
@@ -136,7 +138,6 @@ GROUP_STAGE_SIMULATION_SUMMARY_FILE = getattr(
     C, "GROUP_STAGE_SIMULATION_SUMMARY_FILE", "group_stage_simulation_summary.json"
 )
 PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
-PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
 REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
@@ -178,7 +179,8 @@ st.success(
     "Step 17A: Official World Cup 2026 data lock completed.\n\n"
     "Step 17B: Official squads and player priors merge completed.\n\n"
     "Step 17C: Official final readiness workflow completed.\n\n"
-    "Step 17D: Official data population pack completed."
+    "Step 17D: Official data population pack completed.\n\n"
+    "Step 17E: Source-assisted official FIFA data population completed."
 )
 st.caption(
     "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
@@ -710,6 +712,43 @@ step17d_rows = [
 ]
 st.dataframe(pd.DataFrame(step17d_rows), use_container_width=True)
 st.caption("Step 17D adds manual population workflow: guides, templates, missing-data reports, import preview/diff, and safe official_final promotion.")
+
+st.subheader("Step 17E: Source-Assisted Official FIFA Data Population Outputs")
+
+OFFICIAL_SOURCE_DATA_DIR = getattr(C, "OFFICIAL_SOURCE_DATA_DIR", "data/official/source_data")
+OFFICIAL_SOURCE_STAGING_DIR = getattr(C, "OFFICIAL_SOURCE_STAGING_DIR", "data/official/source_data/staging")
+OFFICIAL_SOURCE_REPORTS_DIR = getattr(C, "OFFICIAL_SOURCE_REPORTS_DIR", "data/official/source_data/reports")
+OFFICIAL_SOURCE_EXPORTS_DIR = getattr(C, "OFFICIAL_SOURCE_EXPORTS_DIR", "data/official/source_data/exports")
+OFFICIAL_SOURCE_REGISTRY_FILE = getattr(C, "OFFICIAL_SOURCE_REGISTRY_FILE", "official_source_registry.json")
+OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE = getattr(C, "OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE", "official_source_snapshot_manifest.json")
+STAGED_OFFICIAL_TEAMS_FILE = getattr(C, "STAGED_OFFICIAL_TEAMS_FILE", "staged_official_teams.csv")
+STAGED_OFFICIAL_FIXTURES_FILE = getattr(C, "STAGED_OFFICIAL_FIXTURES_FILE", "staged_official_fixtures.csv")
+STAGED_OFFICIAL_VENUES_FILE = getattr(C, "STAGED_OFFICIAL_VENUES_FILE", "staged_official_venues.csv")
+STAGED_OFFICIAL_PLAYERS_FILE = getattr(C, "STAGED_OFFICIAL_PLAYERS_FILE", "staged_official_players.csv")
+OFFICIAL_SOURCE_PARSE_REPORT_FILE = getattr(C, "OFFICIAL_SOURCE_PARSE_REPORT_FILE", "official_source_parse_report.csv")
+OFFICIAL_STAGING_VALIDATION_REPORT_FILE = getattr(C, "OFFICIAL_STAGING_VALIDATION_REPORT_FILE", "official_staging_validation_report.csv")
+OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE = getattr(C, "OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE", "official_source_population_summary.json")
+OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE = getattr(C, "OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE", "official_worldcup_2026_import_pack.zip")
+
+SOURCE_ROOT = PROJECT_ROOT / str(OFFICIAL_SOURCE_DATA_DIR)
+SOURCE_STAGING = PROJECT_ROOT / str(OFFICIAL_SOURCE_STAGING_DIR)
+SOURCE_REPORTS = PROJECT_ROOT / str(OFFICIAL_SOURCE_REPORTS_DIR)
+SOURCE_EXPORTS = PROJECT_ROOT / str(OFFICIAL_SOURCE_EXPORTS_DIR)
+
+step17e_rows = [
+    {"file": OFFICIAL_SOURCE_REGISTRY_FILE, "path": str(SOURCE_ROOT / OFFICIAL_SOURCE_REGISTRY_FILE), "present": (SOURCE_ROOT / OFFICIAL_SOURCE_REGISTRY_FILE).is_file()},
+    {"file": OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE, "path": str(SOURCE_ROOT / OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE), "present": (SOURCE_ROOT / OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE).is_file()},
+    {"file": STAGED_OFFICIAL_TEAMS_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_TEAMS_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_TEAMS_FILE).is_file()},
+    {"file": STAGED_OFFICIAL_FIXTURES_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_FIXTURES_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_FIXTURES_FILE).is_file()},
+    {"file": STAGED_OFFICIAL_VENUES_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_VENUES_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_VENUES_FILE).is_file()},
+    {"file": STAGED_OFFICIAL_PLAYERS_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_PLAYERS_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_PLAYERS_FILE).is_file()},
+    {"file": OFFICIAL_SOURCE_PARSE_REPORT_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_SOURCE_PARSE_REPORT_FILE), "present": (SOURCE_REPORTS / OFFICIAL_SOURCE_PARSE_REPORT_FILE).is_file()},
+    {"file": OFFICIAL_STAGING_VALIDATION_REPORT_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_STAGING_VALIDATION_REPORT_FILE), "present": (SOURCE_REPORTS / OFFICIAL_STAGING_VALIDATION_REPORT_FILE).is_file()},
+    {"file": OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE), "present": (SOURCE_REPORTS / OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE).is_file()},
+    {"file": OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE, "path": str(SOURCE_EXPORTS / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE), "present": (SOURCE_EXPORTS / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE).is_file()},
+]
+st.dataframe(pd.DataFrame(step17e_rows), use_container_width=True)
+st.caption("Step 17E stages official FIFA source data for review; official_final stays blocked until readiness passes.")
 
 st.subheader("Planned Datasets")
 rows = []

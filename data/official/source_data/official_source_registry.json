@@ -1,0 +1,40 @@
+{
+  "version": "17e",
+  "created_at": "2026-06-10T14:34:47.125247+00:00",
+  "updated_at": "2026-06-10T14:37:35.325504+00:00",
+  "allowed_domains": [
+    "fifa.com",
+    "fdp.fifa.org"
+  ],
+  "policy": "Official FIFA sources first; manual templates always available; no whole-internet scraping.",
+  "sources": {
+    "teams": {
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/teams",
+      "allowed_domain": "fifa.com",
+      "source_status": "failed",
+      "last_checked_at": "2026-06-10T14:37:35.325495+00:00",
+      "notes": "URL domain not allowed for official sources: https://evil.example/teams"
+    },
+    "schedule": {
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums",
+      "allowed_domain": "fifa.com",
+      "source_status": "not_started",
+      "last_checked_at": "",
+      "notes": "Official FIFA source \u2014 manual verification required after staging."
+    },
+    "scores_fixtures": {
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
+      "allowed_domain": "fifa.com",
+      "source_status": "not_started",
+      "last_checked_at": "",
+      "notes": "Official FIFA source \u2014 manual verification required after staging."
+    },
+    "squad_announcements": {
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/all-world-cup-squad-announcements",
+      "allowed_domain": "fifa.com",
+      "source_status": "not_started",
+      "last_checked_at": "",
+      "notes": "Official FIFA source \u2014 manual verification required after staging."
+    }
+  }
+}

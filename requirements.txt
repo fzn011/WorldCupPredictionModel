@@ -15,3 +15,6 @@ kaggle
 fastapi
 uvicorn
 openpyxl
+requests
+beautifulsoup4
+pydantic

@@ -253,4 +253,25 @@ else:
     """)
 
 st.divider()
-st.caption("Step 17D: No scraping, OCR, or automatic data fetching. Manual verification required.")
+st.caption("Step 17D: Manual verification workflow. For Step 17E source-assisted FIFA ingestion, see **Source-Assisted Population** page.")
+
+# ===== STEP 17E =====
+st.header("11. Step 17E — Source-Assisted FIFA Population")
+
+st.markdown("""
+Use official FIFA source snapshots + manual fallback to stage data **before** applying imports.
+This does **not** auto-promote `official_final`.
+""")
+
+st.code("""
+python scripts/prepare_source_population.py
+python scripts/prepare_source_population.py --download
+python scripts/export_official_import_pack.py
+python scripts/apply_staged_official_data.py --target all --preview
+""", language="bash")
+
+if st.button("Run Step 17E pack (no download)"):
+    from src.official.prepare_source_population import prepare_step17e_source_assisted_population
+    with st.spinner("Step 17E..."):
+        r = prepare_step17e_source_assisted_population(download_sources=False)
+    st.json({k: r[k] for k in ("status", "staged_teams_count", "staged_fixtures_count", "final_ready") if k in r})
