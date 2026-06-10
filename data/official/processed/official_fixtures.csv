@@ -1,105 +1,105 @@
 match_id,match_number,stage,group,date,kickoff_local,kickoff_utc,timezone,venue,stadium,city,country,team_a,team_b,team_a_code,team_b_code,team_a_group_slot,team_b_group_slot,status,source,last_verified_at
-wc2026_m001,1,group_stage,A,2026-06-11,13:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,Mexico,South Africa,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m002,2,group_stage,A,2026-06-11,20:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,South Korea,Czechia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m003,3,group_stage,B,2026-06-12,15:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Canada,Bosnia and Herzegovina,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m004,4,group_stage,D,2026-06-12,18:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,United States,Paraguay,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m005,5,group_stage,C,2026-06-13,21:00,,,Boston Stadium,Boston Stadium,Boston,USA,Haiti,Scotland,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m006,6,group_stage,D,2026-06-13,21:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,Australia,Turkey,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m007,7,group_stage,C,2026-06-13,18:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Brazil,Morocco,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m008,8,group_stage,B,2026-06-13,12:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Qatar,Switzerland,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m009,9,group_stage,E,2026-06-14,19:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Côte d'Ivoire,Ecuador,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m010,10,group_stage,E,2026-06-14,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Germany,Curaçao,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m011,11,group_stage,F,2026-06-14,15:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Netherlands,Japan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m012,12,group_stage,F,2026-06-14,20:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,Sweden,Tunisia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m013,13,group_stage,H,2026-06-15,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,Saudi Arabia,Uruguay,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m014,14,group_stage,H,2026-06-15,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Spain,Cabo Verde,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m015,15,group_stage,G,2026-06-15,18:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Iran,New Zealand,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m016,16,group_stage,G,2026-06-15,12:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,Belgium,Egypt,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m017,17,group_stage,I,2026-06-16,15:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,France,Senegal,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m018,18,group_stage,I,2026-06-16,18:00,,,Boston Stadium,Boston Stadium,Boston,USA,Iraq,Norway,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m019,19,group_stage,J,2026-06-16,20:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Argentina,Algeria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m020,20,group_stage,J,2026-06-16,21:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Austria,Jordan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m021,21,group_stage,L,2026-06-17,19:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Ghana,Panama,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m022,22,group_stage,L,2026-06-17,15:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,England,Croatia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m023,23,group_stage,K,2026-06-17,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Portugal,Congo DR,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m024,24,group_stage,K,2026-06-17,20:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,Uzbekistan,Colombia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m025,25,group_stage,A,2026-06-18,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Czechia,South Africa,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m026,26,group_stage,B,2026-06-18,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Switzerland,Bosnia and Herzegovina,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m027,27,group_stage,B,2026-06-18,15:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,Canada,Qatar,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m028,28,group_stage,A,2026-06-18,19:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,Mexico,South Korea,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m029,29,group_stage,C,2026-06-19,20:30,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Brazil,Haiti,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m030,30,group_stage,C,2026-06-19,18:00,,,Boston Stadium,Boston Stadium,Boston,USA,Scotland,Morocco,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m031,31,group_stage,D,2026-06-19,20:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Turkey,Paraguay,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m032,32,group_stage,D,2026-06-19,12:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,United States,Australia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m033,33,group_stage,E,2026-06-20,16:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Germany,Côte d'Ivoire,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m034,34,group_stage,E,2026-06-20,19:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Ecuador,Curaçao,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m035,35,group_stage,F,2026-06-20,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Netherlands,Sweden,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m036,36,group_stage,F,2026-06-20,22:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,Tunisia,Japan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m037,37,group_stage,H,2026-06-21,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,Uruguay,Cabo Verde,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m038,38,group_stage,H,2026-06-21,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Spain,Saudi Arabia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m039,39,group_stage,G,2026-06-21,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Belgium,Iran,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m040,40,group_stage,G,2026-06-21,18:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,New Zealand,Egypt,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m041,41,group_stage,I,2026-06-22,20:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Norway,Senegal,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m042,42,group_stage,I,2026-06-22,17:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,France,Iraq,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m043,43,group_stage,J,2026-06-22,12:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Argentina,Austria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m044,44,group_stage,J,2026-06-22,20:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Jordan,Algeria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m045,45,group_stage,L,2026-06-23,16:00,,,Boston Stadium,Boston Stadium,Boston,USA,England,Ghana,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m046,46,group_stage,L,2026-06-23,19:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Panama,Croatia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m047,47,group_stage,K,2026-06-23,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Portugal,Uzbekistan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m048,48,group_stage,K,2026-06-23,20:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,Colombia,Congo DR,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m049,49,group_stage,C,2026-06-24,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,Scotland,Brazil,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m050,50,group_stage,C,2026-06-24,18:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Morocco,Haiti,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m051,51,group_stage,B,2026-06-24,12:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,Switzerland,Canada,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m052,52,group_stage,B,2026-06-24,12:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,Bosnia and Herzegovina,Qatar,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m053,53,group_stage,A,2026-06-24,19:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,Czechia,Mexico,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m054,54,group_stage,A,2026-06-24,19:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,South Africa,South Korea,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m055,55,group_stage,E,2026-06-25,16:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Curaçao,Côte d'Ivoire,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m056,56,group_stage,E,2026-06-25,16:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Ecuador,Germany,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m057,57,group_stage,F,2026-06-25,18:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Japan,Sweden,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m058,58,group_stage,F,2026-06-25,18:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Tunisia,Netherlands,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m059,59,group_stage,D,2026-06-25,19:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Turkey,United States,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m060,60,group_stage,D,2026-06-25,19:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Paraguay,Australia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m061,61,group_stage,I,2026-06-26,15:00,,,Boston Stadium,Boston Stadium,Boston,USA,Norway,France,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m062,62,group_stage,I,2026-06-26,15:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Senegal,Iraq,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m063,63,group_stage,G,2026-06-26,20:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,Egypt,Iran,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m064,64,group_stage,G,2026-06-26,20:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,New Zealand,Belgium,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m065,65,group_stage,H,2026-06-26,19:00,,,Houston Stadium,Houston Stadium,Houston,USA,Cabo Verde,Saudi Arabia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m066,66,group_stage,H,2026-06-26,18:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,Uruguay,Spain,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m067,67,group_stage,L,2026-06-27,17:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Panama,England,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m068,68,group_stage,L,2026-06-27,17:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Croatia,Ghana,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m069,69,group_stage,J,2026-06-27,21:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Algeria,Austria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m070,70,group_stage,J,2026-06-27,21:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Jordan,Argentina,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m071,71,group_stage,K,2026-06-27,19:30,,,Miami Stadium,Miami Stadium,Miami,USA,Colombia,Portugal,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m072,72,group_stage,K,2026-06-27,19:30,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Congo DR,Uzbekistan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m073,73,round_of_32,,2026-06-28,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m074,74,round_of_32,,2026-06-29,16:30,,,Boston Stadium,Boston Stadium,Boston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m075,75,round_of_32,,2026-06-29,19:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m076,76,round_of_32,,2026-06-29,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m077,77,round_of_32,,2026-06-30,17:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m078,78,round_of_32,,2026-06-30,12:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m079,79,round_of_32,,2026-06-30,19:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m080,80,round_of_32,,2026-07-01,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m081,81,round_of_32,,2026-07-01,17:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m082,82,round_of_32,,2026-07-01,13:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m083,83,round_of_32,,2026-07-02,19:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m084,84,round_of_32,,2026-07-02,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m085,85,round_of_32,,2026-07-02,20:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m086,86,round_of_32,,2026-07-03,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m087,87,round_of_32,,2026-07-03,20:30,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m088,88,round_of_32,,2026-07-03,13:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m089,89,round_of_16,,2026-07-04,17:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m090,90,round_of_16,,2026-07-04,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m091,91,round_of_16,,2026-07-05,16:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m092,92,round_of_16,,2026-07-05,18:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m093,93,round_of_16,,2026-07-06,14:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m094,94,round_of_16,,2026-07-06,17:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m095,95,round_of_16,,2026-07-07,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m096,96,round_of_16,,2026-07-07,13:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m097,97,quarter_final,,2026-07-09,16:00,,,Boston Stadium,Boston Stadium,Boston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m098,98,quarter_final,,2026-07-10,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m099,99,quarter_final,,2026-07-11,17:00,,,Miami Stadium,Miami Stadium,Miami,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m100,100,quarter_final,,2026-07-11,20:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m101,101,semi_final,,2026-07-14,14:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m102,102,semi_final,,2026-07-15,15:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m103,103,third_place,,2026-07-18,17:00,,,Miami Stadium,Miami Stadium,Miami,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
-wc2026_m104,104,final,,2026-07-19,15:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:53:36.955905+00:00
+wc2026_m001,1,group_stage,A,2026-06-11,13:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,Mexico,South Africa,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m002,2,group_stage,A,2026-06-11,20:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,South Korea,Czechia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m003,3,group_stage,B,2026-06-12,15:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Canada,Bosnia and Herzegovina,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m004,4,group_stage,D,2026-06-12,18:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,United States,Paraguay,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m005,5,group_stage,C,2026-06-13,21:00,,,Boston Stadium,Boston Stadium,Boston,USA,Haiti,Scotland,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m006,6,group_stage,D,2026-06-13,21:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,Australia,Turkey,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m007,7,group_stage,C,2026-06-13,18:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Brazil,Morocco,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m008,8,group_stage,B,2026-06-13,12:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Qatar,Switzerland,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m009,9,group_stage,E,2026-06-14,19:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Côte d'Ivoire,Ecuador,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m010,10,group_stage,E,2026-06-14,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Germany,Curaçao,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m011,11,group_stage,F,2026-06-14,15:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Netherlands,Japan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m012,12,group_stage,F,2026-06-14,20:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,Sweden,Tunisia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m013,13,group_stage,H,2026-06-15,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,Saudi Arabia,Uruguay,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m014,14,group_stage,H,2026-06-15,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Spain,Cabo Verde,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m015,15,group_stage,G,2026-06-15,18:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Iran,New Zealand,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m016,16,group_stage,G,2026-06-15,12:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,Belgium,Egypt,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m017,17,group_stage,I,2026-06-16,15:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,France,Senegal,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m018,18,group_stage,I,2026-06-16,18:00,,,Boston Stadium,Boston Stadium,Boston,USA,Iraq,Norway,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m019,19,group_stage,J,2026-06-16,20:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Argentina,Algeria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m020,20,group_stage,J,2026-06-16,21:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Austria,Jordan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m021,21,group_stage,L,2026-06-17,19:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Ghana,Panama,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m022,22,group_stage,L,2026-06-17,15:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,England,Croatia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m023,23,group_stage,K,2026-06-17,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Portugal,Congo DR,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m024,24,group_stage,K,2026-06-17,20:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,Uzbekistan,Colombia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m025,25,group_stage,A,2026-06-18,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Czechia,South Africa,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m026,26,group_stage,B,2026-06-18,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Switzerland,Bosnia and Herzegovina,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m027,27,group_stage,B,2026-06-18,15:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,Canada,Qatar,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m028,28,group_stage,A,2026-06-18,19:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,Mexico,South Korea,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m029,29,group_stage,C,2026-06-19,20:30,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Brazil,Haiti,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m030,30,group_stage,C,2026-06-19,18:00,,,Boston Stadium,Boston Stadium,Boston,USA,Scotland,Morocco,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m031,31,group_stage,D,2026-06-19,20:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Turkey,Paraguay,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m032,32,group_stage,D,2026-06-19,12:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,United States,Australia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m033,33,group_stage,E,2026-06-20,16:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Germany,Côte d'Ivoire,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m034,34,group_stage,E,2026-06-20,19:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Ecuador,Curaçao,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m035,35,group_stage,F,2026-06-20,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Netherlands,Sweden,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m036,36,group_stage,F,2026-06-20,22:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,Tunisia,Japan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m037,37,group_stage,H,2026-06-21,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,Uruguay,Cabo Verde,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m038,38,group_stage,H,2026-06-21,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Spain,Saudi Arabia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m039,39,group_stage,G,2026-06-21,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Belgium,Iran,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m040,40,group_stage,G,2026-06-21,18:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,New Zealand,Egypt,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m041,41,group_stage,I,2026-06-22,20:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Norway,Senegal,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m042,42,group_stage,I,2026-06-22,17:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,France,Iraq,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m043,43,group_stage,J,2026-06-22,12:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Argentina,Austria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m044,44,group_stage,J,2026-06-22,20:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Jordan,Algeria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m045,45,group_stage,L,2026-06-23,16:00,,,Boston Stadium,Boston Stadium,Boston,USA,England,Ghana,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m046,46,group_stage,L,2026-06-23,19:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Panama,Croatia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m047,47,group_stage,K,2026-06-23,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,Portugal,Uzbekistan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m048,48,group_stage,K,2026-06-23,20:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,Colombia,Congo DR,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m049,49,group_stage,C,2026-06-24,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,Scotland,Brazil,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m050,50,group_stage,C,2026-06-24,18:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Morocco,Haiti,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m051,51,group_stage,B,2026-06-24,12:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,Switzerland,Canada,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m052,52,group_stage,B,2026-06-24,12:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,Bosnia and Herzegovina,Qatar,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m053,53,group_stage,A,2026-06-24,19:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,Czechia,Mexico,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m054,54,group_stage,A,2026-06-24,19:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,South Africa,South Korea,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m055,55,group_stage,E,2026-06-25,16:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Curaçao,Côte d'Ivoire,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m056,56,group_stage,E,2026-06-25,16:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Ecuador,Germany,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m057,57,group_stage,F,2026-06-25,18:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Japan,Sweden,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m058,58,group_stage,F,2026-06-25,18:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Tunisia,Netherlands,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m059,59,group_stage,D,2026-06-25,19:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,Turkey,United States,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m060,60,group_stage,D,2026-06-25,19:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,Paraguay,Australia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m061,61,group_stage,I,2026-06-26,15:00,,,Boston Stadium,Boston Stadium,Boston,USA,Norway,France,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m062,62,group_stage,I,2026-06-26,15:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,Senegal,Iraq,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m063,63,group_stage,G,2026-06-26,20:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,Egypt,Iran,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m064,64,group_stage,G,2026-06-26,20:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,New Zealand,Belgium,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m065,65,group_stage,H,2026-06-26,19:00,,,Houston Stadium,Houston Stadium,Houston,USA,Cabo Verde,Saudi Arabia,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m066,66,group_stage,H,2026-06-26,18:00,,,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,Uruguay,Spain,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m067,67,group_stage,L,2026-06-27,17:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,Panama,England,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m068,68,group_stage,L,2026-06-27,17:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,Croatia,Ghana,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m069,69,group_stage,J,2026-06-27,21:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,Algeria,Austria,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m070,70,group_stage,J,2026-06-27,21:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,Jordan,Argentina,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m071,71,group_stage,K,2026-06-27,19:30,,,Miami Stadium,Miami Stadium,Miami,USA,Colombia,Portugal,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m072,72,group_stage,K,2026-06-27,19:30,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,Congo DR,Uzbekistan,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m073,73,round_of_32,,2026-06-28,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m074,74,round_of_32,,2026-06-29,16:30,,,Boston Stadium,Boston Stadium,Boston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m075,75,round_of_32,,2026-06-29,19:00,,,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m076,76,round_of_32,,2026-06-29,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m077,77,round_of_32,,2026-06-30,17:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m078,78,round_of_32,,2026-06-30,12:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m079,79,round_of_32,,2026-06-30,19:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m080,80,round_of_32,,2026-07-01,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m081,81,round_of_32,,2026-07-01,17:00,,,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m082,82,round_of_32,,2026-07-01,13:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m083,83,round_of_32,,2026-07-02,19:00,,,Toronto Stadium,Toronto Stadium,Toronto,CAN,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m084,84,round_of_32,,2026-07-02,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m085,85,round_of_32,,2026-07-02,20:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m086,86,round_of_32,,2026-07-03,18:00,,,Miami Stadium,Miami Stadium,Miami,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m087,87,round_of_32,,2026-07-03,20:30,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m088,88,round_of_32,,2026-07-03,13:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m089,89,round_of_16,,2026-07-04,17:00,,,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m090,90,round_of_16,,2026-07-04,12:00,,,Houston Stadium,Houston Stadium,Houston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m091,91,round_of_16,,2026-07-05,16:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m092,92,round_of_16,,2026-07-05,18:00,,,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m093,93,round_of_16,,2026-07-06,14:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m094,94,round_of_16,,2026-07-06,17:00,,,Seattle Stadium,Seattle Stadium,Seattle,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m095,95,round_of_16,,2026-07-07,12:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m096,96,round_of_16,,2026-07-07,13:00,,,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m097,97,quarter_final,,2026-07-09,16:00,,,Boston Stadium,Boston Stadium,Boston,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m098,98,quarter_final,,2026-07-10,12:00,,,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m099,99,quarter_final,,2026-07-11,17:00,,,Miami Stadium,Miami Stadium,Miami,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m100,100,quarter_final,,2026-07-11,20:00,,,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m101,101,semi_final,,2026-07-14,14:00,,,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m102,102,semi_final,,2026-07-15,15:00,,,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m103,103,third_place,,2026-07-18,17:00,,,Miami Stadium,Miami Stadium,Miami,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00
+wc2026_m104,104,final,,2026-07-19,15:00,,,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,,,scheduled,fifa_schedule_api,2026-06-10T15:56:13.466087+00:00

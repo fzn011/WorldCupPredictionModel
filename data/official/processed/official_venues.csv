@@ -1,17 +1,17 @@
 venue_id,stadium,venue,city,country,timezone,capacity,latitude,longitude,source,last_verified_at
-v_mexico_city_stadium,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_guadalajara_stadium,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_toronto_stadium,Toronto Stadium,Toronto Stadium,Toronto,CAN,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_los_angeles_stadium,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_boston_stadium,Boston Stadium,Boston Stadium,Boston,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_bc_place_vancouver,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_new_york_new_jersey_stadium,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_san_francisco_bay_area_stadium,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_philadelphia_stadium,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_houston_stadium,Houston Stadium,Houston Stadium,Houston,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_dallas_stadium,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_monterrey_stadium,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_miami_stadium,Miami Stadium,Miami Stadium,Miami,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_atlanta_stadium,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_seattle_stadium,Seattle Stadium,Seattle Stadium,Seattle,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
-v_kansas_city_stadium,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,,,,,fifa_schedule_api,2026-06-10T15:53:36.948478+00:00
+v_mexico_city_stadium,Mexico City Stadium,Mexico City Stadium,Mexico City,MEX,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_guadalajara_stadium,Guadalajara Stadium,Guadalajara Stadium,Guadalajara,MEX,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_toronto_stadium,Toronto Stadium,Toronto Stadium,Toronto,CAN,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_los_angeles_stadium,Los Angeles Stadium,Los Angeles Stadium,Los Angeles,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_boston_stadium,Boston Stadium,Boston Stadium,Boston,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_bc_place_vancouver,BC Place Vancouver,BC Place Vancouver,Vancouver,CAN,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_new_york_new_jersey_stadium,New York/New Jersey Stadium,New York/New Jersey Stadium,New Jersey,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_san_francisco_bay_area_stadium,San Francisco Bay Area Stadium,San Francisco Bay Area Stadium,San Francisco Bay Area,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_philadelphia_stadium,Philadelphia Stadium,Philadelphia Stadium,Philadelphia,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_houston_stadium,Houston Stadium,Houston Stadium,Houston,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_dallas_stadium,Dallas Stadium,Dallas Stadium,Dallas,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_monterrey_stadium,Monterrey Stadium,Monterrey Stadium,Monterrey,MEX,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_miami_stadium,Miami Stadium,Miami Stadium,Miami,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_atlanta_stadium,Atlanta Stadium,Atlanta Stadium,Atlanta,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_seattle_stadium,Seattle Stadium,Seattle Stadium,Seattle,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00
+v_kansas_city_stadium,Kansas City Stadium,Kansas City Stadium,Kansas City,USA,,,,,fifa_schedule_api,2026-06-10T15:56:13.458849+00:00

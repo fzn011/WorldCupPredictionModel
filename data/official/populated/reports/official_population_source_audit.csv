@@ -312,3 +312,33 @@ players,staged_official_players,parsed,1248,,,2026-06-10T15:54:10.208996+00:00
 players,official_players_verified,parsed,1248,,,2026-06-10T15:54:10.214996+00:00
 players,fifa_squad_article,needs_manual_review,0,No player table in squad article; use squad CSV import,,2026-06-10T15:54:10.216077+00:00
 players,build_populated_players,parsed,1248,,,2026-06-10T15:54:10.222236+00:00
+teams,fifa_teams_page,partial,0,Group/slot may need manual fill,,2026-06-10T15:56:12.579643+00:00
+teams,official_teams_verified,parsed,48,,,2026-06-10T15:56:12.582934+00:00
+teams,manual_import_template,parsed,48,,,2026-06-10T15:56:12.583896+00:00
+groups,official_groups_verified,parsed,48,,,2026-06-10T15:56:12.601517+00:00
+groups,build_populated_groups,parsed,48,,,2026-06-10T15:56:12.610052+00:00
+fixtures,staged_official_fixtures,parsed,104,,,2026-06-10T15:56:12.618323+00:00
+venues,staged_official_venues,parsed,16,,,2026-06-10T15:56:12.618369+00:00
+fixtures,fifa_schedule_page,partial,0,No fixtures parsed,,2026-06-10T15:56:12.620061+00:00
+venues,fifa_schedule_page,partial,0,,,2026-06-10T15:56:12.620069+00:00
+fixtures,build_populated_fixtures,parsed,104,,,2026-06-10T15:56:12.633549+00:00
+venues,build_populated_venues,partial,16,,,2026-06-10T15:56:12.633559+00:00
+players,staged_official_players,parsed,1248,,,2026-06-10T15:56:12.643962+00:00
+players,official_players_verified,parsed,1248,,,2026-06-10T15:56:12.649772+00:00
+players,fifa_squad_article,needs_manual_review,0,No player table in squad article; use squad CSV import,,2026-06-10T15:56:12.650862+00:00
+players,build_populated_players,parsed,1248,,,2026-06-10T15:56:12.657915+00:00
+teams,fifa_teams_page,partial,0,Group/slot may need manual fill,,2026-06-10T15:56:13.246934+00:00
+teams,official_teams_verified,parsed,48,,,2026-06-10T15:56:13.250041+00:00
+teams,manual_import_template,parsed,48,,,2026-06-10T15:56:13.251002+00:00
+groups,official_groups_verified,parsed,48,,,2026-06-10T15:56:13.268324+00:00
+groups,build_populated_groups,parsed,48,,,2026-06-10T15:56:13.276604+00:00
+fixtures,staged_official_fixtures,parsed,104,,,2026-06-10T15:56:13.284876+00:00
+venues,staged_official_venues,parsed,16,,,2026-06-10T15:56:13.284921+00:00
+fixtures,fifa_schedule_page,partial,0,No fixtures parsed,,2026-06-10T15:56:13.286617+00:00
+venues,fifa_schedule_page,partial,0,,,2026-06-10T15:56:13.286625+00:00
+fixtures,build_populated_fixtures,parsed,104,,,2026-06-10T15:56:13.299975+00:00
+venues,build_populated_venues,partial,16,,,2026-06-10T15:56:13.299984+00:00
+players,staged_official_players,parsed,1248,,,2026-06-10T15:56:13.310350+00:00
+players,official_players_verified,parsed,1248,,,2026-06-10T15:56:13.316095+00:00
+players,fifa_squad_article,needs_manual_review,0,No player table in squad article; use squad CSV import,,2026-06-10T15:56:13.317137+00:00
+players,build_populated_players,parsed,1248,,,2026-06-10T15:56:13.323176+00:00

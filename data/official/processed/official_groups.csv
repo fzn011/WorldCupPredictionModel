@@ -1,49 +1,49 @@
 group,slot,team,team_code,confederation,is_host,source,last_verified_at
-A,1.0,Czechia,CZE,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-A,2.0,Mexico,MEX,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-A,3.0,South Africa,RSA,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-A,4.0,South Korea,KOR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-B,1.0,Bosnia and Herzegovina,,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-B,2.0,Canada,CAN,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-B,3.0,Qatar,QAT,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-B,4.0,Switzerland,SUI,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-C,1.0,Brazil,BRA,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-C,2.0,Haiti,HAI,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-C,3.0,Morocco,MAR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-C,4.0,Scotland,SCO,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-D,1.0,Australia,AUS,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-D,2.0,Paraguay,PAR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-D,3.0,Turkey,TUR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-D,4.0,United States,USA,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-E,1.0,Curaçao,CUW,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-E,2.0,Côte d'Ivoire,,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-E,3.0,Ecuador,ECU,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-E,4.0,Germany,GER,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-F,1.0,Japan,JPN,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-F,2.0,Netherlands,NED,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-F,3.0,Sweden,SWE,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-F,4.0,Tunisia,TUN,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-G,1.0,Belgium,BEL,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-G,2.0,Egypt,EGY,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-G,3.0,Iran,IRN,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-G,4.0,New Zealand,NZL,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-H,1.0,Cabo Verde,CPV,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-H,2.0,Saudi Arabia,KSA,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-H,3.0,Spain,ESP,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-H,4.0,Uruguay,URU,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-I,1.0,France,FRA,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-I,2.0,Iraq,IRQ,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-I,3.0,Norway,NOR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-I,4.0,Senegal,SEN,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-J,1.0,Algeria,ALG,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-J,2.0,Argentina,ARG,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-J,3.0,Austria,AUT,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-J,4.0,Jordan,JOR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-K,1.0,Colombia,COL,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-K,2.0,Congo DR,COD,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-K,3.0,Portugal,POR,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-K,4.0,Uzbekistan,UZB,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-L,1.0,Croatia,CRO,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-L,2.0,England,ENG,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-L,3.0,Ghana,GHA,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
-L,4.0,Panama,PAN,,0.0,fifa_schedule_api,2026-06-10T15:53:36.943651+00:00
+A,1.0,Czechia,CZE,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+A,2.0,Mexico,MEX,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+A,3.0,South Africa,RSA,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+A,4.0,South Korea,KOR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+B,1.0,Bosnia and Herzegovina,,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+B,2.0,Canada,CAN,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+B,3.0,Qatar,QAT,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+B,4.0,Switzerland,SUI,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+C,1.0,Brazil,BRA,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+C,2.0,Haiti,HAI,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+C,3.0,Morocco,MAR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+C,4.0,Scotland,SCO,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+D,1.0,Australia,AUS,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+D,2.0,Paraguay,PAR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+D,3.0,Turkey,TUR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+D,4.0,United States,USA,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+E,1.0,Curaçao,CUW,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+E,2.0,Côte d'Ivoire,,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+E,3.0,Ecuador,ECU,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+E,4.0,Germany,GER,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+F,1.0,Japan,JPN,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+F,2.0,Netherlands,NED,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+F,3.0,Sweden,SWE,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+F,4.0,Tunisia,TUN,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+G,1.0,Belgium,BEL,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+G,2.0,Egypt,EGY,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+G,3.0,Iran,IRN,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+G,4.0,New Zealand,NZL,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+H,1.0,Cabo Verde,CPV,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+H,2.0,Saudi Arabia,KSA,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+H,3.0,Spain,ESP,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+H,4.0,Uruguay,URU,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+I,1.0,France,FRA,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+I,2.0,Iraq,IRQ,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+I,3.0,Norway,NOR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+I,4.0,Senegal,SEN,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+J,1.0,Algeria,ALG,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+J,2.0,Argentina,ARG,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+J,3.0,Austria,AUT,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+J,4.0,Jordan,JOR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+K,1.0,Colombia,COL,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+K,2.0,Congo DR,COD,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+K,3.0,Portugal,POR,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+K,4.0,Uzbekistan,UZB,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+L,1.0,Croatia,CRO,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+L,2.0,England,ENG,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+L,3.0,Ghana,GHA,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00
+L,4.0,Panama,PAN,,0.0,fifa_schedule_api,2026-06-10T15:56:13.453991+00:00

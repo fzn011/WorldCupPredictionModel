@@ -1,7 +1,7 @@
 {
-  "status": "ready_for_apply",
+  "status": "applied",
   "ready_for_apply": true,
-  "applied": false,
+  "applied": true,
   "teams_count": 48,
   "fixtures_count": 104,
   "group_stage_fixtures_count": 72,
@@ -13,7 +13,7 @@
   "placeholder_issues_count": 0,
   "completeness_report_path": "/workspace/data/official/populated/reports/official_population_completeness_report.csv",
   "import_pack_path": "/workspace/data/official/populated/exports/official_ready_import_pack.zip",
-  "final_ready": false,
+  "final_ready": true,
   "build_paths": {
     "teams": "/workspace/data/official/populated/populated_official_teams.csv",
     "groups": "/workspace/data/official/populated/populated_official_groups.csv",
@@ -22,8 +22,6 @@
     "players": "/workspace/data/official/populated/populated_official_players.csv",
     "player_priors": "/workspace/data/official/populated/populated_player_award_priors.csv"
   },
-  "notes": [
-    "Population complete \u2014 run apply_populated_official_data.py --apply to promote."
-  ],
-  "updated_at": "2026-06-10T15:54:10.404431+00:00"
+  "notes": [],
+  "updated_at": "2026-06-10T15:56:15.000573+00:00"
 }
