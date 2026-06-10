@@ -11,6 +11,7 @@ Golden Ball / best player candidates.
 
 ## Quick Navigation
 
+- [Full project reference (CHAT_HISTORY.md)](CHAT_HISTORY.md) · [docs/PROJECT_REFERENCE.md](docs/PROJECT_REFERENCE.md)
 - [Upstream repository](#upstream-repository)
 - [Step 6: Model Improvement Part 1](#step-6-model-improvement-part-1)
 - [Step 7: FIFA Rankings and Elo Integration](#step-7-fifa-rankings-and-elo-integration)
