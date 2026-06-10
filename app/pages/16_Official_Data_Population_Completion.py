@@ -178,3 +178,55 @@ else:
 
 st.divider()
 st.caption(f"Completeness report: {REP_DIR / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE}")
+
+# Step 17G: Import execution
+st.header("Step 17G: Run Official Import Execution")
+st.markdown("""
+Stage official schedule/squad/workbook files, preview diffs, and optionally apply when completeness checks pass.
+**Does not force official_final.**
+""")
+
+from src.official.prepare_import_execution import prepare_step17g_official_import_execution
+
+exec_schedule = st.file_uploader("Schedule file (17G)", type=["csv", "xlsx", "xls"], key="exec_sched")
+exec_squad = st.file_uploader("Squad file (17G)", type=["csv", "xlsx", "xls"], key="exec_squad")
+exec_workbook = st.file_uploader("Master workbook (17G)", type=["xlsx", "xls"], key="exec_wb")
+do_apply = st.checkbox("Apply if ready (17G)", value=False)
+
+if st.button("Stage and preview import (17G)", use_container_width=True):
+    sched_path = squad_path = wb_path = None
+    if exec_schedule:
+        p = POP_DIR / "_upload_exec" / exec_schedule.name
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_bytes(exec_schedule.getvalue())
+        sched_path = str(p)
+    if exec_squad:
+        p = POP_DIR / "_upload_exec" / exec_squad.name
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_bytes(exec_squad.getvalue())
+        squad_path = str(p)
+    if exec_workbook:
+        p = POP_DIR / "_upload_exec" / exec_workbook.name
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_bytes(exec_workbook.getvalue())
+        wb_path = str(p)
+    with st.spinner("Running Step 17G import execution..."):
+        result = prepare_step17g_official_import_execution(
+            schedule_file=sched_path,
+            squad_file=squad_path,
+            workbook_file=wb_path,
+            apply=do_apply,
+        )
+        st.session_state["step17g_result"] = result
+    st.rerun()
+
+if "step17g_result" in st.session_state:
+    r = st.session_state["step17g_result"]
+    st.json({k: r[k] for k in (
+        "status", "staged_fixtures_count", "staged_players_count",
+        "populated_fixtures_count", "populated_players_count",
+        "teams_with_26_players", "ready_for_apply", "applied",
+        "final_ready", "official_final_enabled", "next_action",
+    ) if k in r})
+    if r.get("ready_for_apply") is False:
+        st.warning("Official final mode must remain blocked. Complete missing data first.")

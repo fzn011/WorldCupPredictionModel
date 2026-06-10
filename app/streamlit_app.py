@@ -181,7 +181,8 @@ st.success(
     "Step 17C: Official final readiness workflow completed.\n\n"
     "Step 17D: Official data population pack completed.\n\n"
     "Step 17E: Source-assisted official FIFA data population completed.\n\n"
-    "Step 17F: Official FIFA data population workflow completed."
+    "Step 17F: Official FIFA data population workflow completed.\n\n"
+    "Step 17G: Official data import execution workflow completed."
 )
 st.caption(
     "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
@@ -787,6 +788,43 @@ step17f_rows = [
 ]
 st.dataframe(pd.DataFrame(step17f_rows), use_container_width=True)
 st.caption("Step 17F builds populated import files from FIFA sources; apply only when completeness checks pass.")
+
+st.subheader("Step 17G: Official Data Import Execution Outputs")
+
+OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE = getattr(
+    C, "OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE", "official_import_execution_summary.json"
+)
+OFFICIAL_FINAL_READINESS_REPORT_FILE = getattr(
+    C, "OFFICIAL_FINAL_READINESS_REPORT_FILE", "official_final_readiness_report.json"
+)
+OFFICIAL_FINAL_READINESS_CHECKLIST_FILE = getattr(
+    C, "OFFICIAL_FINAL_READINESS_CHECKLIST_FILE", "official_final_readiness_checklist.csv"
+)
+
+step17g_rows = [
+    {
+        "file": OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE,
+        "path": str(POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE),
+        "present": (POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE).is_file(),
+    },
+    {
+        "file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE,
+        "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE),
+        "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file(),
+    },
+    {
+        "file": OFFICIAL_FINAL_READINESS_REPORT_FILE,
+        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE),
+        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE).is_file(),
+    },
+    {
+        "file": OFFICIAL_FINAL_READINESS_CHECKLIST_FILE,
+        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE),
+        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step17g_rows), use_container_width=True)
+st.caption("Step 17G runs staging, preview, optional apply, and final readiness — without forcing official_final.")
 
 st.subheader("Planned Datasets")
 rows = []

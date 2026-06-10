@@ -533,6 +533,42 @@ python -m streamlit run app/streamlit_app.py
 
 ---
 
+## Step 17G: Official Data Import Execution
+
+Step 17G runs the **actual official data import workflow** using existing Step 17E–17F tooling.
+
+- Accepts official FIFA schedule/squad files or the master import workbook.
+- Stages data safely, validates it, previews diffs, and applies **only when ready**.
+- Rebuilds squads/award candidates and re-runs final readiness after apply.
+- Fixes future-match team dropdown behavior (`get_available_teams(official_only=...)`).
+- Does **not** build awards or fake `official_final`.
+- **Step 18 remains blocked** until `final_ready=true`.
+
+### Step 17G commands
+
+```bash
+python scripts/fix_and_check_future_team_filter.py
+python -m pytest tests/test_future_match_features.py -q
+python scripts/run_official_import_execution.py
+python scripts/run_official_import_execution.py --schedule-file path/to/fifa_schedule.xlsx --squad-file path/to/fifa_squads.csv
+python scripts/run_official_import_execution.py --workbook-file data/official/population/workbooks/official_worldcup_2026_master_import.xlsx
+python scripts/run_official_import_execution.py --schedule-file path --squad-file path --apply
+python scripts/evaluate_official_final_readiness.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+### Step 17G outputs
+
+| Artifact | Path |
+|----------|------|
+| Import execution summary | `data/official/populated/reports/official_import_execution_summary.json` |
+| Completeness report | `data/official/populated/reports/official_population_completeness_report.csv` |
+| Final readiness report | `data/official/processed/official_final_readiness_report.json` |
+| Final readiness checklist | `data/official/processed/official_final_readiness_checklist.csv` |
+
+---
+
 ## Step 18: FIFA World Cup Awards Predictor
 
 > **Code step — blocked until Steps 17E and 17F are complete and `official_final = true`.**

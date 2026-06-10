@@ -71,7 +71,12 @@ def load_best_available_processed_data() -> dict:
 
 
 def get_available_teams(official_only: bool = True) -> list[str]:
-    """Return sorted team names, preferring official World Cup 2026 teams when available."""
+    """Return sorted unique team names for future-match UI dropdowns.
+
+    When ``official_only=True`` (default), returns official World Cup 2026 teams
+    if a valid official team list exists; otherwise falls back to historical/registry
+    teams. Use ``official_only=False`` to force historical/sample team registry data.
+    """
     if official_only:
         try:
             official_teams = get_official_team_list()
@@ -95,9 +100,9 @@ def get_available_teams(official_only: bool = True) -> list[str]:
     teams = {
         standardize_team_name(value)
         for value in values
-        if isinstance(value, str) and value.strip() and value.strip().lower() != "nan"
+        if isinstance(value, str) and value.strip() and value.strip().lower() not in {"nan", "none"}
     }
-    return sorted(team for team in teams if team)
+    return sorted(teams)
 
 
 

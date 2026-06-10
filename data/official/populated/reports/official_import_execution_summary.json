@@ -1,0 +1,40 @@
+{
+  "status": "staged_needs_review",
+  "staged_fixtures_count": 104,
+  "staged_players_count": 1248,
+  "populated_fixtures_count": 104,
+  "populated_players_count": 1248,
+  "teams_with_26_players": 48,
+  "ready_for_apply": false,
+  "applied": false,
+  "final_ready": false,
+  "official_final_enabled": false,
+  "blockers_count": 1,
+  "warnings_count": 0,
+  "next_action": "Complete missing official data, review preview diffs, then re-run readiness.",
+  "inputs": {
+    "has_schedule_file": false,
+    "has_squad_file": false,
+    "has_workbook_file": false,
+    "has_staged_data": true,
+    "staged_present": {
+      "teams": false,
+      "groups": false,
+      "fixtures": true,
+      "venues": true,
+      "players": true,
+      "player_priors": false
+    },
+    "detected_files": {
+      "staged_fixtures": "/workspace/data/official/source_data/staging/staged_official_fixtures.csv",
+      "staged_venues": "/workspace/data/official/source_data/staging/staged_official_venues.csv",
+      "staged_players": "/workspace/data/official/source_data/staging/staged_official_players.csv"
+    },
+    "missing_expected_inputs": []
+  },
+  "staging_validation_passed": false,
+  "preview_status": "preview_ready",
+  "completeness_report_path": "/workspace/data/official/populated/reports/official_population_completeness_report.csv",
+  "final_readiness_report_path": "/workspace/data/official/processed/official_final_readiness_report.json",
+  "saved_at": "2026-06-10T15:17:58.316806+00:00"
+}

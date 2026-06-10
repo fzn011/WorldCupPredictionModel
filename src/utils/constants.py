@@ -1288,3 +1288,9 @@ FIFA_TEAM_NAME_ALIASES: dict[str, str] = {
     "Curaçao": "Curaçao",
     "Curacao": "Curaçao",
 }
+
+# -----------------------------------------------------------------------------
+# Step 17G official data import execution constants
+# -----------------------------------------------------------------------------
+
+OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE: str = "official_import_execution_summary.json"

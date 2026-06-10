@@ -59,10 +59,16 @@ def main() -> None:
         return
 
     if not ready:
-        print("\nApply blocked — population not ready:")
+        print("\nApply blocked because populated official data is incomplete.")
+        print("Apply blocked — population not ready:")
         blockers = report_df[report_df["blocking"] == True]  # noqa: E712
         for _, row in blockers.iterrows():
             print(f"  - {row['category']}: {row['actual']}/{row['target']} — {row['notes']}")
+        print("\nNext actions:")
+        print("  1. Import official FIFA schedule: python scripts/import_fifa_schedule_file.py --file path/to/fifa_schedule.xlsx")
+        print("  2. Import official FIFA squads:   python scripts/import_fifa_squad_file.py --file path/to/fifa_squads.csv")
+        print("  3. Rebuild populated data:        python scripts/prepare_populated_official_data.py --schedule-file ... --squad-file ...")
+        print("  4. Re-run readiness:              python scripts/evaluate_official_final_readiness.py")
         print("=" * 60)
         sys.exit(1)
 

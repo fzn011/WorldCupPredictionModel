@@ -34,7 +34,7 @@ def _count_placeholders(df: pd.DataFrame) -> int:
     if df.empty:
         return 0
     count = 0
-    placeholders = set(C.OFFICIAL_PLACEHOLDER_VALUES) | UNVERIFIED_SOURCES
+    placeholders = (set(C.OFFICIAL_PLACEHOLDER_VALUES) | UNVERIFIED_SOURCES) - {""}
     for col in df.columns:
         if col in {"source", "notes", "verification_notes"}:
             continue
@@ -69,9 +69,13 @@ def calculate_population_completeness() -> tuple[dict[str, Any], pd.DataFrame]:
     knockout = 0
     if not fixtures.empty and "stage" in fixtures.columns:
         stage_lower = fixtures["stage"].fillna("").astype(str).str.lower()
-        group_stage = int(stage_lower.str.contains("group", na=False).sum())
+        group_stage = int(
+            stage_lower.str.contains("group|first stage", na=False).sum()
+        )
         knockout = int(
-            stage_lower.str.contains("knockout|round|quarter|semi|final|third", na=False).sum()
+            stage_lower.str.contains(
+                "knockout|round|quarter|semi|final|third|play-off", na=False
+            ).sum()
         )
 
     teams_with_26 = 0
