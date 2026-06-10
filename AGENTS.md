@@ -56,6 +56,15 @@ python scripts/run_final_demo_pipeline.py --simulations 10
 - Enriched priors must stay within `official_players.csv` player_id set
 - Default demo Monte Carlo count: **10** (avoid huge simulations in CI/demo)
 
+### Streamlit `PROJECT_ROOT` NameError
+
+All Streamlit path constants come from **`app/streamlit_paths.py`**. The homepage imports `PROJECT_ROOT`, `OFFICIAL_DATA_DIR`, etc. from that module — do not assign them locally in `streamlit_app.py`. If you see `NameError: PROJECT_ROOT`, pull latest `main` and run:
+
+```bash
+python -m pytest tests/test_streamlit_paths.py -q
+python -m streamlit run app/streamlit_app.py
+```
+
 ### Step 20: Manual star-player prior overrides
 
 Optional manual boosts for official candidates only (no scraping, no new player IDs):

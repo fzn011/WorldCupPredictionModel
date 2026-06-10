@@ -5,23 +5,38 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+# Path bootstrap FIRST — never reference PROJECT_ROOT before streamlit_paths import.
+_APP_DIR = Path(__file__).resolve().parent
+_REPO_ROOT = _APP_DIR.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+if str(_APP_DIR) not in sys.path:
+    sys.path.insert(0, str(_APP_DIR))
+
+try:
+    from app.streamlit_paths import (  # noqa: E402
+        FIGURES_DIR,
+        OFFICIAL_DATA_DIR,
+        OFFICIAL_PROCESSED_DIR,
+        PROCESSED_DATA_DIR,
+        PROJECT_ROOT,
+        REPORTS_DIR,
+    )
+except ModuleNotFoundError:  # pragma: no cover - direct script execution fallback
+    from streamlit_paths import (  # noqa: E402
+        FIGURES_DIR,
+        OFFICIAL_DATA_DIR,
+        OFFICIAL_PROCESSED_DIR,
+        PROCESSED_DATA_DIR,
+        PROJECT_ROOT,
+        REPORTS_DIR,
+    )
+
 import pandas as pd
 import streamlit as st
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
 import src.utils.constants as C  # noqa: E402
-
-# Path bootstrap — must stay immediately after constants import (used below).
-PROJECT_ROOT = Path(getattr(C, "PROJECT_ROOT", PROJECT_ROOT))
-PROCESSED_DATA_DIR = Path(getattr(C, "PROCESSED_DATA_DIR", PROJECT_ROOT / "data" / "processed"))
-REPORTS_DIR = PROJECT_ROOT / "reports"
-FIGURES_DIR = REPORTS_DIR / "figures"
-OFFICIAL_DATA_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_DATA_DIR", "data/official"))
-OFFICIAL_PROCESSED_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_PROCESSED_DIR", "data/official/processed"))
 
 CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
 CANONICAL_MATCHES_SAMPLE_FILE = getattr(

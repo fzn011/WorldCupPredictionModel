@@ -12,6 +12,14 @@ import streamlit as st
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+_APP_DIR = Path(__file__).resolve().parents[1]
+if str(_APP_DIR) not in sys.path:
+    sys.path.insert(0, str(_APP_DIR))
+
+try:
+    from app.streamlit_paths import PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR  # noqa: E402
+except ModuleNotFoundError:
+    from streamlit_paths import PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR  # noqa: E402
 
 from src.simulation.prepare_monte_carlo import prepare_step15_monte_carlo_simulation  # noqa: E402
 from src.reports.monte_carlo_report import (  # noqa: E402
@@ -24,9 +32,6 @@ from src.reports.monte_carlo_report import (  # noqa: E402
 from src.reports.prepare_monte_carlo_report import prepare_step16_monte_carlo_report  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 
-PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
-PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
-REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 MONTE_CARLO_SIMULATION_RESULTS_FILE = getattr(C, "MONTE_CARLO_SIMULATION_RESULTS_FILE", "monte_carlo_simulation_results.csv")
 MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE = getattr(C, "MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE", "monte_carlo_team_stage_probabilities.csv")
