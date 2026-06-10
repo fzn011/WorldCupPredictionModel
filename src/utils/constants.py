@@ -791,6 +791,95 @@ AWARDS_ANALYTICS_DISCLAIMER: str = (
 YOUNG_PLAYER_CUTOFF_DATE_2026: str = "2005-01-01"
 
 # -----------------------------------------------------------------------------
+# Step 19: Player prior enrichment + portfolio packaging
+# -----------------------------------------------------------------------------
+
+PLAYER_PRIOR_ENRICHMENT_REPORT_FILE: str = "player_prior_enrichment_report.csv"
+PLAYER_PRIOR_QUALITY_REPORT_FILE: str = "player_prior_quality_report.csv"
+ENRICHED_PLAYER_AWARD_PRIORS_FILE: str = "enriched_player_award_priors.csv"
+ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE: str = "enriched_official_award_candidates.csv"
+
+FINAL_PROJECT_SUMMARY_FILE: str = "final_project_summary.json"
+FINAL_PROJECT_VALIDATION_REPORT_FILE: str = "final_project_validation_report.csv"
+
+PORTFOLIO_DIR: str = "portfolio"
+PORTFOLIO_ASSETS_DIR: str = "portfolio/assets"
+PORTFOLIO_SCREENSHOTS_DIR: str = "portfolio/screenshots"
+PORTFOLIO_DEMO_SCRIPT_FILE: str = "portfolio/demo_script.md"
+PORTFOLIO_README_FILE: str = "portfolio/PORTFOLIO_README.md"
+PROJECT_ARCHITECTURE_FILE: str = "portfolio/project_architecture.md"
+PROJECT_LIMITATIONS_FILE: str = "portfolio/limitations.md"
+DEPLOYMENT_GUIDE_FILE: str = "portfolio/deployment_guide.md"
+REPRODUCIBILITY_CHECKLIST_FILE: str = "portfolio/reproducibility_checklist.md"
+
+DEFAULT_PRIOR_BY_POSITION: dict[str, dict[str, float]] = {
+    "goalkeeper": {
+        "base_player_rating": 58,
+        "expected_minutes_share": 0.35,
+        "goals_prior": 0,
+        "assists_prior": 0,
+        "chance_creation_prior": 0,
+        "defensive_actions_prior": 3,
+        "goalkeeper_actions_prior": 5,
+        "discipline_risk": 0.25,
+        "star_role_score": 1.0,
+        "flair_score": 0.2,
+    },
+    "defender": {
+        "base_player_rating": 58,
+        "expected_minutes_share": 0.40,
+        "goals_prior": 0.3,
+        "assists_prior": 0.3,
+        "chance_creation_prior": 0.4,
+        "defensive_actions_prior": 5,
+        "goalkeeper_actions_prior": 0,
+        "discipline_risk": 0.35,
+        "star_role_score": 1.0,
+        "flair_score": 0.3,
+    },
+    "midfielder": {
+        "base_player_rating": 60,
+        "expected_minutes_share": 0.45,
+        "goals_prior": 0.8,
+        "assists_prior": 1.0,
+        "chance_creation_prior": 3,
+        "defensive_actions_prior": 2,
+        "goalkeeper_actions_prior": 0,
+        "discipline_risk": 0.30,
+        "star_role_score": 1.5,
+        "flair_score": 0.8,
+    },
+    "forward": {
+        "base_player_rating": 60,
+        "expected_minutes_share": 0.45,
+        "goals_prior": 1.5,
+        "assists_prior": 0.7,
+        "chance_creation_prior": 2,
+        "defensive_actions_prior": 0.5,
+        "goalkeeper_actions_prior": 0,
+        "discipline_risk": 0.25,
+        "star_role_score": 1.5,
+        "flair_score": 1.0,
+    },
+}
+
+PLAYER_PRIOR_FLATNESS_WARNING_THRESHOLD: float = 0.80
+PLAYER_PRIOR_MIN_NON_DEFAULT_SHARE: float = 0.20
+
+PRIOR_NUMERIC_COLUMNS: list[str] = [
+    "base_player_rating",
+    "expected_minutes_share",
+    "goals_prior",
+    "assists_prior",
+    "chance_creation_prior",
+    "defensive_actions_prior",
+    "goalkeeper_actions_prior",
+    "discipline_risk",
+    "star_role_score",
+    "flair_score",
+]
+
+# -----------------------------------------------------------------------------
 # Step 17A official World Cup 2026 data lock constants
 # -----------------------------------------------------------------------------
 

@@ -81,19 +81,63 @@ def normalize_official_award_candidates(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def load_official_award_candidates() -> pd.DataFrame:
-    """Load official award candidates only (no sample fallback)."""
+def load_official_award_candidates(
+    *,
+    use_enriched_candidates: bool | None = None,
+) -> pd.DataFrame:
+    """Load official award candidates only (no sample fallback).
+
+    Uses enriched_official_award_candidates.csv when available and requested.
+    """
     require_official_final_ready()
-    path = PROCESSED_DATA_DIR / C.OFFICIAL_AWARD_CANDIDATES_FILE
-    if not path.is_file():
-        raise FileNotFoundError(
-            f"Official award candidates not found: {path}. Run: python scripts/prepare_official_squads.py"
-        )
-    df = pd.read_csv(path)
+    enriched_path = PROCESSED_DATA_DIR / C.ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE
+    base_path = PROCESSED_DATA_DIR / C.OFFICIAL_AWARD_CANDIDATES_FILE
+
+    if use_enriched_candidates is None:
+        use_enriched_candidates = enriched_path.is_file()
+
+    if use_enriched_candidates and enriched_path.is_file():
+        df = pd.read_csv(enriched_path)
+        source = C.ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE
+    else:
+        if not base_path.is_file():
+            raise FileNotFoundError(
+                f"Official award candidates not found: {base_path}. Run: python scripts/prepare_official_squads.py"
+            )
+        df = pd.read_csv(base_path)
+        source = C.OFFICIAL_AWARD_CANDIDATES_FILE
+
     missing = [c for c in C.OFFICIAL_AWARD_CANDIDATES_REQUIRED_COLUMNS if c not in df.columns]
     if missing:
         raise ValueError(f"Official award candidates missing required columns: {missing}")
-    return normalize_official_award_candidates(df)
+
+    normalized = normalize_official_award_candidates(df)
+    normalized.attrs["candidate_source"] = source
+    _validate_candidates_against_official_players(normalized)
+    return normalized
+
+
+def _validate_candidates_against_official_players(df: pd.DataFrame) -> None:
+    """Ensure every candidate player_id exists in official_players.csv."""
+    from src.official.loaders import load_official_players
+
+    official_ids = set(load_official_players()["player_id"].astype(str))
+    candidate_ids = set(df["player_id"].astype(str))
+    unknown = candidate_ids - official_ids
+    if unknown:
+        raise ValueError(
+            f"Award candidates contain {len(unknown)} player_id values outside official_players.csv"
+        )
+
+
+def get_award_candidate_source(use_enriched_candidates: bool | None = None) -> str:
+    """Return which candidate file would be used for awards generation."""
+    enriched_path = PROCESSED_DATA_DIR / C.ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE
+    if use_enriched_candidates is None:
+        use_enriched_candidates = enriched_path.is_file()
+    if use_enriched_candidates and enriched_path.is_file():
+        return C.ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE
+    return C.OFFICIAL_AWARD_CANDIDATES_FILE
 
 
 def load_team_stage_probabilities(path: str | None = None) -> pd.DataFrame:

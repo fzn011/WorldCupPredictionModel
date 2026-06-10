@@ -154,10 +154,40 @@ st.title("FIFA World Cup 2026 AI Predictor")
 
 st.markdown(
     """
-    Welcome to the **FIFA World Cup 2026 AI Predictor** — a machine learning
-    and simulation-based dashboard for forecasting the 2026 tournament.
+    Welcome to the **FIFA World Cup 2026 AI Predictor** — machine learning match forecasting,
+    full tournament simulation, Monte Carlo progression, and explainable award analytics using
+    **official World Cup 2026 data** when `official_final` mode is enabled.
     """
 )
+
+# Step 19 polished overview
+try:
+    from src.official.promotion import load_official_final_mode
+    from src.official.final_readiness import evaluate_official_final_readiness
+
+    _mode = load_official_final_mode()
+    _readiness = evaluate_official_final_readiness()
+    _rs = _readiness.get("summary", {})
+except Exception:
+    _mode = {}
+    _readiness = {}
+    _rs = {}
+
+st.subheader("Project overview (Step 19)")
+c1, c2, c3, c4, c5 = st.columns(5)
+c1.metric("official_final", "Yes" if _mode.get("official_final_enabled") else "No")
+c2.metric("Fixtures", _rs.get("fixtures_count", "—"))
+c3.metric("Players", _rs.get("players_count", "—"))
+c4.metric("Monte Carlo", "Ready" if (PROCESSED_DATA_DIR / getattr(C, "MONTE_CARLO_SUMMARY_FILE", "monte_carlo_summary.json")).is_file() else "Missing")
+c5.metric("Awards", "Ready" if (PROCESSED_DATA_DIR / getattr(C, "WORLD_CUP_AWARDS_SUMMARY_FILE", "world_cup_awards_summary.json")).is_file() else "Missing")
+
+st.markdown(
+    "**Pipeline:** Data → Model → Simulation → Monte Carlo → Awards → Reports  \n"
+    "**Recommended demo flow:** Official Final Readiness → Match Predictor → Monte Carlo → "
+    "Enrich priors → World Cup Awards → Downloads"
+)
+st.code("python scripts/run_final_demo_pipeline.py --simulations 10", language="bash")
+st.caption("Tests: `python -m pytest -q` · Portfolio pack: `python scripts/prepare_final_project_pack.py`")
 
 st.subheader("Current Project Status")
 st.success(
@@ -185,7 +215,8 @@ st.success(
     "Step 17F: Official FIFA data population workflow completed.\n\n"
     "Step 17G: Official data import execution workflow completed.\n\n"
     "Step 17H: Official data apply blocker cleanup completed.\n\n"
-    "Step 18: FIFA World Cup Awards Predictor completed."
+    "Step 18: FIFA World Cup Awards Predictor completed.\n\n"
+    "Step 19: Final polish, player prior enrichment, and portfolio packaging completed."
 )
 st.caption(
     "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
@@ -892,6 +923,19 @@ st.caption(
     "Step 18 requires official_final=true. Uses official_award_candidates.csv and Monte Carlo progression. "
     "Outputs are explainable analytics estimates, not official FIFA predictions."
 )
+
+PORTFOLIO_DIR = PROJECT_ROOT / str(getattr(C, "PORTFOLIO_DIR", "portfolio"))
+st.subheader("Step 19: Portfolio & prior enrichment artifacts")
+step19_rows = [
+    {"file": "enriched_official_award_candidates.csv", "path": str(PROCESSED_DATA_DIR / "enriched_official_award_candidates.csv"), "present": (PROCESSED_DATA_DIR / "enriched_official_award_candidates.csv").is_file()},
+    {"file": "player_prior_quality_report.csv", "path": str(PROCESSED_DATA_DIR / "player_prior_quality_report.csv"), "present": (PROCESSED_DATA_DIR / "player_prior_quality_report.csv").is_file()},
+    {"file": "final_project_summary.json", "path": str(PROCESSED_DATA_DIR / "final_project_summary.json"), "present": (PROCESSED_DATA_DIR / "final_project_summary.json").is_file()},
+    {"file": "portfolio/PORTFOLIO_README.md", "path": str(PORTFOLIO_DIR / "PORTFOLIO_README.md"), "present": (PORTFOLIO_DIR / "PORTFOLIO_README.md").is_file()},
+    {"file": "portfolio/demo_script.md", "path": str(PORTFOLIO_DIR / "demo_script.md"), "present": (PORTFOLIO_DIR / "demo_script.md").is_file()},
+    {"file": "portfolio/project_architecture.md", "path": str(PORTFOLIO_DIR / "project_architecture.md"), "present": (PORTFOLIO_DIR / "project_architecture.md").is_file()},
+]
+st.dataframe(pd.DataFrame(step19_rows), use_container_width=True)
+st.caption("Run `python scripts/enrich_player_priors.py` then `python scripts/prepare_final_project_pack.py` for portfolio docs.")
 
 st.subheader("Planned Datasets")
 rows = []

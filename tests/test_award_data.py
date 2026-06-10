@@ -69,6 +69,9 @@ def test_load_official_award_candidates_loads_official_candidates(tmp_path, monk
     )
     pd.DataFrame([row]).to_csv(processed / C.OFFICIAL_AWARD_CANDIDATES_FILE, index=False)
     pd.DataFrame({"team": ["France"] * 48}).to_csv(official / C.OFFICIAL_TEAMS_FILE, index=False)
+    pd.DataFrame({"player_id": ["p1"], "player_name": ["Test Player"], "team": ["France"]}).to_csv(
+        official / C.OFFICIAL_PLAYERS_FILE, index=False
+    )
 
     monkeypatch.setattr(C, "PROJECT_ROOT", tmp_path)
     monkeypatch.setattr("src.awards.award_data.PROJECT_ROOT", tmp_path)
@@ -78,10 +81,8 @@ def test_load_official_award_candidates_loads_official_candidates(tmp_path, monk
         "src.awards.award_data.evaluate_official_final_readiness",
         lambda: {"is_official_final_ready": True},
     )
-    monkeypatch.setattr(
-        "src.official.loaders.load_official_teams",
-        lambda: pd.DataFrame({"team": ["France"]}),
-    )
+    monkeypatch.setattr("src.official.loaders.PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr("src.official.loaders.OFFICIAL_PROCESSED_DIR", official)
 
     df = load_official_award_candidates()
     assert len(df) == 1
