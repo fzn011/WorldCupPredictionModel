@@ -21,6 +21,7 @@ try:
 except ModuleNotFoundError:
     from streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR
 
+from src.awards.prior_enrichment import create_enriched_player_priors, merge_enriched_priors_into_award_candidates  # noqa: E402
 from src.awards.prepare_awards import prepare_step18_world_cup_awards  # noqa: E402
 from src.official.final_readiness import evaluate_official_final_readiness  # noqa: E402
 from src.official.promotion import load_official_final_mode  # noqa: E402
@@ -98,6 +99,49 @@ if not awards_allowed:
         "python scripts/promote_official_final.py --confirm\n```"
     )
     st.stop()
+
+enriched_path = PROCESSED_DATA_DIR / getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")
+quality_path = PROCESSED_DATA_DIR / getattr(C, "PLAYER_PRIOR_QUALITY_REPORT_FILE", "player_prior_quality_report.csv")
+summary_pre = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
+candidate_source = summary_pre.get("candidate_source") or (
+    getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")
+    if enriched_path.is_file()
+    else getattr(C, "OFFICIAL_AWARD_CANDIDATES_FILE", "official_award_candidates.csv")
+)
+
+st.subheader("Prior enrichment (Step 19)")
+st.info(
+    "Player priors are **heuristic position/role estimates** unless you manually edit "
+    "`player_award_priors.csv`. Enrichment improves differentiation for demo/portfolio outputs."
+)
+st.metric("Candidate source", candidate_source)
+if quality_path.is_file():
+    qdf = pd.read_csv(quality_path)
+    flat_row = qdf[qdf["metric"] == "flatness_score"]
+    if not flat_row.empty:
+        st.metric("Prior flatness score", flat_row.iloc[0]["value"])
+
+col_e1, col_e2 = st.columns(2)
+with col_e1:
+    if st.button("Enrich player priors"):
+        try:
+            enrich_summary = create_enriched_player_priors()
+            merge_enriched_priors_into_award_candidates(update_official=False)
+            st.success(f"Enriched {enrich_summary.get('candidate_count')} candidates.")
+            st.json(enrich_summary)
+        except Exception as exc:
+            st.error(str(exc))
+with col_e2:
+    if st.button("Regenerate awards (enriched priors)"):
+        try:
+            if not enriched_path.is_file():
+                create_enriched_player_priors()
+                merge_enriched_priors_into_award_candidates(update_official=False)
+            result = prepare_step18_world_cup_awards(use_enriched_candidates=True)
+            st.success("Awards regenerated with enriched candidates.")
+            st.json(result)
+        except Exception as exc:
+            st.error(str(exc))
 
 st.subheader("Overview")
 st.markdown(

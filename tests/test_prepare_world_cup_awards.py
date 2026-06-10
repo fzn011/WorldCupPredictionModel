@@ -85,7 +85,7 @@ def test_prepare_step17_world_cup_awards_returns_status_ok(monkeypatch, tmp_path
     monkeypatch.setattr(reports_mod, "REPORTS_DIR", tmp_path / "reports")
     monkeypatch.setattr("src.awards.award_data.require_official_final_ready", lambda: {"official_final_enabled": True, "final_ready": True})
     monkeypatch.setattr("src.awards.prepare_awards.require_official_final_ready", lambda: {"official_final_enabled": True, "final_ready": True})
-    monkeypatch.setattr("src.awards.prepare_awards.load_official_award_candidates", lambda: candidates)
+    monkeypatch.setattr("src.awards.prepare_awards.load_official_award_candidates", lambda **kwargs: candidates)
     monkeypatch.setattr("src.awards.prepare_awards.load_team_stage_probabilities", lambda: _stage_df())
     monkeypatch.setattr("src.awards.prepare_awards.load_official_teams_for_awards", lambda: teams)
     monkeypatch.setattr("src.awards.team_awards.load_official_teams_for_awards", lambda: teams)

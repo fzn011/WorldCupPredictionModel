@@ -12,6 +12,7 @@ from src.utils.team_name_mapping import standardize_team_name
 
 PROJECT_ROOT = getattr(C, "PROJECT_ROOT", Path(__file__).resolve().parents[2])
 OFFICIAL_PROCESSED_DIR = PROJECT_ROOT / str(getattr(C, "OFFICIAL_PROCESSED_DIR", "data/official/processed"))
+OFFICIAL_PLAYERS_FILE = getattr(C, "OFFICIAL_PLAYERS_FILE", "official_players.csv")
 OFFICIAL_TEAMS_FILE = getattr(C, "OFFICIAL_TEAMS_FILE", "official_teams.csv")
 OFFICIAL_GROUPS_FILE = getattr(C, "OFFICIAL_GROUPS_FILE", "official_groups.csv")
 OFFICIAL_FIXTURES_FILE = getattr(C, "OFFICIAL_FIXTURES_FILE", "official_fixtures.csv")
@@ -39,6 +40,11 @@ def load_official_teams(path: str | None = None) -> pd.DataFrame:
     if "team" in df.columns:
         df["team"] = df["team"].map(standardize_team_name)
     return df
+
+
+def load_official_players(path: str | None = None) -> pd.DataFrame:
+    """Load official players table."""
+    return _load_csv_required(Path(path) if path else official_path(OFFICIAL_PLAYERS_FILE))
 
 
 

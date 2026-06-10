@@ -18,7 +18,7 @@ from scripts import inspect_world_cup_awards as inspect_awards_mod
 def test_generate_world_cup_awards_script_smoke(monkeypatch) -> None:
     monkeypatch.setattr(
         "scripts.generate_world_cup_awards.prepare_step18_world_cup_awards",
-        lambda: {
+        lambda **kwargs: {
             "status": "ok",
             "validation_passed": True,
             "top_golden_ball_player": "Player A",
@@ -32,13 +32,13 @@ def test_generate_world_cup_awards_script_smoke(monkeypatch) -> None:
             "validation_report_path": "data/processed/world_cup_awards_validation_report.csv",
         },
     )
-    assert generate_awards_main() == 0
+    assert generate_awards_main([]) == 0
 
 
 def test_generate_golden_ball_compatibility_script_smoke(monkeypatch) -> None:
     monkeypatch.setattr(
         "scripts.generate_golden_ball_predictions.prepare_step18_world_cup_awards",
-        lambda: {
+        lambda **kwargs: {
             "status": "ok",
             "validation_passed": True,
             "top_golden_ball_player": "Player A",

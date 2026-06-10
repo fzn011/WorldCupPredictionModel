@@ -658,3 +658,43 @@ python -m streamlit run app/streamlit_app.py
 
 Streamlit page: **17 World Cup Awards** (`app/pages/17_World_Cup_Awards.py`).
 
+---
+
+## Step 19: Final Polish + Player Prior Enrichment + Portfolio Packaging
+
+Step 19 makes the project **portfolio-ready** and improves award differentiation by enriching flat player priors with conservative position/role heuristics. Priors remain **heuristic/manual estimates**, not official season statistics.
+
+### Player prior enrichment
+
+- Reads `official_award_candidates.csv` only (no sample players)
+- Applies position defaults, Monte Carlo progression uplift, shirt-number heuristics
+- Saves `enriched_official_award_candidates.csv` (optional update of base file with backup)
+- Awards prefer enriched candidates when available (`--use-enriched`)
+
+### Portfolio outputs
+
+| Artifact | Path |
+|----------|------|
+| Portfolio README | `portfolio/PORTFOLIO_README.md` |
+| Demo script | `portfolio/demo_script.md` |
+| Architecture | `portfolio/project_architecture.md` |
+| Limitations | `portfolio/limitations.md` |
+| Deployment guide | `portfolio/deployment_guide.md` |
+| Reproducibility checklist | `portfolio/reproducibility_checklist.md` |
+| Final summary | `data/processed/final_project_summary.json` |
+| Final validation | `data/processed/final_project_validation_report.csv` |
+
+### Commands
+
+```bash
+python scripts/enrich_player_priors.py
+python scripts/enrich_player_priors.py --update-award-candidates
+python scripts/generate_world_cup_awards.py --use-enriched
+python scripts/prepare_final_project_pack.py
+python scripts/run_final_demo_pipeline.py --simulations 10
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+Outputs remain **probabilistic analytics estimates**, not official FIFA predictions. No betting advice. The `official_final` gate is unchanged — awards refuse to run when disabled.
+

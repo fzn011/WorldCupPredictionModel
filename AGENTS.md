@@ -38,7 +38,23 @@ Streamlit does **not** call the FastAPI server; they are independent entry point
 python -m pytest -q
 ```
 
-Expect **377 passed, 1 skipped** (includes Step 17F–17H official-data and Step 18 awards tests). No linter config (ruff/flake8/black) is present in the repo.
+Expect **387+ passed, 1 skipped** after Step 19 (prior enrichment + portfolio tests). No linter config (ruff/flake8/black) is present in the repo.
+
+### Step 19: Prior enrichment + portfolio demo pipeline
+
+Enrich flat player priors before awards demo (official players only — never add non-official IDs):
+
+```bash
+python scripts/enrich_player_priors.py
+python scripts/enrich_player_priors.py --update-award-candidates
+python scripts/generate_world_cup_awards.py --use-enriched
+python scripts/prepare_final_project_pack.py
+python scripts/run_final_demo_pipeline.py --simulations 10
+```
+
+- **No scraping** or paid APIs for priors — heuristics + manual edits only
+- Enriched priors must stay within `official_players.csv` player_id set
+- Default demo Monte Carlo count: **10** (avoid huge simulations in CI/demo)
 
 ### Step 18: World Cup Awards Predictor
 
