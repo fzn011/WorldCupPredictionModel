@@ -1,10 +1,10 @@
 {
   "status": "ok",
-  "source_feature_path": "E:\\World Cup prediction model\\world-cup-2026-ai-predictor\\data\\processed\\ranking_feature_dataset.csv",
+  "source_feature_path": "in_memory",
   "test_start_date": "2022-01-01",
-  "train_rows": 27719,
-  "test_rows": 4460,
-  "feature_count": 122,
+  "train_rows": 4,
+  "test_rows": 4,
+  "feature_count": 29,
   "trained_models": [
     "hist_gradient_boosting"
   ],

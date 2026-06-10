@@ -613,3 +613,561 @@ MONTE_CARLO_FINAL_POSITIONS: list[str] = [
     "third_place",
     "fourth_place",
 ]
+
+# -----------------------------------------------------------------------------
+# Step 16 Monte Carlo dashboard/report polish constants
+# -----------------------------------------------------------------------------
+
+MONTE_CARLO_REPORT_MD_FILE: str = "monte_carlo_report.md"
+MONTE_CARLO_SUMMARY_CARDS_FILE: str = "monte_carlo_summary_cards.csv"
+MONTE_CARLO_DASHBOARD_EXPORT_FILE: str = "monte_carlo_dashboard_export.csv"
+
+MONTE_CARLO_CHAMPION_CHART_FILE: str = "monte_carlo_champion_probabilities.png"
+MONTE_CARLO_STAGE_HEATMAP_FILE: str = "monte_carlo_stage_heatmap.png"
+
+MONTE_CARLO_TOP_N_TEAMS: int = 20
+
+STAGE_PROBABILITY_DISPLAY_COLUMNS: list[str] = [
+    "team",
+    "round_of_32_probability",
+    "round_of_16_probability",
+    "quarter_final_probability",
+    "semi_final_probability",
+    "final_probability",
+    "champion_probability",
+]
+
+# -----------------------------------------------------------------------------
+# Step 17 FIFA World Cup awards predictor constants
+# -----------------------------------------------------------------------------
+
+PLAYER_CANDIDATES_FILE: str = "player_candidates.csv"
+SAMPLE_PLAYER_CANDIDATES_FILE: str = "sample_player_candidates.csv"
+TEAM_AWARD_PROFILES_FILE: str = "team_award_profiles.csv"
+SAMPLE_TEAM_AWARD_PROFILES_FILE: str = "sample_team_award_profiles.csv"
+
+WORLD_CUP_AWARDS_PREDICTIONS_FILE: str = "world_cup_awards_predictions.csv"
+GOLDEN_BALL_PREDICTIONS_FILE: str = "golden_ball_predictions.csv"
+GOLDEN_BOOT_PREDICTIONS_FILE: str = "golden_boot_predictions.csv"
+GOLDEN_GLOVE_PREDICTIONS_FILE: str = "golden_glove_predictions.csv"
+YOUNG_PLAYER_PREDICTIONS_FILE: str = "young_player_predictions.csv"
+FAIR_PLAY_PREDICTIONS_FILE: str = "fair_play_predictions.csv"
+MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE: str = "most_entertaining_team_predictions.csv"
+TEAM_OF_THE_TOURNAMENT_FILE: str = "team_of_the_tournament.csv"
+PLAYER_OF_THE_MATCH_PROXY_FILE: str = "player_of_the_match_proxy.csv"
+GOAL_OF_THE_TOURNAMENT_PROXY_FILE: str = "goal_of_the_tournament_proxy.csv"
+
+WORLD_CUP_AWARDS_SUMMARY_FILE: str = "world_cup_awards_summary.json"
+WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE: str = "world_cup_awards_validation_report.csv"
+WORLD_CUP_AWARDS_REPORT_FILE: str = "world_cup_awards_report.md"
+
+GOLDEN_BALL_CANDIDATES_FILE: str = "golden_ball_candidates.csv"
+GOLDEN_BALL_SUMMARY_FILE: str = "golden_ball_summary.json"
+GOLDEN_BALL_VALIDATION_REPORT_FILE: str = "golden_ball_validation_report.csv"
+GOLDEN_BALL_REPORT_FILE: str = "golden_ball_report.md"
+
+WORLD_CUP_AWARD_NAMES: list[str] = [
+    "Golden Ball",
+    "Silver Ball",
+    "Bronze Ball",
+    "Golden Boot",
+    "Silver Boot",
+    "Bronze Boot",
+    "Golden Glove",
+    "Young Player Award",
+    "Fair Play Trophy",
+    "Most Entertaining Team",
+    "Predicted Team of the Tournament",
+    "Player of the Match Proxy",
+    "Goal of the Tournament Proxy",
+]
+
+PLAYER_POSITIONS: list[str] = [
+    "forward",
+    "midfielder",
+    "defender",
+    "goalkeeper",
+]
+
+POSITION_WEIGHTS: dict[str, dict[str, float]] = {
+    "forward": {
+        "goals": 5.0,
+        "assists": 2.5,
+        "chance_creation": 1.5,
+        "defensive_actions": 0.2,
+        "goalkeeper_actions": 0.0,
+    },
+    "midfielder": {
+        "goals": 3.5,
+        "assists": 3.0,
+        "chance_creation": 2.5,
+        "defensive_actions": 1.0,
+        "goalkeeper_actions": 0.0,
+    },
+    "defender": {
+        "goals": 2.5,
+        "assists": 1.5,
+        "chance_creation": 0.8,
+        "defensive_actions": 2.5,
+        "goalkeeper_actions": 0.0,
+    },
+    "goalkeeper": {
+        "goals": 0.0,
+        "assists": 0.0,
+        "chance_creation": 0.0,
+        "defensive_actions": 0.5,
+        "goalkeeper_actions": 4.0,
+    },
+}
+
+TEAM_PROGRESSION_WEIGHTS: dict[str, float] = {
+    "round_of_32_probability": 0.5,
+    "round_of_16_probability": 1.0,
+    "quarter_final_probability": 1.5,
+    "semi_final_probability": 2.5,
+    "final_probability": 3.5,
+    "champion_probability": 5.0,
+}
+
+AWARDS_ANALYTICS_DISCLAIMER: str = (
+    "These awards are explainable analytics estimates based on manually editable player priors, "
+    "team profiles, and Monte Carlo team progression probabilities. They are not official FIFA predictions."
+)
+
+YOUNG_PLAYER_CUTOFF_DATE_2026: str = "2005-01-01"
+
+# -----------------------------------------------------------------------------
+# Step 17A official World Cup 2026 data lock constants
+# -----------------------------------------------------------------------------
+
+OFFICIAL_DATA_DIR: str = "data/official"
+OFFICIAL_RAW_DIR: str = "data/official/raw"
+OFFICIAL_PROCESSED_DIR: str = "data/official/processed"
+OFFICIAL_REPORTS_DIR: str = "data/official/reports"
+
+OFFICIAL_TEAMS_FILE: str = "official_teams.csv"
+OFFICIAL_GROUPS_FILE: str = "official_groups.csv"
+OFFICIAL_FIXTURES_FILE: str = "official_fixtures.csv"
+OFFICIAL_VENUES_FILE: str = "official_venues.csv"
+OFFICIAL_MATCH_CALENDAR_FILE: str = "official_match_calendar.csv"
+OFFICIAL_DATA_SUMMARY_FILE: str = "official_data_summary.json"
+OFFICIAL_DATA_VALIDATION_REPORT_FILE: str = "official_data_validation_report.csv"
+OFFICIAL_SOURCE_MANIFEST_FILE: str = "source_manifest.json"
+
+DATA_MODE_SAMPLE: str = "sample"
+DATA_MODE_OFFICIAL: str = "official"
+DEFAULT_TOURNAMENT_DATA_MODE: str = "official"
+
+OFFICIAL_PLACEHOLDER_VALUES: list[str] = [
+    "",
+    "Unknown",
+    "Sample Venue",
+    "Sample City",
+    "Sample Country",
+    "TBD",
+    "To Be Determined",
+    "sample_to_be_verified",
+]
+
+OFFICIAL_REQUIRED_TEAM_COUNT: int = 48
+OFFICIAL_REQUIRED_GROUP_COUNT: int = 12
+OFFICIAL_TEAMS_PER_GROUP: int = 4
+OFFICIAL_TOTAL_MATCHES: int = 104
+OFFICIAL_GROUP_STAGE_MATCHES: int = 72
+OFFICIAL_KNOCKOUT_MATCHES: int = 32
+
+OFFICIAL_TEAMS_REQUIRED_COLUMNS: list[str] = [
+    "team_id",
+    "team",
+    "team_code",
+    "confederation",
+    "group",
+    "group_slot",
+    "is_host",
+    "qualified",
+    "source",
+    "last_verified_at",
+]
+
+OFFICIAL_GROUPS_REQUIRED_COLUMNS: list[str] = [
+    "group",
+    "slot",
+    "team",
+    "team_code",
+    "confederation",
+    "is_host",
+    "source",
+    "last_verified_at",
+]
+
+OFFICIAL_FIXTURES_REQUIRED_COLUMNS: list[str] = [
+    "match_id",
+    "match_number",
+    "stage",
+    "group",
+    "date",
+    "kickoff_local",
+    "kickoff_utc",
+    "timezone",
+    "venue",
+    "stadium",
+    "city",
+    "country",
+    "team_a",
+    "team_b",
+    "team_a_code",
+    "team_b_code",
+    "team_a_group_slot",
+    "team_b_group_slot",
+    "status",
+    "source",
+    "last_verified_at",
+]
+
+OFFICIAL_VENUES_REQUIRED_COLUMNS: list[str] = [
+    "venue_id",
+    "stadium",
+    "venue",
+    "city",
+    "country",
+    "timezone",
+    "capacity",
+    "latitude",
+    "longitude",
+    "source",
+    "last_verified_at",
+]
+
+OFFICIAL_MATCH_CALENDAR_REQUIRED_COLUMNS: list[str] = [
+    "match_id",
+    "match_number",
+    "stage",
+    "group",
+    "date",
+    "kickoff_local",
+    "kickoff_utc",
+    "timezone",
+    "venue",
+    "city",
+    "country",
+    "team_a",
+    "team_b",
+    "status",
+    "source",
+    "last_verified_at",
+]
+
+# -----------------------------------------------------------------------------
+# Step 17B official World Cup 2026 squads and player priors
+# -----------------------------------------------------------------------------
+
+OFFICIAL_PLAYERS_FILE: str = "official_players.csv"
+OFFICIAL_SQUADS_FILE: str = "official_squads.csv"
+OFFICIAL_TEAM_PLAYER_MAP_FILE: str = "official_team_player_map.csv"
+OFFICIAL_SQUAD_SUMMARY_FILE: str = "official_squad_summary.json"
+OFFICIAL_SQUAD_VALIDATION_REPORT_FILE: str = "official_squad_validation_report.csv"
+OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE: str = "official_player_prior_merge_report.csv"
+
+PLAYER_AWARD_PRIORS_FILE: str = "player_award_priors.csv"
+OFFICIAL_AWARD_CANDIDATES_FILE: str = "official_award_candidates.csv"
+SAMPLE_PLAYER_AWARD_PRIORS_FILE: str = "sample_player_award_priors.csv"
+
+OFFICIAL_REQUIRED_PLAYERS_PER_TEAM: int = 26
+OFFICIAL_REQUIRED_TOTAL_PLAYERS: int = 1248
+
+OFFICIAL_POSITION_CODES: list[str] = ["GK", "DF", "MF", "FW"]
+
+OFFICIAL_POSITION_MAP: dict[str, str] = {
+    "GK": "goalkeeper",
+    "DF": "defender",
+    "MF": "midfielder",
+    "FW": "forward",
+}
+
+PLAYER_PRIOR_REQUIRED_COLUMNS: list[str] = [
+    "player",
+    "team",
+    "base_player_rating",
+    "expected_minutes_share",
+    "goals_prior",
+    "assists_prior",
+    "chance_creation_prior",
+    "defensive_actions_prior",
+    "goalkeeper_actions_prior",
+    "discipline_risk",
+    "star_role_score",
+    "flair_score",
+    "notes",
+]
+
+OFFICIAL_PLAYERS_REQUIRED_COLUMNS: list[str] = [
+    "player_id",
+    "team",
+    "team_code",
+    "shirt_number",
+    "position_code",
+    "position",
+    "player_name",
+    "first_names",
+    "last_names",
+    "name_on_shirt",
+    "date_of_birth",
+    "age_at_tournament_start",
+    "club",
+    "club_country",
+    "height_cm",
+    "source",
+    "last_verified_at",
+]
+
+OFFICIAL_AWARD_CANDIDATES_REQUIRED_COLUMNS: list[str] = [
+    "player_id",
+    "team",
+    "team_code",
+    "shirt_number",
+    "position_code",
+    "position",
+    "player_name",
+    "date_of_birth",
+    "age_at_tournament_start",
+    "club",
+    "height_cm",
+    "base_player_rating",
+    "expected_minutes_share",
+    "goals_prior",
+    "assists_prior",
+    "chance_creation_prior",
+    "defensive_actions_prior",
+    "goalkeeper_actions_prior",
+    "discipline_risk",
+    "star_role_score",
+    "flair_score",
+    "has_player_prior",
+    "prior_source",
+    "source",
+    "last_verified_at",
+]
+
+# -----------------------------------------------------------------------------
+# Step 17C official data completion + manual FIFA verification constants
+# -----------------------------------------------------------------------------
+
+# Final readiness status levels
+OFFICIAL_READINESS_BLOCKED: str = "blocked"
+OFFICIAL_READINESS_WARNING: str = "warning"
+OFFICIAL_READINESS_READY: str = "ready"
+
+# Import template file names
+OFFICIAL_IMPORT_TEAMS_TEMPLATE_FILE: str = "import_teams_template.csv"
+OFFICIAL_IMPORT_GROUPS_TEMPLATE_FILE: str = "import_groups_template.csv"
+OFFICIAL_IMPORT_FIXTURES_TEMPLATE_FILE: str = "import_fixtures_template.csv"
+OFFICIAL_IMPORT_VENUES_TEMPLATE_FILE: str = "import_venues_template.csv"
+OFFICIAL_IMPORT_PLAYERS_TEMPLATE_FILE: str = "import_players_template.csv"
+OFFICIAL_IMPORT_SQUADS_TEMPLATE_FILE: str = "import_squads_template.csv"
+
+# Import results report
+OFFICIAL_IMPORT_RESULTS_FILE: str = "official_import_results.json"
+
+# Final readiness report
+OFFICIAL_FINAL_READINESS_REPORT_FILE: str = "official_final_readiness_report.json"
+OFFICIAL_FINAL_READINESS_CHECKLIST_FILE: str = "official_final_readiness_checklist.csv"
+
+# Columns required for manual import files
+IMPORT_TEAMS_REQUIRED_COLUMNS: list[str] = [
+    "team",
+    "team_code",
+    "confederation",
+    "group",
+    "group_slot",
+    "is_host",
+    "qualified",
+    "source",
+]
+
+IMPORT_GROUPS_REQUIRED_COLUMNS: list[str] = [
+    "group",
+    "slot",
+    "team",
+    "team_code",
+    "confederation",
+    "is_host",
+    "source",
+]
+
+IMPORT_FIXTURES_REQUIRED_COLUMNS: list[str] = [
+    "match_id",
+    "match_number",
+    "stage",
+    "group",
+    "date",
+    "kickoff_local",
+    "kickoff_utc",
+    "timezone",
+    "venue",
+    "stadium",
+    "city",
+    "country",
+    "team_a",
+    "team_b",
+    "team_a_code",
+    "team_b_code",
+    "team_a_group_slot",
+    "team_b_group_slot",
+    "status",
+    "source",
+]
+
+IMPORT_VENUES_REQUIRED_COLUMNS: list[str] = [
+    "venue_id",
+    "stadium",
+    "venue",
+    "city",
+    "country",
+    "timezone",
+    "capacity",
+    "latitude",
+    "longitude",
+    "source",
+]
+
+IMPORT_PLAYERS_REQUIRED_COLUMNS: list[str] = [
+    "player_id",
+    "team",
+    "team_code",
+    "shirt_number",
+    "position_code",
+    "position",
+    "player_name",
+    "first_names",
+    "last_names",
+    "name_on_shirt",
+    "date_of_birth",
+    "age_at_tournament_start",
+    "club",
+    "club_country",
+    "height_cm",
+    "source",
+]
+
+IMPORT_SQUADS_REQUIRED_COLUMNS: list[str] = [
+    "team",
+    "team_code",
+    "player_count",
+    "goalkeepers",
+    "defenders",
+    "midfielders",
+    "forwards",
+    "avg_age",
+    "avg_height_cm",
+    "source",
+]
+
+# Final readiness checklist items
+FINAL_READINESS_CHECKLIST: list[dict[str, str]] = [
+    {"id": "teams_complete", "name": "All 48 teams verified", "category": "teams"},
+    {"id": "teams_no_placeholders", "name": "No placeholder values in teams", "category": "teams"},
+    {"id": "groups_complete", "name": "All 12 groups with 4 teams each", "category": "groups"},
+    {"id": "groups_no_placeholders", "name": "No placeholder values in groups", "category": "groups"},
+    {"id": "venues_complete", "name": "All venues verified", "category": "venues"},
+    {"id": "venues_no_placeholders", "name": "No placeholder values in venues", "category": "venues"},
+    {"id": "fixtures_complete", "name": "All 104 fixtures scheduled", "category": "fixtures"},
+    {"id": "fixtures_no_placeholders", "name": "No placeholder values in fixtures", "category": "fixtures"},
+    {"id": "squads_complete", "name": "All 48 teams with 26 players", "category": "squads"},
+    {"id": "players_complete", "name": "All 1248 players registered", "category": "squads"},
+    {"id": "players_no_placeholders", "name": "No placeholder values in players", "category": "squads"},
+    {"id": "award_candidates_ready", "name": "Award candidates generated", "category": "awards"},
+    {"id": "player_priors_merged", "name": "Player priors merged", "category": "awards"},
+    {"id": "no_sample_rows", "name": "No sample_to_be_verified rows", "category": "data_quality"},
+    {"id": "data_consistency", "name": "Cross-dataset consistency verified", "category": "data_quality"},
+]
+
+# Blocking conditions for official_final mode
+OFFICIAL_FINAL_BLOCKERS: list[str] = [
+    "incomplete_teams",
+    "incomplete_groups",
+    "incomplete_venues",
+    "incomplete_fixtures",
+    "incomplete_squads",
+    "incomplete_players",
+    "placeholder_values_detected",
+    "sample_rows_detected",
+    "data_inconsistency",
+    "validation_failed",
+]
+
+# -----------------------------------------------------------------------------
+# Step 17D official data population pack constants
+# -----------------------------------------------------------------------------
+
+OFFICIAL_POPULATION_DIR: str = "data/official/population"
+OFFICIAL_POPULATION_REPORTS_DIR: str = "data/official/population/reports"
+OFFICIAL_POPULATION_WORKBOOK_DIR: str = "data/official/population/workbooks"
+OFFICIAL_IMPORT_TEMPLATES_DIR: str = "data/official/import_templates"
+
+OFFICIAL_POPULATION_GUIDE_FILE: str = "official_data_population_guide.md"
+OFFICIAL_POPULATION_STATUS_FILE: str = "official_population_status.json"
+OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE: str = "official_population_missing_data_report.csv"
+OFFICIAL_POPULATION_DIFF_REPORT_FILE: str = "official_population_diff_report.csv"
+OFFICIAL_POPULATION_IMPORT_AUDIT_FILE: str = "official_population_import_audit.csv"
+OFFICIAL_POPULATION_PROMOTION_REPORT_FILE: str = "official_population_promotion_report.csv"
+
+OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE: str = "official_worldcup_2026_master_import.xlsx"
+OFFICIAL_MASTER_IMPORT_README_FILE: str = "official_worldcup_2026_master_import_README.md"
+
+OFFICIAL_FINAL_MODE_FLAG_FILE: str = "official_final_mode.json"
+
+OFFICIAL_POPULATION_TEMPLATE_FILES: dict[str, str] = {
+    "teams": "official_teams_import_template.csv",
+    "groups": "official_groups_import_template.csv",
+    "fixtures": "official_fixtures_import_template.csv",
+    "venues": "official_venues_import_template.csv",
+    "players": "official_players_import_template.csv",
+    "player_priors": "player_award_priors_import_template.csv",
+}
+
+OFFICIAL_POPULATION_REQUIRED_STEPS: list[str] = [
+    "fill_teams",
+    "fill_groups",
+    "fill_fixtures",
+    "fill_venues",
+    "fill_players",
+    "fill_player_priors",
+    "apply_imports",
+    "run_squad_merge",
+    "run_final_readiness",
+    "promote_to_official_final",
+]
+
+OFFICIAL_POPULATION_ALLOWED_STATUSES: list[str] = [
+    "not_started",
+    "in_progress",
+    "needs_review",
+    "ready_for_import",
+    "imported",
+    "final_ready",
+    "blocked",
+]
+
+OFFICIAL_VERIFICATION_FIELDS: list[str] = [
+    "source",
+    "last_verified_at",
+    "verified_by",
+    "verification_notes",
+]
+
+IMPORT_PLAYER_PRIORS_REQUIRED_COLUMNS: list[str] = [
+    "player",
+    "team",
+    "base_player_rating",
+    "expected_minutes_share",
+    "goals_prior",
+    "assists_prior",
+    "chance_creation_prior",
+    "defensive_actions_prior",
+    "goalkeeper_actions_prior",
+    "discipline_risk",
+    "star_role_score",
+    "flair_score",
+    "notes",
+    "source",
+]

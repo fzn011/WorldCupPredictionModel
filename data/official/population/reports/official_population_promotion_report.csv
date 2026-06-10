@@ -1,0 +1,10 @@
+timestamp,status,official_final_enabled,reason
+2026-06-10T13:45:26.708306+00:00,blocked,False,
+2026-06-10T13:45:26.717533+00:00,demoted,False,test demote
+2026-06-10T13:46:19.930823+00:00,blocked,False,
+2026-06-10T13:46:19.942715+00:00,demoted,False,test demote
+2026-06-10T13:46:21.640749+00:00,blocked,False,
+2026-06-10T13:46:27.662945+00:00,blocked,False,
+2026-06-10T13:49:10.084787+00:00,blocked,False,
+2026-06-10T14:00:45.594016+00:00,blocked,False,
+2026-06-10T14:00:45.603158+00:00,demoted,False,test demote

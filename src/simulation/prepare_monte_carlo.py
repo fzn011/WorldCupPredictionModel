@@ -73,12 +73,17 @@ def _save_json(payload: dict[str, Any], file_name: str) -> str:
 def prepare_step15_monte_carlo_simulation(
     num_simulations: int = DEFAULT_MONTE_CARLO_SIMULATIONS,
     base_seed: int = DEFAULT_MONTE_CARLO_SEED,
+    predictor: Any | None = None,
 ) -> dict[str, Any]:
     """Run and persist Step 15 Monte Carlo tournament simulation artifacts."""
     num_simulations = int(max(1, num_simulations))
     base_seed = int(base_seed)
 
-    raw = run_monte_carlo_simulations(num_simulations=num_simulations, base_seed=base_seed)
+    raw = run_monte_carlo_simulations(
+        num_simulations=num_simulations,
+        base_seed=base_seed,
+        predictor=predictor,
+    )
 
     simulation_results_df = build_simulation_results_table(raw["simulation_results"])
     successful_simulations = int((simulation_results_df["status"] == "success").sum()) if not simulation_results_df.empty else 0
@@ -103,6 +108,7 @@ def prepare_step15_monte_carlo_simulation(
         validation_passed=validation_passed,
         num_simulations=num_simulations,
         base_seed=base_seed,
+        cache_info=raw.get("cache_info", {}),
     )
 
     simulation_results_path = _save_csv(simulation_results_df, MONTE_CARLO_SIMULATION_RESULTS_FILE)

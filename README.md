@@ -19,6 +19,8 @@ Golden Ball / best player candidates.
 - [Step 11: Tournament Fixture and Group Setup](#step-11-tournament-fixture-and-group-setup)
 - [Step 12: Group-Stage Simulation Engine](#step-12-group-stage-simulation-engine)
 - [Step 15: Monte Carlo Tournament Simulator](#step-15-monte-carlo-tournament-simulator)
+- [Step 16: Monte Carlo Dashboard and Report Polish](#step-16-monte-carlo-dashboard-and-report-polish)
+- [Step 17A: Official World Cup 2026 Data Lock](#step-17a-official-world-cup-2026-data-lock)
 
 ## Current Snapshot
 
@@ -324,7 +326,9 @@ Step 15 repeats the full tournament single-run simulation many times and aggrega
 - Produces stage progression probabilities.
 - Produces finalists and semifinalists frequency tables.
 - Saves summary and validation reports to `data/processed/`.
+- Uses cached match predictions across simulations for better local runtime.
 - Default simulation count is **100** for local development.
+- First verification run should use **10 simulations**.
 - Larger simulation counts can be run later after performance optimization.
 - Results are simulation estimates, not certainties.
 
@@ -333,6 +337,85 @@ Step 15 repeats the full tournament single-run simulation many times and aggrega
 ```bash
 python scripts/run_monte_carlo.py --simulations 100 --seed 42
 python scripts/inspect_monte_carlo_results.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 16: Monte Carlo Dashboard and Report Polish
+
+Step 16 makes the Monte Carlo outputs more visual, transparent, and portfolio-ready.
+
+- Champion probability visualization added.
+- Stage progression heatmap/table added.
+- Summary cards added.
+- Markdown report generation added.
+- Downloadable dashboard export added.
+- Results remain simulation estimates, not certainties.
+
+### Step 16 commands
+
+```bash
+python scripts/run_monte_carlo.py --simulations 10 --seed 42
+python scripts/generate_monte_carlo_report.py
+python scripts/inspect_monte_carlo_report.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 17A: Official World Cup 2026 Data Lock
+
+Step 17A prevents predictions and simulations from silently using teams, fixtures, venues, or later players that are not officially part of the World Cup 2026 data contract.
+
+- Adds an `data/official/` folder structure for raw, processed, and report-layer official data.
+- Adds official teams/groups/fixtures/venues/match-calendar contracts.
+- Adds official data validation and summary reports.
+- Adds official mode vs sample mode support.
+- Match prediction can restrict teams to the official World Cup 2026 team list.
+- If current local files are generated from placeholders, they are clearly marked as `sample_to_be_verified` and must be manually checked against FIFA.
+
+### Important follow-up note
+
+- The future awards predictor must use `official_players.csv` from Step 17B.
+- Sample player candidates are not allowed in official mode.
+- Player award priors must later be joined to official squad players only.
+
+### Step 17A commands
+
+```bash
+python scripts/prepare_official_worldcup_data.py
+python scripts/inspect_official_worldcup_data.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+## Step 17D: Official Data Population Pack
+
+Step 17D creates a complete manual data population workflow for verified FIFA World Cup 2026 data.
+
+- Generates manual import templates under `data/official/import_templates/`.
+- Generates a master workbook for official data entry.
+- Generates a population guide with step-by-step instructions.
+- Creates missing-data reports and import preview/diff tools.
+- Supports safe import application with backups and audit logs.
+- Supports `official_final` promotion only when readiness passes.
+- Does **not** scrape, OCR, or auto-fetch data.
+- Does **not** fake official data or mark unverified rows as verified.
+- Keeps sample and official-draft modes separate.
+
+> **Warning:** `promote_official_final.py --confirm` should only succeed when official
+> readiness is fully complete. If current data still has 72 fixtures and about 65 players,
+> promotion should remain blocked. That is correct behavior.
+
+### Step 17D commands
+
+```bash
+python scripts/prepare_official_population_pack.py
+python scripts/generate_official_import_templates.py
+python scripts/preview_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv
+python scripts/apply_official_import.py --target players --file data/official/import_templates/official_players_import_template.csv --preview
+python scripts/evaluate_official_final_readiness.py
+python scripts/promote_official_final.py
+python scripts/promote_official_final.py --confirm
 python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```

@@ -1,0 +1,18 @@
+{
+  "status": "blocked",
+  "is_official_final_ready": false,
+  "summary": {
+    "teams_count": 0,
+    "players_count": 0,
+    "teams_with_26_players": 0
+  },
+  "blockers": [
+    {
+      "id": "validation_failed",
+      "details": {
+        "error": "You are trying to merge on str and float64 columns for key 'team'. If you wish to proceed you should use pd.concat"
+      }
+    }
+  ],
+  "warnings": []
+}

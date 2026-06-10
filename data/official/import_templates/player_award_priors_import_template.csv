@@ -1,0 +1,66 @@
+player,team,base_player_rating,expected_minutes_share,goals_prior,assists_prior,chance_creation_prior,defensive_actions_prior,goalkeeper_actions_prior,discipline_risk,star_role_score,flair_score,notes
+Kylian Mbappe,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Antoine Griezmann,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Eduardo Camavinga,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+William Saliba,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Mike Maignan,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Jude Bellingham,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Harry Kane,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Bukayo Saka,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Phil Foden,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Declan Rice,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Jordan Pickford,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Vinicius Junior,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Rodrygo,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Bruno Guimaraes,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Marquinhos,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Alisson Becker,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Lionel Messi,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Lautaro Martinez,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Julian Alvarez,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Alexis Mac Allister,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Cristian Romero,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Emiliano Martinez,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Lamine Yamal,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Nico Williams,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Rodri,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Pedri,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Unai Simon,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Kevin De Bruyne,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Jeremy Doku,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Romelu Lukaku,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Amadou Onana,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Thibaut Courtois,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Florian Wirtz,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Jamal Musiala,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Kai Havertz,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Antonio Rudiger,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Manuel Neuer,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Rafael Leao,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Bruno Fernandes,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Bernardo Silva,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Cristiano Ronaldo,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Ruben Dias,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Diogo Costa,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Federico Valverde,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Darwin Nunez,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Ronald Araujo,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Sergio Rochet,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Achraf Hakimi,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Sofyan Amrabat,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Yassine Bounou,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Virgil van Dijk,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Memphis Depay,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Christian Pulisic,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Weston McKennie,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Alphonso Davies,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Jonathan David,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Hirving Lozano,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Santiago Gimenez,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Takefusa Kubo,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Wataru Endo,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Heung-Min Son,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Lee Kang-in,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Kim Min-jae,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Luka Modric,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge
+Dominik Livakovic,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge

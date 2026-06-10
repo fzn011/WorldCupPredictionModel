@@ -6,6 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.official.loaders import load_official_fixtures, load_official_teams, load_official_venues
+from src.official.validators import validate_official_fixtures
 import src.utils.constants as C
 from src.tournament.groups import create_group_lookup, load_tournament_groups
 from src.utils.team_name_mapping import standardize_team_name
@@ -17,6 +19,7 @@ TOURNAMENT_STAGE_GROUP = getattr(C, "TOURNAMENT_STAGE_GROUP", "group_stage")
 WC2026_GROUPS = getattr(C, "WC2026_GROUPS", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"])
 WC2026_GROUP_MATCHES_PER_GROUP = getattr(C, "WC2026_GROUP_MATCHES_PER_GROUP", 6)
 WC2026_TOTAL_GROUP_MATCHES = getattr(C, "WC2026_TOTAL_GROUP_MATCHES", 72)
+DATA_MODE_OFFICIAL = getattr(C, "DATA_MODE_OFFICIAL", "official")
 
 REQUIRED_FIXTURE_COLUMNS: list[str] = [
     "match_id",
@@ -77,8 +80,35 @@ def generate_group_stage_fixtures(groups_df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=REQUIRED_FIXTURE_COLUMNS)
 
 
-def load_tournament_fixtures(path: str | None = None) -> pd.DataFrame:
-    """Load processed fixtures, sample fixtures, or generate from groups."""
+def load_tournament_fixtures(path: str | None = None, data_mode: str | None = None) -> pd.DataFrame:
+    """Load processed fixtures, sample fixtures, generated fixtures, or official-mode fixtures."""
+    if data_mode == DATA_MODE_OFFICIAL and path is None:
+        official_df = load_official_fixtures()
+        teams_df = load_official_teams()
+        venues_df = load_official_venues()
+        valid, report_df = validate_official_fixtures(official_df, teams_df=teams_df, venues_df=venues_df)
+        failed = report_df[(report_df["passed"] == False) & (report_df["severity"] == "error")]
+        if not failed.empty:
+            raise ValueError(f"Official tournament fixtures failed validation: {failed.to_dict(orient='records')[:5]}")
+
+        out = pd.DataFrame(
+            {
+                "match_id": official_df["match_id"],
+                "stage": official_df["stage"],
+                "group": official_df["group"],
+                "matchday": pd.NA,
+                "date": official_df["date"],
+                "venue": official_df["venue"],
+                "city": official_df["city"],
+                "country": official_df["country"],
+                "team_a_slot": pd.to_numeric(official_df["team_a_group_slot"], errors="coerce").astype("Int64"),
+                "team_b_slot": pd.to_numeric(official_df["team_b_group_slot"], errors="coerce").astype("Int64"),
+                "team_a": official_df["team_a"].map(standardize_team_name),
+                "team_b": official_df["team_b"].map(standardize_team_name),
+            }
+        )
+        return out[REQUIRED_FIXTURE_COLUMNS].copy()
+
     if path:
         file_path = Path(path)
         if not file_path.is_file():

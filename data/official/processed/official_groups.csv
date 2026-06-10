@@ -1,0 +1,49 @@
+group,slot,team,team_code,confederation,is_host,source,last_verified_at
+A,1,Mexico,MEX,CONCACAF,1,sample_to_be_verified,MANUALLY_UPDATE_DATE
+A,2,South Africa,SAF,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+A,3,South Korea,SKO,AFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+A,4,Czechia,CZE,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+B,1,Canada,CAN,CONCACAF,1,sample_to_be_verified,MANUALLY_UPDATE_DATE
+B,2,Switzerland,SWI,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+B,3,Qatar,QAT,AFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+B,4,Bosnia and Herzegovina,BAH,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+C,1,United States,UST,CONCACAF,1,sample_to_be_verified,MANUALLY_UPDATE_DATE
+C,2,Japan,JAP,AFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+C,3,Nigeria,NIG,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+C,4,Serbia,SER,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+D,1,Brazil,BRA,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+D,2,Croatia,CRO,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+D,3,Egypt,EGY,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+D,4,Australia,AUS,AFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+E,1,Argentina,ARG,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+E,2,Denmark,DEN,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+E,3,Ghana,GHA,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+E,4,Costa Rica,CRI,CONCACAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+F,1,France,FRA,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+F,2,Morocco,MOR,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+F,3,Ecuador,ECU,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+F,4,Poland,POL,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+G,1,England,ENG,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+G,2,Iran,IRA,AFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+G,3,Tunisia,TUN,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+G,4,Peru,PER,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+H,1,Spain,SPA,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+H,2,Cameroon,CAM,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+H,3,Uruguay,URU,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+H,4,Sweden,SWE,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+I,1,Germany,GER,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+I,2,Algeria,ALG,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+I,3,Colombia,COL,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+I,4,Scotland,SCO,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+J,1,Portugal,POR,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+J,2,Senegal,SEN,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+J,3,United Arab Emirates,UAE,AFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+J,4,Austria,AU1,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+K,1,Netherlands,NET,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+K,2,Côte d'Ivoire,CDI,CAF,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+K,3,Chile,CHI,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+K,4,Norway,NOR,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+L,1,Belgium,BEL,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+L,2,Turkey,TUR,UEFA,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+L,3,Paraguay,PAR,CONMEBOL,0,sample_to_be_verified,MANUALLY_UPDATE_DATE
+L,4,New Zealand,NZE,OFC,0,sample_to_be_verified,MANUALLY_UPDATE_DATE

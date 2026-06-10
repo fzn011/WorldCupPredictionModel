@@ -52,7 +52,7 @@ def main() -> int:
 
     if any(item is None for item in [simulation_results, stage_probabilities, champion_probabilities, finalists, semifinalists, summary, validation]):
         print("Missing Monte Carlo outputs.")
-        print("Run: python scripts/run_monte_carlo.py --simulations 100 --seed 42")
+        print("Run: python scripts/run_monte_carlo.py --simulations 10 --seed 42")
         return 0
 
     print("=== Step 15 Monte Carlo Inspection ===")

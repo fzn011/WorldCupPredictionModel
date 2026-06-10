@@ -9,6 +9,7 @@ import pandas as pd
 from src.data.prepare_datasets import prepare_step3_clean_datasets
 from src.features.build_features import add_host_flags, add_match_context_features
 from src.features.historical_features import build_historical_features_for_match
+from src.official.loaders import get_official_team_list
 from src.features.ranking_features import add_ranking_features_to_matches
 import src.utils.constants as C
 from src.utils.team_name_mapping import slugify_team_name, standardize_team_name
@@ -69,8 +70,16 @@ def load_best_available_processed_data() -> dict:
 
 
 
-def get_available_teams() -> list[str]:
-    """Return sorted, standardized team names available for prediction."""
+def get_available_teams(official_only: bool = True) -> list[str]:
+    """Return sorted team names, preferring official World Cup 2026 teams when available."""
+    if official_only:
+        try:
+            official_teams = get_official_team_list()
+            if official_teams:
+                return official_teams
+        except FileNotFoundError:
+            pass
+
     loaded = load_best_available_processed_data()
     registry_df = loaded["team_registry"]
     canonical_df = loaded["canonical_matches"]

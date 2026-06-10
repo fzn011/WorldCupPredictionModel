@@ -1,0 +1,50 @@
+{
+  "status": "in_progress",
+  "steps": {
+    "fill_teams": {
+      "status": "in_progress",
+      "notes": ""
+    },
+    "fill_groups": {
+      "status": "needs_review",
+      "notes": ""
+    },
+    "fill_fixtures": {
+      "status": "needs_review",
+      "notes": ""
+    },
+    "fill_venues": {
+      "status": "needs_review",
+      "notes": ""
+    },
+    "fill_players": {
+      "status": "needs_review",
+      "notes": ""
+    },
+    "fill_player_priors": {
+      "status": "needs_review",
+      "notes": ""
+    },
+    "apply_imports": {
+      "status": "not_started",
+      "notes": ""
+    },
+    "run_squad_merge": {
+      "status": "not_started",
+      "notes": ""
+    },
+    "run_final_readiness": {
+      "status": "blocked",
+      "notes": ""
+    },
+    "promote_to_official_final": {
+      "status": "blocked",
+      "notes": ""
+    }
+  },
+  "last_updated_at": "2026-06-10T13:56:07.535081+00:00",
+  "official_final_ready": false,
+  "notes": [
+    "Population pack generated. Manual FIFA verification required before official_final."
+  ]
+}

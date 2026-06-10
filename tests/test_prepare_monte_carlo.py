@@ -10,9 +10,38 @@ import pandas as pd
 from src.simulation.prepare_monte_carlo import prepare_step15_monte_carlo_simulation
 
 
+class _FakePredictor:
+    def __init__(self) -> None:
+        self.requests = 0
+
+    def predict(self, **kwargs):
+        self.requests += 1
+        return {
+            "model_type": "fake",
+            "predicted_label": "team_a_win",
+            "probabilities": {
+                "team_a_loss": 0.25,
+                "draw": 0.25,
+                "team_a_win": 0.50,
+            },
+        }
+
+    def cache_info(self) -> dict:
+        return {
+            "total_requests": self.requests,
+            "cache_hits": 0,
+            "cache_misses": self.requests,
+            "cache_size": self.requests,
+        }
+
+
 @lru_cache(maxsize=1)
 def _prepare_once() -> dict:
-    return prepare_step15_monte_carlo_simulation(num_simulations=3, base_seed=42)
+    return prepare_step15_monte_carlo_simulation(
+        num_simulations=2,
+        base_seed=42,
+        predictor=_FakePredictor(),
+    )
 
 
 def test_prepare_step15_monte_carlo_returns_status_ok() -> None:

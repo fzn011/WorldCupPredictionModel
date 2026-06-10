@@ -7,8 +7,33 @@ import pandas as pd
 from src.simulation import monte_carlo as mc
 
 
+class _FakePredictor:
+    def __init__(self) -> None:
+        self.requests = 0
+
+    def predict(self, **kwargs):
+        self.requests += 1
+        return {
+            "model_type": "fake",
+            "predicted_label": "team_a_win",
+            "probabilities": {
+                "team_a_loss": 0.25,
+                "draw": 0.25,
+                "team_a_win": 0.50,
+            },
+        }
+
+    def cache_info(self) -> dict:
+        return {
+            "total_requests": self.requests,
+            "cache_hits": 0,
+            "cache_misses": self.requests,
+            "cache_size": self.requests,
+        }
+
+
 def test_run_single_tournament_for_monte_carlo_returns_expected_keys(monkeypatch) -> None:
-    def _fake_run_full_tournament_single(random_seed: int) -> dict:
+    def _fake_run_full_tournament_single(random_seed: int, predictor=None) -> dict:
         return {
             "summary": {
                 "validation_passed": True,
@@ -155,5 +180,39 @@ def test_create_monte_carlo_summary_returns_expected_keys() -> None:
         "top_champion",
         "top_champion_probability",
         "top_finalist",
+        "cache_info",
         "notes",
     }.issubset(set(summary.keys()))
+
+
+def test_run_monte_carlo_simulations_uses_predictor_and_exposes_cache(monkeypatch) -> None:
+    def _fake_run_full_tournament_single(random_seed: int, predictor=None) -> dict:
+        team_a = f"Team{random_seed}A"
+        team_b = f"Team{random_seed}B"
+        if predictor is not None:
+            predictor.predict(team_a=team_a, team_b=team_b, match_date="2026-06-11")
+        return {
+            "summary": {
+                "validation_passed": True,
+                "champion": team_a,
+                "runner_up": team_b,
+                "third_place": "T3",
+                "fourth_place": "T4",
+            },
+            "path_report": pd.DataFrame(
+                {
+                    "team": [team_a, team_b],
+                    "reached_round": ["final", "final"],
+                    "final_position": ["champion", "runner_up"],
+                }
+            ),
+            "stage_results": pd.DataFrame({"stage": ["final"], "matches": [1]}),
+        }
+
+    monkeypatch.setattr(mc, "run_full_tournament_single", _fake_run_full_tournament_single)
+    fake_predictor = _FakePredictor()
+
+    result = mc.run_monte_carlo_simulations(num_simulations=3, base_seed=42, predictor=fake_predictor)
+
+    assert len(result["simulation_results"]) == 3
+    assert result["cache_info"]["total_requests"] == 3

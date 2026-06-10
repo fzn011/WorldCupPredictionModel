@@ -1,0 +1,18 @@
+team,team_code,player_count,goalkeepers,defenders,midfielders,forwards,avg_age,avg_height_cm,source
+Argentina,ARG,6,1,1,1,3,,,sample_to_be_verified
+Belgium,BEL,5,1,0,2,2,,,sample_to_be_verified
+Brazil,BRA,5,1,1,1,2,,,sample_to_be_verified
+Canada,CAN,2,0,1,0,1,,,sample_to_be_verified
+Croatia,CRO,2,1,0,1,0,,,sample_to_be_verified
+England,ENG,6,1,0,3,2,,,sample_to_be_verified
+France,FRA,5,1,1,1,2,,,sample_to_be_verified
+Germany,GER,5,1,1,2,1,,,sample_to_be_verified
+Japan,JAP,2,0,0,2,0,,,sample_to_be_verified
+Mexico,MEX,2,0,0,0,2,,,sample_to_be_verified
+Morocco,MOR,3,1,1,1,0,,,sample_to_be_verified
+Netherlands,NET,2,0,1,0,1,,,sample_to_be_verified
+Portugal,POR,6,1,1,2,2,,,sample_to_be_verified
+South Korea,SOU,3,0,1,1,1,,,sample_to_be_verified
+Spain,SPA,5,1,0,2,2,,,sample_to_be_verified
+United States,UNI,2,0,0,1,1,,,sample_to_be_verified
+Uruguay,URU,4,1,1,1,1,,,sample_to_be_verified

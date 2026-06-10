@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.features.future_match_features import get_available_teams  # noqa: E402
+from src.official.loaders import get_official_team_list  # noqa: E402
 from src.models.explain_prediction import explain_future_match_prediction  # noqa: E402
 from src.models.model_features import load_feature_dataset  # noqa: E402
 import src.models.predict_match as predict_match_module  # noqa: E402
@@ -54,7 +55,15 @@ def _load_features() -> pd.DataFrame:
 
 @st.cache_data(show_spinner=False)
 def _load_available_teams() -> list[str]:
-    return get_available_teams()
+    return get_available_teams(official_only=True)
+
+
+@st.cache_data(show_spinner=False)
+def _official_team_lock_enabled() -> bool:
+    try:
+        return bool(get_official_team_list())
+    except FileNotFoundError:
+        return False
 
 
 st.title("Match Predictor")
@@ -64,6 +73,7 @@ st.caption(
 
 available_teams = _load_available_teams()
 feature_df = _load_features()
+official_team_lock = _official_team_lock_enabled()
 
 mode = st.radio(
     "Prediction mode",
@@ -82,6 +92,9 @@ if mode == "Future Match Prediction":
     if not available_teams:
         st.warning("No teams available yet. Run `python main.py` first.")
         st.stop()
+
+    if official_team_lock:
+        st.info("Official data lock is active: future match teams are restricted to the official World Cup 2026 team list.")
 
     col1, col2 = st.columns(2)
     with col1:
@@ -117,6 +130,7 @@ if mode == "Future Match Prediction":
                 city=city,
                 country=country,
                 neutral=int(neutral),
+                official_only=official_team_lock,
             )
         except FileNotFoundError:
             st.error("Model artifacts are missing. Run `python scripts/train_ranking_enhanced_model.py` first.")

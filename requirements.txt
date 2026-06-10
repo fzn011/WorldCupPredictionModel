@@ -14,4 +14,4 @@ shap
 kaggle
 fastapi
 uvicorn
-pydantic
+openpyxl

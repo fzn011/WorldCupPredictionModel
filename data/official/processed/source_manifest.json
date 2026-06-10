@@ -1,0 +1,13 @@
+{
+  "official_mode": true,
+  "teams_source": "FIFA World Cup 2026 Teams page",
+  "fixtures_source": "FIFA World Cup 2026 Match Schedule page",
+  "venues_source": "FIFA World Cup 2026 Match Schedule/Stadiums page",
+  "groups_source": "FIFA World Cup 2026 Groups/Schedule data",
+  "squads_source": "To be added in Step 17B from FIFA Squad Lists PDF",
+  "last_verified_at": "MANUALLY_UPDATE_DATE",
+  "notes": [
+    "Official data should be refreshed if FIFA updates teams, fixtures, venues, kickoff times, or squads.",
+    "This manifest records source intent; users should verify final data against FIFA before final use."
+  ]
+}

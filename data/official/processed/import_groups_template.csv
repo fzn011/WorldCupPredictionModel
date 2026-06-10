@@ -1,0 +1,49 @@
+group,slot,team,team_code,confederation,is_host,source
+A,1,Mexico,MEX,CONCACAF,1,sample_to_be_verified
+A,2,South Africa,SAF,CAF,0,sample_to_be_verified
+A,3,South Korea,SKO,AFC,0,sample_to_be_verified
+A,4,Czechia,CZE,UEFA,0,sample_to_be_verified
+B,1,Canada,CAN,CONCACAF,1,sample_to_be_verified
+B,2,Switzerland,SWI,UEFA,0,sample_to_be_verified
+B,3,Qatar,QAT,AFC,0,sample_to_be_verified
+B,4,Bosnia and Herzegovina,BAH,UEFA,0,sample_to_be_verified
+C,1,United States,UST,CONCACAF,1,sample_to_be_verified
+C,2,Japan,JAP,AFC,0,sample_to_be_verified
+C,3,Nigeria,NIG,CAF,0,sample_to_be_verified
+C,4,Serbia,SER,UEFA,0,sample_to_be_verified
+D,1,Brazil,BRA,CONMEBOL,0,sample_to_be_verified
+D,2,Croatia,CRO,UEFA,0,sample_to_be_verified
+D,3,Egypt,EGY,CAF,0,sample_to_be_verified
+D,4,Australia,AUS,AFC,0,sample_to_be_verified
+E,1,Argentina,ARG,CONMEBOL,0,sample_to_be_verified
+E,2,Denmark,DEN,UEFA,0,sample_to_be_verified
+E,3,Ghana,GHA,CAF,0,sample_to_be_verified
+E,4,Costa Rica,CRI,CONCACAF,0,sample_to_be_verified
+F,1,France,FRA,UEFA,0,sample_to_be_verified
+F,2,Morocco,MOR,CAF,0,sample_to_be_verified
+F,3,Ecuador,ECU,CONMEBOL,0,sample_to_be_verified
+F,4,Poland,POL,UEFA,0,sample_to_be_verified
+G,1,England,ENG,UEFA,0,sample_to_be_verified
+G,2,Iran,IRA,AFC,0,sample_to_be_verified
+G,3,Tunisia,TUN,CAF,0,sample_to_be_verified
+G,4,Peru,PER,CONMEBOL,0,sample_to_be_verified
+H,1,Spain,SPA,UEFA,0,sample_to_be_verified
+H,2,Cameroon,CAM,CAF,0,sample_to_be_verified
+H,3,Uruguay,URU,CONMEBOL,0,sample_to_be_verified
+H,4,Sweden,SWE,UEFA,0,sample_to_be_verified
+I,1,Germany,GER,UEFA,0,sample_to_be_verified
+I,2,Algeria,ALG,CAF,0,sample_to_be_verified
+I,3,Colombia,COL,CONMEBOL,0,sample_to_be_verified
+I,4,Scotland,SCO,UEFA,0,sample_to_be_verified
+J,1,Portugal,POR,UEFA,0,sample_to_be_verified
+J,2,Senegal,SEN,CAF,0,sample_to_be_verified
+J,3,United Arab Emirates,UAE,AFC,0,sample_to_be_verified
+J,4,Austria,AU1,UEFA,0,sample_to_be_verified
+K,1,Netherlands,NET,UEFA,0,sample_to_be_verified
+K,2,Côte d'Ivoire,CDI,CAF,0,sample_to_be_verified
+K,3,Chile,CHI,CONMEBOL,0,sample_to_be_verified
+K,4,Norway,NOR,UEFA,0,sample_to_be_verified
+L,1,Belgium,BEL,UEFA,0,sample_to_be_verified
+L,2,Turkey,TUR,UEFA,0,sample_to_be_verified
+L,3,Paraguay,PAR,CONMEBOL,0,sample_to_be_verified
+L,4,New Zealand,NZE,OFC,0,sample_to_be_verified

@@ -331,6 +331,7 @@ def simulate_knockout_match(
     round_name: str,
     random_seed: int | None = None,
     rng: np.random.Generator | None = None,
+    predictor: Any | None = None,
 ) -> dict[str, Any]:
     """Simulate a single knockout match with a guaranteed winner."""
     rng = _coerce_rng(random_seed=random_seed, rng=rng)
@@ -344,15 +345,26 @@ def simulate_knockout_match(
     model_type = "unknown"
 
     try:
-        prediction = predict_future_match(
-            team_a=team_a,
-            team_b=team_b,
-            match_date=match_date,
-            tournament=tournament,
-            city=str(match_row.get("city", "Unknown")),
-            country=str(match_row.get("country", "Unknown")),
-            neutral=1,
-        )
+        if predictor is not None:
+            prediction = predictor.predict(
+                team_a=team_a,
+                team_b=team_b,
+                match_date=match_date,
+                tournament=tournament,
+                city=str(match_row.get("city", "Unknown")),
+                country=str(match_row.get("country", "Unknown")),
+                neutral=1,
+            )
+        else:
+            prediction = predict_future_match(
+                team_a=team_a,
+                team_b=team_b,
+                match_date=match_date,
+                tournament=tournament,
+                city=str(match_row.get("city", "Unknown")),
+                country=str(match_row.get("country", "Unknown")),
+                neutral=1,
+            )
         probabilities = _normalise_probabilities(prediction.get("probabilities", {}))
         model_type = str(prediction.get("model_type", "unknown"))
     except Exception as exc:  # pragma: no cover - resiliency path
@@ -466,17 +478,22 @@ def simulate_knockout_round(
     matches_df: pd.DataFrame,
     round_name: str,
     rng: np.random.Generator,
+    predictor: Any | None = None,
 ) -> pd.DataFrame:
     """Simulate all matches in a knockout round."""
     if matches_df.empty:
         return pd.DataFrame()
-    rows = [simulate_knockout_match(row, round_name=round_name, rng=rng) for _, row in matches_df.iterrows()]
+    rows = [
+        simulate_knockout_match(row, round_name=round_name, rng=rng, predictor=predictor)
+        for _, row in matches_df.iterrows()
+    ]
     return pd.DataFrame(rows)
 
 
 def simulate_knockout_stage(
     qualifiers_df: pd.DataFrame | None = None,
     random_seed: int = 42,
+    predictor: Any | None = None,
 ) -> dict[str, Any]:
     """Simulate one complete knockout bracket for a single tournament run."""
     if qualifiers_df is None:
@@ -489,32 +506,32 @@ def simulate_knockout_stage(
     bracket_parts: list[pd.DataFrame] = [round_of_32_bracket.copy()]
     simulated_parts: list[pd.DataFrame] = []
 
-    r32_results = simulate_knockout_round(round_of_32_bracket, TOURNAMENT_STAGE_ROUND_OF_32, rng)
+    r32_results = simulate_knockout_round(round_of_32_bracket, TOURNAMENT_STAGE_ROUND_OF_32, rng, predictor=predictor)
     simulated_parts.append(r32_results)
 
     r16_bracket = build_next_round_matches(r32_results, TOURNAMENT_STAGE_ROUND_OF_16)
     bracket_parts.append(r16_bracket.copy())
-    r16_results = simulate_knockout_round(r16_bracket, TOURNAMENT_STAGE_ROUND_OF_16, rng)
+    r16_results = simulate_knockout_round(r16_bracket, TOURNAMENT_STAGE_ROUND_OF_16, rng, predictor=predictor)
     simulated_parts.append(r16_results)
 
     qf_bracket = build_next_round_matches(r16_results, TOURNAMENT_STAGE_QUARTER_FINAL)
     bracket_parts.append(qf_bracket.copy())
-    qf_results = simulate_knockout_round(qf_bracket, TOURNAMENT_STAGE_QUARTER_FINAL, rng)
+    qf_results = simulate_knockout_round(qf_bracket, TOURNAMENT_STAGE_QUARTER_FINAL, rng, predictor=predictor)
     simulated_parts.append(qf_results)
 
     sf_bracket = build_next_round_matches(qf_results, TOURNAMENT_STAGE_SEMI_FINAL)
     bracket_parts.append(sf_bracket.copy())
-    sf_results = simulate_knockout_round(sf_bracket, TOURNAMENT_STAGE_SEMI_FINAL, rng)
+    sf_results = simulate_knockout_round(sf_bracket, TOURNAMENT_STAGE_SEMI_FINAL, rng, predictor=predictor)
     simulated_parts.append(sf_results)
 
     third_place_bracket = _build_third_place_match(sf_results)
     bracket_parts.append(third_place_bracket.copy())
-    third_place_results = simulate_knockout_round(third_place_bracket, TOURNAMENT_STAGE_THIRD_PLACE, rng)
+    third_place_results = simulate_knockout_round(third_place_bracket, TOURNAMENT_STAGE_THIRD_PLACE, rng, predictor=predictor)
     simulated_parts.append(third_place_results)
 
     final_bracket = build_next_round_matches(sf_results, TOURNAMENT_STAGE_FINAL)
     bracket_parts.append(final_bracket.copy())
-    final_results = simulate_knockout_round(final_bracket, TOURNAMENT_STAGE_FINAL, rng)
+    final_results = simulate_knockout_round(final_bracket, TOURNAMENT_STAGE_FINAL, rng, predictor=predictor)
     simulated_parts.append(final_results)
 
     simulated_matches_df = pd.concat(simulated_parts, ignore_index=True) if simulated_parts else pd.DataFrame()

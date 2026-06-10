@@ -1,0 +1,66 @@
+player,team,position,age,date_of_birth,club,base_player_rating,expected_minutes_share,goals_prior,assists_prior,chance_creation_prior,defensive_actions_prior,goalkeeper_actions_prior,discipline_risk,star_role_score,flair_score,notes
+Kylian Mbappe,France,forward,27,1998-12-20,Real Madrid,92,0.95,18,8,15,3,0,0.20,9.5,8.8,Editable sample prior values
+Antoine Griezmann,France,forward,35,1991-03-21,Atletico Madrid,86,0.78,10,7,12,5,0,0.18,7.6,7.0,Editable sample prior values
+Eduardo Camavinga,France,midfielder,23,2002-11-10,Real Madrid,84,0.72,4,6,12,14,0,0.14,6.8,6.3,Editable sample prior values
+William Saliba,France,defender,25,2001-03-24,Arsenal,85,0.86,2,1,4,18,0,0.12,6.5,5.2,Editable sample prior values
+Mike Maignan,France,goalkeeper,31,1995-07-03,AC Milan,86,0.92,0,0,1,4,26,0.10,7.5,4.0,Editable sample prior values
+Jude Bellingham,England,midfielder,23,2003-06-29,Real Madrid,91,0.93,10,10,16,12,0,0.16,9.1,8.0,Editable sample prior values
+Harry Kane,England,forward,33,1993-07-28,Bayern Munich,90,0.91,17,6,10,3,0,0.14,8.8,7.4,Editable sample prior values
+Bukayo Saka,England,forward,25,2001-09-05,Arsenal,88,0.84,12,9,14,4,0,0.15,8.2,8.1,Editable sample prior values
+Phil Foden,England,midfielder,27,2000-05-28,Manchester City,88,0.82,9,8,14,5,0,0.12,8.0,7.8,Editable sample prior values
+Declan Rice,England,midfielder,27,1999-01-14,Arsenal,86,0.89,4,5,9,18,0,0.17,7.9,5.8,Editable sample prior values
+Jordan Pickford,England,goalkeeper,32,1994-03-07,Everton,84,0.90,0,0,1,4,24,0.10,6.9,3.8,Editable sample prior values
+Vinicius Junior,Brazil,forward,26,2000-07-12,Real Madrid,91,0.92,16,9,14,3,0,0.14,9.0,8.6,Editable sample prior values
+Rodrygo,Brazil,forward,25,2001-01-09,Real Madrid,87,0.79,12,6,10,3,0,0.13,7.6,7.7,Editable sample prior values
+Bruno Guimaraes,Brazil,midfielder,29,1997-11-16,Newcastle United,86,0.84,5,6,11,16,0,0.18,7.4,6.0,Editable sample prior values
+Marquinhos,Brazil,defender,32,1994-05-14,Paris Saint-Germain,85,0.87,2,1,4,18,0,0.11,7.0,4.8,Editable sample prior values
+Alisson Becker,Brazil,goalkeeper,34,1992-10-02,Liverpool,88,0.93,0,0,1,4,27,0.09,8.0,4.1,Editable sample prior values
+Lionel Messi,Argentina,forward,39,1987-06-24,Inter Miami,91,0.78,14,12,18,2,0,0.10,9.3,9.4,Editable sample prior values
+Lautaro Martinez,Argentina,forward,29,1997-08-22,Inter Milan,88,0.85,15,5,9,4,0,0.14,8.4,7.3,Editable sample prior values
+Julian Alvarez,Argentina,forward,26,2000-01-31,Atletico Madrid,87,0.82,13,6,10,5,0,0.13,8.0,7.2,Editable sample prior values
+Alexis Mac Allister,Argentina,midfielder,28,1998-12-24,Liverpool,86,0.86,6,8,13,13,0,0.14,7.7,6.5,Editable sample prior values
+Cristian Romero,Argentina,defender,28,1998-04-27,Tottenham Hotspur,85,0.88,1,1,3,19,0,0.20,7.1,4.7,Editable sample prior values
+Emiliano Martinez,Argentina,goalkeeper,34,1992-09-02,Aston Villa,87,0.93,0,0,1,4,28,0.11,8.2,4.4,Editable sample prior values
+Lamine Yamal,Spain,forward,19,2007-07-13,Barcelona,88,0.84,11,10,16,3,0,0.10,8.4,9.0,Editable sample prior values
+Nico Williams,Spain,forward,24,2002-07-12,Athletic Club,86,0.80,10,8,13,4,0,0.12,7.6,8.0,Editable sample prior values
+Rodri,Spain,midfielder,30,1996-06-22,Manchester City,90,0.90,6,8,14,16,0,0.11,8.8,6.7,Editable sample prior values
+Pedri,Spain,midfielder,24,2002-11-25,Barcelona,87,0.82,5,9,15,10,0,0.10,8.0,7.5,Editable sample prior values
+Unai Simon,Spain,goalkeeper,29,1997-06-11,Athletic Club,84,0.88,0,0,1,4,23,0.08,6.8,3.9,Editable sample prior values
+Kevin De Bruyne,Belgium,midfielder,35,1991-06-28,Manchester City,90,0.83,7,12,18,7,0,0.13,8.9,8.2,Editable sample prior values
+Jeremy Doku,Belgium,forward,24,2002-05-27,Manchester City,85,0.74,9,8,13,3,0,0.14,7.1,8.3,Editable sample prior values
+Romelu Lukaku,Belgium,forward,33,1993-05-13,Napoli,86,0.80,14,4,8,3,0,0.16,7.6,6.9,Editable sample prior values
+Amadou Onana,Belgium,midfielder,25,2001-08-16,Aston Villa,83,0.76,3,3,7,17,0,0.18,6.8,5.1,Editable sample prior values
+Thibaut Courtois,Belgium,goalkeeper,34,1992-05-11,Real Madrid,88,0.90,0,0,1,4,27,0.08,8.0,4.2,Editable sample prior values
+Florian Wirtz,Germany,midfielder,23,2003-05-03,Bayer Leverkusen,89,0.87,10,10,17,8,0,0.11,8.6,8.1,Editable sample prior values
+Jamal Musiala,Germany,midfielder,23,2003-02-26,Bayern Munich,89,0.89,11,8,15,9,0,0.12,8.7,8.4,Editable sample prior values
+Kai Havertz,Germany,forward,27,1999-06-11,Arsenal,86,0.81,11,5,9,5,0,0.13,7.4,6.5,Editable sample prior values
+Antonio Rudiger,Germany,defender,33,1993-03-03,Real Madrid,85,0.90,2,1,3,18,0,0.19,7.3,4.6,Editable sample prior values
+Manuel Neuer,Germany,goalkeeper,40,1986-03-27,Bayern Munich,84,0.82,0,0,1,4,24,0.09,7.0,3.7,Editable sample prior values
+Rafael Leao,Portugal,forward,27,1999-06-10,AC Milan,87,0.82,12,6,12,3,0,0.14,7.8,8.5,Editable sample prior values
+Bruno Fernandes,Portugal,midfielder,32,1994-09-08,Manchester United,88,0.90,8,11,17,8,0,0.15,8.5,7.8,Editable sample prior values
+Bernardo Silva,Portugal,midfielder,32,1994-08-10,Manchester City,87,0.88,6,9,15,10,0,0.11,8.1,7.2,Editable sample prior values
+Cristiano Ronaldo,Portugal,forward,41,1985-02-05,Al Nassr,87,0.76,15,4,8,2,0,0.12,9.0,7.5,Editable sample prior values
+Ruben Dias,Portugal,defender,30,1997-05-14,Manchester City,86,0.90,2,1,3,18,0,0.13,7.4,4.5,Editable sample prior values
+Diogo Costa,Portugal,goalkeeper,27,1999-09-19,Porto,84,0.90,0,0,1,4,24,0.08,6.9,3.8,Editable sample prior values
+Federico Valverde,Uruguay,midfielder,28,1998-07-22,Real Madrid,88,0.90,7,6,12,15,0,0.16,8.2,7.0,Editable sample prior values
+Darwin Nunez,Uruguay,forward,27,1999-06-24,Liverpool,85,0.82,13,4,8,3,0,0.18,7.4,7.8,Editable sample prior values
+Ronald Araujo,Uruguay,defender,27,1999-03-07,Barcelona,85,0.85,1,1,3,18,0,0.17,7.0,4.4,Editable sample prior values
+Sergio Rochet,Uruguay,goalkeeper,33,1993-03-23,Internacional,82,0.86,0,0,1,4,22,0.09,6.4,3.6,Editable sample prior values
+Achraf Hakimi,Morocco,defender,28,1998-11-04,Paris Saint-Germain,86,0.90,4,7,12,15,0,0.12,7.8,7.1,Editable sample prior values
+Sofyan Amrabat,Morocco,midfielder,30,1996-08-21,Fenerbahce,83,0.82,2,4,8,18,0,0.18,6.9,5.0,Editable sample prior values
+Yassine Bounou,Morocco,goalkeeper,35,1991-04-05,Al Hilal,84,0.90,0,0,1,4,25,0.08,7.0,3.8,Editable sample prior values
+Virgil van Dijk,Netherlands,defender,35,1991-07-08,Liverpool,87,0.90,2,1,3,19,0,0.11,8.0,4.6,Editable sample prior values
+Memphis Depay,Netherlands,forward,32,1994-02-13,Corinthians,84,0.76,10,5,9,3,0,0.17,7.1,7.0,Editable sample prior values
+Christian Pulisic,United States,forward,28,1998-09-18,AC Milan,85,0.88,11,7,12,4,0,0.11,8.0,7.6,Editable sample prior values
+Weston McKennie,United States,midfielder,28,1998-08-28,Juventus,82,0.80,4,5,8,15,0,0.19,6.8,5.5,Editable sample prior values
+Alphonso Davies,Canada,defender,26,2000-11-02,Bayern Munich,84,0.88,4,6,11,14,0,0.14,7.6,7.7,Editable sample prior values
+Jonathan David,Canada,forward,26,2000-01-14,Lille,84,0.83,12,4,8,3,0,0.13,7.2,6.8,Editable sample prior values
+Hirving Lozano,Mexico,forward,31,1995-07-30,San Diego FC,83,0.78,9,5,10,3,0,0.16,7.0,7.2,Editable sample prior values
+Santiago Gimenez,Mexico,forward,25,2001-04-18,AC Milan,84,0.80,13,3,7,2,0,0.15,7.4,6.9,Editable sample prior values
+Takefusa Kubo,Japan,midfielder,25,2001-06-04,Real Sociedad,84,0.82,8,8,14,7,0,0.10,7.5,8.0,Editable sample prior values
+Wataru Endo,Japan,midfielder,33,1993-02-09,Liverpool,82,0.81,2,3,6,17,0,0.15,6.6,4.8,Editable sample prior values
+Heung-Min Son,South Korea,forward,34,1992-07-08,Tottenham Hotspur,87,0.90,14,7,12,4,0,0.11,8.3,8.1,Editable sample prior values
+Lee Kang-in,South Korea,midfielder,25,2001-02-19,Paris Saint-Germain,84,0.80,6,7,13,8,0,0.12,7.2,7.4,Editable sample prior values
+Kim Min-jae,South Korea,defender,30,1996-11-15,Bayern Munich,84,0.88,1,1,3,18,0,0.14,7.0,4.4,Editable sample prior values
+Luka Modric,Croatia,midfielder,40,1985-09-09,Real Madrid,86,0.76,5,8,14,11,0,0.10,8.4,7.3,Editable sample prior values
+Dominik Livakovic,Croatia,goalkeeper,31,1995-01-09,Fenerbahce,83,0.88,0,0,1,4,24,0.08,6.8,3.8,Editable sample prior values

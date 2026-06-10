@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,10 +27,24 @@ def _parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     args = _parser().parse_args()
+    print("=== Step 15B Monte Carlo Run ===")
+    print(f"starting simulations={int(args.simulations)} base_seed={int(args.seed)}")
+    started = time.perf_counter()
+
     summary = prepare_step15_monte_carlo_simulation(
         num_simulations=int(args.simulations),
         base_seed=int(args.seed),
     )
+    runtime_seconds = float(time.perf_counter() - started)
+
+    cache_info = summary.get("cache_info", {}) if isinstance(summary, dict) else {}
+
+    print(f"runtime_seconds: {runtime_seconds:.2f}")
+    print("cache_info:")
+    print(f"  total_requests: {cache_info.get('total_requests', 0)}")
+    print(f"  cache_hits: {cache_info.get('cache_hits', 0)}")
+    print(f"  cache_misses: {cache_info.get('cache_misses', 0)}")
+    print(f"  cache_size: {cache_info.get('cache_size', 0)}")
 
     print("=== Step 15 Monte Carlo Summary ===")
     for key in [

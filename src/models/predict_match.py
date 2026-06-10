@@ -9,6 +9,7 @@ import pandas as pd
 
 from src.features.future_match_features import generate_future_match_feature_row
 from src.models.model_features import load_feature_columns, load_feature_dataset
+from src.official.loaders import is_official_team
 import src.utils.constants as C
 
 BEST_BASELINE_MODEL_FILE = getattr(C, "BEST_BASELINE_MODEL_FILE", "best_baseline_model.joblib")
@@ -171,8 +172,15 @@ def predict_future_match(
     neutral: int = DEFAULT_FUTURE_NEUTRAL,
     prefer_ranking: bool = True,
     prefer_improved: bool = True,
+    official_only: bool = False,
 ) -> dict:
     """Generate features for an arbitrary future match and predict outcome."""
+    if official_only:
+        if not is_official_team(team_a):
+            raise ValueError(f"Team '{team_a}' is not in the official World Cup 2026 team list.")
+        if not is_official_team(team_b):
+            raise ValueError(f"Team '{team_b}' is not in the official World Cup 2026 team list.")
+
     feature_row = generate_future_match_feature_row(
         team_a=team_a,
         team_b=team_b,

@@ -1,0 +1,84 @@
+severity,row_index,field,value,message,component
+warning,0,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,1,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,2,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,3,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,4,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,5,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,6,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,7,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,8,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,9,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,10,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,11,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,12,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,13,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,14,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,15,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,16,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,17,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,18,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,19,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,20,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,21,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,22,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,23,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,24,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,25,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,26,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,27,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,28,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,29,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,30,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,31,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,32,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,33,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,34,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,35,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,36,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,37,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,38,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,39,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,40,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,41,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,42,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,43,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,44,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,45,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,46,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,47,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,48,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,49,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,50,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,51,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,52,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,53,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,54,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,55,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,56,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,57,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,58,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,59,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,60,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,61,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,62,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,63,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,64,source,sample_to_be_verified,Player from sample template - requires official verification,official_players
+warning,-1,team,France,"Team 'France' has 5 players, expected 26",official_players
+warning,-1,team,England,"Team 'England' has 6 players, expected 26",official_players
+warning,-1,team,Brazil,"Team 'Brazil' has 5 players, expected 26",official_players
+warning,-1,team,Argentina,"Team 'Argentina' has 6 players, expected 26",official_players
+warning,-1,team,Spain,"Team 'Spain' has 5 players, expected 26",official_players
+warning,-1,team,Belgium,"Team 'Belgium' has 5 players, expected 26",official_players
+warning,-1,team,Germany,"Team 'Germany' has 5 players, expected 26",official_players
+warning,-1,team,Portugal,"Team 'Portugal' has 6 players, expected 26",official_players
+warning,-1,team,Uruguay,"Team 'Uruguay' has 4 players, expected 26",official_players
+warning,-1,team,Morocco,"Team 'Morocco' has 3 players, expected 26",official_players
+warning,-1,team,Netherlands,"Team 'Netherlands' has 2 players, expected 26",official_players
+warning,-1,team,United States,"Team 'United States' has 2 players, expected 26",official_players
+warning,-1,team,Canada,"Team 'Canada' has 2 players, expected 26",official_players
+warning,-1,team,Mexico,"Team 'Mexico' has 2 players, expected 26",official_players
+warning,-1,team,Japan,"Team 'Japan' has 2 players, expected 26",official_players
+warning,-1,team,South Korea,"Team 'South Korea' has 3 players, expected 26",official_players
+warning,-1,team,Croatia,"Team 'Croatia' has 2 players, expected 26",official_players
+warning,-1,total_count,65,"Total 65 players, expected 1248",official_players

@@ -1,0 +1,66 @@
+team,team_code,player_id,player_name,position_code,position,shirt_number,source,last_verified_at
+France,FRA,6f2cc3d4a30a7794,Kylian Mbappe,FW,forward,0,sample_to_be_verified,2026-06-05
+France,FRA,a2fc821c835da5c1,Antoine Griezmann,FW,forward,0,sample_to_be_verified,2026-06-05
+France,FRA,d961274081d42414,Eduardo Camavinga,MF,midfielder,0,sample_to_be_verified,2026-06-05
+France,FRA,974752ccaff8a51c,William Saliba,DF,defender,0,sample_to_be_verified,2026-06-05
+France,FRA,9c5f7dd5cb45f658,Mike Maignan,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+England,ENG,4d1a4229a231068b,Jude Bellingham,MF,midfielder,0,sample_to_be_verified,2026-06-05
+England,ENG,5dde0657a44938b0,Harry Kane,FW,forward,0,sample_to_be_verified,2026-06-05
+England,ENG,3d071013b48dbd3e,Bukayo Saka,FW,forward,0,sample_to_be_verified,2026-06-05
+England,ENG,e15e996bf29aa13b,Phil Foden,MF,midfielder,0,sample_to_be_verified,2026-06-05
+England,ENG,2d57517c6c18408e,Declan Rice,MF,midfielder,0,sample_to_be_verified,2026-06-05
+England,ENG,73691c83eadf428a,Jordan Pickford,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Brazil,BRA,78592d8a60c10647,Vinicius Junior,FW,forward,0,sample_to_be_verified,2026-06-05
+Brazil,BRA,16ee96f89581d626,Rodrygo,FW,forward,0,sample_to_be_verified,2026-06-05
+Brazil,BRA,262a102f05bed01b,Bruno Guimaraes,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Brazil,BRA,8008a6440674aff7,Marquinhos,DF,defender,0,sample_to_be_verified,2026-06-05
+Brazil,BRA,e53eeaa72fdfdbdf,Alisson Becker,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Argentina,ARG,539646da4daafda8,Lionel Messi,FW,forward,0,sample_to_be_verified,2026-06-05
+Argentina,ARG,9f97f558d05dbc67,Lautaro Martinez,FW,forward,0,sample_to_be_verified,2026-06-05
+Argentina,ARG,6a3a8f3ff534ea1b,Julian Alvarez,FW,forward,0,sample_to_be_verified,2026-06-05
+Argentina,ARG,b72153acbf06dd5d,Alexis Mac Allister,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Argentina,ARG,d8f5b189ba2508c4,Cristian Romero,DF,defender,0,sample_to_be_verified,2026-06-05
+Argentina,ARG,ff277ec55399803a,Emiliano Martinez,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Spain,SPA,878c5aecbc6312e1,Lamine Yamal,FW,forward,0,sample_to_be_verified,2026-06-05
+Spain,SPA,5ab335163ec0eaf2,Nico Williams,FW,forward,0,sample_to_be_verified,2026-06-05
+Spain,SPA,f47793789a16b308,Rodri,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Spain,SPA,b65289068084d164,Pedri,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Spain,SPA,697a578f926aa62c,Unai Simon,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Belgium,BEL,9deecda6c9612096,Kevin De Bruyne,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Belgium,BEL,250e8e30d229771c,Jeremy Doku,FW,forward,0,sample_to_be_verified,2026-06-05
+Belgium,BEL,3f6ffe24df26a01d,Romelu Lukaku,FW,forward,0,sample_to_be_verified,2026-06-05
+Belgium,BEL,45ad1e3a01dc16e4,Amadou Onana,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Belgium,BEL,4c8290131864110a,Thibaut Courtois,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Germany,GER,69491cc1907888af,Florian Wirtz,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Germany,GER,1f723eb1a7e108a0,Jamal Musiala,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Germany,GER,dd50e12fd2137e35,Kai Havertz,FW,forward,0,sample_to_be_verified,2026-06-05
+Germany,GER,e1cd102ccdfcaadb,Antonio Rudiger,DF,defender,0,sample_to_be_verified,2026-06-05
+Germany,GER,1691feda2d24ab4f,Manuel Neuer,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Portugal,POR,2d737a2cee668215,Rafael Leao,FW,forward,0,sample_to_be_verified,2026-06-05
+Portugal,POR,e3461dc632677e24,Bruno Fernandes,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Portugal,POR,fa3a0da0dcc096a7,Bernardo Silva,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Portugal,POR,4b1bdd7e409955ac,Cristiano Ronaldo,FW,forward,0,sample_to_be_verified,2026-06-05
+Portugal,POR,805ee50c93d2ba53,Ruben Dias,DF,defender,0,sample_to_be_verified,2026-06-05
+Portugal,POR,3ddcb93987c22436,Diogo Costa,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Uruguay,URU,3202a311c11d3a24,Federico Valverde,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Uruguay,URU,25e490e0624b56e7,Darwin Nunez,FW,forward,0,sample_to_be_verified,2026-06-05
+Uruguay,URU,011cc2ebd1fe604f,Ronald Araujo,DF,defender,0,sample_to_be_verified,2026-06-05
+Uruguay,URU,575d5664f1c9e6a3,Sergio Rochet,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Morocco,MOR,d81923da2451b9c6,Achraf Hakimi,DF,defender,0,sample_to_be_verified,2026-06-05
+Morocco,MOR,7f7f522c1a8b3c9f,Sofyan Amrabat,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Morocco,MOR,a9da972fb8153b27,Yassine Bounou,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Netherlands,NET,cc2d8bdfb27fecaa,Virgil van Dijk,DF,defender,0,sample_to_be_verified,2026-06-05
+Netherlands,NET,6a912368a3ecbcbc,Memphis Depay,FW,forward,0,sample_to_be_verified,2026-06-05
+United States,UNI,cd4283324a77815a,Christian Pulisic,FW,forward,0,sample_to_be_verified,2026-06-05
+United States,UNI,c458f579d8abdff4,Weston McKennie,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Canada,CAN,13259ef858170e50,Alphonso Davies,DF,defender,0,sample_to_be_verified,2026-06-05
+Canada,CAN,c3dc29a6c26e38cf,Jonathan David,FW,forward,0,sample_to_be_verified,2026-06-05
+Mexico,MEX,8bed1ed007c6d53e,Hirving Lozano,FW,forward,0,sample_to_be_verified,2026-06-05
+Mexico,MEX,0e17072039106cfb,Santiago Gimenez,FW,forward,0,sample_to_be_verified,2026-06-05
+Japan,JAP,f01b4277a88e9fdd,Takefusa Kubo,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Japan,JAP,6a2f3fdd93ecd284,Wataru Endo,MF,midfielder,0,sample_to_be_verified,2026-06-05
+South Korea,SOU,d59acfa6faa8d67a,Heung-Min Son,FW,forward,0,sample_to_be_verified,2026-06-05
+South Korea,SOU,55b026ae802651bc,Lee Kang-in,MF,midfielder,0,sample_to_be_verified,2026-06-05
+South Korea,SOU,d91e112f459fa434,Kim Min-jae,DF,defender,0,sample_to_be_verified,2026-06-05
+Croatia,CRO,5a6c21473cc6bf03,Luka Modric,MF,midfielder,0,sample_to_be_verified,2026-06-05
+Croatia,CRO,bd698f60043c8a96,Dominik Livakovic,GK,goalkeeper,0,sample_to_be_verified,2026-06-05

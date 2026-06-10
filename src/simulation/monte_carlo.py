@@ -7,6 +7,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from src.models.prediction_cache import CachedMatchPredictor
 from src.simulation.full_tournament import run_full_tournament_single
 import src.utils.constants as C
 
@@ -38,10 +39,14 @@ MONTE_CARLO_STAGE_COLUMNS = list(
 )
 
 
-def run_single_tournament_for_monte_carlo(simulation_id: int, random_seed: int) -> dict[str, Any]:
+def run_single_tournament_for_monte_carlo(
+    simulation_id: int,
+    random_seed: int,
+    predictor: Any | None = None,
+) -> dict[str, Any]:
     """Run one full tournament simulation for Monte Carlo and extract key outputs."""
     try:
-        result = run_full_tournament_single(random_seed=int(random_seed))
+        result = run_full_tournament_single(random_seed=int(random_seed), predictor=predictor)
         summary = dict(result.get("summary", {}))
         return {
             "simulation_id": int(simulation_id),
@@ -77,10 +82,12 @@ def run_single_tournament_for_monte_carlo(simulation_id: int, random_seed: int) 
 def run_monte_carlo_simulations(
     num_simulations: int = DEFAULT_MONTE_CARLO_SIMULATIONS,
     base_seed: int = DEFAULT_MONTE_CARLO_SEED,
+    predictor: Any | None = None,
 ) -> dict[str, Any]:
     """Run repeated full-tournament simulations with resilient error handling."""
     num_simulations = int(max(1, num_simulations))
     base_seed = int(base_seed)
+    shared_predictor = predictor if predictor is not None else CachedMatchPredictor()
 
     simulation_results: list[dict[str, Any]] = []
     path_reports: list[dict[str, Any]] = []
@@ -91,6 +98,7 @@ def run_monte_carlo_simulations(
         single = run_single_tournament_for_monte_carlo(
             simulation_id=simulation_id,
             random_seed=derived_seed,
+            predictor=shared_predictor,
         )
 
         simulation_results.append(single)
@@ -118,10 +126,13 @@ def run_monte_carlo_simulations(
                 f"(success={successful_so_far}, failed={simulation_id - successful_so_far})"
             )
 
+    cache_info = shared_predictor.cache_info() if hasattr(shared_predictor, "cache_info") else {}
+
     return {
         "simulation_results": simulation_results,
         "path_reports": path_reports,
         "stage_results": stage_results,
+        "cache_info": cache_info,
     }
 
 
@@ -430,6 +441,7 @@ def create_monte_carlo_summary(
     validation_passed: bool,
     num_simulations: int,
     base_seed: int,
+    cache_info: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Create high-level Monte Carlo summary payload."""
     num_simulations = int(max(1, num_simulations))
@@ -458,6 +470,7 @@ def create_monte_carlo_summary(
         "top_champion": top_champion,
         "top_champion_probability": top_champion_probability,
         "top_finalist": top_finalist,
+        "cache_info": cache_info or {},
         "notes": [
             "Monte Carlo probabilities are estimated from repeated sampled tournament simulations. They are not certainties and depend on model quality, fixture assumptions, and sample size.",
         ],

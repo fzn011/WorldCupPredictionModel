@@ -6,6 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.official.loaders import load_official_groups
+from src.official.validators import validate_official_groups
 import src.utils.constants as C
 from src.utils.team_name_mapping import standardize_team_name
 
@@ -17,14 +19,29 @@ WC2026_TEAMS_PER_GROUP = getattr(C, "WC2026_TEAMS_PER_GROUP", 4)
 WC2026_TOTAL_TEAMS = getattr(C, "WC2026_TOTAL_TEAMS", 48)
 
 REQUIRED_GROUP_COLUMNS: list[str] = ["group", "slot", "team", "confederation", "is_host"]
+DATA_MODE_OFFICIAL = getattr(C, "DATA_MODE_OFFICIAL", "official")
 
 
 def _report_row(check: str, passed: bool, details: str) -> dict[str, object]:
     return {"section": "groups", "check": check, "passed": bool(passed), "details": details}
 
 
-def load_tournament_groups(path: str | None = None) -> pd.DataFrame:
-    """Load tournament groups from processed file with sample fallback."""
+def load_tournament_groups(path: str | None = None, data_mode: str | None = None) -> pd.DataFrame:
+    """Load tournament groups from processed file with sample fallback or official-mode source."""
+    if data_mode == DATA_MODE_OFFICIAL and path is None:
+        official_df = load_official_groups()
+        valid, report_df = validate_official_groups(official_df)
+        if not valid:
+            failed = report_df[(report_df["passed"] == False) & (report_df["severity"] == "error")]
+            raise ValueError(f"Official tournament groups failed validation: {failed.to_dict(orient='records')[:5]}")
+        out = official_df.copy()
+        out["group"] = out["group"].astype(str).str.strip().str.upper()
+        out["slot"] = pd.to_numeric(out["slot"], errors="coerce").astype("Int64")
+        out["team"] = out["team"].map(standardize_team_name)
+        out["confederation"] = out["confederation"].astype(str).str.strip()
+        out["is_host"] = pd.to_numeric(out["is_host"], errors="coerce").fillna(0).astype(int)
+        return out[REQUIRED_GROUP_COLUMNS].copy()
+
     if path:
         file_path = Path(path)
     else:

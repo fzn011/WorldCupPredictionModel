@@ -85,6 +85,7 @@ def simulate_group_match(
     fixture_row: pd.Series,
     random_seed: int | None = None,
     rng: np.random.Generator | None = None,
+    predictor: Any | None = None,
 ) -> dict[str, Any]:
     """Simulate one group-stage fixture using prediction probabilities + sampling."""
     if rng is None:
@@ -102,15 +103,26 @@ def simulate_group_match(
     prediction_error = ""
 
     try:
-        prediction = predict_future_match(
-            team_a=team_a,
-            team_b=team_b,
-            match_date=match_date,
-            tournament=tournament,
-            city=city,
-            country=country,
-            neutral=neutral,
-        )
+        if predictor is not None:
+            prediction = predictor.predict(
+                team_a=team_a,
+                team_b=team_b,
+                match_date=match_date,
+                tournament=tournament,
+                city=city,
+                country=country,
+                neutral=neutral,
+            )
+        else:
+            prediction = predict_future_match(
+                team_a=team_a,
+                team_b=team_b,
+                match_date=match_date,
+                tournament=tournament,
+                city=city,
+                country=country,
+                neutral=neutral,
+            )
         probabilities = normalize_probabilities(prediction.get("probabilities", {}))
         model_type = str(prediction.get("model_type", "unknown"))
     except Exception as exc:  # pragma: no cover - resiliency path
@@ -158,6 +170,7 @@ def simulate_group_match(
 def simulate_group_stage(
     fixtures_df: pd.DataFrame | None = None,
     random_seed: int = 42,
+    predictor: Any | None = None,
 ) -> pd.DataFrame:
     """Simulate all group-stage fixtures and return a 72-row DataFrame for full setup."""
     if fixtures_df is None:
@@ -167,7 +180,7 @@ def simulate_group_stage(
     group_fixtures = group_fixtures.sort_values(["group", "matchday", "match_id"]).reset_index(drop=True)
 
     rng = np.random.default_rng(random_seed)
-    rows = [simulate_group_match(row, rng=rng) for _, row in group_fixtures.iterrows()]
+    rows = [simulate_group_match(row, rng=rng, predictor=predictor) for _, row in group_fixtures.iterrows()]
     return pd.DataFrame(rows)
 
 

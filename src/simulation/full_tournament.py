@@ -38,10 +38,17 @@ def _empty_df(columns: list[str]) -> pd.DataFrame:
     return pd.DataFrame(columns=columns)
 
 
-def run_group_stage_for_full_tournament(random_seed: int = 42) -> dict[str, Any]:
+def run_group_stage_for_full_tournament(
+    random_seed: int = 42,
+    predictor: Any | None = None,
+) -> dict[str, Any]:
     """Run a fresh Step 12-like group-stage simulation for the full tournament flow."""
     fixtures_df = load_tournament_fixtures()
-    simulated_group_matches = simulate_group_stage(fixtures_df=fixtures_df, random_seed=random_seed)
+    simulated_group_matches = simulate_group_stage(
+        fixtures_df=fixtures_df,
+        random_seed=random_seed,
+        predictor=predictor,
+    )
     group_tables = build_group_tables(simulated_group_matches)
     group_rankings = rank_group_tables(group_tables)
 
@@ -78,11 +85,13 @@ def run_group_stage_for_full_tournament(random_seed: int = 42) -> dict[str, Any]
 def run_knockout_stage_for_full_tournament(
     round_of_32_qualifiers: pd.DataFrame,
     random_seed: int = 42,
+    predictor: Any | None = None,
 ) -> dict[str, Any]:
     """Run Step 13 knockout simulation using in-memory fresh qualifiers."""
     knockout_result = simulate_knockout_stage(
         qualifiers_df=round_of_32_qualifiers,
         random_seed=random_seed,
+        predictor=predictor,
     )
     knockout_validation_passed, knockout_validation_report = validate_knockout_simulation(
         simulated_matches_df=knockout_result["simulated_matches"],
@@ -396,13 +405,17 @@ def create_full_tournament_summary(
     }
 
 
-def run_full_tournament_single(random_seed: int = 42) -> dict[str, Any]:
+def run_full_tournament_single(
+    random_seed: int = 42,
+    predictor: Any | None = None,
+) -> dict[str, Any]:
     """Run one complete sampled tournament from group stage through final."""
-    group_result = run_group_stage_for_full_tournament(random_seed=random_seed)
+    group_result = run_group_stage_for_full_tournament(random_seed=random_seed, predictor=predictor)
     knockout_seed = int(random_seed) + 1
     knockout_result = run_knockout_stage_for_full_tournament(
         round_of_32_qualifiers=group_result["round_of_32_qualifiers"],
         random_seed=knockout_seed,
+        predictor=predictor,
     )
 
     full_match_log = create_full_tournament_match_log(

@@ -1,0 +1,66 @@
+player_id,team,team_code,shirt_number,position_code,position,player_name,first_names,last_names,name_on_shirt,date_of_birth,age_at_tournament_start,club,club_country,height_cm,source
+6f2cc3d4a30a7794,France,FRA,0,FW,forward,Kylian Mbappe,,,Kylian Mbappe,1998-12-20,27,Real Madrid,,0,sample_to_be_verified
+a2fc821c835da5c1,France,FRA,0,FW,forward,Antoine Griezmann,,,Antoine Griezmann,1991-03-21,35,Atletico Madrid,,0,sample_to_be_verified
+d961274081d42414,France,FRA,0,MF,midfielder,Eduardo Camavinga,,,Eduardo Camavinga,2002-11-10,23,Real Madrid,,0,sample_to_be_verified
+974752ccaff8a51c,France,FRA,0,DF,defender,William Saliba,,,William Saliba,2001-03-24,25,Arsenal,,0,sample_to_be_verified
+9c5f7dd5cb45f658,France,FRA,0,GK,goalkeeper,Mike Maignan,,,Mike Maignan,1995-07-03,30,AC Milan,,0,sample_to_be_verified
+4d1a4229a231068b,England,ENG,0,MF,midfielder,Jude Bellingham,,,Jude Bellingham,2003-06-29,22,Real Madrid,,0,sample_to_be_verified
+5dde0657a44938b0,England,ENG,0,FW,forward,Harry Kane,,,Harry Kane,1993-07-28,32,Bayern Munich,,0,sample_to_be_verified
+3d071013b48dbd3e,England,ENG,0,FW,forward,Bukayo Saka,,,Bukayo Saka,2001-09-05,24,Arsenal,,0,sample_to_be_verified
+e15e996bf29aa13b,England,ENG,0,MF,midfielder,Phil Foden,,,Phil Foden,2000-05-28,26,Manchester City,,0,sample_to_be_verified
+2d57517c6c18408e,England,ENG,0,MF,midfielder,Declan Rice,,,Declan Rice,1999-01-14,27,Arsenal,,0,sample_to_be_verified
+73691c83eadf428a,England,ENG,0,GK,goalkeeper,Jordan Pickford,,,Jordan Pickford,1994-03-07,32,Everton,,0,sample_to_be_verified
+78592d8a60c10647,Brazil,BRA,0,FW,forward,Vinicius Junior,,,Vinicius Junior,2000-07-12,25,Real Madrid,,0,sample_to_be_verified
+16ee96f89581d626,Brazil,BRA,0,FW,forward,Rodrygo,,,Rodrygo,2001-01-09,25,Real Madrid,,0,sample_to_be_verified
+262a102f05bed01b,Brazil,BRA,0,MF,midfielder,Bruno Guimaraes,,,Bruno Guimaraes,1997-11-16,28,Newcastle United,,0,sample_to_be_verified
+8008a6440674aff7,Brazil,BRA,0,DF,defender,Marquinhos,,,Marquinhos,1994-05-14,32,Paris Saint-Germain,,0,sample_to_be_verified
+e53eeaa72fdfdbdf,Brazil,BRA,0,GK,goalkeeper,Alisson Becker,,,Alisson Becker,1992-10-02,33,Liverpool,,0,sample_to_be_verified
+539646da4daafda8,Argentina,ARG,0,FW,forward,Lionel Messi,,,Lionel Messi,1987-06-24,38,Inter Miami,,0,sample_to_be_verified
+9f97f558d05dbc67,Argentina,ARG,0,FW,forward,Lautaro Martinez,,,Lautaro Martinez,1997-08-22,28,Inter Milan,,0,sample_to_be_verified
+6a3a8f3ff534ea1b,Argentina,ARG,0,FW,forward,Julian Alvarez,,,Julian Alvarez,2000-01-31,26,Atletico Madrid,,0,sample_to_be_verified
+b72153acbf06dd5d,Argentina,ARG,0,MF,midfielder,Alexis Mac Allister,,,Alexis Mac Allister,1998-12-24,27,Liverpool,,0,sample_to_be_verified
+d8f5b189ba2508c4,Argentina,ARG,0,DF,defender,Cristian Romero,,,Cristian Romero,1998-04-27,28,Tottenham Hotspur,,0,sample_to_be_verified
+ff277ec55399803a,Argentina,ARG,0,GK,goalkeeper,Emiliano Martinez,,,Emiliano Martinez,1992-09-02,33,Aston Villa,,0,sample_to_be_verified
+878c5aecbc6312e1,Spain,SPA,0,FW,forward,Lamine Yamal,,,Lamine Yamal,2007-07-13,18,Barcelona,,0,sample_to_be_verified
+5ab335163ec0eaf2,Spain,SPA,0,FW,forward,Nico Williams,,,Nico Williams,2002-07-12,23,Athletic Club,,0,sample_to_be_verified
+f47793789a16b308,Spain,SPA,0,MF,midfielder,Rodri,,,Rodri,1996-06-22,29,Manchester City,,0,sample_to_be_verified
+b65289068084d164,Spain,SPA,0,MF,midfielder,Pedri,,,Pedri,2002-11-25,23,Barcelona,,0,sample_to_be_verified
+697a578f926aa62c,Spain,SPA,0,GK,goalkeeper,Unai Simon,,,Unai Simon,1997-06-11,29,Athletic Club,,0,sample_to_be_verified
+9deecda6c9612096,Belgium,BEL,0,MF,midfielder,Kevin De Bruyne,,,Kevin De Bruyne,1991-06-28,34,Manchester City,,0,sample_to_be_verified
+250e8e30d229771c,Belgium,BEL,0,FW,forward,Jeremy Doku,,,Jeremy Doku,2002-05-27,24,Manchester City,,0,sample_to_be_verified
+3f6ffe24df26a01d,Belgium,BEL,0,FW,forward,Romelu Lukaku,,,Romelu Lukaku,1993-05-13,33,Napoli,,0,sample_to_be_verified
+45ad1e3a01dc16e4,Belgium,BEL,0,MF,midfielder,Amadou Onana,,,Amadou Onana,2001-08-16,24,Aston Villa,,0,sample_to_be_verified
+4c8290131864110a,Belgium,BEL,0,GK,goalkeeper,Thibaut Courtois,,,Thibaut Courtois,1992-05-11,34,Real Madrid,,0,sample_to_be_verified
+69491cc1907888af,Germany,GER,0,MF,midfielder,Florian Wirtz,,,Florian Wirtz,2003-05-03,23,Bayer Leverkusen,,0,sample_to_be_verified
+1f723eb1a7e108a0,Germany,GER,0,MF,midfielder,Jamal Musiala,,,Jamal Musiala,2003-02-26,23,Bayern Munich,,0,sample_to_be_verified
+dd50e12fd2137e35,Germany,GER,0,FW,forward,Kai Havertz,,,Kai Havertz,1999-06-11,27,Arsenal,,0,sample_to_be_verified
+e1cd102ccdfcaadb,Germany,GER,0,DF,defender,Antonio Rudiger,,,Antonio Rudiger,1993-03-03,33,Real Madrid,,0,sample_to_be_verified
+1691feda2d24ab4f,Germany,GER,0,GK,goalkeeper,Manuel Neuer,,,Manuel Neuer,1986-03-27,40,Bayern Munich,,0,sample_to_be_verified
+2d737a2cee668215,Portugal,POR,0,FW,forward,Rafael Leao,,,Rafael Leao,1999-06-10,27,AC Milan,,0,sample_to_be_verified
+e3461dc632677e24,Portugal,POR,0,MF,midfielder,Bruno Fernandes,,,Bruno Fernandes,1994-09-08,31,Manchester United,,0,sample_to_be_verified
+fa3a0da0dcc096a7,Portugal,POR,0,MF,midfielder,Bernardo Silva,,,Bernardo Silva,1994-08-10,31,Manchester City,,0,sample_to_be_verified
+4b1bdd7e409955ac,Portugal,POR,0,FW,forward,Cristiano Ronaldo,,,Cristiano Ronaldo,1985-02-05,41,Al Nassr,,0,sample_to_be_verified
+805ee50c93d2ba53,Portugal,POR,0,DF,defender,Ruben Dias,,,Ruben Dias,1997-05-14,29,Manchester City,,0,sample_to_be_verified
+3ddcb93987c22436,Portugal,POR,0,GK,goalkeeper,Diogo Costa,,,Diogo Costa,1999-09-19,26,Porto,,0,sample_to_be_verified
+3202a311c11d3a24,Uruguay,URU,0,MF,midfielder,Federico Valverde,,,Federico Valverde,1998-07-22,27,Real Madrid,,0,sample_to_be_verified
+25e490e0624b56e7,Uruguay,URU,0,FW,forward,Darwin Nunez,,,Darwin Nunez,1999-06-24,26,Liverpool,,0,sample_to_be_verified
+011cc2ebd1fe604f,Uruguay,URU,0,DF,defender,Ronald Araujo,,,Ronald Araujo,1999-03-07,27,Barcelona,,0,sample_to_be_verified
+575d5664f1c9e6a3,Uruguay,URU,0,GK,goalkeeper,Sergio Rochet,,,Sergio Rochet,1993-03-23,33,Internacional,,0,sample_to_be_verified
+d81923da2451b9c6,Morocco,MOR,0,DF,defender,Achraf Hakimi,,,Achraf Hakimi,1998-11-04,27,Paris Saint-Germain,,0,sample_to_be_verified
+7f7f522c1a8b3c9f,Morocco,MOR,0,MF,midfielder,Sofyan Amrabat,,,Sofyan Amrabat,1996-08-21,29,Fenerbahce,,0,sample_to_be_verified
+a9da972fb8153b27,Morocco,MOR,0,GK,goalkeeper,Yassine Bounou,,,Yassine Bounou,1991-04-05,35,Al Hilal,,0,sample_to_be_verified
+cc2d8bdfb27fecaa,Netherlands,NET,0,DF,defender,Virgil van Dijk,,,Virgil van Dijk,1991-07-08,34,Liverpool,,0,sample_to_be_verified
+6a912368a3ecbcbc,Netherlands,NET,0,FW,forward,Memphis Depay,,,Memphis Depay,1994-02-13,32,Corinthians,,0,sample_to_be_verified
+cd4283324a77815a,United States,UNI,0,FW,forward,Christian Pulisic,,,Christian Pulisic,1998-09-18,27,AC Milan,,0,sample_to_be_verified
+c458f579d8abdff4,United States,UNI,0,MF,midfielder,Weston McKennie,,,Weston McKennie,1998-08-28,27,Juventus,,0,sample_to_be_verified
+13259ef858170e50,Canada,CAN,0,DF,defender,Alphonso Davies,,,Alphonso Davies,2000-11-02,25,Bayern Munich,,0,sample_to_be_verified
+c3dc29a6c26e38cf,Canada,CAN,0,FW,forward,Jonathan David,,,Jonathan David,2000-01-14,26,Lille,,0,sample_to_be_verified
+8bed1ed007c6d53e,Mexico,MEX,0,FW,forward,Hirving Lozano,,,Hirving Lozano,1995-07-30,30,San Diego FC,,0,sample_to_be_verified
+0e17072039106cfb,Mexico,MEX,0,FW,forward,Santiago Gimenez,,,Santiago Gimenez,2001-04-18,25,AC Milan,,0,sample_to_be_verified
+f01b4277a88e9fdd,Japan,JAP,0,MF,midfielder,Takefusa Kubo,,,Takefusa Kubo,2001-06-04,25,Real Sociedad,,0,sample_to_be_verified
+6a2f3fdd93ecd284,Japan,JAP,0,MF,midfielder,Wataru Endo,,,Wataru Endo,1993-02-09,33,Liverpool,,0,sample_to_be_verified
+d59acfa6faa8d67a,South Korea,SOU,0,FW,forward,Heung-Min Son,,,Heung-Min Son,1992-07-08,33,Tottenham Hotspur,,0,sample_to_be_verified
+55b026ae802651bc,South Korea,SOU,0,MF,midfielder,Lee Kang-in,,,Lee Kang-in,2001-02-19,25,Paris Saint-Germain,,0,sample_to_be_verified
+d91e112f459fa434,South Korea,SOU,0,DF,defender,Kim Min-jae,,,Kim Min-jae,1996-11-15,29,Bayern Munich,,0,sample_to_be_verified
+5a6c21473cc6bf03,Croatia,CRO,0,MF,midfielder,Luka Modric,,,Luka Modric,1985-09-09,40,Real Madrid,,0,sample_to_be_verified
+bd698f60043c8a96,Croatia,CRO,0,GK,goalkeeper,Dominik Livakovic,,,Dominik Livakovic,1995-01-09,31,Fenerbahce,,0,sample_to_be_verified

@@ -1,0 +1,77 @@
+section,team,champion_count,champion_probability,champion_probability_percent,round_of_32_probability,round_of_16_probability,quarter_final_probability,semi_final_probability,final_probability,round_of_32_probability_percent,round_of_16_probability_percent,quarter_final_probability_percent,semi_final_probability_percent,final_probability_percent,runner_up_count,final_appearance_count,final_appearance_probability,semifinal_count,semifinal_probability
+champion_probabilities,Denmark,2.0,0.2,20.0,,,,,,,,,,,,,,,
+champion_probabilities,Ghana,2.0,0.2,20.0,,,,,,,,,,,,,,,
+champion_probabilities,Argentina,1.0,0.1,10.0,,,,,,,,,,,,,,,
+champion_probabilities,Egypt,1.0,0.1,10.0,,,,,,,,,,,,,,,
+champion_probabilities,Peru,1.0,0.1,10.0,,,,,,,,,,,,,,,
+champion_probabilities,Portugal,1.0,0.1,10.0,,,,,,,,,,,,,,,
+champion_probabilities,Tunisia,1.0,0.1,10.0,,,,,,,,,,,,,,,
+champion_probabilities,United Arab Emirates,1.0,0.1,10.0,,,,,,,,,,,,,,,
+stage_probabilities,Denmark,,0.2,20.0,0.5,0.2,0.2,0.2,0.2,50.0,20.0,20.0,20.0,20.0,,,,,
+stage_probabilities,Ghana,,0.2,20.0,0.8,0.5,0.4,0.4,0.2,80.0,50.0,40.0,40.0,20.0,,,,,
+stage_probabilities,Argentina,,0.1,10.0,0.6,0.3,0.1,0.1,0.1,60.0,30.0,10.0,10.0,10.0,,,,,
+stage_probabilities,Egypt,,0.1,10.0,0.4,0.4,0.2,0.1,0.1,40.0,40.0,20.0,10.0,10.0,,,,,
+stage_probabilities,Peru,,0.1,10.0,0.8,0.4,0.3,0.2,0.1,80.0,40.0,30.0,20.0,10.0,,,,,
+stage_probabilities,Portugal,,0.1,10.0,0.7,0.5,0.2,0.1,0.1,70.0,50.0,20.0,10.0,10.0,,,,,
+stage_probabilities,Tunisia,,0.1,10.0,0.7,0.3,0.3,0.1,0.1,70.0,30.0,30.0,10.0,10.0,,,,,
+stage_probabilities,United Arab Emirates,,0.1,10.0,0.8,0.4,0.1,0.1,0.1,80.0,40.0,10.0,10.0,10.0,,,,,
+stage_probabilities,Australia,,0.0,0.0,0.7,0.4,0.3,0.1,0.1,70.0,40.0,30.0,10.0,10.0,,,,,
+stage_probabilities,Croatia,,0.0,0.0,1.0,0.6,0.4,0.2,0.1,100.0,60.0,40.0,20.0,10.0,,,,,
+stage_probabilities,England,,0.0,0.0,0.5,0.4,0.2,0.1,0.1,50.0,40.0,20.0,10.0,10.0,,,,,
+stage_probabilities,Japan,,0.0,0.0,0.8,0.2,0.1,0.1,0.1,80.0,20.0,10.0,10.0,10.0,,,,,
+stage_probabilities,Mexico,,0.0,0.0,0.7,0.4,0.2,0.1,0.1,70.0,40.0,20.0,10.0,10.0,,,,,
+stage_probabilities,Netherlands,,0.0,0.0,0.8,0.4,0.1,0.1,0.1,80.0,40.0,10.0,10.0,10.0,,,,,
+stage_probabilities,New Zealand,,0.0,0.0,0.4,0.3,0.3,0.2,0.1,40.0,30.0,30.0,20.0,10.0,,,,,
+stage_probabilities,Paraguay,,0.0,0.0,0.5,0.5,0.3,0.1,0.1,50.0,50.0,30.0,10.0,10.0,,,,,
+stage_probabilities,Poland,,0.0,0.0,0.4,0.1,0.1,0.1,0.1,40.0,10.0,10.0,10.0,10.0,,,,,
+stage_probabilities,Uruguay,,0.0,0.0,0.6,0.3,0.2,0.1,0.1,60.0,30.0,20.0,10.0,10.0,,,,,
+stage_probabilities,Algeria,,0.0,0.0,0.6,0.5,0.0,0.0,0.0,60.0,50.0,0.0,0.0,0.0,,,,,
+stage_probabilities,Austria,,0.0,0.0,0.4,0.1,0.0,0.0,0.0,40.0,10.0,0.0,0.0,0.0,,,,,
+finalists,Denmark,2.0,0.2,,,,,,,,,,,,0.0,2.0,0.2,,
+finalists,Ghana,2.0,0.2,,,,,,,,,,,,0.0,2.0,0.2,,
+finalists,Argentina,1.0,0.1,,,,,,,,,,,,0.0,1.0,0.1,,
+finalists,Egypt,1.0,0.1,,,,,,,,,,,,0.0,1.0,0.1,,
+finalists,Peru,1.0,0.1,,,,,,,,,,,,0.0,1.0,0.1,,
+finalists,Portugal,1.0,0.1,,,,,,,,,,,,0.0,1.0,0.1,,
+finalists,Tunisia,1.0,0.1,,,,,,,,,,,,0.0,1.0,0.1,,
+finalists,United Arab Emirates,1.0,0.1,,,,,,,,,,,,0.0,1.0,0.1,,
+finalists,Australia,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Croatia,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,England,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Japan,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Mexico,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Netherlands,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,New Zealand,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Paraguay,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Poland,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+finalists,Uruguay,0.0,0.0,,,,,,,,,,,,1.0,1.0,0.1,,
+semifinalists,Ghana,,,,,,,,,,,,,,,,,4.0,0.4
+semifinalists,Costa Rica,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,Croatia,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,Denmark,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,Iran,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,New Zealand,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,Peru,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,Senegal,,,,,,,,,,,,,,,,,2.0,0.2
+semifinalists,Argentina,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Australia,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Brazil,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Chile,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Côte d'Ivoire,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Ecuador,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Egypt,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,England,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Germany,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Japan,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Mexico,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Netherlands,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Nigeria,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Paraguay,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Poland,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Portugal,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Scotland,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Spain,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Tunisia,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,United Arab Emirates,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,United States,,,,,,,,,,,,,,,,,1.0,0.1
+semifinalists,Uruguay,,,,,,,,,,,,,,,,,1.0,0.1
