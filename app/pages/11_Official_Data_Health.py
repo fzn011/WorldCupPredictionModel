@@ -10,8 +10,16 @@ import pandas as pd
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[2]
+APP_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+try:
+    from app.components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header
+except ModuleNotFoundError:
+    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header
 
 from src.official.loaders import (  # noqa: E402
     load_official_fixtures,
@@ -41,10 +49,15 @@ def _load_json(path: Path) -> dict:
         return json.load(f)
 
 
-st.title("Official World Cup 2026 Data Health")
-st.caption("Step 17A: official-mode data lock and validation health.")
+st.set_page_config(page_title="Official Data Health", layout="wide", initial_sidebar_state="expanded")
+inject_page_theme()
+render_hero(
+    "Official Data Health",
+    "Official-mode data lock, validation reports, and sample vs official visibility.",
+    eyebrow="Step 17A",
+)
 
-st.subheader("Overview")
+render_section_header("Overview")
 st.markdown(
     "- Tracks official teams, groups, fixtures, venues, and match calendar\n"
     "- Distinguishes official mode from sample mode\n"
@@ -69,20 +82,27 @@ calendar_df = load_official_match_calendar() if official_path(getattr(C, "OFFICI
 st.subheader("Summary cards")
 if summary:
     c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
-    c1.metric("Teams", summary.get("teams_count", 0))
-    c2.metric("Groups", summary.get("groups_count", 0))
-    c3.metric("Fixtures", summary.get("fixtures_count", 0))
-    c4.metric("Venues", summary.get("venues_count", 0))
-    c5.metric("Validation", "passed" if summary.get("validation_passed") else "needs review")
-    c6.metric("Errors", summary.get("errors_count", 0))
-    c7.metric("Warnings", summary.get("warnings_count", 0))
+    with c1:
+        render_metric_card("Teams", str(summary.get("teams_count", 0)))
+    with c2:
+        render_metric_card("Groups", str(summary.get("groups_count", 0)))
+    with c3:
+        render_metric_card("Fixtures", str(summary.get("fixtures_count", 0)))
+    with c4:
+        render_metric_card("Venues", str(summary.get("venues_count", 0)))
+    with c5:
+        render_metric_card("Validation", "passed" if summary.get("validation_passed") else "review")
+    with c6:
+        render_metric_card("Errors", str(summary.get("errors_count", 0)))
+    with c7:
+        render_metric_card("Warnings", str(summary.get("warnings_count", 0)))
 else:
     st.info("No official-data summary found yet.")
 
 if summary.get("status") == "needs_verification":
     st.warning("This data structure is official-style but still needs manual FIFA verification.")
 
-st.subheader("Teams by group")
+render_section_header("Teams by group")
 if not groups_df.empty:
     st.dataframe(groups_df.sort_values(["group", "slot"]), use_container_width=True)
 else:

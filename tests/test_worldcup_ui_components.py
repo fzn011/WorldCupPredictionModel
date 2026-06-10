@@ -79,8 +79,13 @@ def test_app_components_package_exports() -> None:
         "1_Match_Predictor.py",
         "9_Monte_Carlo_Simulator.py",
         "13_Official_Final_Readiness.py",
+        "14_Official_Data_Population.py",
+        "15_Source_Assisted_Population.py",
+        "16_Official_Data_Population_Completion.py",
         "17_World_Cup_Awards.py",
         "2_Tournament_Simulator.py",
+        "11_Official_Data_Health.py",
+        "12_Official_Squads_Health.py",
     ],
 )
 def test_themed_pages_reference_inject_page_theme(page_name: str) -> None:

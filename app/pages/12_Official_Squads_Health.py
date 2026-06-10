@@ -15,7 +15,14 @@ import json
 
 # Add project root to path
 project_root = Path(__file__).resolve().parents[2]
+app_dir = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(app_dir))
+
+try:
+    from app.components.ui import inject_page_theme, render_hero, render_section_header
+except ModuleNotFoundError:
+    from components.ui import inject_page_theme, render_hero, render_section_header
 
 from src.utils.constants import (
     PROJECT_ROOT,
@@ -34,20 +41,15 @@ def format_bytes(num_bytes: int) -> str:
     return f"{num_bytes:.1f} GB"
 
 
-st.set_page_config(page_title="Official Squads Health", layout="wide")
+st.set_page_config(page_title="Official Squads Health", layout="wide", initial_sidebar_state="expanded")
+inject_page_theme()
+render_hero(
+    "Official Squads & Player Priors",
+    "Squad validation layer — official players gate award predictions in official mode.",
+    eyebrow="Step 17B",
+)
 
-st.title("⚽ Official Squads & Player Priors Health")
-
-st.markdown("""
-### Step 17B: Official Squad Validation Layer
-
-Official squads are the gatekeeper for player awards. In official mode, players outside 
-`official_players.csv` cannot enter award predictions. This page shows squad health and 
-allows you to prepare/refresh the official squad and player prior data.
-""")
-
-# Control section
-st.header("Controls")
+render_section_header("Controls")
 
 col1, col2, col3 = st.columns(3)
 
