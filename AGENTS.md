@@ -38,7 +38,7 @@ Streamlit does **not** call the FastAPI server; they are independent entry point
 python -m pytest -q
 ```
 
-Expect **387+ passed, 1 skipped** after Step 19 (prior enrichment + portfolio tests). No linter config (ruff/flake8/black) is present in the repo.
+Expect **405+ passed, 1 skipped** after Step 20 (manual prior workflow tests). No linter config (ruff/flake8/black) is present in the repo.
 
 ### Step 19: Prior enrichment + portfolio demo pipeline
 
@@ -55,6 +55,27 @@ python scripts/run_final_demo_pipeline.py --simulations 10
 - **No scraping** or paid APIs for priors — heuristics + manual edits only
 - Enriched priors must stay within `official_players.csv` player_id set
 - Default demo Monte Carlo count: **10** (avoid huge simulations in CI/demo)
+
+### Streamlit `PROJECT_ROOT` NameError
+
+All Streamlit path constants come from **`app/streamlit_paths.py`**. The homepage imports `PROJECT_ROOT`, `OFFICIAL_DATA_DIR`, etc. from that module — do not assign them locally in `streamlit_app.py`. If you see `NameError: PROJECT_ROOT`, pull latest `main` and run:
+
+```bash
+python -m pytest tests/test_streamlit_paths.py -q
+python -m streamlit run app/streamlit_app.py
+```
+
+### Step 20: Manual star-player prior overrides
+
+Optional manual boosts for official candidates only (no scraping, no new player IDs):
+
+```bash
+python scripts/export_player_award_prior_template.py
+python scripts/generate_world_cup_awards.py --use-enriched --use-manual-priors
+python scripts/run_final_demo_pipeline.py --simulations 10 --use-manual-priors
+```
+
+Demo preset: `data/templates/player_award_manual_priors_demo.csv`. Without `--use-manual-priors`, behavior matches Step 19.
 
 ### Step 18: World Cup Awards Predictor
 

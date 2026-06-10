@@ -28,3 +28,16 @@ def test_run_final_demo_pipeline_importable():
 def test_enrich_player_priors_importable():
     mod = _load_script("enrich_player_priors.py")
     assert hasattr(mod, "main")
+
+
+def test_export_player_award_prior_template_importable():
+    mod = _load_script("export_player_award_prior_template.py")
+    assert hasattr(mod, "main")
+
+
+def test_run_final_demo_pipeline_supports_manual_priors():
+    mod = _load_script("run_final_demo_pipeline.py")
+    import inspect
+
+    source = inspect.getsource(mod.main)
+    assert "--use-manual-priors" in source

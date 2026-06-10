@@ -19,6 +19,16 @@ def main(argv: list[str] | None = None) -> int:
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--use-enriched", action="store_true", help="Use enriched official candidates")
     group.add_argument("--no-enriched", action="store_true", help="Use base official_award_candidates.csv")
+    parser.add_argument(
+        "--use-manual-priors",
+        action="store_true",
+        help="Apply optional manual star-player prior overrides (official candidates only)",
+    )
+    parser.add_argument(
+        "--manual-prior-file",
+        default=None,
+        help="Manual prior CSV path (defaults to data/templates/player_award_manual_priors_demo.csv if present)",
+    )
     args = parser.parse_args(argv)
 
     use_enriched: bool | None = None
@@ -28,7 +38,11 @@ def main(argv: list[str] | None = None) -> int:
         use_enriched = False
 
     try:
-        summary = prepare_step18_world_cup_awards(use_enriched_candidates=use_enriched)
+        summary = prepare_step18_world_cup_awards(
+            use_enriched_candidates=use_enriched,
+            use_manual_priors=args.use_manual_priors,
+            manual_prior_file=args.manual_prior_file,
+        )
     except RuntimeError as exc:
         print(str(exc))
         return 1
@@ -42,6 +56,9 @@ def main(argv: list[str] | None = None) -> int:
         "validation_passed",
         "official_final_enabled",
         "candidate_source",
+        "use_manual_priors",
+        "manual_priors_applied",
+        "manual_prior_file",
         "top_golden_ball_player",
         "top_golden_boot_player",
         "top_golden_glove_player",

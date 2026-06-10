@@ -698,3 +698,30 @@ python -m streamlit run app/streamlit_app.py
 
 Outputs remain **probabilistic analytics estimates**, not official FIFA predictions. No betting advice. The `official_final` gate is unchanged — awards refuse to run when disabled.
 
+## Step 20: Manual Star-Player Prior Editing + Award Differentiation Polish
+
+Step 20 adds an optional **manual prior override workflow** for known high-impact players already in the official candidate pool. Manual priors never add unofficial players and do not scrape data.
+
+### Workflow
+
+1. Export template: `python scripts/export_player_award_prior_template.py`
+2. Edit boosts / set `apply_manual_override=True` (or use demo preset)
+3. Enrich candidates (Step 19): `python scripts/enrich_player_priors.py --update-award-candidates`
+4. Generate awards: `python scripts/generate_world_cup_awards.py --use-enriched --use-manual-priors`
+
+Demo preset: `data/templates/player_award_manual_priors_demo.csv` (Messi, Mbappé, Haaland, Kane, Yamal, Courtois, etc. — only if present in official candidates).
+
+Reports: `data/processed/manual_prior_validation_report.csv`, `manual_prior_summary.json`
+
+### Commands
+
+```bash
+python scripts/export_player_award_prior_template.py
+python scripts/enrich_player_priors.py --update-award-candidates
+python scripts/generate_world_cup_awards.py --use-enriched --use-manual-priors
+python scripts/run_final_demo_pipeline.py --simulations 10 --use-manual-priors
+python -m pytest -q
+```
+
+Manual priors are **user-provided portfolio/demo adjustments**, not official FIFA predictions.
+

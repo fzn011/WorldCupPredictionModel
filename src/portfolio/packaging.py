@@ -138,6 +138,15 @@ python scripts/enrich_player_priors.py --update-award-candidates
 - Explain priors are heuristic unless manually edited
 - Show prior quality report path
 
+## 5b. Manual star-player priors (optional, 45s)
+
+```bash
+python scripts/generate_world_cup_awards.py --use-enriched --use-manual-priors
+```
+
+- Show demo preset `data/templates/player_award_manual_priors_demo.csv`
+- Explain manual priors apply only to official candidates (Messi, Mbappé, etc.)
+
 ## 6. Awards predictor (90s)
 
 - Open **17 World Cup Awards**
@@ -182,6 +191,8 @@ official_players.csv + player_award_priors.csv
 official_award_candidates.csv
         ↓ (Step 19 enrich)
 enriched_official_award_candidates.csv
+        ↓ (Step 20 optional manual overrides)
+manual prior CSV (official player IDs only)
         ↓
 Monte Carlo team stage probabilities
         ↓
@@ -207,6 +218,7 @@ def generate_limitations_doc() -> str:
 - **Official data updates** — FIFA schedules/squads may change; re-run import and readiness workflows.
 - **Model scope** — Snapshot rankings in some experiments; strict backtests need date-aware joins.
 - **Award priors** — Mostly heuristic position/role defaults unless manually curated; not official season stats.
+- **Manual prior overrides (Step 20)** — Optional user-provided boosts for portfolio demos; never add unofficial players.
 - **No live feeds** — No automatic injury/form scraping; user must update priors manually.
 - **Proxy awards** — Player of the Match / Goal of the Tournament are analytics proxies, not fan-vote forecasts.
 - **Not official FIFA** — All award outputs are explainable analytics estimates.
@@ -274,6 +286,7 @@ def generate_reproducibility_checklist() -> str:
 - [ ] `python scripts/run_monte_carlo.py --simulations 10 --seed 42`
 - [ ] `python scripts/enrich_player_priors.py --update-award-candidates`
 - [ ] `python scripts/generate_world_cup_awards.py --use-enriched`
+- [ ] (Optional) `python scripts/generate_world_cup_awards.py --use-enriched --use-manual-priors`
 - [ ] `python scripts/prepare_final_project_pack.py`
 - [ ] `python -m pytest -q`
 - [ ] `python -m streamlit run app/streamlit_app.py`

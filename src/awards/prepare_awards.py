@@ -25,6 +25,7 @@ from src.awards.award_reports import (
     save_world_cup_awards_report,
 )
 from src.awards.award_validation import validate_award_outputs
+from src.awards.manual_priors import apply_manual_prior_workflow, resolve_manual_prior_file
 from src.awards.player_awards import (
     calculate_golden_ball_predictions,
     calculate_golden_boot_predictions,
@@ -61,19 +62,35 @@ def _save_json(payload: dict[str, Any], file_name: str) -> str:
     return str(path)
 
 
-def prepare_step18_world_cup_awards(*, use_enriched_candidates: bool | None = None) -> dict[str, Any]:
+def prepare_step18_world_cup_awards(
+    *,
+    use_enriched_candidates: bool | None = None,
+    use_manual_priors: bool = False,
+    manual_prior_file: str | Path | None = None,
+) -> dict[str, Any]:
     """Generate Step 18 World Cup awards analytics outputs (official_final required)."""
     readiness = require_official_final_ready()
 
     players_df = load_official_award_candidates(use_enriched_candidates=use_enriched_candidates)
     candidate_source = get_award_candidate_source(use_enriched_candidates=use_enriched_candidates)
+    team_stage_df = load_team_stage_probabilities()
+
+    manual_summary: dict[str, Any] = {}
+    if use_manual_priors:
+        manual_path = resolve_manual_prior_file(manual_prior_file)
+        players_df, manual_summary = apply_manual_prior_workflow(
+            players_df,
+            manual_path,
+            team_stage_df=team_stage_df,
+        )
+        candidate_source = f"{candidate_source} + manual_priors"
+
     players_valid, player_validation_df = validate_player_candidates(players_df)
 
     team_profiles_df = load_team_award_profiles()
     team_valid, team_validation_df = validate_team_award_profiles(team_profiles_df)
 
     official_teams_df = load_official_teams_for_awards()
-    team_stage_df = load_team_stage_probabilities()
 
     players_enriched_df = merge_players_with_team_progression(players_df, team_stage_df)
     team_enriched_df = prepare_team_award_data(team_profiles_df, team_stage_df, players_enriched_df)
@@ -113,6 +130,12 @@ def prepare_step18_world_cup_awards(*, use_enriched_candidates: bool | None = No
     summary = create_world_cup_awards_summary(outputs, validation_passed=validation_passed)
     summary["official_final_enabled"] = readiness.get("official_final_enabled", True)
     summary["candidate_source"] = candidate_source
+    summary["use_manual_priors"] = bool(use_manual_priors)
+    if manual_summary:
+        summary["manual_priors_applied"] = manual_summary.get("overrides_applied", 0)
+        summary["manual_prior_file"] = manual_summary.get("manual_prior_file")
+        summary["manual_prior_summary_path"] = manual_summary.get("summary_path")
+        summary["manual_prior_validation_report_path"] = manual_summary.get("validation_report_path")
     report_text = create_world_cup_awards_markdown_report(outputs, summary, readiness)
     report_path = save_world_cup_awards_report(report_text)
 
@@ -139,9 +162,18 @@ def prepare_step18_world_cup_awards(*, use_enriched_candidates: bool | None = No
     return summary
 
 
-def prepare_step17_world_cup_awards(*, use_enriched_candidates: bool | None = None) -> dict[str, Any]:
+def prepare_step17_world_cup_awards(
+    *,
+    use_enriched_candidates: bool | None = None,
+    use_manual_priors: bool = False,
+    manual_prior_file: str | Path | None = None,
+) -> dict[str, Any]:
     """Backward-compatible alias for Step 18 orchestrator."""
-    return prepare_step18_world_cup_awards(use_enriched_candidates=use_enriched_candidates)
+    return prepare_step18_world_cup_awards(
+        use_enriched_candidates=use_enriched_candidates,
+        use_manual_priors=use_manual_priors,
+        manual_prior_file=manual_prior_file,
+    )
 
 
 if __name__ == "__main__":
