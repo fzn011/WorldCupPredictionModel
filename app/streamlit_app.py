@@ -15,6 +15,8 @@ if str(ROOT) not in sys.path:
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 
+PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
+
 CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
 CANONICAL_MATCHES_SAMPLE_FILE = getattr(
     C, "CANONICAL_MATCHES_SAMPLE_FILE", "canonical_matches_sample.csv"
@@ -136,7 +138,6 @@ GROUP_STAGE_SIMULATION_SUMMARY_FILE = getattr(
     C, "GROUP_STAGE_SIMULATION_SUMMARY_FILE", "group_stage_simulation_summary.json"
 )
 PROCESSED_DATA_DIR = getattr(C, "PROCESSED_DATA_DIR", Path("data") / "processed")
-PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)
 REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
