@@ -165,7 +165,7 @@ try:
     from app.components.ui import (  # noqa: E402
         inject_page_theme,
         load_json_if_exists,
-        render_download_card,
+        render_action_cards,
         render_hero,
         render_metric_card,
         render_pipeline_stepper,
@@ -174,11 +174,12 @@ try:
         render_status_card,
         render_warning_panel,
     )
+    from app.components.reports_hub import render_reports_hub  # noqa: E402
 except ModuleNotFoundError:  # pragma: no cover
     from components.ui import (  # noqa: E402
         inject_page_theme,
         load_json_if_exists,
-        render_download_card,
+        render_action_cards,
         render_hero,
         render_metric_card,
         render_pipeline_stepper,
@@ -187,10 +188,10 @@ except ModuleNotFoundError:  # pragma: no cover
         render_status_card,
         render_warning_panel,
     )
+    from components.reports_hub import render_reports_hub  # noqa: E402
 
 st.set_page_config(
     page_title="World Cup 2026 AI Predictor",
-    page_icon="⚽",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -219,81 +220,7 @@ _tests_hint = "Run pytest locally"
 
 
 def _render_reports_hub() -> None:
-    render_section_header("Reports & Downloads", subtitle="One place for demo artifacts — no scattered paths.")
-    g1, g2 = st.columns(2)
-    with g1:
-        render_section_header("Monte Carlo", subtitle="Simulation forecasts")
-        render_download_card(
-            "Champion probabilities",
-            "Team-level tournament outcome estimates",
-            PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE,
-        )
-        render_download_card(
-            "Monte Carlo summary",
-            "Run metadata and top champion",
-            PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE,
-            mime="application/json",
-        )
-        render_download_card(
-            "Monte Carlo report",
-            "Markdown narrative report",
-            REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE,
-            mime="text/markdown",
-        )
-    with g2:
-        render_section_header("Awards analytics", subtitle="Official candidates only")
-        render_download_card(
-            "Combined awards table",
-            "All award categories in one CSV",
-            PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE,
-        )
-        render_download_card(
-            "Awards summary",
-            "Validation + top picks JSON",
-            PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE,
-            mime="application/json",
-        )
-        render_download_card(
-            "Awards report",
-            "Markdown awards narrative",
-            REPORTS_DIR / WORLD_CUP_AWARDS_REPORT_FILE,
-            mime="text/markdown",
-        )
-    g3, g4 = st.columns(2)
-    with g3:
-        render_section_header("Official data", subtitle="Readiness & validation")
-        render_download_card(
-            "Official data summary",
-            "Teams, fixtures, players snapshot",
-            OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_SUMMARY_FILE,
-            mime="application/json",
-        )
-        render_download_card(
-            "Final readiness report",
-            "official_final gate checklist",
-            OFFICIAL_PROCESSED_DIR / "official_final_readiness_report.json",
-            mime="application/json",
-        )
-    with g4:
-        render_section_header("Portfolio pack", subtitle="Demo & reproducibility docs")
-        render_download_card(
-            "Portfolio README",
-            "Project overview for reviewers",
-            _portfolio_dir / "PORTFOLIO_README.md",
-            mime="text/markdown",
-        )
-        render_download_card(
-            "Demo script",
-            "5–7 minute walkthrough",
-            _portfolio_dir / "demo_script.md",
-            mime="text/markdown",
-        )
-        render_download_card(
-            "Final project summary",
-            "Latest pipeline status JSON",
-            PROCESSED_DATA_DIR / "final_project_summary.json",
-            mime="application/json",
-        )
+    render_reports_hub()
 
 
 def _render_technical_diagnostics() -> None:
@@ -1091,17 +1018,16 @@ tab_command, tab_reports, tab_technical = st.tabs(
 
 with tab_command:
     render_hero(
-        "FIFA World Cup 2026 Prediction",
-        "Probabilistic match forecasting, tournament simulation, Monte Carlo progression, "
-        "and explainable award analytics — powered by official World Cup 2026 data when enabled.",
+        "Command Center",
+        "Predict, simulate, and explore FIFA World Cup 2026 outcomes using official data when enabled.",
     )
 
     render_section_header("System status")
-    s1, s2, s3, s4, s5, s6, s7 = st.columns(7)
+    s1, s2, s3, s4, s5, s6 = st.columns(6)
     with s1:
         render_status_card(
-            "Official Final",
-            "Enabled" if _official_final else "Disabled",
+            "Official data",
+            "Ready" if _official_final else "Setup needed",
             sub="Production data gate",
             badge="ok" if _official_final else "warn",
         )
@@ -1110,21 +1036,19 @@ with tab_command:
     with s3:
         render_status_card("Fixtures", str(_rs.get("fixtures_count", "—")), sub="Official schedule")
     with s4:
-        render_status_card("Players", str(_rs.get("players_count", "—")), sub="Squad registry")
-    with s5:
         render_status_card(
             "Monte Carlo",
-            "Available" if _mc_ready else "Missing",
+            "Available" if _mc_ready else "Not run",
             badge="ok" if _mc_ready else "muted",
         )
-    with s6:
+    with s5:
         render_status_card(
             "Awards",
-            "Available" if _awards_ready else "Missing",
+            "Available" if _awards_ready else "Not generated",
             badge="ok" if _awards_ready else "muted",
         )
-    with s7:
-        render_status_card("Tests", "Passing", sub="pytest -q", badge="ok")
+    with s6:
+        render_status_card("Players", str(_rs.get("players_count", "—")), sub="Squad registry")
 
     render_section_header("Latest highlights")
     h1, h2 = st.columns(2)
@@ -1134,67 +1058,79 @@ with tab_command:
             str(_mc_summary.get("top_champion") or "—"),
             sub=f"Probability: {float(_mc_summary.get('top_champion_probability', 0) or 0):.1%}"
             if _mc_summary.get("top_champion")
-            else "Run Monte Carlo simulator page",
+            else "Run Monte Carlo simulator",
         )
     with h2:
         render_metric_card(
-            "Awards — Golden Ball leader",
+            "Golden Ball leader",
             str(_awards_summary.get("top_golden_ball_player") or "—"),
             sub=f"Golden Boot: {_awards_summary.get('top_golden_boot_player', '—')}"
             if _awards_summary
             else "Generate awards on Awards page",
         )
 
-    render_section_header("Start here — recommended demo flow")
+    render_section_header("Recommended flow")
     render_pipeline_stepper(
         [
-            ("1", "Official Data Readiness", "Confirm official_final, fixtures, and squads"),
-            ("2", "Match Predictor", "Pick two teams and inspect win/draw/loss probabilities"),
-            ("3", "Monte Carlo Forecast", "Run simulations and review champion chart"),
-            ("4", "Awards Predictor", "Explore Golden Ball / Boot / Glove analytics"),
-            ("5", "Reports & Downloads", "Export CSV/JSON/markdown artifacts for portfolio"),
+            ("1", "Data health", "Confirm official data readiness and promotion"),
+            ("2", "Match predictor", "Compare two teams with win/draw/loss probabilities"),
+            ("3", "Monte Carlo", "Simulate the full tournament thousands of times"),
+            ("4", "Awards", "Explore Golden Ball, Boot, Glove, and team awards"),
+            ("5", "Reports", "Download CSV, JSON, and markdown artifacts"),
         ]
     )
 
-    render_section_header("Quick navigation")
-    render_quick_nav_cards(
+    render_section_header("Main actions")
+    render_action_cards(
         [
             {
-                "label": "Step 1",
-                "title": "Official Readiness",
-                "hint": "Data gate & promotion",
-                "page": "pages/13_Official_Final_Readiness.py",
+                "title": "Data health",
+                "description": "Check readiness, blockers, and official_final status",
+                "page": "pages/3_Data_Health_Dashboard.py",
+                "button": "Open data health",
             },
             {
-                "label": "Step 2",
-                "title": "Match Predictor",
-                "hint": "Future match probabilities",
+                "title": "Match predictor",
+                "description": "Head-to-head probabilities with optional explainability",
                 "page": "pages/1_Match_Predictor.py",
+                "button": "Predict a match",
             },
             {
-                "label": "Step 3",
+                "title": "Tournament simulator",
+                "description": "Quick champion probability estimates",
+                "page": "pages/2_Tournament_Simulator.py",
+                "button": "Simulate tournament",
+            },
+            {
                 "title": "Monte Carlo",
-                "hint": "Tournament simulations",
+                "description": "Stage progression and champion forecasts",
                 "page": "pages/9_Monte_Carlo_Simulator.py",
+                "button": "Run Monte Carlo",
             },
             {
-                "label": "Step 4",
-                "title": "Awards",
-                "hint": "Golden Ball & more",
+                "title": "World Cup awards",
+                "description": "Explainable award analytics (not official FIFA predictions)",
                 "page": "pages/17_World_Cup_Awards.py",
+                "button": "Explore awards",
+            },
+            {
+                "title": "Reports & downloads",
+                "description": "Export simulation and awards artifacts",
+                "page": "pages/10_Reports_and_Downloads.py",
+                "button": "Download reports",
             },
         ]
     )
 
     if not _official_final:
         render_warning_panel(
-            "official_final is not enabled. Awards and some analytics require promoted official data. "
-            "Open Official Final Readiness from the sidebar first."
+            "Production official data is not enabled. Awards and some analytics require official_final. "
+            "Open the Data Health Dashboard to review blockers and promotion."
         )
 
     with st.expander("Demo commands (optional)", expanded=False):
         st.code("python scripts/run_final_demo_pipeline.py --simulations 10", language="bash")
-        st.caption("Tests: `python -m pytest -q` · Portfolio: `python scripts/prepare_final_project_pack.py`")
+        st.caption("Tests: `python -m pytest -q`")
 
 with tab_reports:
     _render_reports_hub()

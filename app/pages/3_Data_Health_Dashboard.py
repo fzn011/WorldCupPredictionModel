@@ -51,12 +51,12 @@ from src.official.promotion import load_official_final_mode, can_promote_to_offi
 from src.utils.constants import OFFICIAL_POPULATION_DIR, OFFICIAL_POPULATION_GUIDE_FILE, OFFICIAL_IMPORT_TEMPLATES_DIR
 
 
-st.set_page_config(page_title="Official Final Readiness", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Data Health Dashboard", layout="wide", initial_sidebar_state="expanded")
 inject_page_theme()
 render_hero(
-    "Official Data Readiness",
-    "Verify official World Cup 2026 datasets, resolve blockers, and promote official_final mode.",
-    eyebrow="Data gate",
+    "Data Health Dashboard",
+    "Official World Cup 2026 data completeness, squad validation, and production readiness in one place.",
+    eyebrow="Official data",
 )
 
 st.markdown(
@@ -80,26 +80,26 @@ render_section_header("Controls")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    if st.button("🔄 Refresh Evaluation", use_container_width=True):
+    if st.button("Refresh evaluation", use_container_width=True):
         st.session_state.readiness_report = evaluate_official_final_readiness()
         st.rerun()
 
 with col2:
-    if st.button("📝 Generate Import Templates", use_container_width=True):
+    if st.button("Generate import templates", use_container_width=True):
         with st.spinner("Generating import templates..."):
             output_dir = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR
             templates = generate_all_import_templates(output_dir=output_dir)
             manifest_path = create_import_manifest(templates, output_dir)
             st.session_state.templates_generated = True
             st.session_state.template_count = len(templates)
-        st.success(f"✓ Generated {len(templates)} templates!")
+        st.success(f"Generated {len(templates)} templates.")
         st.rerun()
 
 with col3:
-    if st.button("💾 Save Report", use_container_width=True):
+    if st.button("Save report", use_container_width=True):
         report = get_readiness_report()
         report_path = save_final_readiness_report(report)
-        st.success(f"✓ Report saved to {report_path}")
+        st.success(f"Report saved.")
 
 with col4:
     allowed, blockers = is_official_final_mode_allowed()
@@ -152,7 +152,7 @@ with col3:
 st.divider()
 
 # ===== CHECKLIST =====
-st.header("Readiness Checklist")
+st.header("Readiness checklist")
 
 # Group checks by category
 categories = {}
@@ -184,7 +184,7 @@ for check in report["checklist"]:
 for category, checks in categories.items():
     with st.expander(f"**{category}** ({sum(1 for c in checks if c['passed'])}/{len(checks)} passed)", expanded=True):
         for check in checks:
-            icon = "✓" if check["passed"] else "✗"
+            icon = "Pass" if check["passed"] else "Fail"
             col1, col2 = st.columns([3, 1])
             with col1:
                 st.write(f"{icon} **{check['id']}**")
@@ -304,107 +304,81 @@ with col2:
 
 st.divider()
 
-# ===== STEP 17D POPULATION WORKFLOW =====
-st.header("Step 17D: Population Workflow")
+# ===== DATA POPULATION (ADVANCED) =====
+with st.expander("Advanced: data population workflow", expanded=False):
+    pop_col1, pop_col2, pop_col3 = st.columns(3)
 
-pop_col1, pop_col2, pop_col3 = st.columns(3)
+    with pop_col1:
+        if st.button("Prepare population pack", use_container_width=True, key="pop_pack"):
+            with st.spinner("Generating population pack..."):
+                pack = prepare_step17d_official_data_population_pack()
+                st.session_state.population_pack = pack
+            st.success("Population pack generated.")
+            st.rerun()
 
-with pop_col1:
-    if st.button("📦 Prepare Population Pack", use_container_width=True):
-        with st.spinner("Generating population pack..."):
-            pack = prepare_step17d_official_data_population_pack()
-            st.session_state.population_pack = pack
-        st.success("Population pack generated!")
-        st.rerun()
-
-with pop_col2:
-    guide_path = PROJECT_ROOT / OFFICIAL_POPULATION_DIR / OFFICIAL_POPULATION_GUIDE_FILE
-    if guide_path.is_file():
-        st.download_button(
-            "📄 Download Population Guide",
-            guide_path.read_text(encoding="utf-8"),
-            file_name=OFFICIAL_POPULATION_GUIDE_FILE,
-            mime="text/markdown",
-            use_container_width=True,
-        )
-    else:
-        st.caption("Generate pack first")
-
-with pop_col3:
-    templates_dir = PROJECT_ROOT / OFFICIAL_IMPORT_TEMPLATES_DIR
-    if templates_dir.is_dir() and any(templates_dir.glob("*.csv")):
-        st.success(f"Templates in {OFFICIAL_IMPORT_TEMPLATES_DIR}/")
-    else:
-        st.caption("Templates not generated yet")
-
-final_mode = load_official_final_mode()
-final_ready_check, promo_summary = can_promote_to_official_final()
-
-st.subheader("Promotion Status")
-pc1, pc2, pc3 = st.columns(3)
-pc1.metric("official_final_enabled", "Yes" if final_mode.get("official_final_enabled") else "No")
-pc2.metric("final_ready", "Yes" if final_ready_check else "No")
-pc3.metric("Blockers", promo_summary.get("blocker_count", 0))
-
-st.markdown("""
-**Population workflow:** Generate pack → fill templates from FIFA → preview → apply → re-evaluate readiness.
-See the **Official Data Population** page (Step 17D) for the full workflow.
-
-Promotion to `official_final` requires confirmation and full readiness. It cannot be one-click promoted while blockers remain.
-""")
-
-if final_ready_check:
-    confirm = st.checkbox("I confirm all official data is verified against FIFA sources")
-    if confirm and st.button("Promote to official_final (requires confirmation)"):
-        promo_result = promote_to_official_final(confirmed=True)
-        if promo_result.get("status") == "promoted":
-            st.success("Promoted to official_final!")
+    with pop_col2:
+        guide_path = PROJECT_ROOT / OFFICIAL_POPULATION_DIR / OFFICIAL_POPULATION_GUIDE_FILE
+        if guide_path.is_file():
+            st.download_button(
+                "Download population guide",
+                guide_path.read_text(encoding="utf-8"),
+                file_name=OFFICIAL_POPULATION_GUIDE_FILE,
+                mime="text/markdown",
+                use_container_width=True,
+            )
         else:
-            st.error(promo_result.get("message", "Promotion blocked"))
+            st.caption("Generate pack first")
+
+    with pop_col3:
+        templates_dir = PROJECT_ROOT / OFFICIAL_IMPORT_TEMPLATES_DIR
+        if templates_dir.is_dir() and any(templates_dir.glob("*.csv")):
+            st.success("Import templates are available.")
+        else:
+            st.caption("Templates not generated yet")
+
+    final_mode = load_official_final_mode()
+    final_ready_check, promo_summary = can_promote_to_official_final()
+
+    st.subheader("Promotion status")
+    pc1, pc2, pc3 = st.columns(3)
+    pc1.metric("official_final enabled", "Yes" if final_mode.get("official_final_enabled") else "No")
+    pc2.metric("Final ready", "Yes" if final_ready_check else "No")
+    pc3.metric("Blockers", promo_summary.get("blocker_count", 0))
+
+    st.markdown(
+        """
+**Workflow:** Generate pack → fill templates → preview → apply → re-evaluate readiness.
+
+Promotion to `official_final` requires confirmation and full readiness.
+        """
+    )
+
+    if final_ready_check:
+        confirm = st.checkbox("I confirm all official data is verified against FIFA sources", key="promo_confirm")
+        if confirm and st.button("Promote to official_final", key="promo_btn"):
+            promo_result = promote_to_official_final(confirmed=True)
+            if promo_result.get("status") == "promoted":
+                st.success("Promoted to official_final.")
+            else:
+                st.error(promo_result.get("message", "Promotion blocked"))
 
 st.divider()
 
 # ===== FINAL VERDICT =====
-st.header("Final Verdict")
+st.header("Final verdict")
 
 if report["is_official_final_ready"]:
-    st.success("""
-    ## ✓ Official Final Mode is READY
-
-    All readiness checks have passed. The system is ready for production use
-    with official FIFA World Cup 2026 data.
-    """)
+    st.success(
+        "Official final mode is READY. All readiness checks passed — the system can use production official data."
+    )
 else:
-    st.error(f"""
-    ## ✗ Official Final Mode is BLOCKED
-
-    The system is not ready for official_final mode. Please resolve the {len(report['blockers'])} blocker(s)
-    listed above before enabling official_final mode.
-
-    Use the import workflow to update incomplete data, or wait for official FIFA data releases.
-    """)
+    st.error(
+        f"Official final mode is BLOCKED. Resolve {len(report['blockers'])} blocker(s) listed above before enabling production mode."
+    )
 
 st.divider()
 
-# ===== ABOUT =====
-st.markdown("""
-### About This Page
-
-This page provides the final readiness evaluation for Step 17C of the FIFA World Cup 2026 AI Predictor.
-
-**Readiness Checks:**
-- **Teams**: All 48 teams verified with no placeholder values
-- **Groups**: All 12 groups with 4 teams each, no placeholders
-- **Venues**: All venues verified with complete information
-- **Fixtures**: All 104 matches scheduled with venues and teams
-- **Squads**: All 48 teams with 26 players each (1248 total)
-- **Players**: All players registered with no placeholder values
-- **Awards**: Award candidates generated with player priors merged
-- **Data Quality**: No sample_to_be_verified rows, cross-dataset consistency verified
-
-**Blocking Conditions:**
-- Incomplete teams, groups, venues, fixtures, squads, or players
-- Placeholder values detected (TBD, Unknown, Sample, etc.)
-- Sample rows that haven't been verified
-- Data inconsistency between datasets
-""")
+st.caption(
+    "Readiness covers teams (48), groups (12×4), venues, fixtures (104), squads (48×26), and award candidate integrity. "
+    "Analytics outputs require official_final when using production official data."
+)

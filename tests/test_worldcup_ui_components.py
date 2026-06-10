@@ -49,6 +49,7 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_status_card",
         "render_section_header",
         "render_pipeline_stepper",
+        "render_action_cards",
         "render_download_card",
         "render_warning_panel",
         "render_success_panel",
@@ -77,18 +78,21 @@ def test_app_components_package_exports() -> None:
     "page_name",
     [
         "1_Match_Predictor.py",
-        "9_Monte_Carlo_Simulator.py",
-        "13_Official_Final_Readiness.py",
-        "14_Official_Data_Population.py",
-        "15_Source_Assisted_Population.py",
-        "16_Official_Data_Population_Completion.py",
-        "17_World_Cup_Awards.py",
         "2_Tournament_Simulator.py",
-        "11_Official_Data_Health.py",
-        "12_Official_Squads_Health.py",
+        "3_Data_Health_Dashboard.py",
+        "9_Monte_Carlo_Simulator.py",
+        "10_Reports_and_Downloads.py",
+        "17_World_Cup_Awards.py",
     ],
 )
 def test_themed_pages_reference_inject_page_theme(page_name: str) -> None:
     path = REPO_ROOT / "app" / "pages" / page_name
+    assert path.is_file(), f"Missing themed page: {page_name}"
     source = path.read_text(encoding="utf-8")
     assert "inject_page_theme" in source
+
+
+def test_streamlit_app_uses_reports_hub() -> None:
+    source = (REPO_ROOT / "app" / "streamlit_app.py").read_text(encoding="utf-8")
+    assert "render_reports_hub" in source
+    assert "pages/13_Official_Final_Readiness.py" not in source

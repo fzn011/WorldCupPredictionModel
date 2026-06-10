@@ -18,7 +18,7 @@ def inject_page_theme() -> None:
     inject_worldcup_css()
 
 
-def render_hero(title: str, subtitle: str, *, eyebrow: str = "World Cup Analytics Command Center") -> None:
+def render_hero(title: str, subtitle: str, *, eyebrow: str = "FIFA World Cup 2026 AI Predictor") -> None:
     st.markdown(
         f"""
 <div class="wc-hero">
@@ -99,7 +99,7 @@ def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
 
 
 def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
-    """Render quick-link cards. Each item: label, hint, page (sidebar page name fragment)."""
+    """Render quick-link cards. Each item: label, hint, page (sidebar page path)."""
     cols = st.columns(min(len(items), 4))
     for idx, item in enumerate(items):
         with cols[idx % len(cols)]:
@@ -114,7 +114,25 @@ def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
                 unsafe_allow_html=True,
             )
             if item.get("page"):
-                st.page_link(item["page"], label=f"Open {item.get('title', 'page')}", icon="⚽")
+                st.page_link(item["page"], label=f"Open {item.get('title', 'page')}")
+
+
+def render_action_cards(items: list[dict[str, str]]) -> None:
+    """Primary navigation actions: title, description, page path."""
+    cols = st.columns(min(len(items), 3))
+    for idx, item in enumerate(items):
+        with cols[idx % len(cols)]:
+            st.markdown(
+                f"""
+<div class="wc-card">
+  <div class="wc-card-value" style="font-size:1.05rem;">{item.get('title', '')}</div>
+  <div class="wc-card-sub">{item.get('description', '')}</div>
+</div>
+                """,
+                unsafe_allow_html=True,
+            )
+            if item.get("page"):
+                st.page_link(item["page"], label=item.get("button", "Open"), use_container_width=True)
 
 
 def render_data_table(

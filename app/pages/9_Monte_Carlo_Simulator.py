@@ -1,4 +1,4 @@
-"""Streamlit page for Step 16 Monte Carlo dashboard and report polish."""
+"""Streamlit page: Monte Carlo tournament simulator dashboard."""
 
 from __future__ import annotations
 
@@ -77,7 +77,7 @@ inject_page_theme()
 render_hero(
     "Monte Carlo Forecast",
     "Repeated full-tournament simulations to estimate champion and stage progression probabilities.",
-    eyebrow="Tournament simulation",
+    eyebrow="Monte Carlo simulation",
 )
 
 tab_overview, tab_results, tab_downloads = st.tabs(["Overview & settings", "Results & charts", "Downloads"])
