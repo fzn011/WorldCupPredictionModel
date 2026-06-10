@@ -12,8 +12,22 @@ import streamlit as st
 # Ensure project root is on sys.path so `src` imports work when Streamlit
 # runs this file directly.
 ROOT = Path(__file__).resolve().parents[2]
+APP_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+try:
+    from app.components.ui import (  # noqa: E402
+        inject_page_theme,
+        render_hero,
+        render_metric_card,
+        render_section_header,
+        render_warning_panel,
+    )
+except ModuleNotFoundError:  # pragma: no cover
+    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_warning_panel  # noqa: E402
 
 from src.features.future_match_features import get_available_teams  # noqa: E402
 from src.official.loaders import get_official_team_list  # noqa: E402
@@ -66,10 +80,14 @@ def _official_team_lock_enabled() -> bool:
         return False
 
 
-st.title("Match Predictor")
-st.caption(
-    "Predict arbitrary future matches from generated pre-match features (ranking-enhanced preferred, then improved, then baseline)."
+st.set_page_config(page_title="Match Predictor", layout="wide", initial_sidebar_state="expanded")
+inject_page_theme()
+render_hero(
+    "Match Predictor",
+    "Select two teams, set venue context, and inspect win/draw/loss probabilities with optional explainability.",
+    eyebrow="Core analytics",
 )
+render_section_header("Match setup")
 
 available_teams = _load_available_teams()
 feature_df = _load_features()
@@ -140,16 +158,19 @@ if mode == "Future Match Prediction":
             st.stop()
 
         probabilities = prediction["probabilities"]
-        st.subheader("Prediction")
+        render_section_header("Prediction results")
         st.write(f"**Model type used:** {prediction.get('model_type')} ")
         st.write(f"**Predicted label:** {prediction.get('predicted_label')} ")
         confidence_label, confidence_score = get_prediction_confidence(probabilities)
         st.write(f"**Confidence:** {confidence_label} ({confidence_score:.3f})")
 
-        m1, m2, m3 = st.columns(3)
-        m1.metric("Team A loss", f"{probabilities['team_a_loss']:.3f}")
-        m2.metric("Draw", f"{probabilities['draw']:.3f}")
-        m3.metric("Team A win", f"{probabilities['team_a_win']:.3f}")
+        p1, p2, p3 = st.columns(3)
+        with p1:
+            render_metric_card("Team A loss", f"{probabilities['team_a_loss']:.1%}")
+        with p2:
+            render_metric_card("Draw", f"{probabilities['draw']:.1%}")
+        with p3:
+            render_metric_card("Team A win", f"{probabilities['team_a_win']:.1%}")
 
         notes = prediction.get("notes", [])
         if notes:
@@ -159,8 +180,8 @@ if mode == "Future Match Prediction":
 
         preview = prediction.get("feature_preview", {})
         if preview:
-            st.markdown("**Selected feature preview**")
-            st.dataframe(pd.DataFrame([preview]), width="stretch")
+            with st.expander("Feature preview (technical)"):
+                st.dataframe(pd.DataFrame([preview]), use_container_width=True)
 
         with st.expander("Why did the model predict this?"):
             try:
