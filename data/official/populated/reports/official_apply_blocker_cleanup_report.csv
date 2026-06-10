@@ -1,0 +1,6 @@
+category,blocking,issue,suggested_fix
+fixture_counts,False,Fixtures 104/104,Import FIFA schedule file
+group_stage_fixtures,False,Group-stage 72/72,Normalize First Stage → group_stage
+squad_counts,False,Players 1248/1248,Import FIFA squad file
+placeholders,False,Blocking placeholders 0,Fill required fields or run cleanup after verified import
+missing_values,False,Missing required values 0,Review populated CSV required columns

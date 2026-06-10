@@ -70,25 +70,25 @@
     },
     {
       "id": "fixtures_no_placeholders",
-      "passed": false,
+      "passed": true,
       "details": {
-        "placeholder_count": 201
+        "placeholder_count": 0
       }
     },
     {
       "id": "squads_complete",
-      "passed": false,
+      "passed": true,
       "details": {
-        "teams_with_26_players": 0,
-        "total_teams": 17,
+        "teams_with_26_players": 48,
+        "total_teams": 48,
         "required": 48
       }
     },
     {
       "id": "players_complete",
-      "passed": false,
+      "passed": true,
       "details": {
-        "player_count": 65,
+        "player_count": 1248,
         "required": 1248
       }
     },
@@ -101,32 +101,28 @@
     },
     {
       "id": "award_candidates_ready",
-      "passed": false,
+      "passed": true,
       "details": {
-        "candidate_count": 65
+        "candidate_count": 1248
       }
     },
     {
       "id": "player_priors_merged",
       "passed": true,
       "details": {
-        "players_with_priors": 65,
-        "total_players": 65
+        "players_with_priors": 1248,
+        "total_players": 1248
       }
     },
     {
       "id": "no_sample_rows",
-      "passed": false,
+      "passed": true,
       "details": {
         "datasets_checked": [
           "teams",
           "groups",
           "fixtures",
           "venues",
-          "players"
-        ],
-        "sample_datasets": [
-          "fixtures",
           "players"
         ]
       }
@@ -135,76 +131,31 @@
       "id": "data_consistency",
       "passed": false,
       "details": {
-        "groups_teams_consistent": true,
+        "groups_teams_consistent": false,
         "fixtures_consistent": false
       }
     }
   ],
   "blockers": [
     {
-      "id": "placeholder_values_detected",
-      "details": {
-        "placeholder_count": 201
-      }
-    },
-    {
-      "id": "incomplete_squads",
-      "details": {
-        "teams_with_26_players": 0,
-        "total_teams": 17,
-        "required": 48
-      }
-    },
-    {
-      "id": "incomplete_squads",
-      "details": {
-        "player_count": 65,
-        "required": 1248
-      }
-    },
-    {
-      "id": "sample_rows_detected",
-      "details": {
-        "datasets_checked": [
-          "teams",
-          "groups",
-          "fixtures",
-          "venues",
-          "players"
-        ],
-        "sample_datasets": [
-          "fixtures",
-          "players"
-        ]
-      }
-    },
-    {
       "id": "data_inconsistency",
       "details": {
-        "groups_teams_consistent": true,
+        "groups_teams_consistent": false,
         "fixtures_consistent": false
       }
     }
   ],
-  "warnings": [
-    {
-      "id": "award_candidates_ready",
-      "passed": false,
-      "details": {
-        "candidate_count": 65
-      }
-    }
-  ],
+  "warnings": [],
   "summary": {
     "total_checks": 15,
-    "passed_checks": 9,
-    "failed_checks": 6,
-    "blocker_count": 5,
-    "warning_count": 1,
+    "passed_checks": 14,
+    "failed_checks": 1,
+    "blocker_count": 1,
+    "warning_count": 0,
     "teams_count": 48,
-    "players_count": 65,
-    "teams_with_26_players": 0
+    "players_count": 1248,
+    "teams_with_26_players": 48
   },
-  "timestamp": "2026-06-10T14:24:21.155438+00:00",
+  "timestamp": "2026-06-10T15:54:53.401372+00:00",
   "is_official_final_ready": false
 }

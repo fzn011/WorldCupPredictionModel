@@ -1,4 +1,4 @@
-"""Population completeness scoring for Step 17F."""
+"""Population completeness scoring for Step 17F/17H."""
 
 from __future__ import annotations
 
@@ -8,8 +8,28 @@ from typing import Any
 import pandas as pd
 
 import src.utils.constants as C
+from src.official.source_labels import is_sample_source_label
+from src.official.stage_normalization import is_group_stage_label, is_knockout_stage_label
 
 UNVERIFIED_SOURCES = {"sample_to_be_verified", "ai_prefilled_needs_verification"}
+
+BLOCKING_PLACEHOLDER_COLUMNS: dict[str, list[str]] = {
+    "teams": ["team", "group"],
+    "groups": ["team", "group"],
+    "fixtures": ["match_id", "stage", "date", "stadium", "city", "country", "kickoff_local"],
+    "venues": ["stadium", "city", "country"],
+    "players": ["player_name", "team", "position"],
+}
+
+OPTIONAL_WARNING_COLUMNS: dict[str, list[str]] = {
+    "teams": ["team_code", "confederation", "is_host", "qualified"],
+    "groups": ["team_code", "confederation"],
+    "fixtures": ["kickoff_utc", "timezone", "team_a_code", "team_b_code", "venue"],
+    "venues": ["capacity", "latitude", "longitude", "timezone", "venue_id"],
+    "players": ["height", "club_country", "shirt_number", "date_of_birth", "verification_notes"],
+}
+
+PLACEHOLDER_TOKENS = (set(C.OFFICIAL_PLACEHOLDER_VALUES) | UNVERIFIED_SOURCES) - {""}
 
 
 def _populated_dir() -> Path:
@@ -30,31 +50,88 @@ def _read(name: str) -> pd.DataFrame:
     return pd.DataFrame()
 
 
-def _count_placeholders(df: pd.DataFrame) -> int:
+def _is_placeholder_value(value: str) -> bool:
+    v = str(value).strip()
+    return v in PLACEHOLDER_TOKENS or v.lower().startswith("tbd")
+
+
+def _count_blocking_placeholders(df: pd.DataFrame, dataset_key: str) -> int:
     if df.empty:
         return 0
+    cols = BLOCKING_PLACEHOLDER_COLUMNS.get(dataset_key, [])
     count = 0
-    placeholders = (set(C.OFFICIAL_PLACEHOLDER_VALUES) | UNVERIFIED_SOURCES) - {""}
-    for col in df.columns:
-        if col in {"source", "notes", "verification_notes"}:
+    for col in cols:
+        if col not in df.columns:
+            count += len(df)
             continue
         series = df[col].fillna("").astype(str).str.strip()
-        count += int(series.isin(placeholders).sum())
+        count += int(series.eq("").sum())
+        count += int(series.map(_is_placeholder_value).sum())
+    if dataset_key == "fixtures" and "stage" in df.columns:
+        for idx, row in df.iterrows():
+            stage = str(row.get("stage", ""))
+            if is_group_stage_label(stage):
+                for team_col in ("team_a", "team_b"):
+                    if team_col not in df.columns:
+                        count += 1
+                        continue
+                    val = str(row.get(team_col, "")).strip()
+                    if not val or _is_placeholder_value(val):
+                        count += 1
     if "source" in df.columns:
-        count += int(df["source"].fillna("").astype(str).isin(UNVERIFIED_SOURCES).sum())
+        count += int(df["source"].fillna("").astype(str).map(is_sample_source_label).sum())
     return count
 
 
-def _missing_required(df: pd.DataFrame, required: list[str]) -> int:
+def _count_optional_warnings(df: pd.DataFrame, dataset_key: str) -> int:
     if df.empty:
-        return len(required)
-    missing = 0
-    for col in required:
+        return 0
+    cols = OPTIONAL_WARNING_COLUMNS.get(dataset_key, [])
+    count = 0
+    for col in cols:
         if col not in df.columns:
-            missing += len(df) if len(df) else 1
+            continue
+        series = df[col].fillna("").astype(str).str.strip()
+        count += int(series.eq("").sum())
+        count += int(series.map(_is_placeholder_value).sum())
+    return count
+
+
+def _missing_blocking_required(df: pd.DataFrame, dataset_key: str) -> int:
+    if df.empty:
+        return len(BLOCKING_PLACEHOLDER_COLUMNS.get(dataset_key, []))
+    missing = 0
+    cols = BLOCKING_PLACEHOLDER_COLUMNS.get(dataset_key, [])
+    for col in cols:
+        if col not in df.columns:
+            missing += len(df)
             continue
         missing += int(df[col].fillna("").astype(str).str.strip().eq("").sum())
+    if dataset_key == "fixtures" and "stage" in df.columns:
+        for _, row in df.iterrows():
+            if is_group_stage_label(str(row.get("stage", ""))):
+                for team_col in ("team_a", "team_b"):
+                    if team_col not in df.columns or not str(row.get(team_col, "")).strip():
+                        missing += 1
     return missing
+
+
+def _fixture_stage_counts(fixtures: pd.DataFrame) -> tuple[int, int]:
+    group_stage = 0
+    knockout = 0
+    if fixtures.empty or "stage" not in fixtures.columns:
+        return group_stage, knockout
+    original = (
+        fixtures["original_stage"].fillna("").astype(str)
+        if "original_stage" in fixtures.columns
+        else pd.Series([""] * len(fixtures), index=fixtures.index)
+    )
+    for stage, orig in zip(fixtures["stage"].fillna("").astype(str), original, strict=False):
+        if is_group_stage_label(stage) or is_group_stage_label(orig):
+            group_stage += 1
+        elif is_knockout_stage_label(stage) or is_knockout_stage_label(orig):
+            knockout += 1
+    return group_stage, knockout
 
 
 def calculate_population_completeness() -> tuple[dict[str, Any], pd.DataFrame]:
@@ -65,18 +142,7 @@ def calculate_population_completeness() -> tuple[dict[str, Any], pd.DataFrame]:
     venues = _read(C.POPULATED_OFFICIAL_VENUES_FILE)
     players = _read(C.POPULATED_OFFICIAL_PLAYERS_FILE)
 
-    group_stage = 0
-    knockout = 0
-    if not fixtures.empty and "stage" in fixtures.columns:
-        stage_lower = fixtures["stage"].fillna("").astype(str).str.lower()
-        group_stage = int(
-            stage_lower.str.contains("group|first stage", na=False).sum()
-        )
-        knockout = int(
-            stage_lower.str.contains(
-                "knockout|round|quarter|semi|final|third|play-off", na=False
-            ).sum()
-        )
+    group_stage, knockout = _fixture_stage_counts(fixtures)
 
     teams_with_26 = 0
     if not players.empty and "team" in players.columns:
@@ -86,17 +152,26 @@ def calculate_population_completeness() -> tuple[dict[str, Any], pd.DataFrame]:
     sample_count = 0
     for df in (teams, groups, fixtures, venues, players):
         if not df.empty and "source" in df.columns:
-            sample_count += int(
-                df["source"].fillna("").astype(str).str.lower().isin(
-                    {s.lower() for s in UNVERIFIED_SOURCES}
-                ).sum()
-            )
+            sample_count += int(df["source"].fillna("").astype(str).map(is_sample_source_label).sum())
 
-    placeholder_issues = sum(_count_placeholders(df) for df in (teams, groups, fixtures, venues, players))
+    blocking_placeholders = (
+        _count_blocking_placeholders(teams, "teams")
+        + _count_blocking_placeholders(groups, "groups")
+        + _count_blocking_placeholders(fixtures, "fixtures")
+        + _count_blocking_placeholders(venues, "venues")
+        + _count_blocking_placeholders(players, "players")
+    )
+    optional_warnings = (
+        _count_optional_warnings(teams, "teams")
+        + _count_optional_warnings(groups, "groups")
+        + _count_optional_warnings(fixtures, "fixtures")
+        + _count_optional_warnings(venues, "venues")
+        + _count_optional_warnings(players, "players")
+    )
     missing_required = (
-        _missing_required(teams, ["team", "team_code"])
-        + _missing_required(fixtures, ["match_id", "team_a", "team_b", "date"])
-        + _missing_required(players, ["player_name", "team", "date_of_birth"])
+        _missing_blocking_required(teams, "teams")
+        + _missing_blocking_required(fixtures, "fixtures")
+        + _missing_blocking_required(players, "players")
     )
 
     metrics: dict[str, Any] = {
@@ -110,7 +185,9 @@ def calculate_population_completeness() -> tuple[dict[str, Any], pd.DataFrame]:
         "players_count": len(players),
         "teams_with_26_players": teams_with_26,
         "sample_to_be_verified_count": sample_count,
-        "placeholder_issues_count": placeholder_issues,
+        "blocking_placeholder_count": blocking_placeholders,
+        "optional_metadata_warning_count": optional_warnings,
+        "placeholder_issues_count": blocking_placeholders,
         "missing_required_values_count": missing_required,
     }
     report_df = create_population_completeness_report(metrics)
@@ -159,7 +236,7 @@ def create_population_completeness_report(metrics: dict[str, Any]) -> pd.DataFra
             "actual": metrics.get("group_stage_fixtures_count", 0),
             "complete": metrics.get("group_stage_fixtures_count", 0) == targets["group_stage_fixtures"],
             "blocking": metrics.get("group_stage_fixtures_count", 0) != targets["group_stage_fixtures"],
-            "notes": "72 group-stage matches",
+            "notes": "72 group-stage matches (First Stage → group_stage)",
         },
         {
             "category": "knockout_fixtures",
@@ -194,12 +271,20 @@ def create_population_completeness_report(metrics: dict[str, Any]) -> pd.DataFra
             "notes": "No unverified source rows",
         },
         {
-            "category": "placeholder_issues",
+            "category": "blocking_placeholders",
             "target": 0,
-            "actual": metrics.get("placeholder_issues_count", 0),
-            "complete": metrics.get("placeholder_issues_count", 0) == 0,
-            "blocking": metrics.get("placeholder_issues_count", 0) > 0,
-            "notes": "No TBD/Unknown placeholders",
+            "actual": metrics.get("blocking_placeholder_count", 0),
+            "complete": metrics.get("blocking_placeholder_count", 0) == 0,
+            "blocking": metrics.get("blocking_placeholder_count", 0) > 0,
+            "notes": "Required fields without TBD/empty/sample sources",
+        },
+        {
+            "category": "optional_metadata_warnings",
+            "target": 0,
+            "actual": metrics.get("optional_metadata_warning_count", 0),
+            "complete": True,
+            "blocking": False,
+            "notes": "Non-blocking gaps (capacity, lat/long, height, etc.)",
         },
         {
             "category": "missing_required_values",

@@ -9,10 +9,10 @@
   "group_stage_matches": 72,
   "knockout_matches": 32,
   "validation_passed": false,
-  "errors_count": 10,
-  "warnings_count": 0,
-  "last_verified_at": "2026-06-10T14:24:01.901627+00:00",
+  "errors_count": 8,
+  "warnings_count": 5,
+  "last_verified_at": "2026-06-10T15:54:33.624879+00:00",
   "notes": [
-    "Official-style template data still contains sample_to_be_verified rows and must be manually checked against FIFA."
+    "Validation warnings remain; inspect the validation report before treating data as fully verified."
   ]
 }

@@ -23,7 +23,10 @@ from src.official.fifa_squad_importer import (
 from src.official.populated_data_builder import (
     build_all_populated_official_data,
     create_official_ready_import_pack,
+    derive_teams_and_groups_from_imported_fixtures,
 )
+from src.official.source_labels import replace_sample_source_labels_for_verified_imports
+from src.official.stage_normalization import apply_stage_normalization
 from src.official.population_completeness import (
     calculate_population_completeness,
     population_is_ready_for_apply,
@@ -86,12 +89,29 @@ def prepare_step17f_populated_official_data(
         else:
             schedule_raw = pd.read_csv(schedule_file)
         fixtures_df, venues_df, audit_df = normalize_schedule_to_official_schema(schedule_raw)
+        fixtures_df = apply_stage_normalization(fixtures_df)
+        fixtures_df = replace_sample_source_labels_for_verified_imports(
+            fixtures_df, "fixtures", "fifa_schedule_api", require_min_rows=C.OFFICIAL_GROUP_STAGE_MATCHES
+        )
+        venues_df = replace_sample_source_labels_for_verified_imports(
+            venues_df, "venues", "fifa_schedule_api", require_min_rows=1
+        )
         save_populated_schedule_outputs(fixtures_df, venues_df, audit_df)
+        teams_df, groups_df, derive_warn = derive_teams_and_groups_from_imported_fixtures(fixtures_df)
+        if len(teams_df) >= C.OFFICIAL_REQUIRED_TEAM_COUNT:
+            teams_df.to_csv(_populated_dir() / C.POPULATED_OFFICIAL_TEAMS_FILE, index=False)
+            groups_df.to_csv(_populated_dir() / C.POPULATED_OFFICIAL_GROUPS_FILE, index=False)
+            notes.append(f"Derived {len(teams_df)} teams from imported schedule")
+        elif derive_warn:
+            notes.append(derive_warn)
         notes.append(f"Schedule file imported: {schedule_file}")
 
     if squad_file:
         raw = pd.read_excel(squad_file) if squad_file.lower().endswith((".xlsx", ".xls")) else pd.read_csv(squad_file)
         players_df, audit_df = normalize_squad_to_official_schema(raw)
+        players_df = replace_sample_source_labels_for_verified_imports(
+            players_df, "players", "fifa_squad_pdf", require_min_rows=C.OFFICIAL_REQUIRED_TOTAL_PLAYERS
+        )
         save_populated_squad_outputs(players_df, audit_df)
         notes.append(f"Squad file imported: {squad_file}")
 

@@ -83,21 +83,59 @@ def load_source_manifest(path: str | None = None) -> dict:
 
 
 
+def _filter_valid_team_names(values: list) -> list[str]:
+    invalid = {"", "nan", "none", "tbd", "to be determined"}
+    out: set[str] = set()
+    for value in values:
+        if pd.isna(value):
+            continue
+        name = standardize_team_name(str(value).strip())
+        lower = name.lower()
+        if not name or lower in invalid or lower.startswith("tbd"):
+            continue
+        out.add(name)
+    return sorted(out)
+
+
+def _load_teams_dataframe_for_list() -> pd.DataFrame:
+    """Prefer populated official teams (48) over processed official teams."""
+    populated_path = C.PROJECT_ROOT / C.OFFICIAL_POPULATED_DATA_DIR / C.POPULATED_OFFICIAL_TEAMS_FILE
+    processed_path = official_path(OFFICIAL_TEAMS_FILE)
+
+    populated_df = pd.DataFrame()
+    if populated_path.is_file():
+        try:
+            populated_df = pd.read_csv(populated_path)
+        except Exception:
+            populated_df = pd.DataFrame()
+
+    if not populated_df.empty and "team" in populated_df.columns:
+        valid = _filter_valid_team_names(populated_df["team"].tolist())
+        if len(valid) >= C.OFFICIAL_REQUIRED_TEAM_COUNT:
+            if "source" in populated_df.columns:
+                from src.official.source_labels import is_official_source_label, is_sample_source_label
+
+                if populated_df["source"].fillna("").astype(str).map(is_official_source_label).any():
+                    return populated_df
+                if not populated_df["source"].fillna("").astype(str).map(is_sample_source_label).all():
+                    return populated_df
+            else:
+                return populated_df
+
+    if processed_path.is_file():
+        try:
+            return pd.read_csv(processed_path)
+        except Exception:
+            pass
+    return populated_df
+
+
 def get_official_team_list() -> list[str]:
-    """Return sorted official team names from the official teams table."""
-    teams_df = load_official_teams()
+    """Return sorted official team names, preferring populated 48-team data when available."""
+    teams_df = _load_teams_dataframe_for_list()
     if "team" not in teams_df.columns:
         return []
-    teams = sorted(
-        {
-            standardize_team_name(value)
-            for value in teams_df["team"].tolist()
-            if pd.notna(value)
-            and str(value).strip()
-            and str(value).strip().lower() not in {"nan", "none", ""}
-        }
-    )
-    return teams
+    return _filter_valid_team_names(teams_df["team"].tolist())
 
 
 

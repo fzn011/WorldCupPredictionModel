@@ -230,3 +230,50 @@ if "step17g_result" in st.session_state:
     ) if k in r})
     if r.get("ready_for_apply") is False:
         st.warning("Official final mode must remain blocked. Complete missing data first.")
+
+# Step 17H: Blocker cleanup
+st.header("Step 17H: Apply Blocker Cleanup")
+st.markdown("""
+Normalize FIFA stage labels, rebuild teams/groups from verified schedule, clean source labels, and separate true blockers from optional metadata warnings. **Does not promote official_final.**
+""")
+
+from src.official.blocker_cleanup import analyze_apply_blockers, apply_safe_blocker_cleanups, save_blocker_cleanup_report
+from src.official.loaders import get_official_team_list
+from src.official.population_completeness import calculate_population_completeness, create_population_completeness_report
+
+metrics, _ = calculate_population_completeness()
+c1, c2, c3, c4 = st.columns(4)
+c1.metric("Total fixtures", metrics.get("fixtures_count", 0))
+c2.metric("Group-stage fixtures", metrics.get("group_stage_fixtures_count", 0))
+c3.metric("Knockout fixtures", metrics.get("knockout_fixtures_count", 0))
+c4.metric("Official teams (loader)", len(get_official_team_list()))
+
+if st.button("Analyze apply blockers (17H)", use_container_width=True):
+    _summary, report_df = analyze_apply_blockers()
+    path = save_blocker_cleanup_report(report_df)
+    st.session_state["step17h_report"] = report_df
+    st.session_state["step17h_report_path"] = path
+    st.rerun()
+
+if st.button("Apply safe blocker cleanup (17H)", use_container_width=True):
+    with st.spinner("Running safe blocker cleanup..."):
+        st.session_state["step17h_result"] = apply_safe_blocker_cleanups()
+    st.rerun()
+
+if "step17h_report" in st.session_state:
+    st.subheader("Blocker cleanup report")
+    st.dataframe(st.session_state["step17h_report"], use_container_width=True)
+    st.caption(st.session_state.get("step17h_report_path", ""))
+
+if "step17h_result" in st.session_state:
+    r = st.session_state["step17h_result"]
+    st.subheader("Cleanup result")
+    st.json({k: r[k] for k in (
+        "stages_normalized", "teams_groups_rebuilt", "source_labels_updated",
+        "ready_for_apply", "final_ready", "official_final_enabled", "remaining_blockers",
+    ) if k in r})
+    after = r.get("metrics_after", {})
+    report_after = create_population_completeness_report(after)
+    blockers = report_after[report_after["blocking"] == True]  # noqa: E712
+    warnings = report_after[report_after["category"] == "optional_metadata_warnings"]
+    st.write(f"True blockers: {len(blockers)} | Optional metadata warnings: {warnings.iloc[0]['actual'] if not warnings.empty else 0}")

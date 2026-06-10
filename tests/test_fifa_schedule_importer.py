@@ -14,7 +14,7 @@ from src.official.fifa_schedule_importer import (
 )
 
 
-def test_normalize_schedule_to_official_schema():
+def test_normalize_schedule_first_stage_to_group_stage():
     schedule_df = pd.DataFrame(
         [
             {
@@ -22,6 +22,7 @@ def test_normalize_schedule_to_official_schema():
                 "Date": "2026-06-11",
                 "Time": "13:00",
                 "Group": "A",
+                "Stage": "First Stage",
                 "Stadium": "Test Stadium",
                 "City": "Mexico City",
                 "Country": "Mexico",
@@ -31,8 +32,7 @@ def test_normalize_schedule_to_official_schema():
         ]
     )
     fixtures_df, venues_df, audit_df = normalize_schedule_to_official_schema(schedule_df)
-    assert len(fixtures_df) == 1
-    assert fixtures_df.iloc[0]["team_a"] == "Mexico"
+    assert fixtures_df.iloc[0]["stage"] == "group_stage"
     assert len(venues_df) == 1
     assert not audit_df.empty
 

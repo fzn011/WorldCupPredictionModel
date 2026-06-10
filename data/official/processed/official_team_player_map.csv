@@ -1,66 +1,1249 @@
 team,team_code,player_id,player_name,position_code,position,shirt_number,source,last_verified_at
-France,FRA,6f2cc3d4a30a7794,Kylian Mbappe,FW,forward,0,sample_to_be_verified,2026-06-05
-France,FRA,a2fc821c835da5c1,Antoine Griezmann,FW,forward,0,sample_to_be_verified,2026-06-05
-France,FRA,d961274081d42414,Eduardo Camavinga,MF,midfielder,0,sample_to_be_verified,2026-06-05
-France,FRA,974752ccaff8a51c,William Saliba,DF,defender,0,sample_to_be_verified,2026-06-05
-France,FRA,9c5f7dd5cb45f658,Mike Maignan,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-England,ENG,4d1a4229a231068b,Jude Bellingham,MF,midfielder,0,sample_to_be_verified,2026-06-05
-England,ENG,5dde0657a44938b0,Harry Kane,FW,forward,0,sample_to_be_verified,2026-06-05
-England,ENG,3d071013b48dbd3e,Bukayo Saka,FW,forward,0,sample_to_be_verified,2026-06-05
-England,ENG,e15e996bf29aa13b,Phil Foden,MF,midfielder,0,sample_to_be_verified,2026-06-05
-England,ENG,2d57517c6c18408e,Declan Rice,MF,midfielder,0,sample_to_be_verified,2026-06-05
-England,ENG,73691c83eadf428a,Jordan Pickford,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Brazil,BRA,78592d8a60c10647,Vinicius Junior,FW,forward,0,sample_to_be_verified,2026-06-05
-Brazil,BRA,16ee96f89581d626,Rodrygo,FW,forward,0,sample_to_be_verified,2026-06-05
-Brazil,BRA,262a102f05bed01b,Bruno Guimaraes,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Brazil,BRA,8008a6440674aff7,Marquinhos,DF,defender,0,sample_to_be_verified,2026-06-05
-Brazil,BRA,e53eeaa72fdfdbdf,Alisson Becker,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Argentina,ARG,539646da4daafda8,Lionel Messi,FW,forward,0,sample_to_be_verified,2026-06-05
-Argentina,ARG,9f97f558d05dbc67,Lautaro Martinez,FW,forward,0,sample_to_be_verified,2026-06-05
-Argentina,ARG,6a3a8f3ff534ea1b,Julian Alvarez,FW,forward,0,sample_to_be_verified,2026-06-05
-Argentina,ARG,b72153acbf06dd5d,Alexis Mac Allister,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Argentina,ARG,d8f5b189ba2508c4,Cristian Romero,DF,defender,0,sample_to_be_verified,2026-06-05
-Argentina,ARG,ff277ec55399803a,Emiliano Martinez,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Spain,SPA,878c5aecbc6312e1,Lamine Yamal,FW,forward,0,sample_to_be_verified,2026-06-05
-Spain,SPA,5ab335163ec0eaf2,Nico Williams,FW,forward,0,sample_to_be_verified,2026-06-05
-Spain,SPA,f47793789a16b308,Rodri,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Spain,SPA,b65289068084d164,Pedri,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Spain,SPA,697a578f926aa62c,Unai Simon,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Belgium,BEL,9deecda6c9612096,Kevin De Bruyne,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Belgium,BEL,250e8e30d229771c,Jeremy Doku,FW,forward,0,sample_to_be_verified,2026-06-05
-Belgium,BEL,3f6ffe24df26a01d,Romelu Lukaku,FW,forward,0,sample_to_be_verified,2026-06-05
-Belgium,BEL,45ad1e3a01dc16e4,Amadou Onana,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Belgium,BEL,4c8290131864110a,Thibaut Courtois,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Germany,GER,69491cc1907888af,Florian Wirtz,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Germany,GER,1f723eb1a7e108a0,Jamal Musiala,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Germany,GER,dd50e12fd2137e35,Kai Havertz,FW,forward,0,sample_to_be_verified,2026-06-05
-Germany,GER,e1cd102ccdfcaadb,Antonio Rudiger,DF,defender,0,sample_to_be_verified,2026-06-05
-Germany,GER,1691feda2d24ab4f,Manuel Neuer,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Portugal,POR,2d737a2cee668215,Rafael Leao,FW,forward,0,sample_to_be_verified,2026-06-05
-Portugal,POR,e3461dc632677e24,Bruno Fernandes,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Portugal,POR,fa3a0da0dcc096a7,Bernardo Silva,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Portugal,POR,4b1bdd7e409955ac,Cristiano Ronaldo,FW,forward,0,sample_to_be_verified,2026-06-05
-Portugal,POR,805ee50c93d2ba53,Ruben Dias,DF,defender,0,sample_to_be_verified,2026-06-05
-Portugal,POR,3ddcb93987c22436,Diogo Costa,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Uruguay,URU,3202a311c11d3a24,Federico Valverde,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Uruguay,URU,25e490e0624b56e7,Darwin Nunez,FW,forward,0,sample_to_be_verified,2026-06-05
-Uruguay,URU,011cc2ebd1fe604f,Ronald Araujo,DF,defender,0,sample_to_be_verified,2026-06-05
-Uruguay,URU,575d5664f1c9e6a3,Sergio Rochet,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Morocco,MOR,d81923da2451b9c6,Achraf Hakimi,DF,defender,0,sample_to_be_verified,2026-06-05
-Morocco,MOR,7f7f522c1a8b3c9f,Sofyan Amrabat,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Morocco,MOR,a9da972fb8153b27,Yassine Bounou,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
-Netherlands,NET,cc2d8bdfb27fecaa,Virgil van Dijk,DF,defender,0,sample_to_be_verified,2026-06-05
-Netherlands,NET,6a912368a3ecbcbc,Memphis Depay,FW,forward,0,sample_to_be_verified,2026-06-05
-United States,UNI,cd4283324a77815a,Christian Pulisic,FW,forward,0,sample_to_be_verified,2026-06-05
-United States,UNI,c458f579d8abdff4,Weston McKennie,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Canada,CAN,13259ef858170e50,Alphonso Davies,DF,defender,0,sample_to_be_verified,2026-06-05
-Canada,CAN,c3dc29a6c26e38cf,Jonathan David,FW,forward,0,sample_to_be_verified,2026-06-05
-Mexico,MEX,8bed1ed007c6d53e,Hirving Lozano,FW,forward,0,sample_to_be_verified,2026-06-05
-Mexico,MEX,0e17072039106cfb,Santiago Gimenez,FW,forward,0,sample_to_be_verified,2026-06-05
-Japan,JAP,f01b4277a88e9fdd,Takefusa Kubo,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Japan,JAP,6a2f3fdd93ecd284,Wataru Endo,MF,midfielder,0,sample_to_be_verified,2026-06-05
-South Korea,SOU,d59acfa6faa8d67a,Heung-Min Son,FW,forward,0,sample_to_be_verified,2026-06-05
-South Korea,SOU,55b026ae802651bc,Lee Kang-in,MF,midfielder,0,sample_to_be_verified,2026-06-05
-South Korea,SOU,d91e112f459fa434,Kim Min-jae,DF,defender,0,sample_to_be_verified,2026-06-05
-Croatia,CRO,5a6c21473cc6bf03,Luka Modric,MF,midfielder,0,sample_to_be_verified,2026-06-05
-Croatia,CRO,bd698f60043c8a96,Dominik Livakovic,GK,goalkeeper,0,sample_to_be_verified,2026-06-05
+Algeria,ALG,p_00001,MASTIL Melvin,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00002,MANDI Aissa,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00003,ABADA Achref,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00004,TOUGAI Mohamed Amine,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00005,BELAID Zineddine,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00006,ZERROUKI Ramiz,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00007,MAHREZ Riyad,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00008,AOUAR Houssem,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00009,GOUIRI Amine,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00010,CHAIBI Fares,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00011,HADJ MOUSSA Anis,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00012,BENBOUALI Nadhir,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00013,HADJAM Jaouen,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00014,BOUDAOUI Hicham,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00015,AIT-NOURI Rayan,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00016,BENBOT Oussama,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00017,BELGHALI Ra,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00018,AMOURA Mohamed,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00019,BENTALEB Nabil,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00020,BOULBINA Adil,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00021,BENSEBAINI Ramy,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00022,MAZA Ibrahim,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00023,ZIDANE Luca,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00024,TITRAOUI Yassine,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00025,GHEDJEMIS Fares,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Algeria,ALG,p_00026,CHERGUI Samir,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00027,MUSSO Juan,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00028,BALERDI Leonardo,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00029,TAGLIAFICO Nicolas,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00030,MONTIEL Gonzalo,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00031,PAREDES Leandro,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00032,MARTINEZ Lisandro,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00033,DE PAUL Rodrigo,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00034,BARCO Valentin,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00035,ALVAREZ Julian,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00036,MESSI Lionel,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00037,LO CELSO Giovani,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00038,RULLI Geronimo,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00039,ROMERO Cristian,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00040,PALACIOS Exequiel,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00041,GONZALEZ Nico,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00042,ALMADA Thiago,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00043,SIMEONE Giuliano,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00044,PAZ Nico,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00045,OTAMENDI Nicolas,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00046,MAC ALLISTER Alexis,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00047,LOPEZ Jose Manuel,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00048,MARTINEZ Lautaro,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00049,MARTINEZ Emiliano,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00050,FERNANDEZ Enzo,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00051,MEDINA Facundo,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Argentina,ARG,p_00052,MOLINA Nahuel,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00053,RYAN Mathew,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00054,DEGENEK Milos,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00055,CIRCATI Alessandro,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00056,ITALIANO Jacob,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00057,BOS Jordan,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00058,GERIA Jason,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00059,LECKIE Mathew,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00060,METCALFE Connor,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00061,TOURE Mohamed,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00062,HRUSTIC Ajdin,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00063,MABIL Awer,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00064,IZZO Paul,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00065,ONEILL Aiden,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00066,DEVLIN Cameron,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00067,TREWIN Kai,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00068,BEHICH Aziz,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00069,IRANKUNDA Nestory,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00070,BEACH Patrick,GK,GK,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00071,SOUTTAR Harry,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00072,VOLPATO Cristian,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00073,BURGESS Cameron,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00074,IRVINE Jackson,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00075,VELUPILLAY Nishan,FW,FW,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00076,OKON-ENGSTLER Paul,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00077,HERRINGTON Lucas,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Australia,AUS,p_00078,YENGI Tete,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00079,SCHLAGER Alexander,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00080,AFFENGRUBER David,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00081,DANSO Kevin,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00082,SCHLAGER Xaver,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00083,POSCH Stefan,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00084,SEIWALD Nicolas,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00085,ARNAUTOVIC Marko,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00086,ALABA David,DF,DF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00087,SABITZER Marcel,MF,MF,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00088,GRILLITSCH Florian,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00089,GREGORITSCH Michael,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00090,WIEGELE Florian,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00091,PENTZ Patrick,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00092,KALAJDZIC Sasa,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00093,LIENHART Philipp,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00094,MWENE Phillip,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00095,CHUKWUEMEKA Carney,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00096,SCHMID Romano,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00097,BAUMGARTNER Christoph,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00098,LAIMER Konrad,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00099,WIMMER Patrick,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00100,PRASS Alexander,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00101,FRIEDL Marco,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00102,WANNER Paul,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00103,SVOBODA Michael,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Austria,AUT,p_00104,SCHOEPF Alessandro,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00105,COURTOIS Thibaut,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00106,DEBAST Zeno,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00107,THEATE Arthur,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00108,MECHELE Brandon,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00109,DE CUYPER Maxim,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00110,WITSEL Axel,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00111,DE BRUYNE Kevin,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00112,TIELEMANS Youri,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00113,LUKAKU Romelu,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00114,TROSSARD Leandro,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00115,DOKU Jeremy,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00116,LAMMENS Senne,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00117,PENDERS Mike,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00118,LUKEBAKIO Dodi,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00119,MEUNIER Thomas,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00120,DE WINTER Koni,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00121,DE KETELAERE Charles,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00122,SEYS Joaquin,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00123,MOREIRA Diego,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00124,VANAKEN Hans,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00125,CASTAGNE Timothy,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00126,SAELEMAEKERS Alexis,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00127,RASKIN Nicolas,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00128,ONANA Amadou,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00129,NGOY Nathan,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Belgium,BEL,p_00130,FERNANDEZ-PARDO Matias,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00131,VASILJ Nikola,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00132,MUJAKIC Nihad,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00133,HADZIKADUNIC Dennis,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00134,MUHAREMOVIC Tarik,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00135,KOLASINAC Sead,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00136,TAHIROVIC Benjamin,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00137,DEDIC Amar,DF,DF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00138,GIGOVIC Armin,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00139,BAZDAR Samed,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00140,DEMIROVIC Ermedin,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00141,DZEKO Edin,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00142,JURKAS Mladen,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00143,BASIC Ivan,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00144,SUNJIC Ivan,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00145,MEMIC Amar,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00146,HADZIAHMETOVIC Amir,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00147,BURNIC Dzenis,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00148,KATIC Nikola,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00149,ALAJBEGOVIC Kerim,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00150,BAJRAKTAREVIC Esmir,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00151,RADELJIC Stjepan,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00152,ZLOMISLIC Martin,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00153,TABAKOVIC Haris,FW,FW,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00154,CELIK Nidal,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00155,LUKIC Jovo,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Bosnia And Herzegovina,BIH,p_00156,MAHMIC Ermin,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00157,ALISSON,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00158,EDERSON SILVA,MF,MF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00159,GABRIEL MAGALHAES,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00160,MARQUINHOS,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00161,CASEMIRO,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00162,ALEX SANDRO,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00163,VINICIUS JUNIOR,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00164,BRUNO GUIMARAES,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00165,MATHEUS CUNHA,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00166,NEYMAR JR,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00167,RAPHINHA,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00168,WEVERTON,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00169,DANILO,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00170,BREMER,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00171,LEO PEREIRA,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00172,DOUGLAS SANTOS,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00173,FABINHO,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00174,DANILO SANTOS,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00175,ENDRICK,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00176,LUCAS PAQUETA,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00177,LUIZ HENRIQUE,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00178,GABRIEL MARTINELLI,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00179,EDERSON,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00180,ROGER IBANEZ,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00181,IGOR THIAGO,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Brazil,BRA,p_00182,RAYAN,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00183,VOZINHA,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00184,STOPIRA,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00185,DINEY BORGES,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00186,PICO LOPES,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00187,LOGAN COSTA,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00188,KEVIN PINA,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00189,JOVANE CABRAL,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00190,JOAO PAULO,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00191,GILSON BENCHIMOL,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00192,JAMIRO MONTEIRO,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00193,GARRY RODRIGUES,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00194,MARCIO ROSA,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00195,SIDNY LOPES CABRAL,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00196,DEROY DUARTE,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00197,LAROS DUARTE,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00198,YANNICK SEMEDO,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00199,WILLY SEMEDO,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00200,TELMO ARCANJO,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00201,DAILON LIVRAMENTO,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00202,RYAN MENDES,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00203,NUNO DA COSTA,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00204,STEVEN MOREIRA,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00205,CJ DOS SANTOS,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00206,WAGNER PINA,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00207,KELVIN PIRES,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Cabo Verde,CPV,p_00208,HELIO VARELA,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00209,ST. CLAIR Dayne,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00210,JOHNSTON Alistair,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00211,JONES Al,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00212,DE FOUGEROLLES Luc,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00213,WATERMAN Joel,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00214,CHOINIERE Mathieu,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00215,EUSTAQUIO Stephen,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00216,KONE Ismael,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00217,LARIN Cyle,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00218,DAVID Jonathan,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00219,MILLAR Liam,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00220,OLUWASEYI Tani,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00221,CORNELIUS Derek,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00222,SHAFFELBURG Jacob,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00223,BOMBITO Moise,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00224,CREPEAU Maxime,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00225,BUCHANAN Tajon,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00226,GOODMAN Owen,GK,GK,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00227,DAVIES Alphonso,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00228,AHMED Ali,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00229,OSORIO Jonathan,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00230,LARYEA Richie,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00231,SIGUR Niko,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00232,DAVID Promise,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00233,SALIBA Nathan,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Canada,CAN,p_00234,FLORES Marcelo,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00235,OSPINA David,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00236,MUNOZ Daniel,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00237,LUCUMI Jhon,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00238,ARIAS Santiago,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00239,CASTANO Kevin,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00240,RIOS Richard,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00241,DIAZ Luis,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00242,CARRASCAL Jorge,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00243,CORDOBA Jhon,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00244,RODRIGUEZ James,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00245,ARIAS Jhon,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00246,VARGAS Camilo,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00247,MINA Yerry,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00248,PUERTA Gustavo,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00249,PORTILLA Juan,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00250,LERMA Jefferson,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00251,MOJICA Johan,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00252,DITTA Willer,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00253,HERNANDEZ Cucho,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00254,QUINTERO Juan,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00255,CAMPAZ Jaminton,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00256,MACHADO Deiver,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00257,SANCHEZ Davinson,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00258,MONTERO Alvaro,GK,GK,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00259,SUAREZ Luis,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Colombia,COL,p_00260,GOMEZ Andres,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00261,MPASI Lionel,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00262,WAN-BISSAKA Aaron,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00263,KAPUADI Steve,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00264,TUANZEBE Axel,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00265,BATUBINSIKA Dylan,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00266,MUKAU Ngalayel,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00267,MBUKU Nathanael,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00268,MOUTOUSSAMY Samuel,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00269,CIPENGA Brian,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00270,BONGONDA Theo,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00271,KAKUTA Gael,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00272,KAYEMBE Joris,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00273,ELIA Meschack,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00274,SADIKI Noah,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00275,TSHIBOLA Aaron,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00276,FAYULU Timothy,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00277,BAKAMBU Cedric,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00278,PICKEL Charles,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00279,MAYELE Fiston,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00280,WISSA Yoane,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00281,EPOLO Matthieu,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00282,MBEMBA Chancel,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00283,BANZA Simon,FW,FW,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00284,KALULU Gedeon,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00285,KAYEMBE Edo,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Congo DR,COD,p_00286,MASUAKU Arthur,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00287,FOFANA Yahia,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00288,DIOMANDE Ousmane,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00289,KONAN Ghislain,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00290,SERI Jean Michael,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00291,SINGO Wilfried,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00292,FOFANA Seko,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00293,KOSSOUNOU Odilon,DF,DF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00294,KESSIE Franck,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00295,BONNY Ange-Yoan,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00296,ADINGRA Simon,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00297,DIOMANDE Yan,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00298,WAHI Elye,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00299,OPERI Christopher,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00300,DIAKITE Oumar,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00301,DIALLO Amad,FW,FW,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00302,KONE Mohamed,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00303,DOUE Guela,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00304,SANGARE Ibrahim,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00305,PEPE Nicolas,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00306,AGBADOU Emmanuel,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00307,NDICKA Evan,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00308,GUESSAND Evann,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00309,LAFONT Alban,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00310,TOURE Bazoumana,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00311,GUIAGON Parfait,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Côte D'Ivoire,CIV,p_00312,OULAI Christ Inao,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00313,LIVAKOVIC Dominik,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00314,STANISIC Josip,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00315,PONGRACIC Marin,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00316,GVARDIOL Josko,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00317,CALETA-CAR Duje,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00318,SUTALO Josip,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00319,MORO Nikola,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00320,KOVACIC Mateo,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00321,KRAMARIC Andrej,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00322,MODRIC Luka,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00323,BUDIMIR Ante,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00324,PANDUR Ivor,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00325,VLASIC Nikola,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00326,PERISIC Ivan,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00327,PASALIC Mario,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00328,BATURINA Martin,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00329,SUCIC Petar,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00330,JAKIC Kristijan,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00331,FRUK Toni,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00332,MATANOVIC Igor,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00333,SUCIC Luka,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00334,VUSKOVIC Luka,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00335,KOTARSKI Dominik,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00336,PASALIC Marco,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00337,ERLIC Martin,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Croatia,CRO,p_00338,MUSA Petar,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00339,ROOM Eloy,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00340,SAMBO Shurandy,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00341,GAARI Jurien,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00342,VAN EIJMA Roshon,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00343,FLORANUS Sherel,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00344,ROEMERATOE Godfried,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00345,BACUNA Juninho,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00346,COMENENCIA Livano,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00347,LOCADIA Juergen,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00348,BACUNA Leandro,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00349,ANTONISSE Jeremy,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00350,HANSEN Sontje,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00351,NOSLIN Tyrese,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00352,GORRE Kenji,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00353,MARTHA Arjany,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00354,MARGARITHA Jearl,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00355,KUWAS Brandley,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00356,OBISPO Armando,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00357,KASTANEER Gervane,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00358,BRENET Joshua,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00359,CHONG Tahith,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00360,FELIDA Kevin,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00361,BAZOER Riechedly,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00362,FONVILLE Deveron,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00363,BODAK Tyrick,GK,GK,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Curaçao,CUW,p_00364,DOORNBUSCH Trevor,GK,GK,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00365,KOVAR Matej,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00366,ZIMA David,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00367,HOLES Tomas,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00368,HRANAC Robin,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00369,COUFAL Vladimir,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00370,CHALOUPEK Stepan,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00371,KREJCI Ladislav,DF,DF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00372,DARIDA Vladimir,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00373,HLOZEK Adam,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00374,SCHICK Patrik,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00375,KUCHTA Jan,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00376,CERV Lukas,MF,MF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00377,CHYTIL Mojmir,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00378,JURASEK David,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00379,SULC Pavel,FW,FW,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00380,STANEK Jindrich,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00381,PROVOD Lukas,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00382,SADILEK Michal,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00383,CHORY Tomas,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00384,ZELENY Jaroslav,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00385,DOUDERA David,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00386,SOUCEK Tomas,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00387,HORNICEK Lukas,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00388,SOJKA Alexandr,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00389,SOCHUREK Hugo,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Czechia,CZE,p_00390,VISINSKY Denis,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00391,GALINDEZ Hernan,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00392,TORRES Felix,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00393,HINCAPIE Piero,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00394,ORDONEZ Joel,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00395,ALCIVAR Jordy,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00396,PACHO Willian,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00397,ESTUPINAN Pervis,DF,DF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00398,VALENCIA Anthony,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00399,YEBOAH John,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00400,PAEZ Kendry,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00401,RODRIGUEZ Kevin,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00402,RAMIREZ Moises,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00403,VALENCIA Enner,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00404,MINDA Alan,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00405,VITE Pedro,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00406,CAICEDO Jordy,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00407,PRECIADO Angelo,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00408,CASTILLO Denil,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00409,PLATA Gonzalo,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00410,ANGULO Nilson,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00411,FRANCO Alan,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00412,VALLE Gonzalo,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00413,CAICEDO Moises,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00414,AREVALO Jeremy,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00415,POROZO Jackson,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ecuador,ECU,p_00416,MEDINA Yaimar,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00417,MOHAMED ELSHENAWY,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00418,YASSER IBRAHIM,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00419,MOHAMED HANY,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00420,HOSSAM ABDELMAGUID,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00421,RAMY RABIA,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00422,MOHAMED ABDELMONEIM,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00423,TREZEGUET,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00424,EMAM ASHOUR,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00425,HAMZA ABDELKARIM,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00426,MOHAMED SALAH,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00427,MOSTAFA ZICO,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00428,HAISSEM HASSAN,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00429,AHMED FATOUH,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00430,HAMDY FATHY,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00431,KARIM HAFEZ,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00432,MAHDY SOLIMAN,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00433,MOHANAD LASHIN,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00434,NABIL DONGA,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00435,MARAWAN ATTIA,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00436,IBRAHIM ADEL,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00437,MAHMOUD SABER,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00438,OMAR MARMOUSH,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00439,MOSTAFA SHOUBIR,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00440,TAREK ALAA,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00441,ZIZO,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Egypt,EGY,p_00442,MOHAMED ALAA,GK,GK,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00443,PICKFORD Jordan,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00444,KONSA Ezri,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00445,OREILLY Nico,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00446,RICE Declan,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00447,STONES John,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00448,GUEHI Marc,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00449,SAKA Bukayo,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00450,ANDERSON Elliot,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00451,KANE Harry,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00452,BELLINGHAM Jude,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00453,RASHFORD Marcus,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00454,LIVRAMENTO Tino,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00455,HENDERSON Dean,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00456,HENDERSON Jordan,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00457,BURN Dan,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00458,MAINOO Kobbie,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00459,ROGERS Morgan,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00460,GORDON Anthony,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00461,WATKINS Ollie,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00462,MADUEKE Noni,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00463,EZE Eberechi,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00464,TONEY Ivan,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00465,TRAFFORD James,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00466,JAMES Reece,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00467,SPENCE Djed,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+England,ENG,p_00468,QUANSAH Jarell,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00469,SAMBA Brice,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00470,GUSTO Malo,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00471,DIGNE Lucas,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00472,UPAMECANO Dayot,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00473,KOUNDE Jules,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00474,KONE Manu,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00475,DEMBELE Ousmane,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00476,TCHOUAMENI Aurelien,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00477,THURAM Marcus,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00478,MBAPPE Kylian,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00479,OLISE Michael,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00480,BARCOLA Bradley,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00481,KANTE Ngolo,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00482,RABIOT Adrien,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00483,KONATE Ibrahima,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00484,MAIGNAN Mike,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00485,SALIBA William,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00486,ZAIRE-EMERY Warren,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00487,HERNANDEZ Theo,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00488,DOUE Desire,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00489,HERNANDEZ Lucas,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00490,MATETA Jean-Philippe,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00491,RISSER Robin,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00492,CHERKI Rayan,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00493,AKLIOUCHE Maghnes,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+France,FRA,p_00494,LACROIX Maxence,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00495,NEUER Manuel,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00496,RUEDIGER Antonio,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00497,ANTON Waldemar,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00498,TAH Jonathan,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00499,PAVLOVIC Aleksandar,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00500,KIMMICH Joshua,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00501,HAVERTZ Kai,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00502,GORETZKA Leon,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00503,LEWELING Jamie,MF,MF,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00504,MUSIALA Jamal,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00505,WOLTEMADE Nick,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00506,BAUMANN Oliver,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00507,GROSS Pascal,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00508,BEIER Maximilian,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00509,SCHLOTTERBECK Nico,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00510,STILLER Angelo,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00511,WIRTZ Florian,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00512,BROWN Nathaniel,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00513,SANE Leroy,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00514,AMIRI Nadiem,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00515,NUEBEL Alexander,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00516,RAUM David,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00517,NMECHA Felix,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00518,THIAW Malick,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00519,OUEDRAOGO Assan,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Germany,GER,p_00520,UNDAV Deniz,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00521,ZIGI Lawrence Ati,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00522,SEIDU Alidu,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00523,YIRENKYI Caleb,MF,MF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00524,ADJETEY Jonas,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00525,PARTEY Thomas,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00526,MUMIN Abdul,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00527,FATAWU Abdul,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00528,SIBO Kwasi,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00529,AYEW Jordan,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00530,THOMAS-ASANTE Brandon,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00531,SEMENYO Antoine,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00532,ANANG Joseph,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00533,BAAH Christopher Bonsu,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00534,MENSAH Gideon,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00535,OWUSU Elisha,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00536,ASARE Benjamin,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00537,RAHMAN Baba,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00538,OPOKU Jerome,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00539,WILLIAMS Inaki,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00540,BOAKYE Augustine,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00541,OPPONG Kojo Peprah,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00542,SULEMANA Kamaldeen,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00543,LUCKASSEN Derrick,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00544,NUAMAH Ernest,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00545,ADU Prince,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Ghana,GHA,p_00546,SENAYA Marvin,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00547,PLACIDE Johny,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00548,ARCUS Carlens,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00549,THERMONCY Keeto,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00550,ADE Ricardo,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00551,DELCROIX Hannes,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00552,SAINTE Carl,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00553,ETIENNE Derrick,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00554,EXPERIENCE Martin,DF,DF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00555,NAZON Duckens,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00556,BELLEGARDE Jean-Ricner,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00557,DEEDSON Louicius,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00558,PIERRE Alexandre,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00559,LACROIX Markhus,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00560,PIERRE Leverton,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00561,PROVIDENCE Ruben,FW,FW,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00562,JOSEPH Lenny,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00563,JEAN JACQUES Danley,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00564,ISIDOR Wilson,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00565,FORTUNE Yassin,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00566,PIERROT Frantzdy,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00567,CASIMIR Josue,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00568,DUVERNE Jean-Kevin,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00569,DUVERGER Josue,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00570,PAUGAIN Wilguens,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00571,SIMON Dominique,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Haiti,HAI,p_00572,PIERRE Woodensky,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00573,BEIRANVAND Alireza,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00574,HARDANI Saleh,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00575,HAJISAFI Ehsan,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00576,KHALILZADEH Shoja,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00577,MOHAMMADI Milad,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00578,EZATOLAHI Saeid,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00579,JAHANBAKHSH Alireza,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00580,MOHEBBI Mohammad,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00581,TAREMI Mehdi,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00582,GHAYEDI Mehdi,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00583,ALIPOUR Ali,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00584,NIAZMAND Payam,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00585,KANANI Hossein,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00586,GHODDOS Saman,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00587,CHESHMI Roozbeh,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00588,TORABI Mehdi,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00589,YOUSEFI Arya,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00590,HOSSEINZADEH Amirhossein,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00591,NEMATI Ali,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00592,MOGHANLOO Shahriyar,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00593,GHORBANI Mohammad,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00594,HOSSEINI Hossein,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00595,REZAEIAN Ramin,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00596,DARGAHI Dennis,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00597,IRI Danial,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iran,IRN,p_00598,RAZAGHINIA Amirmohammad,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00599,FAHAD TALIB,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00600,REBIN SULAKA,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00601,HUSSEIN ALI,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00602,ZAID TAHSEEN,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00603,AKAM HASHIM,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00604,MUNAF YOUNUS,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00605,YOUSSEF AMYN,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00606,IBRAHIM BAYESH,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00607,ALI ALHAMADI,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00608,MOHANAD ALI,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00609,AHMED QASIM,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00610,JALAL HASSAN,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00611,ALI YOUSIF,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00612,ZIDANE IQBAL,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00613,AHMED MAKNAZI,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00614,AMIR ALAMMARI,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00615,ALI JASIM,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00616,AYMEN HUSSEIN,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00617,KEVIN YAKOB,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00618,AIMAR SHER,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00619,MARKO FARJI,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00620,AHMED BASIL,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00621,MERCHAS DOSKI,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00622,ZAID ISMAEL,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00623,MUSTAFA SAADOON,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Iraq,IRQ,p_00624,FRANS PUTROS,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00625,SUZUKI Zion,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00626,SUGAWARA Yukinari,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00627,TANIGUCHI Shogo,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00628,ITAKURA Kou,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00629,NAGATOMO Yuto,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00630,ENDO Wataru,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00631,TANAKA Ao,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00632,KUBO Takefusa,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00633,GOTO Keisuke,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00634,DOAN Ritsu,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00635,MAEDA Daizen,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00636,OSAKO Keisuke,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00637,NAKAMURA Keito,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00638,ITO Junya,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00639,KAMADA Daichi,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00640,WATANABE Tsuyoshi,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00641,SUZUKI Yuito,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00642,UEDA Ayase,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00643,OGAWA Koki,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00644,SEKO Ayumu,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00645,ITO Hiroki,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00646,TOMIYASU Takehiro,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00647,HAYAKAWA Tomoki,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00648,SANO Kaishu,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00649,SUZUKI Junnosuke,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Japan,JPN,p_00650,SHIOGAI Kento,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00651,YAZEED ABULAILA,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00652,MOHAMMAD ABUHASHEESH,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00653,ABDALLAH NASIB,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00654,HUSAM ABUDAHAB,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00655,YAZAN ALARAB,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00656,AMER JAMOUS,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00657,MOHAMMAD ABUZRAIQ,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00658,NOOR ALRAWABDEH,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00659,ALI OLWAN,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00660,MOUSA ALTAMARI,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00661,ODEH FAKHOURY,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00662,NOUR BANIATEYAH,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00663,MAHMOUD ALMARDI,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00664,RAJAEI AYED,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00665,IBRAHIM SADEH,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00666,MOHAMMAD ABUALNADI,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00667,SALEEM OBAID,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00668,MOHAMMAD ABUGHOUSH,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00669,SAED ALROSAN,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00670,MOHANNAD ABUTAHA,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00671,NIZAR ALRASHDAN,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00672,ABDALLAH ALFAKHORI,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00673,EHSAN HADDAD,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00674,ALI AZAIZEH,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00675,MOHAMMAD ALDAOUD,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Jordan,JOR,p_00676,ANAS BADAWI,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00677,KIM Seunggyu,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00678,LEE Hanbeom,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00679,LEE Gihyuk,MF,MF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00680,KIM Minjae,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00681,KIM Taehyeon,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00682,HWANG Inbeom,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00683,SON Heungmin,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00684,PAIK Seungho,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00685,CHO Guesung,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00686,LEE Jaesung,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00687,HWANG Heechan,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00688,SONG Bumkeun,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00689,LEE Taeseok,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00690,CHO Wije,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00691,KIM Moonhwan,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00692,PARK Jinseob,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00693,BAE Junho,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00694,OH Hyeongyu,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00695,LEE Kangin,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00696,YANG Hyunjun,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00697,JO Hyeonwoo,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00698,SEOL Youngwoo,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00699,CASTROP Jens,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00700,KIM Jingyu,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00701,EOM Jisung,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Korea,KOR,p_00702,LEE Donggyeong,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00703,RANGEL Raul,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00704,SANCHEZ Jorge,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00705,MONTES Cesar,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00706,ALVAREZ Edson,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00707,VASQUEZ Johan,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00708,LIRA Erik,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00709,ROMO Luis,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00710,FIDALGO Alvaro,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00711,JIMENEZ Raul,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00712,VEGA Alexis,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00713,GIMENEZ Santiago,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00714,ACEVEDO Carlos,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00715,OCHOA Guillermo,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00716,GONZALEZ Armando,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00717,REYES Israel,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00718,QUINONES Julian,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00719,PINEDA Orbelin,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00720,VARGAS Obed,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00721,MORA Gilberto,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00722,CHAVEZ Mateo,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00723,HUERTA Cesar,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00724,MARTINEZ Guillermo,FW,FW,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00725,GALLARDO Jesus,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00726,CHAVEZ Luis,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00727,ALVARADO Roberto,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Mexico,MEX,p_00728,GUTIERREZ Brian,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00729,BOUNOU Yassine,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00730,HAKIMI Achraf,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00731,MAZRAOUI Noussair,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00732,AMRABAT Sofyan,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00733,AGUERD Nayef,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00734,BOUADDI Ayyoub,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00735,TALBI Chemsdine,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00736,OUNAHI Azzedine,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00737,RAHIMI Sou,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00738,DIAZ Brahim,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00739,SAIBARI Ismael,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00740,EL KAJOUI Munir,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00741,EL OUAHDI Zakaria,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00742,DIOP Issa,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00743,EL MOURABET Samir,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00744,YASSINE Gessime,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00745,EZZALZOULI Abde,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00746,RIAD Chadi,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00747,BELAMMARI Youssef,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00748,EL KAABI Ayoub,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00749,AMAIMOUNI Ayoube,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00750,TAGNAOUTI Ahmed Reda,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00751,EL KHANNOUSS Bilal,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00752,EL AYNAOUI Neil,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00753,HALHAL Redouane,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Morocco,MAR,p_00754,SALAH EDDINE Anass,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00755,VERBRUGGEN Bart,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00756,GEERTRUIDA Lutsharel,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00757,DE ROON Marten,MF,MF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00758,VAN DIJK Virgil,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00759,AKE Nathan,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00760,VAN HECKE Jan Paul,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00761,KLUIVERT Justin,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00762,GRAVENBERCH Ryan,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00763,WEGHORST Wout,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00764,DEPAY Memphis,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00765,GAKPO Cody,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00766,WIEFFER Mats,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00767,ROEFS Robin,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00768,REIJNDERS Tijjani,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00769,VAN DE VEN Micky,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00770,TIL Guus,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00771,LANG Noa,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00772,MALEN Donyell,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00773,BROBBEY Brian,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00774,KOOPMEINERS Teun,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00775,DE JONG Frenkie,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00776,DUMFRIES Denzel,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00777,FLEKKEN Mark,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00778,SUMMERVILLE Crysencio,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00779,HATO Jorrel,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Netherlands,NED,p_00780,TIMBER Quinten,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00781,CROCOMBE Max,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00782,PAYNE Tim,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00783,DE VRIES Francis,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00784,BINDON Tyler,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00785,BOXALL Michael,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00786,BELL Joe,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00787,GARBETT Matthew,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00788,STAMENIC Marko,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00789,WOOD Chris,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00790,SINGH Sarpreet,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00791,JUST Elijah,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00792,PAULSEN Alex,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00793,CACACE Liberato,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00794,RUFER Alex,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00795,PIJNAKER Nando,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00796,SURMAN Finn,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00797,BARBAROUSES Kosta,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00798,WAINE Ben,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00799,OLD Ben,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00800,McCOWATT Callum,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00801,RANDALL Jesse,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00802,WOUD Michael,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00803,THOMAS Ryan,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00804,ELLIOT Callan,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00805,BAYLISS Lachlan,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+New Zealand,NZL,p_00806,SMITH Tommy,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00807,NYLAND Orjan,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00808,THORSBY Morten,MF,MF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00809,AJER Kristoffer,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00810,OSTIGARD Leo,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00811,MOLLER WOLFE David,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00812,BERG Patrick,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00813,SORLOTH Alexander,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00814,BERGE Sander,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00815,HAALAND Erling,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00816,ODEGAARD Martin,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00817,STRAND LARSEN Jorgen,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00818,TANGVIK Sander,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00819,SELVIK Egil,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00820,AURSNES Fredrik,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00821,BJORKAN Fredrik Andre,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00822,HOLMGREN PEDERSEN Marcus,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00823,HEGGEM Torbjorn,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00824,THORSTVEDT Kristian,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00825,AASGAARD Thelo,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00826,NUSA Antonio,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00827,SCHJELDERUP Andreas,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00828,BOBB Oscar,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00829,HAUGE Jens Petter,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00830,LANGAS Sondre,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00831,FALCHENER Henrik,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Norway,NOR,p_00832,RYERSON Julian,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00833,MEJIA Luis,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00834,BLACKMAN Cesar,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00835,CORDOBA Jose,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00836,ESCOBAR Fidel,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00837,FARINA Edgardo,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00838,MARTINEZ Cristian,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00839,RODRIGUEZ Jose Luis,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00840,CARRASQUILLA Adalberto,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00841,RODRIGUEZ Tomas,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00842,DIAZ Ismael,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00843,BARCENAS Edgar Yoel,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00844,SAMUDIO Cesar,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00845,RAMOS Jiovany,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00846,HARVEY Carlos,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00847,DAVIS Eric,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00848,ANDRADE Andres,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00849,FAJARDO Jose,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00850,WATERMAN Cecilio,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00851,QUINTERO Alberto,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00852,GODOY Anibal,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00853,YANIS Cesar,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00854,MOSQUERA Orlando,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00855,MURILLO Amir,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00856,LONDONO Azarias,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00857,MILLER Roderick,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Panama,PAN,p_00858,GUTIERREZ Jorge,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00859,FERNANDEZ Gatito,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00860,VELAZQUEZ Gustavo,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00861,ALDERETE Omar,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00862,CACERES Juan Jose,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00863,BALBUENA Fabian,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00864,ALONSO Junior,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00865,SOSA Ramon,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00866,GOMEZ Diego,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00867,SANABRIA Antonio,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00868,ALMIRON Miguel,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00869,MAURICIO,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00870,GILL Orlando,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00871,CANALE Jose,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00872,CUBAS Andres,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00873,GOMEZ Gustavo,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00874,BOBADILLA Damian,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00875,ROMERO GAMARRA Alejandro,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00876,ARCE Alex,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00877,ENCISO Julio,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00878,OJEDA Braian,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00879,AVALOS Gabriel,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00880,OLVEIRA Gaston,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00881,GALARZA Matias,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00882,CABALLERO Gustavo,MF,MF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00883,PITTA Isidro,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Paraguay,PAR,p_00884,MAIDANA Alexandro,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00885,DIOGO COSTA,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00886,NELSON SEMEDO,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00887,RUBEN DIAS,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00888,TOMAS ARAUJO,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00889,DIOGO DALOT,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00890,MATHEUS NUNES,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00891,CRISTIANO RONALDO,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00892,BRUNO FERNANDES,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00893,GONCALO RAMOS,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00894,BERNARDO SILVA,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00895,JOAO FELIX,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00896,JOSE SA,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00897,RENATO VEIGA,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00898,GONCALO INACIO,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00899,JOAO NEVES,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00900,FRANCISCO TRINCAO,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00901,RAFAEL LEAO,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00902,PEDRO NETO,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00903,GONCALO GUEDES,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00904,JOAO CANCELO,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00905,RUBEN NEVES,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00906,RUI SILVA,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00907,VITINHA,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00908,SAMU COSTA,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00909,NUNO MENDES,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Portugal,POR,p_00910,FRANCISCO CONCEICAO,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00911,MAHMOUD ABUNADA,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00912,PEDRO MIGUEL,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00913,LUCAS MENDES,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00914,ISSA LAYE,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00915,JASSEM GABER,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00916,ABDULAZIZ HATEM,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00917,AHMED ALAAELDIN,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00918,EDMILSON JUNIOR,FW,FW,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00919,MOHAMMED MUNTARI,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00920,HASSAN ALHAYDOS,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00921,AKRAM AFIF,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00922,KARIM BOUDIAF,MF,MF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00923,AYOUB ALOUI,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00924,HOMAM AHMED,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00925,YUSUF ABDURISAG,FW,FW,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00926,BOUALEM KHOUKHI,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00927,AHMED ALGANEHI,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00928,SULTAN ALBRAKE,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00929,ALMOEZ ALI,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00930,AHMED FATHY,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00931,SALAH ZAKARIA,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00932,MESHAAL BARSHAM,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00933,ASSIM MADIBO,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00934,TAHSIN MOHAMMED,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00935,ALHASHMI ALHUSSEIN,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Qatar,QAT,p_00936,MOHAMED MANAI,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00937,NAWAF ALAQIDI,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00938,ALI MAJRASHI,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00939,ALI LAJAMI,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00940,ABDULELAH ALAMRI,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00941,HASSAN ALTAMBAKTI,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00942,NASSER ALDAWSARI,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00943,MUSAB ALJUWAYR,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00944,AIMAN YAHYA,FW,FW,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00945,FERAS ALBRIKAN,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00946,SALEM ALDAWSARI,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00947,SALEH ALSHEHRI,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00948,SAUD ABDULHAMID,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00949,NAWAF BU WASHL,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00950,HASSAN KADISH,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00951,ABDULLAH ALKHAIBARI,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00952,ZIYAD ALJOHANI,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00953,KHALID ALGHANNAM,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00954,ALA ALHAJJI,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00955,ABDULLAH ALHAMDDAN,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00956,SULTAN MANDASH,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00957,MOHAMMED ALOWAIS,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00958,AHMED ALKASSAR,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00959,MOHAMED KANNO,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00960,MOTEB ALHARBI,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00961,JEHAD THIKRI,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Saudi Arabia,KSA,p_00962,MOHAMMED ABU ALSHAMAT,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00963,GUNN Angus,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00964,HICKEY Aaron,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00965,ROBERTSON Andy,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00966,McTOMINAY Scott,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00967,HANLEY Grant,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00968,TIERNEY Kieran,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00969,McGINN John,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00970,FLETCHER Tyler,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00971,DYKES Lyndon,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00972,ADAMS Che,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00973,CHRISTIE Ryan,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00974,KELLY Liam,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00975,HENDRY Jack,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00976,STEWART Ross,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00977,SOUTTAR John,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00978,HYAM Dominic,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00979,GANNON-DOAK Ben,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00980,HIRST George,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00981,FERGUSON Lewis,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00982,SHANKLAND Lawrence,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00983,GORDON Craig,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00984,PATTERSON Nathan,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00985,McLEAN Kenny,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00986,RALSTON Anthony,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00987,CURTIS Findlay,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Scotland,SCO,p_00988,McKENNA Scott,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00989,DIOUF Yehvann,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00990,SARR Mamadou,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00991,KOULIBALY Kalidou,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00992,SECK Abdoulaye,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00993,GUEYE Idrissa Gana,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00994,CISS Pathe,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00995,DIAO Assane,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00996,CAMARA Lamine,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00997,DIENG Bamba,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00998,MANE Sadio,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_00999,JACKSON Nicolas,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01000,NDIAYE Cherif,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01001,NDIAYE Iliman,FW,FW,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01002,JAKOBS Ismail,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01003,DIATTA Krepin,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01004,MENDY Edouard,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01005,SARR Pape Matar,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01006,SARR Ismaila,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01007,NIAKHATE Moussa,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01008,MBAYE Ibrahim,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01009,DIARRA Habib,MF,MF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01010,NDIAYE Bara Sapoko,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01011,DIAW Mory,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01012,MENDY Antoine,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01013,DIOUF El Hadji Malick,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Senegal,SEN,p_01014,GUEYE Pape,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01015,WILLIAMS Ronwen,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01016,MATULUDI Thabang,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01017,NDAMANE Khulumani,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01018,MOKOENA Teboho,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01019,MBATHA Thalente,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01020,MODIBA Aubrey,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01021,APPOLLIS Oswin,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01022,MOREMI Tshepang,FW,FW,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01023,FOSTER Lyle,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01024,MOFOKENG Relebohile,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01025,ZWANE Themba,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01026,MASEKO Thapelo,FW,FW,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01027,SITHOLE Sphephelo,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01028,MBOKAZI Mbekezeli,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01029,RAYNERS Iqraam,FW,FW,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01030,CHAINE Sipho,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01031,MAKGOPA Evidence,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01032,KABINI Samukele,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01033,SIBISI Nkosinathi,DF,DF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01034,MUDAU Khuliso,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01035,OKON Ime,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01036,GOSS Ricardo,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01037,ADAMS Jayden,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01038,MAKHANYA Olwethu,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01039,SEBELEBELE Kamogelo,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+South Africa,RSA,p_01040,CROSS Bradley,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01041,RAYA David,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01042,PUBILL Marc,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01043,GRIMALDO Alex,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01044,GARCIA Eric,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01045,LLORENTE Marcos,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01046,MERINO Mikel,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01047,TORRES Ferran,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01048,RUIZ Fabian,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01049,GAVI,MF,MF,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01050,OLMO Dani,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01051,PINO Yeremy,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01052,PORRO Pedro,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01053,GARCIA Joan,GK,GK,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01054,LAPORTE Aymeric,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01055,BAENA Alex,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01056,RODRI,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01057,WILLIAMS Nico,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01058,ZUBIMENDI Martin,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01059,YAMAL Lamine,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01060,PEDRI,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01061,OYARZABAL Mikel,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01062,CUBARSI Pau,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01063,SIMON Unai,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01064,CUCURELLA Marc,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01065,MUNOZ Victor,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Spain,ESP,p_01066,IGLESIAS Borja,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01067,WIDELL ZETTERSTROM Jacob,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01068,LAGERBIELKE Gustaf,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01069,LINDELOF Victor,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01070,HIEN Isak,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01071,GUDMUNDSSON Gabriel,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01072,JOHANSSON Herman,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01073,BERGVALL Lucas,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01074,SVENSSON Daniel,DF,DF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01075,ISAK Alexander,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01076,NYGREN Benjamin,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01077,ELANGA Anthony,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01078,JOHANSSON Viktor,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01079,SEMA Ken,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01080,EKDAL Hjalmar,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01081,STARFELT Carl,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01082,KARLSTROM Jesper,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01083,GYOKERES Viktor,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01084,AYARI Yasin,MF,MF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01085,SVANBERG Mattias,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01086,SMITH Eric,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01087,BERNHARDSSON Alexander,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01088,ZENELI Besfort,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01089,NORDFELDT Kristoffer,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01090,STROUD Elliot,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01091,NILSSON Gustaf,FW,FW,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Sweden,SWE,p_01092,ALI Taha,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01093,KOBEL Gregor,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01094,MUHEIM Miro,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01095,WIDMER Silvan,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01096,ELVEDI Nico,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01097,AKANJI Manuel,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01098,ZAKARIA Denis,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01099,EMBOLO Breel,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01100,FREULER Remo,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01101,MANZAMBI Johan,MF,MF,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01102,XHAKA Granit,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01103,NDOYE Dan,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01104,MVOGO Yvon,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01105,RODRIGUEZ Ricardo,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01106,JASHARI Ardon,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01107,SOW Djibril,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01108,FASSNACHT Christian,FW,FW,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01109,VARGAS Ruben,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01110,COEMERT Eray,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01111,OKAFOR Noah,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01112,AEBISCHER Michel,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01113,KELLER Marvin,GK,GK,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01114,RIEDER Fabian,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01115,AMDOUNI Zeki,FW,FW,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01116,AMENDA Aurele,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01117,JAQUEZ Luca,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Switzerland,SUI,p_01118,ITTEN Cedric,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01119,CHAMAKH Mouhib,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01120,ABDI Ali,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01121,TALBI Montassar,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01122,REKIK Omar,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01123,AROUS Adam,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01124,BRONN Dylan,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01125,ACHOURI Elias,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01126,SAAD Elias,FW,FW,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01127,MASTOURI Hazem,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01128,MEJBRI Hannibal,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01129,GHARBI Ismael,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01130,BEN OUANES Mortadha,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01131,KHEDIRA Rani,MF,MF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01132,AYARI Khalil,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01133,HADJ MAHMOUD Mohamed,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01134,DAHMEN Aymen,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01135,SKHIRI Ellyes,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01136,ELLOUMI Rayan,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01137,CHAOUAT Firas,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01138,VALERY Yan,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01139,BEN HMIDA Mohamed Amine,DF,DF,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01140,BEN HESSEN Sabri,GK,GK,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01141,NEFFATI Moutaz,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01142,CHIKHAOUI Raed,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01143,SLIMANE Anis,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Tunisia,TUN,p_01144,TOUNEKTI Sebastian,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01145,GUNOK Mert,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01146,CELIK Zeki,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01147,DEMIRAL Merih,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01148,SOYUNCU Caglar,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01149,OZCAN Salih,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01150,KOKCU Orkun,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01151,AKTURKOGLU Kerem,FW,FW,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01152,GULER Arda,FW,FW,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01153,GUL Deniz,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01154,CALHANOGLU Hakan,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01155,YILDIZ Kenan,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01156,BAYINDIR Altay,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01157,ELMALI Eren,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01158,BARDAKCI Abdulkerim,DF,DF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01159,KABAK Ozan,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01160,YUKSEK Ismail,MF,MF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01161,KAHVECI Irfan Can,FW,FW,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01162,MULDUR Mert,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01163,AKGUN Yunus,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01164,KADIOGLU Ferdi,DF,DF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01165,YILMAZ Baris Alper,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01166,AYHAN Kaan,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01167,CAKIR Ugurcan,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01168,AYDIN Oguz,FW,FW,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01169,AKAYDIN Samet,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Turkey,TUR,p_01170,UZUN Can,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01171,ROCHET Sergio,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01172,GIMENEZ Jose Maria,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01173,CACERES Sebastian,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01174,ARAUJO Ronald,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01175,UGARTE Manuel,MF,MF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01176,BENTANCUR Rodrigo,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01177,DE LA CRUZ Nicolas,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01178,VALVERDE Federico,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01179,NUNEZ Darwin,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01180,DE ARRASCAETA Giorgian,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01181,PELLISTRI Facundo,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01182,MELE Santiago,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01183,VARELA Guillermo,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01184,CANOBBIO Agustin,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01185,MARTINEZ Emiliano,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01186,OLIVERA Mathias,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01187,VINA Matias,DF,DF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01188,RODRIGUEZ Brian,FW,FW,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01189,AGUIRRE Rodrigo,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01190,ARAUJO Maxi,MF,MF,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01191,VINAS Federico,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01192,PIQUEREZ Joaquin,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01193,MUSLERA Fernando,GK,GK,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01194,BUENO Santiago,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01195,SANABRIA Juan Manuel,MF,MF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uruguay,URU,p_01196,ZALAZAR Rodrigo,MF,MF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01197,TURNER Matt,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01198,DEST Sergino,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01199,RICHARDS Chris,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01200,ADAMS Tyler,MF,MF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01201,ROBINSON Antonee,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01202,TRUSTY Auston,DF,DF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01203,REYNA Giovanni,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01204,McKENNIE Weston,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01205,PEPI Ricardo,FW,FW,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01206,PULISIC Christian,FW,FW,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01207,AARONSON Brenden,FW,FW,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01208,ROBINSON Miles,DF,DF,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01209,REAM Tim,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01210,BERHALTER Sebastian,MF,MF,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01211,ROLDAN Cristian,MF,MF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01212,FREEMAN Alex,DF,DF,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01213,TILLMAN Malik,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01214,ARFSTEN Max,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01215,WRIGHT Haji,FW,FW,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01216,BALOGUN Folarin,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01217,WEAH Timothy,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01218,McKENZIE Mark,DF,DF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01219,SCALLY Joe,DF,DF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01220,FREESE Matt,GK,GK,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01221,BRADY Chris,GK,GK,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+United States,USA,p_01222,ZENDEJAS Alex,FW,FW,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01223,YUSUPOV Utkir,GK,GK,1,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01224,KHUSANOV Abdukodir,DF,DF,2,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01225,ALIJONOV Khojiakbar,DF,DF,3,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01226,SAYFIEV Farrukh,DF,DF,4,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01227,ASHURMATOV Rustam,DF,DF,5,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01228,MOZGOVOY Akmal,MF,MF,6,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01229,SHUKUROV Otabek,MF,MF,7,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01230,ISKANDEROV Jamshid,MF,MF,8,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01231,XAMROBEKOV Odiljon,MF,MF,9,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01232,MASHARIPOV Jaloliddin,MF,MF,10,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01233,URUNOV Oston,MF,MF,11,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01234,NEMATOV Abduvohid,GK,GK,12,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01235,NASRULLAEV Sherzod,DF,DF,13,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01236,SHOMURODOV Eldor,FW,FW,14,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01237,ESHMURODOV Umar,DF,DF,15,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01238,ERGASHEV Botirali,GK,GK,16,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01239,KHAMDAMOV Dostonbek,MF,MF,17,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01240,ABDULLAEV Abdulla,DF,DF,18,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01241,GANIEV Azizjon,MF,MF,19,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01242,AMONOV Azizbek,FW,FW,20,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01243,SERGEEV Igor,FW,FW,21,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01244,FAYZULLAEV Abbosbek,MF,MF,22,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01245,ESANOV Sherzod,MF,MF,23,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01246,KARIMOV Behruzjon,DF,DF,24,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01247,ULMASALIYEV Avazbek,DF,DF,25,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00
+Uzbekistan,UZB,p_01248,UROZOV Jakhongir,DF,DF,26,fifa_squad_pdf,2026-06-10T15:53:36.968147+00:00

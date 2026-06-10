@@ -169,4 +169,14 @@ python scripts/import_fifa_squad_file.py --file path/to/fifa_squads.csv
 python scripts/apply_populated_official_data.py --preview
 """, language="bash")
 st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open Step 17F completion page", icon="📋")
+
+st.header("Step 17H: Apply Blocker Cleanup")
+st.markdown("""
+After schedule/squad import, run blocker cleanup to normalize FIFA **First Stage** labels, rebuild teams/groups, and clean source labels. Does **not** bypass readiness or build awards.
+""")
+st.code("""
+python scripts/cleanup_official_apply_blockers.py
+python scripts/cleanup_official_apply_blockers.py --apply
+python scripts/apply_populated_official_data.py --preview
+""", language="bash")
 st.caption("Step 17E: Source-assisted ingestion only. Step 18 Awards remains blocked until official_final.")
