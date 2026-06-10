@@ -9,7 +9,30 @@ import pandas as pd
 import streamlit as st
 
 project_root = Path(__file__).resolve().parents[2]
+app_dir = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(app_dir))
+
+try:
+    from app.components.ui import (
+        inject_page_theme,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_section_header,
+        render_status_card,
+        render_warning_panel,
+    )
+except ModuleNotFoundError:
+    from components.ui import (
+        inject_page_theme,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_section_header,
+        render_status_card,
+        render_warning_panel,
+    )
 
 from src.utils.constants import (
     PROJECT_ROOT,
@@ -19,10 +42,6 @@ from src.utils.constants import (
     OFFICIAL_SOURCE_EXPORTS_DIR,
     OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE,
     OFFICIAL_FIFA_SOURCE_URLS,
-    STAGED_OFFICIAL_TEAMS_FILE,
-    STAGED_OFFICIAL_FIXTURES_FILE,
-    STAGED_OFFICIAL_VENUES_FILE,
-    STAGED_OFFICIAL_PLAYERS_FILE,
 )
 from src.official.final_readiness import evaluate_official_final_readiness
 from src.official.import_pack import create_import_pack_zip
@@ -30,153 +49,128 @@ from src.official.prepare_source_population import prepare_step17e_source_assist
 from src.official.source_registry import load_official_source_registry
 from src.official.staging_validation import load_staged_data, validate_all_staged_data
 
-st.set_page_config(page_title="Source-Assisted Population", layout="wide")
-
-st.title("🌐 Source-Assisted Official FIFA Data Population — Step 17E")
-
-st.markdown("""
-Populate official World Cup 2026 data using **official FIFA sources first**, with manual CSV/XLSX fallback.
-
-**Policy:** No whole-internet scraping. Only `fifa.com` / `fdp.fifa.org` URLs or user-provided files.
-**Important:** This page does **not** auto-promote `official_final`. Inspect staged data before applying.
-""")
-
-SOURCE_DIR = PROJECT_ROOT / OFFICIAL_SOURCE_DATA_DIR
-STAGING_DIR = PROJECT_ROOT / OFFICIAL_SOURCE_STAGING_DIR
-REPORTS_DIR = PROJECT_ROOT / OFFICIAL_SOURCE_REPORTS_DIR
-EXPORTS_DIR = PROJECT_ROOT / OFFICIAL_SOURCE_EXPORTS_DIR
-
-# 1 Overview
-st.header("1. Overview")
-readiness = evaluate_official_final_readiness()
-st.metric("Readiness checks passed", f"{readiness.get('passed_checks', 0)}/{readiness.get('total_checks', 15)}")
-st.metric("official_final ready", "Yes" if readiness.get("is_official_final_ready") else "No — expected until data complete")
-
-# 2 Source registry
-st.header("2. Official Source Registry")
-registry = load_official_source_registry()
-sources_df = pd.DataFrame(
-    [
-        {
-            "source": name,
-            "url": info.get("url", ""),
-            "status": info.get("source_status", ""),
-            "last_checked": info.get("last_checked_at", ""),
-        }
-        for name, info in registry.get("sources", {}).items()
-    ]
+st.set_page_config(page_title="Source-Assisted Population", layout="wide", initial_sidebar_state="expanded")
+inject_page_theme()
+render_hero(
+    "Source-Assisted Population",
+    "Official FIFA sources first, manual CSV/XLSX fallback. Staging only — does not auto-promote official_final.",
+    eyebrow="Step 17E workflow",
 )
-st.dataframe(sources_df, use_container_width=True)
-with st.expander("Configured FIFA URLs"):
-    for k, v in OFFICIAL_FIFA_SOURCE_URLS.items():
-        st.caption(f"**{k}:** {v}")
+render_warning_panel(
+    "No whole-internet scraping. Only fifa.com / fdp.fifa.org URLs or user-provided files. "
+    "Inspect staged data before applying."
+)
 
-# 3 Generate pack
-st.header("3. Generate Source Population Pack")
-dl = st.checkbox("Download official FIFA source snapshots", value=False)
-force = st.checkbox("Force re-download", value=False)
-if st.button("Generate source population pack", use_container_width=True):
-    with st.spinner("Running Step 17E orchestrator..."):
-        result = prepare_step17e_source_assisted_population(
-            download_sources=dl,
-            parse_sources=True,
-            create_pack=True,
-            force_download=force,
+EXPORTS_DIR = PROJECT_ROOT / OFFICIAL_SOURCE_EXPORTS_DIR
+readiness = evaluate_official_final_readiness()
+registry = load_official_source_registry()
+
+tab_overview, tab_staging, tab_export = st.tabs(["Overview & sources", "Staging & validation", "Export & apply"])
+
+with tab_overview:
+    render_section_header("Readiness snapshot")
+    c1, c2 = st.columns(2)
+    with c1:
+        render_metric_card("Checks passed", f"{readiness.get('passed_checks', 0)}/{readiness.get('total_checks', 15)}")
+    with c2:
+        render_status_card(
+            "official_final ready",
+            "Yes" if readiness.get("is_official_final_ready") else "No",
+            sub="Expected until data complete",
+            badge="ok" if readiness.get("is_official_final_ready") else "warn",
         )
-        st.session_state["step17e_result"] = result
-    st.success(f"Status: {result.get('status')}")
-    st.rerun()
 
-if "step17e_result" in st.session_state:
-    st.json({k: st.session_state["step17e_result"][k] for k in (
-        "status", "staged_teams_count", "staged_fixtures_count",
-        "staged_venues_count", "staged_players_count", "parse_warnings_count",
-        "final_ready", "import_pack_path",
-    ) if k in st.session_state["step17e_result"]})
+    render_section_header("Official source registry")
+    sources_df = pd.DataFrame(
+        [
+            {
+                "source": name,
+                "url": info.get("url", ""),
+                "status": info.get("source_status", ""),
+                "last_checked": info.get("last_checked_at", ""),
+            }
+            for name, info in registry.get("sources", {}).items()
+        ]
+    )
+    st.dataframe(sources_df, use_container_width=True)
+    with st.expander("Configured FIFA URLs"):
+        for k, v in OFFICIAL_FIFA_SOURCE_URLS.items():
+            st.caption(f"**{k}:** {v}")
 
-# 4 Manual ingestion
-st.header("4. Manual Workbook / CSV Fallback")
-st.code("""
+    render_section_header("Generate source population pack")
+    dl = st.checkbox("Download official FIFA source snapshots", value=False)
+    force = st.checkbox("Force re-download", value=False)
+    if st.button("Generate source population pack", use_container_width=True, key="gen_17e"):
+        with st.spinner("Running Step 17E orchestrator..."):
+            result = prepare_step17e_source_assisted_population(
+                download_sources=dl,
+                parse_sources=True,
+                create_pack=True,
+                force_download=force,
+            )
+            st.session_state["step17e_result"] = result
+        st.success(f"Status: {result.get('status')}")
+        st.rerun()
+
+    if "step17e_result" in st.session_state:
+        st.json({k: st.session_state["step17e_result"][k] for k in (
+            "status", "staged_teams_count", "staged_fixtures_count",
+            "staged_venues_count", "staged_players_count", "parse_warnings_count",
+            "final_ready", "import_pack_path",
+        ) if k in st.session_state["step17e_result"]})
+
+    with st.expander("Manual workbook / CSV fallback commands"):
+        st.code("""
 python scripts/ingest_manual_official_file.py --target workbook \\
   --file data/official/population/workbooks/official_worldcup_2026_master_import.xlsx
 python scripts/ingest_manual_official_file.py --target players \\
   --file data/official/import_templates/official_players_import_template.csv
-""", language="bash")
+        """, language="bash")
 
-# 5 Staged preview
-st.header("5. Staged Data Preview")
-staged = load_staged_data()
-if not staged:
-    st.warning("No staged files yet. Run pack generation or manual ingestion.")
-else:
-    for name, df in staged.items():
-        st.subheader(name.title())
-        st.dataframe(df.head(25), use_container_width=True)
-        st.caption(f"{len(df)} rows")
+with tab_staging:
+    render_section_header("Staged data preview")
+    staged = load_staged_data()
+    if not staged:
+        st.warning("No staged files yet. Run pack generation or manual ingestion.")
+    else:
+        for name, df in staged.items():
+            st.subheader(name.title())
+            st.dataframe(df.head(25), use_container_width=True)
+            st.caption(f"{len(df)} rows")
 
-# 6 Validation
-st.header("6. Staging Validation")
-passed, val_report = validate_all_staged_data()
-if val_report.empty:
-    st.info("No validation report yet.")
-else:
-    st.metric("Staging validation passed", passed)
-    st.dataframe(val_report.head(40), use_container_width=True)
+    render_section_header("Staging validation")
+    passed, val_report = validate_all_staged_data()
+    if val_report.empty:
+        st.info("No validation report yet.")
+    else:
+        render_status_card("Validation", "Passed" if passed else "Issues found", badge="ok" if passed else "danger")
+        with st.expander("Validation report"):
+            st.dataframe(val_report.head(40), use_container_width=True)
 
-# 7 Export pack
-st.header("7. Export Import Pack")
-pack_path = EXPORTS_DIR / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE
-if st.button("Build / refresh import pack ZIP"):
-    path = create_import_pack_zip()
-    st.success(f"Pack written: {path}")
-    st.rerun()
-if pack_path.is_file():
-    st.download_button(
-        "Download import pack",
-        pack_path.read_bytes(),
-        file_name=OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE,
-        mime="application/zip",
-    )
+with tab_export:
+    render_section_header("Export import pack")
+    pack_path = EXPORTS_DIR / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE
+    if st.button("Build / refresh import pack ZIP", key="build_zip_17e"):
+        path = create_import_pack_zip()
+        st.success(f"Pack written: {path}")
+        st.rerun()
+    render_download_card("Import pack ZIP", OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE, pack_path, mime="application/zip")
 
-# 8 Apply instructions
-st.header("8. Apply Staged Data (manual confirmation required)")
-st.code("""
+    render_section_header("Apply staged data")
+    with st.expander("Apply commands"):
+        st.code("""
 python scripts/apply_staged_official_data.py --target all --preview
 python scripts/apply_staged_official_data.py --target all --apply
 python scripts/evaluate_official_final_readiness.py
-""", language="bash")
-st.warning("Do not apply until staged data is reviewed against official FIFA sources.")
+        """, language="bash")
+    render_warning_panel("Do not apply until staged data is reviewed against official FIFA sources.")
 
-# 9 Final readiness
-st.header("9. Final Readiness Summary")
-if not readiness.get("is_official_final_ready"):
-    st.error("official_final is correctly BLOCKED while data is incomplete.")
-    for b in readiness.get("blockers", [])[:8]:
-        st.caption(f"• {b.get('id', b)}")
-else:
-    st.success("All checks passed — promotion available via Official Data Population page.")
+    render_section_header("Final readiness summary")
+    if not readiness.get("is_official_final_ready"):
+        st.error("official_final is correctly BLOCKED while data is incomplete.")
+        for b in readiness.get("blockers", [])[:8]:
+            st.caption(f"• {b.get('id', b)}")
+    else:
+        st.success("All checks passed — promotion available via Official Data Population page.")
 
-st.divider()
-st.header("Step 17F: Populate Official Data")
-st.markdown("""
-Upload official FIFA schedule/squad files, run the populated-data builder, review completeness, and download the import pack.
-**Does not auto-apply** uploaded data.
-""")
-st.code("""
-python scripts/prepare_populated_official_data.py
-python scripts/import_fifa_schedule_file.py --file path/to/fifa_schedule.xlsx
-python scripts/import_fifa_squad_file.py --file path/to/fifa_squads.csv
-python scripts/apply_populated_official_data.py --preview
-""", language="bash")
-st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open Step 17F completion page", icon="📋")
-
-st.header("Step 17H: Apply Blocker Cleanup")
-st.markdown("""
-After schedule/squad import, run blocker cleanup to normalize FIFA **First Stage** labels, rebuild teams/groups, and clean source labels. Does **not** bypass readiness or build awards.
-""")
-st.code("""
-python scripts/cleanup_official_apply_blockers.py
-python scripts/cleanup_official_apply_blockers.py --apply
-python scripts/apply_populated_official_data.py --preview
-""", language="bash")
-st.caption("Step 17E: Source-assisted ingestion only. Step 18 Awards remains blocked until official_final.")
+    st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open Step 17F completion page", icon="⚽")

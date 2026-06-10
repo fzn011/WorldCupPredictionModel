@@ -15,7 +15,21 @@ import pandas as pd
 
 # Add project root to path
 project_root = Path(__file__).resolve().parents[2]
+app_dir = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(app_dir))
+
+try:
+    from app.components.ui import (  # noqa: E402
+        inject_page_theme,
+        render_data_quality_card,
+        render_hero,
+        render_section_header,
+        render_success_panel,
+        render_warning_panel,
+    )
+except ModuleNotFoundError:  # pragma: no cover
+    from components.ui import inject_page_theme, render_data_quality_card, render_hero, render_section_header  # noqa: E402
 
 from src.utils.constants import (
     PROJECT_ROOT,
@@ -37,17 +51,20 @@ from src.official.promotion import load_official_final_mode, can_promote_to_offi
 from src.utils.constants import OFFICIAL_POPULATION_DIR, OFFICIAL_POPULATION_GUIDE_FILE, OFFICIAL_IMPORT_TEMPLATES_DIR
 
 
-st.set_page_config(page_title="Official Final Readiness", layout="wide")
+st.set_page_config(page_title="Official Final Readiness", layout="wide", initial_sidebar_state="expanded")
+inject_page_theme()
+render_hero(
+    "Official Data Readiness",
+    "Verify official World Cup 2026 datasets, resolve blockers, and promote official_final mode.",
+    eyebrow="Data gate",
+)
 
-st.title("⚽ Official Final Readiness - Step 17C")
-
-st.markdown("""
-### Step 17C: Official Data Completion + Manual FIFA Verification
-
-This page provides the final readiness evaluation for enabling `official_final` mode.
-It checks all data completeness, placeholder values, sample rows, and cross-dataset
-consistency to determine if the system is ready for production use with official FIFA data.
-""")
+st.markdown(
+    """
+This dashboard evaluates completeness, placeholders, and cross-dataset consistency before awards
+and Monte Carlo outputs can use production official data.
+    """
+)
 
 # Load or compute readiness report
 def get_readiness_report():
@@ -58,7 +75,7 @@ def get_readiness_report():
 
 
 # ===== CONTROLS =====
-st.header("Controls")
+render_section_header("Controls")
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -87,9 +104,9 @@ with col3:
 with col4:
     allowed, blockers = is_official_final_mode_allowed()
     if allowed:
-        st.success("✓ Official final mode is ALLOWED")
+        render_success_panel("Official final mode is ALLOWED")
     else:
-        st.error(f"✗ Official final mode is BLOCKED ({len(blockers)} blockers)")
+        render_warning_panel(f"Official final mode is BLOCKED ({len(blockers)} blockers)")
 
 st.divider()
 
@@ -99,37 +116,38 @@ status = report["status"]
 summary = report["summary"]
 
 # Summary cards
-st.header("Summary")
-
+render_section_header("Summary dashboard")
 col1, col2, col3, col4 = st.columns(4)
-
 with col1:
-    st.metric("Total Checks", f"{summary['passed_checks']}/{summary['total_checks']}")
-
+    render_data_quality_card(
+        "Checks passed",
+        summary["blocker_count"] == 0,
+        detail=f"{summary['passed_checks']}/{summary['total_checks']} checks",
+        progress=summary["passed_checks"] / max(summary["total_checks"], 1),
+    )
 with col2:
-    st.metric("Teams", f"{summary['teams_count']}/48")
-
+    render_data_quality_card("Teams", summary["teams_count"] >= 48, detail=f"{summary['teams_count']}/48")
 with col3:
-    st.metric("Players", f"{summary['players_count']}/1248")
-
+    render_data_quality_card("Players", summary["players_count"] >= 1248, detail=f"{summary['players_count']}/1248")
 with col4:
-    st.metric("Teams with 26 Players", f"{summary['teams_with_26_players']}/48")
+    render_data_quality_card(
+        "Squads complete",
+        summary["teams_with_26_players"] >= 48,
+        detail=f"{summary['teams_with_26_players']}/48 teams × 26",
+    )
 
 col1, col2, col3 = st.columns(3)
-
 with col1:
     st.metric("Blockers", summary["blocker_count"], delta_color="inverse")
-
 with col2:
     st.metric("Warnings", summary["warning_count"], delta_color="inverse")
-
 with col3:
     if status == OFFICIAL_READINESS_READY:
-        st.success("**Status: READY** ✓")
+        render_success_panel("Status: READY")
     elif status == OFFICIAL_READINESS_WARNING:
-        st.warning("**Status: WARNING** ⚠")
+        render_warning_panel("Status: WARNING — review before demo")
     else:
-        st.error("**Status: BLOCKED** ✗")
+        render_warning_panel("Status: BLOCKED — resolve blockers")
 
 st.divider()
 

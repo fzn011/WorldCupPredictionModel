@@ -38,7 +38,15 @@ Streamlit does **not** call the FastAPI server; they are independent entry point
 python -m pytest -q
 ```
 
-Expect **405+ passed, 1 skipped** after Step 20 (manual prior workflow tests). No linter config (ruff/flake8/black) is present in the repo.
+Expect **410+ passed, 1 skipped** after Step 20 UI + manual prior workflow tests. No linter config (ruff/flake8/black) is present in the repo.
+
+### Step 20 UI: Streamlit theme (World Cup command center)
+
+- Theme CSS: `app/styles/worldcup_theme.py` — call `inject_page_theme()` (from `app/components/ui.py`) at the top of each polished page after `st.set_page_config`.
+- Reusable widgets: `app/components/ui.py` (metric cards, status badges, download hub cards, podium/formation helpers).
+- Homepage (`app/streamlit_app.py`): Command Center / Reports & Downloads / Technical Diagnostics tabs — do not duplicate artifact tables on the command center tab.
+- Path constants: still only from `app/streamlit_paths.py` (never assign `PROJECT_ROOT` locally in pages).
+- UI tests: `python -m pytest tests/test_worldcup_ui_components.py tests/test_streamlit_paths.py -q`
 
 ### Step 19: Prior enrichment + portfolio demo pipeline
 
@@ -56,9 +64,26 @@ python scripts/run_final_demo_pipeline.py --simulations 10
 - Enriched priors must stay within `official_players.csv` player_id set
 - Default demo Monte Carlo count: **10** (avoid huge simulations in CI/demo)
 
-### Streamlit `PROJECT_ROOT` NameError
+### Streamlit `PROJECT_ROOT` NameError (Windows)
 
-All Streamlit path constants come from **`app/streamlit_paths.py`**. The homepage imports `PROJECT_ROOT`, `OFFICIAL_DATA_DIR`, etc. from that module — do not assign them locally in `streamlit_app.py`. If you see `NameError: PROJECT_ROOT`, pull latest `main` and run:
+All Streamlit path constants come from **`app/streamlit_paths.py`**. The homepage imports `PROJECT_ROOT`, `OFFICIAL_DATA_DIR`, etc. from that module — **do not** assign them locally in `streamlit_app.py`.
+
+**Wrong (causes NameError):**
+```python
+OFFICIAL_DATA_DIR = PROJECT_ROOT / "data/official"  # PROJECT_ROOT not defined yet
+PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)       # C may not exist yet
+```
+
+**Correct:** import from `streamlit_paths` immediately after adding `app/` to `sys.path`.
+
+Run Streamlit from the **project root** (not `C:\Users\...`):
+
+```powershell
+cd "E:\World Cup prediction model\world-cup-2026-ai-predictor"
+python -m streamlit run app/streamlit_app.py
+```
+
+Verify:
 
 ```bash
 python -m pytest tests/test_streamlit_paths.py -q

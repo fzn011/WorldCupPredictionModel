@@ -725,3 +725,25 @@ python -m pytest -q
 
 Manual priors are **user-provided portfolio/demo adjustments**, not official FIFA predictions.
 
+## Step 20 UI: Streamlit Command Center + World Cup Visual Identity
+
+The Streamlit dashboard uses a shared dark premium theme (stadium-inspired background, gold/green accents, glass cards). No FIFA or copyrighted logos are used.
+
+### Theme & components
+
+- `app/styles/worldcup_theme.py` — palette + `inject_worldcup_css()`
+- `app/components/ui.py` — reusable cards, badges, hero, pipeline stepper, download cards, podium/formation views
+
+Homepage tabs: **Command Center** (status + demo flow), **Reports & Downloads** (artifact hub), **Technical Diagnostics** (legacy Step 1–19 tables).
+
+Polished sidebar pages include Match Predictor, Official Final Readiness, Monte Carlo Simulator, World Cup Awards, and Tournament Simulator placeholder.
+
+### Run the dashboard
+
+```bash
+python -m streamlit run app/streamlit_app.py
+python -m pytest tests/test_worldcup_ui_components.py tests/test_streamlit_paths.py -q
+```
+
+Use wide layout and the sidebar for navigation. Heavy simulations are not auto-run on page load.
+

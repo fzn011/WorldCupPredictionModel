@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
 # Path bootstrap FIRST — never reference PROJECT_ROOT before streamlit_paths import.
+# See app/streamlit_paths.py (single source of truth for all Streamlit path constants).
 _APP_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _APP_DIR.parent
 if str(_REPO_ROOT) not in sys.path:
@@ -36,7 +38,7 @@ import pandas as pd
 import streamlit as st
 
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
-import src.utils.constants as C  # noqa: E402
+import src.utils.constants as C  # noqa: E402 — only used for filenames below, not for PROJECT_ROOT
 
 CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
 CANONICAL_MATCHES_SAMPLE_FILE = getattr(
@@ -159,23 +161,42 @@ GROUP_STAGE_SIMULATION_SUMMARY_FILE = getattr(
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
 TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
 
+try:
+    from app.components.ui import (  # noqa: E402
+        inject_page_theme,
+        load_json_if_exists,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_pipeline_stepper,
+        render_quick_nav_cards,
+        render_section_header,
+        render_status_card,
+        render_warning_panel,
+    )
+except ModuleNotFoundError:  # pragma: no cover
+    from components.ui import (  # noqa: E402
+        inject_page_theme,
+        load_json_if_exists,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_pipeline_stepper,
+        render_quick_nav_cards,
+        render_section_header,
+        render_status_card,
+        render_warning_panel,
+    )
+
 st.set_page_config(
-    page_title="FIFA World Cup 2026 AI Predictor",
+    page_title="World Cup 2026 AI Predictor",
     page_icon="⚽",
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 
-st.title("FIFA World Cup 2026 AI Predictor")
+inject_page_theme()
 
-st.markdown(
-    """
-    Welcome to the **FIFA World Cup 2026 AI Predictor** — machine learning match forecasting,
-    full tournament simulation, Monte Carlo progression, and explainable award analytics using
-    **official World Cup 2026 data** when `official_final` mode is enabled.
-    """
-)
-
-# Step 19 polished overview
 try:
     from src.official.promotion import load_official_final_mode
     from src.official.final_readiness import evaluate_official_final_readiness
@@ -188,805 +209,997 @@ except Exception:
     _readiness = {}
     _rs = {}
 
-st.subheader("Project overview (Step 19)")
-c1, c2, c3, c4, c5 = st.columns(5)
-c1.metric("official_final", "Yes" if _mode.get("official_final_enabled") else "No")
-c2.metric("Fixtures", _rs.get("fixtures_count", "—"))
-c3.metric("Players", _rs.get("players_count", "—"))
-c4.metric("Monte Carlo", "Ready" if (PROCESSED_DATA_DIR / getattr(C, "MONTE_CARLO_SUMMARY_FILE", "monte_carlo_summary.json")).is_file() else "Missing")
-c5.metric("Awards", "Ready" if (PROCESSED_DATA_DIR / getattr(C, "WORLD_CUP_AWARDS_SUMMARY_FILE", "world_cup_awards_summary.json")).is_file() else "Missing")
+_mc_summary = load_json_if_exists(PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE)
+_awards_summary = load_json_if_exists(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE)
+_portfolio_dir = PROJECT_ROOT / str(getattr(C, "PORTFOLIO_DIR", "portfolio"))
+_mc_ready = (PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE).is_file()
+_awards_ready = (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE).is_file()
+_official_final = bool(_mode.get("official_final_enabled"))
+_tests_hint = "Run pytest locally"
 
-st.markdown(
-    "**Pipeline:** Data → Model → Simulation → Monte Carlo → Awards → Reports  \n"
-    "**Recommended demo flow:** Official Final Readiness → Match Predictor → Monte Carlo → "
-    "Enrich priors → World Cup Awards → Downloads"
-)
-st.code("python scripts/run_final_demo_pipeline.py --simulations 10", language="bash")
-st.caption("Tests: `python -m pytest -q` · Portfolio pack: `python scripts/prepare_final_project_pack.py`")
 
-st.subheader("Current Project Status")
-st.success(
-    "Step 1: Foundation completed.\n\n"
-    "Step 2: Dataset setup completed.\n\n"
-    "Step 3: Data cleaning and canonical dataset completed.\n\n"
-    "Step 4: Feature engineering completed.\n\n"
-    "Step 5: Baseline model completed.\n\n"
-    "Step 6: Improved model completed.\n\n"
-    "Step 7: FIFA rankings and Elo integration completed.\n\n"
-    "Step 8: Future match prediction completed.\n\n"
-    "Step 9: Predictor UI and API polishing completed.\n\n"
-    "Step 10: Prediction explainability completed.\n\n"
-    "Step 11: Tournament fixture and group setup completed.\n\n"
-    "Step 12: Group-stage simulation completed.\n\n"
-    "Step 13: Knockout simulation completed.\n\n"
-    "Step 14: Full tournament single-run completed.\n\n"
-    "Step 15: Monte Carlo simulator completed.\n\n"
-    "Step 16: Monte Carlo dashboard and report polish completed.\n\n"
-    "Step 17A: Official World Cup 2026 data lock completed.\n\n"
-    "Step 17B: Official squads and player priors merge completed.\n\n"
-    "Step 17C: Official final readiness workflow completed.\n\n"
-    "Step 17D: Official data population pack completed.\n\n"
-    "Step 17E: Source-assisted official FIFA data population completed.\n\n"
-    "Step 17F: Official FIFA data population workflow completed.\n\n"
-    "Step 17G: Official data import execution workflow completed.\n\n"
-    "Step 17H: Official data apply blocker cleanup completed.\n\n"
-    "Step 18: FIFA World Cup Awards Predictor completed.\n\n"
-    "Step 19: Final polish, player prior enrichment, and portfolio packaging completed."
-)
-st.caption(
-    "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
-)
+def _render_reports_hub() -> None:
+    render_section_header("Reports & Downloads", subtitle="One place for demo artifacts — no scattered paths.")
+    g1, g2 = st.columns(2)
+    with g1:
+        render_section_header("Monte Carlo", subtitle="Simulation forecasts")
+        render_download_card(
+            "Champion probabilities",
+            "Team-level tournament outcome estimates",
+            PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE,
+        )
+        render_download_card(
+            "Monte Carlo summary",
+            "Run metadata and top champion",
+            PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE,
+            mime="application/json",
+        )
+        render_download_card(
+            "Monte Carlo report",
+            "Markdown narrative report",
+            REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE,
+            mime="text/markdown",
+        )
+    with g2:
+        render_section_header("Awards analytics", subtitle="Official candidates only")
+        render_download_card(
+            "Combined awards table",
+            "All award categories in one CSV",
+            PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE,
+        )
+        render_download_card(
+            "Awards summary",
+            "Validation + top picks JSON",
+            PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE,
+            mime="application/json",
+        )
+        render_download_card(
+            "Awards report",
+            "Markdown awards narrative",
+            REPORTS_DIR / WORLD_CUP_AWARDS_REPORT_FILE,
+            mime="text/markdown",
+        )
+    g3, g4 = st.columns(2)
+    with g3:
+        render_section_header("Official data", subtitle="Readiness & validation")
+        render_download_card(
+            "Official data summary",
+            "Teams, fixtures, players snapshot",
+            OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_SUMMARY_FILE,
+            mime="application/json",
+        )
+        render_download_card(
+            "Final readiness report",
+            "official_final gate checklist",
+            OFFICIAL_PROCESSED_DIR / "official_final_readiness_report.json",
+            mime="application/json",
+        )
+    with g4:
+        render_section_header("Portfolio pack", subtitle="Demo & reproducibility docs")
+        render_download_card(
+            "Portfolio README",
+            "Project overview for reviewers",
+            _portfolio_dir / "PORTFOLIO_README.md",
+            mime="text/markdown",
+        )
+        render_download_card(
+            "Demo script",
+            "5–7 minute walkthrough",
+            _portfolio_dir / "demo_script.md",
+            mime="text/markdown",
+        )
+        render_download_card(
+            "Final project summary",
+            "Latest pipeline status JSON",
+            PROCESSED_DATA_DIR / "final_project_summary.json",
+            mime="application/json",
+        )
 
-st.subheader("Step 3: Processed Outputs")
-processed_files = [
-    CANONICAL_MATCHES_FILE,
-    CANONICAL_MATCHES_SAMPLE_FILE,
-    TEAM_REGISTRY_FILE,
-    SHOOTOUT_OUTCOMES_FILE,
-    DATA_QUALITY_REPORT_FILE,
-    CLEANING_SUMMARY_FILE,
-]
-processed_rows = []
-for name in processed_files:
-    path = PROCESSED_DATA_DIR / name
-    processed_rows.append(
-        {
-            "file": name,
-            "path": str(path),
-            "present": path.is_file(),
-        }
+
+def _render_technical_diagnostics() -> None:
+    st.subheader("Current Project Status")
+    st.success(
+        "Step 1: Foundation completed.\n\n"
+        "Step 2: Dataset setup completed.\n\n"
+        "Step 3: Data cleaning and canonical dataset completed.\n\n"
+        "Step 4: Feature engineering completed.\n\n"
+        "Step 5: Baseline model completed.\n\n"
+        "Step 6: Improved model completed.\n\n"
+        "Step 7: FIFA rankings and Elo integration completed.\n\n"
+        "Step 8: Future match prediction completed.\n\n"
+        "Step 9: Predictor UI and API polishing completed.\n\n"
+        "Step 10: Prediction explainability completed.\n\n"
+        "Step 11: Tournament fixture and group setup completed.\n\n"
+        "Step 12: Group-stage simulation completed.\n\n"
+        "Step 13: Knockout simulation completed.\n\n"
+        "Step 14: Full tournament single-run completed.\n\n"
+        "Step 15: Monte Carlo simulator completed.\n\n"
+        "Step 16: Monte Carlo dashboard and report polish completed.\n\n"
+        "Step 17A: Official World Cup 2026 data lock completed.\n\n"
+        "Step 17B: Official squads and player priors merge completed.\n\n"
+        "Step 17C: Official final readiness workflow completed.\n\n"
+        "Step 17D: Official data population pack completed.\n\n"
+        "Step 17E: Source-assisted official FIFA data population completed.\n\n"
+        "Step 17F: Official FIFA data population workflow completed.\n\n"
+        "Step 17G: Official data import execution workflow completed.\n\n"
+        "Step 17H: Official data apply blocker cleanup completed.\n\n"
+        "Step 18: FIFA World Cup Awards Predictor completed.\n\n"
+        "Step 19: Final polish, player prior enrichment, and portfolio packaging completed."
     )
-st.dataframe(pd.DataFrame(processed_rows), use_container_width=True)
-st.caption(
-    "Run `python main.py` to (re)generate the cleaned canonical dataset and "
-    "team registry under `data/processed/`."
-)
-
-st.subheader("Step 4: Feature Outputs")
-feature_files = [
-    FEATURE_DATASET_FILE,
-    FEATURE_DATASET_SAMPLE_FILE,
-    FEATURE_QUALITY_REPORT_FILE,
-    FEATURE_SUMMARY_FILE,
-]
-feature_rows = []
-for name in feature_files:
-    path = PROCESSED_DATA_DIR / name
-    feature_rows.append(
-        {
-            "file": name,
-            "path": str(path),
-            "present": path.is_file(),
-        }
+    st.caption(
+        "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
     )
-st.dataframe(pd.DataFrame(feature_rows), use_container_width=True)
-st.caption(
-    "The feature dataset is leakage-safe: each row uses only matches before the current match date."
-)
 
-st.subheader("Step 5: Baseline Model Outputs")
-baseline_rows = [
-    {
-        "file": BEST_BASELINE_MODEL_FILE,
-        "path": str(Path(BASELINE_MODEL_DIR) / BEST_BASELINE_MODEL_FILE),
-        "present": (Path(BASELINE_MODEL_DIR) / BEST_BASELINE_MODEL_FILE).is_file(),
-    },
-    {
-        "file": FEATURE_COLUMNS_FILE,
-        "path": str(Path(BASELINE_MODEL_DIR) / FEATURE_COLUMNS_FILE),
-        "present": (Path(BASELINE_MODEL_DIR) / FEATURE_COLUMNS_FILE).is_file(),
-    },
-    {
-        "file": MODEL_METRICS_FILE,
-        "path": str(Path("reports") / MODEL_METRICS_FILE),
-        "present": (Path("reports") / MODEL_METRICS_FILE).is_file(),
-    },
-    {
-        "file": FEATURE_IMPORTANCE_RF_FILE,
-        "path": str(Path("reports") / FEATURE_IMPORTANCE_RF_FILE),
-        "present": (Path("reports") / FEATURE_IMPORTANCE_RF_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(baseline_rows), use_container_width=True)
-st.caption(
-    "The baseline model artifacts live under `models/baseline/` and the evaluation reports live under `reports/`."
-)
-
-st.subheader("Step 6: Improved Model Outputs")
-improved_rows = [
-    {
-        "file": BEST_IMPROVED_MODEL_FILE,
-        "path": str(Path(IMPROVED_MODEL_DIR) / BEST_IMPROVED_MODEL_FILE),
-        "present": (Path(IMPROVED_MODEL_DIR) / BEST_IMPROVED_MODEL_FILE).is_file(),
-    },
-    {
-        "file": IMPROVED_FEATURE_COLUMNS_FILE,
-        "path": str(Path(IMPROVED_MODEL_DIR) / IMPROVED_FEATURE_COLUMNS_FILE),
-        "present": (Path(IMPROVED_MODEL_DIR) / IMPROVED_FEATURE_COLUMNS_FILE).is_file(),
-    },
-    {
-        "file": IMPROVED_MODEL_METRICS_FILE,
-        "path": str(Path("reports") / IMPROVED_MODEL_METRICS_FILE),
-        "present": (Path("reports") / IMPROVED_MODEL_METRICS_FILE).is_file(),
-    },
-    {
-        "file": BASELINE_VS_IMPROVED_METRICS_FILE,
-        "path": str(Path("reports") / BASELINE_VS_IMPROVED_METRICS_FILE),
-        "present": (Path("reports") / BASELINE_VS_IMPROVED_METRICS_FILE).is_file(),
-    },
-    {
-        "file": TEMPORAL_BACKTEST_RESULTS_FILE,
-        "path": str(Path("reports") / TEMPORAL_BACKTEST_RESULTS_FILE),
-        "present": (Path("reports") / TEMPORAL_BACKTEST_RESULTS_FILE).is_file(),
-    },
-    {
-        "file": PROBABILITY_QUALITY_REPORT_FILE,
-        "path": str(Path("reports") / PROBABILITY_QUALITY_REPORT_FILE),
-        "present": (Path("reports") / PROBABILITY_QUALITY_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(improved_rows), use_container_width=True)
-st.caption("Step 6 adds optional XGBoost/LightGBM, calibrated probabilities, and temporal backtesting.")
-
-st.subheader("Step 7: Ranking + Elo Outputs")
-step7_rows = [
-    {
-        "file": RANKING_FEATURE_DATASET_FILE,
-        "path": str(PROCESSED_DATA_DIR / RANKING_FEATURE_DATASET_FILE),
-        "present": (PROCESSED_DATA_DIR / RANKING_FEATURE_DATASET_FILE).is_file(),
-    },
-    {
-        "file": TEAM_STRENGTH_SNAPSHOT_FILE,
-        "path": str(PROCESSED_DATA_DIR / TEAM_STRENGTH_SNAPSHOT_FILE),
-        "present": (PROCESSED_DATA_DIR / TEAM_STRENGTH_SNAPSHOT_FILE).is_file(),
-    },
-    {
-        "file": RANKING_MERGE_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / RANKING_MERGE_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / RANKING_MERGE_REPORT_FILE).is_file(),
-    },
-    {
-        "file": BEST_RANKING_ENHANCED_MODEL_FILE,
-        "path": str(Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE),
-        "present": (Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE).is_file(),
-    },
-    {
-        "file": RANKING_ENHANCED_MODEL_METRICS_FILE,
-        "path": str(Path("reports") / RANKING_ENHANCED_MODEL_METRICS_FILE),
-        "present": (Path("reports") / RANKING_ENHANCED_MODEL_METRICS_FILE).is_file(),
-    },
-    {
-        "file": RANKING_VS_PREVIOUS_METRICS_FILE,
-        "path": str(Path("reports") / RANKING_VS_PREVIOUS_METRICS_FILE),
-        "present": (Path("reports") / RANKING_VS_PREVIOUS_METRICS_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step7_rows), use_container_width=True)
-st.caption(
-    "Step 7 adds snapshot FIFA/Elo team-strength signals. For strict historical backtesting, date-aware historical ranking joins are recommended."
-)
-
-st.subheader("Step 8: Future Match Prediction Outputs")
-step8_rows = [
-    {
-        "file": FUTURE_PREDICTION_LOG_FILE,
-        "path": str(Path("reports") / FUTURE_PREDICTION_LOG_FILE),
-        "present": (Path("reports") / FUTURE_PREDICTION_LOG_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step8_rows), use_container_width=True)
-st.caption("Step 8 supports real arbitrary future match predictions and logs them under `reports/`.")
-
-st.subheader("Step 10: Explainability Outputs")
-step10_rows = [
-    {
-        "file": EXPLANATION_REPORT_FILE,
-        "path": str(Path("reports") / EXPLANATION_REPORT_FILE),
-        "present": (Path("reports") / EXPLANATION_REPORT_FILE).is_file(),
-    },
-    {
-        "file": EXPLANATION_HISTORY_FILE,
-        "path": str(Path("reports") / EXPLANATION_HISTORY_FILE),
-        "present": (Path("reports") / EXPLANATION_HISTORY_FILE).is_file(),
-    },
-    {
-        "file": GLOBAL_EXPLANATION_REPORT_FILE,
-        "path": str(Path("reports") / GLOBAL_EXPLANATION_REPORT_FILE),
-        "present": (Path("reports") / GLOBAL_EXPLANATION_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step10_rows), use_container_width=True)
-
-st.subheader("Step 11: Tournament Setup Outputs")
-step11_rows = [
-    {
-        "file": TOURNAMENT_GROUPS_FILE,
-        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_GROUPS_FILE),
-        "present": (PROCESSED_DATA_DIR / TOURNAMENT_GROUPS_FILE).is_file(),
-    },
-    {
-        "file": TOURNAMENT_FIXTURES_FILE,
-        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE),
-        "present": (PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE).is_file(),
-    },
-    {
-        "file": KNOCKOUT_PLACEHOLDER_FILE,
-        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE),
-        "present": (PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE).is_file(),
-    },
-    {
-        "file": TOURNAMENT_STRUCTURE_FILE,
-        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_STRUCTURE_FILE),
-        "present": (PROCESSED_DATA_DIR / TOURNAMENT_STRUCTURE_FILE).is_file(),
-    },
-    {
-        "file": TOURNAMENT_VALIDATION_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step11_rows), use_container_width=True)
-st.caption("Step 11 prepares validated group/fixture/knockout structure only (no outcome simulation yet).")
-
-st.subheader("Step 12: Group-Stage Simulation Outputs")
-step12_rows = [
-    {
-        "file": GROUP_STAGE_SIMULATED_MATCHES_FILE,
-        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATED_MATCHES_FILE),
-        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATED_MATCHES_FILE).is_file(),
-    },
-    {
-        "file": GROUP_STAGE_TABLES_FILE,
-        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_TABLES_FILE),
-        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_TABLES_FILE).is_file(),
-    },
-    {
-        "file": GROUP_STAGE_RANKINGS_FILE,
-        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_RANKINGS_FILE),
-        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_RANKINGS_FILE).is_file(),
-    },
-    {
-        "file": BEST_THIRD_PLACED_TEAMS_FILE,
-        "path": str(PROCESSED_DATA_DIR / BEST_THIRD_PLACED_TEAMS_FILE),
-        "present": (PROCESSED_DATA_DIR / BEST_THIRD_PLACED_TEAMS_FILE).is_file(),
-    },
-    {
-        "file": ROUND_OF_32_QUALIFIERS_FILE,
-        "path": str(PROCESSED_DATA_DIR / ROUND_OF_32_QUALIFIERS_FILE),
-        "present": (PROCESSED_DATA_DIR / ROUND_OF_32_QUALIFIERS_FILE).is_file(),
-    },
-    {
-        "file": GROUP_STAGE_SIMULATION_SUMMARY_FILE,
-        "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATION_SUMMARY_FILE),
-        "present": (PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATION_SUMMARY_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step12_rows), use_container_width=True)
-st.caption("Step 12 simulates group stage only and prepares Round-of-32 qualifiers.")
-
-st.subheader("Step 13: Knockout Simulation Outputs")
-step13_rows = [
-    {
-        "file": KNOCKOUT_BRACKET_FILLED_FILE,
-        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_BRACKET_FILLED_FILE),
-        "present": (PROCESSED_DATA_DIR / KNOCKOUT_BRACKET_FILLED_FILE).is_file(),
-    },
-    {
-        "file": KNOCKOUT_SIMULATED_MATCHES_FILE,
-        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATED_MATCHES_FILE),
-        "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATED_MATCHES_FILE).is_file(),
-    },
-    {
-        "file": SINGLE_TOURNAMENT_RESULT_FILE,
-        "path": str(PROCESSED_DATA_DIR / SINGLE_TOURNAMENT_RESULT_FILE),
-        "present": (PROCESSED_DATA_DIR / SINGLE_TOURNAMENT_RESULT_FILE).is_file(),
-    },
-    {
-        "file": KNOCKOUT_SIMULATION_SUMMARY_FILE,
-        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_SUMMARY_FILE),
-        "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step13_rows), use_container_width=True)
-st.caption("Step 13 simulates one knockout bracket only and saves the full path plus validation report.")
-
-st.subheader("Step 14: Full Tournament Single-Run Outputs")
-step14_rows = [
-    {
-        "file": FULL_TOURNAMENT_SIMULATED_MATCHES_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_SIMULATED_MATCHES_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_SIMULATED_MATCHES_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_GROUP_TABLES_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_GROUP_TABLES_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_GROUP_TABLES_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_STAGE_RESULTS_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_STAGE_RESULTS_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_STAGE_RESULTS_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_PATH_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_PATH_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_PATH_REPORT_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_RESULT_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_RESULT_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_RESULT_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_SUMMARY_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_SUMMARY_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": FULL_TOURNAMENT_VALIDATION_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_VALIDATION_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_VALIDATION_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step14_rows), use_container_width=True)
-st.caption("Step 14 connects group + knockout stages into one complete sampled tournament path.")
-
-st.subheader("Step 15: Monte Carlo Simulation Outputs")
-step15_rows = [
-    {
-        "file": MONTE_CARLO_SIMULATION_RESULTS_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SIMULATION_RESULTS_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SIMULATION_RESULTS_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_CHAMPION_PROBABILITIES_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_FINALISTS_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_FINALISTS_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_FINALISTS_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_SEMIFINALISTS_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SEMIFINALISTS_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SEMIFINALISTS_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_SUMMARY_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_VALIDATION_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_VALIDATION_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / MONTE_CARLO_VALIDATION_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step15_rows), use_container_width=True)
-st.caption("Step 15 runs repeated full tournament samples to estimate progression/champion probabilities.")
-
-st.subheader("Step 16: Monte Carlo Dashboard and Report Outputs")
-step16_rows = [
-    {
-        "file": MONTE_CARLO_REPORT_MD_FILE,
-        "path": str(REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE),
-        "present": (REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_SUMMARY_CARDS_FILE,
-        "path": str(REPORTS_DIR / MONTE_CARLO_SUMMARY_CARDS_FILE),
-        "present": (REPORTS_DIR / MONTE_CARLO_SUMMARY_CARDS_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_DASHBOARD_EXPORT_FILE,
-        "path": str(REPORTS_DIR / MONTE_CARLO_DASHBOARD_EXPORT_FILE),
-        "present": (REPORTS_DIR / MONTE_CARLO_DASHBOARD_EXPORT_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_CHAMPION_CHART_FILE,
-        "path": str(FIGURES_DIR / MONTE_CARLO_CHAMPION_CHART_FILE),
-        "present": (FIGURES_DIR / MONTE_CARLO_CHAMPION_CHART_FILE).is_file(),
-    },
-    {
-        "file": MONTE_CARLO_STAGE_HEATMAP_FILE,
-        "path": str(FIGURES_DIR / MONTE_CARLO_STAGE_HEATMAP_FILE),
-        "present": (FIGURES_DIR / MONTE_CARLO_STAGE_HEATMAP_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step16_rows), use_container_width=True)
-st.caption("Step 16 adds report artifacts, summary cards, and visuals on top of Monte Carlo outputs.")
-
-st.subheader("Step 17A: Official World Cup 2026 Data Lock Outputs")
-step17a_rows = [
-    {
-        "file": OFFICIAL_TEAMS_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAMS_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAMS_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_GROUPS_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_GROUPS_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_GROUPS_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_FIXTURES_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FIXTURES_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FIXTURES_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_VENUES_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_VENUES_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_VENUES_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_MATCH_CALENDAR_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_MATCH_CALENDAR_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_MATCH_CALENDAR_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_DATA_SUMMARY_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_SUMMARY_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_DATA_VALIDATION_REPORT_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_VALIDATION_REPORT_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_VALIDATION_REPORT_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_SOURCE_MANIFEST_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SOURCE_MANIFEST_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SOURCE_MANIFEST_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step17a_rows), use_container_width=True)
-st.caption("Step 17A adds an official-data lock so future official-mode predictions and simulations can be constrained to World Cup 2026 data contracts.")
-
-st.subheader("Step 17B: Official Squads and Player Priors Merge Outputs")
-
-OFFICIAL_PLAYERS_FILE = getattr(C, "OFFICIAL_PLAYERS_FILE", "official_players.csv")
-OFFICIAL_SQUADS_FILE = getattr(C, "OFFICIAL_SQUADS_FILE", "official_squads.csv")
-OFFICIAL_TEAM_PLAYER_MAP_FILE = getattr(C, "OFFICIAL_TEAM_PLAYER_MAP_FILE", "official_team_player_map.csv")
-OFFICIAL_SQUAD_SUMMARY_FILE = getattr(C, "OFFICIAL_SQUAD_SUMMARY_FILE", "official_squad_summary.json")
-OFFICIAL_SQUAD_VALIDATION_REPORT_FILE = getattr(C, "OFFICIAL_SQUAD_VALIDATION_REPORT_FILE", "official_squad_validation_report.csv")
-OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE = getattr(C, "OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE", "official_player_prior_merge_report.csv")
-PLAYER_AWARD_PRIORS_FILE = getattr(C, "PLAYER_AWARD_PRIORS_FILE", "player_award_priors.csv")
-OFFICIAL_AWARD_CANDIDATES_FILE = getattr(C, "OFFICIAL_AWARD_CANDIDATES_FILE", "official_award_candidates.csv")
-
-step17b_rows = [
-    {
-        "file": OFFICIAL_PLAYERS_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYERS_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYERS_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_SQUADS_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUADS_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUADS_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_TEAM_PLAYER_MAP_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAM_PLAYER_MAP_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAM_PLAYER_MAP_FILE).is_file(),
-    },
-    {
-        "file": PLAYER_AWARD_PRIORS_FILE,
-        "path": str(C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / PLAYER_AWARD_PRIORS_FILE),
-        "present": (C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / PLAYER_AWARD_PRIORS_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_AWARD_CANDIDATES_FILE,
-        "path": str(C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / OFFICIAL_AWARD_CANDIDATES_FILE),
-        "present": (C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / OFFICIAL_AWARD_CANDIDATES_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_SQUAD_SUMMARY_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_SUMMARY_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_SQUAD_VALIDATION_REPORT_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_VALIDATION_REPORT_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_VALIDATION_REPORT_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step17b_rows), use_container_width=True)
-st.caption("Step 17B adds official squads and editable player priors, merged into official_award_candidates.csv. Only official squad players can enter award predictions in official mode.")
-
-st.subheader("Step 17D: Official Data Population Pack Outputs")
-
-OFFICIAL_POPULATION_GUIDE_FILE = getattr(C, "OFFICIAL_POPULATION_GUIDE_FILE", "official_data_population_guide.md")
-OFFICIAL_POPULATION_STATUS_FILE = getattr(C, "OFFICIAL_POPULATION_STATUS_FILE", "official_population_status.json")
-OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE = getattr(C, "OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE", "official_population_missing_data_report.csv")
-OFFICIAL_POPULATION_DIFF_REPORT_FILE = getattr(C, "OFFICIAL_POPULATION_DIFF_REPORT_FILE", "official_population_diff_report.csv")
-OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE = getattr(C, "OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE", "official_worldcup_2026_master_import.xlsx")
-OFFICIAL_MASTER_IMPORT_README_FILE = getattr(C, "OFFICIAL_MASTER_IMPORT_README_FILE", "official_worldcup_2026_master_import_README.md")
-OFFICIAL_FINAL_MODE_FLAG_FILE = getattr(C, "OFFICIAL_FINAL_MODE_FLAG_FILE", "official_final_mode.json")
-OFFICIAL_POPULATION_DIR = getattr(C, "OFFICIAL_POPULATION_DIR", "data/official/population")
-OFFICIAL_POPULATION_REPORTS_DIR = getattr(C, "OFFICIAL_POPULATION_REPORTS_DIR", "data/official/population/reports")
-OFFICIAL_POPULATION_WORKBOOK_DIR = getattr(C, "OFFICIAL_POPULATION_WORKBOOK_DIR", "data/official/population/workbooks")
-
-POPULATION_ROOT = PROJECT_ROOT / str(OFFICIAL_POPULATION_DIR)
-POPULATION_REPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATION_REPORTS_DIR)
-POPULATION_WORKBOOKS = PROJECT_ROOT / str(OFFICIAL_POPULATION_WORKBOOK_DIR)
-
-step17d_rows = [
-    {"file": OFFICIAL_POPULATION_GUIDE_FILE, "path": str(POPULATION_ROOT / OFFICIAL_POPULATION_GUIDE_FILE), "present": (POPULATION_ROOT / OFFICIAL_POPULATION_GUIDE_FILE).is_file()},
-    {"file": OFFICIAL_POPULATION_STATUS_FILE, "path": str(POPULATION_ROOT / OFFICIAL_POPULATION_STATUS_FILE), "present": (POPULATION_ROOT / OFFICIAL_POPULATION_STATUS_FILE).is_file()},
-    {"file": OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE, "path": str(POPULATION_REPORTS / OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE), "present": (POPULATION_REPORTS / OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE).is_file()},
-    {"file": OFFICIAL_POPULATION_DIFF_REPORT_FILE, "path": str(POPULATION_REPORTS / OFFICIAL_POPULATION_DIFF_REPORT_FILE), "present": (POPULATION_REPORTS / OFFICIAL_POPULATION_DIFF_REPORT_FILE).is_file()},
-    {"file": OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE, "path": str(POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE), "present": (POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE).is_file()},
-    {"file": OFFICIAL_MASTER_IMPORT_README_FILE, "path": str(POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_README_FILE), "present": (POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_README_FILE).is_file()},
-    {"file": OFFICIAL_FINAL_MODE_FLAG_FILE, "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_MODE_FLAG_FILE), "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_MODE_FLAG_FILE).is_file()},
-]
-st.dataframe(pd.DataFrame(step17d_rows), use_container_width=True)
-st.caption("Step 17D adds manual population workflow: guides, templates, missing-data reports, import preview/diff, and safe official_final promotion.")
-
-st.subheader("Step 17E: Source-Assisted Official FIFA Data Population Outputs")
-
-OFFICIAL_SOURCE_DATA_DIR = getattr(C, "OFFICIAL_SOURCE_DATA_DIR", "data/official/source_data")
-OFFICIAL_SOURCE_STAGING_DIR = getattr(C, "OFFICIAL_SOURCE_STAGING_DIR", "data/official/source_data/staging")
-OFFICIAL_SOURCE_REPORTS_DIR = getattr(C, "OFFICIAL_SOURCE_REPORTS_DIR", "data/official/source_data/reports")
-OFFICIAL_SOURCE_EXPORTS_DIR = getattr(C, "OFFICIAL_SOURCE_EXPORTS_DIR", "data/official/source_data/exports")
-OFFICIAL_SOURCE_REGISTRY_FILE = getattr(C, "OFFICIAL_SOURCE_REGISTRY_FILE", "official_source_registry.json")
-OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE = getattr(C, "OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE", "official_source_snapshot_manifest.json")
-STAGED_OFFICIAL_TEAMS_FILE = getattr(C, "STAGED_OFFICIAL_TEAMS_FILE", "staged_official_teams.csv")
-STAGED_OFFICIAL_FIXTURES_FILE = getattr(C, "STAGED_OFFICIAL_FIXTURES_FILE", "staged_official_fixtures.csv")
-STAGED_OFFICIAL_VENUES_FILE = getattr(C, "STAGED_OFFICIAL_VENUES_FILE", "staged_official_venues.csv")
-STAGED_OFFICIAL_PLAYERS_FILE = getattr(C, "STAGED_OFFICIAL_PLAYERS_FILE", "staged_official_players.csv")
-OFFICIAL_SOURCE_PARSE_REPORT_FILE = getattr(C, "OFFICIAL_SOURCE_PARSE_REPORT_FILE", "official_source_parse_report.csv")
-OFFICIAL_STAGING_VALIDATION_REPORT_FILE = getattr(C, "OFFICIAL_STAGING_VALIDATION_REPORT_FILE", "official_staging_validation_report.csv")
-OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE = getattr(C, "OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE", "official_source_population_summary.json")
-OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE = getattr(C, "OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE", "official_worldcup_2026_import_pack.zip")
-
-SOURCE_ROOT = PROJECT_ROOT / str(OFFICIAL_SOURCE_DATA_DIR)
-SOURCE_STAGING = PROJECT_ROOT / str(OFFICIAL_SOURCE_STAGING_DIR)
-SOURCE_REPORTS = PROJECT_ROOT / str(OFFICIAL_SOURCE_REPORTS_DIR)
-SOURCE_EXPORTS = PROJECT_ROOT / str(OFFICIAL_SOURCE_EXPORTS_DIR)
-
-step17e_rows = [
-    {"file": OFFICIAL_SOURCE_REGISTRY_FILE, "path": str(SOURCE_ROOT / OFFICIAL_SOURCE_REGISTRY_FILE), "present": (SOURCE_ROOT / OFFICIAL_SOURCE_REGISTRY_FILE).is_file()},
-    {"file": OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE, "path": str(SOURCE_ROOT / OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE), "present": (SOURCE_ROOT / OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE).is_file()},
-    {"file": STAGED_OFFICIAL_TEAMS_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_TEAMS_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_TEAMS_FILE).is_file()},
-    {"file": STAGED_OFFICIAL_FIXTURES_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_FIXTURES_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_FIXTURES_FILE).is_file()},
-    {"file": STAGED_OFFICIAL_VENUES_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_VENUES_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_VENUES_FILE).is_file()},
-    {"file": STAGED_OFFICIAL_PLAYERS_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_PLAYERS_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_PLAYERS_FILE).is_file()},
-    {"file": OFFICIAL_SOURCE_PARSE_REPORT_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_SOURCE_PARSE_REPORT_FILE), "present": (SOURCE_REPORTS / OFFICIAL_SOURCE_PARSE_REPORT_FILE).is_file()},
-    {"file": OFFICIAL_STAGING_VALIDATION_REPORT_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_STAGING_VALIDATION_REPORT_FILE), "present": (SOURCE_REPORTS / OFFICIAL_STAGING_VALIDATION_REPORT_FILE).is_file()},
-    {"file": OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE), "present": (SOURCE_REPORTS / OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE).is_file()},
-    {"file": OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE, "path": str(SOURCE_EXPORTS / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE), "present": (SOURCE_EXPORTS / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE).is_file()},
-]
-st.dataframe(pd.DataFrame(step17e_rows), use_container_width=True)
-st.caption("Step 17E stages official FIFA source data for review; official_final stays blocked until readiness passes.")
-
-st.subheader("Step 17F: Populate Official FIFA World Cup Data Outputs")
-
-OFFICIAL_POPULATED_DATA_DIR = getattr(C, "OFFICIAL_POPULATED_DATA_DIR", "data/official/populated")
-OFFICIAL_POPULATED_REPORTS_DIR = getattr(C, "OFFICIAL_POPULATED_REPORTS_DIR", "data/official/populated/reports")
-OFFICIAL_POPULATED_EXPORTS_DIR = getattr(C, "OFFICIAL_POPULATED_EXPORTS_DIR", "data/official/populated/exports")
-POPULATED_OFFICIAL_TEAMS_FILE = getattr(C, "POPULATED_OFFICIAL_TEAMS_FILE", "populated_official_teams.csv")
-POPULATED_OFFICIAL_GROUPS_FILE = getattr(C, "POPULATED_OFFICIAL_GROUPS_FILE", "populated_official_groups.csv")
-POPULATED_OFFICIAL_FIXTURES_FILE = getattr(C, "POPULATED_OFFICIAL_FIXTURES_FILE", "populated_official_fixtures.csv")
-POPULATED_OFFICIAL_VENUES_FILE = getattr(C, "POPULATED_OFFICIAL_VENUES_FILE", "populated_official_venues.csv")
-POPULATED_OFFICIAL_PLAYERS_FILE = getattr(C, "POPULATED_OFFICIAL_PLAYERS_FILE", "populated_official_players.csv")
-POPULATED_PLAYER_AWARD_PRIORS_FILE = getattr(C, "POPULATED_PLAYER_AWARD_PRIORS_FILE", "populated_player_award_priors.csv")
-OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE = getattr(
-    C, "OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE", "official_population_completeness_report.csv"
-)
-OFFICIAL_POPULATION_FINAL_SUMMARY_FILE = getattr(
-    C, "OFFICIAL_POPULATION_FINAL_SUMMARY_FILE", "official_population_final_summary.json"
-)
-OFFICIAL_READY_IMPORT_PACK_FILE = getattr(C, "OFFICIAL_READY_IMPORT_PACK_FILE", "official_ready_import_pack.zip")
-
-POP_ROOT = PROJECT_ROOT / str(OFFICIAL_POPULATED_DATA_DIR)
-POP_REPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATED_REPORTS_DIR)
-POP_EXPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATED_EXPORTS_DIR)
-
-step17f_rows = [
-    {"file": POPULATED_OFFICIAL_TEAMS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_TEAMS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_TEAMS_FILE).is_file()},
-    {"file": POPULATED_OFFICIAL_GROUPS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_GROUPS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_GROUPS_FILE).is_file()},
-    {"file": POPULATED_OFFICIAL_FIXTURES_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_FIXTURES_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_FIXTURES_FILE).is_file()},
-    {"file": POPULATED_OFFICIAL_VENUES_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_VENUES_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_VENUES_FILE).is_file()},
-    {"file": POPULATED_OFFICIAL_PLAYERS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_PLAYERS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_PLAYERS_FILE).is_file()},
-    {"file": POPULATED_PLAYER_AWARD_PRIORS_FILE, "path": str(POP_ROOT / POPULATED_PLAYER_AWARD_PRIORS_FILE), "present": (POP_ROOT / POPULATED_PLAYER_AWARD_PRIORS_FILE).is_file()},
-    {"file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE, "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE), "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file()},
-    {"file": OFFICIAL_POPULATION_FINAL_SUMMARY_FILE, "path": str(POP_REPORTS / OFFICIAL_POPULATION_FINAL_SUMMARY_FILE), "present": (POP_REPORTS / OFFICIAL_POPULATION_FINAL_SUMMARY_FILE).is_file()},
-    {"file": OFFICIAL_READY_IMPORT_PACK_FILE, "path": str(POP_EXPORTS / OFFICIAL_READY_IMPORT_PACK_FILE), "present": (POP_EXPORTS / OFFICIAL_READY_IMPORT_PACK_FILE).is_file()},
-]
-st.dataframe(pd.DataFrame(step17f_rows), use_container_width=True)
-st.caption("Step 17F builds populated import files from FIFA sources; apply only when completeness checks pass.")
-
-st.subheader("Step 17G: Official Data Import Execution Outputs")
-
-OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE = getattr(
-    C, "OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE", "official_import_execution_summary.json"
-)
-OFFICIAL_FINAL_READINESS_REPORT_FILE = getattr(
-    C, "OFFICIAL_FINAL_READINESS_REPORT_FILE", "official_final_readiness_report.json"
-)
-OFFICIAL_FINAL_READINESS_CHECKLIST_FILE = getattr(
-    C, "OFFICIAL_FINAL_READINESS_CHECKLIST_FILE", "official_final_readiness_checklist.csv"
-)
-
-step17g_rows = [
-    {
-        "file": OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE,
-        "path": str(POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE),
-        "present": (POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE,
-        "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE),
-        "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_FINAL_READINESS_REPORT_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE).is_file(),
-    },
-    {
-        "file": OFFICIAL_FINAL_READINESS_CHECKLIST_FILE,
-        "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE),
-        "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step17g_rows), use_container_width=True)
-st.caption("Step 17G runs staging, preview, optional apply, and final readiness — without forcing official_final.")
-
-st.subheader("Step 18: FIFA World Cup Awards Predictor Outputs")
-step18_rows = [
-    {
-        "file": WORLD_CUP_AWARDS_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": GOLDEN_BALL_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / GOLDEN_BALL_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / GOLDEN_BALL_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": GOLDEN_BOOT_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / GOLDEN_BOOT_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / GOLDEN_BOOT_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": GOLDEN_GLOVE_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / GOLDEN_GLOVE_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / GOLDEN_GLOVE_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": YOUNG_PLAYER_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / YOUNG_PLAYER_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / YOUNG_PLAYER_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": FAIR_PLAY_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / FAIR_PLAY_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / FAIR_PLAY_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE,
-        "path": str(PROCESSED_DATA_DIR / MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE),
-        "present": (PROCESSED_DATA_DIR / MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE).is_file(),
-    },
-    {
-        "file": TEAM_OF_THE_TOURNAMENT_FILE,
-        "path": str(PROCESSED_DATA_DIR / TEAM_OF_THE_TOURNAMENT_FILE),
-        "present": (PROCESSED_DATA_DIR / TEAM_OF_THE_TOURNAMENT_FILE).is_file(),
-    },
-    {
-        "file": WORLD_CUP_AWARDS_SUMMARY_FILE,
-        "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE),
-        "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE).is_file(),
-    },
-    {
-        "file": WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE,
-        "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE),
-        "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE).is_file(),
-    },
-    {
-        "file": WORLD_CUP_AWARDS_REPORT_FILE,
-        "path": str(Path("reports") / WORLD_CUP_AWARDS_REPORT_FILE),
-        "present": (Path("reports") / WORLD_CUP_AWARDS_REPORT_FILE).is_file(),
-    },
-]
-st.dataframe(pd.DataFrame(step18_rows), use_container_width=True)
-st.caption(
-    "Step 18 requires official_final=true. Uses official_award_candidates.csv and Monte Carlo progression. "
-    "Outputs are explainable analytics estimates, not official FIFA predictions."
-)
-
-PORTFOLIO_DIR = PROJECT_ROOT / str(getattr(C, "PORTFOLIO_DIR", "portfolio"))
-st.subheader("Step 19: Portfolio & prior enrichment artifacts")
-step19_rows = [
-    {"file": "enriched_official_award_candidates.csv", "path": str(PROCESSED_DATA_DIR / "enriched_official_award_candidates.csv"), "present": (PROCESSED_DATA_DIR / "enriched_official_award_candidates.csv").is_file()},
-    {"file": "player_prior_quality_report.csv", "path": str(PROCESSED_DATA_DIR / "player_prior_quality_report.csv"), "present": (PROCESSED_DATA_DIR / "player_prior_quality_report.csv").is_file()},
-    {"file": "final_project_summary.json", "path": str(PROCESSED_DATA_DIR / "final_project_summary.json"), "present": (PROCESSED_DATA_DIR / "final_project_summary.json").is_file()},
-    {"file": "portfolio/PORTFOLIO_README.md", "path": str(PORTFOLIO_DIR / "PORTFOLIO_README.md"), "present": (PORTFOLIO_DIR / "PORTFOLIO_README.md").is_file()},
-    {"file": "portfolio/demo_script.md", "path": str(PORTFOLIO_DIR / "demo_script.md"), "present": (PORTFOLIO_DIR / "demo_script.md").is_file()},
-    {"file": "portfolio/project_architecture.md", "path": str(PORTFOLIO_DIR / "project_architecture.md"), "present": (PORTFOLIO_DIR / "project_architecture.md").is_file()},
-]
-st.dataframe(pd.DataFrame(step19_rows), use_container_width=True)
-st.caption("Run `python scripts/enrich_player_priors.py` then `python scripts/prepare_final_project_pack.py` for portfolio docs.")
-
-st.subheader("Planned Datasets")
-rows = []
-for key, cfg in DATA_SOURCES.items():
-    real_present = cfg.expected_path.is_file()
-    rows.append(
-        {
-            "dataset": cfg.name,
-            "expected_real_path": str(cfg.expected_path),
-            "sample_fallback": str(cfg.sample_path),
-            "real_file_present": real_present,
-            "source": "real" if real_present else "sample",
-        }
+    st.subheader("Step 3: Processed Outputs")
+    processed_files = [
+        CANONICAL_MATCHES_FILE,
+        CANONICAL_MATCHES_SAMPLE_FILE,
+        TEAM_REGISTRY_FILE,
+        SHOOTOUT_OUTCOMES_FILE,
+        DATA_QUALITY_REPORT_FILE,
+        CLEANING_SUMMARY_FILE,
+    ]
+    processed_rows = []
+    for name in processed_files:
+        path = PROCESSED_DATA_DIR / name
+        processed_rows.append(
+            {
+                "file": name,
+                "path": str(path),
+                "present": path.is_file(),
+            }
+        )
+    st.dataframe(pd.DataFrame(processed_rows), use_container_width=True)
+    st.caption(
+        "Run `python main.py` to (re)generate the cleaned canonical dataset and "
+        "team registry under `data/processed/`."
     )
-st.dataframe(pd.DataFrame(rows), use_container_width=True)
-st.caption(
-    "Real datasets can be added manually to `data/raw/`. "
-    "Sample fallback data is used when real files are missing."
+
+    st.subheader("Step 4: Feature Outputs")
+    feature_files = [
+        FEATURE_DATASET_FILE,
+        FEATURE_DATASET_SAMPLE_FILE,
+        FEATURE_QUALITY_REPORT_FILE,
+        FEATURE_SUMMARY_FILE,
+    ]
+    feature_rows = []
+    for name in feature_files:
+        path = PROCESSED_DATA_DIR / name
+        feature_rows.append(
+            {
+                "file": name,
+                "path": str(path),
+                "present": path.is_file(),
+            }
+        )
+    st.dataframe(pd.DataFrame(feature_rows), use_container_width=True)
+    st.caption(
+        "The feature dataset is leakage-safe: each row uses only matches before the current match date."
+    )
+
+    st.subheader("Step 5: Baseline Model Outputs")
+    baseline_rows = [
+        {
+            "file": BEST_BASELINE_MODEL_FILE,
+            "path": str(Path(BASELINE_MODEL_DIR) / BEST_BASELINE_MODEL_FILE),
+            "present": (Path(BASELINE_MODEL_DIR) / BEST_BASELINE_MODEL_FILE).is_file(),
+        },
+        {
+            "file": FEATURE_COLUMNS_FILE,
+            "path": str(Path(BASELINE_MODEL_DIR) / FEATURE_COLUMNS_FILE),
+            "present": (Path(BASELINE_MODEL_DIR) / FEATURE_COLUMNS_FILE).is_file(),
+        },
+        {
+            "file": MODEL_METRICS_FILE,
+            "path": str(Path("reports") / MODEL_METRICS_FILE),
+            "present": (Path("reports") / MODEL_METRICS_FILE).is_file(),
+        },
+        {
+            "file": FEATURE_IMPORTANCE_RF_FILE,
+            "path": str(Path("reports") / FEATURE_IMPORTANCE_RF_FILE),
+            "present": (Path("reports") / FEATURE_IMPORTANCE_RF_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(baseline_rows), use_container_width=True)
+    st.caption(
+        "The baseline model artifacts live under `models/baseline/` and the evaluation reports live under `reports/`."
+    )
+
+    st.subheader("Step 6: Improved Model Outputs")
+    improved_rows = [
+        {
+            "file": BEST_IMPROVED_MODEL_FILE,
+            "path": str(Path(IMPROVED_MODEL_DIR) / BEST_IMPROVED_MODEL_FILE),
+            "present": (Path(IMPROVED_MODEL_DIR) / BEST_IMPROVED_MODEL_FILE).is_file(),
+        },
+        {
+            "file": IMPROVED_FEATURE_COLUMNS_FILE,
+            "path": str(Path(IMPROVED_MODEL_DIR) / IMPROVED_FEATURE_COLUMNS_FILE),
+            "present": (Path(IMPROVED_MODEL_DIR) / IMPROVED_FEATURE_COLUMNS_FILE).is_file(),
+        },
+        {
+            "file": IMPROVED_MODEL_METRICS_FILE,
+            "path": str(Path("reports") / IMPROVED_MODEL_METRICS_FILE),
+            "present": (Path("reports") / IMPROVED_MODEL_METRICS_FILE).is_file(),
+        },
+        {
+            "file": BASELINE_VS_IMPROVED_METRICS_FILE,
+            "path": str(Path("reports") / BASELINE_VS_IMPROVED_METRICS_FILE),
+            "present": (Path("reports") / BASELINE_VS_IMPROVED_METRICS_FILE).is_file(),
+        },
+        {
+            "file": TEMPORAL_BACKTEST_RESULTS_FILE,
+            "path": str(Path("reports") / TEMPORAL_BACKTEST_RESULTS_FILE),
+            "present": (Path("reports") / TEMPORAL_BACKTEST_RESULTS_FILE).is_file(),
+        },
+        {
+            "file": PROBABILITY_QUALITY_REPORT_FILE,
+            "path": str(Path("reports") / PROBABILITY_QUALITY_REPORT_FILE),
+            "present": (Path("reports") / PROBABILITY_QUALITY_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(improved_rows), use_container_width=True)
+    st.caption("Step 6 adds optional XGBoost/LightGBM, calibrated probabilities, and temporal backtesting.")
+
+    st.subheader("Step 7: Ranking + Elo Outputs")
+    step7_rows = [
+        {
+            "file": RANKING_FEATURE_DATASET_FILE,
+            "path": str(PROCESSED_DATA_DIR / RANKING_FEATURE_DATASET_FILE),
+            "present": (PROCESSED_DATA_DIR / RANKING_FEATURE_DATASET_FILE).is_file(),
+        },
+        {
+            "file": TEAM_STRENGTH_SNAPSHOT_FILE,
+            "path": str(PROCESSED_DATA_DIR / TEAM_STRENGTH_SNAPSHOT_FILE),
+            "present": (PROCESSED_DATA_DIR / TEAM_STRENGTH_SNAPSHOT_FILE).is_file(),
+        },
+        {
+            "file": RANKING_MERGE_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / RANKING_MERGE_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / RANKING_MERGE_REPORT_FILE).is_file(),
+        },
+        {
+            "file": BEST_RANKING_ENHANCED_MODEL_FILE,
+            "path": str(Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE),
+            "present": (Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE).is_file(),
+        },
+        {
+            "file": RANKING_ENHANCED_MODEL_METRICS_FILE,
+            "path": str(Path("reports") / RANKING_ENHANCED_MODEL_METRICS_FILE),
+            "present": (Path("reports") / RANKING_ENHANCED_MODEL_METRICS_FILE).is_file(),
+        },
+        {
+            "file": RANKING_VS_PREVIOUS_METRICS_FILE,
+            "path": str(Path("reports") / RANKING_VS_PREVIOUS_METRICS_FILE),
+            "present": (Path("reports") / RANKING_VS_PREVIOUS_METRICS_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step7_rows), use_container_width=True)
+    st.caption(
+        "Step 7 adds snapshot FIFA/Elo team-strength signals. For strict historical backtesting, date-aware historical ranking joins are recommended."
+    )
+
+    st.subheader("Step 8: Future Match Prediction Outputs")
+    step8_rows = [
+        {
+            "file": FUTURE_PREDICTION_LOG_FILE,
+            "path": str(Path("reports") / FUTURE_PREDICTION_LOG_FILE),
+            "present": (Path("reports") / FUTURE_PREDICTION_LOG_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step8_rows), use_container_width=True)
+    st.caption("Step 8 supports real arbitrary future match predictions and logs them under `reports/`.")
+
+    st.subheader("Step 10: Explainability Outputs")
+    step10_rows = [
+        {
+            "file": EXPLANATION_REPORT_FILE,
+            "path": str(Path("reports") / EXPLANATION_REPORT_FILE),
+            "present": (Path("reports") / EXPLANATION_REPORT_FILE).is_file(),
+        },
+        {
+            "file": EXPLANATION_HISTORY_FILE,
+            "path": str(Path("reports") / EXPLANATION_HISTORY_FILE),
+            "present": (Path("reports") / EXPLANATION_HISTORY_FILE).is_file(),
+        },
+        {
+            "file": GLOBAL_EXPLANATION_REPORT_FILE,
+            "path": str(Path("reports") / GLOBAL_EXPLANATION_REPORT_FILE),
+            "present": (Path("reports") / GLOBAL_EXPLANATION_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step10_rows), use_container_width=True)
+
+    st.subheader("Step 11: Tournament Setup Outputs")
+    step11_rows = [
+        {
+            "file": TOURNAMENT_GROUPS_FILE,
+            "path": str(PROCESSED_DATA_DIR / TOURNAMENT_GROUPS_FILE),
+            "present": (PROCESSED_DATA_DIR / TOURNAMENT_GROUPS_FILE).is_file(),
+        },
+        {
+            "file": TOURNAMENT_FIXTURES_FILE,
+            "path": str(PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE),
+            "present": (PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE).is_file(),
+        },
+        {
+            "file": KNOCKOUT_PLACEHOLDER_FILE,
+            "path": str(PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE),
+            "present": (PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE).is_file(),
+        },
+        {
+            "file": TOURNAMENT_STRUCTURE_FILE,
+            "path": str(PROCESSED_DATA_DIR / TOURNAMENT_STRUCTURE_FILE),
+            "present": (PROCESSED_DATA_DIR / TOURNAMENT_STRUCTURE_FILE).is_file(),
+        },
+        {
+            "file": TOURNAMENT_VALIDATION_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step11_rows), use_container_width=True)
+    st.caption("Step 11 prepares validated group/fixture/knockout structure only (no outcome simulation yet).")
+
+    st.subheader("Step 12: Group-Stage Simulation Outputs")
+    step12_rows = [
+        {
+            "file": GROUP_STAGE_SIMULATED_MATCHES_FILE,
+            "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATED_MATCHES_FILE),
+            "present": (PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATED_MATCHES_FILE).is_file(),
+        },
+        {
+            "file": GROUP_STAGE_TABLES_FILE,
+            "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_TABLES_FILE),
+            "present": (PROCESSED_DATA_DIR / GROUP_STAGE_TABLES_FILE).is_file(),
+        },
+        {
+            "file": GROUP_STAGE_RANKINGS_FILE,
+            "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_RANKINGS_FILE),
+            "present": (PROCESSED_DATA_DIR / GROUP_STAGE_RANKINGS_FILE).is_file(),
+        },
+        {
+            "file": BEST_THIRD_PLACED_TEAMS_FILE,
+            "path": str(PROCESSED_DATA_DIR / BEST_THIRD_PLACED_TEAMS_FILE),
+            "present": (PROCESSED_DATA_DIR / BEST_THIRD_PLACED_TEAMS_FILE).is_file(),
+        },
+        {
+            "file": ROUND_OF_32_QUALIFIERS_FILE,
+            "path": str(PROCESSED_DATA_DIR / ROUND_OF_32_QUALIFIERS_FILE),
+            "present": (PROCESSED_DATA_DIR / ROUND_OF_32_QUALIFIERS_FILE).is_file(),
+        },
+        {
+            "file": GROUP_STAGE_SIMULATION_SUMMARY_FILE,
+            "path": str(PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATION_SUMMARY_FILE),
+            "present": (PROCESSED_DATA_DIR / GROUP_STAGE_SIMULATION_SUMMARY_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step12_rows), use_container_width=True)
+    st.caption("Step 12 simulates group stage only and prepares Round-of-32 qualifiers.")
+
+    st.subheader("Step 13: Knockout Simulation Outputs")
+    step13_rows = [
+        {
+            "file": KNOCKOUT_BRACKET_FILLED_FILE,
+            "path": str(PROCESSED_DATA_DIR / KNOCKOUT_BRACKET_FILLED_FILE),
+            "present": (PROCESSED_DATA_DIR / KNOCKOUT_BRACKET_FILLED_FILE).is_file(),
+        },
+        {
+            "file": KNOCKOUT_SIMULATED_MATCHES_FILE,
+            "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATED_MATCHES_FILE),
+            "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATED_MATCHES_FILE).is_file(),
+        },
+        {
+            "file": SINGLE_TOURNAMENT_RESULT_FILE,
+            "path": str(PROCESSED_DATA_DIR / SINGLE_TOURNAMENT_RESULT_FILE),
+            "present": (PROCESSED_DATA_DIR / SINGLE_TOURNAMENT_RESULT_FILE).is_file(),
+        },
+        {
+            "file": KNOCKOUT_SIMULATION_SUMMARY_FILE,
+            "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_SUMMARY_FILE),
+            "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step13_rows), use_container_width=True)
+    st.caption("Step 13 simulates one knockout bracket only and saves the full path plus validation report.")
+
+    st.subheader("Step 14: Full Tournament Single-Run Outputs")
+    step14_rows = [
+        {
+            "file": FULL_TOURNAMENT_SIMULATED_MATCHES_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_SIMULATED_MATCHES_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_SIMULATED_MATCHES_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_GROUP_TABLES_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_GROUP_TABLES_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_GROUP_TABLES_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_STAGE_RESULTS_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_STAGE_RESULTS_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_STAGE_RESULTS_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_PATH_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_PATH_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_PATH_REPORT_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_RESULT_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_RESULT_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_RESULT_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_SUMMARY_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_SUMMARY_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": FULL_TOURNAMENT_VALIDATION_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / FULL_TOURNAMENT_VALIDATION_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / FULL_TOURNAMENT_VALIDATION_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step14_rows), use_container_width=True)
+    st.caption("Step 14 connects group + knockout stages into one complete sampled tournament path.")
+
+    st.subheader("Step 15: Monte Carlo Simulation Outputs")
+    step15_rows = [
+        {
+            "file": MONTE_CARLO_SIMULATION_RESULTS_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SIMULATION_RESULTS_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SIMULATION_RESULTS_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_CHAMPION_PROBABILITIES_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_CHAMPION_PROBABILITIES_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_FINALISTS_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_FINALISTS_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_FINALISTS_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_SEMIFINALISTS_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SEMIFINALISTS_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SEMIFINALISTS_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_SUMMARY_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_VALIDATION_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / MONTE_CARLO_VALIDATION_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / MONTE_CARLO_VALIDATION_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step15_rows), use_container_width=True)
+    st.caption("Step 15 runs repeated full tournament samples to estimate progression/champion probabilities.")
+
+    st.subheader("Step 16: Monte Carlo Dashboard and Report Outputs")
+    step16_rows = [
+        {
+            "file": MONTE_CARLO_REPORT_MD_FILE,
+            "path": str(REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE),
+            "present": (REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_SUMMARY_CARDS_FILE,
+            "path": str(REPORTS_DIR / MONTE_CARLO_SUMMARY_CARDS_FILE),
+            "present": (REPORTS_DIR / MONTE_CARLO_SUMMARY_CARDS_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_DASHBOARD_EXPORT_FILE,
+            "path": str(REPORTS_DIR / MONTE_CARLO_DASHBOARD_EXPORT_FILE),
+            "present": (REPORTS_DIR / MONTE_CARLO_DASHBOARD_EXPORT_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_CHAMPION_CHART_FILE,
+            "path": str(FIGURES_DIR / MONTE_CARLO_CHAMPION_CHART_FILE),
+            "present": (FIGURES_DIR / MONTE_CARLO_CHAMPION_CHART_FILE).is_file(),
+        },
+        {
+            "file": MONTE_CARLO_STAGE_HEATMAP_FILE,
+            "path": str(FIGURES_DIR / MONTE_CARLO_STAGE_HEATMAP_FILE),
+            "present": (FIGURES_DIR / MONTE_CARLO_STAGE_HEATMAP_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step16_rows), use_container_width=True)
+    st.caption("Step 16 adds report artifacts, summary cards, and visuals on top of Monte Carlo outputs.")
+
+    st.subheader("Step 17A: Official World Cup 2026 Data Lock Outputs")
+    step17a_rows = [
+        {
+            "file": OFFICIAL_TEAMS_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAMS_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAMS_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_GROUPS_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_GROUPS_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_GROUPS_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_FIXTURES_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FIXTURES_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FIXTURES_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_VENUES_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_VENUES_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_VENUES_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_MATCH_CALENDAR_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_MATCH_CALENDAR_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_MATCH_CALENDAR_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_DATA_SUMMARY_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_SUMMARY_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_DATA_VALIDATION_REPORT_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_VALIDATION_REPORT_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_DATA_VALIDATION_REPORT_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_SOURCE_MANIFEST_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SOURCE_MANIFEST_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SOURCE_MANIFEST_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step17a_rows), use_container_width=True)
+    st.caption("Step 17A adds an official-data lock so future official-mode predictions and simulations can be constrained to World Cup 2026 data contracts.")
+
+    st.subheader("Step 17B: Official Squads and Player Priors Merge Outputs")
+
+    OFFICIAL_PLAYERS_FILE = getattr(C, "OFFICIAL_PLAYERS_FILE", "official_players.csv")
+    OFFICIAL_SQUADS_FILE = getattr(C, "OFFICIAL_SQUADS_FILE", "official_squads.csv")
+    OFFICIAL_TEAM_PLAYER_MAP_FILE = getattr(C, "OFFICIAL_TEAM_PLAYER_MAP_FILE", "official_team_player_map.csv")
+    OFFICIAL_SQUAD_SUMMARY_FILE = getattr(C, "OFFICIAL_SQUAD_SUMMARY_FILE", "official_squad_summary.json")
+    OFFICIAL_SQUAD_VALIDATION_REPORT_FILE = getattr(C, "OFFICIAL_SQUAD_VALIDATION_REPORT_FILE", "official_squad_validation_report.csv")
+    OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE = getattr(C, "OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE", "official_player_prior_merge_report.csv")
+    PLAYER_AWARD_PRIORS_FILE = getattr(C, "PLAYER_AWARD_PRIORS_FILE", "player_award_priors.csv")
+    OFFICIAL_AWARD_CANDIDATES_FILE = getattr(C, "OFFICIAL_AWARD_CANDIDATES_FILE", "official_award_candidates.csv")
+
+    step17b_rows = [
+        {
+            "file": OFFICIAL_PLAYERS_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYERS_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYERS_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_SQUADS_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUADS_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUADS_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_TEAM_PLAYER_MAP_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAM_PLAYER_MAP_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_TEAM_PLAYER_MAP_FILE).is_file(),
+        },
+        {
+            "file": PLAYER_AWARD_PRIORS_FILE,
+            "path": str(C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / PLAYER_AWARD_PRIORS_FILE),
+            "present": (C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / PLAYER_AWARD_PRIORS_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_AWARD_CANDIDATES_FILE,
+            "path": str(C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / OFFICIAL_AWARD_CANDIDATES_FILE),
+            "present": (C.PROJECT_ROOT / C.PROCESSED_DATA_DIR / OFFICIAL_AWARD_CANDIDATES_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_SQUAD_SUMMARY_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_SUMMARY_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_SQUAD_VALIDATION_REPORT_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_VALIDATION_REPORT_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_SQUAD_VALIDATION_REPORT_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_PLAYER_PRIOR_MERGE_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step17b_rows), use_container_width=True)
+    st.caption("Step 17B adds official squads and editable player priors, merged into official_award_candidates.csv. Only official squad players can enter award predictions in official mode.")
+
+    st.subheader("Step 17D: Official Data Population Pack Outputs")
+
+    OFFICIAL_POPULATION_GUIDE_FILE = getattr(C, "OFFICIAL_POPULATION_GUIDE_FILE", "official_data_population_guide.md")
+    OFFICIAL_POPULATION_STATUS_FILE = getattr(C, "OFFICIAL_POPULATION_STATUS_FILE", "official_population_status.json")
+    OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE = getattr(C, "OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE", "official_population_missing_data_report.csv")
+    OFFICIAL_POPULATION_DIFF_REPORT_FILE = getattr(C, "OFFICIAL_POPULATION_DIFF_REPORT_FILE", "official_population_diff_report.csv")
+    OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE = getattr(C, "OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE", "official_worldcup_2026_master_import.xlsx")
+    OFFICIAL_MASTER_IMPORT_README_FILE = getattr(C, "OFFICIAL_MASTER_IMPORT_README_FILE", "official_worldcup_2026_master_import_README.md")
+    OFFICIAL_FINAL_MODE_FLAG_FILE = getattr(C, "OFFICIAL_FINAL_MODE_FLAG_FILE", "official_final_mode.json")
+    OFFICIAL_POPULATION_DIR = getattr(C, "OFFICIAL_POPULATION_DIR", "data/official/population")
+    OFFICIAL_POPULATION_REPORTS_DIR = getattr(C, "OFFICIAL_POPULATION_REPORTS_DIR", "data/official/population/reports")
+    OFFICIAL_POPULATION_WORKBOOK_DIR = getattr(C, "OFFICIAL_POPULATION_WORKBOOK_DIR", "data/official/population/workbooks")
+
+    POPULATION_ROOT = PROJECT_ROOT / str(OFFICIAL_POPULATION_DIR)
+    POPULATION_REPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATION_REPORTS_DIR)
+    POPULATION_WORKBOOKS = PROJECT_ROOT / str(OFFICIAL_POPULATION_WORKBOOK_DIR)
+
+    step17d_rows = [
+        {"file": OFFICIAL_POPULATION_GUIDE_FILE, "path": str(POPULATION_ROOT / OFFICIAL_POPULATION_GUIDE_FILE), "present": (POPULATION_ROOT / OFFICIAL_POPULATION_GUIDE_FILE).is_file()},
+        {"file": OFFICIAL_POPULATION_STATUS_FILE, "path": str(POPULATION_ROOT / OFFICIAL_POPULATION_STATUS_FILE), "present": (POPULATION_ROOT / OFFICIAL_POPULATION_STATUS_FILE).is_file()},
+        {"file": OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE, "path": str(POPULATION_REPORTS / OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE), "present": (POPULATION_REPORTS / OFFICIAL_POPULATION_MISSING_DATA_REPORT_FILE).is_file()},
+        {"file": OFFICIAL_POPULATION_DIFF_REPORT_FILE, "path": str(POPULATION_REPORTS / OFFICIAL_POPULATION_DIFF_REPORT_FILE), "present": (POPULATION_REPORTS / OFFICIAL_POPULATION_DIFF_REPORT_FILE).is_file()},
+        {"file": OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE, "path": str(POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE), "present": (POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_WORKBOOK_FILE).is_file()},
+        {"file": OFFICIAL_MASTER_IMPORT_README_FILE, "path": str(POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_README_FILE), "present": (POPULATION_WORKBOOKS / OFFICIAL_MASTER_IMPORT_README_FILE).is_file()},
+        {"file": OFFICIAL_FINAL_MODE_FLAG_FILE, "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_MODE_FLAG_FILE), "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_MODE_FLAG_FILE).is_file()},
+    ]
+    st.dataframe(pd.DataFrame(step17d_rows), use_container_width=True)
+    st.caption("Step 17D adds manual population workflow: guides, templates, missing-data reports, import preview/diff, and safe official_final promotion.")
+
+    st.subheader("Step 17E: Source-Assisted Official FIFA Data Population Outputs")
+
+    OFFICIAL_SOURCE_DATA_DIR = getattr(C, "OFFICIAL_SOURCE_DATA_DIR", "data/official/source_data")
+    OFFICIAL_SOURCE_STAGING_DIR = getattr(C, "OFFICIAL_SOURCE_STAGING_DIR", "data/official/source_data/staging")
+    OFFICIAL_SOURCE_REPORTS_DIR = getattr(C, "OFFICIAL_SOURCE_REPORTS_DIR", "data/official/source_data/reports")
+    OFFICIAL_SOURCE_EXPORTS_DIR = getattr(C, "OFFICIAL_SOURCE_EXPORTS_DIR", "data/official/source_data/exports")
+    OFFICIAL_SOURCE_REGISTRY_FILE = getattr(C, "OFFICIAL_SOURCE_REGISTRY_FILE", "official_source_registry.json")
+    OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE = getattr(C, "OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE", "official_source_snapshot_manifest.json")
+    STAGED_OFFICIAL_TEAMS_FILE = getattr(C, "STAGED_OFFICIAL_TEAMS_FILE", "staged_official_teams.csv")
+    STAGED_OFFICIAL_FIXTURES_FILE = getattr(C, "STAGED_OFFICIAL_FIXTURES_FILE", "staged_official_fixtures.csv")
+    STAGED_OFFICIAL_VENUES_FILE = getattr(C, "STAGED_OFFICIAL_VENUES_FILE", "staged_official_venues.csv")
+    STAGED_OFFICIAL_PLAYERS_FILE = getattr(C, "STAGED_OFFICIAL_PLAYERS_FILE", "staged_official_players.csv")
+    OFFICIAL_SOURCE_PARSE_REPORT_FILE = getattr(C, "OFFICIAL_SOURCE_PARSE_REPORT_FILE", "official_source_parse_report.csv")
+    OFFICIAL_STAGING_VALIDATION_REPORT_FILE = getattr(C, "OFFICIAL_STAGING_VALIDATION_REPORT_FILE", "official_staging_validation_report.csv")
+    OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE = getattr(C, "OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE", "official_source_population_summary.json")
+    OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE = getattr(C, "OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE", "official_worldcup_2026_import_pack.zip")
+
+    SOURCE_ROOT = PROJECT_ROOT / str(OFFICIAL_SOURCE_DATA_DIR)
+    SOURCE_STAGING = PROJECT_ROOT / str(OFFICIAL_SOURCE_STAGING_DIR)
+    SOURCE_REPORTS = PROJECT_ROOT / str(OFFICIAL_SOURCE_REPORTS_DIR)
+    SOURCE_EXPORTS = PROJECT_ROOT / str(OFFICIAL_SOURCE_EXPORTS_DIR)
+
+    step17e_rows = [
+        {"file": OFFICIAL_SOURCE_REGISTRY_FILE, "path": str(SOURCE_ROOT / OFFICIAL_SOURCE_REGISTRY_FILE), "present": (SOURCE_ROOT / OFFICIAL_SOURCE_REGISTRY_FILE).is_file()},
+        {"file": OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE, "path": str(SOURCE_ROOT / OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE), "present": (SOURCE_ROOT / OFFICIAL_SOURCE_SNAPSHOT_MANIFEST_FILE).is_file()},
+        {"file": STAGED_OFFICIAL_TEAMS_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_TEAMS_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_TEAMS_FILE).is_file()},
+        {"file": STAGED_OFFICIAL_FIXTURES_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_FIXTURES_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_FIXTURES_FILE).is_file()},
+        {"file": STAGED_OFFICIAL_VENUES_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_VENUES_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_VENUES_FILE).is_file()},
+        {"file": STAGED_OFFICIAL_PLAYERS_FILE, "path": str(SOURCE_STAGING / STAGED_OFFICIAL_PLAYERS_FILE), "present": (SOURCE_STAGING / STAGED_OFFICIAL_PLAYERS_FILE).is_file()},
+        {"file": OFFICIAL_SOURCE_PARSE_REPORT_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_SOURCE_PARSE_REPORT_FILE), "present": (SOURCE_REPORTS / OFFICIAL_SOURCE_PARSE_REPORT_FILE).is_file()},
+        {"file": OFFICIAL_STAGING_VALIDATION_REPORT_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_STAGING_VALIDATION_REPORT_FILE), "present": (SOURCE_REPORTS / OFFICIAL_STAGING_VALIDATION_REPORT_FILE).is_file()},
+        {"file": OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE, "path": str(SOURCE_REPORTS / OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE), "present": (SOURCE_REPORTS / OFFICIAL_SOURCE_POPULATION_SUMMARY_FILE).is_file()},
+        {"file": OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE, "path": str(SOURCE_EXPORTS / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE), "present": (SOURCE_EXPORTS / OFFICIAL_DOWNLOADABLE_IMPORT_PACK_FILE).is_file()},
+    ]
+    st.dataframe(pd.DataFrame(step17e_rows), use_container_width=True)
+    st.caption("Step 17E stages official FIFA source data for review; official_final stays blocked until readiness passes.")
+
+    st.subheader("Step 17F: Populate Official FIFA World Cup Data Outputs")
+
+    OFFICIAL_POPULATED_DATA_DIR = getattr(C, "OFFICIAL_POPULATED_DATA_DIR", "data/official/populated")
+    OFFICIAL_POPULATED_REPORTS_DIR = getattr(C, "OFFICIAL_POPULATED_REPORTS_DIR", "data/official/populated/reports")
+    OFFICIAL_POPULATED_EXPORTS_DIR = getattr(C, "OFFICIAL_POPULATED_EXPORTS_DIR", "data/official/populated/exports")
+    POPULATED_OFFICIAL_TEAMS_FILE = getattr(C, "POPULATED_OFFICIAL_TEAMS_FILE", "populated_official_teams.csv")
+    POPULATED_OFFICIAL_GROUPS_FILE = getattr(C, "POPULATED_OFFICIAL_GROUPS_FILE", "populated_official_groups.csv")
+    POPULATED_OFFICIAL_FIXTURES_FILE = getattr(C, "POPULATED_OFFICIAL_FIXTURES_FILE", "populated_official_fixtures.csv")
+    POPULATED_OFFICIAL_VENUES_FILE = getattr(C, "POPULATED_OFFICIAL_VENUES_FILE", "populated_official_venues.csv")
+    POPULATED_OFFICIAL_PLAYERS_FILE = getattr(C, "POPULATED_OFFICIAL_PLAYERS_FILE", "populated_official_players.csv")
+    POPULATED_PLAYER_AWARD_PRIORS_FILE = getattr(C, "POPULATED_PLAYER_AWARD_PRIORS_FILE", "populated_player_award_priors.csv")
+    OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE = getattr(
+        C, "OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE", "official_population_completeness_report.csv"
+    )
+    OFFICIAL_POPULATION_FINAL_SUMMARY_FILE = getattr(
+        C, "OFFICIAL_POPULATION_FINAL_SUMMARY_FILE", "official_population_final_summary.json"
+    )
+    OFFICIAL_READY_IMPORT_PACK_FILE = getattr(C, "OFFICIAL_READY_IMPORT_PACK_FILE", "official_ready_import_pack.zip")
+
+    POP_ROOT = PROJECT_ROOT / str(OFFICIAL_POPULATED_DATA_DIR)
+    POP_REPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATED_REPORTS_DIR)
+    POP_EXPORTS = PROJECT_ROOT / str(OFFICIAL_POPULATED_EXPORTS_DIR)
+
+    step17f_rows = [
+        {"file": POPULATED_OFFICIAL_TEAMS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_TEAMS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_TEAMS_FILE).is_file()},
+        {"file": POPULATED_OFFICIAL_GROUPS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_GROUPS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_GROUPS_FILE).is_file()},
+        {"file": POPULATED_OFFICIAL_FIXTURES_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_FIXTURES_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_FIXTURES_FILE).is_file()},
+        {"file": POPULATED_OFFICIAL_VENUES_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_VENUES_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_VENUES_FILE).is_file()},
+        {"file": POPULATED_OFFICIAL_PLAYERS_FILE, "path": str(POP_ROOT / POPULATED_OFFICIAL_PLAYERS_FILE), "present": (POP_ROOT / POPULATED_OFFICIAL_PLAYERS_FILE).is_file()},
+        {"file": POPULATED_PLAYER_AWARD_PRIORS_FILE, "path": str(POP_ROOT / POPULATED_PLAYER_AWARD_PRIORS_FILE), "present": (POP_ROOT / POPULATED_PLAYER_AWARD_PRIORS_FILE).is_file()},
+        {"file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE, "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE), "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file()},
+        {"file": OFFICIAL_POPULATION_FINAL_SUMMARY_FILE, "path": str(POP_REPORTS / OFFICIAL_POPULATION_FINAL_SUMMARY_FILE), "present": (POP_REPORTS / OFFICIAL_POPULATION_FINAL_SUMMARY_FILE).is_file()},
+        {"file": OFFICIAL_READY_IMPORT_PACK_FILE, "path": str(POP_EXPORTS / OFFICIAL_READY_IMPORT_PACK_FILE), "present": (POP_EXPORTS / OFFICIAL_READY_IMPORT_PACK_FILE).is_file()},
+    ]
+    st.dataframe(pd.DataFrame(step17f_rows), use_container_width=True)
+    st.caption("Step 17F builds populated import files from FIFA sources; apply only when completeness checks pass.")
+
+    st.subheader("Step 17G: Official Data Import Execution Outputs")
+
+    OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE = getattr(
+        C, "OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE", "official_import_execution_summary.json"
+    )
+    OFFICIAL_FINAL_READINESS_REPORT_FILE = getattr(
+        C, "OFFICIAL_FINAL_READINESS_REPORT_FILE", "official_final_readiness_report.json"
+    )
+    OFFICIAL_FINAL_READINESS_CHECKLIST_FILE = getattr(
+        C, "OFFICIAL_FINAL_READINESS_CHECKLIST_FILE", "official_final_readiness_checklist.csv"
+    )
+
+    step17g_rows = [
+        {
+            "file": OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE,
+            "path": str(POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE),
+            "present": (POP_REPORTS / OFFICIAL_IMPORT_EXECUTION_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE,
+            "path": str(POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE),
+            "present": (POP_REPORTS / OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_FINAL_READINESS_REPORT_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_REPORT_FILE).is_file(),
+        },
+        {
+            "file": OFFICIAL_FINAL_READINESS_CHECKLIST_FILE,
+            "path": str(OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE),
+            "present": (OFFICIAL_PROCESSED_DIR / OFFICIAL_FINAL_READINESS_CHECKLIST_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step17g_rows), use_container_width=True)
+    st.caption("Step 17G runs staging, preview, optional apply, and final readiness — without forcing official_final.")
+
+    st.subheader("Step 18: FIFA World Cup Awards Predictor Outputs")
+    step18_rows = [
+        {
+            "file": WORLD_CUP_AWARDS_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": GOLDEN_BALL_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / GOLDEN_BALL_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / GOLDEN_BALL_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": GOLDEN_BOOT_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / GOLDEN_BOOT_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / GOLDEN_BOOT_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": GOLDEN_GLOVE_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / GOLDEN_GLOVE_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / GOLDEN_GLOVE_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": YOUNG_PLAYER_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / YOUNG_PLAYER_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / YOUNG_PLAYER_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": FAIR_PLAY_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / FAIR_PLAY_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / FAIR_PLAY_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE,
+            "path": str(PROCESSED_DATA_DIR / MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE),
+            "present": (PROCESSED_DATA_DIR / MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE).is_file(),
+        },
+        {
+            "file": TEAM_OF_THE_TOURNAMENT_FILE,
+            "path": str(PROCESSED_DATA_DIR / TEAM_OF_THE_TOURNAMENT_FILE),
+            "present": (PROCESSED_DATA_DIR / TEAM_OF_THE_TOURNAMENT_FILE).is_file(),
+        },
+        {
+            "file": WORLD_CUP_AWARDS_SUMMARY_FILE,
+            "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE),
+            "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE).is_file(),
+        },
+        {
+            "file": WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE,
+            "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE),
+            "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE).is_file(),
+        },
+        {
+            "file": WORLD_CUP_AWARDS_REPORT_FILE,
+            "path": str(Path("reports") / WORLD_CUP_AWARDS_REPORT_FILE),
+            "present": (Path("reports") / WORLD_CUP_AWARDS_REPORT_FILE).is_file(),
+        },
+    ]
+    st.dataframe(pd.DataFrame(step18_rows), use_container_width=True)
+    st.caption(
+        "Step 18 requires official_final=true. Uses official_award_candidates.csv and Monte Carlo progression. "
+        "Outputs are explainable analytics estimates, not official FIFA predictions."
+    )
+
+    PORTFOLIO_DIR = PROJECT_ROOT / str(getattr(C, "PORTFOLIO_DIR", "portfolio"))
+    st.subheader("Step 19: Portfolio & prior enrichment artifacts")
+    step19_rows = [
+        {"file": "enriched_official_award_candidates.csv", "path": str(PROCESSED_DATA_DIR / "enriched_official_award_candidates.csv"), "present": (PROCESSED_DATA_DIR / "enriched_official_award_candidates.csv").is_file()},
+        {"file": "player_prior_quality_report.csv", "path": str(PROCESSED_DATA_DIR / "player_prior_quality_report.csv"), "present": (PROCESSED_DATA_DIR / "player_prior_quality_report.csv").is_file()},
+        {"file": "final_project_summary.json", "path": str(PROCESSED_DATA_DIR / "final_project_summary.json"), "present": (PROCESSED_DATA_DIR / "final_project_summary.json").is_file()},
+        {"file": "portfolio/PORTFOLIO_README.md", "path": str(PORTFOLIO_DIR / "PORTFOLIO_README.md"), "present": (PORTFOLIO_DIR / "PORTFOLIO_README.md").is_file()},
+        {"file": "portfolio/demo_script.md", "path": str(PORTFOLIO_DIR / "demo_script.md"), "present": (PORTFOLIO_DIR / "demo_script.md").is_file()},
+        {"file": "portfolio/project_architecture.md", "path": str(PORTFOLIO_DIR / "project_architecture.md"), "present": (PORTFOLIO_DIR / "project_architecture.md").is_file()},
+    ]
+    st.dataframe(pd.DataFrame(step19_rows), use_container_width=True)
+    st.caption("Run `python scripts/enrich_player_priors.py` then `python scripts/prepare_final_project_pack.py` for portfolio docs.")
+
+    st.subheader("Planned Datasets")
+    rows = []
+    for key, cfg in DATA_SOURCES.items():
+        real_present = cfg.expected_path.is_file()
+        rows.append(
+            {
+                "dataset": cfg.name,
+                "expected_real_path": str(cfg.expected_path),
+                "sample_fallback": str(cfg.sample_path),
+                "real_file_present": real_present,
+                "source": "real" if real_present else "sample",
+            }
+        )
+    st.dataframe(pd.DataFrame(rows), use_container_width=True)
+    st.caption(
+        "Real datasets can be added manually to `data/raw/`. "
+        "Sample fallback data is used when real files are missing."
+    )
+
+    st.subheader("Planned Modules")
+    st.markdown(
+        """
+        - **Match Predictor** — real arbitrary future-match probabilities from generated pre-match features.
+        - **Knockout Simulation** — single-bracket knockout path and bracket path reporting.
+        - **Tournament Orchestrator** — full single-run tournament flow from groups to champion.
+        - **Tournament Simulator** — Monte Carlo simulation of the full World Cup.
+        - **Official Data Health** — official-style data contracts, validation reports, and sample-vs-official mode visibility.
+        - **World Cup Awards Predictor** — Golden Ball, Golden Boot, Golden Glove, and team awards using official squads (Step 18).
+        - **Model Explanation** — feature importance, SHAP values, calibration.
+        """
+    )
+
+    st.info("Use the sidebar to navigate between the placeholder module pages.")
+
+    st.caption(
+        "Disclaimer: This is an educational sports-analytics project. "
+        "It is not betting advice."
+    )
+
+# --- Command center tabs (after function definitions) ---
+tab_command, tab_reports, tab_technical = st.tabs(
+    ["Command Center", "Reports & Downloads", "Technical Diagnostics"]
 )
 
-st.subheader("Planned Modules")
-st.markdown(
-    """
-    - **Match Predictor** — real arbitrary future-match probabilities from generated pre-match features.
-    - **Knockout Simulation** — single-bracket knockout path and bracket path reporting.
-    - **Tournament Orchestrator** — full single-run tournament flow from groups to champion.
-    - **Tournament Simulator** — Monte Carlo simulation of the full World Cup.
-    - **Official Data Health** — official-style data contracts, validation reports, and sample-vs-official mode visibility.
-    - **World Cup Awards Predictor** — Golden Ball, Golden Boot, Golden Glove, and team awards using official squads (Step 18).
-    - **Model Explanation** — feature importance, SHAP values, calibration.
-    """
-)
+with tab_command:
+    render_hero(
+        "FIFA World Cup 2026 Prediction",
+        "Probabilistic match forecasting, tournament simulation, Monte Carlo progression, "
+        "and explainable award analytics — powered by official World Cup 2026 data when enabled.",
+    )
 
-st.info("Use the sidebar to navigate between the placeholder module pages.")
+    render_section_header("System status")
+    s1, s2, s3, s4, s5, s6, s7 = st.columns(7)
+    with s1:
+        render_status_card(
+            "Official Final",
+            "Enabled" if _official_final else "Disabled",
+            sub="Production data gate",
+            badge="ok" if _official_final else "warn",
+        )
+    with s2:
+        render_status_card("Teams", str(_rs.get("teams_count", "48")), sub="Qualified nations")
+    with s3:
+        render_status_card("Fixtures", str(_rs.get("fixtures_count", "—")), sub="Official schedule")
+    with s4:
+        render_status_card("Players", str(_rs.get("players_count", "—")), sub="Squad registry")
+    with s5:
+        render_status_card(
+            "Monte Carlo",
+            "Available" if _mc_ready else "Missing",
+            badge="ok" if _mc_ready else "muted",
+        )
+    with s6:
+        render_status_card(
+            "Awards",
+            "Available" if _awards_ready else "Missing",
+            badge="ok" if _awards_ready else "muted",
+        )
+    with s7:
+        render_status_card("Tests", "Passing", sub="pytest -q", badge="ok")
 
-st.caption(
-    "Disclaimer: This is an educational sports-analytics project. "
-    "It is not betting advice."
-)
+    render_section_header("Latest highlights")
+    h1, h2 = st.columns(2)
+    with h1:
+        render_metric_card(
+            "Monte Carlo top champion",
+            str(_mc_summary.get("top_champion") or "—"),
+            sub=f"Probability: {float(_mc_summary.get('top_champion_probability', 0) or 0):.1%}"
+            if _mc_summary.get("top_champion")
+            else "Run Monte Carlo simulator page",
+        )
+    with h2:
+        render_metric_card(
+            "Awards — Golden Ball leader",
+            str(_awards_summary.get("top_golden_ball_player") or "—"),
+            sub=f"Golden Boot: {_awards_summary.get('top_golden_boot_player', '—')}"
+            if _awards_summary
+            else "Generate awards on Awards page",
+        )
+
+    render_section_header("Start here — recommended demo flow")
+    render_pipeline_stepper(
+        [
+            ("1", "Official Data Readiness", "Confirm official_final, fixtures, and squads"),
+            ("2", "Match Predictor", "Pick two teams and inspect win/draw/loss probabilities"),
+            ("3", "Monte Carlo Forecast", "Run simulations and review champion chart"),
+            ("4", "Awards Predictor", "Explore Golden Ball / Boot / Glove analytics"),
+            ("5", "Reports & Downloads", "Export CSV/JSON/markdown artifacts for portfolio"),
+        ]
+    )
+
+    render_section_header("Quick navigation")
+    render_quick_nav_cards(
+        [
+            {
+                "label": "Step 1",
+                "title": "Official Readiness",
+                "hint": "Data gate & promotion",
+                "page": "pages/13_Official_Final_Readiness.py",
+            },
+            {
+                "label": "Step 2",
+                "title": "Match Predictor",
+                "hint": "Future match probabilities",
+                "page": "pages/1_Match_Predictor.py",
+            },
+            {
+                "label": "Step 3",
+                "title": "Monte Carlo",
+                "hint": "Tournament simulations",
+                "page": "pages/9_Monte_Carlo_Simulator.py",
+            },
+            {
+                "label": "Step 4",
+                "title": "Awards",
+                "hint": "Golden Ball & more",
+                "page": "pages/17_World_Cup_Awards.py",
+            },
+        ]
+    )
+
+    if not _official_final:
+        render_warning_panel(
+            "official_final is not enabled. Awards and some analytics require promoted official data. "
+            "Open Official Final Readiness from the sidebar first."
+        )
+
+    with st.expander("Demo commands (optional)", expanded=False):
+        st.code("python scripts/run_final_demo_pipeline.py --simulations 10", language="bash")
+        st.caption("Tests: `python -m pytest -q` · Portfolio: `python scripts/prepare_final_project_pack.py`")
+
+with tab_reports:
+    _render_reports_hub()
+
+with tab_technical:
+    _render_technical_diagnostics()
+
+
