@@ -50,6 +50,17 @@ def require_official_final_ready() -> dict[str, Any]:
     }
 
 
+def resolve_player_sort_column(df: pd.DataFrame) -> str:
+    """Return a stable player label column for sorting and display."""
+    if "player_name" in df.columns:
+        return "player_name"
+    if "player" in df.columns:
+        return "player"
+    if "player_id" in df.columns:
+        return "player_id"
+    raise KeyError("Award candidates missing player_name, player, and player_id columns")
+
+
 def ensure_player_identity_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Ensure player_name and player columns exist for sorting and reports."""
     out = df.copy()
@@ -233,7 +244,7 @@ def merge_players_with_team_progression(
     team_stage_df: pd.DataFrame,
 ) -> pd.DataFrame:
     """Merge team progression probabilities into player table."""
-    players = players_df.copy()
+    players = ensure_player_identity_columns(players_df.copy())
     players["team"] = players["team"].map(standardize_team_name)
     stages = team_stage_df.copy()
     stages["team"] = stages["team"].map(standardize_team_name)

@@ -50,6 +50,7 @@ except ModuleNotFoundError:
         render_warning_panel,
     )
 
+from src.awards.award_data import resolve_player_sort_column  # noqa: E402
 from src.awards.manual_priors import resolve_manual_prior_file  # noqa: E402
 from src.awards.prior_enrichment import create_enriched_player_priors, merge_enriched_priors_into_award_candidates  # noqa: E402
 from src.awards.prepare_awards import prepare_step18_world_cup_awards  # noqa: E402
@@ -98,11 +99,12 @@ def _load_json(file_name: str) -> dict:
 
 
 def _player_col(df: pd.DataFrame) -> str:
-    if "player_name" in df.columns:
+    if df.empty:
         return "player_name"
-    if "player" in df.columns:
-        return "player"
-    return ""
+    try:
+        return resolve_player_sort_column(df)
+    except KeyError:
+        return "player_name"
 
 
 def _formation_lines(team_df: pd.DataFrame, name_col: str) -> list[list[str]]:
@@ -315,7 +317,7 @@ potm_proxy_df = _load_csv(PLAYER_OF_THE_MATCH_PROXY_FILE)
 got_proxy_df = _load_csv(GOAL_OF_THE_TOURNAMENT_PROXY_FILE)
 validation_df = _load_csv(WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE)
 report_path = REPORTS_DIR / WORLD_CUP_AWARDS_REPORT_FILE
-player_col = _player_col(golden_ball_df) or "player"
+player_col = _player_col(golden_ball_df) or "player_name"
 
 with tab_overview:
     render_section_header("Summary")

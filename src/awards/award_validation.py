@@ -7,7 +7,7 @@ from typing import Any
 import pandas as pd
 
 import src.utils.constants as C
-from src.awards.award_data import require_official_final_ready
+from src.awards.award_data import require_official_final_ready, resolve_player_sort_column
 from src.official.promotion import load_official_final_mode
 
 
@@ -165,7 +165,7 @@ def validate_award_outputs(
             if "player_id" in df.columns:
                 unknown = df[~df["player_id"].astype(str).isin(allowed_players)]
             else:
-                name_col = "player_name" if "player_name" in df.columns else "player"
+                name_col = resolve_player_sort_column(df)
                 unknown = df[~df[name_col].astype(str).isin(allowed_names)]
             rows.append(
                 create_award_validation_row(

@@ -9,6 +9,7 @@ from typing import Any
 import pandas as pd
 
 import src.utils.constants as C
+from src.awards.award_data import ensure_player_identity_columns, resolve_player_sort_column
 from src.utils.team_name_mapping import standardize_team_name
 
 PROJECT_ROOT = getattr(C, "PROJECT_ROOT", Path(__file__).resolve().parents[2])
@@ -277,7 +278,7 @@ def add_team_progression_to_players(players_df: pd.DataFrame, team_stage_df: pd.
 
 def calculate_golden_ball_scores(players_df: pd.DataFrame) -> pd.DataFrame:
     """Compute explainable Golden Ball scores and probability estimates."""
-    out = players_df.copy()
+    out = ensure_player_identity_columns(players_df.copy())
     for col in NUMERIC_PLAYER_COLUMNS:
         if col not in out.columns:
             out[col] = 0.0
@@ -305,7 +306,8 @@ def calculate_golden_ball_scores(players_df: pd.DataFrame) -> pd.DataFrame:
     else:
         out["golden_ball_probability"] = 0.0
 
-    out = out.sort_values(["golden_ball_probability", "final_golden_ball_score", "player"], ascending=[False, False, True]).reset_index(drop=True)
+    sort_name = resolve_player_sort_column(out)
+    out = out.sort_values(["golden_ball_probability", "final_golden_ball_score", sort_name], ascending=[False, False, True]).reset_index(drop=True)
     out["rank"] = range(1, len(out) + 1)
     return out
 
