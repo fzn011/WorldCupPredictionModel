@@ -8,15 +8,15 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 
 # Path bootstrap — must stay immediately after constants import (used below).
-PROJECT_ROOT = Path(getattr(C, "PROJECT_ROOT", ROOT))
+PROJECT_ROOT = Path(getattr(C, "PROJECT_ROOT", PROJECT_ROOT))
 PROCESSED_DATA_DIR = Path(getattr(C, "PROCESSED_DATA_DIR", PROJECT_ROOT / "data" / "processed"))
 REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
