@@ -64,9 +64,26 @@ python scripts/run_final_demo_pipeline.py --simulations 10
 - Enriched priors must stay within `official_players.csv` player_id set
 - Default demo Monte Carlo count: **10** (avoid huge simulations in CI/demo)
 
-### Streamlit `PROJECT_ROOT` NameError
+### Streamlit `PROJECT_ROOT` NameError (Windows)
 
-All Streamlit path constants come from **`app/streamlit_paths.py`**. The homepage imports `PROJECT_ROOT`, `OFFICIAL_DATA_DIR`, etc. from that module — do not assign them locally in `streamlit_app.py`. If you see `NameError: PROJECT_ROOT`, pull latest `main` and run:
+All Streamlit path constants come from **`app/streamlit_paths.py`**. The homepage imports `PROJECT_ROOT`, `OFFICIAL_DATA_DIR`, etc. from that module — **do not** assign them locally in `streamlit_app.py`.
+
+**Wrong (causes NameError):**
+```python
+OFFICIAL_DATA_DIR = PROJECT_ROOT / "data/official"  # PROJECT_ROOT not defined yet
+PROJECT_ROOT = getattr(C, "PROJECT_ROOT", ROOT)       # C may not exist yet
+```
+
+**Correct:** import from `streamlit_paths` immediately after adding `app/` to `sys.path`.
+
+Run Streamlit from the **project root** (not `C:\Users\...`):
+
+```powershell
+cd "E:\World Cup prediction model\world-cup-2026-ai-predictor"
+python -m streamlit run app/streamlit_app.py
+```
+
+Verify:
 
 ```bash
 python -m pytest tests/test_streamlit_paths.py -q

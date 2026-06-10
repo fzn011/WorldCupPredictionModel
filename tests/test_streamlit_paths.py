@@ -29,7 +29,34 @@ def test_streamlit_app_imports_paths_from_streamlit_paths_module() -> None:
     source = STREAMLIT_APP.read_text(encoding="utf-8")
     assert "from app.streamlit_paths import" in source or "from streamlit_paths import" in source
     assert "OFFICIAL_DATA_DIR = PROJECT_ROOT" not in source
+    assert "PROJECT_ROOT = getattr(C" not in source
     assert "PROJECT_ROOT = Path(__file__)" not in source
+
+
+def test_streamlit_app_never_uses_project_root_before_path_import() -> None:
+    """Regression: OFFICIAL_* = PROJECT_ROOT must not appear before streamlit_paths import."""
+    source = STREAMLIT_APP.read_text(encoding="utf-8")
+    import_idx = source.find("from app.streamlit_paths import")
+    if import_idx == -1:
+        import_idx = source.find("from streamlit_paths import")
+    assert import_idx != -1, "streamlit_app.py must import streamlit_paths"
+    header = source[:import_idx]
+    assert "OFFICIAL_DATA_DIR = PROJECT_ROOT" not in header
+    assert "OFFICIAL_PROCESSED_DIR = PROJECT_ROOT" not in header
+    assert "PROJECT_ROOT = getattr(C" not in header
+
+
+def test_streamlit_paths_has_filesystem_fallback_before_constants() -> None:
+    """Paths must define PROJECT_ROOT from APP_DIR before touching OFFICIAL_* or importing C."""
+    source = STREAMLIT_PATHS.read_text(encoding="utf-8")
+    root_idx = source.find("PROJECT_ROOT = APP_DIR.parent")
+    official_idx = source.find("OFFICIAL_DATA_DIR =")
+    constants_idx = source.find("import src.utils.constants as C")
+    assert root_idx != -1
+    assert official_idx != -1
+    assert root_idx < official_idx
+    assert root_idx < constants_idx
+    assert "except Exception:" in source
 
 
 def test_streamlit_app_has_no_local_project_root_before_path_import() -> None:

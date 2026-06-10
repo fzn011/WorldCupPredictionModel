@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 # Path bootstrap FIRST — never reference PROJECT_ROOT before streamlit_paths import.
+# See app/streamlit_paths.py (single source of truth for all Streamlit path constants).
 _APP_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _APP_DIR.parent
 if str(_REPO_ROOT) not in sys.path:
@@ -37,7 +38,7 @@ import pandas as pd
 import streamlit as st
 
 from src.data.data_sources import DATA_SOURCES  # noqa: E402
-import src.utils.constants as C  # noqa: E402
+import src.utils.constants as C  # noqa: E402 — only used for filenames below, not for PROJECT_ROOT
 
 CANONICAL_MATCHES_FILE = getattr(C, "CANONICAL_MATCHES_FILE", "canonical_matches.csv")
 CANONICAL_MATCHES_SAMPLE_FILE = getattr(
@@ -160,18 +161,32 @@ GROUP_STAGE_SIMULATION_SUMMARY_FILE = getattr(
 SHOOTOUT_OUTCOMES_FILE = getattr(C, "SHOOTOUT_OUTCOMES_FILE", "shootout_outcomes.csv")
 TEAM_REGISTRY_FILE = getattr(C, "TEAM_REGISTRY_FILE", "team_registry.csv")
 
-from app.components.ui import (  # noqa: E402
-    inject_page_theme,
-    load_json_if_exists,
-    render_download_card,
-    render_hero,
-    render_metric_card,
-    render_pipeline_stepper,
-    render_quick_nav_cards,
-    render_section_header,
-    render_status_card,
-    render_warning_panel,
-)
+try:
+    from app.components.ui import (  # noqa: E402
+        inject_page_theme,
+        load_json_if_exists,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_pipeline_stepper,
+        render_quick_nav_cards,
+        render_section_header,
+        render_status_card,
+        render_warning_panel,
+    )
+except ModuleNotFoundError:  # pragma: no cover
+    from components.ui import (  # noqa: E402
+        inject_page_theme,
+        load_json_if_exists,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_pipeline_stepper,
+        render_quick_nav_cards,
+        render_section_header,
+        render_status_card,
+        render_warning_panel,
+    )
 
 st.set_page_config(
     page_title="World Cup 2026 AI Predictor",
