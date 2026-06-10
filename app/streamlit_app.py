@@ -182,7 +182,9 @@ st.success(
     "Step 17D: Official data population pack completed.\n\n"
     "Step 17E: Source-assisted official FIFA data population completed.\n\n"
     "Step 17F: Official FIFA data population workflow completed.\n\n"
-    "Step 17G: Official data import execution workflow completed."
+    "Step 17G: Official data import execution workflow completed.\n\n"
+    "Step 17H: Official data apply blocker cleanup completed.\n\n"
+    "Step 18: FIFA World Cup Awards Predictor completed."
 )
 st.caption(
     "The project includes baseline + improved + ranking-enhanced classifiers, plus real arbitrary future match predictions from generated pre-match features."
@@ -826,6 +828,70 @@ step17g_rows = [
 st.dataframe(pd.DataFrame(step17g_rows), use_container_width=True)
 st.caption("Step 17G runs staging, preview, optional apply, and final readiness — without forcing official_final.")
 
+st.subheader("Step 18: FIFA World Cup Awards Predictor Outputs")
+step18_rows = [
+    {
+        "file": WORLD_CUP_AWARDS_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": GOLDEN_BALL_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / GOLDEN_BALL_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / GOLDEN_BALL_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": GOLDEN_BOOT_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / GOLDEN_BOOT_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / GOLDEN_BOOT_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": GOLDEN_GLOVE_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / GOLDEN_GLOVE_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / GOLDEN_GLOVE_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": YOUNG_PLAYER_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / YOUNG_PLAYER_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / YOUNG_PLAYER_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": FAIR_PLAY_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / FAIR_PLAY_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / FAIR_PLAY_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE,
+        "path": str(PROCESSED_DATA_DIR / MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE),
+        "present": (PROCESSED_DATA_DIR / MOST_ENTERTAINING_TEAM_PREDICTIONS_FILE).is_file(),
+    },
+    {
+        "file": TEAM_OF_THE_TOURNAMENT_FILE,
+        "path": str(PROCESSED_DATA_DIR / TEAM_OF_THE_TOURNAMENT_FILE),
+        "present": (PROCESSED_DATA_DIR / TEAM_OF_THE_TOURNAMENT_FILE).is_file(),
+    },
+    {
+        "file": WORLD_CUP_AWARDS_SUMMARY_FILE,
+        "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE),
+        "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_SUMMARY_FILE).is_file(),
+    },
+    {
+        "file": WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE,
+        "path": str(PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE),
+        "present": (PROCESSED_DATA_DIR / WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE).is_file(),
+    },
+    {
+        "file": WORLD_CUP_AWARDS_REPORT_FILE,
+        "path": str(Path("reports") / WORLD_CUP_AWARDS_REPORT_FILE),
+        "present": (Path("reports") / WORLD_CUP_AWARDS_REPORT_FILE).is_file(),
+    },
+]
+st.dataframe(pd.DataFrame(step18_rows), use_container_width=True)
+st.caption(
+    "Step 18 requires official_final=true. Uses official_award_candidates.csv and Monte Carlo progression. "
+    "Outputs are explainable analytics estimates, not official FIFA predictions."
+)
+
 st.subheader("Planned Datasets")
 rows = []
 for key, cfg in DATA_SOURCES.items():
@@ -853,7 +919,7 @@ st.markdown(
     - **Tournament Orchestrator** — full single-run tournament flow from groups to champion.
     - **Tournament Simulator** — Monte Carlo simulation of the full World Cup.
     - **Official Data Health** — official-style data contracts, validation reports, and sample-vs-official mode visibility.
-    - **World Cup Awards Predictor** — planned after official squads and player priors are locked.
+    - **World Cup Awards Predictor** — Golden Ball, Golden Boot, Golden Glove, and team awards using official squads (Step 18).
     - **Model Explanation** — feature importance, SHAP values, calibration.
     """
 )

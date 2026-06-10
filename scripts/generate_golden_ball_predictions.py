@@ -9,16 +9,16 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.awards.prepare_awards import prepare_step17_world_cup_awards  # noqa: E402
+from src.awards.prepare_awards import prepare_step18_world_cup_awards  # noqa: E402
 
 
 def main() -> int:
-    print("Golden Ball is now part of the broader World Cup Awards Predictor.")
+    print("Golden Ball is now part of the Step 18 World Cup Awards Predictor.")
     try:
-        summary = prepare_step17_world_cup_awards()
-    except FileNotFoundError:
-        print("Run python scripts/run_monte_carlo.py --simulations 10 --seed 42 first.")
-        return 0
+        summary = prepare_step18_world_cup_awards()
+    except (RuntimeError, FileNotFoundError) as exc:
+        print(str(exc))
+        return 1
 
     print("=== Step 17 Golden Ball Summary (Compatibility View) ===")
     for key in [

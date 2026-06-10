@@ -38,7 +38,19 @@ Streamlit does **not** call the FastAPI server; they are independent entry point
 python -m pytest -q
 ```
 
-Expect **373 passed, 1 skipped** (includes Step 17F–17H official-data tests). No linter config (ruff/flake8/black) is present in the repo.
+Expect **377 passed, 1 skipped** (includes Step 17F–17H official-data and Step 18 awards tests). No linter config (ruff/flake8/black) is present in the repo.
+
+### Step 18: World Cup Awards Predictor
+
+Requires `official_final_enabled=true` (promote with `python scripts/promote_official_final.py --confirm`) and Monte Carlo outputs:
+
+```bash
+python scripts/run_monte_carlo.py --simulations 10 --seed 42
+python scripts/generate_world_cup_awards.py
+python scripts/inspect_world_cup_awards.py
+```
+
+Awards refuse to run if official final mode is disabled. Streamlit page: **17 World Cup Awards**. Generated award CSVs live under `data/processed/` (gitignored; regenerate after clone).
 
 ### Official data pipeline (Steps 17F–17H)
 

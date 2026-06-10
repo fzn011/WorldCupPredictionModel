@@ -1,142 +1,155 @@
-# FIFA World Cup Awards Predictor Report
+# FIFA World Cup 2026 Awards Predictor Report
+
+## Official data status
+- official_final_enabled: True
+- final_ready: True
 
 ## Methodology
-- These awards are explainable analytics estimates based on manually editable player priors, team profiles, and Monte Carlo team progression probabilities. They are not official FIFA predictions.
-- Player awards combine editable priors, position logic, expected minutes, and Monte Carlo team progression probabilities.
-- Team awards combine editable team-award profiles with tournament progression signals and player star-power context.
-- Player of the Match and Goal of the Tournament are proxy estimates because this project does not simulate full player-event logs or actual goal quality.
+- These are explainable analytics estimates based on official squads, editable player priors, team profiles, and Monte Carlo team progression probabilities. They are not official FIFA predictions.
+- Player awards combine official squad priors, position logic, expected minutes, and Monte Carlo team progression.
+- Team awards combine official team profiles with tournament progression and squad star-power context.
+- Player of the Match and Goal of the Tournament are proxy estimates (no match-level player-event simulation).
 
 ## Golden Ball podium
-| golden_ball_rank | player | team | position | golden_ball_probability | award_podium |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Kylian Mbappe | France | forward | 0.0221616 | Golden Ball |
-| 2 | Vinicius Junior | Brazil | forward | 0.0204515 | Silver Ball |
-| 3 | Jude Bellingham | England | midfielder | 0.0201383 | Bronze Ball |
-| 4 | Harry Kane | England | forward | 0.0194654 |  |
-| 5 | Emiliano Martinez | Argentina | goalkeeper | 0.0193349 |  |
-| 6 | Alisson Becker | Brazil | goalkeeper | 0.0190308 |  |
-| 7 | Bruno Fernandes | Portugal | midfielder | 0.0185179 |  |
-| 8 | Florian Wirtz | Germany | midfielder | 0.0183677 |  |
-| 9 | Thibaut Courtois | Belgium | goalkeeper | 0.0183642 |  |
-| 10 | Mike Maignan | France | goalkeeper | 0.0183098 |  |
+| player_name | team | position_code | golden_ball_probability | award |
+| --- | --- | --- | --- | --- |
+| ADU Prince | Ghana | FW | 0.000977376 | Golden Ball |
+| AYEW Jordan | Ghana | FW | 0.000977376 | Silver Ball |
+| BAAH Christopher Bonsu | Ghana | FW | 0.000977376 | Bronze Ball |
+| BEIER Maximilian | Germany | FW | 0.000977376 |  |
+| FATAWU Abdul | Ghana | FW | 0.000977376 |  |
+| HAVERTZ Kai | Germany | FW | 0.000977376 |  |
+| NUAMAH Ernest | Ghana | FW | 0.000977376 |  |
+| SULEMANA Kamaldeen | Ghana | FW | 0.000977376 |  |
+| THOMAS-ASANTE Brandon | Ghana | FW | 0.000977376 |  |
+| UNDAV Deniz | Germany | FW | 0.000977376 |  |
 
 ## Golden Boot podium
-| golden_boot_rank | player | team | position | expected_goals_score | boot_podium |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Kylian Mbappe | France | forward | 116.964 | Golden Boot |
-| 2 | Harry Kane | England | forward | 116.953 | Silver Boot |
-| 3 | Vinicius Junior | Brazil | forward | 98.9184 | Bronze Boot |
-| 4 | Lautaro Martinez | Argentina | forward | 84.15 |  |
-| 5 | Bukayo Saka | England | forward | 76.2048 |  |
-| 6 | Lionel Messi | Argentina | forward | 72.072 |  |
-| 7 | Romelu Lukaku | Belgium | forward | 71.232 |  |
-| 8 | Julian Alvarez | Argentina | forward | 70.356 |  |
-| 9 | Cristiano Ronaldo | Portugal | forward | 69.768 |  |
-| 10 | Heung-Min Son | South Korea | forward | 68.04 |  |
+| player_name | team | expected_goals | award |
+| --- | --- | --- | --- |
+| AARONSON Brenden | United States | 0 | Golden Boot |
+| AASGAARD Thelo | Norway | 0 | Silver Boot |
+| ABADA Achref | Algeria | 0 | Bronze Boot |
+| ABDALLAH ALFAKHORI | Jordan | 0 |  |
+| ABDALLAH NASIB | Jordan | 0 |  |
+| ABDI Ali | Tunisia | 0 |  |
+| ABDULAZIZ HATEM | Qatar | 0 |  |
+| ABDULELAH ALAMRI | Saudi Arabia | 0 |  |
+| ABDULLAEV Abdulla | Uzbekistan | 0 |  |
+| ABDULLAH ALHAMDDAN | Saudi Arabia | 0 |  |
 
 ## Golden Glove
-| golden_glove_rank | player | team | golden_glove_probability | award |
-| --- | --- | --- | --- | --- |
-| 1 | Emiliano Martinez | Argentina | 0.0984551 | Golden Glove |
-| 2 | Alisson Becker | Brazil | 0.0969384 |  |
-| 3 | Thibaut Courtois | Belgium | 0.0964446 |  |
-| 4 | Mike Maignan | France | 0.0946222 |  |
-| 5 | Jordan Pickford | England | 0.0901192 |  |
-| 6 | Yassine Bounou | Morocco | 0.0893903 |  |
-| 7 | Manuel Neuer | Germany | 0.0888377 |  |
-| 8 | Diogo Costa | Portugal | 0.0887436 |  |
-| 9 | Unai Simon | Spain | 0.0874151 |  |
-| 10 | Dominik Livakovic | Croatia | 0.0868154 |  |
+| player_name | team | golden_glove_probability | award |
+| --- | --- | --- | --- |
+| ANANG Joseph | Ghana | 0.00832557 | Golden Glove |
+| ASARE Benjamin | Ghana | 0.00832557 |  |
+| BAUMANN Oliver | Germany | 0.00832557 |  |
+| NEUER Manuel | Germany | 0.00832557 |  |
+| NUEBEL Alexander | Germany | 0.00832557 |  |
+| ZIGI Lawrence Ati | Ghana | 0.00832557 |  |
+| CREPEAU Maxime | Canada | 0.00807704 |  |
+| GOODMAN Owen | Canada | 0.00807704 |  |
+| ST. CLAIR Dayne | Canada | 0.00807704 |  |
+| BRADY Chris | United States | 0.00776639 |  |
 
 ## Young Player
-| young_player_rank | player | team | position | young_player_probability | award |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Lamine Yamal | Spain | forward | 1 | Young Player Award |
+| player_name | team | young_player_probability | award |
+| --- | --- | --- | --- |
+| BAAH Christopher Bonsu | Ghana | 0.0217869 | Young Player Award |
+| YIRENKYI Caleb | Ghana | 0.0209424 |  |
+| ELLOUMI Rayan | Tunisia | 0.020858 |  |
+| HAMZA ABDELKARIM | Egypt | 0.0206046 |  |
+| FERNANDEZ-PARDO Matias | Belgium | 0.0201824 |  |
+| AYARI Khalil | Tunisia | 0.0200135 |  |
+| YAMAL Lamine | Spain | 0.0200135 |  |
+| DOUE Desire | France | 0.0199291 |  |
+| AMAIMOUNI Ayoube | Morocco | 0.0195913 |  |
+| ENDRICK | Brazil | 0.0195913 |  |
 
 ## Fair Play Trophy
-| fair_play_rank | team | fair_play_probability | award |
-| --- | --- | --- | --- |
-| 1 | Morocco | 0.0768578 | Fair Play Trophy |
-| 2 | Spain | 0.0759828 |  |
-| 3 | Netherlands | 0.0707964 |  |
-| 4 | Argentina | 0.0702672 |  |
-| 5 | Japan | 0.0676986 |  |
-| 6 | England | 0.0663156 |  |
-| 7 | Brazil | 0.0646291 |  |
-| 8 | France | 0.0645953 |  |
-| 9 | Belgium | 0.0629285 |  |
-| 10 | Portugal | 0.056797 |  |
+| team | fair_play_probability | award |
+| --- | --- | --- |
+| Cabo Verde | 0.0869921 | Fair Play Trophy |
+| Congo DR | 0.0869921 |  |
+| Curaçao | 0.0869921 |  |
+| Haiti | 0.0869921 |  |
+| Iraq | 0.0869921 |  |
+| Jordan | 0.0869921 |  |
+| Panama | 0.0869921 |  |
+| Saudi Arabia | 0.0869921 |  |
+| Uzbekistan | 0.0869921 |  |
+| Belgium | 0.00681756 |  |
 
 ## Most Entertaining Team
-| most_entertaining_rank | team | most_entertaining_probability | award |
-| --- | --- | --- | --- |
-| 1 | Argentina | 0.0822798 | Most Entertaining Team |
-| 2 | England | 0.0819584 |  |
-| 3 | Portugal | 0.0792801 |  |
-| 4 | Brazil | 0.0732805 |  |
-| 5 | Spain | 0.0725305 |  |
-| 6 | France | 0.070495 |  |
-| 7 | Germany | 0.0695307 |  |
-| 8 | Belgium | 0.0680309 |  |
-| 9 | Uruguay | 0.0567817 |  |
-| 10 | South Korea | 0.0497107 |  |
+| team | most_entertaining_probability | award |
+| --- | --- | --- |
+| Cabo Verde | 0.087146 | Most Entertaining Team |
+| Congo DR | 0.087146 |  |
+| Curaçao | 0.087146 |  |
+| Haiti | 0.087146 |  |
+| Iraq | 0.087146 |  |
+| Jordan | 0.087146 |  |
+| Panama | 0.087146 |  |
+| Saudi Arabia | 0.087146 |  |
+| Uzbekistan | 0.087146 |  |
+| Germany | 0.00626362 |  |
 
 ## Predicted Team of the Tournament
-| formation_slot | player | team | position |
+| formation_slot | player_name | team | position_code |
 | --- | --- | --- | --- |
-| GK1 | Emiliano Martinez | Argentina | goalkeeper |
-| DEF1 | Achraf Hakimi | Morocco | defender |
-| DEF2 | Virgil van Dijk | Netherlands | defender |
-| DEF3 | Alphonso Davies | Canada | defender |
-| DEF4 | Ruben Dias | Portugal | defender |
-| MID1 | Jude Bellingham | England | midfielder |
-| MID2 | Bruno Fernandes | Portugal | midfielder |
-| MID3 | Florian Wirtz | Germany | midfielder |
-| FWD1 | Kylian Mbappe | France | forward |
-| FWD2 | Vinicius Junior | Brazil | forward |
-| FWD3 | Harry Kane | England | forward |
+| GK1 | ANANG Joseph | Ghana | GK |
+| DEF1 | ADJETEY Jonas | Ghana | DF |
+| DEF2 | ANTON Waldemar | Germany | DF |
+| DEF3 | BROWN Nathaniel | Germany | DF |
+| DEF4 | KIMMICH Joshua | Germany | DF |
+| MID1 | AMIRI Nadiem | Germany | MF |
+| MID2 | BOAKYE Augustine | Ghana | MF |
+| MID3 | GORETZKA Leon | Germany | MF |
+| FWD1 | ADU Prince | Ghana | FW |
+| FWD2 | AYEW Jordan | Ghana | FW |
+| FWD3 | BAAH Christopher Bonsu | Ghana | FW |
 
 ## Player of the Match proxy
-| player_of_match_proxy_rank | player | team | estimated_potm_count |
-| --- | --- | --- | --- |
-| 1 | Virgil van Dijk | Netherlands | 3.25996 |
-| 2 | Memphis Depay | Netherlands | 3.04004 |
-| 3 | Takefusa Kubo | Japan | 2.77537 |
-| 4 | Santiago Gimenez | Mexico | 2.77313 |
-| 5 | Hirving Lozano | Mexico | 2.52687 |
-| 6 | Christian Pulisic | United States | 2.50771 |
-| 7 | Dominik Livakovic | Croatia | 2.12347 |
-| 8 | Wataru Endo | Japan | 2.02463 |
-| 9 | Jonathan David | Canada | 1.95654 |
-| 10 | Weston McKennie | United States | 1.89229 |
+| player_name | team | estimated_potm_count |
+| --- | --- | --- |
+| AHMED Ali | Canada | 0.297126 |
+| BUCHANAN Tajon | Canada | 0.297126 |
+| DAVID Jonathan | Canada | 0.297126 |
+| DAVID Promise | Canada | 0.297126 |
+| LARIN Cyle | Canada | 0.297126 |
+| OLUWASEYI Tani | Canada | 0.297126 |
+| CHOINIERE Mathieu | Canada | 0.285428 |
+| EUSTAQUIO Stephen | Canada | 0.285428 |
+| FLORES Marcelo | Canada | 0.285428 |
+| KONE Ismael | Canada | 0.285428 |
 
 ## Goal of the Tournament proxy
-| goal_of_tournament_proxy_rank | player | team | goal_of_tournament_proxy_probability |
-| --- | --- | --- | --- |
-| 1 | Kylian Mbappe | France | 0.0425639 |
-| 2 | Harry Kane | England | 0.0415295 |
-| 3 | Vinicius Junior | Brazil | 0.0369819 |
-| 4 | Lautaro Martinez | Argentina | 0.0316878 |
-| 5 | Bukayo Saka | England | 0.0297594 |
-| 6 | Lionel Messi | Argentina | 0.0296319 |
-| 7 | Cristiano Ronaldo | Portugal | 0.0276861 |
-| 8 | Julian Alvarez | Argentina | 0.0274469 |
-| 9 | Romelu Lukaku | Belgium | 0.0273514 |
-| 10 | Heung-Min Son | South Korea | 0.0273243 |
+| player_name | team | goal_of_tournament_proxy_probability |
+| --- | --- | --- |
+| AARONSON Brenden | United States | 0.00721154 |
+| ADAMS Tyler | United States | 0.00721154 |
+| ADJETEY Jonas | Ghana | 0.00721154 |
+| ADU Prince | Ghana | 0.00721154 |
+| AHMED Ali | Canada | 0.00721154 |
+| AMIRI Nadiem | Germany | 0.00721154 |
+| ANANG Joseph | Ghana | 0.00721154 |
+| ANTON Waldemar | Germany | 0.00721154 |
+| ARFSTEN Max | United States | 0.00721154 |
+| ASARE Benjamin | Ghana | 0.00721154 |
 
 ## Limitations
-- Manually editable priors may not reflect final squads or current form.
-- Monte Carlo probabilities depend on simulation sample size and upstream match model quality.
-- No live player-event data or official FIFA judging inputs are used.
-- Fan-vote awards are represented as proxy analytics, not actual fan-vote forecasts.
-- This is not an official FIFA prediction.
-- This is not betting advice.
+- Analytics estimate only; not an official FIFA prediction.
+- Depends on Monte Carlo sample size and upstream match model quality.
+- Depends on editable player priors and conservative team profile defaults.
+- Fan-voted style awards are proxy analytics, not fan-vote forecasts.
+- No match-level player event simulation or actual goal-quality modeling.
+- No betting advice.
 
 ## Summary snapshot
-- Top Golden Ball player: Kylian Mbappe
-- Top Golden Boot player: Kylian Mbappe
-- Top Golden Glove player: Emiliano Martinez
-- Top Young Player: Lamine Yamal
-- Fair Play team: Morocco
-- Most Entertaining Team: Argentina
+- Top Golden Ball player: ADU Prince
+- Top Golden Boot player: AARONSON Brenden
+- Top Golden Glove player: ANANG Joseph
+- Top Young Player: BAAH Christopher Bonsu
+- Fair Play team: Cabo Verde
+- Most Entertaining Team: Cabo Verde
 - Team of the Tournament count: 11

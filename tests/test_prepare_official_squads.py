@@ -118,33 +118,41 @@ class TestPrepareSquads:
 class TestAwardsOfficialCandidates:
     """Test integration with awards layer."""
     
-    def test_load_player_candidates_official_mode(self):
+    def test_load_player_candidates_official_mode(self, monkeypatch):
         """Test loading candidates in official mode."""
-        # Ensure Step 17B data exists
         prepare_step17b_official_squads_and_priors()
-        
-        # Now try to load in official mode
+
+        monkeypatch.setattr(
+            "src.awards.player_awards.require_official_final_ready",
+            lambda: {"official_final_enabled": True, "final_ready": True},
+        )
+        monkeypatch.setattr(
+            "src.awards.award_data.require_official_final_ready",
+            lambda: {"official_final_enabled": True, "final_ready": True},
+        )
+
         from src.awards.player_awards import load_player_candidates
-        
+
         candidates = load_player_candidates(official_only=True)
-        
+
         assert isinstance(candidates, pd.DataFrame)
         assert len(candidates) > 0
         assert "player_id" in candidates.columns
-    
-    def test_load_player_candidates_official_only_raises_if_missing(self):
-        """Test official_only=True raises if no official candidates."""
+
+    def test_load_player_candidates_official_only_raises_if_missing(self, monkeypatch):
+        """Test official_only=True raises if official final is not ready."""
         from src.awards.player_awards import load_player_candidates
-        
-        # This might not raise if candidates exist, but if they don't, should raise
-        # Try with a non-existent path in official mode
-        try:
-            candidates = load_player_candidates(official_only=True)
-            # If we get here, official candidates exist - that's ok
-            assert isinstance(candidates, pd.DataFrame)
-        except FileNotFoundError as e:
-            # Expected if official_award_candidates doesn't exist
-            assert "official_award_candidates" in str(e) or "Run:" in str(e)
+
+        monkeypatch.setattr(
+            "src.awards.player_awards.require_official_final_ready",
+            lambda: (_ for _ in ()).throw(
+                RuntimeError(
+                    "World Cup awards require official_final mode. Run official final readiness and promotion first."
+                )
+            ),
+        )
+        with pytest.raises(RuntimeError, match="official_final"):
+            load_player_candidates(official_only=True)
     
     def test_no_non_official_players_in_official_mode(self):
         """Test non-official players are blocked in official mode."""

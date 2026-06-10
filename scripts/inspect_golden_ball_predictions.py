@@ -42,7 +42,7 @@ def main() -> int:
     validation_df = pd.read_csv(validation_path) if validation_path.is_file() else pd.DataFrame()
     report_lines = report_path.read_text(encoding="utf-8").splitlines() if report_path.is_file() else []
 
-    print("=== Step 17 Golden Ball Inspection (Compatibility View) ===")
+    print("=== Step 18 Golden Ball Inspection (Compatibility View) ===")
     print("summary:")
     for key, value in summary.items():
         print(f"  {key}: {value}")

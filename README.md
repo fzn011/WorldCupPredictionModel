@@ -605,9 +605,56 @@ python -m streamlit run app/streamlit_app.py
 
 ## Step 18: FIFA World Cup Awards Predictor
 
-> **Code step — blocked until Steps 17E and 17F are complete and `official_final = true`.**
+Step 18 estimates FIFA World Cup award outcomes using **official data only**. Awards generation **requires** `official_final_enabled=true` and `final_ready=true`; if official final mode is disabled, awards generation refuses to run.
 
-Awards predictions (Golden Ball, Golden Boot, Golden Glove, Young Player, Team of the Tournament)
-are only trustworthy when official squads are complete. Do not implement Step 18 while
-`official_final_enabled = false`.
+### Requirements
+
+- **official_final** must be promoted (`python scripts/promote_official_final.py --confirm`)
+- Monte Carlo team stage probabilities (`python scripts/run_monte_carlo.py --simulations 10 --seed 42`)
+- Uses **official_award_candidates.csv** only — no sample players can enter awards
+- Uses official 48 teams, 104 fixtures, and 1,248 official players
+- Combines editable player priors with Monte Carlo team progression probabilities
+
+### Awards produced
+
+| Category | Awards |
+|----------|--------|
+| Player impact | Golden Ball, Silver Ball, Bronze Ball |
+| Scoring | Golden Boot, Silver Boot, Bronze Boot |
+| Goalkeeper | Golden Glove |
+| Youth | Young Player Award |
+| Team | Fair Play Trophy, Most Entertaining Team |
+| Analytics XI | Predicted Team of the Tournament (4-3-3) |
+| Proxies | Player of the Match proxy, Goal of the Tournament proxy |
+
+All outputs are **explainable analytics estimates**, not official FIFA predictions. No betting advice.
+
+### Commands
+
+```bash
+python scripts/generate_world_cup_awards.py
+python scripts/inspect_world_cup_awards.py
+python scripts/generate_golden_ball_predictions.py
+python scripts/inspect_golden_ball_predictions.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+### Key outputs
+
+| Artifact | Path |
+|----------|------|
+| Combined predictions | `data/processed/world_cup_awards_predictions.csv` |
+| Golden Ball | `data/processed/golden_ball_predictions.csv` |
+| Golden Boot | `data/processed/golden_boot_predictions.csv` |
+| Golden Glove | `data/processed/golden_glove_predictions.csv` |
+| Young Player | `data/processed/young_player_predictions.csv` |
+| Fair Play | `data/processed/fair_play_predictions.csv` |
+| Most Entertaining Team | `data/processed/most_entertaining_team_predictions.csv` |
+| Team of the Tournament | `data/processed/team_of_the_tournament.csv` |
+| Summary | `data/processed/world_cup_awards_summary.json` |
+| Validation | `data/processed/world_cup_awards_validation_report.csv` |
+| Report | `reports/world_cup_awards_report.md` |
+
+Streamlit page: **17 World Cup Awards** (`app/pages/17_World_Cup_Awards.py`).
 
