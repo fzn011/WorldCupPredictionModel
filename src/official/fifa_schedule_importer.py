@@ -9,6 +9,7 @@ import pandas as pd
 
 import src.utils.constants as C
 from src.official.fifa_extractors import make_source_audit_row, normalize_fifa_team_name
+from src.official.stage_normalization import apply_stage_normalization
 
 
 def _populated_dir() -> Path:
@@ -131,6 +132,7 @@ def normalize_schedule_to_official_schema(schedule_df: pd.DataFrame) -> tuple[pd
             }
 
     fdf = pd.DataFrame(fixtures, columns=C.IMPORT_FIXTURES_REQUIRED_COLUMNS)
+    fdf = apply_stage_normalization(fdf)
     vdf = pd.DataFrame(list(venues.values()), columns=C.IMPORT_VENUES_REQUIRED_COLUMNS)
     status = "parsed" if len(fdf) >= C.OFFICIAL_TOTAL_MATCHES else "partial"
     audits.append(make_source_audit_row("fixtures", "fifa_downloadable_schedule", status, len(fdf)))

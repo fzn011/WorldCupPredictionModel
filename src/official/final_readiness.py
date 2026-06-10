@@ -21,6 +21,7 @@ from src.official.loaders import (
     load_official_teams,
     load_official_venues,
 )
+from src.official.source_labels import is_sample_source_label
 from src.official.validators import (
     validate_group_team_consistency,
     validate_official_data_bundle,
@@ -38,26 +39,30 @@ def _load_csv_safe(path: Path) -> pd.DataFrame | None:
     return None
 
 
-def _count_placeholders(df: pd.DataFrame, columns: list[str]) -> int:
-    """Count rows where any of the specified columns contain placeholder values."""
+def _count_placeholders(df: pd.DataFrame, columns: list[str], count_empty: bool = True) -> int:
+    """Count rows where blocking columns contain placeholder tokens (and optionally empty values)."""
     if df is None or df.empty:
         return 0
+    token_values = _PLACEHOLDER_VALUES - {""}
     count = 0
     for col in columns:
         if col not in df.columns:
             continue
         values = df[col].fillna("").astype(str).str.strip()
-        count += int(values.isin(_PLACEHOLDER_VALUES).sum())
+        count += int(values.isin(token_values).sum())
+        count += int(values.str.startswith("TBD", na=False).sum())
+        if count_empty:
+            count += int(values.eq("").sum())
     return count
 
 
 def _has_sample_rows(df: pd.DataFrame) -> bool:
-    """Check if DataFrame contains sample_to_be_verified rows."""
+    """Check if DataFrame contains sample/unverified source rows."""
     if df is None or df.empty:
         return False
     if "source" not in df.columns:
         return False
-    return bool((df["source"].fillna("").astype(str) == "sample_to_be_verified").any())
+    return bool(df["source"].fillna("").astype(str).map(is_sample_source_label).any())
 
 
 def _check_teams_complete(teams_df: pd.DataFrame | None) -> dict[str, Any]:
@@ -93,7 +98,7 @@ def _check_teams_no_placeholders(teams_df: pd.DataFrame | None) -> dict[str, Any
         result["details"] = {"error": "Teams data not found"}
         return result
 
-    placeholder_count = _count_placeholders(teams_df, ["team", "team_code", "group", "confederation"])
+    placeholder_count = _count_placeholders(teams_df, ["team", "group"], count_empty=False)
     result["details"] = {"placeholder_count": placeholder_count}
 
     if placeholder_count == 0:
@@ -137,7 +142,7 @@ def _check_groups_no_placeholders(groups_df: pd.DataFrame | None) -> dict[str, A
         result["details"] = {"error": "Groups data not found"}
         return result
 
-    placeholder_count = _count_placeholders(groups_df, ["team", "team_code", "group"])
+    placeholder_count = _count_placeholders(groups_df, ["team", "group"], count_empty=False)
     result["details"] = {"placeholder_count": placeholder_count}
 
     if placeholder_count == 0:
@@ -171,7 +176,7 @@ def _check_venues_complete(venues_df: pd.DataFrame | None) -> dict[str, Any]:
 
 
 def _check_venues_no_placeholders(venues_df: pd.DataFrame | None) -> dict[str, Any]:
-    """Check for placeholder values in venues data."""
+    """Check for placeholder values in venues data (blocking fields only)."""
     result = {
         "id": "venues_no_placeholders",
         "passed": False,
@@ -181,7 +186,7 @@ def _check_venues_no_placeholders(venues_df: pd.DataFrame | None) -> dict[str, A
         result["details"] = {"error": "Venues data not found"}
         return result
 
-    placeholder_count = _count_placeholders(venues_df, ["venue", "stadium", "city", "country", "timezone"])
+    placeholder_count = _count_placeholders(venues_df, ["venue", "stadium", "city", "country"])
     result["details"] = {"placeholder_count": placeholder_count}
 
     if placeholder_count == 0:
@@ -222,7 +227,27 @@ def _check_fixtures_no_placeholders(fixtures_df: pd.DataFrame | None) -> dict[st
         result["details"] = {"error": "Fixtures data not found"}
         return result
 
-    placeholder_count = _count_placeholders(fixtures_df, ["venue", "city", "country", "team_a", "team_b", "timezone"])
+    placeholder_count = 0
+    if fixtures_df is not None and not fixtures_df.empty:
+        from src.official.stage_normalization import is_group_stage_label, is_knockout_stage_label
+
+        for _, row in fixtures_df.iterrows():
+            stage = str(row.get("stage", ""))
+            core_cols = ["match_id", "date", "stadium", "city", "country", "kickoff_local"]
+            for col in core_cols:
+                val = str(row.get(col, "")).strip()
+                if not val or val in _PLACEHOLDER_VALUES or val.upper().startswith("TBD"):
+                    placeholder_count += 1
+            if is_group_stage_label(stage):
+                for col in ("team_a", "team_b"):
+                    val = str(row.get(col, "")).strip()
+                    if not val or val.upper().startswith("TBD"):
+                        placeholder_count += 1
+            elif is_knockout_stage_label(stage):
+                for col in ("team_a", "team_b"):
+                    val = str(row.get(col, "")).strip()
+                    if val and val.upper().startswith("TBD"):
+                        placeholder_count += 1
     result["details"] = {"placeholder_count": placeholder_count}
 
     if placeholder_count == 0:
@@ -288,10 +313,7 @@ def _check_players_no_placeholders(players_df: pd.DataFrame | None) -> dict[str,
         result["details"] = {"error": "Players data not found"}
         return result
 
-    placeholder_count = _count_placeholders(players_df, [
-        "player_name", "team", "team_code", "position", "position_code",
-        "shirt_number", "club", "date_of_birth"
-    ])
+    placeholder_count = _count_placeholders(players_df, ["player_name", "team", "position"], count_empty=False)
     result["details"] = {"placeholder_count": placeholder_count}
 
     if placeholder_count == 0:

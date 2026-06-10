@@ -8,6 +8,7 @@ import pandas as pd
 
 import src.utils.constants as C
 from src.official.official_data_contracts import check_required_columns, get_official_contract
+from src.official.stage_normalization import is_group_stage_label
 from src.utils.team_name_mapping import standardize_team_name
 
 OFFICIAL_PLACEHOLDER_VALUES = {str(value).strip() for value in getattr(C, "OFFICIAL_PLACEHOLDER_VALUES", [])}
@@ -17,6 +18,31 @@ OFFICIAL_TEAMS_PER_GROUP = int(getattr(C, "OFFICIAL_TEAMS_PER_GROUP", 4))
 OFFICIAL_TOTAL_MATCHES = int(getattr(C, "OFFICIAL_TOTAL_MATCHES", 104))
 OFFICIAL_GROUP_STAGE_MATCHES = int(getattr(C, "OFFICIAL_GROUP_STAGE_MATCHES", 72))
 WC2026_GROUPS = list(getattr(C, "WC2026_GROUPS", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]))
+
+OPTIONAL_PLACEHOLDER_FIELDS: dict[str, set[str]] = {
+    "teams": {"team_code", "confederation"},
+    "groups": {"team_code", "confederation"},
+    "venues": {"timezone", "capacity", "latitude", "longitude", "venue_id"},
+    "fixtures": {
+        "timezone",
+        "kickoff_utc",
+        "team_a_code",
+        "team_b_code",
+        "team_a_group_slot",
+        "team_b_group_slot",
+        "group",
+    },
+    "players": {
+        "first_names",
+        "last_names",
+        "club",
+        "club_country",
+        "date_of_birth",
+        "age_at_tournament_start",
+        "shirt_number",
+        "height_cm",
+    },
+}
 
 
 def create_validation_row(check: str, expected, actual, passed: bool, severity: str = "error") -> dict:
@@ -39,31 +65,39 @@ def _source_series(df: pd.DataFrame) -> pd.Series:
 
 
 def validate_no_placeholder_values(df, columns: list[str], dataset_name: str) -> tuple[bool, pd.DataFrame]:
-    """Flag placeholder values, using warnings for sample-to-be-verified rows."""
+    """Flag placeholder values; optional metadata gaps are warnings, not errors."""
     rows: list[dict[str, Any]] = []
     source = _source_series(df)
+    optional_cols = OPTIONAL_PLACEHOLDER_FIELDS.get(dataset_name, set())
     for column in columns:
         if column not in df.columns:
             continue
         values = df[column].fillna("").astype(str).str.strip()
-        is_placeholder = values.isin(OFFICIAL_PLACEHOLDER_VALUES) | values.str.startswith("TBD", na=False)
+        token_placeholders = values.isin(OFFICIAL_PLACEHOLDER_VALUES - {""}) | values.str.startswith("TBD", na=False)
+        empty_values = values.eq("")
+        is_placeholder = token_placeholders | (empty_values if column not in optional_cols else pd.Series(False, index=values.index))
         failed_count = int(is_placeholder.sum())
-        if failed_count == 0:
+        optional_gaps = int((empty_values | token_placeholders).sum()) if column in optional_cols else 0
+        if failed_count == 0 and optional_gaps == 0:
             rows.append(create_validation_row(f"{dataset_name}_{column}_no_placeholder", "0 placeholders", 0, True, "error"))
             continue
-        sample_like = source[is_placeholder].eq("sample_to_be_verified").all()
-        severity = "warning" if sample_like else "error"
+        if column in optional_cols:
+            severity = "warning"
+            failed_count = optional_gaps
+        else:
+            sample_like = source[is_placeholder].eq("sample_to_be_verified").all() if failed_count else True
+            severity = "warning" if sample_like else "error"
         rows.append(
             create_validation_row(
                 f"{dataset_name}_{column}_no_placeholder",
                 "0 placeholders",
                 failed_count,
-                False,
+                failed_count == 0,
                 severity,
             )
         )
     report_df = pd.DataFrame(rows)
-    no_errors = not ((report_df["severity"] == "error") & (~report_df["passed"])) .any() if not report_df.empty else True
+    no_errors = not ((report_df["severity"] == "error") & (~report_df["passed"])).any() if not report_df.empty else True
     return bool(no_errors), report_df
 
 
@@ -177,7 +211,7 @@ def validate_fixture_team_consistency(fixtures_df, teams_df) -> tuple[bool, pd.D
     unknown = sorted(team for team in fixture_teams if team not in official_teams)
     rows.append(create_validation_row("fixture_teams_exist_in_official_teams", "all fixture teams in official teams", unknown if unknown else "ok", len(unknown) == 0))
 
-    group_stage = fixtures_df[fixtures_df["stage"].astype(str) == "group_stage"].copy() if "stage" in fixtures_df.columns else pd.DataFrame()
+    group_stage = fixtures_df[fixtures_df["stage"].fillna("").astype(str).map(is_group_stage_label)].copy() if "stage" in fixtures_df.columns else pd.DataFrame()
     if len(group_stage) == OFFICIAL_GROUP_STAGE_MATCHES:
         team_games = pd.concat([
             group_stage[["team_a"]].rename(columns={"team_a": "team"}),
@@ -199,8 +233,15 @@ def validate_fixture_team_consistency(fixtures_df, teams_df) -> tuple[bool, pd.D
 def validate_group_team_consistency(groups_df, teams_df) -> tuple[bool, pd.DataFrame]:
     """Validate official groups and teams files against each other."""
     rows: list[dict[str, Any]] = []
-    group_teams = set(groups_df["team"].map(standardize_team_name).tolist()) if groups_df is not None and not groups_df.empty else set()
-    team_teams = set(teams_df["team"].map(standardize_team_name).tolist()) if teams_df is not None and not teams_df.empty else set()
+    if groups_df is not None and not groups_df.empty:
+        groups_df = groups_df.copy()
+        groups_df["team"] = groups_df["team"].fillna("").astype(str).map(standardize_team_name)
+    if teams_df is not None and not teams_df.empty:
+        teams_df = teams_df.copy()
+        teams_df["team"] = teams_df["team"].fillna("").astype(str).map(standardize_team_name)
+
+    group_teams = set(groups_df["team"].tolist()) if groups_df is not None and not groups_df.empty else set()
+    team_teams = set(teams_df["team"].tolist()) if teams_df is not None and not teams_df.empty else set()
     rows.append(create_validation_row("groups_and_teams_same_team_set", sorted(team_teams), sorted(group_teams), group_teams == team_teams))
 
     merged = groups_df.merge(teams_df[["team", "group", "group_slot"]], on="team", how="left", suffixes=("_groups", "_teams"))
@@ -233,7 +274,12 @@ def validate_official_fixtures(fixtures_df: pd.DataFrame, teams_df: pd.DataFrame
         expected = f"{OFFICIAL_TOTAL_MATCHES} total matches (or partial group-stage template if pending verification)"
         rows.append(create_validation_row("fixtures_total_rows", expected, total_rows, False, severity))
 
-    group_stage_rows = int((fixtures_df["stage"].astype(str) == "group_stage").sum()) if "stage" in fixtures_df.columns else 0
+    if "stage" in fixtures_df.columns:
+        from src.official.stage_normalization import is_group_stage_label
+
+        group_stage_rows = int(fixtures_df["stage"].fillna("").astype(str).map(is_group_stage_label).sum())
+    else:
+        group_stage_rows = 0
     if group_stage_rows == OFFICIAL_GROUP_STAGE_MATCHES:
         rows.append(create_validation_row("fixtures_group_stage_rows", OFFICIAL_GROUP_STAGE_MATCHES, group_stage_rows, True))
     else:

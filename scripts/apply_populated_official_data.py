@@ -13,6 +13,7 @@ import src.utils.constants as C
 from src.official.final_readiness import evaluate_official_final_readiness
 from src.official.import_diff import preview_official_import, save_import_diff_report
 from src.official.population_completeness import calculate_population_completeness, population_is_ready_for_apply
+from src.official.stage_normalization import apply_stage_normalization
 from src.official.prepare_populated_official_data import prepare_step17f_populated_official_data
 
 
@@ -36,6 +37,15 @@ def main() -> None:
     args = parser.parse_args()
 
     populated_dir = C.PROJECT_ROOT / C.OFFICIAL_POPULATED_DATA_DIR
+    fixtures_path = populated_dir / C.POPULATED_OFFICIAL_FIXTURES_FILE
+    if fixtures_path.is_file():
+        import pandas as pd
+
+        fixtures_df = pd.read_csv(fixtures_path)
+        if not fixtures_df.empty:
+            fixtures_df = apply_stage_normalization(fixtures_df)
+            fixtures_df.to_csv(fixtures_path, index=False)
+
     metrics, report_df = calculate_population_completeness()
     ready = population_is_ready_for_apply(metrics)
 
@@ -60,14 +70,16 @@ def main() -> None:
 
     if not ready:
         print("\nApply blocked because populated official data is incomplete.")
+        print("Try blocker cleanup first:")
+        print("  python scripts/cleanup_official_apply_blockers.py --apply")
         print("Apply blocked — population not ready:")
         blockers = report_df[report_df["blocking"] == True]  # noqa: E712
         for _, row in blockers.iterrows():
             print(f"  - {row['category']}: {row['actual']}/{row['target']} — {row['notes']}")
         print("\nNext actions:")
-        print("  1. Import official FIFA schedule: python scripts/import_fifa_schedule_file.py --file path/to/fifa_schedule.xlsx")
-        print("  2. Import official FIFA squads:   python scripts/import_fifa_squad_file.py --file path/to/fifa_squads.csv")
-        print("  3. Rebuild populated data:        python scripts/prepare_populated_official_data.py --schedule-file ... --squad-file ...")
+        print("  1. Run blocker cleanup:           python scripts/cleanup_official_apply_blockers.py --apply")
+        print("  2. Rebuild populated data:        python scripts/prepare_populated_official_data.py --schedule-file ... --squad-file ...")
+        print("  3. Preview apply:                 python scripts/apply_populated_official_data.py --preview")
         print("  4. Re-run readiness:              python scripts/evaluate_official_final_readiness.py")
         print("=" * 60)
         sys.exit(1)

@@ -1256,6 +1256,7 @@ OFFICIAL_POPULATION_SOURCE_AUDIT_FILE: str = "official_population_source_audit.c
 OFFICIAL_POPULATION_COMPLETENESS_REPORT_FILE: str = "official_population_completeness_report.csv"
 OFFICIAL_POPULATION_APPLY_REPORT_FILE: str = "official_population_apply_report.csv"
 OFFICIAL_POPULATION_FINAL_SUMMARY_FILE: str = "official_population_final_summary.json"
+OFFICIAL_APPLY_BLOCKER_CLEANUP_REPORT_FILE: str = "official_apply_blocker_cleanup_report.csv"
 
 OFFICIAL_READY_IMPORT_PACK_FILE: str = "official_ready_import_pack.zip"
 

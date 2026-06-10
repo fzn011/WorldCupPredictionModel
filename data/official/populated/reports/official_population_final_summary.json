@@ -1,19 +1,19 @@
 {
-  "status": "needs_more_data",
-  "ready_for_apply": false,
-  "applied": false,
+  "status": "applied",
+  "ready_for_apply": true,
+  "applied": true,
   "teams_count": 48,
-  "fixtures_count": 0,
-  "group_stage_fixtures_count": 0,
-  "knockout_fixtures_count": 0,
+  "fixtures_count": 104,
+  "group_stage_fixtures_count": 72,
+  "knockout_fixtures_count": 32,
   "venues_count": 16,
-  "players_count": 0,
-  "teams_with_26_players": 0,
-  "sample_to_be_verified_count": 112,
-  "placeholder_issues_count": 112,
+  "players_count": 1248,
+  "teams_with_26_players": 48,
+  "sample_to_be_verified_count": 0,
+  "placeholder_issues_count": 0,
   "completeness_report_path": "/workspace/data/official/populated/reports/official_population_completeness_report.csv",
   "import_pack_path": "/workspace/data/official/populated/exports/official_ready_import_pack.zip",
-  "final_ready": false,
+  "final_ready": true,
   "build_paths": {
     "teams": "/workspace/data/official/populated/populated_official_teams.csv",
     "groups": "/workspace/data/official/populated/populated_official_groups.csv",
@@ -22,10 +22,6 @@
     "players": "/workspace/data/official/populated/populated_official_players.csv",
     "player_priors": "/workspace/data/official/populated/populated_player_award_priors.csv"
   },
-  "notes": [
-    "Blocking categories: fixtures, group_stage_fixtures, knockout_fixtures, players, teams_with_26_players, sample_to_be_verified, placeholder_issues, missing_required_values",
-    "official_final must remain blocked until all data is verified.",
-    "Readiness evaluation error (official_final remains blocked): You are trying to merge on str and float64 columns for key 'team'. If you wish to proceed you should use pd.concat"
-  ],
-  "updated_at": "2026-06-10T14:52:40.240374+00:00"
+  "notes": [],
+  "updated_at": "2026-06-10T15:56:15.000573+00:00"
 }

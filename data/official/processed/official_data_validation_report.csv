@@ -1,14 +1,14 @@
 check,expected,actual,passed,severity
 teams_required_columns,"['team_id', 'team', 'team_code', 'confederation', 'group', 'group_slot', 'is_host', 'qualified', 'source', 'last_verified_at']",ok,True,error
 teams_exactly_48,48,48,True,error
-teams_no_duplicate_team,0,0,True,error
+teams_no_duplicate_team,0,47,False,error
 teams_no_duplicate_team_codes,0,0,True,error
-teams_groups_are_A_to_L,"['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']","['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']",True,error
-teams_each_group_has_4,4,"{'A': 4, 'B': 4, 'C': 4, 'D': 4, 'E': 4, 'F': 4, 'G': 4, 'H': 4, 'I': 4, 'J': 4, 'K': 4, 'L': 4}",True,error
-teams_group_slots_1_to_4,1-4 per group,"[1, 2, 3, 4, 1, 2, 3, 4]",True,error
-teams_team_no_placeholder,0 placeholders,0,True,error
-teams_team_code_no_placeholder,0 placeholders,0,True,error
-teams_group_no_placeholder,0 placeholders,0,True,error
+teams_groups_are_A_to_L,"['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']",[nan],False,error
+teams_each_group_has_4,4,{},False,error
+teams_group_slots_1_to_4,1-4 per group,"[nan, nan, nan, nan, nan, nan, nan, nan]",True,error
+teams_team_no_placeholder,0 placeholders,48,False,warning
+teams_team_code_no_placeholder,0 placeholders,48,False,warning
+teams_group_no_placeholder,0 placeholders,48,False,warning
 groups_required_columns,"['group', 'slot', 'team', 'team_code', 'confederation', 'is_host', 'source', 'last_verified_at']",ok,True,error
 groups_exactly_48_rows,48,48,True,error
 groups_count_12,"['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']","['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']",True,error
@@ -22,24 +22,24 @@ venues_venue_no_placeholder,0 placeholders,0,True,error
 venues_stadium_no_placeholder,0 placeholders,0,True,error
 venues_city_no_placeholder,0 placeholders,0,True,error
 venues_country_no_placeholder,0 placeholders,0,True,error
-venues_timezone_no_placeholder,0 placeholders,0,True,error
+venues_timezone_no_placeholder,0 placeholders,16,False,warning
 venues_capacity_numeric_if_present,numeric or blank,True,True,error
 venues_lat_lon_numeric_if_present,numeric or blank,True,True,error
 fixtures_required_columns,"['match_id', 'match_number', 'stage', 'group', 'date', 'kickoff_local', 'kickoff_utc', 'timezone', 'venue', 'stadium', 'city', 'country', 'team_a', 'team_b', 'team_a_code', 'team_b_code', 'team_a_group_slot', 'team_b_group_slot', 'status', 'source', 'last_verified_at']",ok,True,error
 fixtures_total_rows,104,104,True,error
 fixtures_group_stage_rows,72,72,True,error
-fixtures_teams_in_official_list,all non-TBD teams official,"['TBD1', 'TBD10', 'TBD11', 'TBD12', 'TBD13', 'TBD14', 'TBD15', 'TBD16', 'TBD17', 'TBD18', 'TBD19', 'TBD2', 'TBD20', 'TBD21', 'TBD22', 'TBD23', 'TBD24', 'TBD25', 'TBD26', 'TBD27', 'TBD28', 'TBD29', 'TBD3', 'TBD30', 'TBD31', 'TBD32', 'TBD4', 'TBD5', 'TBD6', 'TBD7', 'TBD8', 'TBD9']",False,error
+fixtures_teams_in_official_list,all non-TBD teams official,"['Algeria', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Cabo Verde', 'Canada', 'Colombia', 'Congo DR', 'Croatia', 'Curaçao', 'Czechia', ""Côte d'Ivoire"", 'Ecuador', 'Egypt', 'England', 'France', 'Germany', 'Ghana', 'Haiti', 'Iran', 'Iraq', 'Japan', 'Jordan', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Norway', 'Panama', 'Paraguay', 'Portugal', 'Qatar', 'Saudi Arabia', 'Scotland', 'Senegal', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Tunisia', 'Turkey', 'United States', 'Uruguay', 'Uzbekistan']",False,error
 fixtures_no_team_plays_itself,True,False,False,error
-fixtures_match_id_unique,104,96,False,error
+fixtures_match_id_unique,104,104,True,error
 fixtures_match_number_unique,104,104,True,error
-fixtures_dates_in_world_cup_window,2026-06-11 to 2026-07-19,"min=2026-06-11 00:00:00, max=2026-07-22 00:00:00",False,error
-fixtures_venue_no_placeholder,0 placeholders,103,False,error
-fixtures_city_no_placeholder,0 placeholders,103,False,error
-fixtures_country_no_placeholder,0 placeholders,103,False,error
-fixtures_timezone_no_placeholder,0 placeholders,104,False,error
-fixtures_venues_exist_in_official_venues,all fixture venues in official venues,"['TBD', 'TBD Venue A', 'TBD Venue B', 'TBD Venue C', 'TBD Venue D', 'TBD Venue E', 'TBD Venue F', 'TBD Venue G', 'TBD Venue H', 'TBD Venue I', 'TBD Venue J', 'TBD Venue K', 'TBD Venue L']",False,error
-groups_and_teams_same_team_set,"['Algeria', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Cameroon', 'Canada', 'Chile', 'Colombia', 'Costa Rica', 'Croatia', 'Czechia', ""Côte d'Ivoire"", 'Denmark', 'Ecuador', 'Egypt', 'England', 'France', 'Germany', 'Ghana', 'Iran', 'Japan', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Paraguay', 'Peru', 'Poland', 'Portugal', 'Qatar', 'Scotland', 'Senegal', 'Serbia', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Tunisia', 'Turkey', 'United Arab Emirates', 'United States', 'Uruguay']","['Algeria', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Cameroon', 'Canada', 'Chile', 'Colombia', 'Costa Rica', 'Croatia', 'Czechia', ""Côte d'Ivoire"", 'Denmark', 'Ecuador', 'Egypt', 'England', 'France', 'Germany', 'Ghana', 'Iran', 'Japan', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Paraguay', 'Peru', 'Poland', 'Portugal', 'Qatar', 'Scotland', 'Senegal', 'Serbia', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Tunisia', 'Turkey', 'United Arab Emirates', 'United States', 'Uruguay']",True,error
-groups_team_slot_consistency,group and slot align,True,True,error
-fixture_teams_exist_in_official_teams,all fixture teams in official teams,"['TBD1', 'TBD10', 'TBD11', 'TBD12', 'TBD13', 'TBD14', 'TBD15', 'TBD16', 'TBD17', 'TBD18', 'TBD19', 'TBD2', 'TBD20', 'TBD21', 'TBD22', 'TBD23', 'TBD24', 'TBD25', 'TBD26', 'TBD27', 'TBD28', 'TBD29', 'TBD3', 'TBD30', 'TBD31', 'TBD32', 'TBD4', 'TBD5', 'TBD6', 'TBD7', 'TBD8', 'TBD9']",False,error
+fixtures_dates_in_world_cup_window,2026-06-11 to 2026-07-19,"min=2026-06-11 00:00:00, max=2026-07-19 00:00:00",True,error
+fixtures_venue_no_placeholder,0 placeholders,0,True,error
+fixtures_city_no_placeholder,0 placeholders,0,True,error
+fixtures_country_no_placeholder,0 placeholders,0,True,error
+fixtures_timezone_no_placeholder,0 placeholders,104,False,warning
+fixtures_venues_exist_in_official_venues,all fixture venues in official venues,ok,True,error
+groups_and_teams_same_team_set,[''],"['Algeria', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Cabo Verde', 'Canada', 'Colombia', 'Congo DR', 'Croatia', 'Curaçao', 'Czechia', ""Côte d'Ivoire"", 'Ecuador', 'Egypt', 'England', 'France', 'Germany', 'Ghana', 'Haiti', 'Iran', 'Iraq', 'Japan', 'Jordan', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Norway', 'Panama', 'Paraguay', 'Portugal', 'Qatar', 'Saudi Arabia', 'Scotland', 'Senegal', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Tunisia', 'Turkey', 'United States', 'Uruguay', 'Uzbekistan']",False,error
+groups_team_slot_consistency,group and slot align,False,False,error
+fixture_teams_exist_in_official_teams,all fixture teams in official teams,"['Algeria', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bosnia and Herzegovina', 'Brazil', 'Cabo Verde', 'Canada', 'Colombia', 'Congo DR', 'Croatia', 'Curaçao', 'Czechia', ""Côte d'Ivoire"", 'Ecuador', 'Egypt', 'England', 'France', 'Germany', 'Ghana', 'Haiti', 'Iran', 'Iraq', 'Japan', 'Jordan', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Norway', 'Panama', 'Paraguay', 'Portugal', 'Qatar', 'Saudi Arabia', 'Scotland', 'Senegal', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Tunisia', 'Turkey', 'United States', 'Uruguay', 'Uzbekistan']",False,error
 group_stage_team_appearances_exactly_3,3 if group stage complete,ok,True,error
 match_calendar_required_columns,"['match_id', 'match_number', 'stage', 'group', 'date', 'kickoff_local', 'kickoff_utc', 'timezone', 'venue', 'city', 'country', 'team_a', 'team_b', 'status', 'source', 'last_verified_at']",ok,True,error

@@ -1,66 +1,1249 @@
 player_id,team,team_code,shirt_number,position_code,position,player_name,first_names,last_names,name_on_shirt,date_of_birth,age_at_tournament_start,club,club_country,height_cm,source,last_verified_at
-6f2cc3d4a30a7794,France,FRA,0,FW,forward,Kylian Mbappe,,,Kylian Mbappe,1998-12-20,27,Real Madrid,,0,sample_to_be_verified,2026-06-05
-a2fc821c835da5c1,France,FRA,0,FW,forward,Antoine Griezmann,,,Antoine Griezmann,1991-03-21,35,Atletico Madrid,,0,sample_to_be_verified,2026-06-05
-d961274081d42414,France,FRA,0,MF,midfielder,Eduardo Camavinga,,,Eduardo Camavinga,2002-11-10,23,Real Madrid,,0,sample_to_be_verified,2026-06-05
-974752ccaff8a51c,France,FRA,0,DF,defender,William Saliba,,,William Saliba,2001-03-24,25,Arsenal,,0,sample_to_be_verified,2026-06-05
-9c5f7dd5cb45f658,France,FRA,0,GK,goalkeeper,Mike Maignan,,,Mike Maignan,1995-07-03,30,AC Milan,,0,sample_to_be_verified,2026-06-05
-4d1a4229a231068b,England,ENG,0,MF,midfielder,Jude Bellingham,,,Jude Bellingham,2003-06-29,22,Real Madrid,,0,sample_to_be_verified,2026-06-05
-5dde0657a44938b0,England,ENG,0,FW,forward,Harry Kane,,,Harry Kane,1993-07-28,32,Bayern Munich,,0,sample_to_be_verified,2026-06-05
-3d071013b48dbd3e,England,ENG,0,FW,forward,Bukayo Saka,,,Bukayo Saka,2001-09-05,24,Arsenal,,0,sample_to_be_verified,2026-06-05
-e15e996bf29aa13b,England,ENG,0,MF,midfielder,Phil Foden,,,Phil Foden,2000-05-28,26,Manchester City,,0,sample_to_be_verified,2026-06-05
-2d57517c6c18408e,England,ENG,0,MF,midfielder,Declan Rice,,,Declan Rice,1999-01-14,27,Arsenal,,0,sample_to_be_verified,2026-06-05
-73691c83eadf428a,England,ENG,0,GK,goalkeeper,Jordan Pickford,,,Jordan Pickford,1994-03-07,32,Everton,,0,sample_to_be_verified,2026-06-05
-78592d8a60c10647,Brazil,BRA,0,FW,forward,Vinicius Junior,,,Vinicius Junior,2000-07-12,25,Real Madrid,,0,sample_to_be_verified,2026-06-05
-16ee96f89581d626,Brazil,BRA,0,FW,forward,Rodrygo,,,Rodrygo,2001-01-09,25,Real Madrid,,0,sample_to_be_verified,2026-06-05
-262a102f05bed01b,Brazil,BRA,0,MF,midfielder,Bruno Guimaraes,,,Bruno Guimaraes,1997-11-16,28,Newcastle United,,0,sample_to_be_verified,2026-06-05
-8008a6440674aff7,Brazil,BRA,0,DF,defender,Marquinhos,,,Marquinhos,1994-05-14,32,Paris Saint-Germain,,0,sample_to_be_verified,2026-06-05
-e53eeaa72fdfdbdf,Brazil,BRA,0,GK,goalkeeper,Alisson Becker,,,Alisson Becker,1992-10-02,33,Liverpool,,0,sample_to_be_verified,2026-06-05
-539646da4daafda8,Argentina,ARG,0,FW,forward,Lionel Messi,,,Lionel Messi,1987-06-24,38,Inter Miami,,0,sample_to_be_verified,2026-06-05
-9f97f558d05dbc67,Argentina,ARG,0,FW,forward,Lautaro Martinez,,,Lautaro Martinez,1997-08-22,28,Inter Milan,,0,sample_to_be_verified,2026-06-05
-6a3a8f3ff534ea1b,Argentina,ARG,0,FW,forward,Julian Alvarez,,,Julian Alvarez,2000-01-31,26,Atletico Madrid,,0,sample_to_be_verified,2026-06-05
-b72153acbf06dd5d,Argentina,ARG,0,MF,midfielder,Alexis Mac Allister,,,Alexis Mac Allister,1998-12-24,27,Liverpool,,0,sample_to_be_verified,2026-06-05
-d8f5b189ba2508c4,Argentina,ARG,0,DF,defender,Cristian Romero,,,Cristian Romero,1998-04-27,28,Tottenham Hotspur,,0,sample_to_be_verified,2026-06-05
-ff277ec55399803a,Argentina,ARG,0,GK,goalkeeper,Emiliano Martinez,,,Emiliano Martinez,1992-09-02,33,Aston Villa,,0,sample_to_be_verified,2026-06-05
-878c5aecbc6312e1,Spain,SPA,0,FW,forward,Lamine Yamal,,,Lamine Yamal,2007-07-13,18,Barcelona,,0,sample_to_be_verified,2026-06-05
-5ab335163ec0eaf2,Spain,SPA,0,FW,forward,Nico Williams,,,Nico Williams,2002-07-12,23,Athletic Club,,0,sample_to_be_verified,2026-06-05
-f47793789a16b308,Spain,SPA,0,MF,midfielder,Rodri,,,Rodri,1996-06-22,29,Manchester City,,0,sample_to_be_verified,2026-06-05
-b65289068084d164,Spain,SPA,0,MF,midfielder,Pedri,,,Pedri,2002-11-25,23,Barcelona,,0,sample_to_be_verified,2026-06-05
-697a578f926aa62c,Spain,SPA,0,GK,goalkeeper,Unai Simon,,,Unai Simon,1997-06-11,29,Athletic Club,,0,sample_to_be_verified,2026-06-05
-9deecda6c9612096,Belgium,BEL,0,MF,midfielder,Kevin De Bruyne,,,Kevin De Bruyne,1991-06-28,34,Manchester City,,0,sample_to_be_verified,2026-06-05
-250e8e30d229771c,Belgium,BEL,0,FW,forward,Jeremy Doku,,,Jeremy Doku,2002-05-27,24,Manchester City,,0,sample_to_be_verified,2026-06-05
-3f6ffe24df26a01d,Belgium,BEL,0,FW,forward,Romelu Lukaku,,,Romelu Lukaku,1993-05-13,33,Napoli,,0,sample_to_be_verified,2026-06-05
-45ad1e3a01dc16e4,Belgium,BEL,0,MF,midfielder,Amadou Onana,,,Amadou Onana,2001-08-16,24,Aston Villa,,0,sample_to_be_verified,2026-06-05
-4c8290131864110a,Belgium,BEL,0,GK,goalkeeper,Thibaut Courtois,,,Thibaut Courtois,1992-05-11,34,Real Madrid,,0,sample_to_be_verified,2026-06-05
-69491cc1907888af,Germany,GER,0,MF,midfielder,Florian Wirtz,,,Florian Wirtz,2003-05-03,23,Bayer Leverkusen,,0,sample_to_be_verified,2026-06-05
-1f723eb1a7e108a0,Germany,GER,0,MF,midfielder,Jamal Musiala,,,Jamal Musiala,2003-02-26,23,Bayern Munich,,0,sample_to_be_verified,2026-06-05
-dd50e12fd2137e35,Germany,GER,0,FW,forward,Kai Havertz,,,Kai Havertz,1999-06-11,27,Arsenal,,0,sample_to_be_verified,2026-06-05
-e1cd102ccdfcaadb,Germany,GER,0,DF,defender,Antonio Rudiger,,,Antonio Rudiger,1993-03-03,33,Real Madrid,,0,sample_to_be_verified,2026-06-05
-1691feda2d24ab4f,Germany,GER,0,GK,goalkeeper,Manuel Neuer,,,Manuel Neuer,1986-03-27,40,Bayern Munich,,0,sample_to_be_verified,2026-06-05
-2d737a2cee668215,Portugal,POR,0,FW,forward,Rafael Leao,,,Rafael Leao,1999-06-10,27,AC Milan,,0,sample_to_be_verified,2026-06-05
-e3461dc632677e24,Portugal,POR,0,MF,midfielder,Bruno Fernandes,,,Bruno Fernandes,1994-09-08,31,Manchester United,,0,sample_to_be_verified,2026-06-05
-fa3a0da0dcc096a7,Portugal,POR,0,MF,midfielder,Bernardo Silva,,,Bernardo Silva,1994-08-10,31,Manchester City,,0,sample_to_be_verified,2026-06-05
-4b1bdd7e409955ac,Portugal,POR,0,FW,forward,Cristiano Ronaldo,,,Cristiano Ronaldo,1985-02-05,41,Al Nassr,,0,sample_to_be_verified,2026-06-05
-805ee50c93d2ba53,Portugal,POR,0,DF,defender,Ruben Dias,,,Ruben Dias,1997-05-14,29,Manchester City,,0,sample_to_be_verified,2026-06-05
-3ddcb93987c22436,Portugal,POR,0,GK,goalkeeper,Diogo Costa,,,Diogo Costa,1999-09-19,26,Porto,,0,sample_to_be_verified,2026-06-05
-3202a311c11d3a24,Uruguay,URU,0,MF,midfielder,Federico Valverde,,,Federico Valverde,1998-07-22,27,Real Madrid,,0,sample_to_be_verified,2026-06-05
-25e490e0624b56e7,Uruguay,URU,0,FW,forward,Darwin Nunez,,,Darwin Nunez,1999-06-24,26,Liverpool,,0,sample_to_be_verified,2026-06-05
-011cc2ebd1fe604f,Uruguay,URU,0,DF,defender,Ronald Araujo,,,Ronald Araujo,1999-03-07,27,Barcelona,,0,sample_to_be_verified,2026-06-05
-575d5664f1c9e6a3,Uruguay,URU,0,GK,goalkeeper,Sergio Rochet,,,Sergio Rochet,1993-03-23,33,Internacional,,0,sample_to_be_verified,2026-06-05
-d81923da2451b9c6,Morocco,MOR,0,DF,defender,Achraf Hakimi,,,Achraf Hakimi,1998-11-04,27,Paris Saint-Germain,,0,sample_to_be_verified,2026-06-05
-7f7f522c1a8b3c9f,Morocco,MOR,0,MF,midfielder,Sofyan Amrabat,,,Sofyan Amrabat,1996-08-21,29,Fenerbahce,,0,sample_to_be_verified,2026-06-05
-a9da972fb8153b27,Morocco,MOR,0,GK,goalkeeper,Yassine Bounou,,,Yassine Bounou,1991-04-05,35,Al Hilal,,0,sample_to_be_verified,2026-06-05
-cc2d8bdfb27fecaa,Netherlands,NET,0,DF,defender,Virgil van Dijk,,,Virgil van Dijk,1991-07-08,34,Liverpool,,0,sample_to_be_verified,2026-06-05
-6a912368a3ecbcbc,Netherlands,NET,0,FW,forward,Memphis Depay,,,Memphis Depay,1994-02-13,32,Corinthians,,0,sample_to_be_verified,2026-06-05
-cd4283324a77815a,United States,UNI,0,FW,forward,Christian Pulisic,,,Christian Pulisic,1998-09-18,27,AC Milan,,0,sample_to_be_verified,2026-06-05
-c458f579d8abdff4,United States,UNI,0,MF,midfielder,Weston McKennie,,,Weston McKennie,1998-08-28,27,Juventus,,0,sample_to_be_verified,2026-06-05
-13259ef858170e50,Canada,CAN,0,DF,defender,Alphonso Davies,,,Alphonso Davies,2000-11-02,25,Bayern Munich,,0,sample_to_be_verified,2026-06-05
-c3dc29a6c26e38cf,Canada,CAN,0,FW,forward,Jonathan David,,,Jonathan David,2000-01-14,26,Lille,,0,sample_to_be_verified,2026-06-05
-8bed1ed007c6d53e,Mexico,MEX,0,FW,forward,Hirving Lozano,,,Hirving Lozano,1995-07-30,30,San Diego FC,,0,sample_to_be_verified,2026-06-05
-0e17072039106cfb,Mexico,MEX,0,FW,forward,Santiago Gimenez,,,Santiago Gimenez,2001-04-18,25,AC Milan,,0,sample_to_be_verified,2026-06-05
-f01b4277a88e9fdd,Japan,JAP,0,MF,midfielder,Takefusa Kubo,,,Takefusa Kubo,2001-06-04,25,Real Sociedad,,0,sample_to_be_verified,2026-06-05
-6a2f3fdd93ecd284,Japan,JAP,0,MF,midfielder,Wataru Endo,,,Wataru Endo,1993-02-09,33,Liverpool,,0,sample_to_be_verified,2026-06-05
-d59acfa6faa8d67a,South Korea,SOU,0,FW,forward,Heung-Min Son,,,Heung-Min Son,1992-07-08,33,Tottenham Hotspur,,0,sample_to_be_verified,2026-06-05
-55b026ae802651bc,South Korea,SOU,0,MF,midfielder,Lee Kang-in,,,Lee Kang-in,2001-02-19,25,Paris Saint-Germain,,0,sample_to_be_verified,2026-06-05
-d91e112f459fa434,South Korea,SOU,0,DF,defender,Kim Min-jae,,,Kim Min-jae,1996-11-15,29,Bayern Munich,,0,sample_to_be_verified,2026-06-05
-5a6c21473cc6bf03,Croatia,CRO,0,MF,midfielder,Luka Modric,,,Luka Modric,1985-09-09,40,Real Madrid,,0,sample_to_be_verified,2026-06-05
-bd698f60043c8a96,Croatia,CRO,0,GK,goalkeeper,Dominik Livakovic,,,Dominik Livakovic,1995-01-09,31,Fenerbahce,,0,sample_to_be_verified,2026-06-05
+p_00001,Algeria,ALG,1,GK,GK,MASTIL Melvin,,,MASTIL Melvin,FC Stade Nyonnais (SUI),,,,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00002,Algeria,ALG,2,DF,DF,MANDI Aissa,,,MANDI Aissa,Lille OSC (FRA),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00003,Algeria,ALG,3,DF,DF,ABADA Achref,,,ABADA Achref,USM Alger (ALG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00004,Algeria,ALG,4,DF,DF,TOUGAI Mohamed Amine,,,TOUGAI Mohamed Amine,Espérance De Tunisie (TUN),,,,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00005,Algeria,ALG,5,DF,DF,BELAID Zineddine,,,BELAID Zineddine,JS Kabylie (ALG),,,,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00006,Algeria,ALG,6,MF,MF,ZERROUKI Ramiz,,,ZERROUKI Ramiz,FC Twente (NED),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00007,Algeria,ALG,7,FW,FW,MAHREZ Riyad,,,MAHREZ Riyad,Al Ahli FC (KSA),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00008,Algeria,ALG,8,MF,MF,AOUAR Houssem,,,AOUAR Houssem,Al Ittihad (KSA),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00009,Algeria,ALG,9,FW,FW,GOUIRI Amine,,,GOUIRI Amine,Olympique Marseille (FRA),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00010,Algeria,ALG,10,MF,MF,CHAIBI Fares,,,CHAIBI Fares,Eintracht Frankfurt (GER),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00011,Algeria,ALG,11,FW,FW,HADJ MOUSSA Anis,,,HADJ MOUSSA Anis,Feyenoord Rotterdam (NED),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00012,Algeria,ALG,12,FW,FW,BENBOUALI Nadhir,,,BENBOUALI Nadhir,Györi ETO FC (HUN),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00013,Algeria,ALG,13,DF,DF,HADJAM Jaouen,,,HADJAM Jaouen,BSC Young Boys (SUI),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00014,Algeria,ALG,14,MF,MF,BOUDAOUI Hicham,,,BOUDAOUI Hicham,OGC Nice (FRA),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00015,Algeria,ALG,15,DF,DF,AIT-NOURI Rayan,,,AIT-NOURI Rayan,Manchester City FC (ENG),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00016,Algeria,ALG,16,GK,GK,BENBOT Oussama,,,BENBOT Oussama,USM Alger (ALG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00017,Algeria,ALG,17,DF,DF,BELGHALI Ra,,,BELGHALI Ra,Hellas Verona FC (ITA),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00018,Algeria,ALG,18,FW,FW,AMOURA Mohamed,,,AMOURA Mohamed,VfL Wolfsburg (GER),,,,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00019,Algeria,ALG,19,MF,MF,BENTALEB Nabil,,,BENTALEB Nabil,Lille OSC (FRA),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00020,Algeria,ALG,20,FW,FW,BOULBINA Adil,,,BOULBINA Adil,Al Duhail SC (QAT),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00021,Algeria,ALG,21,DF,DF,BENSEBAINI Ramy,,,BENSEBAINI Ramy,Borussia Dortmund (GER),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00022,Algeria,ALG,22,MF,MF,MAZA Ibrahim,,,MAZA Ibrahim,Bayer 04 Leverkusen (GER),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00023,Algeria,ALG,23,GK,GK,ZIDANE Luca,,,ZIDANE Luca,Granada CF (ESP),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00024,Algeria,ALG,24,MF,MF,TITRAOUI Yassine,,,TITRAOUI Yassine,Sporting Charleroi (BEL),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00025,Algeria,ALG,25,FW,FW,GHEDJEMIS Fares,,,GHEDJEMIS Fares,Frosinone (ITA),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00026,Algeria,ALG,26,DF,DF,CHERGUI Samir,,,CHERGUI Samir,Paris FC (FRA),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00027,Argentina,ARG,1,GK,GK,MUSSO Juan,,,MUSSO Juan,Atlético De Madrid (ESP),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00028,Argentina,ARG,2,DF,DF,BALERDI Leonardo,,,BALERDI Leonardo,Olympique Marseille (FRA),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00029,Argentina,ARG,3,DF,DF,TAGLIAFICO Nicolas,,,TAGLIAFICO Nicolas,Olympique Lyonnais (FRA),,,,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00030,Argentina,ARG,4,DF,DF,MONTIEL Gonzalo,,,MONTIEL Gonzalo,CA River Plate (ARG),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00031,Argentina,ARG,5,MF,MF,PAREDES Leandro,,,PAREDES Leandro,CA Boca Juniors (ARG),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00032,Argentina,ARG,6,DF,DF,MARTINEZ Lisandro,,,MARTINEZ Lisandro,Manchester United FC (ENG),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00033,Argentina,ARG,7,MF,MF,DE PAUL Rodrigo,,,DE PAUL Rodrigo,Inter Miami CF (USA),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00034,Argentina,ARG,8,MF,MF,BARCO Valentin,,,BARCO Valentin,RC Strasbourg (FRA),,,,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00035,Argentina,ARG,9,FW,FW,ALVAREZ Julian,,,ALVAREZ Julian,Atlético De Madrid (ESP),,,,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00036,Argentina,ARG,10,FW,FW,MESSI Lionel,,,MESSI Lionel,Inter Miami CF (USA),,,,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00037,Argentina,ARG,11,MF,MF,LO CELSO Giovani,,,LO CELSO Giovani,Real Betis (ESP),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00038,Argentina,ARG,12,GK,GK,RULLI Geronimo,,,RULLI Geronimo,Olympique Marseille (FRA),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00039,Argentina,ARG,13,DF,DF,ROMERO Cristian,,,ROMERO Cristian,Tottenham Hotspur FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00040,Argentina,ARG,14,MF,MF,PALACIOS Exequiel,,,PALACIOS Exequiel,Bayer 04 Leverkusen (GER),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00041,Argentina,ARG,15,MF,MF,GONZALEZ Nico,,,GONZALEZ Nico,Atlético De Madrid (ESP),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00042,Argentina,ARG,16,FW,FW,ALMADA Thiago,,,ALMADA Thiago,Atlético De Madrid (ESP),,,,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00043,Argentina,ARG,17,FW,FW,SIMEONE Giuliano,,,SIMEONE Giuliano,Atlético De Madrid (ESP),,,,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00044,Argentina,ARG,18,FW,FW,PAZ Nico,,,PAZ Nico,Como (ITA),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00045,Argentina,ARG,19,DF,DF,OTAMENDI Nicolas,,,OTAMENDI Nicolas,SL Ben,,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00046,Argentina,ARG,20,MF,MF,MAC ALLISTER Alexis,,,MAC ALLISTER Alexis,Liverpool FC (ENG),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00047,Argentina,ARG,21,FW,FW,LOPEZ Jose Manuel,,,LOPEZ Jose Manuel,SE Palmeiras (BRA),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00048,Argentina,ARG,22,FW,FW,MARTINEZ Lautaro,,,MARTINEZ Lautaro,FC Internazionale Milano (ITA),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00049,Argentina,ARG,23,GK,GK,MARTINEZ Emiliano,,,MARTINEZ Emiliano,Aston Villa FC (ENG),,,,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00050,Argentina,ARG,24,MF,MF,FERNANDEZ Enzo,,,FERNANDEZ Enzo,Chelsea FC (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00051,Argentina,ARG,25,DF,DF,MEDINA Facundo,,,MEDINA Facundo,Olympique Marseille (FRA),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00052,Argentina,ARG,26,DF,DF,MOLINA Nahuel,,,MOLINA Nahuel,Atlético De Madrid (ESP),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00053,Australia,AUS,1,GK,GK,RYAN Mathew,,,RYAN Mathew,1992-04-08,34.0,Levante UD (ESP),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00054,Australia,AUS,2,DF,DF,DEGENEK Milos,,,DEGENEK Milos,1994-04-28,32.0,APOEL FC (CYP),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00055,Australia,AUS,3,DF,DF,CIRCATI Alessandro,,,CIRCATI Alessandro,2003-10-10,22.0,Parma (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00056,Australia,AUS,4,DF,DF,ITALIANO Jacob,,,ITALIANO Jacob,2001-07-30,24.0,Grazer AK (AUT),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00057,Australia,AUS,5,DF,DF,BOS Jordan,,,BOS Jordan,2002-10-29,23.0,Feyenoord Rotterdam (NED),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00058,Australia,AUS,6,DF,DF,GERIA Jason,,,GERIA Jason,1993-05-10,33.0,Albirex Niigata (JPN),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00059,Australia,AUS,7,FW,FW,LECKIE Mathew,,,LECKIE Mathew,1991-02-04,35.0,Melbourne City FC (AUS),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00060,Australia,AUS,8,MF,MF,METCALFE Connor,,,METCALFE Connor,1999-11-05,26.0,FC St. Pauli (GER),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00061,Australia,AUS,9,FW,FW,TOURE Mohamed,,,TOURE Mohamed,2004-03-26,22.0,Norwich City FC (ENG),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00062,Australia,AUS,10,FW,FW,HRUSTIC Ajdin,,,HRUSTIC Ajdin,1996-07-05,29.0,SC Heracles Almelo (NED),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00063,Australia,AUS,11,FW,FW,MABIL Awer,,,MABIL Awer,1995-09-15,30.0,CD Castellón (ESP),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00064,Australia,AUS,12,GK,GK,IZZO Paul,,,IZZO Paul,1995-01-06,31.0,Randers FC (DEN),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00065,Australia,AUS,13,MF,MF,ONEILL Aiden,,,ONEILL Aiden,1998-07-04,27.0,New York City FC (USA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00066,Australia,AUS,14,MF,MF,DEVLIN Cameron,,,DEVLIN Cameron,1998-06-07,28.0,Heart Of Midlothian FC (SCO),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00067,Australia,AUS,15,DF,DF,TREWIN Kai,,,TREWIN Kai,2001-05-18,25.0,New York City FC (USA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00068,Australia,AUS,16,DF,DF,BEHICH Aziz,,,BEHICH Aziz,1990-12-16,35.0,Melbourne City FC (AUS),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00069,Australia,AUS,17,FW,FW,IRANKUNDA Nestory,,,IRANKUNDA Nestory,2006-02-09,20.0,Watford FC (ENG),,165,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00070,Australia,AUS,18,GK,GK,BEACH Patrick,,,BEACH Patrick,2003-08-06,22.0,Melbourne City FC (AUS),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00071,Australia,AUS,19,DF,DF,SOUTTAR Harry,,,SOUTTAR Harry,1998-10-22,27.0,Leicester City FC (ENG),,198,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00072,Australia,AUS,20,FW,FW,VOLPATO Cristian,,,VOLPATO Cristian,2003-11-15,22.0,US Sassuolo (ITA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00073,Australia,AUS,21,DF,DF,BURGESS Cameron,,,BURGESS Cameron,1995-10-21,30.0,Swansea City AFC (WAL),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00074,Australia,AUS,22,MF,MF,IRVINE Jackson,,,IRVINE Jackson,1993-03-07,33.0,FC St. Pauli (GER),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00075,Australia,AUS,23,FW,FW,VELUPILLAY Nishan,,,VELUPILLAY Nishan,2001-05-07,25.0,Melbourne Victory FC (AUS),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00076,Australia,AUS,24,MF,MF,OKON-ENGSTLER Paul,,,OKON-ENGSTLER Paul,2005-01-24,21.0,Sydney FC (AUS),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00077,Australia,AUS,25,DF,DF,HERRINGTON Lucas,,,HERRINGTON Lucas,2007-09-05,18.0,Colorado Rapids (USA),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00078,Australia,AUS,26,FW,FW,YENGI Tete,,,YENGI Tete,2000-11-28,25.0,FC Machida Zelvia (JPN),,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00079,Austria,AUT,1,GK,GK,SCHLAGER Alexander,,,SCHLAGER Alexander,1996-02-01,30.0,FC Red Bull Salzburg (AUT),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00080,Austria,AUT,2,DF,DF,AFFENGRUBER David,,,AFFENGRUBER David,2001-03-19,25.0,Elche CF (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00081,Austria,AUT,3,DF,DF,DANSO Kevin,,,DANSO Kevin,1998-09-19,27.0,Tottenham Hotspur FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00082,Austria,AUT,4,MF,MF,SCHLAGER Xaver,,,SCHLAGER Xaver,1997-09-28,28.0,RB Leipzig (GER),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00083,Austria,AUT,5,DF,DF,POSCH Stefan,,,POSCH Stefan,1997-05-14,29.0,1. FSV Mainz 05 (GER),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00084,Austria,AUT,6,MF,MF,SEIWALD Nicolas,,,SEIWALD Nicolas,2001-05-04,25.0,RB Leipzig (GER),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00085,Austria,AUT,7,FW,FW,ARNAUTOVIC Marko,,,ARNAUTOVIC Marko,1989-04-19,37.0,FK Crvena Zvezda (SRB),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00086,Austria,AUT,8,DF,DF,ALABA David,,,ALABA David,1992-06-24,33.0,Real Madrid C. F. (ESP),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00087,Austria,AUT,9,MF,MF,SABITZER Marcel,,,SABITZER Marcel,1994-03-17,32.0,Borussia Dortmund (GER),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00088,Austria,AUT,10,MF,MF,GRILLITSCH Florian,,,GRILLITSCH Florian,1995-08-07,30.0,SC Braga (POR),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00089,Austria,AUT,11,FW,FW,GREGORITSCH Michael,,,GREGORITSCH Michael,1994-04-18,32.0,FC Augsburg (GER),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00090,Austria,AUT,12,GK,GK,WIEGELE Florian,,,WIEGELE Florian,2001-03-21,25.0,FC Viktoria Plzeň (CZE),,205,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00091,Austria,AUT,13,GK,GK,PENTZ Patrick,,,PENTZ Patrick,1997-01-02,29.0,Brøndby IF (DEN),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00092,Austria,AUT,14,FW,FW,KALAJDZIC Sasa,,,KALAJDZIC Sasa,1997-07-07,28.0,LASK Linz (AUT),,200,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00093,Austria,AUT,15,DF,DF,LIENHART Philipp,,,LIENHART Philipp,1996-07-11,29.0,SC Freiburg (GER),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00094,Austria,AUT,16,DF,DF,MWENE Phillip,,,MWENE Phillip,1994-01-29,32.0,1. FSV Mainz 05 (GER),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00095,Austria,AUT,17,MF,MF,CHUKWUEMEKA Carney,,,CHUKWUEMEKA Carney,2003-10-20,22.0,Borussia Dortmund (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00096,Austria,AUT,18,MF,MF,SCHMID Romano,,,SCHMID Romano,2000-01-27,26.0,SV Werder Bremen (GER),,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00097,Austria,AUT,19,MF,MF,BAUMGARTNER Christoph,,,BAUMGARTNER Christoph,1999-08-01,26.0,RB Leipzig (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00098,Austria,AUT,20,MF,MF,LAIMER Konrad,,,LAIMER Konrad,1997-05-27,29.0,FC Bayern München (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00099,Austria,AUT,21,FW,FW,WIMMER Patrick,,,WIMMER Patrick,2001-05-30,25.0,VfL Wolfsburg (GER),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00100,Austria,AUT,22,MF,MF,PRASS Alexander,,,PRASS Alexander,2001-05-26,25.0,TSG Hoffenheim (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00101,Austria,AUT,23,DF,DF,FRIEDL Marco,,,FRIEDL Marco,1998-03-16,28.0,SV Werder Bremen (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00102,Austria,AUT,24,MF,MF,WANNER Paul,,,WANNER Paul,2005-12-23,20.0,PSV Eindhoven (NED),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00103,Austria,AUT,25,DF,DF,SVOBODA Michael,,,SVOBODA Michael,1998-10-15,27.0,Venezia FC (ITA),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00104,Austria,AUT,26,MF,MF,SCHOEPF Alessandro,,,SCHOEPF Alessandro,1994-02-07,32.0,Wolfsberger AC (AUT),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00105,Belgium,BEL,1,GK,GK,COURTOIS Thibaut,,,COURTOIS Thibaut,1992-05-11,34.0,Real Madrid C. F. (ESP),,199,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00106,Belgium,BEL,2,DF,DF,DEBAST Zeno,,,DEBAST Zeno,2003-10-24,22.0,Sporting CP (POR),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00107,Belgium,BEL,3,DF,DF,THEATE Arthur,,,THEATE Arthur,2000-05-25,26.0,Eintracht Frankfurt (GER),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00108,Belgium,BEL,4,DF,DF,MECHELE Brandon,,,MECHELE Brandon,1993-01-28,33.0,Club Brugge (BEL),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00109,Belgium,BEL,5,DF,DF,DE CUYPER Maxim,,,DE CUYPER Maxim,2000-12-22,25.0,Brighton & Hove Albion FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00110,Belgium,BEL,6,MF,MF,WITSEL Axel,,,WITSEL Axel,1989-01-12,37.0,Girona FC (ESP),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00111,Belgium,BEL,7,MF,MF,DE BRUYNE Kevin,,,DE BRUYNE Kevin,1991-06-28,34.0,SSC Napoli (ITA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00112,Belgium,BEL,8,MF,MF,TIELEMANS Youri,,,TIELEMANS Youri,1997-05-07,29.0,Aston Villa FC (ENG),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00113,Belgium,BEL,9,FW,FW,LUKAKU Romelu,,,LUKAKU Romelu,1993-05-13,33.0,SSC Napoli (ITA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00114,Belgium,BEL,10,FW,FW,TROSSARD Leandro,,,TROSSARD Leandro,1994-12-04,31.0,Arsenal FC (ENG),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00115,Belgium,BEL,11,FW,FW,DOKU Jeremy,,,DOKU Jeremy,2002-05-27,24.0,Manchester City FC (ENG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00116,Belgium,BEL,12,GK,GK,LAMMENS Senne,,,LAMMENS Senne,2002-07-07,23.0,Manchester United FC (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00117,Belgium,BEL,13,GK,GK,PENDERS Mike,,,PENDERS Mike,2005-07-31,20.0,RC Strasbourg (FRA),,200,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00118,Belgium,BEL,14,FW,FW,LUKEBAKIO Dodi,,,LUKEBAKIO Dodi,1997-09-24,28.0,SL Ben,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00119,Belgium,BEL,15,DF,DF,MEUNIER Thomas,,,MEUNIER Thomas,1991-09-12,34.0,Lille OSC (FRA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00120,Belgium,BEL,16,DF,DF,DE WINTER Koni,,,DE WINTER Koni,2002-06-12,23.0,AC Milan (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00121,Belgium,BEL,17,FW,FW,DE KETELAERE Charles,,,DE KETELAERE Charles,2001-03-10,25.0,Atalanta Bergamo (ITA),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00122,Belgium,BEL,18,DF,DF,SEYS Joaquin,,,SEYS Joaquin,2005-03-28,21.0,Club Brugge (BEL),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00123,Belgium,BEL,19,MF,MF,MOREIRA Diego,,,MOREIRA Diego,2004-08-06,21.0,RC Strasbourg (FRA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00124,Belgium,BEL,20,MF,MF,VANAKEN Hans,,,VANAKEN Hans,1992-08-24,33.0,Club Brugge (BEL),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00125,Belgium,BEL,21,DF,DF,CASTAGNE Timothy,,,CASTAGNE Timothy,1995-12-05,30.0,Fulham FC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00126,Belgium,BEL,22,MF,MF,SAELEMAEKERS Alexis,,,SAELEMAEKERS Alexis,1999-06-27,26.0,AC Milan (ITA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00127,Belgium,BEL,23,MF,MF,RASKIN Nicolas,,,RASKIN Nicolas,2001-02-23,25.0,Rangers FC (SCO),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00128,Belgium,BEL,24,MF,MF,ONANA Amadou,,,ONANA Amadou,2001-08-16,24.0,Aston Villa FC (ENG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00129,Belgium,BEL,25,DF,DF,NGOY Nathan,,,NGOY Nathan,2003-06-10,23.0,Lille OSC (FRA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00130,Belgium,BEL,26,FW,FW,FERNANDEZ-PARDO Matias,,,FERNANDEZ-PARDO Matias,2005-02-03,21.0,Lille OSC (FRA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00131,Bosnia And Herzegovina,BIH,1,GK,GK,VASILJ Nikola,,,VASILJ Nikola,1995-12-02,30.0,FC St. Pauli (GER),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00132,Bosnia And Herzegovina,BIH,2,DF,DF,MUJAKIC Nihad,,,MUJAKIC Nihad,1998-04-15,28.0,Gaziantep FK (TUR),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00133,Bosnia And Herzegovina,BIH,3,DF,DF,HADZIKADUNIC Dennis,,,HADZIKADUNIC Dennis,1998-07-09,27.0,UC Sampdoria (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00134,Bosnia And Herzegovina,BIH,4,DF,DF,MUHAREMOVIC Tarik,,,MUHAREMOVIC Tarik,2003-02-28,23.0,US Sassuolo (ITA),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00135,Bosnia And Herzegovina,BIH,5,DF,DF,KOLASINAC Sead,,,KOLASINAC Sead,1993-06-20,32.0,Atalanta Bergamo (ITA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00136,Bosnia And Herzegovina,BIH,6,MF,MF,TAHIROVIC Benjamin,,,TAHIROVIC Benjamin,2003-03-03,23.0,Brøndby IF (DEN),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00137,Bosnia And Herzegovina,BIH,7,DF,DF,DEDIC Amar,,,DEDIC Amar,2002-08-18,23.0,SL Ben,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00138,Bosnia And Herzegovina,BIH,8,MF,MF,GIGOVIC Armin,,,GIGOVIC Armin,2002-04-06,24.0,BSC Young Boys (SUI),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00139,Bosnia And Herzegovina,BIH,9,FW,FW,BAZDAR Samed,,,BAZDAR Samed,2004-01-31,22.0,Jagiellonia Białystok (POL),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00140,Bosnia And Herzegovina,BIH,10,FW,FW,DEMIROVIC Ermedin,,,DEMIROVIC Ermedin,1998-03-25,28.0,VfB Stuttgart (GER),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00141,Bosnia And Herzegovina,BIH,11,FW,FW,DZEKO Edin,,,DZEKO Edin,1986-03-17,40.0,FC Schalke 04 (GER),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00142,Bosnia And Herzegovina,BIH,12,GK,GK,JURKAS Mladen,,,JURKAS Mladen,2007-10-07,18.0,FK Borac Banja Luka (BIH),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00143,Bosnia And Herzegovina,BIH,13,MF,MF,BASIC Ivan,,,BASIC Ivan,2002-04-30,24.0,FC Astana (KAZ),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00144,Bosnia And Herzegovina,BIH,14,MF,MF,SUNJIC Ivan,,,SUNJIC Ivan,1996-10-09,29.0,Pafos FC (CYP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00145,Bosnia And Herzegovina,BIH,15,MF,MF,MEMIC Amar,,,MEMIC Amar,2001-01-20,25.0,FC Viktoria Plzeň (CZE),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00146,Bosnia And Herzegovina,BIH,16,MF,MF,HADZIAHMETOVIC Amir,,,HADZIAHMETOVIC Amir,1997-03-08,29.0,Hull City FC (ENG),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00147,Bosnia And Herzegovina,BIH,17,MF,MF,BURNIC Dzenis,,,BURNIC Dzenis,1998-05-22,28.0,Karlsruher SC (GER),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00148,Bosnia And Herzegovina,BIH,18,DF,DF,KATIC Nikola,,,KATIC Nikola,1996-10-10,29.0,FC Schalke 04 (GER),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00149,Bosnia And Herzegovina,BIH,19,FW,FW,ALAJBEGOVIC Kerim,,,ALAJBEGOVIC Kerim,2007-09-21,18.0,FC Red Bull Salzburg (AUT),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00150,Bosnia And Herzegovina,BIH,20,FW,FW,BAJRAKTAREVIC Esmir,,,BAJRAKTAREVIC Esmir,2005-03-10,21.0,PSV Eindhoven (NED),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00151,Bosnia And Herzegovina,BIH,21,DF,DF,RADELJIC Stjepan,,,RADELJIC Stjepan,1997-09-05,28.0,HNK Rijeka (CRO),,201,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00152,Bosnia And Herzegovina,BIH,22,GK,GK,ZLOMISLIC Martin,,,ZLOMISLIC Martin,1998-08-16,27.0,HNK Rijeka (CRO),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00153,Bosnia And Herzegovina,BIH,23,FW,FW,TABAKOVIC Haris,,,TABAKOVIC Haris,1994-06-20,31.0,Borussia Mönchengladbach (GER),,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00154,Bosnia And Herzegovina,BIH,24,DF,DF,CELIK Nidal,,,CELIK Nidal,2006-07-17,19.0,RC Lens (FRA),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00155,Bosnia And Herzegovina,BIH,25,FW,FW,LUKIC Jovo,,,LUKIC Jovo,1998-11-28,27.0,Universitatea Cluj (ROU),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00156,Bosnia And Herzegovina,BIH,26,MF,MF,MAHMIC Ermin,,,MAHMIC Ermin,2005-03-14,21.0,FC Slovan Liberec (CZE),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00157,Brazil,BRA,1,GK,GK,ALISSON,,,ALISSON,1992-10-02,33.0,Liverpool FC (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00158,Brazil,BRA,2,MF,MF,EDERSON SILVA,,,EDERSON SILVA,1999-07-07,26.0,Atalanta Bergamo (ITA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00159,Brazil,BRA,3,DF,DF,GABRIEL MAGALHAES,,,GABRIEL MAGALHAES,1997-12-19,28.0,Arsenal FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00160,Brazil,BRA,4,DF,DF,MARQUINHOS,,,MARQUINHOS,1994-05-14,32.0,Paris Saint-Germain (FRA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00161,Brazil,BRA,5,MF,MF,CASEMIRO,,,CASEMIRO,1992-02-23,34.0,Manchester United FC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00162,Brazil,BRA,6,DF,DF,ALEX SANDRO,,,ALEX SANDRO,1991-01-26,35.0,CR Flamengo (BRA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00163,Brazil,BRA,7,FW,FW,VINICIUS JUNIOR,,,VINICIUS JUNIOR,2000-07-12,25.0,Real Madrid C. F. (ESP),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00164,Brazil,BRA,8,MF,MF,BRUNO GUIMARAES,,,BRUNO GUIMARAES,1997-11-16,28.0,Newcastle United FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00165,Brazil,BRA,9,FW,FW,MATHEUS CUNHA,,,MATHEUS CUNHA,1999-05-27,27.0,Manchester United FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00166,Brazil,BRA,10,FW,FW,NEYMAR JR,,,NEYMAR JR,1992-02-05,34.0,Santos FC (BRA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00167,Brazil,BRA,11,FW,FW,RAPHINHA,,,RAPHINHA,1996-12-14,29.0,FC Barcelona (ESP),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00168,Brazil,BRA,12,GK,GK,WEVERTON,,,WEVERTON,1987-12-13,38.0,Grêmio FBPA (BRA),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00169,Brazil,BRA,13,DF,DF,DANILO,,,DANILO,1991-07-15,34.0,CR Flamengo (BRA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00170,Brazil,BRA,14,DF,DF,BREMER,,,BREMER,1997-03-18,29.0,Juventus FC (ITA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00171,Brazil,BRA,15,DF,DF,LEO PEREIRA,,,LEO PEREIRA,1996-01-31,30.0,CR Flamengo (BRA),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00172,Brazil,BRA,16,DF,DF,DOUGLAS SANTOS,,,DOUGLAS SANTOS,1994-03-22,32.0,FC Zenit St. Petersburg (RUS),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00173,Brazil,BRA,17,MF,MF,FABINHO,,,FABINHO,1993-10-23,32.0,Al Ittihad (KSA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00174,Brazil,BRA,18,MF,MF,DANILO SANTOS,,,DANILO SANTOS,2001-04-29,25.0,Botafogo (BRA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00175,Brazil,BRA,19,FW,FW,ENDRICK,,,ENDRICK,2006-07-21,19.0,Olympique Lyonnais (FRA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00176,Brazil,BRA,20,MF,MF,LUCAS PAQUETA,,,LUCAS PAQUETA,1997-08-27,28.0,CR Flamengo (BRA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00177,Brazil,BRA,21,FW,FW,LUIZ HENRIQUE,,,LUIZ HENRIQUE,2001-01-02,25.0,FC Zenit St. Petersburg (RUS),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00178,Brazil,BRA,22,FW,FW,GABRIEL MARTINELLI,,,GABRIEL MARTINELLI,2001-06-18,24.0,Arsenal FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00179,Brazil,BRA,23,GK,GK,EDERSON,,,EDERSON,1993-08-17,32.0,Fenerbahçe SK (TUR),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00180,Brazil,BRA,24,DF,DF,ROGER IBANEZ,,,ROGER IBANEZ,1998-11-23,27.0,Al Ahli FC (KSA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00181,Brazil,BRA,25,FW,FW,IGOR THIAGO,,,IGOR THIAGO,2001-06-26,24.0,Brentford FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00182,Brazil,BRA,26,FW,FW,RAYAN,,,RAYAN,2006-08-03,19.0,AFC Bournemouth (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00183,Cabo Verde,CPV,1,GK,GK,VOZINHA,,,VOZINHA,1986-06-03,40.0,GD Chaves (POR),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00184,Cabo Verde,CPV,2,DF,DF,STOPIRA,,,STOPIRA,1988-05-20,38.0,SCU Torreense (POR),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00185,Cabo Verde,CPV,3,DF,DF,DINEY BORGES,,,DINEY BORGES,1995-01-17,31.0,Al Bataeh Club (UAE),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00186,Cabo Verde,CPV,4,DF,DF,PICO LOPES,,,PICO LOPES,1992-06-17,33.0,Shamrock Rovers FC (IRL),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00187,Cabo Verde,CPV,5,DF,DF,LOGAN COSTA,,,LOGAN COSTA,2001-04-01,25.0,Villarreal CF (ESP),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00188,Cabo Verde,CPV,6,MF,MF,KEVIN PINA,,,KEVIN PINA,1997-01-27,29.0,FC Krasnodar (RUS),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00189,Cabo Verde,CPV,7,MF,MF,JOVANE CABRAL,,,JOVANE CABRAL,1998-06-14,27.0,CF Estrela Da Amadora (POR),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00190,Cabo Verde,CPV,8,MF,MF,JOAO PAULO,,,JOAO PAULO,1998-05-26,28.0,FC FCSB (ROU),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00191,Cabo Verde,CPV,9,FW,FW,GILSON BENCHIMOL,,,GILSON BENCHIMOL,2001-12-29,24.0,FC Akron Tolyatti (RUS),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00192,Cabo Verde,CPV,10,MF,MF,JAMIRO MONTEIRO,,,JAMIRO MONTEIRO,1993-11-23,32.0,PEC Zwolle (NED),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00193,Cabo Verde,CPV,11,MF,MF,GARRY RODRIGUES,,,GARRY RODRIGUES,1990-11-27,35.0,Apollon Limassol (CYP),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00194,Cabo Verde,CPV,12,GK,GK,MARCIO ROSA,,,MARCIO ROSA,1997-02-23,29.0,PFC Montana (BUL),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00195,Cabo Verde,CPV,13,DF,DF,SIDNY LOPES CABRAL,,,SIDNY LOPES CABRAL,2002-09-18,23.0,SL Ben,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00196,Cabo Verde,CPV,14,MF,MF,DEROY DUARTE,,,DEROY DUARTE,1999-07-04,26.0,PFC Ludogorets Razgrad (BUL),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00197,Cabo Verde,CPV,15,MF,MF,LAROS DUARTE,,,LAROS DUARTE,1997-02-28,29.0,Puskás Akadémia FC (HUN),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00198,Cabo Verde,CPV,16,MF,MF,YANNICK SEMEDO,,,YANNICK SEMEDO,1995-12-29,30.0,SC Farense (POR),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00199,Cabo Verde,CPV,17,MF,MF,WILLY SEMEDO,,,WILLY SEMEDO,1994-04-27,32.0,AC Omonia (CYP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00200,Cabo Verde,CPV,18,MF,MF,TELMO ARCANJO,,,TELMO ARCANJO,2001-06-21,24.0,Vitória SC (POR),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00201,Cabo Verde,CPV,19,FW,FW,DAILON LIVRAMENTO,,,DAILON LIVRAMENTO,2001-05-04,25.0,Casa Pia AC (POR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00202,Cabo Verde,CPV,20,FW,FW,RYAN MENDES,,,RYAN MENDES,1990-01-08,36.0,Iğdır FK (TUR),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00203,Cabo Verde,CPV,21,MF,MF,NUNO DA COSTA,,,NUNO DA COSTA,1991-02-10,35.0,Başakşehir FK (TUR),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00204,Cabo Verde,CPV,22,DF,DF,STEVEN MOREIRA,,,STEVEN MOREIRA,1994-08-13,31.0,Columbus Crew (USA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00205,Cabo Verde,CPV,23,GK,GK,CJ DOS SANTOS,,,CJ DOS SANTOS,2000-08-24,25.0,San Diego FC (USA),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00206,Cabo Verde,CPV,24,DF,DF,WAGNER PINA,,,WAGNER PINA,2002-11-03,23.0,Trabzonspor (TUR),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00207,Cabo Verde,CPV,25,DF,DF,KELVIN PIRES,,,KELVIN PIRES,2000-06-05,26.0,SJK (FIN),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00208,Cabo Verde,CPV,26,MF,MF,HELIO VARELA,,,HELIO VARELA,2002-05-03,24.0,Maccabi Tel-Aviv FC (ISR),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00209,Canada,CAN,1,GK,GK,ST. CLAIR Dayne,,,ST. CLAIR Dayne,1997-05-09,29.0,Inter Miami CF (USA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00210,Canada,CAN,2,DF,DF,JOHNSTON Alistair,,,JOHNSTON Alistair,1998-10-08,27.0,Celtic FC (SCO),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00211,Canada,CAN,3,DF,DF,JONES Al,,,JONES Al,1997-10-07,28.0,Middlesbrough FC (ENG),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00212,Canada,CAN,4,DF,DF,DE FOUGEROLLES Luc,,,DE FOUGEROLLES Luc,2005-10-12,20.0,FCV Dender EH (BEL),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00213,Canada,CAN,5,DF,DF,WATERMAN Joel,,,WATERMAN Joel,1996-01-24,30.0,Chicago Fire FC (USA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00214,Canada,CAN,6,MF,MF,CHOINIERE Mathieu,,,CHOINIERE Mathieu,1999-02-07,27.0,LAFC (USA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00215,Canada,CAN,7,MF,MF,EUSTAQUIO Stephen,,,EUSTAQUIO Stephen,1996-12-21,29.0,LAFC (USA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00216,Canada,CAN,8,MF,MF,KONE Ismael,,,KONE Ismael,2002-06-16,23.0,US Sassuolo (ITA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00217,Canada,CAN,9,FW,FW,LARIN Cyle,,,LARIN Cyle,1995-04-17,31.0,Southampton FC (ENG),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00218,Canada,CAN,10,FW,FW,DAVID Jonathan,,,DAVID Jonathan,2000-01-14,26.0,Juventus FC (ITA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00219,Canada,CAN,11,MF,MF,MILLAR Liam,,,MILLAR Liam,1999-09-27,26.0,Hull City FC (ENG),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00220,Canada,CAN,12,FW,FW,OLUWASEYI Tani,,,OLUWASEYI Tani,2000-05-15,26.0,Villarreal CF (ESP),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00221,Canada,CAN,13,DF,DF,CORNELIUS Derek,,,CORNELIUS Derek,1997-11-25,28.0,Rangers FC (SCO),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00222,Canada,CAN,14,MF,MF,SHAFFELBURG Jacob,,,SHAFFELBURG Jacob,1999-11-26,26.0,LAFC (USA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00223,Canada,CAN,15,DF,DF,BOMBITO Moise,,,BOMBITO Moise,2000-03-30,26.0,OGC Nice (FRA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00224,Canada,CAN,16,GK,GK,CREPEAU Maxime,,,CREPEAU Maxime,1994-05-11,32.0,Orlando City SC (USA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00225,Canada,CAN,17,FW,FW,BUCHANAN Tajon,,,BUCHANAN Tajon,1999-02-08,27.0,Villarreal CF (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00226,Canada,CAN,18,GK,GK,GOODMAN Owen,,,GOODMAN Owen,2003-11-27,22.0,Barnsley (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00227,Canada,CAN,19,DF,DF,DAVIES Alphonso,,,DAVIES Alphonso,2000-11-02,25.0,FC Bayern München (GER),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00228,Canada,CAN,20,FW,FW,AHMED Ali,,,AHMED Ali,2000-10-10,25.0,Norwich City FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00229,Canada,CAN,21,MF,MF,OSORIO Jonathan,,,OSORIO Jonathan,1992-06-12,33.0,Toronto FC (CAN),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00230,Canada,CAN,22,DF,DF,LARYEA Richie,,,LARYEA Richie,1995-01-07,31.0,Toronto FC (CAN),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00231,Canada,CAN,23,DF,DF,SIGUR Niko,,,SIGUR Niko,2003-09-09,22.0,HNK Hajduk Split (CRO),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00232,Canada,CAN,24,FW,FW,DAVID Promise,,,DAVID Promise,2001-07-03,24.0,Royale Union Saint-Gilloise (BEL),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00233,Canada,CAN,25,MF,MF,SALIBA Nathan,,,SALIBA Nathan,2004-02-07,22.0,RSC Anderlecht (BEL),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00234,Canada,CAN,26,MF,MF,FLORES Marcelo,,,FLORES Marcelo,2003-10-01,22.0,Tigres UANL (MEX),,164,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00235,Colombia,COL,1,GK,GK,OSPINA David,,,OSPINA David,1988-08-31,37.0,Atlético Nacional (COL),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00236,Colombia,COL,2,DF,DF,MUNOZ Daniel,,,MUNOZ Daniel,1996-05-26,30.0,Crystal Palace FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00237,Colombia,COL,3,DF,DF,LUCUMI Jhon,,,LUCUMI Jhon,1998-06-26,27.0,Bologna FC (ITA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00238,Colombia,COL,4,DF,DF,ARIAS Santiago,,,ARIAS Santiago,1992-01-13,34.0,CA Independiente (ARG),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00239,Colombia,COL,5,MF,MF,CASTANO Kevin,,,CASTANO Kevin,2000-09-29,25.0,CA River Plate (ARG),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00240,Colombia,COL,6,MF,MF,RIOS Richard,,,RIOS Richard,2000-06-02,26.0,SL Ben,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00241,Colombia,COL,7,FW,FW,DIAZ Luis,,,DIAZ Luis,1997-01-13,29.0,FC Bayern München (GER),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00242,Colombia,COL,8,MF,MF,CARRASCAL Jorge,,,CARRASCAL Jorge,1998-05-25,28.0,CR Flamengo (BRA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00243,Colombia,COL,9,FW,FW,CORDOBA Jhon,,,CORDOBA Jhon,1993-05-11,33.0,FC Krasnodar (RUS),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00244,Colombia,COL,10,MF,MF,RODRIGUEZ James,,,RODRIGUEZ James,1991-07-12,34.0,Minnesota United FC (USA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00245,Colombia,COL,11,MF,MF,ARIAS Jhon,,,ARIAS Jhon,1997-09-21,28.0,SE Palmeiras (BRA),,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00246,Colombia,COL,12,GK,GK,VARGAS Camilo,,,VARGAS Camilo,1989-03-09,37.0,Atlas FC (MEX),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00247,Colombia,COL,13,DF,DF,MINA Yerry,,,MINA Yerry,1994-09-23,31.0,Cagliari (ITA),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00248,Colombia,COL,14,DF,DF,PUERTA Gustavo,,,PUERTA Gustavo,2003-07-23,22.0,Racing Santander (ESP),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00249,Colombia,COL,15,MF,MF,PORTILLA Juan,,,PORTILLA Juan,1998-09-12,27.0,Athletico Paranaense (BRA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00250,Colombia,COL,16,MF,MF,LERMA Jefferson,,,LERMA Jefferson,1994-10-25,31.0,Crystal Palace FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00251,Colombia,COL,17,DF,DF,MOJICA Johan,,,MOJICA Johan,1992-08-21,33.0,RCD Mallorca (ESP),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00252,Colombia,COL,18,DF,DF,DITTA Willer,,,DITTA Willer,1998-01-23,28.0,CF Cruz Azul (MEX),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00253,Colombia,COL,19,FW,FW,HERNANDEZ Cucho,,,HERNANDEZ Cucho,1999-04-20,27.0,Real Betis (ESP),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00254,Colombia,COL,20,MF,MF,QUINTERO Juan,,,QUINTERO Juan,1993-01-18,33.0,CA River Plate (ARG),,167,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00255,Colombia,COL,21,FW,FW,CAMPAZ Jaminton,,,CAMPAZ Jaminton,2000-05-24,26.0,CA Rosario Central (ARG),,166,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00256,Colombia,COL,22,DF,DF,MACHADO Deiver,,,MACHADO Deiver,1993-09-02,32.0,FC Nantes (FRA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00257,Colombia,COL,23,DF,DF,SANCHEZ Davinson,,,SANCHEZ Davinson,1996-06-12,29.0,Galatasaray SK (TUR),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00258,Colombia,COL,24,GK,GK,MONTERO Alvaro,,,MONTERO Alvaro,1995-03-29,31.0,CA Vélez Sars,,201,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00259,Colombia,COL,25,FW,FW,SUAREZ Luis,,,SUAREZ Luis,1997-12-02,28.0,Sporting CP (POR),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00260,Colombia,COL,26,FW,FW,GOMEZ Andres,,,GOMEZ Andres,2002-09-12,23.0,CR Vasco Da Gama (BRA),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00261,Congo DR,COD,1,GK,GK,MPASI Lionel,,,MPASI Lionel,Le Havre AC (FRA),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00262,Congo DR,COD,2,DF,DF,WAN-BISSAKA Aaron,,,WAN-BISSAKA Aaron,West Ham United FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00263,Congo DR,COD,3,DF,DF,KAPUADI Steve,,,KAPUADI Steve,Widzew Łódź (POL),,,,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00264,Congo DR,COD,4,DF,DF,TUANZEBE Axel,,,TUANZEBE Axel,Burnley FC (ENG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00265,Congo DR,COD,5,DF,DF,BATUBINSIKA Dylan,,,BATUBINSIKA Dylan,AEL FC (GRE),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00266,Congo DR,COD,6,MF,MF,MUKAU Ngalayel,,,MUKAU Ngalayel,Lille OSC (FRA),,,,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00267,Congo DR,COD,7,MF,MF,MBUKU Nathanael,,,MBUKU Nathanael,Montpellier HSC (FRA),,,,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00268,Congo DR,COD,8,MF,MF,MOUTOUSSAMY Samuel,,,MOUTOUSSAMY Samuel,Atromitos FC (GRE),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00269,Congo DR,COD,9,FW,FW,CIPENGA Brian,,,CIPENGA Brian,CD Castellón (ESP),,,,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00270,Congo DR,COD,10,MF,MF,BONGONDA Theo,,,BONGONDA Theo,FC Spartak Moscow (RUS),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00271,Congo DR,COD,11,FW,FW,KAKUTA Gael,,,KAKUTA Gael,AEL FC (GRE),,,,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00272,Congo DR,COD,12,DF,DF,KAYEMBE Joris,,,KAYEMBE Joris,KRC Genk (BEL),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00273,Congo DR,COD,13,FW,FW,ELIA Meschack,,,ELIA Meschack,Alanyaspor (TUR),,,,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00274,Congo DR,COD,14,MF,MF,SADIKI Noah,,,SADIKI Noah,Sunderland AFC (ENG),,,,165,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00275,Congo DR,COD,15,MF,MF,TSHIBOLA Aaron,,,TSHIBOLA Aaron,Kilmarnock FC (SCO),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00276,Congo DR,COD,16,GK,GK,FAYULU Timothy,,,FAYULU Timothy,FC Noah (ARM),,,,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00277,Congo DR,COD,17,FW,FW,BAKAMBU Cedric,,,BAKAMBU Cedric,Real Betis (ESP),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00278,Congo DR,COD,18,MF,MF,PICKEL Charles,,,PICKEL Charles,RCD Espanyol (ESP),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00279,Congo DR,COD,19,FW,FW,MAYELE Fiston,,,MAYELE Fiston,Pyramids FC (EGY),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00280,Congo DR,COD,20,FW,FW,WISSA Yoane,,,WISSA Yoane,Newcastle United FC (ENG),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00281,Congo DR,COD,21,GK,GK,EPOLO Matthieu,,,EPOLO Matthieu,Standard Liège (BEL),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00282,Congo DR,COD,22,DF,DF,MBEMBA Chancel,,,MBEMBA Chancel,Lille OSC (FRA),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00283,Congo DR,COD,23,FW,FW,BANZA Simon,,,BANZA Simon,Al Jazira (UAE),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00284,Congo DR,COD,24,DF,DF,KALULU Gedeon,,,KALULU Gedeon,Aris Limassol FC (CYP),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00285,Congo DR,COD,25,MF,MF,KAYEMBE Edo,,,KAYEMBE Edo,Watford FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00286,Congo DR,COD,26,DF,DF,MASUAKU Arthur,,,MASUAKU Arthur,RC Lens (FRA),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00287,Côte D'Ivoire,CIV,1,GK,GK,FOFANA Yahia,,,FOFANA Yahia,2000-08-21,25.0,Çaykur Rizespor (TUR),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00288,Côte D'Ivoire,CIV,2,DF,DF,DIOMANDE Ousmane,,,DIOMANDE Ousmane,2003-12-04,22.0,Sporting CP (POR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00289,Côte D'Ivoire,CIV,3,DF,DF,KONAN Ghislain,,,KONAN Ghislain,1995-12-27,30.0,Gil Vicente FC (POR),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00290,Côte D'Ivoire,CIV,4,MF,MF,SERI Jean Michael,,,SERI Jean Michael,1991-07-19,34.0,NK Maribor (SVN),,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00291,Côte D'Ivoire,CIV,5,DF,DF,SINGO Wilfried,,,SINGO Wilfried,2000-12-25,25.0,Galatasaray SK (TUR),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00292,Côte D'Ivoire,CIV,6,MF,MF,FOFANA Seko,,,FOFANA Seko,1995-05-07,31.0,FC Porto (POR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00293,Côte D'Ivoire,CIV,7,DF,DF,KOSSOUNOU Odilon,,,KOSSOUNOU Odilon,2001-01-04,25.0,Atalanta Bergamo (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00294,Côte D'Ivoire,CIV,8,MF,MF,KESSIE Franck,,,KESSIE Franck,1996-12-19,29.0,Al Ahli FC (KSA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00295,Côte D'Ivoire,CIV,9,FW,FW,BONNY Ange-Yoan,,,BONNY Ange-Yoan,2003-10-25,22.0,FC Internazionale Milano (ITA),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00296,Côte D'Ivoire,CIV,10,FW,FW,ADINGRA Simon,,,ADINGRA Simon,2002-01-01,24.0,AS Monaco (FRA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00297,Côte D'Ivoire,CIV,11,FW,FW,DIOMANDE Yan,,,DIOMANDE Yan,2006-11-14,19.0,RB Leipzig (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00298,Côte D'Ivoire,CIV,12,FW,FW,WAHI Elye,,,WAHI Elye,2003-01-02,23.0,OGC Nice (FRA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00299,Côte D'Ivoire,CIV,13,DF,DF,OPERI Christopher,,,OPERI Christopher,1997-04-29,29.0,Başakşehir FK (TUR),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00300,Côte D'Ivoire,CIV,14,FW,FW,DIAKITE Oumar,,,DIAKITE Oumar,2003-12-20,22.0,Cercle Brugge (BEL),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00301,Côte D'Ivoire,CIV,15,FW,FW,DIALLO Amad,,,DIALLO Amad,2002-07-11,23.0,Manchester United FC (ENG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00302,Côte D'Ivoire,CIV,16,GK,GK,KONE Mohamed,,,KONE Mohamed,2002-03-07,24.0,Sporting Charleroi (BEL),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00303,Côte D'Ivoire,CIV,17,DF,DF,DOUE Guela,,,DOUE Guela,2002-10-17,23.0,RC Strasbourg (FRA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00304,Côte D'Ivoire,CIV,18,MF,MF,SANGARE Ibrahim,,,SANGARE Ibrahim,1997-12-02,28.0,Nottingham Forest FC (ENG),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00305,Côte D'Ivoire,CIV,19,FW,FW,PEPE Nicolas,,,PEPE Nicolas,1995-05-29,31.0,Villarreal CF (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00306,Côte D'Ivoire,CIV,20,DF,DF,AGBADOU Emmanuel,,,AGBADOU Emmanuel,1997-06-17,28.0,Beşiktaş JK (TUR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00307,Côte D'Ivoire,CIV,21,DF,DF,NDICKA Evan,,,NDICKA Evan,1999-08-20,26.0,AS Roma (ITA),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00308,Côte D'Ivoire,CIV,22,FW,FW,GUESSAND Evann,,,GUESSAND Evann,2001-07-01,24.0,Crystal Palace FC (ENG),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00309,Côte D'Ivoire,CIV,23,GK,GK,LAFONT Alban,,,LAFONT Alban,1999-01-23,27.0,Panathinaikos FC (GRE),,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00310,Côte D'Ivoire,CIV,24,FW,FW,TOURE Bazoumana,,,TOURE Bazoumana,2006-03-02,20.0,TSG Hoffenheim (GER),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00311,Côte D'Ivoire,CIV,25,MF,MF,GUIAGON Parfait,,,GUIAGON Parfait,2001-02-22,25.0,Sporting Charleroi (BEL),,165,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00312,Côte D'Ivoire,CIV,26,MF,MF,OULAI Christ Inao,,,OULAI Christ Inao,2006-04-06,20.0,Trabzonspor (TUR),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00313,Croatia,CRO,1,GK,GK,LIVAKOVIC Dominik,,,LIVAKOVIC Dominik,,,GNK Dinamo Zagreb (CRO),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00314,Croatia,CRO,2,DF,DF,STANISIC Josip,,,STANISIC Josip,,,FC Bayern München (GER),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00315,Croatia,CRO,3,DF,DF,PONGRACIC Marin,,,PONGRACIC Marin,,,ACF Fiorentina (ITA),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00316,Croatia,CRO,4,DF,DF,GVARDIOL Josko,,,GVARDIOL Josko,,,Manchester City FC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00317,Croatia,CRO,5,DF,DF,CALETA-CAR Duje,,,CALETA-CAR Duje,,,Real Sociedad (ESP),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00318,Croatia,CRO,6,DF,DF,SUTALO Josip,,,SUTALO Josip,,,AFC Ajax (NED),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00319,Croatia,CRO,7,MF,MF,MORO Nikola,,,MORO Nikola,,,Bologna FC (ITA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00320,Croatia,CRO,8,MF,MF,KOVACIC Mateo,,,KOVACIC Mateo,,,Manchester City FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00321,Croatia,CRO,9,FW,FW,KRAMARIC Andrej,,,KRAMARIC Andrej,,,TSG Hoffenheim (GER),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00322,Croatia,CRO,10,MF,MF,MODRIC Luka,,,MODRIC Luka,,,AC Milan (ITA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00323,Croatia,CRO,11,FW,FW,BUDIMIR Ante,,,BUDIMIR Ante,,,CA Osasuna (ESP),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00324,Croatia,CRO,12,GK,GK,PANDUR Ivor,,,PANDUR Ivor,,,Hull City FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00325,Croatia,CRO,13,MF,MF,VLASIC Nikola,,,VLASIC Nikola,,,Torino FC (ITA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00326,Croatia,CRO,14,FW,FW,PERISIC Ivan,,,PERISIC Ivan,,,PSV Eindhoven (NED),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00327,Croatia,CRO,15,MF,MF,PASALIC Mario,,,PASALIC Mario,,,Atalanta Bergamo (ITA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00328,Croatia,CRO,16,MF,MF,BATURINA Martin,,,BATURINA Martin,,,Como (ITA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00329,Croatia,CRO,17,MF,MF,SUCIC Petar,,,SUCIC Petar,,,FC Internazionale Milano (ITA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00330,Croatia,CRO,18,DF,DF,JAKIC Kristijan,,,JAKIC Kristijan,,,FC Augsburg (GER),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00331,Croatia,CRO,19,MF,MF,FRUK Toni,,,FRUK Toni,,,HNK Rijeka (CRO),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00332,Croatia,CRO,20,FW,FW,MATANOVIC Igor,,,MATANOVIC Igor,,,SC Freiburg (GER),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00333,Croatia,CRO,21,MF,MF,SUCIC Luka,,,SUCIC Luka,,,Real Sociedad (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00334,Croatia,CRO,22,DF,DF,VUSKOVIC Luka,,,VUSKOVIC Luka,,,Hamburger SV (GER),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00335,Croatia,CRO,23,GK,GK,KOTARSKI Dominik,,,KOTARSKI Dominik,,,FC København (DEN),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00336,Croatia,CRO,24,FW,FW,PASALIC Marco,,,PASALIC Marco,,,Orlando City SC (USA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00337,Croatia,CRO,25,DF,DF,ERLIC Martin,,,ERLIC Martin,,,FC Midtjylland (DEN),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00338,Croatia,CRO,26,FW,FW,MUSA Petar,,,MUSA Petar,,,FC Dallas (USA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00339,Curaçao,CUW,1,GK,GK,ROOM Eloy,,,ROOM Eloy,1989-02-06,37.0,Miami FC (USA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00340,Curaçao,CUW,2,DF,DF,SAMBO Shurandy,,,SAMBO Shurandy,2001-08-19,24.0,Sparta Rotterdam (NED),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00341,Curaçao,CUW,3,DF,DF,GAARI Jurien,,,GAARI Jurien,1993-12-23,32.0,Abha Club (KSA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00342,Curaçao,CUW,4,DF,DF,VAN EIJMA Roshon,,,VAN EIJMA Roshon,1998-06-09,28.0,RKC Waalwijk (NED),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00343,Curaçao,CUW,5,DF,DF,FLORANUS Sherel,,,FLORANUS Sherel,1998-08-23,27.0,PEC Zwolle (NED),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00344,Curaçao,CUW,6,MF,MF,ROEMERATOE Godfried,,,ROEMERATOE Godfried,1999-08-19,26.0,RKC Waalwijk (NED),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00345,Curaçao,CUW,7,MF,MF,BACUNA Juninho,,,BACUNA Juninho,1997-08-07,28.0,FC Volendam (NED),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00346,Curaçao,CUW,8,MF,MF,COMENENCIA Livano,,,COMENENCIA Livano,2004-02-03,22.0,FC Zürich (SUI),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00347,Curaçao,CUW,9,FW,FW,LOCADIA Juergen,,,LOCADIA Juergen,1993-11-07,32.0,Miami FC (USA),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00348,Curaçao,CUW,10,MF,MF,BACUNA Leandro,,,BACUNA Leandro,1991-08-21,34.0,Iğdır FK (TUR),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00349,Curaçao,CUW,11,FW,FW,ANTONISSE Jeremy,,,ANTONISSE Jeremy,2002-03-29,24.0,AE Ki,,164,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00350,Curaçao,CUW,12,FW,FW,HANSEN Sontje,,,HANSEN Sontje,2002-05-18,24.0,Middlesbrough FC (ENG),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00351,Curaçao,CUW,13,FW,FW,NOSLIN Tyrese,,,NOSLIN Tyrese,2002-09-11,23.0,SC Telstar (NED),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00352,Curaçao,CUW,14,FW,FW,GORRE Kenji,,,GORRE Kenji,1994-09-29,31.0,Maccabi Haifa FC (ISR),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00353,Curaçao,CUW,15,MF,MF,MARTHA Arjany,,,MARTHA Arjany,2003-09-04,22.0,Rotherham United FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00354,Curaçao,CUW,16,FW,FW,MARGARITHA Jearl,,,MARGARITHA Jearl,2000-04-10,26.0,SK Beveren (BEL),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00355,Curaçao,CUW,17,FW,FW,KUWAS Brandley,,,KUWAS Brandley,1992-09-19,33.0,FC Volendam (NED),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00356,Curaçao,CUW,18,DF,DF,OBISPO Armando,,,OBISPO Armando,1999-03-05,27.0,PSV Eindhoven (NED),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00357,Curaçao,CUW,19,FW,FW,KASTANEER Gervane,,,KASTANEER Gervane,1996-06-09,30.0,Terengganu FC (MAS),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00358,Curaçao,CUW,20,DF,DF,BRENET Joshua,,,BRENET Joshua,1994-03-20,32.0,Kayserispor (TUR),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00359,Curaçao,CUW,21,MF,MF,CHONG Tahith,,,CHONG Tahith,1999-12-04,26.0,She,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00360,Curaçao,CUW,22,MF,MF,FELIDA Kevin,,,FELIDA Kevin,1999-11-11,26.0,FC Den Bosch (NED),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00361,Curaçao,CUW,23,DF,DF,BAZOER Riechedly,,,BAZOER Riechedly,1996-10-12,29.0,Konyaspor (TUR),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00362,Curaçao,CUW,24,DF,DF,FONVILLE Deveron,,,FONVILLE Deveron,2003-05-16,23.0,NEC Nijmegen (NED),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00363,Curaçao,CUW,25,GK,GK,BODAK Tyrick,,,BODAK Tyrick,2002-05-15,24.0,SC Telstar (NED),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00364,Curaçao,CUW,26,GK,GK,DOORNBUSCH Trevor,,,DOORNBUSCH Trevor,1999-07-06,26.0,VVV Venlo (NED),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00365,Czechia,CZE,1,GK,GK,KOVAR Matej,,,KOVAR Matej,,,PSV Eindhoven (NED),,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00366,Czechia,CZE,2,DF,DF,ZIMA David,,,ZIMA David,,,SK Slavia Praha (CZE),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00367,Czechia,CZE,3,DF,DF,HOLES Tomas,,,HOLES Tomas,,,SK Slavia Praha (CZE),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00368,Czechia,CZE,4,DF,DF,HRANAC Robin,,,HRANAC Robin,,,TSG Hoffenheim (GER),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00369,Czechia,CZE,5,DF,DF,COUFAL Vladimir,,,COUFAL Vladimir,,,TSG Hoffenheim (GER),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00370,Czechia,CZE,6,DF,DF,CHALOUPEK Stepan,,,CHALOUPEK Stepan,,,SK Slavia Praha (CZE),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00371,Czechia,CZE,7,DF,DF,KREJCI Ladislav,,,KREJCI Ladislav,,,Wolverhampton Wanderers FC (ENG),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00372,Czechia,CZE,8,MF,MF,DARIDA Vladimir,,,DARIDA Vladimir,,,FC Hradec Králové (CZE),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00373,Czechia,CZE,9,FW,FW,HLOZEK Adam,,,HLOZEK Adam,,,TSG Hoffenheim (GER),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00374,Czechia,CZE,10,FW,FW,SCHICK Patrik,,,SCHICK Patrik,,,Bayer 04 Leverkusen (GER),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00375,Czechia,CZE,11,FW,FW,KUCHTA Jan,,,KUCHTA Jan,,,AC Sparta Praha (CZE),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00376,Czechia,CZE,12,MF,MF,CERV Lukas,,,CERV Lukas,,,FC Viktoria Plzeň (CZE),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00377,Czechia,CZE,13,FW,FW,CHYTIL Mojmir,,,CHYTIL Mojmir,,,SK Slavia Praha (CZE),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00378,Czechia,CZE,14,DF,DF,JURASEK David,,,JURASEK David,,,SK Slavia Praha (CZE),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00379,Czechia,CZE,15,FW,FW,SULC Pavel,,,SULC Pavel,,,Olympique Lyonnais (FRA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00380,Czechia,CZE,16,GK,GK,STANEK Jindrich,,,STANEK Jindrich,,,SK Slavia Praha (CZE),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00381,Czechia,CZE,17,MF,MF,PROVOD Lukas,,,PROVOD Lukas,,,SK Slavia Praha (CZE),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00382,Czechia,CZE,18,MF,MF,SADILEK Michal,,,SADILEK Michal,,,SK Slavia Praha (CZE),,169,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00383,Czechia,CZE,19,FW,FW,CHORY Tomas,,,CHORY Tomas,,,SK Slavia Praha (CZE),,199,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00384,Czechia,CZE,20,DF,DF,ZELENY Jaroslav,,,ZELENY Jaroslav,,,AC Sparta Praha (CZE),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00385,Czechia,CZE,21,DF,DF,DOUDERA David,,,DOUDERA David,,,SK Slavia Praha (CZE),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00386,Czechia,CZE,22,MF,MF,SOUCEK Tomas,,,SOUCEK Tomas,,,West Ham United FC (ENG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00387,Czechia,CZE,23,GK,GK,HORNICEK Lukas,,,HORNICEK Lukas,,,SC Braga (POR),,198,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00388,Czechia,CZE,24,MF,MF,SOJKA Alexandr,,,SOJKA Alexandr,,,FC Viktoria Plzeň (CZE),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00389,Czechia,CZE,25,MF,MF,SOCHUREK Hugo,,,SOCHUREK Hugo,,,AC Sparta Praha (CZE),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00390,Czechia,CZE,26,FW,FW,VISINSKY Denis,,,VISINSKY Denis,,,FC Viktoria Plzeň (CZE),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00391,Ecuador,ECU,1,GK,GK,GALINDEZ Hernan,,,GALINDEZ Hernan,,,CA Huracán (ARG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00392,Ecuador,ECU,2,DF,DF,TORRES Felix,,,TORRES Felix,,,SC Internacional (BRA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00393,Ecuador,ECU,3,DF,DF,HINCAPIE Piero,,,HINCAPIE Piero,,,Arsenal FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00394,Ecuador,ECU,4,DF,DF,ORDONEZ Joel,,,ORDONEZ Joel,,,Club Brugge (BEL),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00395,Ecuador,ECU,5,MF,MF,ALCIVAR Jordy,,,ALCIVAR Jordy,,,Independiente Del Valle (ECU),,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00396,Ecuador,ECU,6,DF,DF,PACHO Willian,,,PACHO Willian,,,Paris Saint-Germain (FRA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00397,Ecuador,ECU,7,DF,DF,ESTUPINAN Pervis,,,ESTUPINAN Pervis,,,AC Milan (ITA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00398,Ecuador,ECU,8,MF,MF,VALENCIA Anthony,,,VALENCIA Anthony,,,Royal Antwerp FC (BEL),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00399,Ecuador,ECU,9,FW,FW,YEBOAH John,,,YEBOAH John,,,Venezia FC (ITA),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00400,Ecuador,ECU,10,MF,MF,PAEZ Kendry,,,PAEZ Kendry,,,CA River Plate (ARG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00401,Ecuador,ECU,11,FW,FW,RODRIGUEZ Kevin,,,RODRIGUEZ Kevin,,,Royale Union Saint-Gilloise (BEL),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00402,Ecuador,ECU,12,GK,GK,RAMIREZ Moises,,,RAMIREZ Moises,,,AE Ki,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00403,Ecuador,ECU,13,FW,FW,VALENCIA Enner,,,VALENCIA Enner,,,CF Pachuca (MEX),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00404,Ecuador,ECU,14,MF,MF,MINDA Alan,,,MINDA Alan,,,Atlético Mineiro (BRA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00405,Ecuador,ECU,15,MF,MF,VITE Pedro,,,VITE Pedro,,,Pumas UNAM (MEX),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00406,Ecuador,ECU,16,FW,FW,CAICEDO Jordy,,,CAICEDO Jordy,,,CA Huracán (ARG),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00407,Ecuador,ECU,17,DF,DF,PRECIADO Angelo,,,PRECIADO Angelo,,,Atlético Mineiro (BRA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00408,Ecuador,ECU,18,MF,MF,CASTILLO Denil,,,CASTILLO Denil,,,FC Midtjylland (DEN),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00409,Ecuador,ECU,19,FW,FW,PLATA Gonzalo,,,PLATA Gonzalo,,,CR Flamengo (BRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00410,Ecuador,ECU,20,FW,FW,ANGULO Nilson,,,ANGULO Nilson,,,Sunderland AFC (ENG),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00411,Ecuador,ECU,21,MF,MF,FRANCO Alan,,,FRANCO Alan,,,Atlético Mineiro (BRA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00412,Ecuador,ECU,22,GK,GK,VALLE Gonzalo,,,VALLE Gonzalo,,,LDU Quito (ECU),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00413,Ecuador,ECU,23,MF,MF,CAICEDO Moises,,,CAICEDO Moises,,,Chelsea FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00414,Ecuador,ECU,24,FW,FW,AREVALO Jeremy,,,AREVALO Jeremy,,,VfB Stuttgart (GER),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00415,Ecuador,ECU,25,DF,DF,POROZO Jackson,,,POROZO Jackson,,,Club Tijuana (MEX),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00416,Ecuador,ECU,26,DF,DF,MEDINA Yaimar,,,MEDINA Yaimar,,,KRC Genk (BEL),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00417,Egypt,EGY,1,GK,GK,MOHAMED ELSHENAWY,,,MOHAMED ELSHENAWY,1988-12-18,37.0,Al Ahly FC (EGY),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00418,Egypt,EGY,2,DF,DF,YASSER IBRAHIM,,,YASSER IBRAHIM,1993-02-10,33.0,Al Ahly FC (EGY),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00419,Egypt,EGY,3,DF,DF,MOHAMED HANY,,,MOHAMED HANY,1996-02-02,30.0,Al Ahly FC (EGY),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00420,Egypt,EGY,4,DF,DF,HOSSAM ABDELMAGUID,,,HOSSAM ABDELMAGUID,2001-04-30,25.0,Zamalek SC (EGY),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00421,Egypt,EGY,5,DF,DF,RAMY RABIA,,,RAMY RABIA,1993-05-20,33.0,Al Ain FC (UAE),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00422,Egypt,EGY,6,DF,DF,MOHAMED ABDELMONEIM,,,MOHAMED ABDELMONEIM,1999-02-01,27.0,OGC Nice (FRA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00423,Egypt,EGY,7,FW,FW,TREZEGUET,,,TREZEGUET,1994-10-01,31.0,Al Ahly FC (EGY),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00424,Egypt,EGY,8,MF,MF,EMAM ASHOUR,,,EMAM ASHOUR,1998-02-20,28.0,Al Ahly FC (EGY),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00425,Egypt,EGY,9,FW,FW,HAMZA ABDELKARIM,,,HAMZA ABDELKARIM,2008-01-01,18.0,FC Barcelona (ESP),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00426,Egypt,EGY,10,FW,FW,MOHAMED SALAH,,,MOHAMED SALAH,1992-06-15,33.0,Liverpool FC (ENG),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00427,Egypt,EGY,11,MF,MF,MOSTAFA ZICO,,,MOSTAFA ZICO,1997-04-27,29.0,Pyramids FC (EGY),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00428,Egypt,EGY,12,FW,FW,HAISSEM HASSAN,,,HAISSEM HASSAN,2002-02-08,24.0,Real Oviedo (ESP),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00429,Egypt,EGY,13,DF,DF,AHMED FATOUH,,,AHMED FATOUH,1998-03-22,28.0,Zamalek SC (EGY),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00430,Egypt,EGY,14,MF,MF,HAMDY FATHY,,,HAMDY FATHY,1994-09-29,31.0,Al Wakrah SC (QAT),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00431,Egypt,EGY,15,DF,DF,KARIM HAFEZ,,,KARIM HAFEZ,1996-03-12,30.0,Pyramids FC (EGY),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00432,Egypt,EGY,16,GK,GK,MAHDY SOLIMAN,,,MAHDY SOLIMAN,1987-06-08,39.0,Zamalek SC (EGY),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00433,Egypt,EGY,17,MF,MF,MOHANAD LASHIN,,,MOHANAD LASHIN,1996-05-29,30.0,Pyramids FC (EGY),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00434,Egypt,EGY,18,MF,MF,NABIL DONGA,,,NABIL DONGA,1996-04-06,30.0,Al Najmah SC (KSA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00435,Egypt,EGY,19,MF,MF,MARAWAN ATTIA,,,MARAWAN ATTIA,1998-08-01,27.0,Al Ahly FC (EGY),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00436,Egypt,EGY,20,FW,FW,IBRAHIM ADEL,,,IBRAHIM ADEL,2001-04-23,25.0,FC Nordsjælland (DEN),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00437,Egypt,EGY,21,MF,MF,MAHMOUD SABER,,,MAHMOUD SABER,2001-07-30,24.0,ZED FC (EGY),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00438,Egypt,EGY,22,FW,FW,OMAR MARMOUSH,,,OMAR MARMOUSH,1999-02-07,27.0,Manchester City FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00439,Egypt,EGY,23,GK,GK,MOSTAFA SHOUBIR,,,MOSTAFA SHOUBIR,2000-05-15,26.0,Al Ahly FC (EGY),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00440,Egypt,EGY,24,DF,DF,TAREK ALAA,,,TAREK ALAA,2002-01-05,24.0,ZED FC (EGY),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00441,Egypt,EGY,25,FW,FW,ZIZO,,,ZIZO,1996-01-10,30.0,Al Ahly FC (EGY),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00442,Egypt,EGY,26,GK,GK,MOHAMED ALAA,,,MOHAMED ALAA,1999-01-01,27.0,El Gouna FC (EGY),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00443,England,ENG,1,GK,GK,PICKFORD Jordan,,,PICKFORD Jordan,Everton FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00444,England,ENG,2,DF,DF,KONSA Ezri,,,KONSA Ezri,Aston Villa FC (ENG),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00445,England,ENG,3,DF,DF,OREILLY Nico,,,OREILLY Nico,Manchester City FC (ENG),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00446,England,ENG,4,MF,MF,RICE Declan,,,RICE Declan,Arsenal FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00447,England,ENG,5,DF,DF,STONES John,,,STONES John,Manchester City FC (ENG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00448,England,ENG,6,DF,DF,GUEHI Marc,,,GUEHI Marc,Manchester City FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00449,England,ENG,7,FW,FW,SAKA Bukayo,,,SAKA Bukayo,Arsenal FC (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00450,England,ENG,8,MF,MF,ANDERSON Elliot,,,ANDERSON Elliot,Nottingham Forest FC (ENG),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00451,England,ENG,9,FW,FW,KANE Harry,,,KANE Harry,FC Bayern München (GER),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00452,England,ENG,10,MF,MF,BELLINGHAM Jude,,,BELLINGHAM Jude,Real Madrid C. F. (ESP),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00453,England,ENG,11,FW,FW,RASHFORD Marcus,,,RASHFORD Marcus,FC Barcelona (ESP),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00454,England,ENG,12,DF,DF,LIVRAMENTO Tino,,,LIVRAMENTO Tino,Newcastle United FC (ENG),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00455,England,ENG,13,GK,GK,HENDERSON Dean,,,HENDERSON Dean,Crystal Palace FC (ENG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00456,England,ENG,14,MF,MF,HENDERSON Jordan,,,HENDERSON Jordan,Brentford FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00457,England,ENG,15,DF,DF,BURN Dan,,,BURN Dan,Newcastle United FC (ENG),,,,201,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00458,England,ENG,16,MF,MF,MAINOO Kobbie,,,MAINOO Kobbie,Manchester United FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00459,England,ENG,17,MF,MF,ROGERS Morgan,,,ROGERS Morgan,Aston Villa FC (ENG),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00460,England,ENG,18,FW,FW,GORDON Anthony,,,GORDON Anthony,Newcastle United FC (ENG),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00461,England,ENG,19,FW,FW,WATKINS Ollie,,,WATKINS Ollie,Aston Villa FC (ENG),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00462,England,ENG,20,FW,FW,MADUEKE Noni,,,MADUEKE Noni,Arsenal FC (ENG),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00463,England,ENG,21,MF,MF,EZE Eberechi,,,EZE Eberechi,Arsenal FC (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00464,England,ENG,22,FW,FW,TONEY Ivan,,,TONEY Ivan,Al Ahli FC (KSA),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00465,England,ENG,23,GK,GK,TRAFFORD James,,,TRAFFORD James,Manchester City FC (ENG),,,,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00466,England,ENG,24,DF,DF,JAMES Reece,,,JAMES Reece,Chelsea FC (ENG),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00467,England,ENG,25,DF,DF,SPENCE Djed,,,SPENCE Djed,Tottenham Hotspur FC (ENG),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00468,England,ENG,26,DF,DF,QUANSAH Jarell,,,QUANSAH Jarell,Bayer 04 Leverkusen (GER),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00469,France,FRA,1,GK,GK,SAMBA Brice,,,SAMBA Brice,1994-04-25,32.0,Stade Rennais FC (FRA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00470,France,FRA,2,DF,DF,GUSTO Malo,,,GUSTO Malo,2003-05-19,23.0,Chelsea FC (ENG),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00471,France,FRA,3,DF,DF,DIGNE Lucas,,,DIGNE Lucas,1993-07-20,32.0,Aston Villa FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00472,France,FRA,4,DF,DF,UPAMECANO Dayot,,,UPAMECANO Dayot,1998-10-27,27.0,FC Bayern München (GER),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00473,France,FRA,5,DF,DF,KOUNDE Jules,,,KOUNDE Jules,1998-11-12,27.0,FC Barcelona (ESP),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00474,France,FRA,6,MF,MF,KONE Manu,,,KONE Manu,2001-05-17,25.0,AS Roma (ITA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00475,France,FRA,7,FW,FW,DEMBELE Ousmane,,,DEMBELE Ousmane,1997-05-15,29.0,Paris Saint-Germain (FRA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00476,France,FRA,8,MF,MF,TCHOUAMENI Aurelien,,,TCHOUAMENI Aurelien,2000-01-27,26.0,Real Madrid C. F. (ESP),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00477,France,FRA,9,FW,FW,THURAM Marcus,,,THURAM Marcus,1997-08-06,28.0,FC Internazionale Milano (ITA),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00478,France,FRA,10,FW,FW,MBAPPE Kylian,,,MBAPPE Kylian,1998-12-20,27.0,Real Madrid C. F. (ESP),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00479,France,FRA,11,FW,FW,OLISE Michael,,,OLISE Michael,2001-12-12,24.0,FC Bayern München (GER),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00480,France,FRA,12,FW,FW,BARCOLA Bradley,,,BARCOLA Bradley,2002-09-02,23.0,Paris Saint-Germain (FRA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00481,France,FRA,13,MF,MF,KANTE Ngolo,,,KANTE Ngolo,1991-03-29,35.0,Fenerbahçe SK (TUR),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00482,France,FRA,14,MF,MF,RABIOT Adrien,,,RABIOT Adrien,1995-04-03,31.0,AC Milan (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00483,France,FRA,15,DF,DF,KONATE Ibrahima,,,KONATE Ibrahima,1999-05-25,27.0,Liverpool FC (ENG),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00484,France,FRA,16,GK,GK,MAIGNAN Mike,,,MAIGNAN Mike,1995-07-03,30.0,AC Milan (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00485,France,FRA,17,DF,DF,SALIBA William,,,SALIBA William,2001-03-24,25.0,Arsenal FC (ENG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00486,France,FRA,18,MF,MF,ZAIRE-EMERY Warren,,,ZAIRE-EMERY Warren,2006-03-08,20.0,Paris Saint-Germain (FRA),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00487,France,FRA,19,DF,DF,HERNANDEZ Theo,,,HERNANDEZ Theo,1997-10-06,28.0,Al Hilal SC (KSA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00488,France,FRA,20,FW,FW,DOUE Desire,,,DOUE Desire,2005-06-03,21.0,Paris Saint-Germain (FRA),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00489,France,FRA,21,DF,DF,HERNANDEZ Lucas,,,HERNANDEZ Lucas,1996-02-14,30.0,Paris Saint-Germain (FRA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00490,France,FRA,22,FW,FW,MATETA Jean-Philippe,,,MATETA Jean-Philippe,1997-06-28,28.0,Crystal Palace FC (ENG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00491,France,FRA,23,GK,GK,RISSER Robin,,,RISSER Robin,2004-12-02,21.0,RC Lens (FRA),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00492,France,FRA,24,MF,MF,CHERKI Rayan,,,CHERKI Rayan,2003-08-17,22.0,Manchester City FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00493,France,FRA,25,MF,MF,AKLIOUCHE Maghnes,,,AKLIOUCHE Maghnes,2002-02-25,24.0,AS Monaco (FRA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00494,France,FRA,26,DF,DF,LACROIX Maxence,,,LACROIX Maxence,2000-04-06,26.0,Crystal Palace FC (ENG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00495,Germany,GER,1,GK,GK,NEUER Manuel,,,NEUER Manuel,,,FC Bayern München (GER),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00496,Germany,GER,2,DF,DF,RUEDIGER Antonio,,,RUEDIGER Antonio,,,Real Madrid C. F. (ESP),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00497,Germany,GER,3,DF,DF,ANTON Waldemar,,,ANTON Waldemar,,,Borussia Dortmund (GER),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00498,Germany,GER,4,DF,DF,TAH Jonathan,,,TAH Jonathan,,,FC Bayern München (GER),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00499,Germany,GER,5,MF,MF,PAVLOVIC Aleksandar,,,PAVLOVIC Aleksandar,,,FC Bayern München (GER),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00500,Germany,GER,6,DF,DF,KIMMICH Joshua,,,KIMMICH Joshua,,,FC Bayern München (GER),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00501,Germany,GER,7,FW,FW,HAVERTZ Kai,,,HAVERTZ Kai,,,Arsenal FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00502,Germany,GER,8,MF,MF,GORETZKA Leon,,,GORETZKA Leon,,,FC Bayern München (GER),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00503,Germany,GER,9,MF,MF,LEWELING Jamie,,,LEWELING Jamie,,,VfB Stuttgart (GER),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00504,Germany,GER,10,MF,MF,MUSIALA Jamal,,,MUSIALA Jamal,,,FC Bayern München (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00505,Germany,GER,11,FW,FW,WOLTEMADE Nick,,,WOLTEMADE Nick,,,Newcastle United FC (ENG),,198,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00506,Germany,GER,12,GK,GK,BAUMANN Oliver,,,BAUMANN Oliver,,,TSG Hoffenheim (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00507,Germany,GER,13,MF,MF,GROSS Pascal,,,GROSS Pascal,,,Brighton & Hove Albion FC (ENG),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00508,Germany,GER,14,FW,FW,BEIER Maximilian,,,BEIER Maximilian,,,Borussia Dortmund (GER),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00509,Germany,GER,15,DF,DF,SCHLOTTERBECK Nico,,,SCHLOTTERBECK Nico,,,Borussia Dortmund (GER),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00510,Germany,GER,16,MF,MF,STILLER Angelo,,,STILLER Angelo,,,VfB Stuttgart (GER),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00511,Germany,GER,17,MF,MF,WIRTZ Florian,,,WIRTZ Florian,,,Liverpool FC (ENG),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00512,Germany,GER,18,DF,DF,BROWN Nathaniel,,,BROWN Nathaniel,,,Eintracht Frankfurt (GER),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00513,Germany,GER,19,MF,MF,SANE Leroy,,,SANE Leroy,,,Galatasaray SK (TUR),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00514,Germany,GER,20,MF,MF,AMIRI Nadiem,,,AMIRI Nadiem,,,1. FSV Mainz 05 (GER),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00515,Germany,GER,21,GK,GK,NUEBEL Alexander,,,NUEBEL Alexander,,,VfB Stuttgart (GER),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00516,Germany,GER,22,DF,DF,RAUM David,,,RAUM David,,,RB Leipzig (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00517,Germany,GER,23,MF,MF,NMECHA Felix,,,NMECHA Felix,,,Borussia Dortmund (GER),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00518,Germany,GER,24,DF,DF,THIAW Malick,,,THIAW Malick,,,Newcastle United FC (ENG),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00519,Germany,GER,25,MF,MF,OUEDRAOGO Assan,,,OUEDRAOGO Assan,,,RB Leipzig (GER),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00520,Germany,GER,26,FW,FW,UNDAV Deniz,,,UNDAV Deniz,,,VfB Stuttgart (GER),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00521,Ghana,GHA,1,GK,GK,ZIGI Lawrence Ati,,,ZIGI Lawrence Ati,1996-11-29,29.0,FC St. Gallen (SUI),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00522,Ghana,GHA,2,DF,DF,SEIDU Alidu,,,SEIDU Alidu,2000-06-04,26.0,Stade Rennais FC (FRA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00523,Ghana,GHA,3,MF,MF,YIRENKYI Caleb,,,YIRENKYI Caleb,2006-01-15,20.0,FC Nordsjælland (DEN),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00524,Ghana,GHA,4,DF,DF,ADJETEY Jonas,,,ADJETEY Jonas,2003-12-13,22.0,VfL Wolfsburg (GER),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00525,Ghana,GHA,5,MF,MF,PARTEY Thomas,,,PARTEY Thomas,1993-06-13,32.0,Villarreal CF (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00526,Ghana,GHA,6,DF,DF,MUMIN Abdul,,,MUMIN Abdul,1998-06-06,28.0,Rayo Vallecano (ESP),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00527,Ghana,GHA,7,FW,FW,FATAWU Abdul,,,FATAWU Abdul,2004-03-08,22.0,Leicester City FC (ENG),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00528,Ghana,GHA,8,MF,MF,SIBO Kwasi,,,SIBO Kwasi,1998-06-24,27.0,Real Oviedo (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00529,Ghana,GHA,9,FW,FW,AYEW Jordan,,,AYEW Jordan,1991-09-11,34.0,Leicester City FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00530,Ghana,GHA,10,FW,FW,THOMAS-ASANTE Brandon,,,THOMAS-ASANTE Brandon,1998-12-29,27.0,Coventry City FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00531,Ghana,GHA,11,MF,MF,SEMENYO Antoine,,,SEMENYO Antoine,2000-01-07,26.0,Manchester City FC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00532,Ghana,GHA,12,GK,GK,ANANG Joseph,,,ANANG Joseph,2000-06-08,26.0,St Patrick's Athletic FC (IRL),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00533,Ghana,GHA,13,FW,FW,BAAH Christopher Bonsu,,,BAAH Christopher Bonsu,2004-12-14,21.0,Al Qadsiah FC (KSA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00534,Ghana,GHA,14,DF,DF,MENSAH Gideon,,,MENSAH Gideon,1998-07-18,27.0,AJ Auxerre (FRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00535,Ghana,GHA,15,MF,MF,OWUSU Elisha,,,OWUSU Elisha,1997-11-07,28.0,AJ Auxerre (FRA),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00536,Ghana,GHA,16,GK,GK,ASARE Benjamin,,,ASARE Benjamin,1992-07-13,33.0,Hearts Of Oak SC (GHA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00537,Ghana,GHA,17,DF,DF,RAHMAN Baba,,,RAHMAN Baba,1994-07-02,31.0,PAOK Saloniki (GRE),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00538,Ghana,GHA,18,DF,DF,OPOKU Jerome,,,OPOKU Jerome,1998-10-14,27.0,Başakşehir FK (TUR),,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00539,Ghana,GHA,19,FW,FW,WILLIAMS Inaki,,,WILLIAMS Inaki,1994-06-15,31.0,Athletic Club (ESP),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00540,Ghana,GHA,20,MF,MF,BOAKYE Augustine,,,BOAKYE Augustine,2000-11-03,25.0,AS Saint-Etienne (FRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00541,Ghana,GHA,21,DF,DF,OPPONG Kojo Peprah,,,OPPONG Kojo Peprah,2004-06-04,22.0,OGC Nice (FRA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00542,Ghana,GHA,22,FW,FW,SULEMANA Kamaldeen,,,SULEMANA Kamaldeen,2002-02-15,24.0,Atalanta Bergamo (ITA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00543,Ghana,GHA,23,DF,DF,LUCKASSEN Derrick,,,LUCKASSEN Derrick,1995-07-03,30.0,Pafos FC (CYP),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00544,Ghana,GHA,24,FW,FW,NUAMAH Ernest,,,NUAMAH Ernest,2003-11-01,22.0,Olympique Lyonnais (FRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00545,Ghana,GHA,25,FW,FW,ADU Prince,,,ADU Prince,2003-09-23,22.0,FC Viktoria Plzeň (CZE),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00546,Ghana,GHA,26,DF,DF,SENAYA Marvin,,,SENAYA Marvin,2001-01-28,25.0,AJ Auxerre (FRA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00547,Haiti,HAI,1,GK,GK,PLACIDE Johny,,,PLACIDE Johny,,,SC Bastia (FRA),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00548,Haiti,HAI,2,DF,DF,ARCUS Carlens,,,ARCUS Carlens,,,Angers SCO (FRA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00549,Haiti,HAI,3,DF,DF,THERMONCY Keeto,,,THERMONCY Keeto,,,BSC Young Boys (SUI),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00550,Haiti,HAI,4,DF,DF,ADE Ricardo,,,ADE Ricardo,,,LDU Quito (ECU),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00551,Haiti,HAI,5,DF,DF,DELCROIX Hannes,,,DELCROIX Hannes,,,FC Lugano (SUI),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00552,Haiti,HAI,6,MF,MF,SAINTE Carl,,,SAINTE Carl,,,El Paso Locomotive FC (USA),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00553,Haiti,HAI,7,FW,FW,ETIENNE Derrick,,,ETIENNE Derrick,,,Toronto FC (CAN),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00554,Haiti,HAI,8,DF,DF,EXPERIENCE Martin,,,EXPERIENCE Martin,,,AS Nancy (FRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00555,Haiti,HAI,9,FW,FW,NAZON Duckens,,,NAZON Duckens,,,Esteghlal Tehran FC (IRN),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00556,Haiti,HAI,10,MF,MF,BELLEGARDE Jean-Ricner,,,BELLEGARDE Jean-Ricner,,,Wolverhampton Wanderers FC (ENG),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00557,Haiti,HAI,11,FW,FW,DEEDSON Louicius,,,DEEDSON Louicius,,,FC Dallas (USA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00558,Haiti,HAI,12,GK,GK,PIERRE Alexandre,,,PIERRE Alexandre,,,FC Sochaux-Montbéliard (FRA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00559,Haiti,HAI,13,DF,DF,LACROIX Markhus,,,LACROIX Markhus,,,Colorado Springs Switchbacks FC (USA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00560,Haiti,HAI,14,MF,MF,PIERRE Leverton,,,PIERRE Leverton,,,FC Vizela (POR),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00561,Haiti,HAI,15,FW,FW,PROVIDENCE Ruben,,,PROVIDENCE Ruben,,,Almere City FC (NED),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00562,Haiti,HAI,16,FW,FW,JOSEPH Lenny,,,JOSEPH Lenny,,,Ferencvárosi TC (HUN),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00563,Haiti,HAI,17,MF,MF,JEAN JACQUES Danley,,,JEAN JACQUES Danley,,,Philadelphia Union (USA),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00564,Haiti,HAI,18,FW,FW,ISIDOR Wilson,,,ISIDOR Wilson,,,Sunderland AFC (ENG),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00565,Haiti,HAI,19,FW,FW,FORTUNE Yassin,,,FORTUNE Yassin,,,FC Vizela (POR),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00566,Haiti,HAI,20,FW,FW,PIERROT Frantzdy,,,PIERROT Frantzdy,,,Çaykur Rizespor (TUR),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00567,Haiti,HAI,21,FW,FW,CASIMIR Josue,,,CASIMIR Josue,,,AJ Auxerre (FRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00568,Haiti,HAI,22,DF,DF,DUVERNE Jean-Kevin,,,DUVERNE Jean-Kevin,,,KAA Gent (BEL),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00569,Haiti,HAI,23,GK,GK,DUVERGER Josue,,,DUVERGER Josue,,,FC Cosmos Koblenz (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00570,Haiti,HAI,24,DF,DF,PAUGAIN Wilguens,,,PAUGAIN Wilguens,,,SV Zulte Waregem (BEL),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00571,Haiti,HAI,25,MF,MF,SIMON Dominique,,,SIMON Dominique,,,FC Tatran Prešov (SVK),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00572,Haiti,HAI,26,MF,MF,PIERRE Woodensky,,,PIERRE Woodensky,,,Violette AC (HAI),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00573,Iran,IRN,1,GK,GK,BEIRANVAND Alireza,,,BEIRANVAND Alireza,1992-09-21,33.0,Tractor Sazi Tabriz FC (IRN),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00574,Iran,IRN,2,DF,DF,HARDANI Saleh,,,HARDANI Saleh,1998-12-26,27.0,Esteghlal Tehran FC (IRN),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00575,Iran,IRN,3,DF,DF,HAJISAFI Ehsan,,,HAJISAFI Ehsan,1990-02-25,36.0,Sepahan SC (IRN),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00576,Iran,IRN,4,DF,DF,KHALILZADEH Shoja,,,KHALILZADEH Shoja,1989-05-14,37.0,Tractor Sazi Tabriz FC (IRN),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00577,Iran,IRN,5,DF,DF,MOHAMMADI Milad,,,MOHAMMADI Milad,1993-09-29,32.0,Persepolis FC (IRN),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00578,Iran,IRN,6,MF,MF,EZATOLAHI Saeid,,,EZATOLAHI Saeid,1996-10-01,29.0,Shabab Al Ahli Club (UAE),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00579,Iran,IRN,7,MF,MF,JAHANBAKHSH Alireza,,,JAHANBAKHSH Alireza,1993-08-11,32.0,FCV Dender EH (BEL),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00580,Iran,IRN,8,MF,MF,MOHEBBI Mohammad,,,MOHEBBI Mohammad,1998-12-20,27.0,FC Rostov (RUS),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00581,Iran,IRN,9,FW,FW,TAREMI Mehdi,,,TAREMI Mehdi,1992-07-18,33.0,Olympiacos FC (GRE),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00582,Iran,IRN,10,FW,FW,GHAYEDI Mehdi,,,GHAYEDI Mehdi,1998-12-05,27.0,Al Nasr SC (UAE),,166,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00583,Iran,IRN,11,FW,FW,ALIPOUR Ali,,,ALIPOUR Ali,1995-11-11,30.0,Persepolis FC (IRN),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00584,Iran,IRN,12,GK,GK,NIAZMAND Payam,,,NIAZMAND Payam,1995-04-06,31.0,Persepolis FC (IRN),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00585,Iran,IRN,13,DF,DF,KANANI Hossein,,,KANANI Hossein,1994-03-23,32.0,Persepolis FC (IRN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00586,Iran,IRN,14,MF,MF,GHODDOS Saman,,,GHODDOS Saman,1993-09-06,32.0,Al Ittihad Kalba SCC (UAE),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00587,Iran,IRN,15,MF,MF,CHESHMI Roozbeh,,,CHESHMI Roozbeh,1993-07-24,32.0,Esteghlal Tehran FC (IRN),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00588,Iran,IRN,16,MF,MF,TORABI Mehdi,,,TORABI Mehdi,1994-09-10,31.0,Tractor Sazi Tabriz FC (IRN),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00589,Iran,IRN,17,DF,DF,YOUSEFI Arya,,,YOUSEFI Arya,2002-04-22,24.0,Sepahan SC (IRN),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00590,Iran,IRN,18,FW,FW,HOSSEINZADEH Amirhossein,,,HOSSEINZADEH Amirhossein,2000-10-30,25.0,Tractor Sazi Tabriz FC (IRN),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00591,Iran,IRN,19,DF,DF,NEMATI Ali,,,NEMATI Ali,1996-02-08,30.0,Foolad Khuzestan FC (IRN),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00592,Iran,IRN,20,FW,FW,MOGHANLOO Shahriyar,,,MOGHANLOO Shahriyar,1994-12-21,31.0,Al Ittihad Kalba SCC (UAE),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00593,Iran,IRN,21,MF,MF,GHORBANI Mohammad,,,GHORBANI Mohammad,2001-10-07,24.0,Al Wahda SC (UAE),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00594,Iran,IRN,22,GK,GK,HOSSEINI Hossein,,,HOSSEINI Hossein,1992-06-30,33.0,Sepahan SC (IRN),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00595,Iran,IRN,23,DF,DF,REZAEIAN Ramin,,,REZAEIAN Ramin,1990-03-21,36.0,Foolad Khuzestan FC (IRN),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00596,Iran,IRN,24,FW,FW,DARGAHI Dennis,,,DARGAHI Dennis,1997-01-09,29.0,Standard Liège (BEL),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00597,Iran,IRN,25,DF,DF,IRI Danial,,,IRI Danial,2003-10-26,22.0,Malavan Anzali FC (IRN),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00598,Iran,IRN,26,MF,MF,RAZAGHINIA Amirmohammad,,,RAZAGHINIA Amirmohammad,2006-04-11,20.0,Esteghlal Tehran FC (IRN),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00599,Iraq,IRQ,1,GK,GK,FAHAD TALIB,,,FAHAD TALIB,Al Talaba SC (IRQ),,,,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00600,Iraq,IRQ,2,DF,DF,REBIN SULAKA,,,REBIN SULAKA,Port FC (THA),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00601,Iraq,IRQ,3,DF,DF,HUSSEIN ALI,,,HUSSEIN ALI,Pogoń Szczecin (POL),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00602,Iraq,IRQ,4,DF,DF,ZAID TAHSEEN,,,ZAID TAHSEEN,Pakhtakor Tashkent FK (UZB),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00603,Iraq,IRQ,5,DF,DF,AKAM HASHIM,,,AKAM HASHIM,Al Zawra'a SC (IRQ),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00604,Iraq,IRQ,6,DF,DF,MUNAF YOUNUS,,,MUNAF YOUNUS,Al Shorta SC (IRQ),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00605,Iraq,IRQ,7,MF,MF,YOUSSEF AMYN,,,YOUSSEF AMYN,AEK Larnaca FC (CYP),,,,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00606,Iraq,IRQ,8,MF,MF,IBRAHIM BAYESH,,,IBRAHIM BAYESH,Al Dhafra SCC (UAE),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00607,Iraq,IRQ,9,FW,FW,ALI ALHAMADI,,,ALI ALHAMADI,Luton Town FC (ENG),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00608,Iraq,IRQ,10,FW,FW,MOHANAD ALI,,,MOHANAD ALI,Dibba FC (UAE),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00609,Iraq,IRQ,11,FW,FW,AHMED QASIM,,,AHMED QASIM,Nashville SC (USA),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00610,Iraq,IRQ,12,GK,GK,JALAL HASSAN,,,JALAL HASSAN,Al Zawra'a SC (IRQ),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00611,Iraq,IRQ,13,FW,FW,ALI YOUSIF,,,ALI YOUSIF,Al Talaba SC (IRQ),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00612,Iraq,IRQ,14,MF,MF,ZIDANE IQBAL,,,ZIDANE IQBAL,FC Utrecht (NED),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00613,Iraq,IRQ,15,DF,DF,AHMED MAKNAZI,,,AHMED MAKNAZI,Al Karma SC (IRQ),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00614,Iraq,IRQ,16,MF,MF,AMIR ALAMMARI,,,AMIR ALAMMARI,KS Cracovia (POL),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00615,Iraq,IRQ,17,FW,FW,ALI JASIM,,,ALI JASIM,Al Najmah SC (KSA),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00616,Iraq,IRQ,18,FW,FW,AYMEN HUSSEIN,,,AYMEN HUSSEIN,Al Karma SC (IRQ),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00617,Iraq,IRQ,19,MF,MF,KEVIN YAKOB,,,KEVIN YAKOB,Aarhus GF (DEN),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00618,Iraq,IRQ,20,MF,MF,AIMAR SHER,,,AIMAR SHER,Sarpsborg 08 FF (NOR),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00619,Iraq,IRQ,21,FW,FW,MARKO FARJI,,,MARKO FARJI,Venezia FC (ITA),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00620,Iraq,IRQ,22,GK,GK,AHMED BASIL,,,AHMED BASIL,Al Shorta SC (IRQ),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00621,Iraq,IRQ,23,DF,DF,MERCHAS DOSKI,,,MERCHAS DOSKI,FC Viktoria Plzeň (CZE),,,,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00622,Iraq,IRQ,24,MF,MF,ZAID ISMAEL,,,ZAID ISMAEL,Al Talaba SC (IRQ),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00623,Iraq,IRQ,25,DF,DF,MUSTAFA SAADOON,,,MUSTAFA SAADOON,Al Shorta SC (IRQ),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00624,Iraq,IRQ,26,DF,DF,FRANS PUTROS,,,FRANS PUTROS,Persib Bandung (IDN),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00625,Japan,JPN,1,GK,GK,SUZUKI Zion,,,SUZUKI Zion,,,Parma (ITA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00626,Japan,JPN,2,DF,DF,SUGAWARA Yukinari,,,SUGAWARA Yukinari,,,SV Werder Bremen (GER),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00627,Japan,JPN,3,DF,DF,TANIGUCHI Shogo,,,TANIGUCHI Shogo,,,Sint-Truiden VV (BEL),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00628,Japan,JPN,4,DF,DF,ITAKURA Kou,,,ITAKURA Kou,,,AFC Ajax (NED),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00629,Japan,JPN,5,DF,DF,NAGATOMO Yuto,,,NAGATOMO Yuto,,,FC Tokyo (JPN),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00630,Japan,JPN,6,MF,MF,ENDO Wataru,,,ENDO Wataru,,,Liverpool FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00631,Japan,JPN,7,MF,MF,TANAKA Ao,,,TANAKA Ao,,,Leeds United FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00632,Japan,JPN,8,MF,MF,KUBO Takefusa,,,KUBO Takefusa,,,Real Sociedad (ESP),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00633,Japan,JPN,9,FW,FW,GOTO Keisuke,,,GOTO Keisuke,,,Sint-Truiden VV (BEL),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00634,Japan,JPN,10,MF,MF,DOAN Ritsu,,,DOAN Ritsu,,,Eintracht Frankfurt (GER),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00635,Japan,JPN,11,MF,MF,MAEDA Daizen,,,MAEDA Daizen,,,Celtic FC (SCO),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00636,Japan,JPN,12,GK,GK,OSAKO Keisuke,,,OSAKO Keisuke,,,Sanfrecce Hiroshima (JPN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00637,Japan,JPN,13,MF,MF,NAKAMURA Keito,,,NAKAMURA Keito,,,Stade Reims (FRA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00638,Japan,JPN,14,MF,MF,ITO Junya,,,ITO Junya,,,KRC Genk (BEL),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00639,Japan,JPN,15,MF,MF,KAMADA Daichi,,,KAMADA Daichi,,,Crystal Palace FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00640,Japan,JPN,16,DF,DF,WATANABE Tsuyoshi,,,WATANABE Tsuyoshi,,,Feyenoord Rotterdam (NED),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00641,Japan,JPN,17,MF,MF,SUZUKI Yuito,,,SUZUKI Yuito,,,SC Freiburg (GER),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00642,Japan,JPN,18,FW,FW,UEDA Ayase,,,UEDA Ayase,,,Feyenoord Rotterdam (NED),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00643,Japan,JPN,19,FW,FW,OGAWA Koki,,,OGAWA Koki,,,NEC Nijmegen (NED),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00644,Japan,JPN,20,DF,DF,SEKO Ayumu,,,SEKO Ayumu,,,Le Havre AC (FRA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00645,Japan,JPN,21,DF,DF,ITO Hiroki,,,ITO Hiroki,,,FC Bayern München (GER),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00646,Japan,JPN,22,DF,DF,TOMIYASU Takehiro,,,TOMIYASU Takehiro,,,AFC Ajax (NED),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00647,Japan,JPN,23,GK,GK,HAYAKAWA Tomoki,,,HAYAKAWA Tomoki,,,Kashima Antlers (JPN),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00648,Japan,JPN,24,MF,MF,SANO Kaishu,,,SANO Kaishu,,,1. FSV Mainz 05 (GER),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00649,Japan,JPN,25,DF,DF,SUZUKI Junnosuke,,,SUZUKI Junnosuke,,,FC København (DEN),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00650,Japan,JPN,26,FW,FW,SHIOGAI Kento,,,SHIOGAI Kento,,,VfL Wolfsburg (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00651,Jordan,JOR,1,GK,GK,YAZEED ABULAILA,,,YAZEED ABULAILA,1993-01-08,33.0,Al Hussein SC (JOR),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00652,Jordan,JOR,2,DF,DF,MOHAMMAD ABUHASHEESH,,,MOHAMMAD ABUHASHEESH,1995-05-09,31.0,Al Karma SC (IRQ),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00653,Jordan,JOR,3,DF,DF,ABDALLAH NASIB,,,ABDALLAH NASIB,1994-02-25,32.0,Al Zawra'a SC (IRQ),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00654,Jordan,JOR,4,DF,DF,HUSAM ABUDAHAB,,,HUSAM ABUDAHAB,2000-05-13,26.0,Al Faisaly SC (JOR),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00655,Jordan,JOR,5,DF,DF,YAZAN ALARAB,,,YAZAN ALARAB,1996-01-31,30.0,FC Seoul (KOR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00656,Jordan,JOR,6,MF,MF,AMER JAMOUS,,,AMER JAMOUS,2002-07-03,23.0,Al Zawra'a SC (IRQ),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00657,Jordan,JOR,7,FW,FW,MOHAMMAD ABUZRAIQ,,,MOHAMMAD ABUZRAIQ,1997-12-30,28.0,Raja Casablanca (MAR),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00658,Jordan,JOR,8,MF,MF,NOOR ALRAWABDEH,,,NOOR ALRAWABDEH,1997-02-24,29.0,Selangor FC (MAS),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00659,Jordan,JOR,9,FW,FW,ALI OLWAN,,,ALI OLWAN,2000-03-26,26.0,Al Sailiya SC (QAT),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00660,Jordan,JOR,10,FW,FW,MOUSA ALTAMARI,,,MOUSA ALTAMARI,1997-06-10,29.0,Stade Rennais FC (FRA),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00661,Jordan,JOR,11,FW,FW,ODEH FAKHOURY,,,ODEH FAKHOURY,2005-11-22,20.0,Pyramids FC (EGY),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00662,Jordan,JOR,12,GK,GK,NOUR BANIATEYAH,,,NOUR BANIATEYAH,1993-01-25,33.0,Al Faisaly SC (JOR),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00663,Jordan,JOR,13,FW,FW,MAHMOUD ALMARDI,,,MAHMOUD ALMARDI,1993-10-06,32.0,Al Hussein SC (JOR),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00664,Jordan,JOR,14,MF,MF,RAJAEI AYED,,,RAJAEI AYED,1993-07-25,32.0,Al Hussein SC (JOR),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00665,Jordan,JOR,15,MF,MF,IBRAHIM SADEH,,,IBRAHIM SADEH,2000-04-27,26.0,Al Karma SC (IRQ),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00666,Jordan,JOR,16,DF,DF,MOHAMMAD ABUALNADI,,,MOHAMMAD ABUALNADI,2001-02-08,25.0,Selangor FC (MAS),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00667,Jordan,JOR,17,DF,DF,SALEEM OBAID,,,SALEEM OBAID,1992-01-17,34.0,Al Hussein SC (JOR),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00668,Jordan,JOR,18,MF,MF,MOHAMMAD ABUGHOUSH,,,MOHAMMAD ABUGHOUSH,2005-07-13,20.0,Al Hussein SC (JOR),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00669,Jordan,JOR,19,DF,DF,SAED ALROSAN,,,SAED ALROSAN,1997-02-01,29.0,Al Hussein SC (JOR),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00670,Jordan,JOR,20,MF,MF,MOHANNAD ABUTAHA,,,MOHANNAD ABUTAHA,2003-02-02,23.0,Al-Quwa Al-Jawiya (IRQ),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00671,Jordan,JOR,21,MF,MF,NIZAR ALRASHDAN,,,NIZAR ALRASHDAN,1999-03-23,27.0,Qatar SC (QAT),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00672,Jordan,JOR,22,GK,GK,ABDALLAH ALFAKHORI,,,ABDALLAH ALFAKHORI,2000-01-22,26.0,Al Wahdat SC (JOR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00673,Jordan,JOR,23,DF,DF,EHSAN HADDAD,,,EHSAN HADDAD,1994-02-05,32.0,Al Hussein SC (JOR),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00674,Jordan,JOR,24,FW,FW,ALI AZAIZEH,,,ALI AZAIZEH,2004-04-13,22.0,Al Shabab FC (KSA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00675,Jordan,JOR,25,MF,MF,MOHAMMAD ALDAOUD,,,MOHAMMAD ALDAOUD,1992-04-12,34.0,Al Wahdat SC (JOR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00676,Jordan,JOR,26,DF,DF,ANAS BADAWI,,,ANAS BADAWI,1997-09-13,28.0,Al Faisaly SC (JOR),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00677,South Korea,KOR,1,GK,GK,KIM Seunggyu,,,KIM Seunggyu,,,FC Tokyo (JPN),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00678,South Korea,KOR,2,DF,DF,LEE Hanbeom,,,LEE Hanbeom,,,FC Midtjylland (DEN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00679,South Korea,KOR,3,MF,MF,LEE Gihyuk,,,LEE Gihyuk,,,Gangwon FC (KOR),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00680,South Korea,KOR,4,DF,DF,KIM Minjae,,,KIM Minjae,,,FC Bayern München (GER),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00681,South Korea,KOR,5,DF,DF,KIM Taehyeon,,,KIM Taehyeon,,,Kashima Antlers (JPN),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00682,South Korea,KOR,6,MF,MF,HWANG Inbeom,,,HWANG Inbeom,,,Feyenoord Rotterdam (NED),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00683,South Korea,KOR,7,FW,FW,SON Heungmin,,,SON Heungmin,,,LAFC (USA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00684,South Korea,KOR,8,MF,MF,PAIK Seungho,,,PAIK Seungho,,,Birmingham City FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00685,South Korea,KOR,9,FW,FW,CHO Guesung,,,CHO Guesung,,,FC Midtjylland (DEN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00686,South Korea,KOR,10,MF,MF,LEE Jaesung,,,LEE Jaesung,,,1. FSV Mainz 05 (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00687,South Korea,KOR,11,MF,MF,HWANG Heechan,,,HWANG Heechan,,,Wolverhampton Wanderers FC (ENG),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00688,South Korea,KOR,12,GK,GK,SONG Bumkeun,,,SONG Bumkeun,,,Jeonbuk Hyundai Motors FC (KOR),,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00689,South Korea,KOR,13,DF,DF,LEE Taeseok,,,LEE Taeseok,,,FK Austria Wien (AUT),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00690,South Korea,KOR,14,DF,DF,CHO Wije,,,CHO Wije,,,Jeonbuk Hyundai Motors FC (KOR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00691,South Korea,KOR,15,DF,DF,KIM Moonhwan,,,KIM Moonhwan,,,Daejeon Hana Citizen FC (KOR),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00692,South Korea,KOR,16,DF,DF,PARK Jinseob,,,PARK Jinseob,,,Zhejiang FC (CHN),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00693,South Korea,KOR,17,MF,MF,BAE Junho,,,BAE Junho,,,Stoke City FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00694,South Korea,KOR,18,FW,FW,OH Hyeongyu,,,OH Hyeongyu,,,Beşiktaş JK (TUR),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00695,South Korea,KOR,19,MF,MF,LEE Kangin,,,LEE Kangin,,,Paris Saint-Germain (FRA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00696,South Korea,KOR,20,MF,MF,YANG Hyunjun,,,YANG Hyunjun,,,Celtic FC (SCO),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00697,South Korea,KOR,21,GK,GK,JO Hyeonwoo,,,JO Hyeonwoo,,,Ulsan HD (KOR),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00698,South Korea,KOR,22,DF,DF,SEOL Youngwoo,,,SEOL Youngwoo,,,FK Crvena Zvezda (SRB),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00699,South Korea,KOR,23,DF,DF,CASTROP Jens,,,CASTROP Jens,,,Borussia Mönchengladbach (GER),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00700,South Korea,KOR,24,MF,MF,KIM Jingyu,,,KIM Jingyu,,,Jeonbuk Hyundai Motors FC (KOR),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00701,South Korea,KOR,25,MF,MF,EOM Jisung,,,EOM Jisung,,,Swansea City AFC (WAL),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00702,South Korea,KOR,26,MF,MF,LEE Donggyeong,,,LEE Donggyeong,,,Ulsan HD (KOR),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00703,Mexico,MEX,1,GK,GK,RANGEL Raul,,,RANGEL Raul,2000-02-25,26.0,CD Guadalajara (MEX),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00704,Mexico,MEX,2,DF,DF,SANCHEZ Jorge,,,SANCHEZ Jorge,1997-12-10,28.0,PAOK Saloniki (GRE),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00705,Mexico,MEX,3,DF,DF,MONTES Cesar,,,MONTES Cesar,1997-02-24,29.0,FC Lokomotiv Moscow (RUS),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00706,Mexico,MEX,4,DF,DF,ALVAREZ Edson,,,ALVAREZ Edson,1997-10-24,28.0,Fenerbahçe SK (TUR),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00707,Mexico,MEX,5,DF,DF,VASQUEZ Johan,,,VASQUEZ Johan,1998-10-22,27.0,Genoa CFC (ITA),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00708,Mexico,MEX,6,MF,MF,LIRA Erik,,,LIRA Erik,2000-05-08,26.0,CF Cruz Azul (MEX),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00709,Mexico,MEX,7,MF,MF,ROMO Luis,,,ROMO Luis,1995-06-05,31.0,CD Guadalajara (MEX),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00710,Mexico,MEX,8,MF,MF,FIDALGO Alvaro,,,FIDALGO Alvaro,1997-04-09,29.0,Real Betis (ESP),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00711,Mexico,MEX,9,FW,FW,JIMENEZ Raul,,,JIMENEZ Raul,1991-05-05,35.0,Fulham FC (ENG),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00712,Mexico,MEX,10,FW,FW,VEGA Alexis,,,VEGA Alexis,1997-11-25,28.0,Deportivo Toluca FC (MEX),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00713,Mexico,MEX,11,FW,FW,GIMENEZ Santiago,,,GIMENEZ Santiago,2001-04-18,25.0,AC Milan (ITA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00714,Mexico,MEX,12,GK,GK,ACEVEDO Carlos,,,ACEVEDO Carlos,1996-04-19,30.0,Club Santos Laguna (MEX),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00715,Mexico,MEX,13,GK,GK,OCHOA Guillermo,,,OCHOA Guillermo,1985-07-13,40.0,AEL Limassol (CYP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00716,Mexico,MEX,14,FW,FW,GONZALEZ Armando,,,GONZALEZ Armando,2003-04-20,23.0,CD Guadalajara (MEX),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00717,Mexico,MEX,15,DF,DF,REYES Israel,,,REYES Israel,2000-05-23,26.0,Club América (MEX),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00718,Mexico,MEX,16,FW,FW,QUINONES Julian,,,QUINONES Julian,1997-03-24,29.0,Al Qadsiah FC (KSA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00719,Mexico,MEX,17,MF,MF,PINEDA Orbelin,,,PINEDA Orbelin,1996-03-24,30.0,AEK Athens (GRE),,169,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00720,Mexico,MEX,18,MF,MF,VARGAS Obed,,,VARGAS Obed,2005-08-05,20.0,Atlético De Madrid (ESP),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00721,Mexico,MEX,19,MF,MF,MORA Gilberto,,,MORA Gilberto,2008-10-14,17.0,Club Tijuana (MEX),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00722,Mexico,MEX,20,DF,DF,CHAVEZ Mateo,,,CHAVEZ Mateo,2004-05-12,22.0,AZ Alkmaar (NED),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00723,Mexico,MEX,21,FW,FW,HUERTA Cesar,,,HUERTA Cesar,2000-12-03,25.0,RSC Anderlecht (BEL),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00724,Mexico,MEX,22,FW,FW,MARTINEZ Guillermo,,,MARTINEZ Guillermo,1995-03-15,31.0,Pumas UNAM (MEX),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00725,Mexico,MEX,23,DF,DF,GALLARDO Jesus,,,GALLARDO Jesus,1994-08-15,31.0,Deportivo Toluca FC (MEX),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00726,Mexico,MEX,24,MF,MF,CHAVEZ Luis,,,CHAVEZ Luis,1996-01-15,30.0,FC Dynamo Moscow (RUS),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00727,Mexico,MEX,25,FW,FW,ALVARADO Roberto,,,ALVARADO Roberto,1998-09-07,27.0,CD Guadalajara (MEX),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00728,Mexico,MEX,26,MF,MF,GUTIERREZ Brian,,,GUTIERREZ Brian,2003-06-17,22.0,CD Guadalajara (MEX),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00729,Morocco,MAR,1,GK,GK,BOUNOU Yassine,,,BOUNOU Yassine,1991-04-05,35.0,Al Hilal SC (KSA),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00730,Morocco,MAR,2,DF,DF,HAKIMI Achraf,,,HAKIMI Achraf,1998-11-04,27.0,Paris Saint-Germain (FRA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00731,Morocco,MAR,3,DF,DF,MAZRAOUI Noussair,,,MAZRAOUI Noussair,1997-11-14,28.0,Manchester United FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00732,Morocco,MAR,4,MF,MF,AMRABAT Sofyan,,,AMRABAT Sofyan,1996-08-21,29.0,Real Betis (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00733,Morocco,MAR,5,DF,DF,AGUERD Nayef,,,AGUERD Nayef,1996-03-30,30.0,Olympique Marseille (FRA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00734,Morocco,MAR,6,MF,MF,BOUADDI Ayyoub,,,BOUADDI Ayyoub,2007-10-02,18.0,Lille OSC (FRA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00735,Morocco,MAR,7,MF,MF,TALBI Chemsdine,,,TALBI Chemsdine,2005-05-09,21.0,Sunderland AFC (ENG),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00736,Morocco,MAR,8,MF,MF,OUNAHI Azzedine,,,OUNAHI Azzedine,2000-04-19,26.0,Girona FC (ESP),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00737,Morocco,MAR,9,FW,FW,RAHIMI Sou,,,RAHIMI Sou,1996-06-02,30.0,Al Ain FC (UAE),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00738,Morocco,MAR,10,FW,FW,DIAZ Brahim,,,DIAZ Brahim,1999-08-03,26.0,Real Madrid C. F. (ESP),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00739,Morocco,MAR,11,MF,MF,SAIBARI Ismael,,,SAIBARI Ismael,2001-01-28,25.0,PSV Eindhoven (NED),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00740,Morocco,MAR,12,GK,GK,EL KAJOUI Munir,,,EL KAJOUI Munir,1989-05-10,37.0,RS Berkane (MAR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00741,Morocco,MAR,13,DF,DF,EL OUAHDI Zakaria,,,EL OUAHDI Zakaria,2001-12-31,24.0,KRC Genk (BEL),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00742,Morocco,MAR,14,DF,DF,DIOP Issa,,,DIOP Issa,1997-01-09,29.0,Fulham FC (ENG),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00743,Morocco,MAR,15,MF,MF,EL MOURABET Samir,,,EL MOURABET Samir,2005-10-06,20.0,RC Strasbourg (FRA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00744,Morocco,MAR,16,MF,MF,YASSINE Gessime,,,YASSINE Gessime,2005-11-22,20.0,RC Strasbourg (FRA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00745,Morocco,MAR,17,FW,FW,EZZALZOULI Abde,,,EZZALZOULI Abde,2001-12-17,24.0,Real Betis (ESP),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00746,Morocco,MAR,18,DF,DF,RIAD Chadi,,,RIAD Chadi,2003-06-17,22.0,Crystal Palace FC (ENG),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00747,Morocco,MAR,19,DF,DF,BELAMMARI Youssef,,,BELAMMARI Youssef,1998-09-20,27.0,Al Ahly FC (EGY),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00748,Morocco,MAR,20,FW,FW,EL KAABI Ayoub,,,EL KAABI Ayoub,1993-06-25,32.0,Olympiacos FC (GRE),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00749,Morocco,MAR,21,FW,FW,AMAIMOUNI Ayoube,,,AMAIMOUNI Ayoube,2004-11-30,21.0,Eintracht Frankfurt (GER),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00750,Morocco,MAR,22,GK,GK,TAGNAOUTI Ahmed Reda,,,TAGNAOUTI Ahmed Reda,1996-04-05,30.0,ASFAR (MAR),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00751,Morocco,MAR,23,MF,MF,EL KHANNOUSS Bilal,,,EL KHANNOUSS Bilal,2004-05-10,22.0,VfB Stuttgart (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00752,Morocco,MAR,24,MF,MF,EL AYNAOUI Neil,,,EL AYNAOUI Neil,2001-07-02,24.0,AS Roma (ITA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00753,Morocco,MAR,25,DF,DF,HALHAL Redouane,,,HALHAL Redouane,2003-03-05,23.0,KV Mechelen (BEL),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00754,Morocco,MAR,26,DF,DF,SALAH EDDINE Anass,,,SALAH EDDINE Anass,2002-01-18,24.0,PSV Eindhoven (NED),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00755,Netherlands,NED,1,GK,GK,VERBRUGGEN Bart,,,VERBRUGGEN Bart,2002-08-18,23.0,Brighton & Hove Albion FC (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00756,Netherlands,NED,2,DF,DF,GEERTRUIDA Lutsharel,,,GEERTRUIDA Lutsharel,2000-07-18,25.0,Sunderland AFC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00757,Netherlands,NED,3,MF,MF,DE ROON Marten,,,DE ROON Marten,1991-03-29,35.0,Atalanta Bergamo (ITA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00758,Netherlands,NED,4,DF,DF,VAN DIJK Virgil,,,VAN DIJK Virgil,1991-07-08,34.0,Liverpool FC (ENG),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00759,Netherlands,NED,5,DF,DF,AKE Nathan,,,AKE Nathan,1995-02-18,31.0,Manchester City FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00760,Netherlands,NED,6,DF,DF,VAN HECKE Jan Paul,,,VAN HECKE Jan Paul,2000-06-08,26.0,Brighton & Hove Albion FC (ENG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00761,Netherlands,NED,7,MF,MF,KLUIVERT Justin,,,KLUIVERT Justin,1999-05-05,27.0,AFC Bournemouth (ENG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00762,Netherlands,NED,8,MF,MF,GRAVENBERCH Ryan,,,GRAVENBERCH Ryan,2002-05-16,24.0,Liverpool FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00763,Netherlands,NED,9,FW,FW,WEGHORST Wout,,,WEGHORST Wout,1992-08-07,33.0,AFC Ajax (NED),,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00764,Netherlands,NED,10,FW,FW,DEPAY Memphis,,,DEPAY Memphis,1994-02-13,32.0,SC Corinthians (BRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00765,Netherlands,NED,11,FW,FW,GAKPO Cody,,,GAKPO Cody,1999-05-07,27.0,Liverpool FC (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00766,Netherlands,NED,12,DF,DF,WIEFFER Mats,,,WIEFFER Mats,1999-11-16,26.0,Brighton & Hove Albion FC (ENG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00767,Netherlands,NED,13,GK,GK,ROEFS Robin,,,ROEFS Robin,2003-01-17,23.0,Sunderland AFC (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00768,Netherlands,NED,14,MF,MF,REIJNDERS Tijjani,,,REIJNDERS Tijjani,1998-07-29,27.0,Manchester City FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00769,Netherlands,NED,15,DF,DF,VAN DE VEN Micky,,,VAN DE VEN Micky,2001-04-19,25.0,Tottenham Hotspur FC (ENG),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00770,Netherlands,NED,16,MF,MF,TIL Guus,,,TIL Guus,1997-12-22,28.0,PSV Eindhoven (NED),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00771,Netherlands,NED,17,FW,FW,LANG Noa,,,LANG Noa,1999-06-17,26.0,Galatasaray SK (TUR),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00772,Netherlands,NED,18,FW,FW,MALEN Donyell,,,MALEN Donyell,1999-01-19,27.0,AS Roma (ITA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00773,Netherlands,NED,19,FW,FW,BROBBEY Brian,,,BROBBEY Brian,2002-02-01,24.0,Sunderland AFC (ENG),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00774,Netherlands,NED,20,MF,MF,KOOPMEINERS Teun,,,KOOPMEINERS Teun,1998-02-28,28.0,Juventus FC (ITA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00775,Netherlands,NED,21,MF,MF,DE JONG Frenkie,,,DE JONG Frenkie,1997-05-12,29.0,FC Barcelona (ESP),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00776,Netherlands,NED,22,DF,DF,DUMFRIES Denzel,,,DUMFRIES Denzel,1996-04-18,30.0,FC Internazionale Milano (ITA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00777,Netherlands,NED,23,GK,GK,FLEKKEN Mark,,,FLEKKEN Mark,1993-06-13,32.0,Bayer 04 Leverkusen (GER),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00778,Netherlands,NED,24,FW,FW,SUMMERVILLE Crysencio,,,SUMMERVILLE Crysencio,2001-10-30,24.0,West Ham United FC (ENG),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00779,Netherlands,NED,25,DF,DF,HATO Jorrel,,,HATO Jorrel,2006-03-07,20.0,Chelsea FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00780,Netherlands,NED,26,MF,MF,TIMBER Quinten,,,TIMBER Quinten,2001-06-17,24.0,Olympique Marseille (FRA),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00781,New Zealand,NZL,1,GK,GK,CROCOMBE Max,,,CROCOMBE Max,Millwall FC (ENG),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00782,New Zealand,NZL,2,DF,DF,PAYNE Tim,,,PAYNE Tim,Wellington Phoenix FC (NZL),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00783,New Zealand,NZL,3,DF,DF,DE VRIES Francis,,,DE VRIES Francis,Auckland FC (NZL),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00784,New Zealand,NZL,4,DF,DF,BINDON Tyler,,,BINDON Tyler,She,,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00785,New Zealand,NZL,5,DF,DF,BOXALL Michael,,,BOXALL Michael,Minnesota United FC (USA),,,,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00786,New Zealand,NZL,6,MF,MF,BELL Joe,,,BELL Joe,Viking Stavanger (NOR),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00787,New Zealand,NZL,7,MF,MF,GARBETT Matthew,,,GARBETT Matthew,Peterborough United FC (ENG),,,,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00788,New Zealand,NZL,8,MF,MF,STAMENIC Marko,,,STAMENIC Marko,Swansea City AFC (WAL),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00789,New Zealand,NZL,9,FW,FW,WOOD Chris,,,WOOD Chris,Nottingham Forest FC (ENG),,,,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00790,New Zealand,NZL,10,MF,MF,SINGH Sarpreet,,,SINGH Sarpreet,Wellington Phoenix FC (NZL),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00791,New Zealand,NZL,11,MF,MF,JUST Elijah,,,JUST Elijah,Motherwell FC (SCO),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00792,New Zealand,NZL,12,GK,GK,PAULSEN Alex,,,PAULSEN Alex,Lechia Gdańsk (POL),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00793,New Zealand,NZL,13,DF,DF,CACACE Liberato,,,CACACE Liberato,Wrexham AFC (WAL),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00794,New Zealand,NZL,14,MF,MF,RUFER Alex,,,RUFER Alex,Wellington Phoenix FC (NZL),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00795,New Zealand,NZL,15,DF,DF,PIJNAKER Nando,,,PIJNAKER Nando,Auckland FC (NZL),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00796,New Zealand,NZL,16,DF,DF,SURMAN Finn,,,SURMAN Finn,Portland Timbers (USA),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00797,New Zealand,NZL,17,FW,FW,BARBAROUSES Kosta,,,BARBAROUSES Kosta,WS Wanderers FC (AUS),,,,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00798,New Zealand,NZL,18,FW,FW,WAINE Ben,,,WAINE Ben,Port Vale FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00799,New Zealand,NZL,19,MF,MF,OLD Ben,,,OLD Ben,AS Saint-Etienne (FRA),,,,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00800,New Zealand,NZL,20,MF,MF,McCOWATT Callum,,,McCOWATT Callum,Silkeborg IF (DEN),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00801,New Zealand,NZL,21,FW,FW,RANDALL Jesse,,,RANDALL Jesse,Auckland FC (NZL),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00802,New Zealand,NZL,22,GK,GK,WOUD Michael,,,WOUD Michael,Auckland FC (NZL),,,,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00803,New Zealand,NZL,23,MF,MF,THOMAS Ryan,,,THOMAS Ryan,PEC Zwolle (NED),,,,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00804,New Zealand,NZL,24,DF,DF,ELLIOT Callan,,,ELLIOT Callan,Auckland FC (NZL),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00805,New Zealand,NZL,25,MF,MF,BAYLISS Lachlan,,,BAYLISS Lachlan,Newcastle United Jets FC (AUS),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00806,New Zealand,NZL,26,DF,DF,SMITH Tommy,,,SMITH Tommy,Braintree Town FC (ENG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00807,Norway,NOR,1,GK,GK,NYLAND Orjan,,,NYLAND Orjan,Sevilla FC (ESP),,,,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00808,Norway,NOR,2,MF,MF,THORSBY Morten,,,THORSBY Morten,US Cremonese (ITA),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00809,Norway,NOR,3,DF,DF,AJER Kristoffer,,,AJER Kristoffer,Brentford FC (ENG),,,,198,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00810,Norway,NOR,4,DF,DF,OSTIGARD Leo,,,OSTIGARD Leo,Genoa CFC (ITA),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00811,Norway,NOR,5,DF,DF,MOLLER WOLFE David,,,MOLLER WOLFE David,Wolverhampton Wanderers FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00812,Norway,NOR,6,MF,MF,BERG Patrick,,,BERG Patrick,FK Bodø/Glimt (NOR),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00813,Norway,NOR,7,FW,FW,SORLOTH Alexander,,,SORLOTH Alexander,Atlético De Madrid (ESP),,,,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00814,Norway,NOR,8,MF,MF,BERGE Sander,,,BERGE Sander,Fulham FC (ENG),,,,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00815,Norway,NOR,9,FW,FW,HAALAND Erling,,,HAALAND Erling,Manchester City FC (ENG),,,,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00816,Norway,NOR,10,MF,MF,ODEGAARD Martin,,,ODEGAARD Martin,Arsenal FC (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00817,Norway,NOR,11,FW,FW,STRAND LARSEN Jorgen,,,STRAND LARSEN Jorgen,Crystal Palace FC (ENG),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00818,Norway,NOR,12,GK,GK,TANGVIK Sander,,,TANGVIK Sander,Hamburger SV (GER),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00819,Norway,NOR,13,GK,GK,SELVIK Egil,,,SELVIK Egil,Watford FC (ENG),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00820,Norway,NOR,14,MF,MF,AURSNES Fredrik,,,AURSNES Fredrik,SL Ben,,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00821,Norway,NOR,15,DF,DF,BJORKAN Fredrik Andre,,,BJORKAN Fredrik Andre,FK Bodø/Glimt (NOR),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00822,Norway,NOR,16,DF,DF,HOLMGREN PEDERSEN Marcus,,,HOLMGREN PEDERSEN Marcus,Torino FC (ITA),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00823,Norway,NOR,17,DF,DF,HEGGEM Torbjorn,,,HEGGEM Torbjorn,Bologna FC (ITA),,,,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00824,Norway,NOR,18,MF,MF,THORSTVEDT Kristian,,,THORSTVEDT Kristian,US Sassuolo (ITA),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00825,Norway,NOR,19,MF,MF,AASGAARD Thelo,,,AASGAARD Thelo,Rangers FC (SCO),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00826,Norway,NOR,20,FW,FW,NUSA Antonio,,,NUSA Antonio,RB Leipzig (GER),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00827,Norway,NOR,21,MF,MF,SCHJELDERUP Andreas,,,SCHJELDERUP Andreas,SL Ben,,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00828,Norway,NOR,22,MF,MF,BOBB Oscar,,,BOBB Oscar,Fulham FC (ENG),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00829,Norway,NOR,23,MF,MF,HAUGE Jens Petter,,,HAUGE Jens Petter,FK Bodø/Glimt (NOR),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00830,Norway,NOR,24,DF,DF,LANGAS Sondre,,,LANGAS Sondre,Derby County FC (ENG),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00831,Norway,NOR,25,DF,DF,FALCHENER Henrik,,,FALCHENER Henrik,Viking Stavanger (NOR),,,,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00832,Norway,NOR,26,FW,FW,RYERSON Julian,,,RYERSON Julian,Borussia Dortmund (GER),,,,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00833,Panama,PAN,1,GK,GK,MEJIA Luis,,,MEJIA Luis,1991-03-16,35.0,Club Nacional (URU),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00834,Panama,PAN,2,DF,DF,BLACKMAN Cesar,,,BLACKMAN Cesar,1998-04-02,28.0,ŠK Slovan Bratislava (SVK),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00835,Panama,PAN,3,DF,DF,CORDOBA Jose,,,CORDOBA Jose,2001-06-03,25.0,Norwich City FC (ENG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00836,Panama,PAN,4,DF,DF,ESCOBAR Fidel,,,ESCOBAR Fidel,1995-01-09,31.0,Deportivo Saprissa (CRC),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00837,Panama,PAN,5,DF,DF,FARINA Edgardo,,,FARINA Edgardo,2001-10-19,24.0,FC Pari Nizhny Novgorod (RUS),,195,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00838,Panama,PAN,6,MF,MF,MARTINEZ Cristian,,,MARTINEZ Cristian,1997-02-06,29.0,Hapoel Kiryat Shmona FC (ISR),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00839,Panama,PAN,7,MF,MF,RODRIGUEZ Jose Luis,,,RODRIGUEZ Jose Luis,1998-06-19,27.0,FC Juárez (MEX),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00840,Panama,PAN,8,MF,MF,CARRASQUILLA Adalberto,,,CARRASQUILLA Adalberto,1998-11-28,27.0,Pumas UNAM (MEX),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00841,Panama,PAN,9,FW,FW,RODRIGUEZ Tomas,,,RODRIGUEZ Tomas,1999-03-09,27.0,Deportivo Saprissa (CRC),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00842,Panama,PAN,10,MF,MF,DIAZ Ismael,,,DIAZ Ismael,1997-05-12,29.0,Club León (MEX),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00843,Panama,PAN,11,MF,MF,BARCENAS Edgar Yoel,,,BARCENAS Edgar Yoel,1993-10-23,32.0,Mazatlán FC (MEX),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00844,Panama,PAN,12,GK,GK,SAMUDIO Cesar,,,SAMUDIO Cesar,1994-02-23,32.0,CD Marathón (HON),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00845,Panama,PAN,13,DF,DF,RAMOS Jiovany,,,RAMOS Jiovany,1997-01-26,29.0,Puerto Cabello CF (VEN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00846,Panama,PAN,14,DF,DF,HARVEY Carlos,,,HARVEY Carlos,2000-02-03,26.0,Minnesota United FC (USA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00847,Panama,PAN,15,DF,DF,DAVIS Eric,,,DAVIS Eric,1991-03-31,35.0,CD Plaza Amador (PAN),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00848,Panama,PAN,16,DF,DF,ANDRADE Andres,,,ANDRADE Andres,1998-10-16,27.0,LASK Linz (AUT),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00849,Panama,PAN,17,FW,FW,FAJARDO Jose,,,FAJARDO Jose,1993-08-18,32.0,CD Universidad Católica (ECU),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00850,Panama,PAN,18,FW,FW,WATERMAN Cecilio,,,WATERMAN Cecilio,1991-04-13,35.0,CD Universidad De Concepción (CHI),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00851,Panama,PAN,19,MF,MF,QUINTERO Alberto,,,QUINTERO Alberto,1987-12-18,38.0,CD Plaza Amador (PAN),,165,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00852,Panama,PAN,20,MF,MF,GODOY Anibal,,,GODOY Anibal,1990-02-10,36.0,San Diego FC (USA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00853,Panama,PAN,21,MF,MF,YANIS Cesar,,,YANIS Cesar,1996-01-28,30.0,CD Cobresal (CHI),,160,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00854,Panama,PAN,22,GK,GK,MOSQUERA Orlando,,,MOSQUERA Orlando,1994-12-25,31.0,Al Fayha FC (KSA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00855,Panama,PAN,23,DF,DF,MURILLO Amir,,,MURILLO Amir,1996-02-11,30.0,Beşiktaş JK (TUR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00856,Panama,PAN,24,FW,FW,LONDONO Azarias,,,LONDONO Azarias,2001-06-21,24.0,CD Universidad Católica (ECU),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00857,Panama,PAN,25,DF,DF,MILLER Roderick,,,MILLER Roderick,1992-04-03,34.0,Turan Tovuz (AZE),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00858,Panama,PAN,26,DF,DF,GUTIERREZ Jorge,,,GUTIERREZ Jorge,1998-09-01,27.0,Deportivo La Guaira (VEN),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00859,Paraguay,PAR,1,GK,GK,FERNANDEZ Gatito,,,FERNANDEZ Gatito,1988-03-29,38.0,Cerro Porteño (PAR),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00860,Paraguay,PAR,2,DF,DF,VELAZQUEZ Gustavo,,,VELAZQUEZ Gustavo,1991-04-17,35.0,Cerro Porteño (PAR),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00861,Paraguay,PAR,3,DF,DF,ALDERETE Omar,,,ALDERETE Omar,1996-12-26,29.0,Sunderland AFC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00862,Paraguay,PAR,4,DF,DF,CACERES Juan Jose,,,CACERES Juan Jose,2000-06-01,26.0,FC Dynamo Moscow (RUS),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00863,Paraguay,PAR,5,DF,DF,BALBUENA Fabian,,,BALBUENA Fabian,1991-08-23,34.0,Grêmio FBPA (BRA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00864,Paraguay,PAR,6,DF,DF,ALONSO Junior,,,ALONSO Junior,1993-02-09,33.0,Atlético Mineiro (BRA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00865,Paraguay,PAR,7,MF,MF,SOSA Ramon,,,SOSA Ramon,1999-08-31,26.0,SE Palmeiras (BRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00866,Paraguay,PAR,8,MF,MF,GOMEZ Diego,,,GOMEZ Diego,2003-03-27,23.0,Brighton & Hove Albion FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00867,Paraguay,PAR,9,FW,FW,SANABRIA Antonio,,,SANABRIA Antonio,1996-03-04,30.0,US Cremonese (ITA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00868,Paraguay,PAR,10,MF,MF,ALMIRON Miguel,,,ALMIRON Miguel,1994-02-10,32.0,Atlanta United FC (USA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00869,Paraguay,PAR,11,MF,MF,MAURICIO,,,MAURICIO,2001-06-22,24.0,SE Palmeiras (BRA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00870,Paraguay,PAR,12,GK,GK,GILL Orlando,,,GILL Orlando,2000-06-11,26.0,CA San Lorenzo (ARG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00871,Paraguay,PAR,13,DF,DF,CANALE Jose,,,CANALE Jose,1996-07-20,29.0,CA Lanús (ARG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00872,Paraguay,PAR,14,MF,MF,CUBAS Andres,,,CUBAS Andres,1996-05-11,30.0,Vancouver Whitecaps FC (CAN),,166,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00873,Paraguay,PAR,15,DF,DF,GOMEZ Gustavo,,,GOMEZ Gustavo,1993-05-06,33.0,SE Palmeiras (BRA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00874,Paraguay,PAR,16,MF,MF,BOBADILLA Damian,,,BOBADILLA Damian,2001-07-11,24.0,São Paulo FC (BRA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00875,Paraguay,PAR,17,FW,FW,ROMERO GAMARRA Alejandro,,,ROMERO GAMARRA Alejandro,1995-01-11,31.0,Al Ain FC (UAE),,165,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00876,Paraguay,PAR,18,FW,FW,ARCE Alex,,,ARCE Alex,1995-06-16,30.0,CS Independiente Rivadavia (ARG),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00877,Paraguay,PAR,19,FW,FW,ENCISO Julio,,,ENCISO Julio,2004-01-23,22.0,RC Strasbourg (FRA),,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00878,Paraguay,PAR,20,MF,MF,OJEDA Braian,,,OJEDA Braian,2000-06-27,25.0,Orlando City SC (USA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00879,Paraguay,PAR,21,FW,FW,AVALOS Gabriel,,,AVALOS Gabriel,1991-07-09,34.0,CA Independiente (ARG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00880,Paraguay,PAR,22,GK,GK,OLVEIRA Gaston,,,OLVEIRA Gaston,1993-04-21,33.0,Club Olimpia (PAR),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00881,Paraguay,PAR,23,MF,MF,GALARZA Matias,,,GALARZA Matias,2002-02-11,24.0,Atlanta United FC (USA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00882,Paraguay,PAR,24,MF,MF,CABALLERO Gustavo,,,CABALLERO Gustavo,2001-09-21,24.0,Portsmouth FC (ENG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00883,Paraguay,PAR,25,FW,FW,PITTA Isidro,,,PITTA Isidro,1999-08-14,26.0,Red Bull Bragantino (BRA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00884,Paraguay,PAR,26,DF,DF,MAIDANA Alexandro,,,MAIDANA Alexandro,2005-07-26,20.0,CA Talleres (ARG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00885,Portugal,POR,1,GK,GK,DIOGO COSTA,,,DIOGO COSTA,1999-09-19,26.0,FC Porto (POR),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00886,Portugal,POR,2,DF,DF,NELSON SEMEDO,,,NELSON SEMEDO,1993-11-16,32.0,Fenerbahçe SK (TUR),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00887,Portugal,POR,3,DF,DF,RUBEN DIAS,,,RUBEN DIAS,1997-05-14,29.0,Manchester City FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00888,Portugal,POR,4,DF,DF,TOMAS ARAUJO,,,TOMAS ARAUJO,2002-05-16,24.0,SL Ben,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00889,Portugal,POR,5,DF,DF,DIOGO DALOT,,,DIOGO DALOT,1999-03-18,27.0,Manchester United FC (ENG),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00890,Portugal,POR,6,MF,MF,MATHEUS NUNES,,,MATHEUS NUNES,1998-08-27,27.0,Manchester City FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00891,Portugal,POR,7,FW,FW,CRISTIANO RONALDO,,,CRISTIANO RONALDO,1985-02-05,41.0,Al Nassr FC (KSA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00892,Portugal,POR,8,MF,MF,BRUNO FERNANDES,,,BRUNO FERNANDES,1994-09-08,31.0,Manchester United FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00893,Portugal,POR,9,FW,FW,GONCALO RAMOS,,,GONCALO RAMOS,2001-06-20,24.0,Paris Saint-Germain (FRA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00894,Portugal,POR,10,MF,MF,BERNARDO SILVA,,,BERNARDO SILVA,1994-08-10,31.0,Manchester City FC (ENG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00895,Portugal,POR,11,FW,FW,JOAO FELIX,,,JOAO FELIX,1999-11-10,26.0,Al Nassr FC (KSA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00896,Portugal,POR,12,GK,GK,JOSE SA,,,JOSE SA,1993-01-17,33.0,Wolverhampton Wanderers FC (ENG),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00897,Portugal,POR,13,DF,DF,RENATO VEIGA,,,RENATO VEIGA,2003-07-29,22.0,Villarreal CF (ESP),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00898,Portugal,POR,14,DF,DF,GONCALO INACIO,,,GONCALO INACIO,2001-08-25,24.0,Sporting CP (POR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00899,Portugal,POR,15,MF,MF,JOAO NEVES,,,JOAO NEVES,2004-09-27,21.0,Paris Saint-Germain (FRA),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00900,Portugal,POR,16,FW,FW,FRANCISCO TRINCAO,,,FRANCISCO TRINCAO,1999-12-29,26.0,Sporting CP (POR),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00901,Portugal,POR,17,FW,FW,RAFAEL LEAO,,,RAFAEL LEAO,1999-06-10,27.0,AC Milan (ITA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00902,Portugal,POR,18,FW,FW,PEDRO NETO,,,PEDRO NETO,2000-03-09,26.0,Chelsea FC (ENG),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00903,Portugal,POR,19,FW,FW,GONCALO GUEDES,,,GONCALO GUEDES,1996-11-29,29.0,Real Sociedad (ESP),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00904,Portugal,POR,20,DF,DF,JOAO CANCELO,,,JOAO CANCELO,1994-05-27,32.0,FC Barcelona (ESP),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00905,Portugal,POR,21,MF,MF,RUBEN NEVES,,,RUBEN NEVES,1997-03-13,29.0,Al Hilal SC (KSA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00906,Portugal,POR,22,GK,GK,RUI SILVA,,,RUI SILVA,1994-02-07,32.0,Sporting CP (POR),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00907,Portugal,POR,23,MF,MF,VITINHA,,,VITINHA,2000-02-13,26.0,Paris Saint-Germain (FRA),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00908,Portugal,POR,24,DF,DF,SAMU COSTA,,,SAMU COSTA,2000-11-27,25.0,RCD Mallorca (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00909,Portugal,POR,25,DF,DF,NUNO MENDES,,,NUNO MENDES,2002-06-19,23.0,Paris Saint-Germain (FRA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00910,Portugal,POR,26,FW,FW,FRANCISCO CONCEICAO,,,FRANCISCO CONCEICAO,2002-12-14,23.0,Juventus FC (ITA),,166,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00911,Qatar,QAT,1,GK,GK,MAHMOUD ABUNADA,,,MAHMOUD ABUNADA,2000-02-05,26.0,Al Rayyan SC (QAT),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00912,Qatar,QAT,2,DF,DF,PEDRO MIGUEL,,,PEDRO MIGUEL,1990-08-06,35.0,Al Sadd SC (QAT),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00913,Qatar,QAT,3,DF,DF,LUCAS MENDES,,,LUCAS MENDES,1990-07-03,35.0,Al Wakrah SC (QAT),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00914,Qatar,QAT,4,DF,DF,ISSA LAYE,,,ISSA LAYE,1997-12-22,28.0,Al Arabi SC (QAT),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00915,Qatar,QAT,5,DF,DF,JASSEM GABER,,,JASSEM GABER,2002-02-20,24.0,Al Rayyan SC (QAT),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00916,Qatar,QAT,6,MF,MF,ABDULAZIZ HATEM,,,ABDULAZIZ HATEM,1990-01-01,36.0,Al Rayyan SC (QAT),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00917,Qatar,QAT,7,FW,FW,AHMED ALAAELDIN,,,AHMED ALAAELDIN,1993-01-31,33.0,Al Rayyan SC (QAT),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00918,Qatar,QAT,8,FW,FW,EDMILSON JUNIOR,,,EDMILSON JUNIOR,1994-08-19,31.0,Al Duhail SC (QAT),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00919,Qatar,QAT,9,FW,FW,MOHAMMED MUNTARI,,,MOHAMMED MUNTARI,1993-12-20,32.0,Al Gharafa SC (QAT),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00920,Qatar,QAT,10,FW,FW,HASSAN ALHAYDOS,,,HASSAN ALHAYDOS,1990-12-11,35.0,Al Sadd SC (QAT),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00921,Qatar,QAT,11,FW,FW,AKRAM AFIF,,,AKRAM AFIF,1996-11-18,29.0,Al Sadd SC (QAT),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00922,Qatar,QAT,12,MF,MF,KARIM BOUDIAF,,,KARIM BOUDIAF,1990-09-16,35.0,Al Duhail SC (QAT),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00923,Qatar,QAT,13,DF,DF,AYOUB ALOUI,,,AYOUB ALOUI,2005-03-11,21.0,Al Gharafa SC (QAT),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00924,Qatar,QAT,14,DF,DF,HOMAM AHMED,,,HOMAM AHMED,1999-08-25,26.0,Cultural Leonesa (ESP),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00925,Qatar,QAT,15,FW,FW,YUSUF ABDURISAG,,,YUSUF ABDURISAG,1999-08-06,26.0,Al Wakrah SC (QAT),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00926,Qatar,QAT,16,DF,DF,BOUALEM KHOUKHI,,,BOUALEM KHOUKHI,1990-07-09,35.0,Al Sadd SC (QAT),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00927,Qatar,QAT,17,MF,MF,AHMED ALGANEHI,,,AHMED ALGANEHI,2000-09-22,25.0,Al Gharafa SC (QAT),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00928,Qatar,QAT,18,DF,DF,SULTAN ALBRAKE,,,SULTAN ALBRAKE,1996-04-07,30.0,Al Duhail SC (QAT),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00929,Qatar,QAT,19,FW,FW,ALMOEZ ALI,,,ALMOEZ ALI,1996-08-19,29.0,Al Duhail SC (QAT),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00930,Qatar,QAT,20,MF,MF,AHMED FATHY,,,AHMED FATHY,1993-01-25,33.0,Al Arabi SC (QAT),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00931,Qatar,QAT,21,GK,GK,SALAH ZAKARIA,,,SALAH ZAKARIA,1999-04-24,27.0,Al Duhail SC (QAT),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00932,Qatar,QAT,22,GK,GK,MESHAAL BARSHAM,,,MESHAAL BARSHAM,1998-02-14,28.0,Al Sadd SC (QAT),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00933,Qatar,QAT,23,MF,MF,ASSIM MADIBO,,,ASSIM MADIBO,1996-10-22,29.0,Al Wakrah SC (QAT),,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00934,Qatar,QAT,24,FW,FW,TAHSIN MOHAMMED,,,TAHSIN MOHAMMED,2006-06-16,19.0,Al Duhail SC (QAT),,166,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00935,Qatar,QAT,25,DF,DF,ALHASHMI ALHUSSEIN,,,ALHASHMI ALHUSSEIN,2003-08-15,22.0,Al Arabi SC (QAT),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00936,Qatar,QAT,26,FW,FW,MOHAMED MANAI,,,MOHAMED MANAI,2002-10-25,23.0,Al Shamal SC (QAT),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00937,Saudi Arabia,KSA,1,GK,GK,NAWAF ALAQIDI,,,NAWAF ALAQIDI,2000-05-10,26.0,Al Nassr FC (KSA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00938,Saudi Arabia,KSA,2,DF,DF,ALI MAJRASHI,,,ALI MAJRASHI,1999-10-02,26.0,Al Ahli FC (KSA),,169,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00939,Saudi Arabia,KSA,3,DF,DF,ALI LAJAMI,,,ALI LAJAMI,1996-04-24,30.0,Al Hilal SC (KSA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00940,Saudi Arabia,KSA,4,DF,DF,ABDULELAH ALAMRI,,,ABDULELAH ALAMRI,1997-01-15,29.0,Al Nassr FC (KSA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00941,Saudi Arabia,KSA,5,DF,DF,HASSAN ALTAMBAKTI,,,HASSAN ALTAMBAKTI,1999-02-09,27.0,Al Hilal SC (KSA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00942,Saudi Arabia,KSA,6,MF,MF,NASSER ALDAWSARI,,,NASSER ALDAWSARI,1998-12-19,27.0,Al Hilal SC (KSA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00943,Saudi Arabia,KSA,7,MF,MF,MUSAB ALJUWAYR,,,MUSAB ALJUWAYR,2003-06-20,22.0,Al Qadsiah FC (KSA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00944,Saudi Arabia,KSA,8,FW,FW,AIMAN YAHYA,,,AIMAN YAHYA,2001-05-14,25.0,Al Nassr FC (KSA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00945,Saudi Arabia,KSA,9,FW,FW,FERAS ALBRIKAN,,,FERAS ALBRIKAN,2000-05-14,26.0,Al Ahli FC (KSA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00946,Saudi Arabia,KSA,10,FW,FW,SALEM ALDAWSARI,,,SALEM ALDAWSARI,1991-08-19,34.0,Al Hilal SC (KSA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00947,Saudi Arabia,KSA,11,FW,FW,SALEH ALSHEHRI,,,SALEH ALSHEHRI,1993-11-01,32.0,Al Ittihad (KSA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00948,Saudi Arabia,KSA,12,DF,DF,SAUD ABDULHAMID,,,SAUD ABDULHAMID,1999-07-18,26.0,RC Lens (FRA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00949,Saudi Arabia,KSA,13,DF,DF,NAWAF BU WASHL,,,NAWAF BU WASHL,1999-09-16,26.0,Al Nassr FC (KSA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00950,Saudi Arabia,KSA,14,DF,DF,HASSAN KADISH,,,HASSAN KADISH,1992-09-26,33.0,Al Ittihad (KSA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00951,Saudi Arabia,KSA,15,MF,MF,ABDULLAH ALKHAIBARI,,,ABDULLAH ALKHAIBARI,1996-08-16,29.0,Al Nassr FC (KSA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00952,Saudi Arabia,KSA,16,MF,MF,ZIYAD ALJOHANI,,,ZIYAD ALJOHANI,2001-11-11,24.0,Al Ahli FC (KSA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00953,Saudi Arabia,KSA,17,FW,FW,KHALID ALGHANNAM,,,KHALID ALGHANNAM,2000-11-08,25.0,Al Ettifaq FC (KSA),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00954,Saudi Arabia,KSA,18,MF,MF,ALA ALHAJJI,,,ALA ALHAJJI,1995-12-03,30.0,Neom SC (KSA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00955,Saudi Arabia,KSA,19,FW,FW,ABDULLAH ALHAMDDAN,,,ABDULLAH ALHAMDDAN,1999-09-13,26.0,Al Nassr FC (KSA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00956,Saudi Arabia,KSA,20,FW,FW,SULTAN MANDASH,,,SULTAN MANDASH,1994-10-17,31.0,Al Hilal SC (KSA),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00957,Saudi Arabia,KSA,21,GK,GK,MOHAMMED ALOWAIS,,,MOHAMMED ALOWAIS,1991-10-10,34.0,Al Ula Saudi FC (KSA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00958,Saudi Arabia,KSA,22,GK,GK,AHMED ALKASSAR,,,AHMED ALKASSAR,1991-05-08,35.0,Al Qadsiah FC (KSA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00959,Saudi Arabia,KSA,23,MF,MF,MOHAMED KANNO,,,MOHAMED KANNO,1994-09-22,31.0,Al Hilal SC (KSA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00960,Saudi Arabia,KSA,24,DF,DF,MOTEB ALHARBI,,,MOTEB ALHARBI,2000-02-20,26.0,Al Hilal SC (KSA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00961,Saudi Arabia,KSA,25,DF,DF,JEHAD THIKRI,,,JEHAD THIKRI,2001-07-21,24.0,Al Qadsiah FC (KSA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00962,Saudi Arabia,KSA,26,DF,DF,MOHAMMED ABU ALSHAMAT,,,MOHAMMED ABU ALSHAMAT,2002-08-11,23.0,Al Qadsiah FC (KSA),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00963,Scotland,SCO,1,GK,GK,GUNN Angus,,,GUNN Angus,Nottingham Forest FC (ENG),,,,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00964,Scotland,SCO,2,DF,DF,HICKEY Aaron,,,HICKEY Aaron,Brentford FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00965,Scotland,SCO,3,DF,DF,ROBERTSON Andy,,,ROBERTSON Andy,Liverpool FC (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00966,Scotland,SCO,4,MF,MF,McTOMINAY Scott,,,McTOMINAY Scott,SSC Napoli (ITA),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00967,Scotland,SCO,5,DF,DF,HANLEY Grant,,,HANLEY Grant,Hibernian FC (SCO),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00968,Scotland,SCO,6,DF,DF,TIERNEY Kieran,,,TIERNEY Kieran,Celtic FC (SCO),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00969,Scotland,SCO,7,MF,MF,McGINN John,,,McGINN John,Aston Villa FC (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00970,Scotland,SCO,8,MF,MF,FLETCHER Tyler,,,FLETCHER Tyler,Manchester United FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00971,Scotland,SCO,9,FW,FW,DYKES Lyndon,,,DYKES Lyndon,Charlton Athletic FC (ENG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00972,Scotland,SCO,10,FW,FW,ADAMS Che,,,ADAMS Che,Torino FC (ITA),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00973,Scotland,SCO,11,MF,MF,CHRISTIE Ryan,,,CHRISTIE Ryan,AFC Bournemouth (ENG),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00974,Scotland,SCO,12,GK,GK,KELLY Liam,,,KELLY Liam,Rangers FC (SCO),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00975,Scotland,SCO,13,DF,DF,HENDRY Jack,,,HENDRY Jack,Al Ettifaq FC (KSA),,,,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00976,Scotland,SCO,14,FW,FW,STEWART Ross,,,STEWART Ross,Southampton FC (ENG),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00977,Scotland,SCO,15,DF,DF,SOUTTAR John,,,SOUTTAR John,Rangers FC (SCO),,,,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00978,Scotland,SCO,16,DF,DF,HYAM Dominic,,,HYAM Dominic,Wrexham AFC (WAL),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00979,Scotland,SCO,17,FW,FW,GANNON-DOAK Ben,,,GANNON-DOAK Ben,AFC Bournemouth (ENG),,,,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00980,Scotland,SCO,18,FW,FW,HIRST George,,,HIRST George,Ipswich Town FC (ENG),,,,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00981,Scotland,SCO,19,MF,MF,FERGUSON Lewis,,,FERGUSON Lewis,Bologna FC (ITA),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00982,Scotland,SCO,20,FW,FW,SHANKLAND Lawrence,,,SHANKLAND Lawrence,Heart Of Midlothian FC (SCO),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00983,Scotland,SCO,21,GK,GK,GORDON Craig,,,GORDON Craig,Heart Of Midlothian FC (SCO),,,,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00984,Scotland,SCO,22,DF,DF,PATTERSON Nathan,,,PATTERSON Nathan,Everton FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00985,Scotland,SCO,23,MF,MF,McLEAN Kenny,,,McLEAN Kenny,Norwich City FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00986,Scotland,SCO,24,DF,DF,RALSTON Anthony,,,RALSTON Anthony,Celtic FC (SCO),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00987,Scotland,SCO,25,FW,FW,CURTIS Findlay,,,CURTIS Findlay,Kilmarnock FC (SCO),,,,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00988,Scotland,SCO,26,DF,DF,McKENNA Scott,,,McKENNA Scott,GNK Dinamo Zagreb (CRO),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00989,Senegal,SEN,1,GK,GK,DIOUF Yehvann,,,DIOUF Yehvann,1999-11-16,26.0,OGC Nice (FRA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00990,Senegal,SEN,2,DF,DF,SARR Mamadou,,,SARR Mamadou,2005-08-29,20.0,Chelsea FC (ENG),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00991,Senegal,SEN,3,DF,DF,KOULIBALY Kalidou,,,KOULIBALY Kalidou,1991-06-20,34.0,Al Hilal SC (KSA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00992,Senegal,SEN,4,DF,DF,SECK Abdoulaye,,,SECK Abdoulaye,1992-06-04,34.0,Maccabi Haifa FC (ISR),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00993,Senegal,SEN,5,MF,MF,GUEYE Idrissa Gana,,,GUEYE Idrissa Gana,1989-09-26,36.0,Everton FC (ENG),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00994,Senegal,SEN,6,MF,MF,CISS Pathe,,,CISS Pathe,1994-03-16,32.0,Rayo Vallecano (ESP),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00995,Senegal,SEN,7,FW,FW,DIAO Assane,,,DIAO Assane,2005-09-07,20.0,Como (ITA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00996,Senegal,SEN,8,MF,MF,CAMARA Lamine,,,CAMARA Lamine,2004-01-01,22.0,AS Monaco (FRA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00997,Senegal,SEN,9,FW,FW,DIENG Bamba,,,DIENG Bamba,2000-03-23,26.0,FC Lorient (FRA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00998,Senegal,SEN,10,FW,FW,MANE Sadio,,,MANE Sadio,1992-04-10,34.0,Al Nassr FC (KSA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_00999,Senegal,SEN,11,FW,FW,JACKSON Nicolas,,,JACKSON Nicolas,2001-06-20,24.0,FC Bayern München (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01000,Senegal,SEN,12,FW,FW,NDIAYE Cherif,,,NDIAYE Cherif,1996-01-23,30.0,Samsunspor (TUR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01001,Senegal,SEN,13,FW,FW,NDIAYE Iliman,,,NDIAYE Iliman,2000-03-06,26.0,Everton FC (ENG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01002,Senegal,SEN,14,DF,DF,JAKOBS Ismail,,,JAKOBS Ismail,1999-08-17,26.0,Galatasaray SK (TUR),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01003,Senegal,SEN,15,DF,DF,DIATTA Krepin,,,DIATTA Krepin,1999-02-25,27.0,AS Monaco (FRA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01004,Senegal,SEN,16,GK,GK,MENDY Edouard,,,MENDY Edouard,1992-03-01,34.0,Al Ahli FC (KSA),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01005,Senegal,SEN,17,MF,MF,SARR Pape Matar,,,SARR Pape Matar,2002-09-14,23.0,Tottenham Hotspur FC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01006,Senegal,SEN,18,FW,FW,SARR Ismaila,,,SARR Ismaila,1998-02-25,28.0,Crystal Palace FC (ENG),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01007,Senegal,SEN,19,DF,DF,NIAKHATE Moussa,,,NIAKHATE Moussa,1996-03-08,30.0,Olympique Lyonnais (FRA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01008,Senegal,SEN,20,FW,FW,MBAYE Ibrahim,,,MBAYE Ibrahim,2008-01-24,18.0,Paris Saint-Germain (FRA),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01009,Senegal,SEN,21,MF,MF,DIARRA Habib,,,DIARRA Habib,2004-01-03,22.0,Sunderland AFC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01010,Senegal,SEN,22,MF,MF,NDIAYE Bara Sapoko,,,NDIAYE Bara Sapoko,2007-12-31,18.0,FC Bayern München (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01011,Senegal,SEN,23,GK,GK,DIAW Mory,,,DIAW Mory,1993-06-22,32.0,Le Havre AC (FRA),,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01012,Senegal,SEN,24,DF,DF,MENDY Antoine,,,MENDY Antoine,2004-05-27,22.0,OGC Nice (FRA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01013,Senegal,SEN,25,DF,DF,DIOUF El Hadji Malick,,,DIOUF El Hadji Malick,2004-12-29,21.0,West Ham United FC (ENG),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01014,Senegal,SEN,26,MF,MF,GUEYE Pape,,,GUEYE Pape,1999-01-24,27.0,Villarreal CF (ESP),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01015,South Africa,RSA,1,GK,GK,WILLIAMS Ronwen,,,WILLIAMS Ronwen,Mamelodi Sundowns FC (RSA),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01016,South Africa,RSA,2,DF,DF,MATULUDI Thabang,,,MATULUDI Thabang,Polokwane City FC (RSA),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01017,South Africa,RSA,3,DF,DF,NDAMANE Khulumani,,,NDAMANE Khulumani,Mamelodi Sundowns FC (RSA),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01018,South Africa,RSA,4,MF,MF,MOKOENA Teboho,,,MOKOENA Teboho,Mamelodi Sundowns FC (RSA),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01019,South Africa,RSA,5,MF,MF,MBATHA Thalente,,,MBATHA Thalente,Orlando Pirates FC (RSA),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01020,South Africa,RSA,6,DF,DF,MODIBA Aubrey,,,MODIBA Aubrey,Mamelodi Sundowns FC (RSA),,,,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01021,South Africa,RSA,7,FW,FW,APPOLLIS Oswin,,,APPOLLIS Oswin,Orlando Pirates FC (RSA),,,,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01022,South Africa,RSA,8,FW,FW,MOREMI Tshepang,,,MOREMI Tshepang,Orlando Pirates FC (RSA),,,,169,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01023,South Africa,RSA,9,FW,FW,FOSTER Lyle,,,FOSTER Lyle,Burnley FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01024,South Africa,RSA,10,FW,FW,MOFOKENG Relebohile,,,MOFOKENG Relebohile,Orlando Pirates FC (RSA),,,,168,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01025,South Africa,RSA,11,MF,MF,ZWANE Themba,,,ZWANE Themba,Mamelodi Sundowns FC (RSA),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01026,South Africa,RSA,12,FW,FW,MASEKO Thapelo,,,MASEKO Thapelo,AEL Limassol (CYP),,,,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01027,South Africa,RSA,13,MF,MF,SITHOLE Sphephelo,,,SITHOLE Sphephelo,CD Tondela (POR),,,,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01028,South Africa,RSA,14,DF,DF,MBOKAZI Mbekezeli,,,MBOKAZI Mbekezeli,Chicago Fire FC (USA),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01029,South Africa,RSA,15,FW,FW,RAYNERS Iqraam,,,RAYNERS Iqraam,Mamelodi Sundowns FC (RSA),,,,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01030,South Africa,RSA,16,GK,GK,CHAINE Sipho,,,CHAINE Sipho,Orlando Pirates FC (RSA),,,,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01031,South Africa,RSA,17,FW,FW,MAKGOPA Evidence,,,MAKGOPA Evidence,Orlando Pirates FC (RSA),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01032,South Africa,RSA,18,DF,DF,KABINI Samukele,,,KABINI Samukele,Molde FK (NOR),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01033,South Africa,RSA,19,DF,DF,SIBISI Nkosinathi,,,SIBISI Nkosinathi,Orlando Pirates FC (RSA),,,,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01034,South Africa,RSA,20,DF,DF,MUDAU Khuliso,,,MUDAU Khuliso,Mamelodi Sundowns FC (RSA),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01035,South Africa,RSA,21,DF,DF,OKON Ime,,,OKON Ime,Hannover 96 (GER),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01036,South Africa,RSA,22,GK,GK,GOSS Ricardo,,,GOSS Ricardo,Siwelele FC (RSA),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01037,South Africa,RSA,23,MF,MF,ADAMS Jayden,,,ADAMS Jayden,Mamelodi Sundowns FC (RSA),,,,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01038,South Africa,RSA,24,DF,DF,MAKHANYA Olwethu,,,MAKHANYA Olwethu,Philadelphia Union (USA),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01039,South Africa,RSA,25,FW,FW,SEBELEBELE Kamogelo,,,SEBELEBELE Kamogelo,Orlando Pirates FC (RSA),,,,166,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01040,South Africa,RSA,26,DF,DF,CROSS Bradley,,,CROSS Bradley,Kaizer Chiefs FC (RSA),,,,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01041,Spain,ESP,1,GK,GK,RAYA David,,,RAYA David,1995-09-15,30.0,Arsenal FC (ENG),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01042,Spain,ESP,2,DF,DF,PUBILL Marc,,,PUBILL Marc,2003-06-20,22.0,Atlético De Madrid (ESP),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01043,Spain,ESP,3,DF,DF,GRIMALDO Alex,,,GRIMALDO Alex,1995-09-20,30.0,Bayer 04 Leverkusen (GER),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01044,Spain,ESP,4,DF,DF,GARCIA Eric,,,GARCIA Eric,2001-01-09,25.0,FC Barcelona (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01045,Spain,ESP,5,DF,DF,LLORENTE Marcos,,,LLORENTE Marcos,1995-01-30,31.0,Atlético De Madrid (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01046,Spain,ESP,6,MF,MF,MERINO Mikel,,,MERINO Mikel,1996-06-22,29.0,Arsenal FC (ENG),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01047,Spain,ESP,7,FW,FW,TORRES Ferran,,,TORRES Ferran,2000-02-29,26.0,FC Barcelona (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01048,Spain,ESP,8,MF,MF,RUIZ Fabian,,,RUIZ Fabian,1996-04-03,30.0,Paris Saint-Germain (FRA),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01049,Spain,ESP,9,MF,MF,GAVI,,,GAVI,2004-08-05,21.0,FC Barcelona (ESP),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01050,Spain,ESP,10,FW,FW,OLMO Dani,,,OLMO Dani,1998-05-07,28.0,FC Barcelona (ESP),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01051,Spain,ESP,11,FW,FW,PINO Yeremy,,,PINO Yeremy,2002-10-20,23.0,Crystal Palace FC (ENG),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01052,Spain,ESP,12,DF,DF,PORRO Pedro,,,PORRO Pedro,1999-09-13,26.0,Tottenham Hotspur FC (ENG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01053,Spain,ESP,13,GK,GK,GARCIA Joan,,,GARCIA Joan,2001-05-04,25.0,FC Barcelona (ESP),,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01054,Spain,ESP,14,DF,DF,LAPORTE Aymeric,,,LAPORTE Aymeric,1994-05-27,32.0,Athletic Club (ESP),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01055,Spain,ESP,15,MF,MF,BAENA Alex,,,BAENA Alex,2001-07-20,24.0,Atlético De Madrid (ESP),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01056,Spain,ESP,16,MF,MF,RODRI,,,RODRI,1996-06-22,29.0,Manchester City FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01057,Spain,ESP,17,FW,FW,WILLIAMS Nico,,,WILLIAMS Nico,2002-07-12,23.0,Athletic Club (ESP),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01058,Spain,ESP,18,MF,MF,ZUBIMENDI Martin,,,ZUBIMENDI Martin,1999-02-02,27.0,Arsenal FC (ENG),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01059,Spain,ESP,19,FW,FW,YAMAL Lamine,,,YAMAL Lamine,2007-07-13,18.0,FC Barcelona (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01060,Spain,ESP,20,MF,MF,PEDRI,,,PEDRI,2002-11-25,23.0,FC Barcelona (ESP),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01061,Spain,ESP,21,FW,FW,OYARZABAL Mikel,,,OYARZABAL Mikel,1997-04-21,29.0,Real Sociedad (ESP),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01062,Spain,ESP,22,DF,DF,CUBARSI Pau,,,CUBARSI Pau,2007-01-22,19.0,FC Barcelona (ESP),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01063,Spain,ESP,23,GK,GK,SIMON Unai,,,SIMON Unai,1997-06-11,29.0,Athletic Club (ESP),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01064,Spain,ESP,24,DF,DF,CUCURELLA Marc,,,CUCURELLA Marc,1998-07-22,27.0,Chelsea FC (ENG),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01065,Spain,ESP,25,FW,FW,MUNOZ Victor,,,MUNOZ Victor,2003-07-13,22.0,CA Osasuna (ESP),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01066,Spain,ESP,26,FW,FW,IGLESIAS Borja,,,IGLESIAS Borja,1993-01-17,33.0,RC Celta Vigo (ESP),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01067,Sweden,SWE,1,GK,GK,WIDELL ZETTERSTROM Jacob,,,WIDELL ZETTERSTROM Jacob,1998-07-11,27.0,Derby County FC (ENG),,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01068,Sweden,SWE,2,DF,DF,LAGERBIELKE Gustaf,,,LAGERBIELKE Gustaf,2000-04-10,26.0,SC Braga (POR),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01069,Sweden,SWE,3,DF,DF,LINDELOF Victor,,,LINDELOF Victor,1994-07-17,31.0,Aston Villa FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01070,Sweden,SWE,4,DF,DF,HIEN Isak,,,HIEN Isak,1999-01-13,27.0,Atalanta Bergamo (ITA),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01071,Sweden,SWE,5,DF,DF,GUDMUNDSSON Gabriel,,,GUDMUNDSSON Gabriel,1999-04-29,27.0,Leeds United FC (ENG),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01072,Sweden,SWE,6,DF,DF,JOHANSSON Herman,,,JOHANSSON Herman,1997-10-16,28.0,FC Dallas (USA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01073,Sweden,SWE,7,MF,MF,BERGVALL Lucas,,,BERGVALL Lucas,2006-02-02,20.0,Tottenham Hotspur FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01074,Sweden,SWE,8,DF,DF,SVENSSON Daniel,,,SVENSSON Daniel,2002-02-12,24.0,Borussia Dortmund (GER),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01075,Sweden,SWE,9,FW,FW,ISAK Alexander,,,ISAK Alexander,1999-09-21,26.0,Liverpool FC (ENG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01076,Sweden,SWE,10,MF,MF,NYGREN Benjamin,,,NYGREN Benjamin,2001-07-08,24.0,Celtic FC (SCO),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01077,Sweden,SWE,11,FW,FW,ELANGA Anthony,,,ELANGA Anthony,2002-04-27,24.0,Newcastle United FC (ENG),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01078,Sweden,SWE,12,GK,GK,JOHANSSON Viktor,,,JOHANSSON Viktor,1998-09-14,27.0,Stoke City FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01079,Sweden,SWE,13,MF,MF,SEMA Ken,,,SEMA Ken,1993-09-30,32.0,Pafos FC (CYP),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01080,Sweden,SWE,14,DF,DF,EKDAL Hjalmar,,,EKDAL Hjalmar,1998-10-21,27.0,Burnley FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01081,Sweden,SWE,15,DF,DF,STARFELT Carl,,,STARFELT Carl,1995-06-01,31.0,RC Celta Vigo (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01082,Sweden,SWE,16,MF,MF,KARLSTROM Jesper,,,KARLSTROM Jesper,1995-06-21,30.0,Udinese (ITA),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01083,Sweden,SWE,17,FW,FW,GYOKERES Viktor,,,GYOKERES Viktor,1998-06-04,28.0,Arsenal FC (ENG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01084,Sweden,SWE,18,MF,MF,AYARI Yasin,,,AYARI Yasin,2003-10-06,22.0,Brighton & Hove Albion FC (ENG),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01085,Sweden,SWE,19,MF,MF,SVANBERG Mattias,,,SVANBERG Mattias,1999-01-05,27.0,VfL Wolfsburg (GER),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01086,Sweden,SWE,20,DF,DF,SMITH Eric,,,SMITH Eric,1997-01-08,29.0,FC St. Pauli (GER),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01087,Sweden,SWE,21,DF,DF,BERNHARDSSON Alexander,,,BERNHARDSSON Alexander,1998-09-08,27.0,Holstein Kiel (GER),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01088,Sweden,SWE,22,MF,MF,ZENELI Besfort,,,ZENELI Besfort,2002-11-21,23.0,Royale Union Saint-Gilloise (BEL),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01089,Sweden,SWE,23,GK,GK,NORDFELDT Kristoffer,,,NORDFELDT Kristoffer,1989-06-23,36.0,AIK Stockholm (SWE),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01090,Sweden,SWE,24,DF,DF,STROUD Elliot,,,STROUD Elliot,2002-06-22,23.0,Mjällby AIF (SWE),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01091,Sweden,SWE,25,FW,FW,NILSSON Gustaf,,,NILSSON Gustaf,1997-05-23,29.0,Club Brugge (BEL),,197,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01092,Sweden,SWE,26,FW,FW,ALI Taha,,,ALI Taha,1998-07-01,27.0,Malmö FF (SWE),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01093,Switzerland,SUI,1,GK,GK,KOBEL Gregor,,,KOBEL Gregor,Borussia Dortmund (GER),,,,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01094,Switzerland,SUI,2,DF,DF,MUHEIM Miro,,,MUHEIM Miro,Hamburger SV (GER),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01095,Switzerland,SUI,3,DF,DF,WIDMER Silvan,,,WIDMER Silvan,1. FSV Mainz 05 (GER),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01096,Switzerland,SUI,4,DF,DF,ELVEDI Nico,,,ELVEDI Nico,Borussia Mönchengladbach (GER),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01097,Switzerland,SUI,5,DF,DF,AKANJI Manuel,,,AKANJI Manuel,FC Internazionale Milano (ITA),,,,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01098,Switzerland,SUI,6,MF,MF,ZAKARIA Denis,,,ZAKARIA Denis,AS Monaco (FRA),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01099,Switzerland,SUI,7,FW,FW,EMBOLO Breel,,,EMBOLO Breel,Stade Rennais FC (FRA),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01100,Switzerland,SUI,8,MF,MF,FREULER Remo,,,FREULER Remo,Bologna FC (ITA),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01101,Switzerland,SUI,9,MF,MF,MANZAMBI Johan,,,MANZAMBI Johan,SC Freiburg (GER),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01102,Switzerland,SUI,10,MF,MF,XHAKA Granit,,,XHAKA Granit,Sunderland AFC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01103,Switzerland,SUI,11,FW,FW,NDOYE Dan,,,NDOYE Dan,Nottingham Forest FC (ENG),,,,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01104,Switzerland,SUI,12,GK,GK,MVOGO Yvon,,,MVOGO Yvon,FC Lorient (FRA),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01105,Switzerland,SUI,13,DF,DF,RODRIGUEZ Ricardo,,,RODRIGUEZ Ricardo,Real Betis (ESP),,,,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01106,Switzerland,SUI,14,MF,MF,JASHARI Ardon,,,JASHARI Ardon,AC Milan (ITA),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01107,Switzerland,SUI,15,MF,MF,SOW Djibril,,,SOW Djibril,Sevilla FC (ESP),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01108,Switzerland,SUI,16,FW,FW,FASSNACHT Christian,,,FASSNACHT Christian,BSC Young Boys (SUI),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01109,Switzerland,SUI,17,FW,FW,VARGAS Ruben,,,VARGAS Ruben,Sevilla FC (ESP),,,,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01110,Switzerland,SUI,18,DF,DF,COEMERT Eray,,,COEMERT Eray,Valencia CF (ESP),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01111,Switzerland,SUI,19,FW,FW,OKAFOR Noah,,,OKAFOR Noah,Leeds United FC (ENG),,,,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01112,Switzerland,SUI,20,MF,MF,AEBISCHER Michel,,,AEBISCHER Michel,Pisa SC (ITA),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01113,Switzerland,SUI,21,GK,GK,KELLER Marvin,,,KELLER Marvin,BSC Young Boys (SUI),,,,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01114,Switzerland,SUI,22,MF,MF,RIEDER Fabian,,,RIEDER Fabian,FC Augsburg (GER),,,,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01115,Switzerland,SUI,23,FW,FW,AMDOUNI Zeki,,,AMDOUNI Zeki,Burnley FC (ENG),,,,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01116,Switzerland,SUI,24,DF,DF,AMENDA Aurele,,,AMENDA Aurele,Eintracht Frankfurt (GER),,,,194,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01117,Switzerland,SUI,25,DF,DF,JAQUEZ Luca,,,JAQUEZ Luca,VfB Stuttgart (GER),,,,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01118,Switzerland,SUI,26,FW,FW,ITTEN Cedric,,,ITTEN Cedric,Fortuna Düsseldorf (GER),,,,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01119,Tunisia,TUN,1,GK,GK,CHAMAKH Mouhib,,,CHAMAKH Mouhib,2001-08-25,24.0,Club Africain (TUN),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01120,Tunisia,TUN,2,DF,DF,ABDI Ali,,,ABDI Ali,1993-12-20,32.0,OGC Nice (FRA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01121,Tunisia,TUN,3,DF,DF,TALBI Montassar,,,TALBI Montassar,1998-05-26,28.0,FC Lorient (FRA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01122,Tunisia,TUN,4,DF,DF,REKIK Omar,,,REKIK Omar,2001-12-20,24.0,NK Maribor (SVN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01123,Tunisia,TUN,5,DF,DF,AROUS Adam,,,AROUS Adam,2004-07-17,21.0,Kasımpaşa SK (TUR),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01124,Tunisia,TUN,6,DF,DF,BRONN Dylan,,,BRONN Dylan,1995-06-19,30.0,Servette FC (SUI),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01125,Tunisia,TUN,7,FW,FW,ACHOURI Elias,,,ACHOURI Elias,1999-02-10,27.0,FC København (DEN),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01126,Tunisia,TUN,8,FW,FW,SAAD Elias,,,SAAD Elias,1999-12-27,26.0,Hannover 96 (GER),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01127,Tunisia,TUN,9,FW,FW,MASTOURI Hazem,,,MASTOURI Hazem,1997-06-18,28.0,FC Dynamo Makhachkala (RUS),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01128,Tunisia,TUN,10,MF,MF,MEJBRI Hannibal,,,MEJBRI Hannibal,2003-01-21,23.0,Burnley FC (ENG),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01129,Tunisia,TUN,11,MF,MF,GHARBI Ismael,,,GHARBI Ismael,2004-04-10,22.0,FC Augsburg (GER),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01130,Tunisia,TUN,12,DF,DF,BEN OUANES Mortadha,,,BEN OUANES Mortadha,1994-07-02,31.0,Kasımpaşa SK (TUR),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01131,Tunisia,TUN,13,MF,MF,KHEDIRA Rani,,,KHEDIRA Rani,1994-01-27,32.0,1. FC Union Berlin (GER),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01132,Tunisia,TUN,14,MF,MF,AYARI Khalil,,,AYARI Khalil,2005-02-02,21.0,Paris Saint-Germain (FRA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01133,Tunisia,TUN,15,MF,MF,HADJ MAHMOUD Mohamed,,,HADJ MAHMOUD Mohamed,2000-04-24,26.0,FC Lugano (SUI),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01134,Tunisia,TUN,16,GK,GK,DAHMEN Aymen,,,DAHMEN Aymen,1997-01-28,29.0,CS Sfaxien (TUN),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01135,Tunisia,TUN,17,MF,MF,SKHIRI Ellyes,,,SKHIRI Ellyes,1995-05-10,31.0,Eintracht Frankfurt (GER),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01136,Tunisia,TUN,18,FW,FW,ELLOUMI Rayan,,,ELLOUMI Rayan,2007-09-17,18.0,Vancouver Whitecaps FC (CAN),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01137,Tunisia,TUN,19,FW,FW,CHAOUAT Firas,,,CHAOUAT Firas,1996-05-08,30.0,Club Africain (TUN),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01138,Tunisia,TUN,20,DF,DF,VALERY Yan,,,VALERY Yan,1999-02-22,27.0,BSC Young Boys (SUI),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01139,Tunisia,TUN,21,DF,DF,BEN HMIDA Mohamed Amine,,,BEN HMIDA Mohamed Amine,1995-12-15,30.0,Espérance De Tunisie (TUN),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01140,Tunisia,TUN,22,GK,GK,BEN HESSEN Sabri,,,BEN HESSEN Sabri,1996-06-13,29.0,Étoile Du Sahel (TUN),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01141,Tunisia,TUN,23,DF,DF,NEFFATI Moutaz,,,NEFFATI Moutaz,2004-09-04,21.0,IFK Norrköping FK (SWE),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01142,Tunisia,TUN,24,DF,DF,CHIKHAOUI Raed,,,CHIKHAOUI Raed,2004-06-09,22.0,US Monastir (TUN),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01143,Tunisia,TUN,25,MF,MF,SLIMANE Anis,,,SLIMANE Anis,2001-03-16,25.0,Norwich City FC (ENG),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01144,Tunisia,TUN,26,MF,MF,TOUNEKTI Sebastian,,,TOUNEKTI Sebastian,2002-07-13,23.0,Celtic FC (SCO),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01145,Turkey,TUR,1,GK,GK,GUNOK Mert,,,GUNOK Mert,,,Fenerbahçe SK (TUR),,196,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01146,Turkey,TUR,2,DF,DF,CELIK Zeki,,,CELIK Zeki,,,AS Roma (ITA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01147,Turkey,TUR,3,DF,DF,DEMIRAL Merih,,,DEMIRAL Merih,,,Al Ahli FC (KSA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01148,Turkey,TUR,4,DF,DF,SOYUNCU Caglar,,,SOYUNCU Caglar,,,Fenerbahçe SK (TUR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01149,Turkey,TUR,5,MF,MF,OZCAN Salih,,,OZCAN Salih,,,Borussia Dortmund (GER),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01150,Turkey,TUR,6,MF,MF,KOKCU Orkun,,,KOKCU Orkun,,,Beşiktaş JK (TUR),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01151,Turkey,TUR,7,FW,FW,AKTURKOGLU Kerem,,,AKTURKOGLU Kerem,,,Fenerbahçe SK (TUR),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01152,Turkey,TUR,8,FW,FW,GULER Arda,,,GULER Arda,,,Real Madrid C. F. (ESP),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01153,Turkey,TUR,9,FW,FW,GUL Deniz,,,GUL Deniz,,,FC Porto (POR),,192,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01154,Turkey,TUR,10,MF,MF,CALHANOGLU Hakan,,,CALHANOGLU Hakan,,,FC Internazionale Milano (ITA),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01155,Turkey,TUR,11,FW,FW,YILDIZ Kenan,,,YILDIZ Kenan,,,Juventus FC (ITA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01156,Turkey,TUR,12,GK,GK,BAYINDIR Altay,,,BAYINDIR Altay,,,Manchester United FC (ENG),,198,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01157,Turkey,TUR,13,DF,DF,ELMALI Eren,,,ELMALI Eren,,,Galatasaray SK (TUR),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01158,Turkey,TUR,14,DF,DF,BARDAKCI Abdulkerim,,,BARDAKCI Abdulkerim,,,Galatasaray SK (TUR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01159,Turkey,TUR,15,DF,DF,KABAK Ozan,,,KABAK Ozan,,,TSG Hoffenheim (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01160,Turkey,TUR,16,MF,MF,YUKSEK Ismail,,,YUKSEK Ismail,,,Fenerbahçe SK (TUR),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01161,Turkey,TUR,17,FW,FW,KAHVECI Irfan Can,,,KAHVECI Irfan Can,,,Kasımpaşa SK (TUR),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01162,Turkey,TUR,18,DF,DF,MULDUR Mert,,,MULDUR Mert,,,Fenerbahçe SK (TUR),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01163,Turkey,TUR,19,FW,FW,AKGUN Yunus,,,AKGUN Yunus,,,Galatasaray SK (TUR),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01164,Turkey,TUR,20,DF,DF,KADIOGLU Ferdi,,,KADIOGLU Ferdi,,,Brighton & Hove Albion FC (ENG),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01165,Turkey,TUR,21,FW,FW,YILMAZ Baris Alper,,,YILMAZ Baris Alper,,,Galatasaray SK (TUR),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01166,Turkey,TUR,22,MF,MF,AYHAN Kaan,,,AYHAN Kaan,,,Galatasaray SK (TUR),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01167,Turkey,TUR,23,GK,GK,CAKIR Ugurcan,,,CAKIR Ugurcan,,,Galatasaray SK (TUR),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01168,Turkey,TUR,24,FW,FW,AYDIN Oguz,,,AYDIN Oguz,,,Fenerbahçe SK (TUR),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01169,Turkey,TUR,25,DF,DF,AKAYDIN Samet,,,AKAYDIN Samet,,,Çaykur Rizespor (TUR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01170,Turkey,TUR,26,FW,FW,UZUN Can,,,UZUN Can,,,Eintracht Frankfurt (GER),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01171,Uruguay,URU,1,GK,GK,ROCHET Sergio,,,ROCHET Sergio,1993-03-23,33.0,SC Internacional (BRA),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01172,Uruguay,URU,2,DF,DF,GIMENEZ Jose Maria,,,GIMENEZ Jose Maria,1995-01-20,31.0,Atlético De Madrid (ESP),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01173,Uruguay,URU,3,DF,DF,CACERES Sebastian,,,CACERES Sebastian,1999-08-18,26.0,Club América (MEX),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01174,Uruguay,URU,4,DF,DF,ARAUJO Ronald,,,ARAUJO Ronald,1999-03-07,27.0,FC Barcelona (ESP),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01175,Uruguay,URU,5,MF,MF,UGARTE Manuel,,,UGARTE Manuel,2001-04-11,25.0,Manchester United FC (ENG),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01176,Uruguay,URU,6,MF,MF,BENTANCUR Rodrigo,,,BENTANCUR Rodrigo,1997-06-25,28.0,Tottenham Hotspur FC (ENG),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01177,Uruguay,URU,7,MF,MF,DE LA CRUZ Nicolas,,,DE LA CRUZ Nicolas,1997-06-01,29.0,CR Flamengo (BRA),,167,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01178,Uruguay,URU,8,MF,MF,VALVERDE Federico,,,VALVERDE Federico,1998-07-22,27.0,Real Madrid C. F. (ESP),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01179,Uruguay,URU,9,FW,FW,NUNEZ Darwin,,,NUNEZ Darwin,1999-06-24,26.0,Al Hilal SC (KSA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01180,Uruguay,URU,10,MF,MF,DE ARRASCAETA Giorgian,,,DE ARRASCAETA Giorgian,1994-06-01,32.0,CR Flamengo (BRA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01181,Uruguay,URU,11,FW,FW,PELLISTRI Facundo,,,PELLISTRI Facundo,2001-12-20,24.0,Panathinaikos FC (GRE),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01182,Uruguay,URU,12,GK,GK,MELE Santiago,,,MELE Santiago,1997-09-06,28.0,CF Monterrey (MEX),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01183,Uruguay,URU,13,DF,DF,VARELA Guillermo,,,VARELA Guillermo,1993-03-24,33.0,CR Flamengo (BRA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01184,Uruguay,URU,14,MF,MF,CANOBBIO Agustin,,,CANOBBIO Agustin,1998-10-01,27.0,Fluminense FC (BRA),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01185,Uruguay,URU,15,MF,MF,MARTINEZ Emiliano,,,MARTINEZ Emiliano,1999-08-17,26.0,SE Palmeiras (BRA),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01186,Uruguay,URU,16,DF,DF,OLIVERA Mathias,,,OLIVERA Mathias,1997-10-31,28.0,SSC Napoli (ITA),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01187,Uruguay,URU,17,DF,DF,VINA Matias,,,VINA Matias,1997-11-09,28.0,CA River Plate (ARG),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01188,Uruguay,URU,18,FW,FW,RODRIGUEZ Brian,,,RODRIGUEZ Brian,2000-05-20,26.0,Club América (MEX),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01189,Uruguay,URU,19,FW,FW,AGUIRRE Rodrigo,,,AGUIRRE Rodrigo,1994-10-01,31.0,Tigres UANL (MEX),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01190,Uruguay,URU,20,MF,MF,ARAUJO Maxi,,,ARAUJO Maxi,2000-02-15,26.0,Sporting CP (POR),,176,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01191,Uruguay,URU,21,FW,FW,VINAS Federico,,,VINAS Federico,1998-06-30,27.0,Real Oviedo (ESP),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01192,Uruguay,URU,22,MF,MF,PIQUEREZ Joaquin,,,PIQUEREZ Joaquin,1998-08-24,27.0,SE Palmeiras (BRA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01193,Uruguay,URU,23,GK,GK,MUSLERA Fernando,,,MUSLERA Fernando,1986-06-16,39.0,Estudiantes LP (ARG),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01194,Uruguay,URU,24,DF,DF,BUENO Santiago,,,BUENO Santiago,1998-11-09,27.0,Wolverhampton Wanderers FC (ENG),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01195,Uruguay,URU,25,MF,MF,SANABRIA Juan Manuel,,,SANABRIA Juan Manuel,2000-03-29,26.0,Real Salt Lake (USA),,170,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01196,Uruguay,URU,26,MF,MF,ZALAZAR Rodrigo,,,ZALAZAR Rodrigo,1999-08-12,26.0,SC Braga (POR),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01197,United States,USA,1,GK,GK,TURNER Matt,,,TURNER Matt,1994-06-24,31.0,New England Revolution (USA),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01198,United States,USA,2,DF,DF,DEST Sergino,,,DEST Sergino,2000-11-03,25.0,PSV Eindhoven (NED),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01199,United States,USA,3,DF,DF,RICHARDS Chris,,,RICHARDS Chris,2000-03-28,26.0,Crystal Palace FC (ENG),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01200,United States,USA,4,MF,MF,ADAMS Tyler,,,ADAMS Tyler,1999-02-14,27.0,AFC Bournemouth (ENG),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01201,United States,USA,5,DF,DF,ROBINSON Antonee,,,ROBINSON Antonee,1997-08-08,28.0,Fulham FC (ENG),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01202,United States,USA,6,DF,DF,TRUSTY Auston,,,TRUSTY Auston,1998-08-12,27.0,Celtic FC (SCO),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01203,United States,USA,7,MF,MF,REYNA Giovanni,,,REYNA Giovanni,2002-11-13,23.0,Borussia Mönchengladbach (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01204,United States,USA,8,MF,MF,McKENNIE Weston,,,McKENNIE Weston,1998-08-28,27.0,Juventus FC (ITA),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01205,United States,USA,9,FW,FW,PEPI Ricardo,,,PEPI Ricardo,2003-01-09,23.0,PSV Eindhoven (NED),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01206,United States,USA,10,FW,FW,PULISIC Christian,,,PULISIC Christian,1998-09-18,27.0,AC Milan (ITA),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01207,United States,USA,11,FW,FW,AARONSON Brenden,,,AARONSON Brenden,2000-10-22,25.0,Leeds United FC (ENG),,177,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01208,United States,USA,12,DF,DF,ROBINSON Miles,,,ROBINSON Miles,1997-03-14,29.0,FC Cincinnatti (USA),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01209,United States,USA,13,DF,DF,REAM Tim,,,REAM Tim,1987-10-05,38.0,Charlotte FC (USA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01210,United States,USA,14,MF,MF,BERHALTER Sebastian,,,BERHALTER Sebastian,2001-05-10,25.0,Vancouver Whitecaps FC (CAN),,175,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01211,United States,USA,15,MF,MF,ROLDAN Cristian,,,ROLDAN Cristian,1995-06-03,31.0,Seattle Sounders FC (USA),,173,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01212,United States,USA,16,DF,DF,FREEMAN Alex,,,FREEMAN Alex,2004-08-09,21.0,Villarreal CF (ESP),,188,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01213,United States,USA,17,MF,MF,TILLMAN Malik,,,TILLMAN Malik,2002-05-28,24.0,Bayer 04 Leverkusen (GER),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01214,United States,USA,18,DF,DF,ARFSTEN Max,,,ARFSTEN Max,2001-04-19,25.0,Columbus Crew (USA),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01215,United States,USA,19,FW,FW,WRIGHT Haji,,,WRIGHT Haji,1998-03-27,28.0,Coventry City FC (ENG),,191,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01216,United States,USA,20,FW,FW,BALOGUN Folarin,,,BALOGUN Folarin,2001-07-03,24.0,AS Monaco (FRA),,179,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01217,United States,USA,21,FW,FW,WEAH Timothy,,,WEAH Timothy,2000-02-22,26.0,Olympique Marseille (FRA),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01218,United States,USA,22,DF,DF,McKENZIE Mark,,,McKENZIE Mark,1999-02-25,27.0,Toulouse FC (FRA),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01219,United States,USA,23,DF,DF,SCALLY Joe,,,SCALLY Joe,2002-12-31,23.0,Borussia Mönchengladbach (GER),,184,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01220,United States,USA,24,GK,GK,FREESE Matt,,,FREESE Matt,1998-09-02,27.0,New York City FC (USA),,198,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01221,United States,USA,25,GK,GK,BRADY Chris,,,BRADY Chris,2004-03-03,22.0,Chicago Fire FC (USA),,193,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01222,United States,USA,26,FW,FW,ZENDEJAS Alex,,,ZENDEJAS Alex,1998-02-07,28.0,Club América (MEX),,167,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01223,Uzbekistan,UZB,1,GK,GK,YUSUPOV Utkir,,,YUSUPOV Utkir,,,PFC Navbahor Namangan (UZB),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01224,Uzbekistan,UZB,2,DF,DF,KHUSANOV Abdukodir,,,KHUSANOV Abdukodir,,,Manchester City FC (ENG),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01225,Uzbekistan,UZB,3,DF,DF,ALIJONOV Khojiakbar,,,ALIJONOV Khojiakbar,,,Pakhtakor Tashkent FK (UZB),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01226,Uzbekistan,UZB,4,DF,DF,SAYFIEV Farrukh,,,SAYFIEV Farrukh,,,FK Neftchi Farg'ona (UZB),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01227,Uzbekistan,UZB,5,DF,DF,ASHURMATOV Rustam,,,ASHURMATOV Rustam,,,Esteghlal Tehran FC (IRN),,186,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01228,Uzbekistan,UZB,6,MF,MF,MOZGOVOY Akmal,,,MOZGOVOY Akmal,,,Pakhtakor Tashkent FK (UZB),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01229,Uzbekistan,UZB,7,MF,MF,SHUKUROV Otabek,,,SHUKUROV Otabek,,,Baniyas Club (UAE),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01230,Uzbekistan,UZB,8,MF,MF,ISKANDEROV Jamshid,,,ISKANDEROV Jamshid,,,FK Neftchi Farg'ona (UZB),,171,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01231,Uzbekistan,UZB,9,MF,MF,XAMROBEKOV Odiljon,,,XAMROBEKOV Odiljon,,,Tractor Sazi Tabriz FC (IRN),,180,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01232,Uzbekistan,UZB,10,MF,MF,MASHARIPOV Jaloliddin,,,MASHARIPOV Jaloliddin,,,Esteghlal Tehran FC (IRN),,174,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01233,Uzbekistan,UZB,11,MF,MF,URUNOV Oston,,,URUNOV Oston,,,Persepolis FC (IRN),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01234,Uzbekistan,UZB,12,GK,GK,NEMATOV Abduvohid,,,NEMATOV Abduvohid,,,Nasaf Qarshi FC (UZB),,182,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01235,Uzbekistan,UZB,13,DF,DF,NASRULLAEV Sherzod,,,NASRULLAEV Sherzod,,,Pakhtakor Tashkent FK (UZB),,183,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01236,Uzbekistan,UZB,14,FW,FW,SHOMURODOV Eldor,,,SHOMURODOV Eldor,,,Başakşehir FK (TUR),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01237,Uzbekistan,UZB,15,DF,DF,ESHMURODOV Umar,,,ESHMURODOV Umar,,,Nasaf Qarshi FC (UZB),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01238,Uzbekistan,UZB,16,GK,GK,ERGASHEV Botirali,,,ERGASHEV Botirali,,,FK Neftchi Farg'ona (UZB),,189,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01239,Uzbekistan,UZB,17,MF,MF,KHAMDAMOV Dostonbek,,,KHAMDAMOV Dostonbek,,,Pakhtakor Tashkent FK (UZB),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01240,Uzbekistan,UZB,18,DF,DF,ABDULLAEV Abdulla,,,ABDULLAEV Abdulla,,,Dibba FC (UAE),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01241,Uzbekistan,UZB,19,MF,MF,GANIEV Azizjon,,,GANIEV Azizjon,,,Al Bataeh Club (UAE),,178,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01242,Uzbekistan,UZB,20,FW,FW,AMONOV Azizbek,,,AMONOV Azizbek,,,FK Dinamo Samarkand (UZB),,181,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01243,Uzbekistan,UZB,21,FW,FW,SERGEEV Igor,,,SERGEEV Igor,,,Persepolis FC (IRN),,185,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01244,Uzbekistan,UZB,22,MF,MF,FAYZULLAEV Abbosbek,,,FAYZULLAEV Abbosbek,,,Başakşehir FK (TUR),,167,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01245,Uzbekistan,UZB,23,MF,MF,ESANOV Sherzod,,,ESANOV Sherzod,,,FK Buxoro (UZB),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01246,Uzbekistan,UZB,24,DF,DF,KARIMOV Behruzjon,,,KARIMOV Behruzjon,,,Surkhon FK (UZB),,172,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01247,Uzbekistan,UZB,25,DF,DF,ULMASALIYEV Avazbek,,,ULMASALIYEV Avazbek,,,OKMK FK (UZB),,187,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+p_01248,Uzbekistan,UZB,26,DF,DF,UROZOV Jakhongir,,,UROZOV Jakhongir,,,FK Dinamo Samarkand (UZB),,190,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00

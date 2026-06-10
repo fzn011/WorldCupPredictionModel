@@ -8,3 +8,19 @@ timestamp,status,official_final_enabled,reason
 2026-06-10T13:49:10.084787+00:00,blocked,False,
 2026-06-10T14:00:45.594016+00:00,blocked,False,
 2026-06-10T14:00:45.603158+00:00,demoted,False,test demote
+2026-06-10T15:16:53.068397+00:00,blocked,False,
+2026-06-10T15:17:21.947190+00:00,blocked,False,
+2026-06-10T15:17:21.949745+00:00,demoted,False,test demote
+2026-06-10T15:18:12.907575+00:00,blocked,False,
+2026-06-10T15:18:43.708644+00:00,blocked,False,
+2026-06-10T15:18:43.711304+00:00,demoted,False,test demote
+2026-06-10T15:49:47.583290+00:00,blocked,False,
+2026-06-10T15:50:17.662678+00:00,blocked,False,
+2026-06-10T15:50:17.665272+00:00,demoted,False,test demote
+2026-06-10T15:54:15.521436+00:00,blocked,False,
+2026-06-10T15:55:00.546348+00:00,blocked,False,
+2026-06-10T15:55:00.549079+00:00,demoted,False,test demote
+2026-06-10T16:14:31.730362+00:00,promoted,True,
+2026-06-10T16:15:08.535006+00:00,blocked,False,
+2026-06-10T16:15:53.674872+00:00,blocked,False,
+2026-06-10T16:15:53.677612+00:00,demoted,False,test demote

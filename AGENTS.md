@@ -38,7 +38,21 @@ Streamlit does **not** call the FastAPI server; they are independent entry point
 python -m pytest -q
 ```
 
-Expect ~173 passed, 1 skipped. No linter config (ruff/flake8/black) is present in the repo.
+Expect **373 passed, 1 skipped** (includes Step 17F–17H official-data tests). No linter config (ruff/flake8/black) is present in the repo.
+
+### Official data pipeline (Steps 17F–17H)
+
+After importing FIFA schedule/squad files under `data/official/imports/`:
+
+```bash
+python scripts/cleanup_official_apply_blockers.py --apply
+python scripts/prepare_populated_official_data.py --schedule-file data/official/imports/fifa_schedule.xlsx --squad-file data/official/imports/fifa_squads.csv
+python scripts/apply_populated_official_data.py --apply
+python scripts/evaluate_official_final_readiness.py
+python scripts/fix_and_check_future_team_filter.py
+```
+
+Step 17H normalizes FIFA **First Stage** → `group_stage`, rebuilds 48 teams from schedule, and separates optional metadata warnings from apply blockers. `official_final_enabled` in config may still be `false` until explicitly promoted even when readiness passes.
 
 ### Quick API smoke test
 

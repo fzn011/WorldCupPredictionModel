@@ -1,49 +1,49 @@
 team,team_code,confederation,group,group_slot,is_host,qualified,source
-Mexico,MEX,CONCACAF,A,1.0,1.0,1.0,ai_prefilled_needs_verification
-South Africa,RSA,CAF,A,2.0,0.0,1.0,ai_prefilled_needs_verification
-South Korea,KOR,AFC,A,3.0,0.0,1.0,ai_prefilled_needs_verification
-Czechia,CZE,UEFA,A,4.0,0.0,1.0,ai_prefilled_needs_verification
-Canada,CAN,CONCACAF,B,1.0,1.0,1.0,ai_prefilled_needs_verification
-Switzerland,SUI,UEFA,B,2.0,0.0,1.0,ai_prefilled_needs_verification
-Qatar,QAT,AFC,B,3.0,0.0,1.0,ai_prefilled_needs_verification
-Bosnia and Herzegovina,BIH,UEFA,B,4.0,0.0,1.0,ai_prefilled_needs_verification
-United States,USA,CONCACAF,C,1.0,1.0,1.0,ai_prefilled_needs_verification
-Japan,JPN,AFC,C,2.0,0.0,1.0,ai_prefilled_needs_verification
-Nigeria,NGA,CAF,C,3.0,0.0,1.0,ai_prefilled_needs_verification
-Serbia,SRB,UEFA,C,4.0,0.0,1.0,ai_prefilled_needs_verification
-Brazil,BRA,CONMEBOL,D,1.0,0.0,1.0,ai_prefilled_needs_verification
-Croatia,CRO,UEFA,D,2.0,0.0,1.0,ai_prefilled_needs_verification
-Egypt,EGY,CAF,D,3.0,0.0,1.0,ai_prefilled_needs_verification
-Australia,AUS,AFC,D,4.0,0.0,1.0,ai_prefilled_needs_verification
-Argentina,ARG,CONMEBOL,E,1.0,0.0,1.0,ai_prefilled_needs_verification
-Denmark,DEN,UEFA,E,2.0,0.0,1.0,ai_prefilled_needs_verification
-Ghana,GHA,CAF,E,3.0,0.0,1.0,ai_prefilled_needs_verification
-Costa Rica,CRC,CONCACAF,E,4.0,0.0,1.0,ai_prefilled_needs_verification
-France,FRA,UEFA,F,1.0,0.0,1.0,ai_prefilled_needs_verification
-Morocco,MAR,CAF,F,2.0,0.0,1.0,ai_prefilled_needs_verification
-Ecuador,ECU,CONMEBOL,F,3.0,0.0,1.0,ai_prefilled_needs_verification
-Poland,POL,UEFA,F,4.0,0.0,1.0,ai_prefilled_needs_verification
-England,ENG,UEFA,G,1.0,0.0,1.0,ai_prefilled_needs_verification
-Iran,IRN,AFC,G,2.0,0.0,1.0,ai_prefilled_needs_verification
-Tunisia,TUN,CAF,G,3.0,0.0,1.0,ai_prefilled_needs_verification
-Peru,PER,CONMEBOL,G,4.0,0.0,1.0,ai_prefilled_needs_verification
-Spain,SPA,UEFA,H,1.0,0.0,1.0,ai_prefilled_needs_verification
-Cameroon,CAM,CAF,H,2.0,0.0,1.0,ai_prefilled_needs_verification
-Uruguay,URU,CONMEBOL,H,3.0,0.0,1.0,ai_prefilled_needs_verification
-Sweden,SWE,UEFA,H,4.0,0.0,1.0,ai_prefilled_needs_verification
-Germany,GER,UEFA,I,1.0,0.0,1.0,ai_prefilled_needs_verification
-Algeria,ALG,CAF,I,2.0,0.0,1.0,ai_prefilled_needs_verification
-Colombia,COL,CONMEBOL,I,3.0,0.0,1.0,ai_prefilled_needs_verification
-Scotland,SCO,UEFA,I,4.0,0.0,1.0,ai_prefilled_needs_verification
-Portugal,POR,UEFA,J,1.0,0.0,1.0,ai_prefilled_needs_verification
-Senegal,SEN,CAF,J,2.0,0.0,1.0,ai_prefilled_needs_verification
-United Arab Emirates,UAE,AFC,J,3.0,0.0,1.0,ai_prefilled_needs_verification
-Austria,AUT,UEFA,J,4.0,0.0,1.0,ai_prefilled_needs_verification
-Netherlands,NED,UEFA,K,1.0,0.0,1.0,ai_prefilled_needs_verification
-Côte d'Ivoire,CIV,CAF,K,2.0,0.0,1.0,ai_prefilled_needs_verification
-Chile,CHI,CONMEBOL,K,3.0,0.0,1.0,ai_prefilled_needs_verification
-Norway,NOR,UEFA,K,4.0,0.0,1.0,ai_prefilled_needs_verification
-Belgium,BEL,UEFA,L,1.0,0.0,1.0,ai_prefilled_needs_verification
-Turkey,TUR,UEFA,L,2.0,0.0,1.0,ai_prefilled_needs_verification
-Paraguay,PAR,CONMEBOL,L,3.0,0.0,1.0,ai_prefilled_needs_verification
-New Zealand,NZL,OFC,L,4.0,0.0,1.0,ai_prefilled_needs_verification
+Czechia,CZE,,A,1.0,0.0,1.0,fifa_schedule_api
+Mexico,MEX,,A,2.0,0.0,1.0,fifa_schedule_api
+South Africa,RSA,,A,3.0,0.0,1.0,fifa_schedule_api
+South Korea,KOR,,A,4.0,0.0,1.0,fifa_schedule_api
+Bosnia and Herzegovina,,,B,1.0,0.0,1.0,fifa_schedule_api
+Canada,CAN,,B,2.0,0.0,1.0,fifa_schedule_api
+Qatar,QAT,,B,3.0,0.0,1.0,fifa_schedule_api
+Switzerland,SUI,,B,4.0,0.0,1.0,fifa_schedule_api
+Brazil,BRA,,C,1.0,0.0,1.0,fifa_schedule_api
+Haiti,HAI,,C,2.0,0.0,1.0,fifa_schedule_api
+Morocco,MAR,,C,3.0,0.0,1.0,fifa_schedule_api
+Scotland,SCO,,C,4.0,0.0,1.0,fifa_schedule_api
+Australia,AUS,,D,1.0,0.0,1.0,fifa_schedule_api
+Paraguay,PAR,,D,2.0,0.0,1.0,fifa_schedule_api
+Turkey,TUR,,D,3.0,0.0,1.0,fifa_schedule_api
+United States,USA,,D,4.0,0.0,1.0,fifa_schedule_api
+Curaçao,CUW,,E,1.0,0.0,1.0,fifa_schedule_api
+Côte d'Ivoire,,,E,2.0,0.0,1.0,fifa_schedule_api
+Ecuador,ECU,,E,3.0,0.0,1.0,fifa_schedule_api
+Germany,GER,,E,4.0,0.0,1.0,fifa_schedule_api
+Japan,JPN,,F,1.0,0.0,1.0,fifa_schedule_api
+Netherlands,NED,,F,2.0,0.0,1.0,fifa_schedule_api
+Sweden,SWE,,F,3.0,0.0,1.0,fifa_schedule_api
+Tunisia,TUN,,F,4.0,0.0,1.0,fifa_schedule_api
+Belgium,BEL,,G,1.0,0.0,1.0,fifa_schedule_api
+Egypt,EGY,,G,2.0,0.0,1.0,fifa_schedule_api
+Iran,IRN,,G,3.0,0.0,1.0,fifa_schedule_api
+New Zealand,NZL,,G,4.0,0.0,1.0,fifa_schedule_api
+Cabo Verde,CPV,,H,1.0,0.0,1.0,fifa_schedule_api
+Saudi Arabia,KSA,,H,2.0,0.0,1.0,fifa_schedule_api
+Spain,ESP,,H,3.0,0.0,1.0,fifa_schedule_api
+Uruguay,URU,,H,4.0,0.0,1.0,fifa_schedule_api
+France,FRA,,I,1.0,0.0,1.0,fifa_schedule_api
+Iraq,IRQ,,I,2.0,0.0,1.0,fifa_schedule_api
+Norway,NOR,,I,3.0,0.0,1.0,fifa_schedule_api
+Senegal,SEN,,I,4.0,0.0,1.0,fifa_schedule_api
+Algeria,ALG,,J,1.0,0.0,1.0,fifa_schedule_api
+Argentina,ARG,,J,2.0,0.0,1.0,fifa_schedule_api
+Austria,AUT,,J,3.0,0.0,1.0,fifa_schedule_api
+Jordan,JOR,,J,4.0,0.0,1.0,fifa_schedule_api
+Colombia,COL,,K,1.0,0.0,1.0,fifa_schedule_api
+Congo DR,COD,,K,2.0,0.0,1.0,fifa_schedule_api
+Portugal,POR,,K,3.0,0.0,1.0,fifa_schedule_api
+Uzbekistan,UZB,,K,4.0,0.0,1.0,fifa_schedule_api
+Croatia,CRO,,L,1.0,0.0,1.0,fifa_schedule_api
+England,ENG,,L,2.0,0.0,1.0,fifa_schedule_api
+Ghana,GHA,,L,3.0,0.0,1.0,fifa_schedule_api
+Panama,PAN,,L,4.0,0.0,1.0,fifa_schedule_api

@@ -1,18 +1,49 @@
 team,team_code,player_count,goalkeepers,defenders,midfielders,forwards,source,last_verified_at
-Argentina,ARG,6,1,1,1,3,sample_to_be_verified,2026-06-05
-Belgium,BEL,5,1,0,2,2,sample_to_be_verified,2026-06-05
-Brazil,BRA,5,1,1,1,2,sample_to_be_verified,2026-06-05
-Canada,CAN,2,0,1,0,1,sample_to_be_verified,2026-06-05
-Croatia,CRO,2,1,0,1,0,sample_to_be_verified,2026-06-05
-England,ENG,6,1,0,3,2,sample_to_be_verified,2026-06-05
-France,FRA,5,1,1,1,2,sample_to_be_verified,2026-06-05
-Germany,GER,5,1,1,2,1,sample_to_be_verified,2026-06-05
-Japan,JAP,2,0,0,2,0,sample_to_be_verified,2026-06-05
-Mexico,MEX,2,0,0,0,2,sample_to_be_verified,2026-06-05
-Morocco,MOR,3,1,1,1,0,sample_to_be_verified,2026-06-05
-Netherlands,NET,2,0,1,0,1,sample_to_be_verified,2026-06-05
-Portugal,POR,6,1,1,2,2,sample_to_be_verified,2026-06-05
-South Korea,SOU,3,0,1,1,1,sample_to_be_verified,2026-06-05
-Spain,SPA,5,1,0,2,2,sample_to_be_verified,2026-06-05
-United States,UNI,2,0,0,1,1,sample_to_be_verified,2026-06-05
-Uruguay,URU,4,1,1,1,1,sample_to_be_verified,2026-06-05
+Algeria,ALG,26,3,9,7,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Argentina,ARG,26,3,8,8,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Australia,AUS,26,3,10,5,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Austria,AUT,26,3,8,11,4,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Belgium,BEL,26,3,9,8,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Bosnia And Herzegovina,BIH,26,3,8,8,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Brazil,BRA,26,3,8,6,9,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Cabo Verde,CPV,26,3,8,12,3,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Canada,CAN,26,3,9,8,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Colombia,COL,26,3,9,8,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Congo DR,COD,26,3,8,8,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Croatia,CRO,26,3,8,9,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Curaçao,CUW,26,3,8,7,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Czechia,CZE,26,3,9,7,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Côte D'Ivoire,CIV,26,3,8,6,9,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Ecuador,ECU,26,3,8,8,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Egypt,EGY,26,4,8,7,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+England,ENG,26,3,9,7,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+France,FRA,26,3,9,7,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Germany,GER,26,3,8,11,4,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Ghana,GHA,26,3,9,6,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Haiti,HAI,26,3,8,6,9,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Iran,IRN,26,3,9,8,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Iraq,IRQ,26,3,9,7,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Japan,JPN,26,3,9,10,4,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Jordan,JOR,26,3,9,8,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Mexico,MEX,26,3,7,8,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Morocco,MAR,26,3,9,9,5,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Netherlands,NED,26,3,8,8,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+New Zealand,NZL,26,3,9,10,4,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Norway,NOR,26,3,8,10,5,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Panama,PAN,26,3,11,8,4,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Paraguay,PAR,26,3,8,9,6,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Portugal,POR,26,3,9,6,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Qatar,QAT,26,3,9,5,9,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Saudi Arabia,KSA,26,3,10,6,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Scotland,SCO,26,3,10,6,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Senegal,SEN,26,3,8,7,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+South Africa,RSA,26,3,10,5,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+South Korea,KOR,26,3,9,11,3,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Spain,ESP,26,3,8,7,8,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Sweden,SWE,26,3,11,7,5,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Switzerland,SUI,26,3,8,8,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Tunisia,TUN,26,3,10,8,5,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Turkey,TUR,26,3,9,5,9,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+United States,USA,26,3,10,6,7,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Uruguay,URU,26,3,7,11,5,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00
+Uzbekistan,UZB,26,3,10,10,3,fifa_squad_pdf,2026-06-10T15:56:13.478402+00:00

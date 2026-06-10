@@ -1,17 +1,17 @@
 {
-  "status": "staged_needs_review",
+  "status": "ready_for_apply",
   "staged_fixtures_count": 104,
   "staged_players_count": 1248,
   "populated_fixtures_count": 104,
   "populated_players_count": 1248,
   "teams_with_26_players": 48,
-  "ready_for_apply": false,
+  "ready_for_apply": true,
   "applied": false,
-  "final_ready": false,
+  "final_ready": true,
   "official_final_enabled": false,
-  "blockers_count": 1,
+  "blockers_count": 0,
   "warnings_count": 0,
-  "next_action": "Complete missing official data, review preview diffs, then re-run readiness.",
+  "next_action": "Run with --apply to import populated official data.",
   "inputs": {
     "has_schedule_file": false,
     "has_squad_file": false,
@@ -32,9 +32,9 @@
     },
     "missing_expected_inputs": []
   },
-  "staging_validation_passed": false,
+  "staging_validation_passed": true,
   "preview_status": "preview_ready",
   "completeness_report_path": "/workspace/data/official/populated/reports/official_population_completeness_report.csv",
   "final_readiness_report_path": "/workspace/data/official/processed/official_final_readiness_report.json",
-  "saved_at": "2026-06-10T15:17:58.316806+00:00"
+  "saved_at": "2026-06-10T15:53:59.618927+00:00"
 }

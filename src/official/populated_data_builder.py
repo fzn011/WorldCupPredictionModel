@@ -19,6 +19,8 @@ from src.official.fifa_extractors import (
     make_source_audit_row,
 )
 from src.official.source_parsers import teams_to_groups_df
+from src.official.source_labels import is_official_source_label, is_sample_source_label
+from src.official.stage_normalization import apply_stage_normalization, is_group_stage_label
 from src.official.staging_validation import load_staged_data
 from src.utils.team_name_mapping import standardize_team_name
 
@@ -55,11 +57,11 @@ def _read_csv_if_exists(path: Path) -> pd.DataFrame:
 
 
 def _is_verified_df(df: pd.DataFrame) -> bool:
-    """Official rows usable for population unless marked sample_to_be_verified."""
+    """Official rows usable for population unless marked sample/unverified."""
     if df.empty or "source" not in df.columns:
         return False
-    sources = df["source"].fillna("").astype(str).str.strip().str.lower()
-    return not sources.eq("sample_to_be_verified").any()
+    sources = df["source"].fillna("").astype(str)
+    return not sources.map(is_sample_source_label).any()
 
 
 def _dedupe_teams(df: pd.DataFrame) -> pd.DataFrame:
@@ -83,6 +85,138 @@ def _find_fifa_snapshot(name_hint: str) -> str | None:
     for path in sorted(raw_dir.rglob("*.html"), reverse=True):
         return str(path)
     return None
+
+
+def _invalid_team_name(name: str) -> bool:
+    n = str(name).strip().lower()
+    return not n or n in {"nan", "none", "tbd", "to be determined"} or n.startswith("tbd")
+
+
+def derive_teams_and_groups_from_imported_fixtures(
+    fixtures_df: pd.DataFrame,
+    metadata_lookup: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, str]:
+    """Derive teams/groups from group-stage fixtures (48 teams, 12 groups × 4)."""
+    if fixtures_df.empty:
+        return pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS), pd.DataFrame(columns=C.IMPORT_GROUPS_REQUIRED_COLUMNS), "No fixtures provided"
+
+    fx = apply_stage_normalization(fixtures_df.copy())
+    gs = fx[fx["stage"].map(is_group_stage_label)]
+    if gs.empty and "original_stage" in fx.columns:
+        gs = fx[fx["original_stage"].map(is_group_stage_label)]
+
+    if gs.empty:
+        return pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS), pd.DataFrame(columns=C.IMPORT_GROUPS_REQUIRED_COLUMNS), "No group-stage fixtures found"
+
+    lookup: dict[str, dict[str, Any]] = {}
+    if metadata_lookup is not None and not metadata_lookup.empty and "team" in metadata_lookup.columns:
+        for _, row in metadata_lookup.iterrows():
+            team = standardize_team_name(str(row.get("team", "")))
+            if team:
+                lookup[team] = row.to_dict()
+
+    players_path = _populated_dir() / C.POPULATED_OFFICIAL_PLAYERS_FILE
+    if players_path.is_file():
+        try:
+            players_df = pd.read_csv(players_path)
+            if not players_df.empty and {"team", "team_code"}.issubset(players_df.columns):
+                for _, row in players_df.drop_duplicates(subset=["team"]).iterrows():
+                    team = standardize_team_name(str(row.get("team", "")))
+                    if team and team not in lookup:
+                        lookup[team] = {"team_code": row.get("team_code", ""), "confederation": ""}
+                    elif team and not lookup[team].get("team_code"):
+                        lookup[team]["team_code"] = row.get("team_code", "")
+        except Exception:
+            pass
+
+    team_to_group: dict[str, str] = {}
+    for _, row in gs.iterrows():
+        group = str(row.get("group", "")).strip()
+        if not group:
+            continue
+        for col in ("team_a", "team_b"):
+            team = standardize_team_name(str(row.get(col, "")).strip())
+            if _invalid_team_name(team):
+                continue
+            existing = team_to_group.get(team)
+            if existing and existing != group:
+                return (
+                    pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS),
+                    pd.DataFrame(columns=C.IMPORT_GROUPS_REQUIRED_COLUMNS),
+                    f"Team {team} appears in multiple groups",
+                )
+            team_to_group[team] = group
+
+    if len(team_to_group) < C.OFFICIAL_REQUIRED_TEAM_COUNT:
+        return (
+            pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS),
+            pd.DataFrame(columns=C.IMPORT_GROUPS_REQUIRED_COLUMNS),
+            f"Only {len(team_to_group)} teams derived from group-stage fixtures (need {C.OFFICIAL_REQUIRED_TEAM_COUNT})",
+        )
+
+    groups_map: dict[str, list[str]] = {}
+    for team, group in team_to_group.items():
+        groups_map.setdefault(group, []).append(team)
+
+    if len(groups_map) != C.OFFICIAL_REQUIRED_GROUP_COUNT:
+        return (
+            pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS),
+            pd.DataFrame(columns=C.IMPORT_GROUPS_REQUIRED_COLUMNS),
+            f"Expected {C.OFFICIAL_REQUIRED_GROUP_COUNT} groups, found {len(groups_map)}",
+        )
+
+    for group, teams_in_group in groups_map.items():
+        if len(teams_in_group) != C.OFFICIAL_TEAMS_PER_GROUP:
+            return (
+                pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS),
+                pd.DataFrame(columns=C.IMPORT_GROUPS_REQUIRED_COLUMNS),
+                f"Group {group} has {len(teams_in_group)} teams (expected {C.OFFICIAL_TEAMS_PER_GROUP})",
+            )
+
+    verified_at = datetime.now(timezone.utc).date().isoformat()
+    source_label = "fifa_schedule_api"
+    if "source" in fx.columns:
+        src = fx["source"].fillna("").astype(str).str.lower()
+        if src.eq("fifa_downloadable_schedule").any():
+            source_label = "fifa_downloadable_schedule"
+
+    team_rows: list[dict[str, Any]] = []
+    for group in sorted(groups_map.keys()):
+        for slot, team in enumerate(sorted(groups_map[group]), start=1):
+            meta = lookup.get(team, {})
+            team_rows.append(
+                {
+                    "team": team,
+                    "team_code": meta.get("team_code", ""),
+                    "confederation": meta.get("confederation", ""),
+                    "group": group,
+                    "group_slot": slot,
+                    "is_host": meta.get("is_host", 0),
+                    "qualified": meta.get("qualified", 1),
+                    "source": source_label,
+                }
+            )
+
+    teams_df = pd.DataFrame(team_rows, columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS)
+    groups_df = teams_to_groups_df(teams_df)
+    if len(teams_df) != C.OFFICIAL_REQUIRED_TEAM_COUNT:
+        return teams_df, groups_df, f"Derived {len(teams_df)} teams — expected {C.OFFICIAL_REQUIRED_TEAM_COUNT}"
+
+    return teams_df, groups_df, ""
+
+
+def _should_prefer_fixture_derived_teams(teams_df: pd.DataFrame, fixtures_df: pd.DataFrame) -> bool:
+    if fixtures_df.empty or len(fixtures_df) < C.OFFICIAL_TOTAL_MATCHES:
+        return False
+    if "source" not in fixtures_df.columns:
+        return False
+    if not fixtures_df["source"].fillna("").astype(str).map(is_official_source_label).any():
+        return False
+    if teams_df.empty or len(teams_df) < C.OFFICIAL_REQUIRED_TEAM_COUNT:
+        return True
+    if "source" in teams_df.columns and teams_df["source"].map(is_sample_source_label).any():
+        return True
+    return False
 
 
 def build_populated_teams_from_sources() -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -119,7 +253,27 @@ def build_populated_teams_from_sources() -> tuple[pd.DataFrame, pd.DataFrame]:
         audits.append(make_source_audit_row("teams", "manual_import_template", "parsed", len(template)))
 
     populated = _read_csv_if_exists(_populated_dir() / C.POPULATED_OFFICIAL_TEAMS_FILE)
-    if not populated.empty:
+    fixtures_pop = _read_csv_if_exists(_populated_dir() / C.POPULATED_OFFICIAL_FIXTURES_FILE)
+
+    if _should_prefer_fixture_derived_teams(populated, fixtures_pop):
+        derived, _derived_groups, warn = derive_teams_and_groups_from_imported_fixtures(
+            fixtures_pop, metadata_lookup=populated if not populated.empty else None
+        )
+        if len(derived) >= C.OFFICIAL_REQUIRED_TEAM_COUNT:
+            candidates.insert(0, derived)
+            audits.append(
+                make_source_audit_row(
+                    "teams",
+                    "derived_from_imported_fixtures",
+                    "parsed",
+                    len(derived),
+                    notes=warn or "Teams rebuilt from verified FIFA schedule",
+                )
+            )
+        elif warn:
+            audits.append(make_source_audit_row("teams", "derived_from_imported_fixtures", "partial", 0, notes=warn))
+
+    if not populated.empty and not _should_prefer_fixture_derived_teams(populated, fixtures_pop):
         candidates.insert(0, populated)
 
     merged = pd.DataFrame(columns=C.IMPORT_TEAMS_REQUIRED_COLUMNS)
@@ -163,6 +317,16 @@ def build_populated_groups_from_sources(teams_df: pd.DataFrame | None = None) ->
         audits.append(make_source_audit_row("groups", "official_groups_verified", "parsed", len(imp)))
 
     populated = _read_csv_if_exists(_populated_dir() / C.POPULATED_OFFICIAL_GROUPS_FILE)
+    fixtures_pop = _read_csv_if_exists(_populated_dir() / C.POPULATED_OFFICIAL_FIXTURES_FILE)
+    teams_pop = _read_csv_if_exists(_populated_dir() / C.POPULATED_OFFICIAL_TEAMS_FILE)
+
+    if _should_prefer_fixture_derived_teams(teams_pop, fixtures_pop):
+        _derived_teams, derived_groups, _warn = derive_teams_and_groups_from_imported_fixtures(
+            fixtures_pop, metadata_lookup=teams_pop if not teams_pop.empty else None
+        )
+        if len(derived_groups) >= C.OFFICIAL_REQUIRED_TEAM_COUNT:
+            candidates.insert(0, derived_groups)
+
     if not populated.empty:
         candidates.insert(0, populated)
 
@@ -249,6 +413,8 @@ def build_populated_fixtures_and_venues_from_sources() -> tuple[pd.DataFrame, pd
         return merged
 
     fixtures_df = _merge_frames(fixtures_candidates, C.IMPORT_FIXTURES_REQUIRED_COLUMNS, "match_id")
+    if not fixtures_df.empty:
+        fixtures_df = apply_stage_normalization(fixtures_df)
     venues_df = _merge_frames(venues_candidates, C.IMPORT_VENUES_REQUIRED_COLUMNS, "venue_id")
 
     status = "parsed" if len(fixtures_df) >= C.OFFICIAL_TOTAL_MATCHES else "partial"
@@ -371,6 +537,12 @@ def build_populated_player_priors(players_df: pd.DataFrame) -> tuple[pd.DataFram
     )
     if not matched_df.empty:
         matched_df = matched_df[C.PLAYER_PRIOR_REQUIRED_COLUMNS]
+        if "source" not in matched_df.columns:
+            matched_df["source"] = "fifa_squad_pdf"
+    else:
+        matched_df = pd.DataFrame(columns=[*C.PLAYER_PRIOR_REQUIRED_COLUMNS, "source"])
+    if "source" not in matched_df.columns:
+        matched_df["source"] = "fifa_squad_pdf"
     return matched_df, unmatched_report
 
 

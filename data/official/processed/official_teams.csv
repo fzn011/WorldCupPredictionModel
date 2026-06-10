@@ -1,49 +1,49 @@
 team_id,team,team_code,confederation,group,group_slot,is_host,qualified,source,last_verified_at
-team_001,Mexico,MEX,CONCACAF,A,1,1,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_002,South Africa,RSA,CAF,A,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_003,South Korea,KOR,AFC,A,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_004,Czechia,CZE,UEFA,A,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_005,Canada,CAN,CONCACAF,B,1,1,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_006,Switzerland,SUI,UEFA,B,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_007,Qatar,QAT,AFC,B,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_008,Bosnia and Herzegovina,BIH,UEFA,B,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_009,United States,USA,CONCACAF,C,1,1,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_010,Japan,JPN,AFC,C,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_011,Nigeria,NGA,CAF,C,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_012,Serbia,SRB,UEFA,C,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_013,Brazil,BRA,CONMEBOL,D,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_014,Croatia,CRO,UEFA,D,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_015,Egypt,EGY,CAF,D,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_016,Australia,AUS,AFC,D,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_017,Argentina,ARG,CONMEBOL,E,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_018,Denmark,DEN,UEFA,E,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_019,Ghana,GHA,CAF,E,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_020,Costa Rica,CRC,CONCACAF,E,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_021,France,FRA,UEFA,F,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_022,Morocco,MAR,CAF,F,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_023,Ecuador,ECU,CONMEBOL,F,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_024,Poland,POL,UEFA,F,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_025,England,ENG,UEFA,G,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_026,Iran,IRN,AFC,G,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_027,Tunisia,TUN,CAF,G,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_028,Peru,PER,CONMEBOL,G,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_029,Spain,SPA,UEFA,H,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_030,Cameroon,CAM,CAF,H,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_031,Uruguay,URU,CONMEBOL,H,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_032,Sweden,SWE,UEFA,H,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_033,Germany,GER,UEFA,I,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_034,Algeria,ALG,CAF,I,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_035,Colombia,COL,CONMEBOL,I,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_036,Scotland,SCO,UEFA,I,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_037,Portugal,POR,UEFA,J,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_038,Senegal,SEN,CAF,J,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_039,United Arab Emirates,UAE,AFC,J,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_040,Austria,AUT,UEFA,J,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_041,Netherlands,NED,UEFA,K,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_042,Côte d'Ivoire,CIV,CAF,K,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_043,Chile,CHI,CONMEBOL,K,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_044,Norway,NOR,UEFA,K,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_045,Belgium,BEL,UEFA,L,1,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_046,Turkey,TUR,UEFA,L,2,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_047,Paraguay,PAR,CONMEBOL,L,3,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
-team_048,New Zealand,NZL,OFC,L,4,0,1,ai_prefilled_needs_verification,2026-06-10T14:20:44.171700+00:00
+team_001,Czechia,CZE,,A,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_002,Mexico,MEX,,A,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_003,South Africa,RSA,,A,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_004,South Korea,KOR,,A,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_005,Bosnia and Herzegovina,,,B,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_006,Canada,CAN,,B,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_007,Qatar,QAT,,B,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_008,Switzerland,SUI,,B,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_009,Brazil,BRA,,C,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_010,Haiti,HAI,,C,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_011,Morocco,MAR,,C,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_012,Scotland,SCO,,C,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_013,Australia,AUS,,D,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_014,Paraguay,PAR,,D,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_015,Turkey,TUR,,D,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_016,United States,USA,,D,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_017,Curaçao,CUW,,E,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_018,Côte d'Ivoire,,,E,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_019,Ecuador,ECU,,E,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_020,Germany,GER,,E,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_021,Japan,JPN,,F,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_022,Netherlands,NED,,F,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_023,Sweden,SWE,,F,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_024,Tunisia,TUN,,F,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_025,Belgium,BEL,,G,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_026,Egypt,EGY,,G,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_027,Iran,IRN,,G,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_028,New Zealand,NZL,,G,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_029,Cabo Verde,CPV,,H,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_030,Saudi Arabia,KSA,,H,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_031,Spain,ESP,,H,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_032,Uruguay,URU,,H,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_033,France,FRA,,I,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_034,Iraq,IRQ,,I,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_035,Norway,NOR,,I,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_036,Senegal,SEN,,I,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_037,Algeria,ALG,,J,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_038,Argentina,ARG,,J,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_039,Austria,AUT,,J,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_040,Jordan,JOR,,J,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_041,Colombia,COL,,K,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_042,Congo DR,COD,,K,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_043,Portugal,POR,,K,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_044,Uzbekistan,UZB,,K,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_045,Croatia,CRO,,L,1.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_046,England,ENG,,L,2.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_047,Ghana,GHA,,L,3.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00
+team_048,Panama,PAN,,L,4.0,0.0,1.0,fifa_schedule_api,2026-06-10T15:56:13.449441+00:00

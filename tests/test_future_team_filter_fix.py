@@ -29,6 +29,42 @@ def test_get_available_teams_fallback_returns_non_empty(monkeypatch: pytest.Monk
     assert teams == sorted(teams)
 
 
+def test_get_official_team_list_prefers_populated_48_teams(tmp_path, monkeypatch: pytest.MonkeyPatch) -> None:
+    populated = tmp_path / "data" / "official" / "populated"
+    processed = tmp_path / "data" / "official" / "processed"
+    populated.mkdir(parents=True)
+    processed.mkdir(parents=True)
+
+    teams = []
+    for i in range(48):
+        teams.append(
+            {
+                "team": f"Team {i}",
+                "team_code": f"T{i:02d}",
+                "confederation": "UEFA",
+                "group": chr(ord("A") + (i // 4)),
+                "group_slot": (i % 4) + 1,
+                "is_host": 0,
+                "qualified": 1,
+                "source": "fifa_schedule_api",
+            }
+        )
+    pd.DataFrame(teams).to_csv(populated / C.POPULATED_OFFICIAL_TEAMS_FILE, index=False)
+    pd.DataFrame({"team": ["Old Team"], "source": ["ai_prefilled_needs_verification"]}).to_csv(
+        processed / C.OFFICIAL_TEAMS_FILE, index=False
+    )
+
+    monkeypatch.setattr(C, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr("src.official.loaders.PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr("src.official.loaders.OFFICIAL_PROCESSED_DIR", processed)
+
+    from src.official.loaders import get_official_team_list
+
+    official = get_official_team_list()
+    assert len(official) == 48
+    assert official == sorted(official)
+
+
 def test_get_available_teams_official_only_returns_official_teams(
     tmp_path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

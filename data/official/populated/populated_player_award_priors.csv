@@ -1,1 +1,1249 @@
-player,team,base_player_rating,expected_minutes_share,goals_prior,assists_prior,chance_creation_prior,defensive_actions_prior,goalkeeper_actions_prior,discipline_risk,star_role_score,flair_score,notes
+player,team,base_player_rating,expected_minutes_share,goals_prior,assists_prior,chance_creation_prior,defensive_actions_prior,goalkeeper_actions_prior,discipline_risk,star_role_score,flair_score,notes,source
+MASTIL Melvin,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MANDI Aissa,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABADA Achref,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TOUGAI Mohamed Amine,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BELAID Zineddine,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZERROUKI Ramiz,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAHREZ Riyad,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AOUAR Houssem,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOUIRI Amine,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHAIBI Fares,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HADJ MOUSSA Anis,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BENBOUALI Nadhir,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HADJAM Jaouen,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOUDAOUI Hicham,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AIT-NOURI Rayan,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BENBOT Oussama,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BELGHALI Ra,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMOURA Mohamed,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BENTALEB Nabil,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOULBINA Adil,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BENSEBAINI Ramy,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAZA Ibrahim,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZIDANE Luca,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TITRAOUI Yassine,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GHEDJEMIS Fares,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHERGUI Samir,Algeria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUSSO Juan,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BALERDI Leonardo,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAGLIAFICO Nicolas,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MONTIEL Gonzalo,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAREDES Leandro,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTINEZ Lisandro,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE PAUL Rodrigo,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BARCO Valentin,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALVAREZ Julian,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MESSI Lionel,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LO CELSO Giovani,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RULLI Geronimo,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROMERO Cristian,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PALACIOS Exequiel,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GONZALEZ Nico,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALMADA Thiago,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIMEONE Giuliano,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAZ Nico,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OTAMENDI Nicolas,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAC ALLISTER Alexis,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LOPEZ Jose Manuel,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTINEZ Lautaro,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTINEZ Emiliano,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FERNANDEZ Enzo,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MEDINA Facundo,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOLINA Nahuel,Argentina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RYAN Mathew,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEGENEK Milos,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CIRCATI Alessandro,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ITALIANO Jacob,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOS Jordan,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GERIA Jason,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LECKIE Mathew,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+METCALFE Connor,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TOURE Mohamed,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HRUSTIC Ajdin,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MABIL Awer,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IZZO Paul,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ONEILL Aiden,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEVLIN Cameron,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TREWIN Kai,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEHICH Aziz,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IRANKUNDA Nestory,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEACH Patrick,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOUTTAR Harry,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VOLPATO Cristian,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BURGESS Cameron,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IRVINE Jackson,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VELUPILLAY Nishan,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OKON-ENGSTLER Paul,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HERRINGTON Lucas,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YENGI Tete,Australia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHLAGER Alexander,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AFFENGRUBER David,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DANSO Kevin,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHLAGER Xaver,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+POSCH Stefan,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEIWALD Nicolas,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARNAUTOVIC Marko,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALABA David,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SABITZER Marcel,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GRILLITSCH Florian,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GREGORITSCH Michael,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WIEGELE Florian,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PENTZ Patrick,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KALAJDZIC Sasa,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LIENHART Philipp,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MWENE Phillip,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHUKWUEMEKA Carney,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHMID Romano,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAUMGARTNER Christoph,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LAIMER Konrad,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WIMMER Patrick,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PRASS Alexander,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FRIEDL Marco,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WANNER Paul,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SVOBODA Michael,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHOEPF Alessandro,Austria,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+COURTOIS Thibaut,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEBAST Zeno,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THEATE Arthur,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MECHELE Brandon,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE CUYPER Maxim,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WITSEL Axel,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE BRUYNE Kevin,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TIELEMANS Youri,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUKAKU Romelu,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TROSSARD Leandro,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOKU Jeremy,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LAMMENS Senne,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PENDERS Mike,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUKEBAKIO Dodi,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MEUNIER Thomas,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE WINTER Koni,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE KETELAERE Charles,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEYS Joaquin,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOREIRA Diego,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VANAKEN Hans,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CASTAGNE Timothy,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAELEMAEKERS Alexis,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RASKIN Nicolas,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ONANA Amadou,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NGOY Nathan,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FERNANDEZ-PARDO Matias,Belgium,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VASILJ Nikola,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUJAKIC Nihad,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HADZIKADUNIC Dennis,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUHAREMOVIC Tarik,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOLASINAC Sead,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAHIROVIC Benjamin,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEDIC Amar,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GIGOVIC Armin,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAZDAR Samed,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEMIROVIC Ermedin,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DZEKO Edin,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JURKAS Mladen,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BASIC Ivan,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUNJIC Ivan,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MEMIC Amar,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HADZIAHMETOVIC Amir,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BURNIC Dzenis,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KATIC Nikola,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALAJBEGOVIC Kerim,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAJRAKTAREVIC Esmir,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RADELJIC Stjepan,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZLOMISLIC Martin,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TABAKOVIC Haris,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CELIK Nidal,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUKIC Jovo,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAHMIC Ermin,Bosnia And Herzegovina,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALISSON,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EDERSON SILVA,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GABRIEL MAGALHAES,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARQUINHOS,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CASEMIRO,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALEX SANDRO,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VINICIUS JUNIOR,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BRUNO GUIMARAES,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MATHEUS CUNHA,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NEYMAR JR,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAPHINHA,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WEVERTON,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DANILO,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BREMER,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEO PEREIRA,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOUGLAS SANTOS,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FABINHO,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DANILO SANTOS,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ENDRICK,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUCAS PAQUETA,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUIZ HENRIQUE,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GABRIEL MARTINELLI,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EDERSON,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROGER IBANEZ,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IGOR THIAGO,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAYAN,Brazil,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VOZINHA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STOPIRA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DINEY BORGES,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PICO LOPES,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LOGAN COSTA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KEVIN PINA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOVANE CABRAL,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOAO PAULO,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GILSON BENCHIMOL,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JAMIRO MONTEIRO,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GARRY RODRIGUES,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARCIO ROSA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIDNY LOPES CABRAL,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEROY DUARTE,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LAROS DUARTE,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YANNICK SEMEDO,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WILLY SEMEDO,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TELMO ARCANJO,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DAILON LIVRAMENTO,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RYAN MENDES,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NUNO DA COSTA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STEVEN MOREIRA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CJ DOS SANTOS,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WAGNER PINA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KELVIN PIRES,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HELIO VARELA,Cabo Verde,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ST. CLAIR Dayne,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOHNSTON Alistair,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JONES Al,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE FOUGEROLLES Luc,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WATERMAN Joel,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHOINIERE Mathieu,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EUSTAQUIO Stephen,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KONE Ismael,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LARIN Cyle,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DAVID Jonathan,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MILLAR Liam,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OLUWASEYI Tani,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CORNELIUS Derek,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SHAFFELBURG Jacob,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOMBITO Moise,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CREPEAU Maxime,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BUCHANAN Tajon,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOODMAN Owen,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DAVIES Alphonso,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED Ali,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OSORIO Jonathan,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LARYEA Richie,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIGUR Niko,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DAVID Promise,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALIBA Nathan,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FLORES Marcelo,Canada,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OSPINA David,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUNOZ Daniel,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUCUMI Jhon,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARIAS Santiago,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CASTANO Kevin,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RIOS Richard,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIAZ Luis,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CARRASCAL Jorge,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CORDOBA Jhon,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRIGUEZ James,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARIAS Jhon,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VARGAS Camilo,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MINA Yerry,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PUERTA Gustavo,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PORTILLA Juan,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LERMA Jefferson,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOJICA Johan,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DITTA Willer,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HERNANDEZ Cucho,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+QUINTERO Juan,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CAMPAZ Jaminton,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MACHADO Deiver,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANCHEZ Davinson,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MONTERO Alvaro,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUAREZ Luis,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOMEZ Andres,Colombia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MPASI Lionel,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WAN-BISSAKA Aaron,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KAPUADI Steve,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TUANZEBE Axel,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BATUBINSIKA Dylan,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUKAU Ngalayel,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MBUKU Nathanael,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOUTOUSSAMY Samuel,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CIPENGA Brian,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BONGONDA Theo,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KAKUTA Gael,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KAYEMBE Joris,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ELIA Meschack,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SADIKI Noah,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TSHIBOLA Aaron,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FAYULU Timothy,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAKAMBU Cedric,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PICKEL Charles,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAYELE Fiston,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WISSA Yoane,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EPOLO Matthieu,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MBEMBA Chancel,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BANZA Simon,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KALULU Gedeon,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KAYEMBE Edo,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MASUAKU Arthur,Congo DR,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FOFANA Yahia,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOMANDE Ousmane,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KONAN Ghislain,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SERI Jean Michael,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SINGO Wilfried,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FOFANA Seko,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOSSOUNOU Odilon,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KESSIE Franck,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BONNY Ange-Yoan,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADINGRA Simon,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOMANDE Yan,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WAHI Elye,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OPERI Christopher,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIAKITE Oumar,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIALLO Amad,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KONE Mohamed,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOUE Guela,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANGARE Ibrahim,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PEPE Nicolas,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AGBADOU Emmanuel,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NDICKA Evan,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUESSAND Evann,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LAFONT Alban,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TOURE Bazoumana,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUIAGON Parfait,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OULAI Christ Inao,Côte D'Ivoire,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LIVAKOVIC Dominik,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STANISIC Josip,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PONGRACIC Marin,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GVARDIOL Josko,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CALETA-CAR Duje,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUTALO Josip,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MORO Nikola,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOVACIC Mateo,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KRAMARIC Andrej,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MODRIC Luka,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BUDIMIR Ante,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PANDUR Ivor,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VLASIC Nikola,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PERISIC Ivan,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PASALIC Mario,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BATURINA Martin,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUCIC Petar,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JAKIC Kristijan,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FRUK Toni,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MATANOVIC Igor,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUCIC Luka,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VUSKOVIC Luka,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOTARSKI Dominik,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PASALIC Marco,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ERLIC Martin,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUSA Petar,Croatia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROOM Eloy,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAMBO Shurandy,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GAARI Jurien,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VAN EIJMA Roshon,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FLORANUS Sherel,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROEMERATOE Godfried,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BACUNA Juninho,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+COMENENCIA Livano,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LOCADIA Juergen,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BACUNA Leandro,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANTONISSE Jeremy,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HANSEN Sontje,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NOSLIN Tyrese,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GORRE Kenji,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTHA Arjany,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARGARITHA Jearl,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KUWAS Brandley,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OBISPO Armando,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KASTANEER Gervane,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BRENET Joshua,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHONG Tahith,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FELIDA Kevin,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAZOER Riechedly,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FONVILLE Deveron,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BODAK Tyrick,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOORNBUSCH Trevor,Curaçao,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOVAR Matej,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZIMA David,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HOLES Tomas,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HRANAC Robin,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+COUFAL Vladimir,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHALOUPEK Stepan,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KREJCI Ladislav,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DARIDA Vladimir,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HLOZEK Adam,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHICK Patrik,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KUCHTA Jan,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CERV Lukas,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHYTIL Mojmir,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JURASEK David,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SULC Pavel,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STANEK Jindrich,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PROVOD Lukas,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SADILEK Michal,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHORY Tomas,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZELENY Jaroslav,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOUDERA David,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOUCEK Tomas,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HORNICEK Lukas,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOJKA Alexandr,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOCHUREK Hugo,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VISINSKY Denis,Czechia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GALINDEZ Hernan,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TORRES Felix,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HINCAPIE Piero,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ORDONEZ Joel,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALCIVAR Jordy,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PACHO Willian,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ESTUPINAN Pervis,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VALENCIA Anthony,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YEBOAH John,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAEZ Kendry,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRIGUEZ Kevin,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAMIREZ Moises,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VALENCIA Enner,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MINDA Alan,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VITE Pedro,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CAICEDO Jordy,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PRECIADO Angelo,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CASTILLO Denil,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PLATA Gonzalo,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANGULO Nilson,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FRANCO Alan,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VALLE Gonzalo,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CAICEDO Moises,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AREVALO Jeremy,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+POROZO Jackson,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MEDINA Yaimar,Ecuador,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED ELSHENAWY,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YASSER IBRAHIM,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED HANY,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HOSSAM ABDELMAGUID,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAMY RABIA,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED ABDELMONEIM,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TREZEGUET,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EMAM ASHOUR,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAMZA ABDELKARIM,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED SALAH,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOSTAFA ZICO,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAISSEM HASSAN,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED FATOUH,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAMDY FATHY,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KARIM HAFEZ,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAHDY SOLIMAN,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHANAD LASHIN,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NABIL DONGA,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARAWAN ATTIA,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IBRAHIM ADEL,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAHMOUD SABER,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OMAR MARMOUSH,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOSTAFA SHOUBIR,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAREK ALAA,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZIZO,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED ALAA,Egypt,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PICKFORD Jordan,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KONSA Ezri,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OREILLY Nico,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RICE Declan,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STONES John,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUEHI Marc,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAKA Bukayo,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANDERSON Elliot,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KANE Harry,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BELLINGHAM Jude,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RASHFORD Marcus,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LIVRAMENTO Tino,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HENDERSON Dean,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HENDERSON Jordan,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BURN Dan,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAINOO Kobbie,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROGERS Morgan,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GORDON Anthony,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WATKINS Ollie,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MADUEKE Noni,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EZE Eberechi,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TONEY Ivan,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TRAFFORD James,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JAMES Reece,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SPENCE Djed,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+QUANSAH Jarell,England,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAMBA Brice,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUSTO Malo,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIGNE Lucas,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+UPAMECANO Dayot,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOUNDE Jules,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KONE Manu,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEMBELE Ousmane,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TCHOUAMENI Aurelien,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THURAM Marcus,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MBAPPE Kylian,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OLISE Michael,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BARCOLA Bradley,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KANTE Ngolo,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RABIOT Adrien,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KONATE Ibrahima,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAIGNAN Mike,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALIBA William,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZAIRE-EMERY Warren,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HERNANDEZ Theo,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOUE Desire,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HERNANDEZ Lucas,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MATETA Jean-Philippe,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RISSER Robin,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHERKI Rayan,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKLIOUCHE Maghnes,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LACROIX Maxence,France,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NEUER Manuel,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RUEDIGER Antonio,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANTON Waldemar,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAH Jonathan,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAVLOVIC Aleksandar,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KIMMICH Joshua,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAVERTZ Kai,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GORETZKA Leon,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEWELING Jamie,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUSIALA Jamal,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WOLTEMADE Nick,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAUMANN Oliver,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GROSS Pascal,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEIER Maximilian,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHLOTTERBECK Nico,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STILLER Angelo,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WIRTZ Florian,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BROWN Nathaniel,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANE Leroy,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMIRI Nadiem,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NUEBEL Alexander,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAUM David,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NMECHA Felix,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THIAW Malick,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OUEDRAOGO Assan,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+UNDAV Deniz,Germany,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZIGI Lawrence Ati,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEIDU Alidu,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YIRENKYI Caleb,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADJETEY Jonas,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PARTEY Thomas,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUMIN Abdul,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FATAWU Abdul,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIBO Kwasi,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYEW Jordan,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THOMAS-ASANTE Brandon,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEMENYO Antoine,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANANG Joseph,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAAH Christopher Bonsu,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MENSAH Gideon,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OWUSU Elisha,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ASARE Benjamin,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAHMAN Baba,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OPOKU Jerome,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WILLIAMS Inaki,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOAKYE Augustine,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OPPONG Kojo Peprah,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SULEMANA Kamaldeen,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUCKASSEN Derrick,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NUAMAH Ernest,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADU Prince,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SENAYA Marvin,Ghana,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PLACIDE Johny,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARCUS Carlens,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THERMONCY Keeto,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADE Ricardo,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DELCROIX Hannes,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAINTE Carl,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ETIENNE Derrick,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EXPERIENCE Martin,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NAZON Duckens,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BELLEGARDE Jean-Ricner,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEEDSON Louicius,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PIERRE Alexandre,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LACROIX Markhus,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PIERRE Leverton,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PROVIDENCE Ruben,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOSEPH Lenny,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JEAN JACQUES Danley,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ISIDOR Wilson,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FORTUNE Yassin,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PIERROT Frantzdy,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CASIMIR Josue,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DUVERNE Jean-Kevin,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DUVERGER Josue,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAUGAIN Wilguens,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIMON Dominique,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PIERRE Woodensky,Haiti,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEIRANVAND Alireza,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HARDANI Saleh,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAJISAFI Ehsan,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KHALILZADEH Shoja,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMADI Milad,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EZATOLAHI Saeid,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JAHANBAKHSH Alireza,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHEBBI Mohammad,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAREMI Mehdi,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GHAYEDI Mehdi,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALIPOUR Ali,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NIAZMAND Payam,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KANANI Hossein,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GHODDOS Saman,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHESHMI Roozbeh,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TORABI Mehdi,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YOUSEFI Arya,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HOSSEINZADEH Amirhossein,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NEMATI Ali,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOGHANLOO Shahriyar,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GHORBANI Mohammad,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HOSSEINI Hossein,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REZAEIAN Ramin,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DARGAHI Dennis,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IRI Danial,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAZAGHINIA Amirmohammad,Iran,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FAHAD TALIB,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REBIN SULAKA,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HUSSEIN ALI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZAID TAHSEEN,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKAM HASHIM,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUNAF YOUNUS,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YOUSSEF AMYN,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IBRAHIM BAYESH,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI ALHAMADI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHANAD ALI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED QASIM,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JALAL HASSAN,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI YOUSIF,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZIDANE IQBAL,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED MAKNAZI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMIR ALAMMARI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI JASIM,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYMEN HUSSEIN,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KEVIN YAKOB,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AIMAR SHER,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARKO FARJI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED BASIL,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MERCHAS DOSKI,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZAID ISMAEL,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUSTAFA SAADOON,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FRANS PUTROS,Iraq,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUZUKI Zion,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUGAWARA Yukinari,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TANIGUCHI Shogo,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ITAKURA Kou,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NAGATOMO Yuto,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ENDO Wataru,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TANAKA Ao,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KUBO Takefusa,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOTO Keisuke,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DOAN Ritsu,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAEDA Daizen,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OSAKO Keisuke,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NAKAMURA Keito,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ITO Junya,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KAMADA Daichi,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WATANABE Tsuyoshi,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUZUKI Yuito,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+UEDA Ayase,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OGAWA Koki,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEKO Ayumu,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ITO Hiroki,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TOMIYASU Takehiro,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAYAKAWA Tomoki,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANO Kaishu,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUZUKI Junnosuke,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SHIOGAI Kento,Japan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YAZEED ABULAILA,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMAD ABUHASHEESH,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDALLAH NASIB,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HUSAM ABUDAHAB,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YAZAN ALARAB,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMER JAMOUS,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMAD ABUZRAIQ,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NOOR ALRAWABDEH,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI OLWAN,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOUSA ALTAMARI,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ODEH FAKHOURY,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NOUR BANIATEYAH,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAHMOUD ALMARDI,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAJAEI AYED,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IBRAHIM SADEH,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMAD ABUALNADI,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALEEM OBAID,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMAD ABUGHOUSH,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAED ALROSAN,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHANNAD ABUTAHA,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NIZAR ALRASHDAN,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDALLAH ALFAKHORI,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EHSAN HADDAD,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI AZAIZEH,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMAD ALDAOUD,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANAS BADAWI,Jordan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KIM Seunggyu,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEE Hanbeom,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEE Gihyuk,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KIM Minjae,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KIM Taehyeon,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HWANG Inbeom,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SON Heungmin,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAIK Seungho,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHO Guesung,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEE Jaesung,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HWANG Heechan,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SONG Bumkeun,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEE Taeseok,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHO Wije,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KIM Moonhwan,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PARK Jinseob,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAE Junho,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OH Hyeongyu,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEE Kangin,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YANG Hyunjun,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JO Hyeonwoo,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEOL Youngwoo,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CASTROP Jens,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KIM Jingyu,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EOM Jisung,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LEE Donggyeong,South Korea,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RANGEL Raul,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANCHEZ Jorge,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MONTES Cesar,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALVAREZ Edson,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VASQUEZ Johan,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LIRA Erik,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROMO Luis,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FIDALGO Alvaro,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JIMENEZ Raul,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VEGA Alexis,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GIMENEZ Santiago,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ACEVEDO Carlos,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OCHOA Guillermo,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GONZALEZ Armando,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REYES Israel,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+QUINONES Julian,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PINEDA Orbelin,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VARGAS Obed,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MORA Gilberto,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHAVEZ Mateo,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HUERTA Cesar,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTINEZ Guillermo,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GALLARDO Jesus,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHAVEZ Luis,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALVARADO Roberto,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUTIERREZ Brian,Mexico,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOUNOU Yassine,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAKIMI Achraf,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAZRAOUI Noussair,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMRABAT Sofyan,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AGUERD Nayef,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOUADDI Ayyoub,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TALBI Chemsdine,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OUNAHI Azzedine,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAHIMI Sou,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIAZ Brahim,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAIBARI Ismael,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EL KAJOUI Munir,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EL OUAHDI Zakaria,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOP Issa,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EL MOURABET Samir,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YASSINE Gessime,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EZZALZOULI Abde,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RIAD Chadi,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BELAMMARI Youssef,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EL KAABI Ayoub,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMAIMOUNI Ayoube,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAGNAOUTI Ahmed Reda,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EL KHANNOUSS Bilal,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EL AYNAOUI Neil,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HALHAL Redouane,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALAH EDDINE Anass,Morocco,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VERBRUGGEN Bart,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GEERTRUIDA Lutsharel,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE ROON Marten,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VAN DIJK Virgil,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKE Nathan,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VAN HECKE Jan Paul,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KLUIVERT Justin,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GRAVENBERCH Ryan,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WEGHORST Wout,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEPAY Memphis,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GAKPO Cody,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WIEFFER Mats,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROEFS Robin,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REIJNDERS Tijjani,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VAN DE VEN Micky,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TIL Guus,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LANG Noa,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MALEN Donyell,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BROBBEY Brian,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOOPMEINERS Teun,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE JONG Frenkie,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DUMFRIES Denzel,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FLEKKEN Mark,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SUMMERVILLE Crysencio,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HATO Jorrel,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TIMBER Quinten,Netherlands,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CROCOMBE Max,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAYNE Tim,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE VRIES Francis,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BINDON Tyler,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOXALL Michael,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BELL Joe,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GARBETT Matthew,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STAMENIC Marko,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WOOD Chris,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SINGH Sarpreet,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JUST Elijah,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PAULSEN Alex,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CACACE Liberato,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RUFER Alex,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PIJNAKER Nando,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SURMAN Finn,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BARBAROUSES Kosta,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WAINE Ben,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OLD Ben,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McCOWATT Callum,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RANDALL Jesse,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WOUD Michael,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THOMAS Ryan,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ELLIOT Callan,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAYLISS Lachlan,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SMITH Tommy,New Zealand,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NYLAND Orjan,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THORSBY Morten,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AJER Kristoffer,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OSTIGARD Leo,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOLLER WOLFE David,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BERG Patrick,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SORLOTH Alexander,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BERGE Sander,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAALAND Erling,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ODEGAARD Martin,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STRAND LARSEN Jorgen,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TANGVIK Sander,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SELVIK Egil,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AURSNES Fredrik,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BJORKAN Fredrik Andre,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HOLMGREN PEDERSEN Marcus,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HEGGEM Torbjorn,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+THORSTVEDT Kristian,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AASGAARD Thelo,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NUSA Antonio,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCHJELDERUP Andreas,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOBB Oscar,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HAUGE Jens Petter,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LANGAS Sondre,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FALCHENER Henrik,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RYERSON Julian,Norway,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MEJIA Luis,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BLACKMAN Cesar,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CORDOBA Jose,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ESCOBAR Fidel,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FARINA Edgardo,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTINEZ Cristian,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRIGUEZ Jose Luis,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CARRASQUILLA Adalberto,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRIGUEZ Tomas,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIAZ Ismael,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BARCENAS Edgar Yoel,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAMUDIO Cesar,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAMOS Jiovany,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HARVEY Carlos,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DAVIS Eric,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ANDRADE Andres,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FAJARDO Jose,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WATERMAN Cecilio,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+QUINTERO Alberto,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GODOY Anibal,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YANIS Cesar,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOSQUERA Orlando,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MURILLO Amir,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LONDONO Azarias,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MILLER Roderick,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUTIERREZ Jorge,Panama,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FERNANDEZ Gatito,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VELAZQUEZ Gustavo,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALDERETE Omar,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CACERES Juan Jose,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BALBUENA Fabian,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALONSO Junior,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOSA Ramon,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOMEZ Diego,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANABRIA Antonio,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALMIRON Miguel,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAURICIO,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GILL Orlando,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CANALE Jose,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CUBAS Andres,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOMEZ Gustavo,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOBADILLA Damian,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROMERO GAMARRA Alejandro,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARCE Alex,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ENCISO Julio,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OJEDA Braian,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AVALOS Gabriel,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OLVEIRA Gaston,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GALARZA Matias,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CABALLERO Gustavo,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PITTA Isidro,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAIDANA Alexandro,Paraguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOGO COSTA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NELSON SEMEDO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RUBEN DIAS,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TOMAS ARAUJO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOGO DALOT,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MATHEUS NUNES,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CRISTIANO RONALDO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BRUNO FERNANDES,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GONCALO RAMOS,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BERNARDO SILVA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOAO FELIX,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOSE SA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RENATO VEIGA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GONCALO INACIO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOAO NEVES,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FRANCISCO TRINCAO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAFAEL LEAO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PEDRO NETO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GONCALO GUEDES,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOAO CANCELO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RUBEN NEVES,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RUI SILVA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VITINHA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAMU COSTA,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NUNO MENDES,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FRANCISCO CONCEICAO,Portugal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAHMOUD ABUNADA,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PEDRO MIGUEL,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LUCAS MENDES,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ISSA LAYE,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JASSEM GABER,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDULAZIZ HATEM,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED ALAAELDIN,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EDMILSON JUNIOR,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMED MUNTARI,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HASSAN ALHAYDOS,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKRAM AFIF,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KARIM BOUDIAF,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYOUB ALOUI,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HOMAM AHMED,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YUSUF ABDURISAG,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BOUALEM KHOUKHI,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED ALGANEHI,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SULTAN ALBRAKE,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALMOEZ ALI,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED FATHY,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALAH ZAKARIA,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MESHAAL BARSHAM,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ASSIM MADIBO,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TAHSIN MOHAMMED,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALHASHMI ALHUSSEIN,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED MANAI,Qatar,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NAWAF ALAQIDI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI MAJRASHI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI LAJAMI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDULELAH ALAMRI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HASSAN ALTAMBAKTI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NASSER ALDAWSARI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUSAB ALJUWAYR,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AIMAN YAHYA,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FERAS ALBRIKAN,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALEM ALDAWSARI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SALEH ALSHEHRI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAUD ABDULHAMID,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NAWAF BU WASHL,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HASSAN KADISH,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDULLAH ALKHAIBARI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZIYAD ALJOHANI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KHALID ALGHANNAM,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALA ALHAJJI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDULLAH ALHAMDDAN,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SULTAN MANDASH,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMED ALOWAIS,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AHMED ALKASSAR,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMED KANNO,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOTEB ALHARBI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JEHAD THIKRI,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOHAMMED ABU ALSHAMAT,Saudi Arabia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUNN Angus,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HICKEY Aaron,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROBERTSON Andy,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McTOMINAY Scott,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HANLEY Grant,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TIERNEY Kieran,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McGINN John,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FLETCHER Tyler,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DYKES Lyndon,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADAMS Che,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHRISTIE Ryan,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KELLY Liam,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HENDRY Jack,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STEWART Ross,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOUTTAR John,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HYAM Dominic,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GANNON-DOAK Ben,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HIRST George,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FERGUSON Lewis,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SHANKLAND Lawrence,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GORDON Craig,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PATTERSON Nathan,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McLEAN Kenny,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RALSTON Anthony,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CURTIS Findlay,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McKENNA Scott,Scotland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOUF Yehvann,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SARR Mamadou,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOULIBALY Kalidou,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SECK Abdoulaye,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUEYE Idrissa Gana,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CISS Pathe,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIAO Assane,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CAMARA Lamine,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIENG Bamba,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MANE Sadio,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JACKSON Nicolas,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NDIAYE Cherif,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NDIAYE Iliman,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JAKOBS Ismail,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIATTA Krepin,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MENDY Edouard,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SARR Pape Matar,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SARR Ismaila,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NIAKHATE Moussa,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MBAYE Ibrahim,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIARRA Habib,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NDIAYE Bara Sapoko,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIAW Mory,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MENDY Antoine,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DIOUF El Hadji Malick,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUEYE Pape,Senegal,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WILLIAMS Ronwen,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MATULUDI Thabang,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NDAMANE Khulumani,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOKOENA Teboho,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MBATHA Thalente,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MODIBA Aubrey,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+APPOLLIS Oswin,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOREMI Tshepang,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FOSTER Lyle,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOFOKENG Relebohile,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZWANE Themba,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MASEKO Thapelo,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SITHOLE Sphephelo,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MBOKAZI Mbekezeli,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAYNERS Iqraam,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHAINE Sipho,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAKGOPA Evidence,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KABINI Samukele,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIBISI Nkosinathi,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUDAU Khuliso,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OKON Ime,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GOSS Ricardo,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADAMS Jayden,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MAKHANYA Olwethu,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEBELEBELE Kamogelo,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CROSS Bradley,South Africa,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RAYA David,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PUBILL Marc,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GRIMALDO Alex,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GARCIA Eric,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LLORENTE Marcos,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MERINO Mikel,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TORRES Ferran,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RUIZ Fabian,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GAVI,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OLMO Dani,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PINO Yeremy,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PORRO Pedro,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GARCIA Joan,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LAPORTE Aymeric,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAENA Alex,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRI,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WILLIAMS Nico,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZUBIMENDI Martin,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YAMAL Lamine,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PEDRI,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OYARZABAL Mikel,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CUBARSI Pau,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SIMON Unai,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CUCURELLA Marc,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUNOZ Victor,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+IGLESIAS Borja,Spain,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WIDELL ZETTERSTROM Jacob,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LAGERBIELKE Gustaf,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+LINDELOF Victor,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HIEN Isak,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUDMUNDSSON Gabriel,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOHANSSON Herman,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BERGVALL Lucas,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SVENSSON Daniel,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ISAK Alexander,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NYGREN Benjamin,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ELANGA Anthony,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JOHANSSON Viktor,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SEMA Ken,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EKDAL Hjalmar,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STARFELT Carl,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KARLSTROM Jesper,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GYOKERES Viktor,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYARI Yasin,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SVANBERG Mattias,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SMITH Eric,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BERNHARDSSON Alexander,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZENELI Besfort,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NORDFELDT Kristoffer,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+STROUD Elliot,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NILSSON Gustaf,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALI Taha,Sweden,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOBEL Gregor,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUHEIM Miro,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WIDMER Silvan,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ELVEDI Nico,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKANJI Manuel,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZAKARIA Denis,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+EMBOLO Breel,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FREULER Remo,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MANZAMBI Johan,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+XHAKA Granit,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NDOYE Dan,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MVOGO Yvon,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRIGUEZ Ricardo,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JASHARI Ardon,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOW Djibril,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FASSNACHT Christian,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VARGAS Ruben,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+COEMERT Eray,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OKAFOR Noah,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AEBISCHER Michel,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KELLER Marvin,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RIEDER Fabian,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMDOUNI Zeki,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMENDA Aurele,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+JAQUEZ Luca,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ITTEN Cedric,Switzerland,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHAMAKH Mouhib,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDI Ali,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TALBI Montassar,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REKIK Omar,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AROUS Adam,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BRONN Dylan,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ACHOURI Elias,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAAD Elias,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MASTOURI Hazem,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MEJBRI Hannibal,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GHARBI Ismael,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEN OUANES Mortadha,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KHEDIRA Rani,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYARI Khalil,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+HADJ MAHMOUD Mohamed,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DAHMEN Aymen,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SKHIRI Ellyes,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ELLOUMI Rayan,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHAOUAT Firas,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VALERY Yan,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEN HMIDA Mohamed Amine,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BEN HESSEN Sabri,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NEFFATI Moutaz,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CHIKHAOUI Raed,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SLIMANE Anis,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TOUNEKTI Sebastian,Tunisia,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUNOK Mert,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CELIK Zeki,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEMIRAL Merih,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SOYUNCU Caglar,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OZCAN Salih,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KOKCU Orkun,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKTURKOGLU Kerem,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GULER Arda,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GUL Deniz,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CALHANOGLU Hakan,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YILDIZ Kenan,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BAYINDIR Altay,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ELMALI Eren,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BARDAKCI Abdulkerim,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KABAK Ozan,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YUKSEK Ismail,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KAHVECI Irfan Can,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MULDUR Mert,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKGUN Yunus,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KADIOGLU Ferdi,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YILMAZ Baris Alper,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYHAN Kaan,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CAKIR Ugurcan,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AYDIN Oguz,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AKAYDIN Samet,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+UZUN Can,Turkey,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROCHET Sergio,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GIMENEZ Jose Maria,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CACERES Sebastian,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARAUJO Ronald,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+UGARTE Manuel,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BENTANCUR Rodrigo,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE LA CRUZ Nicolas,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VALVERDE Federico,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NUNEZ Darwin,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DE ARRASCAETA Giorgian,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PELLISTRI Facundo,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MELE Santiago,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VARELA Guillermo,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+CANOBBIO Agustin,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MARTINEZ Emiliano,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+OLIVERA Mathias,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VINA Matias,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RODRIGUEZ Brian,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AGUIRRE Rodrigo,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARAUJO Maxi,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+VINAS Federico,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PIQUEREZ Joaquin,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MUSLERA Fernando,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BUENO Santiago,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SANABRIA Juan Manuel,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZALAZAR Rodrigo,Uruguay,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TURNER Matt,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+DEST Sergino,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+RICHARDS Chris,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ADAMS Tyler,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROBINSON Antonee,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TRUSTY Auston,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REYNA Giovanni,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McKENNIE Weston,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PEPI Ricardo,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+PULISIC Christian,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AARONSON Brenden,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROBINSON Miles,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+REAM Tim,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BERHALTER Sebastian,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ROLDAN Cristian,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FREEMAN Alex,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+TILLMAN Malik,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ARFSTEN Max,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WRIGHT Haji,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BALOGUN Folarin,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+WEAH Timothy,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+McKENZIE Mark,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SCALLY Joe,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FREESE Matt,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+BRADY Chris,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ZENDEJAS Alex,United States,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+YUSUPOV Utkir,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KHUSANOV Abdukodir,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ALIJONOV Khojiakbar,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SAYFIEV Farrukh,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ASHURMATOV Rustam,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MOZGOVOY Akmal,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SHUKUROV Otabek,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ISKANDEROV Jamshid,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+XAMROBEKOV Odiljon,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+MASHARIPOV Jaloliddin,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+URUNOV Oston,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NEMATOV Abduvohid,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+NASRULLAEV Sherzod,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SHOMURODOV Eldor,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ESHMURODOV Umar,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ERGASHEV Botirali,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KHAMDAMOV Dostonbek,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ABDULLAEV Abdulla,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+GANIEV Azizjon,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+AMONOV Azizbek,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+SERGEEV Igor,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+FAYZULLAEV Abbosbek,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ESANOV Sherzod,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+KARIMOV Behruzjon,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+ULMASALIYEV Avazbek,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf
+UROZOV Jakhongir,Uzbekistan,50,0.5,0,0,0,0,0,0.5,0,0,Edit these conservative defaults with expert knowledge,fifa_squad_pdf

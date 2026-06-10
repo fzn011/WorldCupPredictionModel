@@ -569,6 +569,40 @@ python -m streamlit run app/streamlit_app.py
 
 ---
 
+## Step 17H: Official Data Apply Blocker Cleanup
+
+Step 17H cleans up remaining blockers after imported FIFA schedule/squad data is staged in populated CSVs.
+
+- Normalizes FIFA stage labels like **First Stage** → `group_stage`.
+- Rebuilds teams/groups from verified imported schedule when possible (48 teams, 12 groups).
+- Cleans source labels for verified imports (`fifa_schedule_api`, `fifa_squad_pdf`, etc.).
+- Separates **true blockers** from optional metadata warnings (capacity, lat/long, height).
+- Fixes official team dropdown count via populated-team preference in `get_official_team_list()`.
+- Does **not** bypass readiness or build awards.
+
+### Step 17H commands
+
+```bash
+python scripts/cleanup_official_apply_blockers.py
+python scripts/cleanup_official_apply_blockers.py --apply
+python scripts/prepare_populated_official_data.py --schedule-file data/official/imports/fifa_schedule.xlsx --squad-file data/official/imports/fifa_squads.csv
+python scripts/apply_populated_official_data.py --preview
+python scripts/apply_populated_official_data.py --apply
+python scripts/evaluate_official_final_readiness.py
+python scripts/fix_and_check_future_team_filter.py
+python -m pytest -q
+python -m streamlit run app/streamlit_app.py
+```
+
+### Step 17H outputs
+
+| Artifact | Path |
+|----------|------|
+| Blocker cleanup report | `data/official/populated/reports/official_apply_blocker_cleanup_report.csv` |
+| Completeness report | `data/official/populated/reports/official_population_completeness_report.csv` |
+
+---
+
 ## Step 18: FIFA World Cup Awards Predictor
 
 > **Code step — blocked until Steps 17E and 17F are complete and `official_final = true`.**
