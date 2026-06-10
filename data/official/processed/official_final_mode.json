@@ -1,0 +1,21 @@
+{
+  "official_final_enabled": true,
+  "promoted_at": "2026-06-10T16:14:31.730117+00:00",
+  "readiness_summary": {
+    "status": "ready",
+    "is_official_final_ready": true,
+    "blocker_count": 0,
+    "warning_count": 0,
+    "blockers": [],
+    "summary": {
+      "total_checks": 15,
+      "passed_checks": 15,
+      "failed_checks": 0,
+      "blocker_count": 0,
+      "warning_count": 0,
+      "teams_count": 48,
+      "players_count": 1248,
+      "teams_with_26_players": 48
+    }
+  }
+}
