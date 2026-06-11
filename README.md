@@ -16,10 +16,25 @@ This project is designed as a serious portfolio-level machine learning system. I
 
 > This project produces explainable analytics estimates. It is not affiliated with FIFA and does not provide official FIFA predictions or betting advice.
 
+## App Screenshots
+
+| Home command center | Match Predictor |
+| --- | --- |
+| ![Home dashboard](docs/screenshots/01-home.png) | ![Match Predictor](docs/screenshots/02-match-predictor.png) |
+
+| Tournament Forecast | World Cup Awards |
+| --- | --- |
+| ![Tournament Forecast](docs/screenshots/03-tournament-forecast.png) | ![World Cup Awards](docs/screenshots/04-world-cup-awards.png) |
+
+| Reports | Data Quality |
+| --- | --- |
+| ![Reports downloads](docs/screenshots/05-reports.png) | ![Data Quality](docs/screenshots/06-data-quality.png) |
+
 ---
 
 ## Table of Contents
 
+* [App Screenshots](#app-screenshots)
 * [Project Overview](#project-overview)
 * [Core Features](#core-features)
 * [Why This Project Is Different](#why-this-project-is-different)
@@ -896,6 +911,6 @@ All outputs are probabilistic analytics estimates based on available data, model
 
 ## Author
 
-Built by **Faiyaz Zahin** as a machine learning, data science, and sports analytics portfolio project.
+Built by **[Faiaz Zahin](https://fzn011.github.io/portfolio/)** as a machine learning, data science, and sports analytics portfolio project.
 
 GitHub: `fzn011`

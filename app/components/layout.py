@@ -202,6 +202,12 @@ def render_app_shell(home_renderer: Callable[[], None]) -> None:
     except Exception as exc:
         st.error(f"Unable to load {active!r}. Check the terminal for details.")
         st.exception(exc)
+    else:
+        try:
+            from app.components.ui import render_app_footer
+        except ModuleNotFoundError:
+            from components.ui import render_app_footer
+        render_app_footer()
 
 
 # Back-compat alias used in tests
