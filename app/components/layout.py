@@ -62,6 +62,7 @@ PAGE_FILES: dict[str, str] = {
 
 _SESSION_ACTIVE = "active_page"
 _SESSION_ADVANCED = "show_advanced_tools"
+_NAV_RADIO_KEY = "wc_sidebar_nav_radio"
 _RENDERER_CACHE: dict[str, Callable[[], None]] = {}
 
 
@@ -70,6 +71,26 @@ def _init_session() -> None:
         st.session_state[_SESSION_ACTIVE] = "Home"
     if _SESSION_ADVANCED not in st.session_state:
         st.session_state[_SESSION_ADVANCED] = False
+    if _NAV_RADIO_KEY not in st.session_state:
+        st.session_state[_NAV_RADIO_KEY] = "Home"
+
+
+def _nav_options() -> list[str]:
+    options = list(MAIN_PAGES)
+    if st.session_state.get(_SESSION_ADVANCED):
+        options.extend(ADMIN_PAGES)
+    return options
+
+
+def _set_active_page(page: str) -> str:
+    """Single source of truth for active page + sidebar radio widget."""
+    _init_session()
+    options = _nav_options()
+    if page not in options:
+        page = "Home"
+    st.session_state[_SESSION_ACTIVE] = page
+    st.session_state[_NAV_RADIO_KEY] = page
+    return page
 
 
 def navigate_to(page: str) -> None:
@@ -79,9 +100,10 @@ def navigate_to(page: str) -> None:
         return
     if page in ADMIN_PAGES and not st.session_state[_SESSION_ADVANCED]:
         return
-    if st.session_state[_SESSION_ACTIVE] != page:
-        st.session_state[_SESSION_ACTIVE] = page
-        st.rerun()
+    if st.session_state[_SESSION_ACTIVE] == page:
+        return
+    _set_active_page(page)
+    st.rerun()
 
 
 @contextmanager
@@ -136,32 +158,19 @@ def render_sidebar_navigation(*, home_renderer: Callable[[], None] | None = None
     )
     st.session_state[_SESSION_ADVANCED] = show_advanced
 
-    options = list(MAIN_PAGES)
-    if show_advanced:
-        options.extend(ADMIN_PAGES)
-
-    active = st.session_state[_SESSION_ACTIVE]
-    if active not in options:
-        active = "Home"
-        st.session_state[_SESSION_ACTIVE] = active
-
-    try:
-        index = options.index(active)
-    except ValueError:
-        index = 0
-        active = options[0]
-        st.session_state[_SESSION_ACTIVE] = active
+    options = _nav_options()
+    if st.session_state[_SESSION_ACTIVE] not in options:
+        _set_active_page("Home")
 
     selected = st.radio(
         "Navigation",
         options=options,
-        index=index,
         label_visibility="collapsed",
-        key="wc_sidebar_nav_radio",
+        key=_NAV_RADIO_KEY,
     )
 
     if selected != st.session_state[_SESSION_ACTIVE]:
-        st.session_state[_SESSION_ACTIVE] = selected
+        _set_active_page(selected)
         st.rerun()
 
     return st.session_state[_SESSION_ACTIVE]

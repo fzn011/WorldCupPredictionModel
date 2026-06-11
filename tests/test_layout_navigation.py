@@ -24,6 +24,31 @@ def test_layout_page_files_use_views_directory() -> None:
         assert rel.startswith("views/"), rel
 
 
+def test_navigate_to_syncs_sidebar_radio_key() -> None:
+    from app.components.layout import _NAV_RADIO_KEY, _SESSION_ACTIVE, _set_active_page
+
+    class _State(dict):
+        def __getattr__(self, key):
+            return self[key]
+
+        def __setattr__(self, key, value):
+            self[key] = value
+
+    fake_state = _State(
+        {
+            _SESSION_ACTIVE: "Home",
+            "show_advanced_tools": False,
+            _NAV_RADIO_KEY: "Home",
+        }
+    )
+    import app.components.layout as layout
+
+    layout.st.session_state = fake_state
+    _set_active_page("Match Predictor")
+    assert fake_state[_SESSION_ACTIVE] == "Match Predictor"
+    assert fake_state[_NAV_RADIO_KEY] == "Match Predictor"
+
+
 def test_theme_inject_helper_imports() -> None:
     from app.styles.worldcup_theme import inject_worldcup_css
 

@@ -132,14 +132,32 @@ def render_home_page() -> None:
 
     cta1, cta2, cta3 = st.columns(3)
     with cta1:
-        if st.button("Predict a Match", use_container_width=True, type="primary", key="home_cta_match"):
-            navigate_to("Match Predictor")
+        st.button(
+            "Predict a Match",
+            use_container_width=True,
+            type="primary",
+            key="home_cta_match",
+            on_click=navigate_to,
+            kwargs={"page": "Match Predictor"},
+        )
     with cta2:
-        if st.button("Forecast Tournament", use_container_width=True, type="primary", key="home_cta_forecast"):
-            navigate_to("Tournament Forecast")
+        st.button(
+            "Forecast Tournament",
+            use_container_width=True,
+            type="primary",
+            key="home_cta_forecast",
+            on_click=navigate_to,
+            kwargs={"page": "Tournament Forecast"},
+        )
     with cta3:
-        if st.button("Explore Awards", use_container_width=True, type="primary", key="home_cta_awards"):
-            navigate_to("World Cup Awards")
+        st.button(
+            "Explore Awards",
+            use_container_width=True,
+            type="primary",
+            key="home_cta_awards",
+            on_click=navigate_to,
+            kwargs={"page": "World Cup Awards"},
+        )
 
     render_section_header("System status")
     s1, s2, s3, s4, s5, s6 = st.columns(6)
@@ -172,13 +190,23 @@ def render_home_page() -> None:
                         "Forecast sample is small. Run more simulations on the Tournament Forecast page "
                         "for stronger estimates."
                     )
-                    if st.button("Refresh forecast", type="primary", key="home_refresh_mc"):
-                        navigate_to("Tournament Forecast")
+                    st.button(
+                        "Refresh forecast",
+                        type="primary",
+                        key="home_refresh_mc",
+                        on_click=navigate_to,
+                        kwargs={"page": "Tournament Forecast"},
+                    )
                 render_champion_spotlight(top_champion, top_champ_prob)
             else:
                 st.info("Run a tournament forecast to see champion probabilities.")
-                if st.button("Open Tournament Forecast", use_container_width=True, key="home_open_forecast"):
-                    navigate_to("Tournament Forecast")
+                st.button(
+                    "Open Tournament Forecast",
+                    use_container_width=True,
+                    key="home_open_forecast",
+                    on_click=navigate_to,
+                    kwargs={"page": "Tournament Forecast"},
+                )
 
     with right:
         with st.container(border=True):
