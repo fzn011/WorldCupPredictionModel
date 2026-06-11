@@ -247,7 +247,30 @@ def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
         )
 
 
-# ─── Quick nav cards ───────────────────────────────────────────────────────────
+def render_quick_nav_grid(items: list[dict[str, str]]) -> None:
+    """Navigation grid — icon, title, hint, and page link per tile."""
+    cols = st.columns(3)
+    for idx, item in enumerate(items):
+        with cols[idx % 3]:
+            icon = item.get("icon", "⚽")
+            title = item.get("title", "")
+            hint = item.get("hint", "")
+            page = item.get("page", "")
+            st.markdown(
+                f"""
+<div class="wc-nav-tile">
+  <div class="wc-nav-tile-icon">{icon}</div>
+  <div class="wc-nav-tile-title">{title}</div>
+  <div class="wc-nav-tile-hint">{hint}</div>
+</div>
+                """,
+                unsafe_allow_html=True,
+            )
+            if page:
+                st.page_link(page, label=f"Open {title}", use_container_width=True)
+
+
+# ─── Quick nav cards (legacy) ──────────────────────────────────────────────────
 
 def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
     """Quick-link action cards. Each item: title, hint, page (sidebar link)."""

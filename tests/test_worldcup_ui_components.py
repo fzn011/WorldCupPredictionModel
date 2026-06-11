@@ -46,6 +46,9 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         ".wc-hero",
         ".wc-card",
         ".wc-badge-ok",
+        ".wc-brand-hero",
+        ".wc-sidebar-brand",
+        ".wc-nav-tile",
         ".wc-formation",
         "inject_worldcup_css",
         "st.html",
@@ -78,6 +81,7 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_progress_bar",
         "render_readiness_item",
         "render_champion_spotlight",
+        "render_quick_nav_grid",
         "inject_page_theme",
     ):
         assert f"def {name}" in source

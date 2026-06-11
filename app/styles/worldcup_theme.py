@@ -226,6 +226,145 @@ section[data-testid="stSidebar"] * {{
   line-height: 1.55;
 }}
 
+/* ─── Brand bar (logo + hero) ───────────────────────────────── */
+.wc-brand-hero {{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, {c['surface']} 0%, {c['card']} 55%, rgba(139,0,0,0.08) 100%);
+  border: 1px solid {c['card_border']};
+  border-left: 5px solid {c['primary']};
+  border-radius: 16px;
+  padding: 1.35rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+}}
+.wc-brand-hero-logo {{
+  flex-shrink: 0;
+}}
+.wc-hero-logo {{
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}}
+.wc-hero-logo-fallback {{
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: {c['primary']};
+  border-radius: 14px;
+  font-family: {FONT_HEADING};
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: {c['white']};
+}}
+.wc-brand-hero-body {{
+  flex: 1;
+  min-width: 0;
+}}
+.wc-brand-hero-body h1 {{
+  margin: 0.25rem 0 0.35rem 0 !important;
+}}
+
+/* ─── Sidebar brand (upper-left) ────────────────────────────── */
+.wc-sidebar-brand {{
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0.65rem 1.1rem 0.65rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid {c['card_border']};
+}}
+.wc-sidebar-logo {{
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}}
+.wc-sidebar-logo-fallback {{
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: {c['primary']};
+  border-radius: 10px;
+  font-family: {FONT_HEADING};
+  font-weight: 800;
+  font-size: 0.65rem;
+  line-height: 1.1;
+  text-align: center;
+  color: {c['white']};
+}}
+.wc-sidebar-brand-title {{
+  font-family: {FONT_HEADING};
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: {c['white']};
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}}
+.wc-sidebar-brand-sub {{
+  font-size: 0.72rem;
+  color: {c['muted']};
+  margin-top: 0.15rem;
+}}
+
+/* ─── Nav grid tiles ────────────────────────────────────────── */
+.wc-nav-tile {{
+  background: {c['surface']};
+  border: 1px solid {c['card_border']};
+  border-left: 3px solid {c['primary']};
+  border-radius: 12px;
+  padding: 1rem 1rem 0.65rem 1rem;
+  margin-bottom: 0.35rem;
+  min-height: 108px;
+  transition: border-color 0.15s, transform 0.15s;
+}}
+.wc-nav-tile:hover {{
+  border-color: {c['primary']};
+  transform: translateY(-2px);
+}}
+.wc-nav-tile-icon {{ font-size: 1.45rem; margin-bottom: 0.35rem; }}
+.wc-nav-tile-title {{
+  font-family: {FONT_HEADING};
+  color: {c['white']};
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}}
+.wc-nav-tile-hint {{
+  color: {c['muted']};
+  font-size: 0.76rem;
+  line-height: 1.35;
+  margin-top: 0.25rem;
+}}
+
+/* ─── Dashboard two-column layout ───────────────────────────── */
+.wc-dash-panel {{
+  background: {c['surface']};
+  border: 1px solid {c['card_border']};
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  height: 100%;
+}}
+.wc-dash-panel-title {{
+  font-family: {FONT_HEADING};
+  color: {c['primary']};
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid {c['card_border']};
+}}
+
 /* ─── Cards ────────────────────────────────────────────────── */
 .wc-card {{
   background: {c['card']};
