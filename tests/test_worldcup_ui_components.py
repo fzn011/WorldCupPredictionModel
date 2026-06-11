@@ -157,5 +157,5 @@ def test_streamlit_app_uses_navigation() -> None:
     source = (REPO_ROOT / "app" / "streamlit_app.py").read_text(encoding="utf-8")
     assert "st.navigation" in source
     assert "pages/3_Data_Health.py" in source
-    assert "Show technical tools" in source
+    assert "Advanced tools" in source
     assert "pages/_dev/" in source

@@ -20,7 +20,6 @@ LOGO_LEGACY = _IMAGES_DIR / "hd-official-2026-fifa-world-cup-transparent-png.png
 
 
 def resolve_logo_path() -> Path | None:
-    """Return first existing logo under app/static/images/."""
     for path in (LOGO_OFFICIAL, LOGO_STANDARD, LOGO_ALT, LOGO_LEGACY):
         if path.is_file():
             return path
@@ -34,7 +33,6 @@ def resolve_logo_path() -> Path | None:
 
 
 def logo_data_uri() -> str | None:
-    """Base64 data URI for embedding logo in HTML."""
     path = resolve_logo_path()
     if not path:
         return None
@@ -49,27 +47,24 @@ def logo_data_uri() -> str | None:
     return f"data:{mime};base64,{encoded}"
 
 
-def _logo_block(*, css_class: str, alt: str, fallback_inner: str) -> str:
+def _logo_block(*, css_class: str, alt: str) -> str:
     data_uri = logo_data_uri()
     if data_uri:
         return (
             f'<img class="{css_class}" src="{data_uri}" alt="{html.escape(alt)}" '
             f'loading="lazy" />'
         )
-    return f'<div class="{css_class}-fallback">{fallback_inner}</div>'
+    return ""
 
 
-def render_sidebar_brand(*, tagline: str = "Analytics Command Center") -> None:
-    """Logo + title at top of sidebar."""
-    logo_html = _logo_block(
-        css_class="wc-sidebar-logo",
-        alt="World Cup 2026",
-        fallback_inner="WC<br>26",
-    )
+def render_sidebar_brand(*, tagline: str = "AI Predictor") -> None:
+    """Clean sidebar brand block."""
+    logo_html = _logo_block(css_class="wc-sidebar-logo", alt="World Cup 2026")
+    logo_slot = logo_html if logo_html else '<div class="wc-sidebar-logo-text">WC</div>'
     st.markdown(
         f"""
 <div class="wc-sidebar-brand">
-  {logo_html}
+  <div class="wc-sidebar-logo-wrap">{logo_slot}</div>
   <div class="wc-sidebar-brand-text">
     <div class="wc-sidebar-brand-title">World Cup 2026</div>
     <div class="wc-sidebar-brand-sub">{html.escape(tagline)}</div>
@@ -78,8 +73,6 @@ def render_sidebar_brand(*, tagline: str = "Analytics Command Center") -> None:
         """,
         unsafe_allow_html=True,
     )
-    if resolve_logo_path() is None:
-        st.caption(f"Logo not found. Expected: {LOGO_OFFICIAL.name}")
 
 
 def render_branded_hero(
@@ -88,16 +81,14 @@ def render_branded_hero(
     *,
     eyebrow: str = "Command Center",
 ) -> None:
-    """Homepage hero with logo on the left."""
-    logo_block = _logo_block(
-        css_class="wc-hero-logo",
-        alt="World Cup 2026",
-        fallback_inner="2026",
+    logo_block = _logo_block(css_class="wc-hero-logo", alt="World Cup 2026")
+    logo_col = (
+        f'<div class="wc-brand-hero-logo">{logo_block}</div>' if logo_block else ""
     )
     st.markdown(
         f"""
 <div class="wc-brand-hero">
-  <div class="wc-brand-hero-logo">{logo_block}</div>
+  {logo_col}
   <div class="wc-brand-hero-body">
     <div class="wc-hero-eyebrow">{html.escape(eyebrow)}</div>
     <h1>{html.escape(title)}</h1>

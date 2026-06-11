@@ -26,38 +26,39 @@ try:
         inject_page_theme,
         render_data_table,
         render_download_card,
+        render_empty_state,
         render_formation_diagram,
         render_hero,
-        render_info_panel,
         render_metric_card,
         render_podium_cards,
         render_section_header,
-        render_status_card,
+        render_status_badge,
         render_success_panel,
-        render_warning_panel,
     )
 except ModuleNotFoundError:
     from components.ui import (
         inject_page_theme,
         render_data_table,
         render_download_card,
+        render_empty_state,
         render_formation_diagram,
         render_hero,
-        render_info_panel,
         render_metric_card,
         render_podium_cards,
         render_section_header,
-        render_status_card,
+        render_status_badge,
         render_success_panel,
-        render_warning_panel,
     )
+
+try:
+    from app.product_status import load_product_data_status
+except ModuleNotFoundError:
+    from product_status import load_product_data_status
 
 from src.awards.award_data import resolve_player_sort_column  # noqa: E402
 from src.awards.manual_priors import resolve_manual_prior_file  # noqa: E402
 from src.awards.prior_enrichment import create_enriched_player_priors, merge_enriched_priors_into_award_candidates  # noqa: E402
 from src.awards.prepare_awards import prepare_step18_world_cup_awards  # noqa: E402
-from src.official.final_readiness import evaluate_official_final_readiness  # noqa: E402
-from src.official.promotion import load_official_final_mode  # noqa: E402
 import src.utils.constants as C  # noqa: E402
 
 AWARDS_ANALYTICS_DISCLAIMER = str(getattr(C, "AWARDS_ANALYTICS_DISCLAIMER", "Analytics estimate only."))
@@ -110,211 +111,49 @@ def _player_col(df: pd.DataFrame) -> str:
 
 
 def _formation_lines(team_df: pd.DataFrame, name_col: str) -> list[list[str]]:
-    """Build 4-3-3 display rows (forwards at top, GK at bottom)."""
     if team_df.empty or "formation_slot" not in team_df.columns:
         return []
-    slot_map = {
-        row["formation_slot"]: str(row.get(name_col, "—"))
-        for _, row in team_df.iterrows()
-    }
+    slot_map = {row["formation_slot"]: str(row.get(name_col, "—")) for _, row in team_df.iterrows()}
 
     def _line(prefix: str, count: int) -> list[str]:
         return [slot_map.get(f"{prefix}{i}", "—") for i in range(1, count + 1)]
 
-    return [
-        _line("FWD", 3),
-        _line("MID", 3),
-        _line("DEF", 4),
-        _line("GK", 1),
-    ]
+    return [_line("FWD", 3), _line("MID", 3), _line("DEF", 4), _line("GK", 1)]
+
+
+def _leader_from_df(df: pd.DataFrame, rank_col: str, name_col: str) -> str:
+    if df.empty or rank_col not in df.columns:
+        return ""
+    top = df.sort_values(rank_col).head(1)
+    if top.empty:
+        return ""
+    return str(top.iloc[0].get(name_col, ""))
+
+
+def _awards_outputs_exist() -> bool:
+    summary = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
+    if summary:
+        return True
+    return any(
+        (PROCESSED_DATA_DIR / f).is_file()
+        for f in (
+            GOLDEN_BALL_PREDICTIONS_FILE,
+            GOLDEN_BOOT_PREDICTIONS_FILE,
+            GOLDEN_GLOVE_PREDICTIONS_FILE,
+            YOUNG_PLAYER_PREDICTIONS_FILE,
+            TEAM_OF_THE_TOURNAMENT_FILE,
+        )
+    )
 
 
 inject_page_theme()
 render_hero(
     "World Cup Awards Forecast",
-    "Analytics-based estimates using official squads and tournament simulations.",
+    "Golden Ball, Golden Boot, Golden Glove, Young Player, and Team of the Tournament estimates.",
     eyebrow="Awards analytics",
 )
 
-render_info_panel(AWARDS_ANALYTICS_DISCLAIMER)
-
-final_mode = load_official_final_mode()
-readiness = evaluate_official_final_readiness()
-official_final_enabled = bool(final_mode.get("official_final_enabled", False))
-final_ready = bool(readiness.get("is_official_final_ready", False))
-awards_allowed = official_final_enabled and final_ready
-summary = readiness.get("summary", {})
-
-if final_ready and official_final_enabled:
-    render_success_panel("Official data verified. Awards forecasts are enabled.")
-else:
-    render_info_panel("Awards require verified official data. Review the Data Quality page for status.")
-
-render_section_header("Dataset status")
-c1, c2, c3, c4 = st.columns(4)
-with c1:
-    render_status_card(
-        "Official Data",
-        "Ready" if official_final_enabled else "Pending",
-        badge="ok" if official_final_enabled else "warn",
-    )
-with c2:
-    render_status_card(
-        "Verification",
-        "Complete" if final_ready else "In progress",
-        badge="ok" if final_ready else "warn",
-    )
-with c3:
-    render_metric_card("Players", str(summary.get("players_count", "—")))
-with c4:
-    render_metric_card("Full squads", str(summary.get("teams_with_26_players", "—")))
-
-if not awards_allowed:
-    with st.expander("Technical requirements (admin)"):
-        st.markdown(
-            "Awards generation requires verified official data. "
-            "Enable technical tools in the sidebar for admin workflows."
-        )
-    st.stop()
-
-enriched_path = PROCESSED_DATA_DIR / getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")
-quality_path = PROCESSED_DATA_DIR / getattr(C, "PLAYER_PRIOR_QUALITY_REPORT_FILE", "player_prior_quality_report.csv")
-summary_pre = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
-candidate_source = summary_pre.get("candidate_source") or (
-    getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")
-    if enriched_path.is_file()
-    else getattr(C, "OFFICIAL_AWARD_CANDIDATES_FILE", "official_award_candidates.csv")
-)
-
-tab_overview, tab_awards, tab_tools, tab_downloads = st.tabs(
-    ["Overview", "Award categories", "Priors & generation", "Downloads"]
-)
-
-monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
-
-with tab_tools:
-    render_section_header("Prior enrichment")
-    st.caption(
-        "Player priors are heuristic position/role estimates unless you manually edit "
-        "`player_award_priors.csv`. Enrichment improves differentiation for demo outputs."
-    )
-    p1, p2 = st.columns(2)
-    with p1:
-        render_metric_card("Candidate source", str(candidate_source))
-    with p2:
-        if quality_path.is_file():
-            qdf = pd.read_csv(quality_path)
-            flat_row = qdf[qdf["metric"] == "flatness_score"]
-            flat_val = flat_row.iloc[0]["value"] if not flat_row.empty else "—"
-            render_metric_card("Prior flatness score", str(flat_val))
-        else:
-            render_metric_card("Prior flatness score", "—")
-
-    col_e1, col_e2 = st.columns(2)
-    with col_e1:
-        if st.button("Enrich player priors", use_container_width=True):
-            try:
-                enrich_summary = create_enriched_player_priors()
-                merge_enriched_priors_into_award_candidates(update_official=False)
-                render_success_panel(f"Enriched {enrich_summary.get('candidate_count')} candidates.")
-                st.json(enrich_summary)
-            except Exception as exc:
-                st.error(str(exc))
-    with col_e2:
-        if st.button("Regenerate awards (enriched priors)", use_container_width=True):
-            try:
-                if not enriched_path.is_file():
-                    create_enriched_player_priors()
-                    merge_enriched_priors_into_award_candidates(update_official=False)
-                result = prepare_step18_world_cup_awards(use_enriched_candidates=True)
-                render_success_panel("Awards regenerated with enriched candidates.")
-                st.json(result)
-            except Exception as exc:
-                st.error(str(exc))
-
-    render_section_header("Manual star-player priors")
-    st.caption(MANUAL_PRIOR_DISCLAIMER)
-    prior_mode = "official candidates only"
-    if enriched_path.is_file() and "manual" in str(summary_pre.get("candidate_source", "")).lower():
-        prior_mode = "enriched + manual priors"
-    elif enriched_path.is_file():
-        prior_mode = "enriched priors"
-    elif summary_pre.get("use_manual_priors"):
-        prior_mode = "official + manual priors"
-    render_metric_card("Prior mode", prior_mode)
-
-    manual_summary_path = PROCESSED_DATA_DIR / getattr(C, "MANUAL_PRIOR_SUMMARY_FILE", "manual_prior_summary.json")
-    manual_report_path = PROCESSED_DATA_DIR / getattr(C, "MANUAL_PRIOR_VALIDATION_REPORT_FILE", "manual_prior_validation_report.csv")
-    if manual_summary_path.is_file():
-        manual_summary = _load_json(getattr(C, "MANUAL_PRIOR_SUMMARY_FILE", "manual_prior_summary.json"))
-        st.caption(
-            f"Manual overrides applied: {manual_summary.get('overrides_applied', 0)} | "
-            f"Unmatched ignored: {manual_summary.get('unmatched_manual_rows_ignored', 0)}"
-        )
-    if manual_report_path.is_file():
-        manual_report_df = pd.read_csv(manual_report_path)
-        boost_rows = manual_report_df[manual_report_df.get("section", pd.Series(dtype=str)) == "applied_boost"]
-        movement_rows = manual_report_df[manual_report_df.get("section", pd.Series(dtype=str)) == "rank_movement"]
-        with st.expander("Manual boosts applied (sample)", expanded=False):
-            if not boost_rows.empty:
-                render_data_table(boost_rows[["player_name", "team", "boost_column", "boost_value"]].head(20))
-            else:
-                st.info("No manual boosts recorded.")
-        with st.expander("Ranking movement (manual overrides)", expanded=False):
-            if not movement_rows.empty:
-                render_data_table(
-                    movement_rows[
-                        ["award", "player_name", "team", "rank_before", "rank_after", "rank_movement"]
-                    ].head(20)
-                )
-            else:
-                st.info("No rank movement recorded.")
-
-    col_m1, col_m2 = st.columns(2)
-    with col_m1:
-        if st.button("Generate awards (enriched + manual demo priors)", use_container_width=True):
-            try:
-                demo_path = resolve_manual_prior_file(None)
-                if not enriched_path.is_file():
-                    create_enriched_player_priors()
-                    merge_enriched_priors_into_award_candidates(update_official=False)
-                result = prepare_step18_world_cup_awards(
-                    use_enriched_candidates=True,
-                    use_manual_priors=True,
-                    manual_prior_file=demo_path,
-                )
-                render_success_panel("Awards regenerated with enriched + manual demo priors.")
-                st.json(result)
-            except Exception as exc:
-                st.error(str(exc))
-    with col_m2:
-        st.caption(
-            "Edit `data/templates/player_award_manual_priors_demo.csv` or export a full template via "
-            "`python scripts/export_player_award_prior_template.py`."
-        )
-
-    render_section_header("Generate predictions")
-    if not monte_carlo_path.is_file():
-        st.info("Monte Carlo team stage probabilities are required before generating awards outputs.")
-        st.code("python scripts/run_monte_carlo.py --simulations 10 --seed 42")
-    col_gen, col_refresh = st.columns(2)
-    with col_gen:
-        generate_clicked = st.button("Generate awards predictions", type="primary", use_container_width=True)
-    with col_refresh:
-        refresh_clicked = st.button("Refresh outputs", use_container_width=True)
-
-    if generate_clicked:
-        try:
-            result = prepare_step18_world_cup_awards()
-            render_success_panel("World Cup awards artifacts generated successfully.")
-            st.json(result)
-        except (RuntimeError, FileNotFoundError, ValueError) as exc:
-            st.error(str(exc))
-
-    if refresh_clicked:
-        st.rerun()
-
-# Load outputs (shared across tabs)
+pdata = load_product_data_status()
 summary = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
 golden_ball_df = _load_csv(GOLDEN_BALL_PREDICTIONS_FILE)
 golden_boot_df = _load_csv(GOLDEN_BOOT_PREDICTIONS_FILE)
@@ -328,216 +167,270 @@ got_proxy_df = _load_csv(GOAL_OF_THE_TOURNAMENT_PROXY_FILE)
 validation_df = _load_csv(WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE)
 report_path = REPORTS_DIR / WORLD_CUP_AWARDS_REPORT_FILE
 player_col = _player_col(golden_ball_df) or "player_name"
+has_awards = _awards_outputs_exist()
 
-with tab_overview:
-    render_section_header("Summary")
-    if summary:
-        m1, m2, m3, m4, m5, m6 = st.columns(6)
-        with m1:
-            render_metric_card("Golden Ball", str(summary.get("top_golden_ball_player", "—")))
-        with m2:
-            render_metric_card("Golden Boot", str(summary.get("top_golden_boot_player", "—")))
-        with m3:
-            render_metric_card("Golden Glove", str(summary.get("top_golden_glove_player", "—")))
-        with m4:
-            render_metric_card("Young Player", str(summary.get("top_young_player", "—")))
-        with m5:
-            render_metric_card("Fair Play", str(summary.get("top_fair_play_team", "—")))
-        with m6:
-            render_metric_card("Entertaining Team", str(summary.get("top_entertaining_team", "—")))
-        badge = "ok" if summary.get("validation_passed") else "danger"
-        render_status_card(
-            "Validation",
-            "Passed" if summary.get("validation_passed") else "Failed",
-            sub=f"Team of Tournament: {summary.get('team_of_tournament_count', '—')} players",
-            badge=badge,
+if has_awards:
+    render_section_header("Award leaders")
+    gb = summary.get("top_golden_ball_player") or _leader_from_df(golden_ball_df, "golden_ball_rank", player_col)
+    gbt = summary.get("top_golden_boot_player") or _leader_from_df(golden_boot_df, "golden_boot_rank", player_col)
+    gg = summary.get("top_golden_glove_player") or _leader_from_df(golden_glove_df, "golden_glove_rank", player_col)
+    yp = summary.get("top_young_player") or _leader_from_df(young_player_df, "young_player_rank", player_col)
+    tot_count = summary.get("team_of_tournament_count") or len(team_of_tournament_df)
+
+    l1, l2, l3, l4, l5 = st.columns(5)
+    with l1:
+        render_metric_card("Golden Ball", gb or "—", sub="Best player", variant="accent" if gb else "")
+    with l2:
+        render_metric_card("Golden Boot", gbt or "—", sub="Top scorer", variant="accent" if gbt else "")
+    with l3:
+        render_metric_card("Golden Glove", gg or "—", sub="Best goalkeeper", variant="accent" if gg else "")
+    with l4:
+        render_metric_card("Young Player", yp or "—", sub="Best U-21", variant="accent" if yp else "")
+    with l5:
+        render_metric_card("Team of Tournament", f"{tot_count} players" if tot_count else "—", sub="4-3-3 XI")
+
+    tab_leaders, tab_all, tab_downloads = st.tabs(["Podiums", "All categories", "Downloads"])
+
+    with tab_leaders:
+        render_section_header("Golden Ball podium")
+        if not golden_ball_df.empty and "golden_ball_rank" in golden_ball_df.columns:
+            render_podium_cards(
+                golden_ball_df,
+                rank_col="golden_ball_rank",
+                name_col=player_col,
+                score_col="golden_ball_probability" if "golden_ball_probability" in golden_ball_df.columns else None,
+                award_labels={1: "Golden Ball", 2: "Silver Ball", 3: "Bronze Ball"},
+            )
+        else:
+            st.info("Golden Ball rankings not available.")
+
+        render_section_header("Golden Boot race")
+        if not golden_boot_df.empty:
+            render_podium_cards(
+                golden_boot_df,
+                rank_col="golden_boot_rank",
+                name_col=player_col,
+                score_col="golden_boot_probability" if "golden_boot_probability" in golden_boot_df.columns else "expected_goals",
+                award_labels={1: "Golden Boot", 2: "Silver Boot", 3: "Bronze Boot"},
+            )
+        else:
+            st.info("Golden Boot rankings not available.")
+
+        render_section_header("Team of the Tournament — 4-3-3")
+        if not team_of_tournament_df.empty:
+            lines = _formation_lines(team_of_tournament_df, player_col)
+            if lines:
+                render_formation_diagram(lines)
+        else:
+            st.info("Team of the Tournament not available.")
+
+    with tab_all:
+        g1, g2 = st.columns(2)
+        with g1:
+            render_section_header("Golden Glove")
+            if not golden_glove_df.empty:
+                with st.expander("Golden Glove table", expanded=True):
+                    cols = [c for c in ["golden_glove_rank", player_col, "team", "golden_glove_probability", "award"] if c in golden_glove_df.columns]
+                    render_data_table(golden_glove_df[cols].head(10))
+            else:
+                st.info("No Golden Glove output available.")
+
+            render_section_header("Fair Play Trophy")
+            if not fair_play_df.empty:
+                top = fair_play_df.sort_values("fair_play_rank").head(1).iloc[0]
+                render_metric_card("Leader", str(top.get("team", "—")))
+                with st.expander("Fair Play table"):
+                    cols = [c for c in ["fair_play_rank", "team", "fair_play_probability", "award"] if c in fair_play_df.columns]
+                    render_data_table(fair_play_df[cols].head(10))
+            else:
+                st.info("No Fair Play output available.")
+
+        with g2:
+            render_section_header("Young Player")
+            if not young_player_df.empty:
+                with st.expander("Young Player table", expanded=True):
+                    cols = [
+                        c
+                        for c in ["young_player_rank", player_col, "team", "position", "young_player_probability", "award"]
+                        if c in young_player_df.columns
+                    ]
+                    render_data_table(young_player_df[cols].head(10))
+            else:
+                st.info("No Young Player output available.")
+
+            render_section_header("Most Entertaining Team")
+            if not entertaining_df.empty:
+                top = entertaining_df.sort_values("most_entertaining_rank").head(1).iloc[0]
+                render_metric_card("Leader", str(top.get("team", "—")))
+                with st.expander("Entertaining team table"):
+                    cols = [c for c in ["most_entertaining_rank", "team", "most_entertaining_probability", "award"] if c in entertaining_df.columns]
+                    render_data_table(entertaining_df[cols].head(10))
+            else:
+                st.info("No Most Entertaining Team output available.")
+
+        render_section_header("Proxy awards")
+        p1, p2 = st.columns(2)
+        with p1:
+            st.caption("Player of the Match proxy")
+            if not potm_proxy_df.empty:
+                cols = [c for c in ["player_of_match_proxy_rank", player_col, "team", "estimated_potm_count"] if c in potm_proxy_df.columns]
+                render_data_table(potm_proxy_df[cols].head(8))
+            else:
+                st.info("No Player of the Match proxy available.")
+        with p2:
+            st.caption("Goal of the Tournament proxy")
+            if not got_proxy_df.empty:
+                cols = [c for c in ["goal_of_tournament_proxy_rank", player_col, "team", "goal_of_tournament_proxy_probability"] if c in got_proxy_df.columns]
+                render_data_table(got_proxy_df[cols].head(8))
+            else:
+                st.info("No Goal of the Tournament proxy available.")
+
+        if not golden_ball_df.empty:
+            with st.expander("Full Golden Ball table"):
+                cols = [c for c in ["golden_ball_rank", player_col, "team", "position", "golden_ball_probability", "award"] if c in golden_ball_df.columns]
+                render_data_table(golden_ball_df[cols].head(15))
+        if not golden_boot_df.empty:
+            with st.expander("Full Golden Boot table"):
+                cols = [
+                    c
+                    for c in ["golden_boot_rank", player_col, "team", "position", "expected_goals", "golden_boot_probability", "award"]
+                    if c in golden_boot_df.columns
+                ]
+                render_data_table(golden_boot_df[cols].head(15))
+
+    with tab_downloads:
+        render_section_header("Export artifacts")
+        d1, d2 = st.columns(2)
+        download_files = [
+            (WORLD_CUP_AWARDS_PREDICTIONS_FILE, "Combined awards predictions"),
+            (GOLDEN_BALL_PREDICTIONS_FILE, "Golden Ball rankings"),
+            (GOLDEN_BOOT_PREDICTIONS_FILE, "Golden Boot rankings"),
+            (GOLDEN_GLOVE_PREDICTIONS_FILE, "Golden Glove rankings"),
+            (TEAM_OF_THE_TOURNAMENT_FILE, "Team of the Tournament XI"),
+        ]
+        for idx, (file_name, desc) in enumerate(download_files):
+            col = d1 if idx % 2 == 0 else d2
+            with col:
+                render_download_card(desc, file_name, PROCESSED_DATA_DIR / file_name)
+        render_download_card(
+            "Awards narrative report",
+            WORLD_CUP_AWARDS_REPORT_FILE,
+            report_path,
+            mime="text/markdown",
         )
-    else:
-        st.info("No awards summary found yet. Generate awards predictions on the Priors & generation tab.")
 
-    render_section_header("Award coverage")
+else:
+    render_empty_state(
+        "Awards forecast not generated yet",
+        "Run a tournament forecast first, then generate awards predictions.",
+    )
+    monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
+    if pdata["awards_allowed"] and monte_carlo_path.is_file():
+        if st.button("Generate awards forecast", type="primary", use_container_width=True):
+            try:
+                result = prepare_step18_world_cup_awards()
+                render_success_panel("World Cup awards artifacts generated successfully.")
+                st.json(result)
+                st.rerun()
+            except (RuntimeError, FileNotFoundError, ValueError) as exc:
+                st.error(str(exc))
+    elif not monte_carlo_path.is_file():
+        st.page_link("pages/9_Monte_Carlo_Simulator.py", label="Open Tournament Forecast", use_container_width=True)
+
+with st.expander("Dataset readiness", expanded=False):
+    badge_kind = "ok" if pdata["is_verified"] else "warn"
     st.markdown(
-        "- Golden Ball / Silver Ball / Bronze Ball\n"
-        "- Golden Boot / Silver Boot / Bronze Boot\n"
-        "- Golden Glove · Young Player · Fair Play · Most Entertaining Team\n"
-        "- Predicted Team of the Tournament (4-3-3 analytics XI)\n"
-        "- Player of the Match and Goal of the Tournament proxies\n\n"
-        "Uses **official_award_candidates.csv** only — no sample players."
+        f"{render_status_badge(pdata['data_label'], badge_kind)} "
+        f"{render_status_badge(pdata['verification_label'], badge_kind if pdata['is_verified'] else 'warn')}",
+        unsafe_allow_html=True,
     )
+    r1, r2, r3, r4 = st.columns(4)
+    with r1:
+        render_metric_card("Teams", str(pdata["teams_count"]))
+    with r2:
+        render_metric_card("Players", f"{pdata['players_count']:,}")
+    with r3:
+        render_metric_card("Full squads", str(pdata["teams_with_26_players"]))
+    with r4:
+        render_metric_card("Fixtures", str(pdata["fixtures_count"]))
 
-    with st.expander("Methodology & limitations", expanded=False):
+with st.expander("Advanced generation tools", expanded=False):
+    enriched_path = PROCESSED_DATA_DIR / getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")
+    quality_path = PROCESSED_DATA_DIR / getattr(C, "PLAYER_PRIOR_QUALITY_REPORT_FILE", "player_prior_quality_report.csv")
+    summary_pre = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
+    monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
+
+    if not pdata["awards_allowed"]:
+        st.info("Official data must be verified before generating awards. Check the Data Quality page.")
+    elif not monte_carlo_path.is_file():
+        st.info("Monte Carlo team stage probabilities are required. Run a tournament forecast first.")
+        st.page_link("pages/9_Monte_Carlo_Simulator.py", label="Open Tournament Forecast")
+    else:
+        col_gen, col_refresh = st.columns(2)
+        with col_gen:
+            if st.button("Generate awards predictions", type="primary", use_container_width=True):
+                try:
+                    result = prepare_step18_world_cup_awards()
+                    render_success_panel("World Cup awards artifacts generated successfully.")
+                    st.json(result)
+                    st.rerun()
+                except (RuntimeError, FileNotFoundError, ValueError) as exc:
+                    st.error(str(exc))
+        with col_refresh:
+            if st.button("Refresh page", use_container_width=True):
+                st.rerun()
+
+    render_section_header("Prior enrichment")
+    st.caption(MANUAL_PRIOR_DISCLAIMER)
+    col_e1, col_e2 = st.columns(2)
+    with col_e1:
+        if st.button("Enrich player priors", use_container_width=True):
+            try:
+                enrich_summary = create_enriched_player_priors()
+                merge_enriched_priors_into_award_candidates(update_official=False)
+                render_success_panel(f"Enriched {enrich_summary.get('candidate_count')} candidates.")
+            except Exception as exc:
+                st.error(str(exc))
+    with col_e2:
+        if st.button("Regenerate with enriched priors", use_container_width=True):
+            try:
+                if not enriched_path.is_file():
+                    create_enriched_player_priors()
+                    merge_enriched_priors_into_award_candidates(update_official=False)
+                result = prepare_step18_world_cup_awards(use_enriched_candidates=True)
+                render_success_panel("Awards regenerated with enriched candidates.")
+                st.json(result)
+            except Exception as exc:
+                st.error(str(exc))
+
+    if quality_path.is_file():
+        qdf = pd.read_csv(quality_path)
+        flat_row = qdf[qdf["metric"] == "flatness_score"]
+        flat_val = flat_row.iloc[0]["value"] if not flat_row.empty else "—"
+        render_metric_card("Prior flatness score", str(flat_val))
+
+    if st.button("Generate with manual demo priors", use_container_width=True):
+        try:
+            demo_path = resolve_manual_prior_file(None)
+            if not enriched_path.is_file():
+                create_enriched_player_priors()
+                merge_enriched_priors_into_award_candidates(update_official=False)
+            result = prepare_step18_world_cup_awards(
+                use_enriched_candidates=True,
+                use_manual_priors=True,
+                manual_prior_file=demo_path,
+            )
+            render_success_panel("Awards regenerated with enriched + manual demo priors.")
+            st.json(result)
+        except Exception as exc:
+            st.error(str(exc))
+
+    with st.expander("Methodology and validation", expanded=False):
         st.markdown(
-            "**Methodology**\n"
-            "- Official squads from `official_award_candidates.csv` with editable player priors\n"
-            "- Monte Carlo team progression from `monte_carlo_team_stage_probabilities.csv`\n"
-            "- Team profiles for fair-play and entertainment estimates\n"
-            "- Team of the Tournament uses a 4-3-3 analytics selection\n\n"
-            "**Limitations**\n"
-            "- Explainable analytics estimates, not official FIFA predictions\n"
-            "- Depends on Monte Carlo sample size and editable player priors\n"
-            "- Fan-voted awards are proxy estimates only\n"
-            "- No match-level player event simulation · Not betting advice"
+            "Analytics estimates using official squads and Monte Carlo stage probabilities. "
+            "Not official FIFA predictions."
         )
+        if not validation_df.empty:
+            render_data_table(validation_df)
 
-    with st.expander("Validation report", expanded=False):
-        render_data_table(validation_df)
-
-with tab_awards:
-    render_section_header("Golden Ball podium")
-    if not golden_ball_df.empty and "golden_ball_rank" in golden_ball_df.columns:
-        render_podium_cards(
-            golden_ball_df,
-            rank_col="golden_ball_rank",
-            name_col=player_col,
-            score_col="golden_ball_probability" if "golden_ball_probability" in golden_ball_df.columns else None,
-            award_labels={1: "Golden Ball", 2: "Silver Ball", 3: "Bronze Ball"},
-        )
-        with st.expander("Full Golden Ball table"):
-            cols = [
-                c
-                for c in ["golden_ball_rank", player_col, "team", "position", "golden_ball_probability", "award"]
-                if c in golden_ball_df.columns
-            ]
-            render_data_table(golden_ball_df[cols].head(15))
-    else:
-        st.info("No Golden Ball output available.")
-
-    render_section_header("Golden Boot race")
-    if not golden_boot_df.empty:
-        render_podium_cards(
-            golden_boot_df,
-            rank_col="golden_boot_rank",
-            name_col=player_col,
-            score_col="golden_boot_probability" if "golden_boot_probability" in golden_boot_df.columns else "expected_goals",
-            award_labels={1: "Golden Boot", 2: "Silver Boot", 3: "Bronze Boot"},
-        )
-        with st.expander("Full Golden Boot table"):
-            cols = [
-                c
-                for c in ["golden_boot_rank", player_col, "team", "position", "expected_goals", "golden_boot_probability", "award"]
-                if c in golden_boot_df.columns
-            ]
-            render_data_table(golden_boot_df[cols].head(15))
-    else:
-        st.info("No Golden Boot output available.")
-
-    g1, g2 = st.columns(2)
-    with g1:
-        render_section_header("Golden Glove")
-        if not golden_glove_df.empty:
-            top = golden_glove_df.sort_values("golden_glove_rank").head(1).iloc[0]
-            render_metric_card(
-                "Leader",
-                str(top.get(player_col, "—")),
-                sub=f"{top.get('team', '')} · {float(top.get('golden_glove_probability', 0)):.1%}"
-                if "golden_glove_probability" in top
-                else str(top.get("team", "")),
-            )
-            with st.expander("Golden Glove table"):
-                cols = [c for c in ["golden_glove_rank", player_col, "team", "golden_glove_probability", "award"] if c in golden_glove_df.columns]
-                render_data_table(golden_glove_df[cols].head(10))
-        else:
-            st.info("No Golden Glove output available.")
-    with g2:
-        render_section_header("Young Player")
-        if not young_player_df.empty:
-            top = young_player_df.sort_values("young_player_rank").head(1).iloc[0]
-            render_metric_card(
-                "Leader",
-                str(top.get(player_col, "—")),
-                sub=f"{top.get('team', '')} · {float(top.get('young_player_probability', 0)):.1%}"
-                if "young_player_probability" in top
-                else str(top.get("team", "")),
-            )
-            with st.expander("Young Player table"):
-                cols = [
-                    c
-                    for c in ["young_player_rank", player_col, "team", "position", "young_player_probability", "award"]
-                    if c in young_player_df.columns
-                ]
-                render_data_table(young_player_df[cols].head(10))
-        else:
-            st.info("No Young Player output available.")
-
-    t1, t2 = st.columns(2)
-    with t1:
-        render_section_header("Fair Play Trophy")
-        if not fair_play_df.empty:
-            top = fair_play_df.sort_values("fair_play_rank").head(1).iloc[0]
-            render_metric_card("Leader", str(top.get("team", "—")))
-            with st.expander("Fair Play table"):
-                cols = [c for c in ["fair_play_rank", "team", "fair_play_probability", "award"] if c in fair_play_df.columns]
-                render_data_table(fair_play_df[cols].head(10))
-        else:
-            st.info("No Fair Play output available.")
-    with t2:
-        render_section_header("Most Entertaining Team")
-        if not entertaining_df.empty:
-            top = entertaining_df.sort_values("most_entertaining_rank").head(1).iloc[0]
-            render_metric_card("Leader", str(top.get("team", "—")))
-            with st.expander("Entertaining team table"):
-                cols = [
-                    c
-                    for c in ["most_entertaining_rank", "team", "most_entertaining_probability", "award"]
-                    if c in entertaining_df.columns
-                ]
-                render_data_table(entertaining_df[cols].head(10))
-        else:
-            st.info("No Most Entertaining Team output available.")
-
-    render_section_header("Team of the Tournament — 4-3-3")
-    if not team_of_tournament_df.empty:
-        lines = _formation_lines(team_of_tournament_df, player_col)
-        if lines:
-            render_formation_diagram(lines)
-        with st.expander("Team of the Tournament table"):
-            cols = [
-                c
-                for c in ["formation_slot", player_col, "team", "position", "final_golden_ball_score"]
-                if c in team_of_tournament_df.columns
-            ]
-            render_data_table(team_of_tournament_df[cols])
-    else:
-        st.info("No Team of the Tournament output available.")
-
-    render_section_header("Proxy awards")
-    p1, p2 = st.columns(2)
-    with p1:
-        st.caption("Player of the Match proxy")
-        if not potm_proxy_df.empty:
-            cols = [c for c in ["player_of_match_proxy_rank", player_col, "team", "estimated_potm_count"] if c in potm_proxy_df.columns]
-            render_data_table(potm_proxy_df[cols].head(8))
-        else:
-            st.info("No Player of the Match proxy available.")
-    with p2:
-        st.caption("Goal of the Tournament proxy")
-        if not got_proxy_df.empty:
-            cols = [
-                c
-                for c in ["goal_of_tournament_proxy_rank", player_col, "team", "goal_of_tournament_proxy_probability"]
-                if c in got_proxy_df.columns
-            ]
-            render_data_table(got_proxy_df[cols].head(8))
-        else:
-            st.info("No Goal of the Tournament proxy available.")
-
-with tab_downloads:
-    render_section_header("Export artifacts")
-    d1, d2 = st.columns(2)
-    download_files = [
-        (WORLD_CUP_AWARDS_PREDICTIONS_FILE, "Combined awards predictions"),
-        (GOLDEN_BALL_PREDICTIONS_FILE, "Golden Ball rankings"),
-        (GOLDEN_BOOT_PREDICTIONS_FILE, "Golden Boot rankings"),
-        (GOLDEN_GLOVE_PREDICTIONS_FILE, "Golden Glove rankings"),
-        (TEAM_OF_THE_TOURNAMENT_FILE, "Team of the Tournament XI"),
-    ]
-    for idx, (file_name, desc) in enumerate(download_files):
-        col = d1 if idx % 2 == 0 else d2
-        with col:
-            render_download_card(desc, file_name, PROCESSED_DATA_DIR / file_name)
-    render_download_card(
-        "Awards narrative report",
-        WORLD_CUP_AWARDS_REPORT_FILE,
-        report_path,
-        mime="text/markdown",
-    )
+st.markdown(f'<p class="wc-disclaimer-sm">{AWARDS_ANALYTICS_DISCLAIMER}</p>', unsafe_allow_html=True)

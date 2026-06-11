@@ -112,42 +112,56 @@ if mode == "Future Match Prediction":
         st.stop()
 
     if official_team_lock:
-        render_info_panel("Teams are limited to the official World Cup 2026 squad list.")
+        st.caption("Teams are limited to the official World Cup 2026 squad list.")
 
-    with st.container(border=True):
-        render_section_header("Match setup")
-        col1, col2 = st.columns(2)
-        with col1:
-            team_a = st.selectbox("Team A", available_teams, index=0)
-        with col2:
-            team_b = st.selectbox("Team B", available_teams, index=1 if len(available_teams) > 1 else 0)
+    form_col, preview_col = st.columns([3, 2], gap="large")
 
-        col3, col4 = st.columns(2)
-        with col3:
-            match_date_value = st.date_input("Match date", pd.to_datetime(DEFAULT_FUTURE_MATCH_DATE).date())
-        with col4:
-            tournament = st.text_input("Tournament", value=DEFAULT_FUTURE_TOURNAMENT)
+    with form_col:
+        with st.container(border=True):
+            render_section_header("Match setup")
+            st.caption("Select two teams and match details, then run the prediction.")
+            col1, col2 = st.columns(2)
+            with col1:
+                team_a = st.selectbox("Team A", available_teams, index=0)
+            with col2:
+                team_b = st.selectbox("Team B", available_teams, index=1 if len(available_teams) > 1 else 0)
 
-        col5, col6 = st.columns(2)
-        with col5:
-            city = st.text_input("City", value="", placeholder="e.g. New York")
-        with col6:
-            country = st.text_input("Country", value="", placeholder="e.g. United States")
+            col3, col4 = st.columns(2)
+            with col3:
+                match_date_value = st.date_input("Match date", pd.to_datetime(DEFAULT_FUTURE_MATCH_DATE).date())
+            with col4:
+                tournament = st.text_input("Tournament", value=DEFAULT_FUTURE_TOURNAMENT)
 
-        neutral = st.checkbox("Neutral venue", value=bool(DEFAULT_FUTURE_NEUTRAL))
+            col5, col6 = st.columns(2)
+            with col5:
+                city = st.text_input("City", value="", placeholder="e.g. New York")
+            with col6:
+                country = st.text_input("Country", value="", placeholder="e.g. United States")
 
-        venue = ", ".join(p for p in (city, country) if p) or "Venue TBD"
-        st.markdown(
-            f"""
-<div class="wc-action-card">
-  <div class="wc-action-title">{team_a} vs {team_b}</div>
-  <div class="wc-action-hint">{match_date_value} · {venue} · {tournament}</div>
+            neutral = st.checkbox("Neutral venue", value=bool(DEFAULT_FUTURE_NEUTRAL))
+
+        predict_clicked = st.button("Predict match outcome", type="primary", use_container_width=True)
+
+    venue = ", ".join(p for p in (city, country) if p) or "Venue TBD"
+    neutral_label = "Neutral venue" if neutral else "Home/away context applied"
+
+    with preview_col:
+        with st.container(border=True):
+            render_section_header("Match preview")
+            st.markdown(
+                f"""
+<div class="wc-action-card" style="min-height:180px;">
+  <div class="wc-action-title" style="font-size:1.25rem;">{team_a} vs {team_b}</div>
+  <div class="wc-action-hint" style="margin-top:0.75rem;font-size:0.88rem;">
+    {match_date_value}<br>{venue}<br>{tournament}<br>{neutral_label}
+  </div>
 </div>
-            """,
-            unsafe_allow_html=True,
-        )
+                """,
+                unsafe_allow_html=True,
+            )
+            st.caption("Results appear below after you predict.")
 
-    if st.button("Predict match", type="primary", use_container_width=True):
+    if predict_clicked:
         if team_a == team_b:
             st.error("Team A and Team B must be different teams.")
             st.stop()

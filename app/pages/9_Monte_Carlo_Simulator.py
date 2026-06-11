@@ -76,15 +76,9 @@ def _load_json(file_name: str) -> dict:
 inject_page_theme()
 render_hero(
     "Tournament Forecast",
-    "Run thousands of full-tournament simulations to estimate champion and stage progression probabilities.",
-    eyebrow="Monte Carlo analytics",
+    "Monte Carlo simulation of the full tournament — champion and stage progression probabilities.",
+    eyebrow="Tournament analytics",
 )
-
-tab_overview, tab_results, tab_downloads = st.tabs(["Overview & settings", "Results & charts", "Downloads"])
-
-report_md_path = REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE
-champion_chart_path = FIGURES_DIR / MONTE_CARLO_CHAMPION_CHART_FILE
-stage_heatmap_path = FIGURES_DIR / MONTE_CARLO_STAGE_HEATMAP_FILE
 
 summary = _load_json(MONTE_CARLO_SUMMARY_FILE)
 champion_prob_df = _load_csv(MONTE_CARLO_CHAMPION_PROBABILITIES_FILE)
@@ -107,6 +101,31 @@ try:
     insights = create_monte_carlo_insight_text(outputs)
 except FileNotFoundError:
     outputs = None
+
+render_section_header("Current forecast")
+if summary:
+    top = summary.get("top_champion", "—")
+    prob = float(summary.get("top_champion_probability", 0.0))
+    n_sims = int(summary.get("num_simulations", 0) or summary.get("successful_simulations", 0))
+    m1, m2, m3, m4 = st.columns(4)
+    with m1:
+        render_metric_card("Top champion", str(top), variant="accent")
+    with m2:
+        render_metric_card("Win probability", f"{prob:.1%}", variant="accent")
+    with m3:
+        render_metric_card("Simulations", f"{n_sims:,}", sub="Completed runs")
+    with m4:
+        render_metric_card("Validation", "Ready" if summary.get("validation_passed") else "Needs review", variant="ok" if summary.get("validation_passed") else "warn")
+    if not champion_display_df.empty:
+        st.dataframe(champion_display_df.head(5), use_container_width=True, hide_index=True)
+else:
+    st.info("No forecast yet. Run a simulation below to generate champion probabilities.")
+
+tab_overview, tab_results, tab_downloads = st.tabs(["Simulation settings", "Results and charts", "Downloads"])
+
+report_md_path = REPORTS_DIR / MONTE_CARLO_REPORT_MD_FILE
+champion_chart_path = FIGURES_DIR / MONTE_CARLO_CHAMPION_CHART_FILE
+stage_heatmap_path = FIGURES_DIR / MONTE_CARLO_STAGE_HEATMAP_FILE
 
 with tab_overview:
     render_section_header("Simulation settings")

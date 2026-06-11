@@ -336,7 +336,7 @@ with tab_charts:
                 data=champion_chart.read_bytes(),
                 file_name=_MC_CHART,
                 mime="image/png",
-                use_container_width=True,
+                type="secondary",
             )
         else:
             st.info("Champion chart not yet generated. Run Monte Carlo simulation.")
@@ -349,7 +349,7 @@ with tab_charts:
                 data=heatmap.read_bytes(),
                 file_name=_MC_HEATMAP,
                 mime="image/png",
-                use_container_width=True,
+                type="secondary",
             )
         else:
             st.info("Stage heatmap not yet generated. Run Monte Carlo simulation.")

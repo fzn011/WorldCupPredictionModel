@@ -774,13 +774,165 @@ section[data-testid="stSidebar"] * {{
   background: rgba(139, 0, 0, 0.2) !important;
 }}
 
-/* Hide broken Material icon labels in sidebar nav */
+/* Hide broken Material icon / keyboard text leaks */
+[data-testid="stSidebarHeader"],
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"],
 [data-testid="stSidebarNav"] [data-testid="stIconMaterial"],
-[data-testid="stSidebarNav"] span[data-testid="stIconMaterial"] {{
+[data-testid="stSidebarNav"] span[data-testid="stIconMaterial"],
+[data-testid="stSidebarNav"] span.material-icons,
+[data-testid="stSidebarNav"] span.material-symbols-rounded,
+[data-testid="stPageLink-NavLink"] [data-testid="stIconMaterial"],
+.material-symbols-rounded,
+.material-icons,
+span[class*="MaterialIcon"],
+[data-testid="stIconMaterial"] {{
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}}
+[data-testid="stSidebarNav"] a,
+[data-testid="stPageLink-NavLink"] a {{
+  gap: 0 !important;
+  font-size: 0.98rem !important;
+  padding: 0.55rem 0.85rem !important;
+}}
+
+/* Expander — hide broken arrow/material labels */
+[data-testid="stExpander"] summary {{
+  list-style: none !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: {c['white']} !important;
+}}
+[data-testid="stExpander"] summary::-webkit-details-marker {{
   display: none !important;
 }}
-[data-testid="stSidebarNav"] a {{
-  gap: 0 !important;
+[data-testid="stExpander"] summary svg,
+[data-testid="stExpander"] summary [data-testid="stIconMaterial"],
+[data-testid="stExpander"] summary span[class*="material"] {{
+  display: none !important;
+}}
+[data-testid="stExpander"] summary::before {{
+  content: "▸ ";
+  color: {c['primary']};
+  margin-right: 0.35rem;
+}}
+details[open] > summary::before {{
+  content: "▾ ";
+}}
+
+/* Tabs — larger, readable */
+.stTabs [data-baseweb="tab-list"] {{
+  gap: 0.35rem !important;
+  border-bottom: 1px solid {c['card_border']} !important;
+}}
+.stTabs [data-baseweb="tab"] {{
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  padding: 0.65rem 1.1rem !important;
+  color: {c['muted']} !important;
+  background: transparent !important;
+  border-radius: 8px 8px 0 0 !important;
+}}
+.stTabs [aria-selected="true"] {{
+  color: {c['white']} !important;
+  background: rgba(139, 0, 0, 0.18) !important;
+  border-bottom: 2px solid {c['primary']} !important;
+}}
+
+/* Softer default input borders; green on focus only */
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input,
+.stTextArea textarea,
+[data-baseweb="select"] > div {{
+  border-color: {c['card_border']} !important;
+}}
+.stTextInput input:focus,
+.stNumberInput input:focus,
+.stDateInput input:focus,
+.stTextArea textarea:focus {{
+  border-color: {c['green']} !important;
+  box-shadow: 0 0 0 1px {c['green']} !important;
+}}
+
+/* Number input — compact steppers */
+.stNumberInput {{
+  max-width: 280px;
+}}
+.stNumberInput button {{
+  border-color: {c['card_border']} !important;
+}}
+
+/* Download buttons — secondary, not full-width red bars */
+.stDownloadButton > button {{
+  background: {c['surface']} !important;
+  border: 1px solid {c['card_border']} !important;
+  color: {c['white']} !important;
+  font-weight: 600 !important;
+  width: auto !important;
+  min-width: 120px;
+  padding: 0.45rem 1rem !important;
+  box-shadow: none !important;
+}}
+.stDownloadButton > button:hover {{
+  border-color: {c['primary']} !important;
+  color: {c['white']} !important;
+}}
+
+/* Primary page-link CTAs on homepage */
+[data-testid="stPageLink-NavLink"] a {{
+  background: linear-gradient(135deg, {c['primary_dim']} 0%, {c['primary']} 100%) !important;
+  border: 1px solid {c['primary']} !important;
+  border-radius: 10px !important;
+  padding: 0.65rem 1rem !important;
+  text-align: center;
+  display: block;
+}}
+[data-testid="stPageLink-NavLink"] a:hover {{
+  background: {c['primary_hover']} !important;
+}}
+
+.wc-sidebar-logo-wrap {{
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+}}
+.wc-sidebar-logo-text {{
+  font-family: {FONT_HEADING};
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: {c['primary']};
+}}
+.wc-sidebar-advanced {{
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid {c['card_border']};
+  font-size: 0.82rem;
+}}
+.wc-card {{
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  min-height: 96px;
+}}
+.wc-action-card {{
+  min-height: 120px;
+  padding: 1.1rem 1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}}
+.wc-disclaimer-sm {{
+  color: {c['muted_dark']};
+  font-size: 0.78rem;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.4;
 }}
 
 /* Slider */
@@ -824,19 +976,8 @@ section[data-testid="stSidebar"] * {{
   border-color: {c['primary']} !important;
   color: {c['white']} !important;
 }}
-.stDownloadButton > button {{
-  background: {c['primary']} !important;
-  border: 1px solid {c['primary']} !important;
-  color: {c['white']} !important;
-  font-weight: 600 !important;
-  border-radius: 8px !important;
-}}
-.stDownloadButton > button:hover {{
-  background: {c['primary_hover']} !important;
-  border-color: {c['primary_hover']} !important;
-}}
 
-/* ─── Tabs ─────────────────────────────────────────────────── */
+/* ─── Tabs (secondary block) ─────────────────────────────────── */
 .stTabs [data-baseweb="tab-list"] {{
   border-bottom: 2px solid {c['card_border']};
   gap: 0.25rem;

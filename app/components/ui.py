@@ -164,8 +164,8 @@ def render_data_quality_card(
     detail: str = "",
     progress: float | None = None,
 ) -> None:
-    kind: BadgeKind = "ok" if passed else "danger"
-    badge = render_status_badge("Passed" if passed else "Needs attention", kind)
+    kind: BadgeKind = "ok" if passed else "warn"
+    badge = render_status_badge("Ready" if passed else "Needs review", kind)
     prog_html = ""
     if progress is not None:
         pct = int(max(0, min(100, progress * 100)))
@@ -360,7 +360,8 @@ def render_download_card(
             data=path.read_bytes(),
             file_name=fname,
             mime=mime,
-            use_container_width=True,
+            use_container_width=False,
+            type="secondary",
             key=f"dl_{abs(hash(title + str(path)))}",
         )
     else:
