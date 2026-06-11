@@ -66,7 +66,7 @@ def render_sidebar_brand(*, tagline: str = "AI Predictor") -> None:
 <div class="wc-sidebar-brand">
   <div class="wc-sidebar-logo-wrap">{logo_slot}</div>
     <div class="wc-sidebar-brand-text">
-    <div class="wc-sidebar-brand-title wc-page-title-sm">World Cup 2026</div>
+    <div class="wc-sidebar-brand-title">World Cup 2026</div>
     <div class="wc-sidebar-brand-sub">{html.escape(tagline)}</div>
   </div>
 </div>

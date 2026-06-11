@@ -31,6 +31,7 @@ Optional for richer data: place files under `data/raw/` or use `scripts/download
 - `.streamlit/config.toml` sets `showSidebarNavigation = false` so Streamlit does not auto-discover duplicate sidebar pages.
 - Global theme CSS is injected once in `streamlit_app.py` via `inject_worldcup_css()` — individual pages should not rely on per-page theme gates.
 - **Tables:** use `render_data_table()` from `app/components/ui.py` (static `st.table` with dark-theme CSS). Avoid raw `st.dataframe()` for preview tables — the canvas grid often renders as a blank black box inside tabs on dark themes.
+- **Typography:** Sprintura is for **main page hero titles only** (`.wc-page-title` on home and inner pages). Sidebar navigation labels use Roboto — do not apply Sprintura to sidebar radio tabs.
 
 ### Running services
 

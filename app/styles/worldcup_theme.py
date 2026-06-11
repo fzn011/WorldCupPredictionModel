@@ -99,32 +99,29 @@ html, body, .stMarkdown, .stText, p, li, span, label, input, textarea, select, b
   font-family: {FONT_BODY} !important;
   color: {c['white']};
 }}
-h1, h2, h3, h4, h5, h6,
-.wc-page-title,
-.wc-page-title-sm,
-.wc-page-eyebrow,
-.wc-section-title,
-.wc-hero h1, .wc-section h3, .wc-hero-eyebrow,
-.wc-card-label, .wc-action-title,
-[data-testid="stSidebarNavSeparator"],
-[data-testid="stHeading"] h1,
-[data-testid="stHeading"] h2,
-[data-testid="stHeading"] h3,
-[data-testid="stHeading"] h4,
-[data-testid="stHeading"] h5,
-[data-testid="stHeading"] h6,
-section[data-testid="stSidebar"] [data-testid="stRadio"] label,
-section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
-section[data-testid="stSidebar"] [data-testid="stRadio"] label p {{
-  font-family: {FONT_HEADING} !important;
-  letter-spacing: 0.05em;
+h1, h2, h3, h4, h5, h6 {{
+  color: {c['white']} !important;
+  font-weight: 700 !important;
+  font-family: {FONT_BODY} !important;
 }}
-h1, h2, .wc-page-title, .wc-hero h1, .wc-brand-hero-body h1 {{
+/* Sprintura ONLY on main content page titles (not sidebar tabs) */
+section.main .wc-page-title,
+section.main .wc-hero h1.wc-page-title,
+section.main .wc-brand-hero .wc-page-title,
+section.main .wc-brand-hero-body h1.wc-page-title {{
+  font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }}
+section[data-testid="stSidebar"] .wc-page-title,
+section[data-testid="stSidebar"] .wc-page-title-sm {{
+  font-family: {FONT_BODY} !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}}
 h3, .wc-section h3, .wc-section-title {{
-  font-family: {FONT_HEADING} !important;
-  letter-spacing: 0.08em;
+  font-family: {FONT_BODY} !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }}
 .stApp {{
@@ -186,6 +183,16 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
 section[data-testid="stSidebar"] [data-testid="stRadio"] label p {{
   color: {c['white']} !important;
   font-size: 0.98rem !important;
+  font-family: {FONT_BODY} !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}}
+section[data-testid="stSidebar"] .wc-sidebar-brand-title {{
+  font-family: {FONT_BODY} !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
 }}
 section[data-testid="stSidebar"] [data-testid="stRadio"] input {{
   accent-color: {c['primary']} !important;
@@ -199,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {{
 }}
 [data-testid="stMetricValue"] {{
   color: {c['primary']} !important;
-  font-family: {FONT_HEADING} !important;
+  font-family: {FONT_BODY} !important;
   font-weight: 700 !important;
 }}
 [data-testid="stMetricLabel"] {{
@@ -256,7 +263,7 @@ section[data-testid="stSidebar"] * {{
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: {FONT_HEADING} !important;
+  font-family: {FONT_BODY} !important;
   margin-bottom: 0.35rem;
 }}
 .wc-hero h1,
@@ -281,14 +288,7 @@ section[data-testid="stSidebar"] * {{
   color: {c['muted']};
 }}
 .wc-page-eyebrow {{
-  font-family: {FONT_HEADING} !important;
-}}
-.wc-page-title-sm {{
-  font-family: {FONT_HEADING} !important;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-family: {FONT_BODY} !important;
 }}
 .wc-hero p {{
   color: {c['muted']};
@@ -426,12 +426,12 @@ section[data-testid="stSidebar"] * {{
   border-radius: 50%;
 }}
 .wc-sidebar-brand-title {{
-  font-family: {FONT_HEADING} !important;
+  font-family: {FONT_BODY} !important;
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 700;
   color: {c['white']};
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: normal;
+  text-transform: none;
   line-height: 1.15;
 }}
 .wc-sidebar-brand-sub {{
@@ -546,8 +546,8 @@ section[data-testid="stSidebar"] * {{
   color: {c['primary']} !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
-  font-family: {FONT_HEADING} !important;
-  letter-spacing: 0.06em;
+  font-family: {FONT_BODY} !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }}
 .wc-pitch-line {{
@@ -1224,35 +1224,28 @@ html[data-theme="light"] h4,
 html[data-theme="light"] label,
 html[data-theme="light"] p,
 html[data-theme="light"] .stMarkdown,
-html[data-theme="light"] [data-testid="stSidebarNav"] a,
-html[data-theme="light"] .wc-page-title,
-html[data-theme="light"] .wc-section-title,
-html[data-theme="light"] [data-testid="stHeading"] h1,
-html[data-theme="light"] [data-testid="stHeading"] h2,
-html[data-theme="light"] [data-testid="stHeading"] h3 {{
+html[data-theme="light"] [data-testid="stSidebarNav"] a {{
   color: {c['white']} !important;
+}}
+html[data-theme="light"] section.main .wc-page-title,
+html[data-theme="light"] section.main .wc-brand-hero .wc-page-title {{
   font-family: {FONT_HEADING} !important;
 }}
 
-/* Sprintura lock — page titles beat Streamlit body font inheritance */
-section.main h1,
-section.main h2,
-section.main h3,
-section.main h4,
-section.main h5,
-section.main h6,
-[data-testid="stHeading"] h1,
-[data-testid="stHeading"] h2,
-[data-testid="stHeading"] h3,
-[data-testid="stHeading"] h4,
-[data-testid="stHeading"] h5,
-[data-testid="stHeading"] h6,
-.wc-page-title,
-.wc-page-title-sm,
-.wc-page-eyebrow,
-.wc-section-title,
-.stTabs [data-baseweb="tab"] {{
+/* Sprintura lock — main page hero titles only (never sidebar) */
+section.main .wc-page-title,
+section.main .wc-hero h1.wc-page-title,
+section.main .wc-brand-hero .wc-page-title,
+section.main .wc-brand-hero-body h1.wc-page-title {{
   font-family: {FONT_HEADING} !important;
+}}
+section[data-testid="stSidebar"] *,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label p,
+.stTabs [data-baseweb="tab"] {{
+  font-family: {FONT_BODY} !important;
+  font-style: normal !important;
 }}
 html[data-theme="light"] header[data-testid="stHeader"],
 html[data-theme="light"] [data-testid="stToolbar"] button {{
