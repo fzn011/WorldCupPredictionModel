@@ -14,7 +14,7 @@ for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().pare
         sys.path.insert(0, _entry)
 
 from app.page_bootstrap import setup_streamlit_paths
-from app.components.ui import render_empty_state, render_hero, render_info_panel, render_section_header
+from app.components.ui import render_data_table, render_empty_state, render_hero, render_info_panel, render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
 
@@ -74,7 +74,7 @@ def render_page() -> None:
     if comparison_path.is_file():
         render_section_header("Baseline vs improved metrics")
         comparison_df = pd.read_csv(comparison_path)
-        st.dataframe(comparison_df, use_container_width=True)
+        render_data_table(comparison_df, use_container_width=True)
 
     improved_metrics_path = report_paths[1]
     if improved_metrics_path.is_file():
@@ -82,19 +82,19 @@ def render_page() -> None:
         improved_df = pd.read_csv(improved_metrics_path)
         if "log_loss" in improved_df.columns:
             improved_df = improved_df.sort_values("log_loss", ascending=True)
-        st.dataframe(improved_df, use_container_width=True)
+        render_data_table(improved_df, use_container_width=True)
 
     backtest_path = report_paths[2]
     if backtest_path.is_file():
         render_section_header("Temporal backtesting")
         backtest_df = pd.read_csv(backtest_path)
-        st.dataframe(backtest_df, use_container_width=True)
+        render_data_table(backtest_df, use_container_width=True)
 
     probability_quality_path = report_paths[3]
     if probability_quality_path.is_file():
         render_section_header("Probability quality ranking")
         quality_df = pd.read_csv(probability_quality_path)
-        st.dataframe(quality_df, use_container_width=True)
+        render_data_table(quality_df, use_container_width=True)
 
     ranking_metrics_path = report_paths[4]
     if ranking_metrics_path.is_file():
@@ -102,17 +102,17 @@ def render_page() -> None:
         ranking_df = pd.read_csv(ranking_metrics_path)
         if "log_loss" in ranking_df.columns:
             ranking_df = ranking_df.sort_values("log_loss", ascending=True)
-        st.dataframe(ranking_df, use_container_width=True)
+        render_data_table(ranking_df, use_container_width=True)
 
     ranking_vs_previous_path = report_paths[5]
     if ranking_vs_previous_path.is_file():
         render_section_header("Ranking vs previous model")
-        st.dataframe(pd.read_csv(ranking_vs_previous_path), use_container_width=True)
+        render_data_table(pd.read_csv(ranking_vs_previous_path), use_container_width=True)
 
     ranking_importance_path = report_paths[6]
     if ranking_importance_path.is_file():
         render_section_header("Ranking feature importance")
-        st.dataframe(pd.read_csv(ranking_importance_path).head(30), use_container_width=True)
+        render_data_table(pd.read_csv(ranking_importance_path).head(30), use_container_width=True)
 
     render_section_header("Local prediction explanation")
     st.markdown(
@@ -125,7 +125,7 @@ def render_page() -> None:
     if global_explanation_path.is_file():
         render_section_header("Global model explanation")
         global_df = pd.read_csv(global_explanation_path)
-        st.dataframe(global_df.head(30), use_container_width=True)
+        render_data_table(global_df.head(30), use_container_width=True)
     else:
         st.info(
             "No global explanation report found yet. "

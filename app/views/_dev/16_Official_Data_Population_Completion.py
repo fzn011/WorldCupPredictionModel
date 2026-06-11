@@ -17,6 +17,7 @@ sys.path.insert(0, str(app_dir))
 try:
     from app.components.ui import (
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
@@ -26,6 +27,7 @@ try:
 except ModuleNotFoundError:
     from components.ui import (
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
@@ -142,7 +144,7 @@ def render_page() -> None:
 
         if not report_df.empty:
             with st.expander("Completeness report"):
-                st.dataframe(report_df, use_container_width=True)
+                render_data_table(report_df, use_container_width=True)
 
         render_section_header("Blockers")
         blockers = report_df[report_df["blocking"] == True] if not report_df.empty else pd.DataFrame()  # noqa: E712
@@ -164,7 +166,7 @@ def render_page() -> None:
             path = POP_DIR / fname
             if path.is_file():
                 with st.expander(label):
-                    st.dataframe(pd.read_csv(path).head(20), use_container_width=True)
+                    render_data_table(pd.read_csv(path).head(20), use_container_width=True)
 
         render_section_header("Export import pack")
         pack = EXP_DIR / OFFICIAL_READY_IMPORT_PACK_FILE
@@ -268,7 +270,7 @@ def render_page() -> None:
 
         if "step17h_report" in st.session_state:
             with st.expander("Blocker cleanup report"):
-                st.dataframe(st.session_state["step17h_report"], use_container_width=True)
+                render_data_table(st.session_state["step17h_report"], use_container_width=True)
 
         if "step17h_result" in st.session_state:
             r = st.session_state["step17h_result"]

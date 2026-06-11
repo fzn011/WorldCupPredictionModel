@@ -14,7 +14,7 @@ for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().pare
         sys.path.insert(0, _entry)
 
 from app.page_bootstrap import begin_themed_page, safe_sort_dataframe, setup_streamlit_paths
-from app.components.ui import render_hero, render_section_header
+from app.components.ui import render_data_table, render_hero, render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
 
@@ -68,22 +68,22 @@ def render_page() -> None:
     if groups_df.empty:
         st.info("No processed tournament groups found. Click 'Run / Refresh tournament setup'.")
     else:
-        st.dataframe(safe_sort_dataframe(groups_df, ["group", "slot"]), use_container_width=True)
+        render_data_table(safe_sort_dataframe(groups_df, ["group", "slot"]), use_container_width=True)
 
     render_section_header("Group-stage fixtures")
     if fixtures_df.empty:
         st.info("No processed tournament fixtures found. Click 'Run / Refresh tournament setup'.")
     else:
-        st.dataframe(safe_sort_dataframe(fixtures_df, ["group", "matchday", "match_id"]), use_container_width=True)
+        render_data_table(safe_sort_dataframe(fixtures_df, ["group", "matchday", "match_id"]), use_container_width=True)
 
     render_section_header("Validation report")
     if validation_df.empty:
         st.info("No validation report found yet.")
     else:
-        st.dataframe(validation_df, use_container_width=True)
+        render_data_table(validation_df, use_container_width=True)
 
     render_section_header("Knockout placeholders")
     if knockout_df.empty:
         st.info("No knockout placeholder file found yet.")
     else:
-        st.dataframe(knockout_df, use_container_width=True)
+        render_data_table(knockout_df, use_container_width=True)

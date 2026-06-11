@@ -21,6 +21,7 @@ except ModuleNotFoundError:
 try:
     from app.components.ui import (
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
@@ -31,6 +32,7 @@ try:
 except ModuleNotFoundError:
     from components.ui import (
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
@@ -150,7 +152,7 @@ def render_page() -> None:
         if fixtures_path.is_file():
             checklist_data[2]["Current"] = len(pd.read_csv(fixtures_path))
 
-        st.dataframe(pd.DataFrame(checklist_data), use_container_width=True)
+        render_data_table(pd.DataFrame(checklist_data), use_container_width=True)
 
         for step in OFFICIAL_POPULATION_REQUIRED_STEPS:
             step_info = status.get("steps", {}).get(step, {})
@@ -171,7 +173,7 @@ def render_page() -> None:
                 severity_counts = missing_df["severity"].value_counts().to_dict()
                 st.caption(f"Errors: {severity_counts.get('error', 0)} | Warnings: {severity_counts.get('warning', 0)}")
                 with st.expander("Missing-data table"):
-                    st.dataframe(missing_df.head(50), use_container_width=True)
+                    render_data_table(missing_df.head(50), use_container_width=True)
         else:
             st.info("Generate population pack or refresh to create missing-data report.")
 

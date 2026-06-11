@@ -21,6 +21,7 @@ if str(APP_DIR) not in sys.path:
 try:
     from app.components.ui import (  # noqa: E402
         inject_page_theme,
+        render_data_table,
         render_hero,
         render_info_panel,
         render_metric_card,
@@ -28,7 +29,15 @@ try:
         render_warning_panel,
     )
 except ModuleNotFoundError:  # pragma: no cover
-    from components.ui import inject_page_theme, render_hero, render_info_panel, render_metric_card, render_section_header, render_warning_panel  # noqa: E402
+    from components.ui import (  # noqa: E402
+        inject_page_theme,
+        render_data_table,
+        render_hero,
+        render_info_panel,
+        render_metric_card,
+        render_section_header,
+        render_warning_panel,
+    )
 
 from src.features.future_match_features import get_available_teams  # noqa: E402
 from src.official.loaders import get_official_team_list  # noqa: E402
@@ -208,7 +217,7 @@ def render_page() -> None:
             preview = prediction.get("feature_preview", {})
             if preview:
                 with st.expander("Feature preview (technical)"):
-                    st.dataframe(pd.DataFrame([preview]), use_container_width=True)
+                    render_data_table(pd.DataFrame([preview]), use_container_width=True)
 
             with st.expander("How this prediction was generated"):
                 try:
@@ -244,13 +253,13 @@ def render_page() -> None:
                     if support_df.empty:
                         st.info("No clear supporting factors were detected for this prediction.")
                     else:
-                        st.dataframe(support_df, use_container_width=True)
+                        render_data_table(support_df, use_container_width=True)
 
                     st.markdown("**Top opposing factors**")
                     if oppose_df.empty:
                         st.info("No clear opposing factors were detected for this prediction.")
                     else:
-                        st.dataframe(oppose_df, use_container_width=True)
+                        render_data_table(oppose_df, use_container_width=True)
                 except Exception as exc:  # pragma: no cover - UI safety
                     st.warning(
                         "Prediction explanation is currently unavailable. "

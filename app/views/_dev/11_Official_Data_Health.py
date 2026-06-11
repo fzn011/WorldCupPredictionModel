@@ -17,9 +17,9 @@ if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
 
 try:
-    from app.components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header
+    from app.components.ui import inject_page_theme, render_data_table, render_hero, render_metric_card, render_section_header
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header
+    from components.ui import inject_page_theme, render_data_table, render_hero, render_metric_card, render_section_header
 
 from src.official.loaders import (  # noqa: E402
     load_official_fixtures,
@@ -104,25 +104,25 @@ def render_page() -> None:
 
     render_section_header("Teams by group")
     if not groups_df.empty:
-        st.dataframe(groups_df.sort_values(["group", "slot"]), use_container_width=True)
+        render_data_table(groups_df.sort_values(["group", "slot"]), use_container_width=True)
     else:
         st.info("No official groups found.")
 
     st.subheader("Fixture preview")
     if not fixtures_df.empty:
-        st.dataframe(fixtures_df.head(30), use_container_width=True)
+        render_data_table(fixtures_df.head(30), use_container_width=True)
     else:
         st.info("No official fixtures found.")
 
     st.subheader("Venue table")
     if not venues_df.empty:
-        st.dataframe(venues_df, use_container_width=True)
+        render_data_table(venues_df, use_container_width=True)
     else:
         st.info("No official venues found.")
 
     st.subheader("Validation report")
     if not validation_df.empty:
-        st.dataframe(validation_df, use_container_width=True)
+        render_data_table(validation_df, use_container_width=True)
     else:
         st.info("No validation report found.")
 
@@ -134,7 +134,7 @@ def render_page() -> None:
 
     st.subheader("Official match calendar")
     if not calendar_df.empty:
-        st.dataframe(calendar_df.head(30), use_container_width=True)
+        render_data_table(calendar_df.head(30), use_container_width=True)
     else:
         st.info("No official match calendar found.")
 

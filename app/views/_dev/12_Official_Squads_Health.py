@@ -20,9 +20,9 @@ sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(app_dir))
 
 try:
-    from app.components.ui import inject_page_theme, render_hero, render_section_header
+    from app.components.ui import inject_page_theme, render_data_table, render_hero, render_section_header
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_hero, render_section_header
+    from components.ui import inject_page_theme, render_data_table, render_hero, render_section_header
 
 try:
     from app.streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR
@@ -220,7 +220,7 @@ def render_page() -> None:
         view = filtered_players[display_cols] if display_cols else filtered_players
         if sort_col and sort_col in view.columns:
             view = view.sort_values(sort_col)
-        st.dataframe(view, use_container_width=True)
+        render_data_table(view, use_container_width=True)
     
     except Exception as e:
         st.error(f"Error loading players: {e}")
@@ -236,7 +236,7 @@ def render_page() -> None:
     
         sort_col = "team" if "team" in squads.columns else None
         squads_view = squads.sort_values(sort_col) if sort_col else squads
-        st.dataframe(squads_view, use_container_width=True)
+        render_data_table(squads_view, use_container_width=True)
     
     except Exception as e:
         st.error(f"Error loading squad summary: {e}")
@@ -272,7 +272,7 @@ def render_page() -> None:
                 "source",
             ],
         )
-        st.dataframe(candidates[display_cols].head(50) if display_cols else candidates.head(50), use_container_width=True)
+        render_data_table(candidates[display_cols].head(50) if display_cols else candidates.head(50), use_container_width=True)
     
     except Exception as e:
         st.error(f"Error loading award candidates: {e}")
@@ -301,11 +301,11 @@ def render_page() -> None:
             
                 if len(errors) > 0:
                     with st.expander("🔴 Errors"):
-                        st.dataframe(errors, use_container_width=True)
+                        render_data_table(errors, use_container_width=True)
             
                 if len(warnings) > 0:
                     with st.expander("🟡 Warnings"):
-                        st.dataframe(warnings.head(20), use_container_width=True)
+                        render_data_table(warnings.head(20), use_container_width=True)
         else:
             st.info("No validation report found")
         
@@ -324,7 +324,7 @@ def render_page() -> None:
         
             if len(unmatched) > 0:
                 st.warning(f"Found {len(unmatched)} priors for players not in official squads (excluded from award candidates)")
-                st.dataframe(unmatched.head(20), use_container_width=True)
+                render_data_table(unmatched.head(20), use_container_width=True)
             else:
                 st.success("No unmatched priors!")
         else:
