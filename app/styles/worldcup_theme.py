@@ -1050,15 +1050,62 @@ details[open] > summary::before {{
 }}
 
 /* ─── Dataframes / tables ──────────────────────────────────── */
-[data-testid="stDataFrame"] {{
-  border: 1px solid {c['primary']} !important;
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {{
+  border: 1px solid {c['card_border']} !important;
   border-radius: 10px !important;
-  overflow: hidden;
+  overflow: auto !important;
+  min-height: 120px;
+}}
+[data-testid="stDataFrame"] div[data-testid="glideDataEditor"],
+[data-testid="stTable"] table {{
+  background: {c['card']} !important;
+  color: {c['white']} !important;
+}}
+[data-testid="stTable"] table,
+[data-testid="stTable"] thead,
+[data-testid="stTable"] tbody,
+[data-testid="stTable"] tr,
+[data-testid="stTable"] th,
+[data-testid="stTable"] td {{
+  background-color: {c['card']} !important;
+  color: {c['white']} !important;
+  border-color: {c['card_border']} !important;
+}}
+[data-testid="stTable"] th {{
+  background-color: {c['surface']} !important;
+  color: {c['white']} !important;
+  font-weight: 700 !important;
+}}
+[data-testid="stTable"] tr:nth-child(even) td {{
+  background-color: {c['row_stripe']} !important;
+}}
+[data-testid="stDataFrame"] {{
+  --gdg-bg-cell: {c['card']};
+  --gdg-bg-header: {c['surface']};
+  --gdg-bg-header-has-focus: {c['input_bg']};
+  --gdg-bg-header-hovered: {c['card_alt']};
+  --gdg-text-dark: {c['white']};
+  --gdg-text-medium: {c['muted']};
+  --gdg-text-light: {c['muted_dark']};
+  --gdg-text-header: {c['white']};
+  --gdg-text-group-header: {c['muted']};
+  --gdg-text-bubble: {c['white']};
+  --gdg-border-color: {c['card_border']};
+  --gdg-accent-color: {c['primary']};
+  --gdg-accent-fg: {c['white']};
+  --gdg-accent-light: rgba(139, 0, 0, 0.25);
+  --gdg-bg-bubble: {c['input_bg']};
+  --gdg-link-color: {c['green']};
 }}
 [data-testid="stDataFrame"] div[data-testid="glideDataEditor"] {{
   background: {c['card']} !important;
+  min-height: 120px;
 }}
 .dvn-scroller {{ background: {c['card']} !important; }}
+[data-testid="stDataFrame"] canvas {{
+  opacity: 1 !important;
+}}
 
 /* ─── Native Streamlit alerts ──────────────────────────────── */
 [data-testid="stAlert"] {{

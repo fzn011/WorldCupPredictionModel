@@ -348,19 +348,37 @@ def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
 
 # ─── Data table ────────────────────────────────────────────────────────────────
 
+def _default_table_height(row_count: int, *, row_height: int = 35, header: int = 38, cap: int = 640) -> int:
+    return min(cap, header + row_height * max(row_count, 1) + 8)
+
+
 def render_data_table(
     df: pd.DataFrame,
     *,
     height: int | None = None,
     hide_index: bool = True,
+    interactive: bool = False,
+    max_static_rows: int = 500,
+    **kwargs: Any,
 ) -> None:
+    """Render tabular data with readable dark-theme styling.
+
+    Uses static ``st.table`` by default (reliable in tabs). Falls back to
+    ``st.dataframe`` only for large or explicitly interactive tables.
+    """
+    _ = kwargs  # absorb legacy st.dataframe kwargs (use_container_width, etc.)
     if df.empty:
         st.info("No data available.")
         return
-    kwargs: dict[str, Any] = {"use_container_width": True, "hide_index": hide_index}
-    if height is not None:
-        kwargs["height"] = height
-    st.dataframe(df, **kwargs)
+
+    display = df.reset_index(drop=True) if hide_index else df
+
+    if not interactive and len(display) <= max_static_rows:
+        st.table(display)
+        return
+
+    table_height = height if height is not None else _default_table_height(len(display))
+    st.dataframe(display, use_container_width=True, hide_index=hide_index, height=table_height)
 
 
 # ─── Download card ─────────────────────────────────────────────────────────────
@@ -508,7 +526,7 @@ def render_clean_table(
     if df.empty:
         render_empty_state("No data", "Nothing to display yet.")
         return
-    st.dataframe(df.head(max_rows), use_container_width=True, hide_index=True)
+    render_data_table(df.head(max_rows), hide_index=True)
 
 
 def render_empty_state(title: str, message: str) -> None:

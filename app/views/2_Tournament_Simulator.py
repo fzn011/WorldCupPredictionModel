@@ -16,9 +16,9 @@ if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
 
 try:
-    from app.components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_info_panel
+    from app.components.ui import inject_page_theme, render_data_table, render_hero, render_metric_card, render_section_header, render_info_panel
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_info_panel
+    from components.ui import inject_page_theme, render_data_table, render_hero, render_metric_card, render_section_header, render_info_panel
 
 from src.simulation.simulate_tournament import simulate_tournament  # noqa: E402
 
@@ -62,4 +62,4 @@ def render_page() -> None:
                         sub="Champion probability",
                         variant="accent",
                     )
-        st.dataframe(df, use_container_width=True, hide_index=True)
+        render_data_table(df, use_container_width=True, hide_index=True)

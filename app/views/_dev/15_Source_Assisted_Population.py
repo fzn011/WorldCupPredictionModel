@@ -21,6 +21,7 @@ except ModuleNotFoundError:
 try:
     from app.components.ui import (
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
@@ -31,6 +32,7 @@ try:
 except ModuleNotFoundError:
     from components.ui import (
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
@@ -101,7 +103,7 @@ def render_page() -> None:
                 for name, info in registry.get("sources", {}).items()
             ]
         )
-        st.dataframe(sources_df, use_container_width=True)
+        render_data_table(sources_df, use_container_width=True)
         with st.expander("Configured FIFA URLs"):
             for k, v in OFFICIAL_FIFA_SOURCE_URLS.items():
                 st.caption(f"**{k}:** {v}")
@@ -144,7 +146,7 @@ def render_page() -> None:
         else:
             for name, df in staged.items():
                 st.subheader(name.title())
-                st.dataframe(df.head(25), use_container_width=True)
+                render_data_table(df.head(25), use_container_width=True)
                 st.caption(f"{len(df)} rows")
 
         render_section_header("Staging validation")
@@ -154,7 +156,7 @@ def render_page() -> None:
         else:
             render_status_card("Validation", "Passed" if passed else "Issues found", badge="ok" if passed else "danger")
             with st.expander("Validation report"):
-                st.dataframe(val_report.head(40), use_container_width=True)
+                render_data_table(val_report.head(40), use_container_width=True)
 
     with tab_export:
         render_section_header("Export import pack")

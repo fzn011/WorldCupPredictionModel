@@ -15,7 +15,7 @@ for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().pare
         sys.path.insert(0, _entry)
 
 from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
-from app.components.ui import render_hero, render_metric_card, render_section_header
+from app.components.ui import render_data_table, render_hero, render_metric_card, render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
 
@@ -91,27 +91,27 @@ def render_page() -> None:
     stage_results_df = _load_csv(FULL_TOURNAMENT_STAGE_RESULTS_FILE)
     if not stage_results_df.empty:
         render_section_header("Stage results")
-        st.dataframe(stage_results_df, use_container_width=True)
+        render_data_table(stage_results_df, use_container_width=True)
 
     full_group_tables_df = _load_csv(FULL_TOURNAMENT_GROUP_TABLES_FILE)
     if not full_group_tables_df.empty:
         render_section_header("Group tables")
-        st.dataframe(full_group_tables_df, use_container_width=True)
+        render_data_table(full_group_tables_df, use_container_width=True)
 
     knockout_matches_df = _load_csv(FULL_TOURNAMENT_KNOCKOUT_MATCHES_FILE)
     if not knockout_matches_df.empty:
         render_section_header("Knockout matches")
-        st.dataframe(knockout_matches_df, use_container_width=True)
+        render_data_table(knockout_matches_df, use_container_width=True)
 
     path_report_df = _load_csv(FULL_TOURNAMENT_PATH_REPORT_FILE)
     if not path_report_df.empty:
         render_section_header("Tournament path report")
-        st.dataframe(path_report_df, use_container_width=True)
+        render_data_table(path_report_df, use_container_width=True)
 
     validation_df = _load_csv(FULL_TOURNAMENT_VALIDATION_REPORT_FILE)
     if not validation_df.empty:
         render_section_header("Validation report")
-        st.dataframe(validation_df, use_container_width=True)
+        render_data_table(validation_df, use_container_width=True)
 
     single_result = _load_json(FULL_TOURNAMENT_RESULT_FILE)
     if single_result:
@@ -121,7 +121,7 @@ def render_page() -> None:
     full_match_log_df = _load_csv(FULL_TOURNAMENT_SIMULATED_MATCHES_FILE)
     if not full_match_log_df.empty:
         render_section_header("Full match log")
-        st.dataframe(full_match_log_df, use_container_width=True)
+        render_data_table(full_match_log_df, use_container_width=True)
 
     render_section_header("Downloads")
     for file_name, label, mime in [

@@ -30,6 +30,7 @@ Optional for richer data: place files under `data/raw/` or use `scripts/download
 - Use `navigate_to("Page Name")` via **`on_click`** on buttons. Do **not** call `navigate_to` inside `if st.button(...)` blocks, and never assign `wc_sidebar_nav_radio` after the sidebar `st.radio` renders (causes `StreamlitAPIException`).
 - `.streamlit/config.toml` sets `showSidebarNavigation = false` so Streamlit does not auto-discover duplicate sidebar pages.
 - Global theme CSS is injected once in `streamlit_app.py` via `inject_worldcup_css()` — individual pages should not rely on per-page theme gates.
+- **Tables:** use `render_data_table()` from `app/components/ui.py` (static `st.table` with dark-theme CSS). Avoid raw `st.dataframe()` for preview tables — the canvas grid often renders as a blank black box inside tabs on dark themes.
 
 ### Running services
 

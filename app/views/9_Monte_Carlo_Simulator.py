@@ -24,13 +24,21 @@ except ModuleNotFoundError:
 try:
     from app.components.ui import (  # noqa: E402
         inject_page_theme,
+        render_data_table,
         render_download_card,
         render_hero,
         render_metric_card,
         render_section_header,
     )
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_download_card, render_hero, render_metric_card, render_section_header  # noqa: E402
+    from components.ui import (  # noqa: E402
+        inject_page_theme,
+        render_data_table,
+        render_download_card,
+        render_hero,
+        render_metric_card,
+        render_section_header,
+    )
 
 from src.simulation.prepare_monte_carlo import prepare_step15_monte_carlo_simulation  # noqa: E402
 from src.reports.monte_carlo_report import (  # noqa: E402
@@ -118,7 +126,7 @@ def render_page() -> None:
         with m4:
             render_metric_card("Validation", "Ready" if summary.get("validation_passed") else "Needs review", variant="ok" if summary.get("validation_passed") else "warn")
         if not champion_display_df.empty:
-            st.dataframe(champion_display_df.head(5), use_container_width=True, hide_index=True)
+            render_data_table(champion_display_df.head(5), use_container_width=True, hide_index=True)
     else:
         st.info("No forecast yet. Run a simulation below to generate champion probabilities.")
 
@@ -188,7 +196,7 @@ def render_page() -> None:
                     variant="ok" if passed else "danger",
                 )
             if not summary_cards_df.empty:
-                st.dataframe(summary_cards_df, use_container_width=True, hide_index=True)
+                render_data_table(summary_cards_df, use_container_width=True, hide_index=True)
             with st.expander("Raw summary JSON"):
                 st.json(summary)
         else:
@@ -206,29 +214,29 @@ def render_page() -> None:
             st.bar_chart(champion_display_df.set_index("team")["champion_probability"])
 
         if not champion_display_df.empty:
-            st.dataframe(champion_display_df, use_container_width=True)
+            render_data_table(champion_display_df, use_container_width=True)
 
         render_section_header("Stage progression")
         if stage_heatmap_path.is_file():
             st.image(str(stage_heatmap_path), use_container_width=True)
         if not stage_display_df.empty:
-            st.dataframe(stage_display_df, use_container_width=True)
+            render_data_table(stage_display_df, use_container_width=True)
 
         c1, c2 = st.columns(2)
         with c1:
             render_section_header("Finalists")
             if not finalists_df.empty:
-                st.dataframe(finalists_df, use_container_width=True)
+                render_data_table(finalists_df, use_container_width=True)
         with c2:
             render_section_header("Semifinalists")
             if not semifinalists_df.empty:
-                st.dataframe(semifinalists_df, use_container_width=True)
+                render_data_table(semifinalists_df, use_container_width=True)
 
         with st.expander("Validation & raw results"):
             if not validation_df.empty:
-                st.dataframe(validation_df, use_container_width=True)
+                render_data_table(validation_df, use_container_width=True)
             if not simulation_results_df.empty:
-                st.dataframe(simulation_results_df, use_container_width=True)
+                render_data_table(simulation_results_df, use_container_width=True)
 
     with tab_downloads:
         render_section_header("Download artifacts")

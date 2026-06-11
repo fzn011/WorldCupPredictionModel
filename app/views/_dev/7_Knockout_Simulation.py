@@ -15,7 +15,7 @@ for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().pare
         sys.path.insert(0, _entry)
 
 from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
-from app.components.ui import render_hero, render_metric_card, render_section_header
+from app.components.ui import render_data_table, render_hero, render_metric_card, render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
 
@@ -95,7 +95,7 @@ def render_page() -> None:
 
     if not bracket_df.empty:
         render_section_header("Filled bracket")
-        st.dataframe(bracket_df, use_container_width=True)
+        render_data_table(bracket_df, use_container_width=True)
 
     if not matches_df.empty:
         render_section_header("Round-by-round results")
@@ -120,11 +120,11 @@ def render_page() -> None:
                         if col in round_df.columns
                     ]
                 ]
-                st.dataframe(display_df, use_container_width=True)
+                render_data_table(display_df, use_container_width=True)
 
     if not validation_df.empty:
         render_section_header("Validation report")
-        st.dataframe(validation_df, use_container_width=True)
+        render_data_table(validation_df, use_container_width=True)
 
     if single_result:
         render_section_header("Single tournament result")
