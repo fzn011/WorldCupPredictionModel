@@ -252,10 +252,14 @@ section[data-testid="stSidebar"] * {{
   flex-shrink: 0;
 }}
 .wc-hero-logo {{
-  width: 96px;
-  height: 96px;
+  display: block;
+  max-height: 112px;
+  max-width: 88px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+  background: transparent !important;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.55));
 }}
 .wc-hero-logo-fallback {{
   width: 96px;
@@ -288,10 +292,14 @@ section[data-testid="stSidebar"] * {{
   border-bottom: 1px solid {c['card_border']};
 }}
 .wc-sidebar-logo {{
-  width: 52px;
-  height: 52px;
+  display: block;
+  max-height: 56px;
+  max-width: 44px;
+  width: auto;
+  height: auto;
   object-fit: contain;
   flex-shrink: 0;
+  background: transparent !important;
 }}
 .wc-sidebar-logo-fallback {{
   width: 52px;
