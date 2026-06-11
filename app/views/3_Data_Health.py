@@ -152,8 +152,16 @@ def render_page() -> None:
         if df.empty:
             st.info("No official teams data.")
         else:
-            st.caption(f"{len(df)} teams loaded")
-            render_data_table(df)
+            from src.official.team_name_enrichment import format_official_teams_for_display, is_valid_team_name
+
+            named_count = int(df["team"].map(is_valid_team_name).sum()) if "team" in df.columns else 0
+            st.caption(f"{len(df)} teams loaded · {named_count} with resolved names")
+            show_technical = st.checkbox(
+                "Show technical fields",
+                value=False,
+                key="dq_teams_show_technical",
+            )
+            render_data_table(format_official_teams_for_display(df, include_technical=show_technical))
 
     with tab_groups:
         df = load_official_groups() if official_path(OFFICIAL_GROUPS_FILE).is_file() else pd.DataFrame()
