@@ -72,6 +72,7 @@ REP_DIR = PROJECT_ROOT / OFFICIAL_POPULATED_REPORTS_DIR
 EXP_DIR = PROJECT_ROOT / OFFICIAL_POPULATED_EXPORTS_DIR
 
 readiness = evaluate_official_final_readiness()
+_readiness_summary = readiness.get("summary", {})
 metrics, report_df = calculate_population_completeness()
 
 tab_build, tab_complete, tab_workflow = st.tabs(["Upload & build", "Completeness", "Import & cleanup"])
@@ -82,7 +83,7 @@ with tab_build:
     with c1:
         render_metric_card(
             "Checks passed",
-            f"{readiness.get('passed_checks', 0)}/{readiness.get('total_checks', 15)}",
+            f"{_readiness_summary.get('passed_checks', 0)}/{_readiness_summary.get('total_checks', 15)}",
         )
     with c2:
         render_metric_card(

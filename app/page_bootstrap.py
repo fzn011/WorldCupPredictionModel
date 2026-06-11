@@ -5,6 +5,22 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import pandas as pd
+
+# Ensure repo root is on sys.path when this module is imported from a page file.
+_PB_ROOT = Path(__file__).resolve().parent.parent
+_PB_APP = Path(__file__).resolve().parent
+for _path in (_PB_ROOT, _PB_APP):
+    _entry = str(_path)
+    if _entry not in sys.path:
+        sys.path.insert(0, _entry)
+
+
+def safe_sort_dataframe(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+    """Sort only by columns that exist — avoids KeyError on schema drift."""
+    cols = [c for c in columns if c in df.columns]
+    return df.sort_values(cols) if cols else df
+
 
 def repo_root_from(caller_file: str | Path) -> Path:
     """Walk up from any page file until repo root (contains src/ + app/)."""

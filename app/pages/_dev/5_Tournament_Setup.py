@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
+for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().parents[1]):
+    _entry = str(_path)
+    if _entry not in sys.path:
+        sys.path.insert(0, _entry)
+
+from app.page_bootstrap import begin_themed_page, safe_sort_dataframe, setup_streamlit_paths
 from app.components.ui import render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
@@ -44,6 +50,7 @@ if st.button("Run / Refresh tournament setup", type="primary"):
     else:
         st.warning("Tournament setup prepared with validation issues. Check validation report below.")
     st.json(summary)
+    st.rerun()
 
 
 def _safe_read_csv(path: Path) -> pd.DataFrame:
@@ -61,13 +68,13 @@ render_section_header("Groups table")
 if groups_df.empty:
     st.info("No processed tournament groups found. Click 'Run / Refresh tournament setup'.")
 else:
-    st.dataframe(groups_df.sort_values(["group", "slot"]), use_container_width=True)
+    st.dataframe(safe_sort_dataframe(groups_df, ["group", "slot"]), use_container_width=True)
 
 render_section_header("Group-stage fixtures")
 if fixtures_df.empty:
     st.info("No processed tournament fixtures found. Click 'Run / Refresh tournament setup'.")
 else:
-    st.dataframe(fixtures_df.sort_values(["group", "matchday", "match_id"]), use_container_width=True)
+    st.dataframe(safe_sort_dataframe(fixtures_df, ["group", "matchday", "match_id"]), use_container_width=True)
 
 render_section_header("Validation report")
 if validation_df.empty:

@@ -6,7 +6,7 @@ lightgbm
 matplotlib
 seaborn
 plotly
-streamlit
+streamlit>=1.41.0
 pyyaml
 joblib
 pytest

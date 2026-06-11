@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
+for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().parents[1]):
+    _entry = str(_path)
+    if _entry not in sys.path:
+        sys.path.insert(0, _entry)
+
+from app.page_bootstrap import begin_themed_page, safe_sort_dataframe, setup_streamlit_paths
 from app.components.ui import render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
@@ -83,7 +89,7 @@ render_section_header("Group tables")
 if rankings_df.empty:
     st.info("No group rankings found. Run simulation first.")
 else:
-    st.dataframe(rankings_df.sort_values(["group", "group_rank"]), use_container_width=True)
+    st.dataframe(safe_sort_dataframe(rankings_df, ["group", "group_rank"]), use_container_width=True)
 
 render_section_header("Best third-placed teams")
 if best_third_df.empty:
@@ -95,7 +101,10 @@ render_section_header("Round-of-32 qualifiers")
 if qualifiers_df.empty:
     st.info("No qualifiers file found yet.")
 else:
-    st.dataframe(qualifiers_df.sort_values(["qualification_type", "group", "group_rank", "team"]), use_container_width=True)
+    st.dataframe(
+        safe_sort_dataframe(qualifiers_df, ["qualification_type", "group", "group_rank", "team"]),
+        use_container_width=True,
+    )
 
 render_section_header("Simulated match results")
 if simulated_df.empty:

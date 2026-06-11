@@ -55,6 +55,14 @@ def _sprintura_font_src() -> str:
     return "local('Segoe UI')"
 
 
+def _inject_raw_html(html: str) -> None:
+    """Inject HTML/CSS without rendering as visible page text (Streamlit version-safe)."""
+    if hasattr(st, "html"):
+        st.html(html, unsafe_allow_javascript=False)
+    else:
+        st.markdown(html, unsafe_allow_html=True)
+
+
 def inject_worldcup_css() -> None:
     """Inject global CSS once per session — uses st.html so CSS is never shown as page text."""
     if st.session_state.get(_SESSION_CSS_KEY):
@@ -63,7 +71,7 @@ def inject_worldcup_css() -> None:
 
     c = COLORS
     sprintura_src = _sprintura_font_src()
-    st.html(
+    _inject_raw_html(
         f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
@@ -866,6 +874,5 @@ html[data-theme="light"] [data-baseweb="select"] > div {{
   font-weight: 600;
 }}
 </style>
-        """,
-        unsafe_allow_javascript=False,
+        """
     )

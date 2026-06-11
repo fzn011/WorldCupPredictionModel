@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import base64
+import html
 from pathlib import Path
 
 import streamlit as st
@@ -55,7 +56,7 @@ def render_sidebar_brand(*, tagline: str = "AI Predictor · Analytics") -> None:
   {logo_html}
   <div class="wc-sidebar-brand-text">
     <div class="wc-sidebar-brand-title">World Cup 2026</div>
-    <div class="wc-sidebar-brand-sub">{tagline}</div>
+    <div class="wc-sidebar-brand-sub">{html.escape(tagline)}</div>
   </div>
 </div>
         """,
@@ -83,9 +84,9 @@ def render_branded_hero(
 <div class="wc-brand-hero">
   <div class="wc-brand-hero-logo">{logo_block}</div>
   <div class="wc-brand-hero-body">
-    <div class="wc-hero-eyebrow">{eyebrow}</div>
-    <h1>{title}</h1>
-    <p>{subtitle}</p>
+    <div class="wc-hero-eyebrow">{html.escape(eyebrow)}</div>
+    <h1>{html.escape(title)}</h1>
+    <p>{html.escape(subtitle)}</p>
   </div>
 </div>
         """,

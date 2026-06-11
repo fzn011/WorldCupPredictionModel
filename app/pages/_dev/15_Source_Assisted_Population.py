@@ -63,6 +63,7 @@ render_warning_panel(
 
 EXPORTS_DIR = PROJECT_ROOT / OFFICIAL_SOURCE_EXPORTS_DIR
 readiness = evaluate_official_final_readiness()
+_readiness_summary = readiness.get("summary", {})
 registry = load_official_source_registry()
 
 tab_overview, tab_staging, tab_export = st.tabs(["Overview & sources", "Staging & validation", "Export & apply"])
@@ -71,7 +72,10 @@ with tab_overview:
     render_section_header("Readiness snapshot")
     c1, c2 = st.columns(2)
     with c1:
-        render_metric_card("Checks passed", f"{readiness.get('passed_checks', 0)}/{readiness.get('total_checks', 15)}")
+        render_metric_card(
+            "Checks passed",
+            f"{_readiness_summary.get('passed_checks', 0)}/{_readiness_summary.get('total_checks', 15)}",
+        )
     with c2:
         render_status_card(
             "official_final ready",
@@ -173,4 +177,8 @@ python scripts/evaluate_official_final_readiness.py
     else:
         st.success("All checks passed — promotion available via Official Data Population page.")
 
-    st.page_link("pages/16_Official_Data_Population_Completion.py", label="Open population completion", icon="⚽")
+    st.page_link(
+        "pages/_dev/16_Official_Data_Population_Completion.py",
+        label="Open population completion",
+        icon="⚽",
+    )

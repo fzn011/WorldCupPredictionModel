@@ -129,12 +129,14 @@ with tab_overview:
             st.warning("Monte Carlo simulation completed with validation issues.")
         with st.expander("Run details"):
             st.json(run_summary)
+        st.rerun()
     if controls_col2.button("Generate report"):
         try:
             report_summary = prepare_step16_monte_carlo_report()
             st.success("Monte Carlo report artifacts generated successfully.")
             with st.expander("Report summary"):
                 st.json(report_summary)
+            st.rerun()
         except FileNotFoundError as exc:
             st.warning(str(exc))
     st.caption("Outputs are simulation estimates, not certainties.")

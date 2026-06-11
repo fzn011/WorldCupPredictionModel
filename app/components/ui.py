@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html
 import json
 from pathlib import Path
 from typing import Any, Literal
@@ -15,6 +16,10 @@ except ModuleNotFoundError:
     from styles.worldcup_theme import COLORS, inject_worldcup_css
 
 BadgeKind = Literal["ok", "warn", "danger", "muted", "gold"]
+
+
+def _esc(text: Any) -> str:
+    return html.escape(str(text))
 
 
 # ─── Theme injection ───────────────────────────────────────────────────────────
@@ -35,9 +40,9 @@ def render_hero(
     st.markdown(
         f"""
 <div class="wc-hero">
-  <div class="wc-hero-eyebrow">{eyebrow}</div>
-  <h1>{title}</h1>
-  <p>{subtitle}</p>
+  <div class="wc-hero-eyebrow">{_esc(eyebrow)}</div>
+  <h1>{_esc(title)}</h1>
+  <p>{_esc(subtitle)}</p>
 </div>
         """,
         unsafe_allow_html=True,
@@ -48,7 +53,7 @@ def render_hero(
 
 def render_section_header(title: str, *, subtitle: str | None = None) -> None:
     st.markdown(
-        f'<div class="wc-section"><h3>{title}</h3></div>',
+        f'<div class="wc-section"><h3>{_esc(title)}</h3></div>',
         unsafe_allow_html=True,
     )
     st.markdown('<div class="wc-pitch-line"></div>', unsafe_allow_html=True)
@@ -60,7 +65,7 @@ def render_section_header(title: str, *, subtitle: str | None = None) -> None:
 
 def render_status_badge(label: str, kind: BadgeKind = "muted") -> str:
     """Return an HTML badge string (unsafe_allow_html caller's responsibility)."""
-    return f'<span class="wc-badge wc-badge-{kind}">{label}</span>'
+    return f'<span class="wc-badge wc-badge-{kind}">{_esc(label)}</span>'
 
 
 # ─── Status dot ────────────────────────────────────────────────────────────────
@@ -85,12 +90,12 @@ def render_metric_card(
     if variant in ("gold", "accent"):
         variant = "accent"
     cls = f"wc-card wc-card-{variant}" if variant else "wc-card"
-    sub_html = f'<div class="wc-card-sub">{sub}</div>' if sub else ""
+    sub_html = f'<div class="wc-card-sub">{_esc(sub)}</div>' if sub else ""
     st.markdown(
         f"""
 <div class="{cls}">
-  <div class="wc-card-label">{label}</div>
-  <div class="wc-card-value">{value}</div>
+  <div class="wc-card-label">{_esc(label)}</div>
+  <div class="wc-card-value">{_esc(value)}</div>
   {sub_html}
 </div>
         """,

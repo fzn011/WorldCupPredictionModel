@@ -207,58 +207,64 @@ def _homepage() -> None:
     left, right = st.columns([3, 2], gap="large")
 
     with left:
-        st.markdown('<div class="wc-dash-panel">', unsafe_allow_html=True)
-        st.markdown('<div class="wc-dash-panel-title">Champion forecast</div>', unsafe_allow_html=True)
-        if mc_ready and top_champion:
-            try:
-                import pandas as pd
-                champ_path = PROCESSED_DATA_DIR / _MC_CHAMP
-                cx1, cx2 = st.columns([2, 3])
-                with cx1:
-                    render_champion_spotlight(top_champion, top_champ_prob)
-                with cx2:
-                    if champ_path.is_file():
-                        champ_df = pd.read_csv(champ_path)
-                        prob_col = next(
-                            (c for c in ["champion_probability", "probability", "win_probability"] if c in champ_df.columns),
-                            None,
-                        )
-                        name_col = next((c for c in ["team", "team_name", "name"] if c in champ_df.columns), None)
-                        if prob_col and name_col:
-                            top_df = (
-                                champ_df[[name_col, prob_col]]
-                                .rename(columns={name_col: "Team", prob_col: "Prob."})
-                                .sort_values("Prob.", ascending=False)
-                                .head(8)
+        with st.container(border=True):
+            st.markdown('<div class="wc-dash-panel-title">Champion forecast</div>', unsafe_allow_html=True)
+            if mc_ready and top_champion:
+                try:
+                    import pandas as pd
+
+                    champ_path = PROCESSED_DATA_DIR / _MC_CHAMP
+                    cx1, cx2 = st.columns([2, 3])
+                    with cx1:
+                        render_champion_spotlight(top_champion, top_champ_prob)
+                    with cx2:
+                        if champ_path.is_file():
+                            champ_df = pd.read_csv(champ_path)
+                            prob_col = next(
+                                (
+                                    c
+                                    for c in ["champion_probability", "probability", "win_probability"]
+                                    if c in champ_df.columns
+                                ),
+                                None,
                             )
-                            top_df["Prob."] = top_df["Prob."].apply(lambda x: f"{float(x):.1%}")
-                            st.dataframe(top_df, use_container_width=True, hide_index=True)
-            except Exception:
-                render_champion_spotlight(top_champion, top_champ_prob)
-        else:
-            st.info("Run **Monte Carlo Forecast** from the sidebar to populate champion probabilities.")
-        st.markdown("</div>", unsafe_allow_html=True)
+                            name_col = next(
+                                (c for c in ["team", "team_name", "name"] if c in champ_df.columns),
+                                None,
+                            )
+                            if prob_col and name_col:
+                                top_df = (
+                                    champ_df[[name_col, prob_col]]
+                                    .rename(columns={name_col: "Team", prob_col: "Prob."})
+                                    .sort_values("Prob.", ascending=False)
+                                    .head(8)
+                                )
+                                top_df["Prob."] = top_df["Prob."].apply(lambda x: f"{float(x):.1%}")
+                                st.dataframe(top_df, use_container_width=True, hide_index=True)
+                except Exception:
+                    render_champion_spotlight(top_champion, top_champ_prob)
+            else:
+                st.info("Run **Monte Carlo Forecast** from the sidebar to populate champion probabilities.")
 
     with right:
-        st.markdown('<div class="wc-dash-panel">', unsafe_allow_html=True)
-        st.markdown('<div class="wc-dash-panel-title">Data readiness</div>', unsafe_allow_html=True)
-        m1, m2 = st.columns(2)
-        with m1:
-            render_metric_card("Teams", str(teams_count) if teams_count else "—", sub="WC 2026 squads")
-        with m2:
-            render_metric_card("Fixtures", str(fixtures_count) if fixtures_count else "—", sub="Scheduled matches")
-        progress_ratio = checks_passed / max(checks_total, 1)
-        prog_kind = "ok" if is_final_ready else ("warn" if progress_ratio >= 0.5 else "danger")
-        render_progress_bar(
-            progress_ratio,
-            label=f"Completeness — {checks_passed}/{checks_total}",
-            kind=prog_kind,
-        )
-        if is_final_ready:
-            render_success_panel("Official final mode enabled.")
-        else:
-            render_warning_panel("Complete checks on <strong>Data Health</strong> to unlock official final mode.")
-        st.markdown("</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown('<div class="wc-dash-panel-title">Data readiness</div>', unsafe_allow_html=True)
+            m1, m2 = st.columns(2)
+            with m1:
+                render_metric_card("Teams", str(teams_count) if teams_count else "—", sub="WC 2026 squads")
+            with m2:
+                render_metric_card("Fixtures", str(fixtures_count) if fixtures_count else "—", sub="Scheduled matches")
+            progress_ratio = checks_passed / max(checks_total, 1)
+            prog_kind = "ok" if is_final_ready else ("warn" if progress_ratio >= 0.5 else "danger")
+            render_progress_bar(
+                progress_ratio,
+                label=f"Completeness — {checks_passed}/{checks_total}",
+                kind=prog_kind,
+            )
+            if is_final_ready:
+                render_success_panel("Official final mode enabled.")
+            else:
+                render_warning_panel("Complete checks on <strong>Data Health</strong> to unlock official final mode.")
 
     st.caption("Analytics estimates only · Not affiliated with or endorsed by FIFA.")
 

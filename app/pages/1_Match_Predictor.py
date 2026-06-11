@@ -221,13 +221,13 @@ if mode == "Future Match Prediction":
                 if support_df.empty:
                     st.info("No clear supporting factors were detected for this prediction.")
                 else:
-                    st.dataframe(support_df, width="stretch")
+                    st.dataframe(support_df, use_container_width=True)
 
                 st.markdown("**Top opposing factors**")
                 if oppose_df.empty:
                     st.info("No clear opposing factors were detected for this prediction.")
                 else:
-                    st.dataframe(oppose_df, width="stretch")
+                    st.dataframe(oppose_df, use_container_width=True)
             except Exception as exc:  # pragma: no cover - UI safety
                 st.warning(
                     "Prediction explanation is currently unavailable. "

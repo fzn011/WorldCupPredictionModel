@@ -2,10 +2,16 @@
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+
+for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().parents[1]):
+    _entry = str(_path)
+    if _entry not in sys.path:
+        sys.path.insert(0, _entry)
 
 from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
 from app.components.ui import render_info_panel, render_section_header
