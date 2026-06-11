@@ -596,6 +596,7 @@ MONTE_CARLO_VALIDATION_REPORT_FILE: str = "monte_carlo_validation_report.csv"
 
 DEFAULT_MONTE_CARLO_SIMULATIONS: int = 100
 DEFAULT_MONTE_CARLO_SEED: int = 42
+MAX_MONTE_CARLO_SIMULATIONS: int = 5000
 
 MONTE_CARLO_STAGE_COLUMNS: list[str] = [
     "group_stage",

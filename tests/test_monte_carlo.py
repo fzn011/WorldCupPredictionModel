@@ -95,6 +95,31 @@ def test_build_simulation_results_table_has_one_row_per_simulation() -> None:
     assert len(df) == 2
 
 
+def test_build_champion_probabilities_ignore_invalid_team_tokens() -> None:
+    df = pd.DataFrame(
+        {
+            "status": ["success", "success", "success"],
+            "champion": ["A", None, "nan"],
+        }
+    )
+    champ_df = mc.build_champion_probabilities(df)
+    assert len(champ_df) == 1
+    assert champ_df.iloc[0]["team"] == "A"
+    assert champ_df.iloc[0]["champion_probability"] == 1.0
+
+
+def test_build_finalists_table_ignores_invalid_runner_up_tokens() -> None:
+    df = pd.DataFrame(
+        {
+            "status": ["success", "success"],
+            "champion": ["A", "B"],
+            "runner_up": ["B", None],
+        }
+    )
+    finalists = mc.build_finalists_table(df)
+    assert set(finalists["team"]) == {"A", "B"}
+
+
 def test_build_champion_probabilities_are_between_0_and_1() -> None:
     df = pd.DataFrame(
         {

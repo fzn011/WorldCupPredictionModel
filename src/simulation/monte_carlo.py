@@ -21,6 +21,21 @@ TOURNAMENT_STAGE_FINAL = getattr(C, "TOURNAMENT_STAGE_FINAL", "final")
 
 DEFAULT_MONTE_CARLO_SIMULATIONS = int(getattr(C, "DEFAULT_MONTE_CARLO_SIMULATIONS", 100))
 DEFAULT_MONTE_CARLO_SEED = int(getattr(C, "DEFAULT_MONTE_CARLO_SEED", 42))
+MAX_MONTE_CARLO_SIMULATIONS = int(getattr(C, "MAX_MONTE_CARLO_SIMULATIONS", 5000))
+
+_INVALID_TEAM_TOKENS = frozenset({"", "none", "nan", "nat", "<na>", "null"})
+
+
+def _is_valid_team_name(value: Any) -> bool:
+    """Return True when value is a usable team label for aggregation tables."""
+    if value is None:
+        return False
+    if isinstance(value, float) and pd.isna(value):
+        return False
+    token = str(value).strip()
+    if not token:
+        return False
+    return token.lower() not in _INVALID_TEAM_TOKENS
 
 MONTE_CARLO_STAGE_COLUMNS = list(
     getattr(
@@ -197,7 +212,7 @@ def build_team_stage_counts(path_reports: list[dict[str, Any] | pd.DataFrame]) -
 
         for _, row in path_report.iterrows():
             team = str(row.get("team", "")).strip()
-            if not team:
+            if not _is_valid_team_name(team):
                 continue
             stage_level = _stage_level_from_row(row)
             rows.append(
@@ -292,8 +307,7 @@ def build_champion_probabilities(simulation_results_df: pd.DataFrame) -> pd.Data
 
     successful = simulation_results_df.loc[
         (simulation_results_df["status"] == "success")
-        & simulation_results_df["champion"].notna()
-        & (simulation_results_df["champion"].astype(str).str.len() > 0)
+        & simulation_results_df["champion"].apply(_is_valid_team_name)
     ].copy()
     if successful.empty:
         return pd.DataFrame(columns=["team", "champion_count", "champion_probability"])
@@ -338,13 +352,23 @@ def build_finalists_table(simulation_results_df: pd.DataFrame) -> pd.DataFrame:
         )
 
     total = len(successful)
-    champion_counts = successful["champion"].astype(str).value_counts().to_dict()
-    runner_counts = successful["runner_up"].astype(str).value_counts().to_dict()
+    champion_counts = (
+        successful.loc[successful["champion"].apply(_is_valid_team_name), "champion"]
+        .astype(str)
+        .value_counts()
+        .to_dict()
+    )
+    runner_counts = (
+        successful.loc[successful["runner_up"].apply(_is_valid_team_name), "runner_up"]
+        .astype(str)
+        .value_counts()
+        .to_dict()
+    )
 
     teams = sorted(set(champion_counts.keys()).union(set(runner_counts.keys())))
     rows = []
     for team in teams:
-        if not team or team == "None":
+        if not _is_valid_team_name(team):
             continue
         champ = int(champion_counts.get(team, 0))
         runner = int(runner_counts.get(team, 0))
@@ -380,7 +404,7 @@ def build_semifinalists_table(path_reports: list[dict[str, Any] | pd.DataFrame],
         df = path_report.copy()
         stage_levels = df.apply(_stage_level_from_row, axis=1)
         semifinal_teams = df.loc[stage_levels >= 4, "team"].astype(str).tolist()
-        rows.extend([team for team in semifinal_teams if team])
+        rows.extend([team for team in semifinal_teams if _is_valid_team_name(team)])
 
     if not rows:
         return pd.DataFrame(columns=["team", "semifinal_count", "semifinal_probability"])
@@ -411,11 +435,15 @@ def validate_monte_carlo_outputs(
     successful_count = int(len(successful_df))
     _add("at_least_one_successful_simulation", ">=1", successful_count, successful_count >= 1)
 
-    successful_champions = int(successful_df["champion"].notna().sum()) if not successful_df.empty and "champion" in successful_df.columns else 0
+    successful_champions = (
+        int(successful_df["champion"].apply(_is_valid_team_name).sum())
+        if not successful_df.empty and "champion" in successful_df.columns
+        else 0
+    )
     _add("every_success_has_champion", successful_count, successful_champions, successful_champions == successful_count)
 
     champion_probability_sum = float(champion_probabilities_df["champion_probability"].sum()) if not champion_probabilities_df.empty else 0.0
-    sum_close = bool(np.isclose(champion_probability_sum, 1.0, atol=1e-6)) if successful_count > 0 else False
+    sum_close = bool(np.isclose(champion_probability_sum, 1.0, atol=1e-6)) if successful_count > 0 and not champion_probabilities_df.empty else successful_count == 0
     _add("champion_probabilities_sum_close_to_1", "~1.0", round(champion_probability_sum, 8), sum_close)
 
     has_stage_rows = int(len(team_stage_probabilities_df))

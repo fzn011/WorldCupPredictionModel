@@ -8,6 +8,11 @@ from pathlib import Path
 
 import streamlit as st
 
+try:
+    from app.styles.worldcup_theme import SPRINTURA_PAGE_TITLE_STYLE, render_themed_html
+except ModuleNotFoundError:
+    from styles.worldcup_theme import SPRINTURA_PAGE_TITLE_STYLE, render_themed_html
+
 _APP_DIR = Path(__file__).resolve().parents[1]
 _IMAGES_DIR = _APP_DIR / "static" / "images"
 
@@ -85,16 +90,15 @@ def render_branded_hero(
     logo_col = (
         f'<div class="wc-brand-hero-logo">{logo_block}</div>' if logo_block else ""
     )
-    st.markdown(
+    render_themed_html(
         f"""
 <div class="wc-brand-hero">
   {logo_col}
   <div class="wc-brand-hero-body">
     <div class="wc-hero-eyebrow wc-page-eyebrow">{html.escape(eyebrow)}</div>
-    <h1 class="wc-page-title">{html.escape(title)}</h1>
+    <h1 class="wc-page-title" style="{SPRINTURA_PAGE_TITLE_STYLE}">{html.escape(title)}</h1>
     <p class="wc-page-subtitle">{html.escape(subtitle)}</p>
   </div>
 </div>
-        """,
-        unsafe_allow_html=True,
+        """
     )

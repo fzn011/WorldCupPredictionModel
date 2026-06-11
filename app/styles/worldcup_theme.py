@@ -41,6 +41,13 @@ FONT_HEADING = "'Sprintura', 'Segoe UI', sans-serif"
 FONT_BODY = "'Roboto', 'Segoe UI', sans-serif"
 FONT_MONO = "ui-monospace, 'Cascadia Code', monospace"
 
+# Inline on hero h1 so Sprintura wins over Streamlit's global h1 !important rules.
+SPRINTURA_PAGE_TITLE_STYLE = (
+    "font-family: 'Sprintura', 'Segoe UI', sans-serif !important; "
+    "letter-spacing: 0.06em; text-transform: uppercase; "
+    "font-weight: 800; font-size: 2rem; margin: 0 0 0.35rem 0;"
+)
+
 
 def _sprintura_font_src() -> str:
     """Embed Sprintura as data URL so fonts work on every OS without static path issues."""
@@ -62,6 +69,11 @@ def _inject_raw_html(html: str) -> None:
         st.html(html, unsafe_allow_javascript=False)
     else:
         st.markdown(html, unsafe_allow_html=True)
+
+
+def render_themed_html(html: str) -> None:
+    """Render themed HTML fragments (heroes, cards) with st.html when available."""
+    _inject_raw_html(html)
 
 
 def inject_worldcup_css(*, force: bool = False) -> None:
@@ -1257,8 +1269,15 @@ html[data-theme="light"] section.main .wc-brand-hero .wc-page-title {{
 section.main .wc-page-title,
 section.main .wc-hero h1.wc-page-title,
 section.main .wc-brand-hero .wc-page-title,
-section.main .wc-brand-hero-body h1.wc-page-title {{
+section.main .wc-brand-hero-body h1.wc-page-title,
+.main .wc-hero h1.wc-page-title,
+.main .wc-brand-hero h1.wc-page-title,
+[data-testid="stAppViewContainer"] .wc-hero h1.wc-page-title,
+[data-testid="stAppViewContainer"] .wc-brand-hero h1.wc-page-title,
+h1.wc-page-title {{
   font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
 }}
 section[data-testid="stSidebar"] *,
 section[data-testid="stSidebar"] [data-testid="stRadio"] label,
