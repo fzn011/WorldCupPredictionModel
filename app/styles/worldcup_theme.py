@@ -95,21 +95,34 @@ html, body {{
 }}
 
 /* ─── Base ─────────────────────────────────────────────────── */
-html, body, [class*="css"], .stMarkdown, .stText, label, p, li, span {{
+html, body, .stMarkdown, .stText, p, li, span, label, input, textarea, select, button {{
   font-family: {FONT_BODY} !important;
   color: {c['white']};
 }}
-h1, h2, h4, h5, h6,
+h1, h2, h3, h4, h5, h6,
+.wc-page-title,
+.wc-page-title-sm,
+.wc-page-eyebrow,
+.wc-section-title,
 .wc-hero h1, .wc-section h3, .wc-hero-eyebrow,
 .wc-card-label, .wc-action-title,
-[data-testid="stSidebarNavSeparator"] {{
+[data-testid="stSidebarNavSeparator"],
+[data-testid="stHeading"] h1,
+[data-testid="stHeading"] h2,
+[data-testid="stHeading"] h3,
+[data-testid="stHeading"] h4,
+[data-testid="stHeading"] h5,
+[data-testid="stHeading"] h6,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label p {{
   font-family: {FONT_HEADING} !important;
   letter-spacing: 0.05em;
 }}
-h1, h2, .wc-hero h1 {{
+h1, h2, .wc-page-title, .wc-hero h1, .wc-brand-hero-body h1 {{
   text-transform: uppercase;
 }}
-h3, .wc-section h3 {{
+h3, .wc-section h3, .wc-section-title {{
   font-family: {FONT_HEADING} !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -243,13 +256,39 @@ section[data-testid="stSidebar"] * {{
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
+  font-family: {FONT_HEADING} !important;
   margin-bottom: 0.35rem;
 }}
-.wc-hero h1 {{
+.wc-hero h1,
+.wc-page-title {{
   margin: 0 0 0.35rem 0 !important;
   font-size: 2rem !important;
   font-weight: 800 !important;
   color: {c['white']} !important;
+  font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}}
+.wc-brand-hero-body h1,
+.wc-brand-hero .wc-page-title {{
+  margin: 0.25rem 0 0.35rem 0 !important;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  font-family: {FONT_HEADING} !important;
+}}
+.wc-page-subtitle {{
+  font-family: {FONT_BODY} !important;
+  color: {c['muted']};
+}}
+.wc-page-eyebrow {{
+  font-family: {FONT_HEADING} !important;
+}}
+.wc-page-title-sm {{
+  font-family: {FONT_HEADING} !important;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }}
 .wc-hero p {{
   color: {c['muted']};
@@ -304,8 +343,6 @@ section[data-testid="stSidebar"] * {{
 .wc-brand-hero-body h1 {{
   margin: 0.25rem 0 0.35rem 0 !important;
 }}
-
-/* ─── Sidebar brand (upper-left) ────────────────────────────── */
 .wc-sidebar-brand {{
   display: flex;
   align-items: center;
@@ -389,7 +426,7 @@ section[data-testid="stSidebar"] * {{
   border-radius: 50%;
 }}
 .wc-sidebar-brand-title {{
-  font-family: {FONT_HEADING};
+  font-family: {FONT_HEADING} !important;
   font-size: 0.95rem;
   font-weight: 800;
   color: {c['white']};
@@ -503,11 +540,13 @@ section[data-testid="stSidebar"] * {{
 
 /* ─── Section headers ──────────────────────────────────────── */
 .wc-section {{ margin: 1.4rem 0 0.5rem 0; }}
-.wc-section h3 {{
+.wc-section h3,
+.wc-section-title {{
   margin: 0 !important;
   color: {c['primary']} !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
+  font-family: {FONT_HEADING} !important;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }}
@@ -1185,8 +1224,35 @@ html[data-theme="light"] h4,
 html[data-theme="light"] label,
 html[data-theme="light"] p,
 html[data-theme="light"] .stMarkdown,
-html[data-theme="light"] [data-testid="stSidebarNav"] a {{
+html[data-theme="light"] [data-testid="stSidebarNav"] a,
+html[data-theme="light"] .wc-page-title,
+html[data-theme="light"] .wc-section-title,
+html[data-theme="light"] [data-testid="stHeading"] h1,
+html[data-theme="light"] [data-testid="stHeading"] h2,
+html[data-theme="light"] [data-testid="stHeading"] h3 {{
   color: {c['white']} !important;
+  font-family: {FONT_HEADING} !important;
+}}
+
+/* Sprintura lock — page titles beat Streamlit body font inheritance */
+section.main h1,
+section.main h2,
+section.main h3,
+section.main h4,
+section.main h5,
+section.main h6,
+[data-testid="stHeading"] h1,
+[data-testid="stHeading"] h2,
+[data-testid="stHeading"] h3,
+[data-testid="stHeading"] h4,
+[data-testid="stHeading"] h5,
+[data-testid="stHeading"] h6,
+.wc-page-title,
+.wc-page-title-sm,
+.wc-page-eyebrow,
+.wc-section-title,
+.stTabs [data-baseweb="tab"] {{
+  font-family: {FONT_HEADING} !important;
 }}
 html[data-theme="light"] header[data-testid="stHeader"],
 html[data-theme="light"] [data-testid="stToolbar"] button {{

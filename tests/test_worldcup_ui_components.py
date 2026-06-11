@@ -57,6 +57,8 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         "#161616",
         '[data-baseweb="select"]',
         "Sprintura",
+        "wc-page-title",
+        "wc-section-title",
         "html[data-theme=\"light\"]",
         "stHeader",
     ):
@@ -100,7 +102,10 @@ def test_app_styles_package_exports() -> None:
     assert callable(inject_worldcup_css)
 
 
-def test_app_components_package_exports() -> None:
+def test_render_hero_uses_sprintura_title_class() -> None:
+    source = UI_PATH.read_text(encoding="utf-8")
+    assert 'class="wc-page-title"' in source
+    assert 'class="wc-section-title"' in source
     from app.components.ui import render_hero, render_metric_card
 
     assert callable(render_hero)
