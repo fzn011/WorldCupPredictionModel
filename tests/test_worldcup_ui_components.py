@@ -110,29 +110,29 @@ def test_app_components_package_exports() -> None:
 @pytest.mark.parametrize(
     "page_path",
     [
-        "app/pages/1_Match_Predictor.py",
-        "app/pages/2_Tournament_Simulator.py",
-        "app/pages/3_Data_Health.py",
-        "app/pages/4_Reports_Downloads.py",
-        "app/pages/9_Monte_Carlo_Simulator.py",
-        "app/pages/17_World_Cup_Awards.py",
-        "app/pages/_dev/4_Model_Explanation.py",
-        "app/pages/_dev/5_Tournament_Setup.py",
-        "app/pages/_dev/6_Group_Stage_Simulation.py",
-        "app/pages/_dev/7_Knockout_Simulation.py",
-        "app/pages/_dev/8_Full_Tournament_Run.py",
-        "app/pages/_dev/11_Official_Data_Health.py",
-        "app/pages/_dev/12_Official_Squads_Health.py",
-        "app/pages/_dev/14_Official_Data_Population.py",
-        "app/pages/_dev/15_Source_Assisted_Population.py",
-        "app/pages/_dev/16_Official_Data_Population_Completion.py",
+        "app/views/1_Match_Predictor.py",
+        "app/views/2_Tournament_Simulator.py",
+        "app/views/3_Data_Health.py",
+        "app/views/4_Reports_Downloads.py",
+        "app/views/9_Monte_Carlo_Simulator.py",
+        "app/views/17_World_Cup_Awards.py",
+        "app/views/_dev/4_Model_Explanation.py",
+        "app/views/_dev/5_Tournament_Setup.py",
+        "app/views/_dev/6_Group_Stage_Simulation.py",
+        "app/views/_dev/7_Knockout_Simulation.py",
+        "app/views/_dev/8_Full_Tournament_Run.py",
+        "app/views/_dev/11_Official_Data_Health.py",
+        "app/views/_dev/12_Official_Squads_Health.py",
+        "app/views/_dev/14_Official_Data_Population.py",
+        "app/views/_dev/15_Source_Assisted_Population.py",
+        "app/views/_dev/16_Official_Data_Population_Completion.py",
     ],
 )
 def test_all_streamlit_pages_apply_theme(page_path: str) -> None:
     path = REPO_ROOT / page_path
     assert path.is_file(), f"Missing page: {page_path}"
     source = path.read_text(encoding="utf-8")
-    assert "inject_page_theme" in source or "begin_themed_page" in source
+    assert "def render_page" in source
 
 
 @pytest.mark.parametrize(
@@ -146,16 +146,16 @@ def test_all_streamlit_pages_apply_theme(page_path: str) -> None:
         "17_World_Cup_Awards.py",
     ],
 )
-def test_themed_pages_reference_inject_page_theme(page_name: str) -> None:
-    path = REPO_ROOT / "app" / "pages" / page_name
+def test_themed_pages_define_render_page(page_name: str) -> None:
+    path = REPO_ROOT / "app" / "views" / page_name
     assert path.is_file(), f"Missing themed page: {page_name}"
     source = path.read_text(encoding="utf-8")
-    assert "inject_page_theme" in source
+    assert "def render_page" in source
 
 
-def test_streamlit_app_uses_navigation() -> None:
+def test_streamlit_app_uses_stable_navigation() -> None:
     source = (REPO_ROOT / "app" / "streamlit_app.py").read_text(encoding="utf-8")
-    assert "st.navigation" in source
-    assert "pages/3_Data_Health.py" in source
-    assert "Advanced tools" in source
-    assert "pages/_dev/" in source
+    assert "render_app_shell" in source
+    assert "inject_worldcup_css()" in source
+    assert "Advanced tools" in (REPO_ROOT / "app" / "components" / "layout.py").read_text(encoding="utf-8")
+    assert "views/" in (REPO_ROOT / "app" / "components" / "layout.py").read_text(encoding="utf-8")

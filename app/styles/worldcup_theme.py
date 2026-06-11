@@ -64,11 +64,9 @@ def _inject_raw_html(html: str) -> None:
         st.markdown(html, unsafe_allow_html=True)
 
 
-def inject_worldcup_css() -> None:
-    """Inject global CSS once per session — uses st.html so CSS is never shown as page text."""
-    if st.session_state.get(_SESSION_CSS_KEY):
-        return
-    st.session_state[_SESSION_CSS_KEY] = True
+def inject_worldcup_css(*, force: bool = False) -> None:
+    """Inject global CSS every app run so theme survives page transitions."""
+    _ = force  # kept for callers; injection is always applied when invoked
 
     c = COLORS
     sprintura_src = _sprintura_font_src()
@@ -152,10 +150,22 @@ header[data-testid="stHeader"] {{
   color: {c['white']} !important;
 }}
 .block-container {{
-  padding-top: 1.25rem !important;
+  padding-top: 1.2rem !important;
   padding-bottom: 2.5rem !important;
   max-width: 1400px !important;
   background: transparent !important;
+  animation: wcFadeIn 0.12s ease-in-out;
+}}
+.main .block-container {{
+  animation: wcFadeIn 0.12s ease-in-out;
+}}
+@keyframes wcFadeIn {{
+  from {{ opacity: 0.96; transform: translateY(2px); }}
+  to {{ opacity: 1; transform: translateY(0); }}
+}}
+.page-frame {{
+  min-height: 720px;
+  animation: wcFadeIn 0.15s ease-in-out;
 }}
 h1, h2, h3, h4, h5, h6 {{
   color: {c['white']} !important;
@@ -772,6 +782,24 @@ section[data-testid="stSidebar"] * {{
 [data-baseweb="menu"] li:hover,
 [data-baseweb="menu"] div[role="option"]:hover {{
   background: rgba(139, 0, 0, 0.2) !important;
+}}
+div[role="listbox"],
+div[role="listbox"] li,
+div[role="listbox"] div[role="option"] {{
+  background-color: {c['card']} !important;
+  color: {c['white']} !important;
+}}
+input,
+textarea,
+select,
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input,
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"],
+.stMultiSelect div[data-baseweb="select"] {{
+  background-color: {c['input_bg']} !important;
+  color: {c['white']} !important;
 }}
 
 /* Hide broken Material icon / keyboard text leaks */

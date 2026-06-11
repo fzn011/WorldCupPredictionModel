@@ -50,14 +50,13 @@ def begin_themed_page(
     *,
     eyebrow: str | None = None,
 ) -> tuple[Path, Path]:
-    """Path setup + inject blood-red theme + hero banner. Call at top of every page."""
+    """Path setup + hero banner. Global theme is injected by streamlit_app.py."""
     root, app_dir = setup_streamlit_paths(caller_file)
     try:
-        from app.components.ui import inject_page_theme, render_hero
+        from app.components.ui import render_hero
     except ModuleNotFoundError:
-        from components.ui import inject_page_theme, render_hero
+        from components.ui import render_hero
 
-    inject_page_theme()
     render_hero(
         title,
         subtitle,

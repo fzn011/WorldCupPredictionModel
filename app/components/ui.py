@@ -278,7 +278,7 @@ def render_action_card(
     page: str | None = None,
     status: str = "neutral",
 ) -> None:
-    """Single clickable-style dashboard card with optional page link."""
+    """Single clickable-style dashboard card with optional navigation button."""
     status_cls = f" wc-card-{status}" if status in ("ok", "warn", "danger", "accent") else ""
     st.markdown(
         f"""
@@ -290,7 +290,12 @@ def render_action_card(
         unsafe_allow_html=True,
     )
     if page and button_label:
-        st.page_link(page, label=button_label, use_container_width=True)
+        if st.button(button_label, use_container_width=True, key=f"nav_{page}_{title}"):
+            try:
+                from app.components.layout import navigate_to
+            except ModuleNotFoundError:
+                from components.layout import navigate_to
+            navigate_to(page)
 
 
 # ─── Quick nav cards (legacy) ──────────────────────────────────────────────────
@@ -313,7 +318,23 @@ def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
                 unsafe_allow_html=True,
             )
             if item.get("page"):
-                st.page_link(item["page"], label=f"Open {item.get('title', 'page')}")
+                page_name = item["page"]
+                if page_name.startswith("pages/"):
+                    # Legacy file paths → page titles
+                    legacy = {
+                        "pages/1_Match_Predictor.py": "Match Predictor",
+                        "pages/9_Monte_Carlo_Simulator.py": "Tournament Forecast",
+                        "pages/17_World_Cup_Awards.py": "World Cup Awards",
+                        "pages/4_Reports_Downloads.py": "Reports",
+                        "pages/3_Data_Health.py": "Data Quality",
+                    }
+                    page_name = legacy.get(page_name, page_name)
+                if st.button(f"Open {item.get('title', 'page')}", use_container_width=True, key=f"legacy_nav_{idx}"):
+                    try:
+                        from app.components.layout import navigate_to
+                    except ModuleNotFoundError:
+                        from components.layout import navigate_to
+                    navigate_to(page_name)
 
 
 # ─── Data table ────────────────────────────────────────────────────────────────
