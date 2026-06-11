@@ -163,9 +163,22 @@ header[data-testid="stHeader"] {{
   from {{ opacity: 0.96; transform: translateY(2px); }}
   to {{ opacity: 1; transform: translateY(0); }}
 }}
-.page-frame {{
+.page-frame,
+[data-testid="stVerticalBlock"] > [data-testid="stVerticalBlockBorderWrapper"] {{
   min-height: 720px;
   animation: wcFadeIn 0.15s ease-in-out;
+}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] label,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label p {{
+  color: {c['white']} !important;
+  font-size: 0.98rem !important;
+}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] input {{
+  accent-color: {c['primary']} !important;
+}}
+section.main .block-container {{
+  max-width: 1400px !important;
 }}
 h1, h2, h3, h4, h5, h6 {{
   color: {c['white']} !important;
@@ -802,19 +815,15 @@ select,
   color: {c['white']} !important;
 }}
 
-/* Hide broken Material icon / keyboard text leaks */
-[data-testid="stSidebarHeader"],
-[data-testid="stSidebarCollapseButton"],
-[data-testid="collapsedControl"],
-[data-testid="stSidebarNav"] [data-testid="stIconMaterial"],
-[data-testid="stSidebarNav"] span[data-testid="stIconMaterial"],
-[data-testid="stSidebarNav"] span.material-icons,
-[data-testid="stSidebarNav"] span.material-symbols-rounded,
-[data-testid="stPageLink-NavLink"] [data-testid="stIconMaterial"],
-.material-symbols-rounded,
-.material-icons,
-span[class*="MaterialIcon"],
-[data-testid="stIconMaterial"] {{
+/* Hide broken Material icon / keyboard text leaks (sidebar only) */
+section[data-testid="stSidebar"] [data-testid="stSidebarHeader"],
+section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"],
+section[data-testid="stSidebar"] [data-testid="collapsedControl"],
+section[data-testid="stSidebar"] [data-testid="stIconMaterial"],
+section[data-testid="stSidebar"] span[data-testid="stIconMaterial"],
+section[data-testid="stSidebar"] span.material-icons,
+section[data-testid="stSidebar"] span.material-symbols-rounded,
+section[data-testid="stSidebar"] span[class*="MaterialIcon"] {{
   display: none !important;
   visibility: hidden !important;
   width: 0 !important;

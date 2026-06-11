@@ -87,11 +87,8 @@ def navigate_to(page: str) -> None:
 @contextmanager
 def open_page_frame() -> Iterator[None]:
     """Stable min-height container to prevent blank layout during reruns."""
-    st.markdown('<div class="page-frame">', unsafe_allow_html=True)
-    try:
+    with st.container():
         yield
-    finally:
-        st.markdown("</div>", unsafe_allow_html=True)
 
 
 def render_page_frame(title: str, subtitle: str | None = None):
@@ -170,17 +167,18 @@ def render_sidebar_navigation(*, home_renderer: Callable[[], None] | None = None
     return st.session_state[_SESSION_ACTIVE]
 
 
-def dispatch_page(page_name: str, *, home_renderer: Callable[[], None]) -> None:
-    """Render the selected page inside a stable frame."""
-    with open_page_frame():
-        if page_name == "Home":
-            home_renderer()
-            return
-        renderer = _load_renderer(page_name)
-        renderer()
-
-
 def render_app_shell(home_renderer: Callable[[], None]) -> None:
     """Full app: sidebar navigation + main content (no mixed routing)."""
-    active = render_sidebar_navigation()
-    dispatch_page(active, home_renderer=home_renderer)
+    with st.sidebar:
+        active = render_sidebar_navigation()
+    try:
+        if active == "Home":
+            with open_page_frame():
+                home_renderer()
+        else:
+            renderer = _load_renderer(active)
+            with open_page_frame():
+                renderer()
+    except Exception as exc:
+        st.error(f"Unable to load {active!r}. Check the terminal for details.")
+        st.exception(exc)
