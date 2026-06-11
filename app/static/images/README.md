@@ -1,25 +1,23 @@
-# World Cup 2026 logo assets
+# World Cup 2026 logo
 
-Place your logo file here as **`world_cup_logo.png`**.
+Primary logo file (already configured in the app):
 
-Supported names (checked in order):
+`hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png`
 
-1. `world_cup_logo.png` (recommended)
-2. `world_cup_2026_logo.png`
-3. Any other `.png` / `.webp` in this folder
+Place it in this folder:
 
-The logo appears in:
+`app/static/images/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png`
 
-- **Sidebar** (top-left, next to “World Cup 2026”)
-- **Home hero banner** (left of the main title)
+The logo is shown in the **sidebar** and on the **Home hero banner**.
 
-## Windows
+Optional alias: copy or rename to `world_cup_logo.png`.
 
-Save the official WC 2026 logo image you want to use, then:
+After adding or replacing the file, restart Streamlit and hard-refresh (`Ctrl+F5`).
 
-```powershell
-copy "C:\Users\USER\Downloads\your-wc2026-logo.png" `
-  "E:\World Cup prediction model\world-cup-2026-ai-predictor\app\static\images\world_cup_logo.png"
+## Windows (your path)
+
+```
+E:\World Cup prediction model\world-cup-2026-ai-predictor\app\static\images\hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png
 ```
 
-Restart Streamlit and hard-refresh the browser (`Ctrl+F5`).
+If the file is already there, pull the latest code and restart Streamlit — no rename needed.

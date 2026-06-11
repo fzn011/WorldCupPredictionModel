@@ -11,6 +11,9 @@ import streamlit as st
 _APP_DIR = Path(__file__).resolve().parents[1]
 _IMAGES_DIR = _APP_DIR / "static" / "images"
 
+LOGO_OFFICIAL = _IMAGES_DIR / (
+    "hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png"
+)
 LOGO_STANDARD = _IMAGES_DIR / "world_cup_logo.png"
 LOGO_ALT = _IMAGES_DIR / "world_cup_2026_logo.png"
 LOGO_LEGACY = _IMAGES_DIR / "hd-official-2026-fifa-world-cup-transparent-png.png"
@@ -18,7 +21,7 @@ LOGO_LEGACY = _IMAGES_DIR / "hd-official-2026-fifa-world-cup-transparent-png.png
 
 def resolve_logo_path() -> Path | None:
     """Return first existing logo under app/static/images/."""
-    for path in (LOGO_STANDARD, LOGO_ALT, LOGO_LEGACY):
+    for path in (LOGO_OFFICIAL, LOGO_STANDARD, LOGO_ALT, LOGO_LEGACY):
         if path.is_file():
             return path
     for path in sorted(_IMAGES_DIR.glob("*.png")):
@@ -76,7 +79,7 @@ def render_sidebar_brand(*, tagline: str = "Analytics Command Center") -> None:
         unsafe_allow_html=True,
     )
     if resolve_logo_path() is None:
-        st.caption("Add logo: app/static/images/world_cup_logo.png")
+        st.caption(f"Logo not found. Expected: {LOGO_OFFICIAL.name}")
 
 
 def render_branded_hero(

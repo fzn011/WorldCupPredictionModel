@@ -4,12 +4,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from app.components.branding import LOGO_STANDARD, render_branded_hero, render_sidebar_brand, resolve_logo_path
+from app.components.branding import LOGO_OFFICIAL, render_branded_hero, render_sidebar_brand, resolve_logo_path
 
 
-def test_logo_standard_path_under_app_static() -> None:
-    assert "static" in str(LOGO_STANDARD)
-    assert LOGO_STANDARD.name == "world_cup_logo.png"
+def test_logo_official_path_under_app_static() -> None:
+    assert "static" in str(LOGO_OFFICIAL)
+    assert LOGO_OFFICIAL.name.startswith("hd-official-2026-fifa-world-cup")
 
 
 def test_resolve_logo_path_returns_none_or_file() -> None:
