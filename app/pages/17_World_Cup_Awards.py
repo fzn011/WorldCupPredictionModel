@@ -28,6 +28,7 @@ try:
         render_download_card,
         render_formation_diagram,
         render_hero,
+        render_info_panel,
         render_metric_card,
         render_podium_cards,
         render_section_header,
@@ -42,6 +43,7 @@ except ModuleNotFoundError:
         render_download_card,
         render_formation_diagram,
         render_hero,
+        render_info_panel,
         render_metric_card,
         render_podium_cards,
         render_section_header,
@@ -129,13 +131,12 @@ def _formation_lines(team_df: pd.DataFrame, name_col: str) -> list[list[str]]:
 
 inject_page_theme()
 render_hero(
-    "World Cup Awards",
-    "Predicted Golden Ball, Golden Boot, Golden Glove, Best Young Player, "
-    "and team awards based on official squads and Monte Carlo progression data.",
+    "World Cup Awards Forecast",
+    "Analytics-based estimates using official squads and tournament simulations.",
     eyebrow="Awards analytics",
 )
 
-render_warning_panel(AWARDS_ANALYTICS_DISCLAIMER)
+render_info_panel(AWARDS_ANALYTICS_DISCLAIMER)
 
 final_mode = load_official_final_mode()
 readiness = evaluate_official_final_readiness()
@@ -144,27 +145,36 @@ final_ready = bool(readiness.get("is_official_final_ready", False))
 awards_allowed = official_final_enabled and final_ready
 summary = readiness.get("summary", {})
 
-render_section_header("Official final data status")
+if final_ready and official_final_enabled:
+    render_success_panel("Official data verified. Awards forecasts are enabled.")
+else:
+    render_info_panel("Awards require verified official data. Review the Data Quality page for status.")
+
+render_section_header("Dataset status")
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     render_status_card(
-        "Official Final",
-        "Enabled" if official_final_enabled else "Disabled",
+        "Official Data",
+        "Ready" if official_final_enabled else "Pending",
         badge="ok" if official_final_enabled else "warn",
     )
 with c2:
-    render_status_card("Final ready", "Yes" if final_ready else "No", badge="ok" if final_ready else "danger")
+    render_status_card(
+        "Verification",
+        "Complete" if final_ready else "In progress",
+        badge="ok" if final_ready else "warn",
+    )
 with c3:
-    render_metric_card("Official players", str(summary.get("players_count", "—")))
+    render_metric_card("Players", str(summary.get("players_count", "—")))
 with c4:
-    render_metric_card("Teams (26 players)", str(summary.get("teams_with_26_players", "—")))
+    render_metric_card("Full squads", str(summary.get("teams_with_26_players", "—")))
 
 if not awards_allowed:
-    render_warning_panel(
-        "World Cup awards require official_final mode. Run official final readiness and promotion first:<br><br>"
-        "<code>python scripts/evaluate_official_final_readiness.py</code><br>"
-        "<code>python scripts/promote_official_final.py --confirm</code>"
-    )
+    with st.expander("Technical requirements (admin)"):
+        st.markdown(
+            "Awards generation requires verified official data. "
+            "Enable technical tools in the sidebar for admin workflows."
+        )
     st.stop()
 
 enriched_path = PROCESSED_DATA_DIR / getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")

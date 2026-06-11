@@ -28,6 +28,7 @@ try:
         render_data_table,
         render_download_card,
         render_hero,
+        render_info_panel,
         render_metric_card,
         render_progress_bar,
         render_readiness_item,
@@ -43,6 +44,7 @@ except ModuleNotFoundError:
         render_data_table,
         render_download_card,
         render_hero,
+        render_info_panel,
         render_metric_card,
         render_progress_bar,
         render_readiness_item,
@@ -94,9 +96,9 @@ OFFICIAL_IMPORT_TEMPLATES_DIR = getattr(
 
 inject_page_theme()
 render_hero(
-    "Data Health",
-    "Official World Cup 2026 data completeness, validation, and final readiness gate.",
-    eyebrow="Official data dashboard",
+    "Data Quality",
+    "Overview of official World Cup 2026 data completeness and verification status.",
+    eyebrow="Data verification",
 )
 
 
@@ -106,37 +108,37 @@ def _get_readiness() -> dict:
     return st.session_state.readiness_report
 
 
-# ─── Controls ─────────────────────────────────────────────────────────────────
-render_section_header("Controls")
+# ─── Controls (technical) ─────────────────────────────────────────────────────
+with st.expander("Technical tools", expanded=False):
+    render_section_header("Administrative actions")
+    ctrl1, ctrl2, ctrl3, ctrl4 = st.columns(4)
 
-ctrl1, ctrl2, ctrl3, ctrl4 = st.columns(4)
+    with ctrl1:
+        if st.button("Refresh evaluation", use_container_width=True):
+            st.session_state.readiness_report = evaluate_official_final_readiness()
+            st.rerun()
 
-with ctrl1:
-    if st.button("Refresh Evaluation", use_container_width=True):
-        st.session_state.readiness_report = evaluate_official_final_readiness()
-        st.rerun()
+    with ctrl2:
+        if st.button("Generate import templates", use_container_width=True):
+            with st.spinner("Generating templates..."):
+                out_dir = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR
+                templates = generate_all_import_templates(output_dir=out_dir)
+                create_import_manifest(templates, out_dir)
+            st.success(f"{len(templates)} templates generated.")
+            st.rerun()
 
-with ctrl2:
-    if st.button("Generate Import Templates", use_container_width=True):
-        with st.spinner("Generating templates..."):
-            out_dir = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR
-            templates = generate_all_import_templates(output_dir=out_dir)
-            create_import_manifest(templates, out_dir)
-        st.success(f"{len(templates)} templates generated.")
-        st.rerun()
+    with ctrl3:
+        if st.button("Save verification report", use_container_width=True):
+            report = _get_readiness()
+            report_path = save_final_readiness_report(report)
+            st.success(f"Saved to {report_path.name}")
 
-with ctrl3:
-    if st.button("Save Readiness Report", use_container_width=True):
-        report = _get_readiness()
-        report_path = save_final_readiness_report(report)
-        st.success(f"Saved to {report_path.name}")
-
-with ctrl4:
-    if st.button("Prepare Data Population Pack", use_container_width=True):
-        with st.spinner("Preparing pack..."):
-            prepare_step17d_official_data_population_pack()
-        st.success("Population pack prepared.")
-        st.rerun()
+    with ctrl4:
+        if st.button("Prepare data import pack", use_container_width=True):
+            with st.spinner("Preparing pack..."):
+                prepare_step17d_official_data_population_pack()
+            st.success("Import pack prepared.")
+            st.rerun()
 
 st.divider()
 
@@ -144,53 +146,44 @@ st.divider()
 report = _get_readiness()
 summary = report.get("summary", {})
 status = report.get("status", "blocked")
+is_ready = bool(report.get("is_official_final_ready", False))
 
-render_section_header("Readiness summary")
+render_section_header("Verification summary")
 
 passed = summary.get("passed_checks", 0)
 total = summary.get("total_checks", 15)
 progress = passed / max(total, 1)
 
-prog_kind = "ok" if status == "ready" else ("warn" if status == "warning" else "danger")
-render_progress_bar(progress, label=f"Overall completeness — {passed}/{total} checks", kind=prog_kind)
+if is_ready or status == "ready":
+    render_success_panel("Official data verified. Tournament analytics are fully enabled.")
+else:
+    render_info_panel("Data verification in progress. Review details below if needed.")
 
 c1, c2, c3, c4, c5 = st.columns(5)
 with c1:
-    render_data_quality_card(
-        "All checks pass",
-        summary.get("blocker_count", 1) == 0,
-        detail=f"{passed}/{total} checks",
-        progress=progress,
+    render_metric_card(
+        "Official Data",
+        "Ready" if is_ready else "In progress",
+        variant="ok" if is_ready else "warn",
     )
 with c2:
     tc = summary.get("teams_count", 0)
-    render_data_quality_card("Teams", tc >= 48, detail=f"{tc} / 48")
+    render_data_quality_card("Teams", tc >= 48, detail=f"{tc} teams")
 with c3:
-    pc = summary.get("players_count", 0)
-    render_data_quality_card("Players", pc >= 1248, detail=f"{pc} / 1248")
+    fc = summary.get("fixtures_count", 0)
+    render_data_quality_card("Fixtures", fc >= 100, detail=f"{fc} matches")
 with c4:
-    sq = summary.get("teams_with_26_players", 0)
-    render_data_quality_card("Full squads", sq >= 48, detail=f"{sq} / 48 teams")
+    pc = summary.get("players_count", 0)
+    render_data_quality_card("Players", pc >= 1248, detail=f"{pc} players")
 with c5:
-    render_data_quality_card(
-        "Blockers",
-        summary.get("blocker_count", 0) == 0,
-        detail=f"{summary.get('blocker_count', 0)} blockers  ·  {summary.get('warning_count', 0)} warnings",
-    )
+    sq = summary.get("teams_with_26_players", 0)
+    render_data_quality_card("Full squads", sq >= 48, detail=f"{sq} teams at 26")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-if status == "ready":
-    render_success_panel("All readiness checks passed. Official final mode is available.")
-elif status == "warning":
-    render_warning_panel("Some checks need attention. Review warnings before production use.")
-else:
-    render_warning_panel(
-        f"Official final mode is blocked — {summary.get('blocker_count', 0)} blocker(s). "
-        "Use the import workflow below to resolve missing data."
-    )
-
-st.divider()
+with st.expander("Technical verification details", expanded=False):
+    prog_kind = "ok" if status == "ready" else ("warn" if status == "warning" else "danger")
+    render_progress_bar(progress, label=f"Internal verification — {passed}/{total}", kind=prog_kind)
 
 # ─── Checklist (tabbed by category) ───────────────────────────────────────────
 render_section_header("Readiness checklist")

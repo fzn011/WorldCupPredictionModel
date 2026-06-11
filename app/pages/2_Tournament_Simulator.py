@@ -16,22 +16,22 @@ if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
 
 try:
-    from app.components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_warning_panel
+    from app.components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_info_panel
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_warning_panel
+    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_info_panel
 
 from src.simulation.simulate_tournament import simulate_tournament  # noqa: E402
 
 inject_page_theme()
 render_hero(
-    "Tournament Simulator",
-    "Lightweight quick-run bracket simulation to estimate champion probabilities. "
-    "For full probabilistic forecasts, use the Monte Carlo Forecast page.",
-    eyebrow="Quick bracket simulation",
+    "Tournament Forecast",
+    "Quick bracket simulation for fast champion probability estimates. "
+    "For full probabilistic forecasts, use Monte Carlo Forecast in the sidebar.",
+    eyebrow="Quick simulation",
 )
-render_warning_panel(
-    "This simulator uses a simplified probability model for quick estimates. "
-    "For production-grade forecasts use <strong>Monte Carlo Forecast</strong> in the sidebar."
+render_info_panel(
+    "This page runs a lightweight simulation for rapid exploration. "
+    "Use **Monte Carlo Forecast** for production-grade tournament estimates."
 )
 
 render_section_header("Simulation settings")

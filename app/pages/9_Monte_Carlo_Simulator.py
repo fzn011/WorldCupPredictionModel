@@ -75,9 +75,9 @@ def _load_json(file_name: str) -> dict:
 
 inject_page_theme()
 render_hero(
-    "Monte Carlo Forecast",
+    "Tournament Forecast",
     "Run thousands of full-tournament simulations to estimate champion and stage progression probabilities.",
-    eyebrow="Probabilistic tournament forecast",
+    eyebrow="Monte Carlo analytics",
 )
 
 tab_overview, tab_results, tab_downloads = st.tabs(["Overview & settings", "Results & charts", "Downloads"])

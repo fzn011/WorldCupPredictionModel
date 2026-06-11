@@ -179,6 +179,6 @@ python scripts/evaluate_official_final_readiness.py
 
     st.page_link(
         "pages/_dev/16_Official_Data_Population_Completion.py",
-        label="Open population completion",
-        icon="⚽",
+        label="Import Completion",
+        use_container_width=True,
     )

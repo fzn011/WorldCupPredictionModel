@@ -10,20 +10,21 @@ import streamlit as st
 _SESSION_CSS_KEY = "_worldcup_theme_css_injected"
 
 COLORS: dict[str, str] = {
-    "background": "#0B0B0B",
-    "surface": "#141414",
-    "card": "#0B0B0B",
+    "background": "#050505",
+    "surface": "#0B0B0B",
+    "card": "#111111",
+    "card_alt": "#171717",
     "card_border": "#2A2A2A",
-    "card_hover": "#1A1A1A",
+    "card_hover": "#171717",
     "primary": "#8B0000",
-    "primary_hover": "#A50000",
-    "primary_dim": "#6d0000",
+    "primary_hover": "#A30000",
+    "primary_dim": "#4A0000",
     "green": "#16A36A",
-    "green_dim": "#0d7a50",
+    "green_dim": "#0F6B46",
     "white": "#F8F8F8",
-    "muted": "#C0C0C0",
-    "muted_dark": "#909090",
-    "input_bg": "#1F1F1F",
+    "muted": "#C7C7C7",
+    "muted_dark": "#8F8F8F",
+    "input_bg": "#161616",
     "input_border": "#8B0000",
     "warning": "#F59E0B",
     "danger": "#EF4444",
@@ -307,6 +308,55 @@ section[data-testid="stSidebar"] * {{
   text-align: center;
   color: {c['white']};
 }}
+.wc-sidebar-mark {{
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(145deg, {c['primary_dim']} 0%, {c['primary']} 100%);
+  border: 1px solid {c['primary_hover']};
+  position: relative;
+  overflow: hidden;
+}}
+.wc-sidebar-mark::after {{
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(248, 248, 248, 0.25);
+  border-radius: 6px;
+}}
+.wc-brand-hero-visual {{
+  width: 120px;
+  height: 88px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(160deg, {c['primary_dim']} 0%, {c['surface']} 45%, {c['card_alt']} 100%);
+  border: 1px solid {c['card_border']};
+  position: relative;
+  overflow: hidden;
+}}
+.wc-pitch-line-hero {{
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 50%;
+  height: 1px;
+  background: rgba(248, 248, 248, 0.2);
+}}
+.wc-pitch-line-hero-2 {{
+  top: 28%;
+  opacity: 0.5;
+}}
+.wc-pitch-center {{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 1px solid rgba(248, 248, 248, 0.25);
+  border-radius: 50%;
+}}
 .wc-sidebar-brand-title {{
   font-family: {FONT_HEADING};
   font-size: 0.95rem;
@@ -583,6 +633,20 @@ section[data-testid="stSidebar"] * {{
 .wc-action-icon {{ font-size: 1.5rem; margin-bottom: 0.25rem; }}
 .wc-action-title {{ color: {c['white']}; font-weight: 700; font-size: 0.92rem; }}
 .wc-action-hint {{ color: {c['muted']}; font-size: 0.76rem; line-height: 1.35; }}
+.wc-filename-muted {{
+  color: {c['muted_dark']};
+  font-size: 0.68rem;
+  margin-top: 0.35rem;
+  font-family: {FONT_MONO};
+}}
+.wc-empty-state {{
+  background: {c['card']};
+  border: 1px dashed {c['card_border']};
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}}
 
 /* ─── Formation / podium ───────────────────────────────────── */
 .wc-formation {{
@@ -637,6 +701,22 @@ section[data-testid="stSidebar"] * {{
   border-radius: 8px !important;
   caret-color: {c['white']} !important;
 }}
+.stTextInput input:focus,
+.stNumberInput input:focus,
+.stDateInput input:focus,
+.stTextArea textarea:focus,
+.stTextInput input:focus-visible,
+.stNumberInput input:focus-visible {{
+  border-color: {c['green']} !important;
+  box-shadow: 0 0 0 1px {c['green']} !important;
+  outline: none !important;
+}}
+.stTextInput input:disabled,
+.stNumberInput input:disabled,
+.stTextArea textarea:disabled {{
+  opacity: 0.65 !important;
+  color: {c['muted']} !important;
+}}
 .stTextInput input::placeholder,
 .stTextArea textarea::placeholder {{
   color: {c['muted']} !important;
@@ -671,6 +751,28 @@ section[data-testid="stSidebar"] * {{
 }}
 [data-baseweb="popover"] li:hover {{
   background: rgba(139, 0, 0, 0.25) !important;
+}}
+[data-baseweb="menu"] {{
+  background: {c['card']} !important;
+  border: 1px solid {c['card_border']} !important;
+}}
+[data-baseweb="menu"] li,
+[data-baseweb="menu"] div[role="option"] {{
+  color: {c['white']} !important;
+  background: {c['card']} !important;
+}}
+[data-baseweb="menu"] li:hover,
+[data-baseweb="menu"] div[role="option"]:hover {{
+  background: rgba(139, 0, 0, 0.2) !important;
+}}
+
+/* Hide broken Material icon labels in sidebar nav */
+[data-testid="stSidebarNav"] [data-testid="stIconMaterial"],
+[data-testid="stSidebarNav"] span[data-testid="stIconMaterial"] {{
+  display: none !important;
+}}
+[data-testid="stSidebarNav"] a {{
+  gap: 0 !important;
 }}
 
 /* Slider */
@@ -876,3 +978,6 @@ html[data-theme="light"] [data-baseweb="select"] > div {{
 </style>
         """
     )
+
+
+inject_worldcup_theme = inject_worldcup_css

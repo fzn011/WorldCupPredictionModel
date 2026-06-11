@@ -84,11 +84,9 @@ def _official_team_lock_enabled() -> bool:
 inject_page_theme()
 render_hero(
     "Match Predictor",
-    "Select two teams, set venue context, and inspect win / draw / loss probabilities "
-    "with optional explainability.",
-    eyebrow="Match outcome prediction",
+    "Choose two World Cup teams and estimate the match outcome.",
+    eyebrow="Match analytics",
 )
-render_section_header("Match setup")
 
 available_teams = _load_available_teams()
 feature_df = _load_features()
@@ -96,8 +94,9 @@ official_team_lock = _official_team_lock_enabled()
 
 mode = st.radio(
     "Prediction mode",
-    ["Future Match Prediction", "Existing Match Prediction Demo"],
+    ["Future Match Prediction", "Historical match demo"],
     horizontal=True,
+    help="Historical demo uses past matches for illustration only.",
 )
 
 if mode == "Future Match Prediction":
@@ -113,32 +112,42 @@ if mode == "Future Match Prediction":
         st.stop()
 
     if official_team_lock:
-        render_info_panel(
-            "Official data lock is active: future match teams are restricted to "
-            "the official World Cup 2026 team list."
+        render_info_panel("Teams are limited to the official World Cup 2026 squad list.")
+
+    with st.container(border=True):
+        render_section_header("Match setup")
+        col1, col2 = st.columns(2)
+        with col1:
+            team_a = st.selectbox("Team A", available_teams, index=0)
+        with col2:
+            team_b = st.selectbox("Team B", available_teams, index=1 if len(available_teams) > 1 else 0)
+
+        col3, col4 = st.columns(2)
+        with col3:
+            match_date_value = st.date_input("Match date", pd.to_datetime(DEFAULT_FUTURE_MATCH_DATE).date())
+        with col4:
+            tournament = st.text_input("Tournament", value=DEFAULT_FUTURE_TOURNAMENT)
+
+        col5, col6 = st.columns(2)
+        with col5:
+            city = st.text_input("City", value="", placeholder="e.g. New York")
+        with col6:
+            country = st.text_input("Country", value="", placeholder="e.g. United States")
+
+        neutral = st.checkbox("Neutral venue", value=bool(DEFAULT_FUTURE_NEUTRAL))
+
+        venue = ", ".join(p for p in (city, country) if p) or "Venue TBD"
+        st.markdown(
+            f"""
+<div class="wc-action-card">
+  <div class="wc-action-title">{team_a} vs {team_b}</div>
+  <div class="wc-action-hint">{match_date_value} · {venue} · {tournament}</div>
+</div>
+            """,
+            unsafe_allow_html=True,
         )
 
-    col1, col2 = st.columns(2)
-    with col1:
-        team_a = st.selectbox("Team A", available_teams, index=0)
-    with col2:
-        team_b = st.selectbox("Team B", available_teams, index=1 if len(available_teams) > 1 else 0)
-
-    col3, col4 = st.columns(2)
-    with col3:
-        match_date_value = st.date_input("Match date", pd.to_datetime(DEFAULT_FUTURE_MATCH_DATE).date())
-    with col4:
-        tournament = st.text_input("Tournament", value=DEFAULT_FUTURE_TOURNAMENT)
-
-    col5, col6 = st.columns(2)
-    with col5:
-        city = st.text_input("City", value=DEFAULT_FUTURE_CITY)
-    with col6:
-        country = st.text_input("Country", value=DEFAULT_FUTURE_COUNTRY)
-
-    neutral = st.checkbox("Neutral venue", value=bool(DEFAULT_FUTURE_NEUTRAL))
-
-    if st.button("Predict future match", type="primary"):
+    if st.button("Predict match", type="primary", use_container_width=True):
         if team_a == team_b:
             st.error("Team A and Team B must be different teams.")
             st.stop()
@@ -163,18 +172,17 @@ if mode == "Future Match Prediction":
 
         probabilities = prediction["probabilities"]
         render_section_header("Prediction results")
-        st.write(f"**Model type used:** {prediction.get('model_type')} ")
-        st.write(f"**Predicted label:** {prediction.get('predicted_label')} ")
+        st.write(f"**Most likely outcome:** {prediction.get('predicted_label')}")
         confidence_label, confidence_score = get_prediction_confidence(probabilities)
-        st.write(f"**Confidence:** {confidence_label} ({confidence_score:.3f})")
+        st.write(f"**Confidence:** {confidence_label} ({confidence_score:.0%})")
 
         p1, p2, p3 = st.columns(3)
         with p1:
-            render_metric_card("Team A loss", f"{probabilities['team_a_loss']:.1%}", variant="danger")
+            render_metric_card(f"{team_a} win", f"{probabilities['team_a_win']:.1%}", variant="ok")
         with p2:
             render_metric_card("Draw", f"{probabilities['draw']:.1%}", variant="warn")
         with p3:
-            render_metric_card("Team A win", f"{probabilities['team_a_win']:.1%}", variant="ok")
+            render_metric_card(f"{team_b} win", f"{probabilities['team_a_loss']:.1%}", variant="accent")
 
         notes = prediction.get("notes", [])
         if notes:
@@ -187,7 +195,7 @@ if mode == "Future Match Prediction":
             with st.expander("Feature preview (technical)"):
                 st.dataframe(pd.DataFrame([preview]), use_container_width=True)
 
-        with st.expander("Why did the model predict this?"):
+        with st.expander("How this prediction was generated"):
             try:
                 explanation_result = explain_future_match_prediction(
                     team_a=team_a,
