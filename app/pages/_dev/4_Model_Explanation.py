@@ -1,4 +1,4 @@
-"""Streamlit page: model comparison and probability quality."""
+"""Streamlit page: Model explanation and metrics."""
 
 from __future__ import annotations
 
@@ -6,6 +6,11 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+
+from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
+from app.components.ui import render_info_panel, render_section_header
+
+ROOT, _ = setup_streamlit_paths(__file__)
 
 import src.utils.constants as C
 
@@ -22,79 +27,85 @@ RANKING_VS_PREVIOUS_METRICS_FILE = getattr(C, "RANKING_VS_PREVIOUS_METRICS_FILE"
 RANKING_FEATURE_IMPORTANCE_FILE = getattr(C, "RANKING_FEATURE_IMPORTANCE_FILE", "ranking_feature_importance.csv")
 GLOBAL_EXPLANATION_REPORT_FILE = getattr(C, "GLOBAL_EXPLANATION_REPORT_FILE", "global_model_explanation.csv")
 
-st.title("Model Explanation")
-
-st.caption(
-    "Accuracy is useful, but log loss and Brier score matter more for the tournament simulator because it needs reliable probabilities."
+begin_themed_page(
+    __file__,
+    "Model Explanation",
+    "Compare model metrics, probability quality, and local/global prediction explanations.",
+    eyebrow="Model analytics",
 )
 
-reports_dir = Path("reports")
+render_info_panel(
+    "Log loss and Brier score matter more than raw accuracy for tournament simulation "
+    "because the simulator needs reliable probabilities."
+)
+
+reports_dir = ROOT / "reports"
 
 comparison_path = reports_dir / BASELINE_VS_IMPROVED_METRICS_FILE
 if comparison_path.is_file():
-    st.subheader("Baseline vs Improved Metrics")
+    render_section_header("Baseline vs improved metrics")
     comparison_df = pd.read_csv(comparison_path)
-    st.dataframe(comparison_df, width="stretch")
+    st.dataframe(comparison_df, use_container_width=True)
 
 improved_metrics_path = reports_dir / IMPROVED_MODEL_METRICS_FILE
 if improved_metrics_path.is_file():
-    st.subheader("Improved Model Metrics")
+    render_section_header("Improved model metrics")
     improved_df = pd.read_csv(improved_metrics_path)
     if "log_loss" in improved_df.columns:
         improved_df = improved_df.sort_values("log_loss", ascending=True)
-    st.dataframe(improved_df, width="stretch")
+    st.dataframe(improved_df, use_container_width=True)
 
 backtest_path = reports_dir / TEMPORAL_BACKTEST_RESULTS_FILE
 if backtest_path.is_file():
-    st.subheader("Temporal Backtesting")
+    render_section_header("Temporal backtesting")
     backtest_df = pd.read_csv(backtest_path)
-    st.dataframe(backtest_df, width="stretch")
+    st.dataframe(backtest_df, use_container_width=True)
 
 probability_quality_path = reports_dir / PROBABILITY_QUALITY_REPORT_FILE
 if probability_quality_path.is_file():
-    st.subheader("Probability Quality Ranking")
+    render_section_header("Probability quality ranking")
     quality_df = pd.read_csv(probability_quality_path)
-    st.dataframe(quality_df, width="stretch")
+    st.dataframe(quality_df, use_container_width=True)
 
 ranking_metrics_path = reports_dir / RANKING_ENHANCED_MODEL_METRICS_FILE
 if ranking_metrics_path.is_file():
-    st.subheader("Ranking-Enhanced Model Metrics")
+    render_section_header("Ranking-enhanced model metrics")
     ranking_df = pd.read_csv(ranking_metrics_path)
     if "log_loss" in ranking_df.columns:
         ranking_df = ranking_df.sort_values("log_loss", ascending=True)
-    st.dataframe(ranking_df, width="stretch")
+    st.dataframe(ranking_df, use_container_width=True)
 
 ranking_vs_previous_path = reports_dir / RANKING_VS_PREVIOUS_METRICS_FILE
 if ranking_vs_previous_path.is_file():
-    st.subheader("Ranking vs Previous Model Comparison")
-    st.dataframe(pd.read_csv(ranking_vs_previous_path), width="stretch")
+    render_section_header("Ranking vs previous model")
+    st.dataframe(pd.read_csv(ranking_vs_previous_path), use_container_width=True)
 
 ranking_importance_path = reports_dir / RANKING_FEATURE_IMPORTANCE_FILE
 if ranking_importance_path.is_file():
-    st.subheader("Ranking Feature Importance")
-    st.dataframe(pd.read_csv(ranking_importance_path).head(30), width="stretch")
+    render_section_header("Ranking feature importance")
+    st.dataframe(pd.read_csv(ranking_importance_path).head(30), use_container_width=True)
 
-st.subheader("Local Prediction Explanation")
+render_section_header("Local prediction explanation")
 st.markdown(
-    "- Prediction explanations are generated using **SHAP** when available.\n"
-    "- If SHAP is unavailable, the app uses a **model-agnostic local sensitivity** fallback.\n"
-    "- Explanations are approximate and should be used for interpretation, not certainty."
+    "- Prediction explanations use **SHAP** when available.\n"
+    "- Otherwise the app uses a **model-agnostic local sensitivity** fallback.\n"
+    "- Explanations are approximate — use for interpretation, not certainty."
 )
 
 global_explanation_path = reports_dir / GLOBAL_EXPLANATION_REPORT_FILE
 if global_explanation_path.is_file():
-    st.subheader("Global Model Explanation")
+    render_section_header("Global model explanation")
     global_df = pd.read_csv(global_explanation_path)
-    st.dataframe(global_df.head(30), width="stretch")
+    st.dataframe(global_df.head(30), use_container_width=True)
 else:
     st.info(
-        "No normalized global explanation report found yet. "
+        "No global explanation report found yet. "
         "Run `python scripts/inspect_global_explanation.py` to generate it."
     )
 
-st.info(
-    "Snapshot ranking limitation: the latest available FIFA/Elo snapshot is used across historical rows. "
-    "For strict historical backtesting, add date-aware historical ranking joins in a later refinement."
+render_info_panel(
+    "Ranking snapshot note: the latest available FIFA/Elo snapshot is used across historical rows. "
+    "Date-aware historical ranking joins can be added in a later refinement."
 )
 
 if not any(
@@ -110,5 +121,6 @@ if not any(
     ]
 ):
     st.info(
-        "No Step 6/7 reports found yet. Run `python scripts/train_improved_models.py` or `python scripts/train_ranking_enhanced_model.py` first."
+        "No model reports found yet. Run `python scripts/train_improved_models.py` "
+        "or `python scripts/train_ranking_enhanced_model.py` first."
     )

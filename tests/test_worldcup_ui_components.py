@@ -52,6 +52,9 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         "#8B0000",
         "#1F1F1F",
         '[data-baseweb="select"]',
+        "Sprintura",
+        "html[data-theme=\"light\"]",
+        "stHeader",
     ):
         assert token in source
 
@@ -91,6 +94,34 @@ def test_app_components_package_exports() -> None:
 
     assert callable(render_hero)
     assert callable(render_metric_card)
+
+
+@pytest.mark.parametrize(
+    "page_path",
+    [
+        "app/pages/1_Match_Predictor.py",
+        "app/pages/2_Tournament_Simulator.py",
+        "app/pages/3_Data_Health.py",
+        "app/pages/4_Reports_Downloads.py",
+        "app/pages/9_Monte_Carlo_Simulator.py",
+        "app/pages/17_World_Cup_Awards.py",
+        "app/pages/_dev/4_Model_Explanation.py",
+        "app/pages/_dev/5_Tournament_Setup.py",
+        "app/pages/_dev/6_Group_Stage_Simulation.py",
+        "app/pages/_dev/7_Knockout_Simulation.py",
+        "app/pages/_dev/8_Full_Tournament_Run.py",
+        "app/pages/_dev/11_Official_Data_Health.py",
+        "app/pages/_dev/12_Official_Squads_Health.py",
+        "app/pages/_dev/14_Official_Data_Population.py",
+        "app/pages/_dev/15_Source_Assisted_Population.py",
+        "app/pages/_dev/16_Official_Data_Population_Completion.py",
+    ],
+)
+def test_all_streamlit_pages_apply_theme(page_path: str) -> None:
+    path = REPO_ROOT / page_path
+    assert path.is_file(), f"Missing page: {page_path}"
+    source = path.read_text(encoding="utf-8")
+    assert "inject_page_theme" in source or "begin_themed_page" in source
 
 
 @pytest.mark.parametrize(

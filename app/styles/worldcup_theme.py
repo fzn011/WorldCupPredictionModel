@@ -31,7 +31,9 @@ COLORS: dict[str, str] = {
     "gold_light": "#A50000",
 }
 
-FONT_STACK = "'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif"
+FONT_HEADING = "'Sprintura', 'Segoe UI', sans-serif"
+FONT_BODY = "'Roboto', 'Segoe UI', sans-serif"
+FONT_MONO = "ui-monospace, 'Cascadia Code', monospace"
 
 
 def inject_worldcup_css() -> None:
@@ -41,30 +43,97 @@ def inject_worldcup_css() -> None:
         f"""
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+@font-face {{
+  font-family: 'Sprintura';
+  src: url('./static/fonts/Sprintura-Demo.woff2') format('woff2'),
+       url('./static/fonts/Sprintura-Demo.woff') format('woff');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}}
+
+/* ─── Force dark palette (light-mode toggle safe) ─────────── */
+:root {{
+  color-scheme: dark;
+  --background-color: {c['background']};
+  --secondary-background-color: {c['input_bg']};
+  --text-color: {c['white']};
+}}
+html, body {{
+  background: {c['background']} !important;
+  color: {c['white']} !important;
+}}
+
 /* ─── Base ─────────────────────────────────────────────────── */
-html, body, [class*="css"] {{
-  font-family: 'Roboto', {FONT_STACK} !important;
+html, body, [class*="css"], .stMarkdown, .stText, label, p, li, span {{
+  font-family: {FONT_BODY} !important;
+  color: {c['white']};
+}}
+h1, h2, h4, h5, h6,
+.wc-hero h1, .wc-section h3, .wc-hero-eyebrow,
+.wc-card-label, .wc-action-title,
+[data-testid="stSidebarNavSeparator"] {{
+  font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.05em;
+}}
+h1, h2, .wc-hero h1 {{
+  text-transform: uppercase;
+}}
+h3, .wc-section h3 {{
+  font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }}
 .stApp {{
   background: {c['background']} !important;
+  color: {c['white']} !important;
+}}
+[data-testid="stAppViewContainer"] {{
+  background: {c['background']} !important;
+}}
+section.main {{
+  background: {c['background']} !important;
+  color: {c['white']} !important;
+}}
+header[data-testid="stHeader"] {{
+  background: {c['background']} !important;
+  border-bottom: 1px solid {c['card_border']} !important;
+}}
+[data-testid="stHeader"] * {{
+  color: {c['white']} !important;
+}}
+[data-testid="stToolbar"] {{
+  background: transparent !important;
+}}
+[data-testid="stToolbar"] button,
+[data-testid="stToolbar"] svg,
+[data-testid="stToolbar"] span {{
+  color: {c['white']} !important;
+  fill: {c['white']} !important;
+}}
+[data-testid="stDecoration"] {{
+  background: {c['background']} !important;
+}}
+[data-testid="stStatusWidget"] {{
+  background: {c['surface']} !important;
+  border: 1px solid {c['card_border']} !important;
   color: {c['white']} !important;
 }}
 .block-container {{
   padding-top: 1.25rem !important;
   padding-bottom: 2.5rem !important;
   max-width: 1400px !important;
+  background: transparent !important;
 }}
 h1, h2, h3, h4, h5, h6 {{
   color: {c['white']} !important;
   font-weight: 700 !important;
 }}
-p, li, label, .stMarkdown {{
-  color: {c['white']};
-}}
 [data-testid="stMetricValue"] {{
   color: {c['primary']} !important;
+  font-family: {FONT_HEADING} !important;
   font-weight: 700 !important;
 }}
 [data-testid="stMetricLabel"] {{
@@ -573,6 +642,62 @@ div[data-testid="stNotification"] {{
 hr {{
   border-color: {c['card_border']} !important;
   opacity: 0.6;
+}}
+
+/* Number input stepper buttons */
+.stNumberInput button {{
+  background: {c['surface']} !important;
+  color: {c['white']} !important;
+  border: 1px solid {c['input_border']} !important;
+}}
+.stNumberInput [data-testid="stNumberInputContainer"] {{
+  background: {c['input_bg']} !important;
+  border: 1px solid {c['input_border']} !important;
+  border-radius: 8px !important;
+}}
+
+/* JSON / code blocks */
+.stJson, pre, code {{
+  background: {c['input_bg']} !important;
+  color: {c['green']} !important;
+  border: 1px solid {c['card_border']} !important;
+  border-radius: 8px !important;
+  font-family: {FONT_MONO} !important;
+}}
+
+/* ─── Light theme override (Streamlit settings toggle) ─────── */
+html[data-theme="light"] .stApp,
+html[data-theme="light"] section.main,
+html[data-theme="light"] [data-testid="stAppViewContainer"],
+html[data-theme="light"] header[data-testid="stHeader"],
+html[data-theme="light"] [data-testid="stDecoration"] {{
+  background: {c['background']} !important;
+  color: {c['white']} !important;
+}}
+html[data-theme="light"] .stApp *:not(.wc-panel-warning):not(.wc-panel-warning *) {{
+  color: inherit;
+}}
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] label,
+html[data-theme="light"] p,
+html[data-theme="light"] .stMarkdown,
+html[data-theme="light"] [data-testid="stSidebarNav"] a {{
+  color: {c['white']} !important;
+}}
+html[data-theme="light"] header[data-testid="stHeader"],
+html[data-theme="light"] [data-testid="stToolbar"] button {{
+  color: {c['white']} !important;
+  background: transparent !important;
+}}
+html[data-theme="light"] .stTextInput input,
+html[data-theme="light"] .stNumberInput input,
+html[data-theme="light"] [data-baseweb="select"] > div {{
+  background-color: {c['input_bg']} !important;
+  color: {c['white']} !important;
+  border-color: {c['input_border']} !important;
 }}
 
 /* Page links */
