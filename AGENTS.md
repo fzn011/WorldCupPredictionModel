@@ -23,6 +23,14 @@ python scripts/prepare_tournament_setup.py
 
 Optional for richer data: place files under `data/raw/` or use `scripts/download_kaggle_datasets.py` (requires Kaggle credentials). Without raw data, the pipeline falls back to `data/sample/`.
 
+### Streamlit navigation (custom router)
+
+- Entry point: `app/streamlit_app.py` → `render_app_shell()` in `app/components/layout.py`.
+- Page modules live under `app/views/` (not `app/pages/`) and must export `render_page()` only — no top-level Streamlit execution on import.
+- Use `navigate_to("Page Name")` via **`on_click`** on buttons. Do **not** call `navigate_to` inside `if st.button(...)` blocks, and never assign `wc_sidebar_nav_radio` after the sidebar `st.radio` renders (causes `StreamlitAPIException`).
+- `.streamlit/config.toml` sets `showSidebarNavigation = false` so Streamlit does not auto-discover duplicate sidebar pages.
+- Global theme CSS is injected once in `streamlit_app.py` via `inject_worldcup_css()` — individual pages should not rely on per-page theme gates.
+
 ### Running services
 
 | Service | Command | Port |
