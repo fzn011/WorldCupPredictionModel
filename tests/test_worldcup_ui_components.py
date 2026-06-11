@@ -106,6 +106,7 @@ def test_app_styles_package_exports() -> None:
 def test_render_hero_uses_sprintura_title_class() -> None:
     source = UI_PATH.read_text(encoding="utf-8")
     assert 'class="wc-page-title"' in source
+    assert "SPRINTURA_PAGE_TITLE_STYLE" in source
     assert 'class="wc-section-title"' in source
     from app.components.ui import render_hero, render_metric_card
 

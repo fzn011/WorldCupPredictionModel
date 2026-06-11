@@ -11,9 +11,9 @@ import pandas as pd
 import streamlit as st
 
 try:
-    from app.styles.worldcup_theme import COLORS, inject_worldcup_css
+    from app.styles.worldcup_theme import COLORS, SPRINTURA_PAGE_TITLE_STYLE, inject_worldcup_css, render_themed_html
 except ModuleNotFoundError:
-    from styles.worldcup_theme import COLORS, inject_worldcup_css
+    from styles.worldcup_theme import COLORS, SPRINTURA_PAGE_TITLE_STYLE, inject_worldcup_css, render_themed_html
 
 BadgeKind = Literal["ok", "warn", "danger", "muted", "gold"]
 
@@ -37,15 +37,14 @@ def render_hero(
     *,
     eyebrow: str = "FIFA World Cup 2026 Analytics",
 ) -> None:
-    st.markdown(
+    render_themed_html(
         f"""
 <div class="wc-hero">
   <div class="wc-hero-eyebrow wc-page-eyebrow">{_esc(eyebrow)}</div>
-  <h1 class="wc-page-title">{_esc(title)}</h1>
+  <h1 class="wc-page-title" style="{SPRINTURA_PAGE_TITLE_STYLE}">{_esc(title)}</h1>
   <p class="wc-page-subtitle">{_esc(subtitle)}</p>
 </div>
-        """,
-        unsafe_allow_html=True,
+        """
     )
 
 

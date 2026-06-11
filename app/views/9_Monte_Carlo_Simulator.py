@@ -64,6 +64,7 @@ MONTE_CARLO_CHAMPION_CHART_FILE = getattr(C, "MONTE_CARLO_CHAMPION_CHART_FILE", 
 MONTE_CARLO_STAGE_HEATMAP_FILE = getattr(C, "MONTE_CARLO_STAGE_HEATMAP_FILE", "monte_carlo_stage_heatmap.png")
 DEFAULT_MONTE_CARLO_SIMULATIONS = int(getattr(C, "DEFAULT_MONTE_CARLO_SIMULATIONS", 100))
 DEFAULT_MONTE_CARLO_SEED = int(getattr(C, "DEFAULT_MONTE_CARLO_SEED", 42))
+MAX_MONTE_CARLO_SIMULATIONS = int(getattr(C, "MAX_MONTE_CARLO_SIMULATIONS", 5000))
 
 
 def _load_csv(file_name: str) -> pd.DataFrame:
@@ -138,35 +139,120 @@ def render_page() -> None:
 
     with tab_overview:
         render_section_header("Simulation settings")
-        simulations = int(
-            st.number_input(
-                "Number of simulations",
-                min_value=1,
-                max_value=1000,
-                value=DEFAULT_MONTE_CARLO_SIMULATIONS,
-                step=1,
-            )
-        )
-        seed = int(st.number_input("Base seed", min_value=0, max_value=1_000_000, value=DEFAULT_MONTE_CARLO_SEED, step=1))
-        controls_col1, controls_col2 = st.columns(2)
-        if controls_col1.button("Run Monte Carlo simulation", type="primary"):
-            run_summary = prepare_step15_monte_carlo_simulation(num_simulations=simulations, base_seed=seed)
-            if run_summary.get("validation_passed"):
-                st.success("Monte Carlo simulation completed and validated.")
+
+        if st.session_state.get("mc_run_notice"):
+            notice = st.session_state.pop("mc_run_notice")
+            level = notice.get("level", "info")
+            message = notice.get("message", "")
+            if level == "success":
+                st.success(message)
+            elif level == "warning":
+                st.warning(message)
+            elif level == "error":
+                st.error(message)
             else:
-                st.warning("Monte Carlo simulation completed with validation issues.")
-            with st.expander("Run details"):
-                st.json(run_summary)
-            st.rerun()
-        if controls_col2.button("Generate report"):
-            try:
-                report_summary = prepare_step16_monte_carlo_report()
-                st.success("Monte Carlo report artifacts generated successfully.")
+                st.info(message)
+            if notice.get("details") is not None:
+                with st.expander("Run details"):
+                    st.json(notice["details"])
+
+        if st.session_state.get("mc_report_notice"):
+            notice = st.session_state.pop("mc_report_notice")
+            level = notice.get("level", "info")
+            message = notice.get("message", "")
+            if level == "success":
+                st.success(message)
+            elif level == "warning":
+                st.warning(message)
+            else:
+                st.info(message)
+            if notice.get("details") is not None:
                 with st.expander("Report summary"):
-                    st.json(report_summary)
-                st.rerun()
-            except FileNotFoundError as exc:
-                st.warning(str(exc))
+                    st.json(notice["details"])
+
+        with st.form("mc_simulation_controls", clear_on_submit=False):
+            simulations = int(
+                st.number_input(
+                    "Number of simulations",
+                    min_value=1,
+                    max_value=MAX_MONTE_CARLO_SIMULATIONS,
+                    value=DEFAULT_MONTE_CARLO_SIMULATIONS,
+                    step=1,
+                    help=f"Run between 1 and {MAX_MONTE_CARLO_SIMULATIONS:,} full-tournament simulations.",
+                )
+            )
+            seed = int(
+                st.number_input(
+                    "Base seed",
+                    min_value=0,
+                    max_value=1_000_000,
+                    value=DEFAULT_MONTE_CARLO_SEED,
+                    step=1,
+                )
+            )
+            controls_col1, controls_col2 = st.columns(2)
+            run_clicked = controls_col1.form_submit_button(
+                "Run Monte Carlo simulation",
+                type="primary",
+            )
+            report_clicked = controls_col2.form_submit_button("Generate report")
+
+        if run_clicked:
+            with st.spinner(f"Running {simulations:,} Monte Carlo simulations…"):
+                try:
+                    run_summary = prepare_step15_monte_carlo_simulation(
+                        num_simulations=simulations,
+                        base_seed=seed,
+                    )
+                    if run_summary.get("successful_simulations", 0) == 0:
+                        st.session_state["mc_run_notice"] = {
+                            "level": "error",
+                            "message": "All simulations failed. Check model/data readiness, then retry.",
+                            "details": run_summary,
+                        }
+                    elif run_summary.get("validation_passed"):
+                        st.session_state["mc_run_notice"] = {
+                            "level": "success",
+                            "message": "Monte Carlo simulation completed and validated.",
+                            "details": run_summary,
+                        }
+                    else:
+                        st.session_state["mc_run_notice"] = {
+                            "level": "warning",
+                            "message": "Monte Carlo simulation completed with validation issues.",
+                            "details": run_summary,
+                        }
+                except Exception as exc:
+                    st.session_state["mc_run_notice"] = {
+                        "level": "error",
+                        "message": f"Monte Carlo simulation failed: {exc}",
+                        "details": None,
+                    }
+            st.rerun()
+
+        if report_clicked:
+            with st.spinner("Generating Monte Carlo report artifacts…"):
+                try:
+                    report_summary = prepare_step16_monte_carlo_report()
+                    st.session_state["mc_report_notice"] = {
+                        "level": "success",
+                        "message": "Monte Carlo report artifacts generated successfully.",
+                        "details": report_summary,
+                    }
+                except FileNotFoundError as exc:
+                    st.session_state["mc_report_notice"] = {
+                        "level": "warning",
+                        "message": str(exc),
+                        "details": None,
+                    }
+                except Exception as exc:
+                    st.session_state["mc_report_notice"] = {
+                        "level": "error",
+                        "message": f"Report generation failed: {exc}",
+                        "details": None,
+                    }
+            st.rerun()
+
         st.caption("Outputs are simulation estimates, not certainties.")
 
     with tab_results:
@@ -200,7 +286,7 @@ def render_page() -> None:
             with st.expander("Raw summary JSON"):
                 st.json(summary)
         else:
-            st.info("No Monte Carlo summary found yet. Run a simulation from the Overview tab.")
+            st.info("No Monte Carlo summary found yet. Run a simulation from the Simulation settings tab.")
 
         if insights:
             render_section_header("Insights")

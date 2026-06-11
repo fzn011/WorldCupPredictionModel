@@ -31,7 +31,8 @@ Optional for richer data: place files under `data/raw/` or use `scripts/download
 - `.streamlit/config.toml` sets `showSidebarNavigation = false` so Streamlit does not auto-discover duplicate sidebar pages.
 - Global theme CSS is injected once in `streamlit_app.py` via `inject_worldcup_css()` — individual pages should not rely on per-page theme gates.
 - **Tables:** use `render_data_table()` from `app/components/ui.py` (static `st.table` with dark-theme CSS). Avoid raw `st.dataframe()` for preview tables — the canvas grid often renders as a blank black box inside tabs on dark themes.
-- **Typography:** Sprintura is for **main page hero titles only** (`.wc-page-title` on home and inner pages). Sidebar navigation labels use Roboto — do not apply Sprintura to sidebar radio tabs.
+- **Typography:** Sprintura is for **main page hero titles only** (`.wc-page-title` on home and inner pages). Hero `<h1>` tags also carry inline `SPRINTURA_PAGE_TITLE_STYLE` and render via `render_themed_html()` so the font wins over Streamlit’s global `h1` rules. Sidebar navigation labels use Roboto — do not apply Sprintura to sidebar radio tabs.
+- **Monte Carlo page:** Run/report actions use `st.form` + `form_submit_button` (not bare `st.button` inside tabs). Simulation cap is `MAX_MONTE_CARLO_SIMULATIONS` (5000) in `src/utils/constants.py`.
 
 ### Running services
 
