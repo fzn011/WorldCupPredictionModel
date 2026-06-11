@@ -65,7 +65,7 @@ def render_sidebar_brand(*, tagline: str = "AI Predictor") -> None:
         f"""
 <div class="wc-sidebar-brand">
   <div class="wc-sidebar-logo-wrap">{logo_slot}</div>
-  <div class="wc-sidebar-brand-text">
+    <div class="wc-sidebar-brand-text">
     <div class="wc-sidebar-brand-title">World Cup 2026</div>
     <div class="wc-sidebar-brand-sub">{html.escape(tagline)}</div>
   </div>
@@ -90,9 +90,9 @@ def render_branded_hero(
 <div class="wc-brand-hero">
   {logo_col}
   <div class="wc-brand-hero-body">
-    <div class="wc-hero-eyebrow">{html.escape(eyebrow)}</div>
-    <h1>{html.escape(title)}</h1>
-    <p>{html.escape(subtitle)}</p>
+    <div class="wc-hero-eyebrow wc-page-eyebrow">{html.escape(eyebrow)}</div>
+    <h1 class="wc-page-title">{html.escape(title)}</h1>
+    <p class="wc-page-subtitle">{html.escape(subtitle)}</p>
   </div>
 </div>
         """,

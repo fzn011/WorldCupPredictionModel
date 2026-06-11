@@ -95,23 +95,33 @@ html, body {{
 }}
 
 /* ─── Base ─────────────────────────────────────────────────── */
-html, body, [class*="css"], .stMarkdown, .stText, label, p, li, span {{
+html, body, .stMarkdown, .stText, p, li, span, label, input, textarea, select, button {{
   font-family: {FONT_BODY} !important;
   color: {c['white']};
 }}
-h1, h2, h4, h5, h6,
-.wc-hero h1, .wc-section h3, .wc-hero-eyebrow,
-.wc-card-label, .wc-action-title,
-[data-testid="stSidebarNavSeparator"] {{
-  font-family: {FONT_HEADING} !important;
-  letter-spacing: 0.05em;
+h1, h2, h3, h4, h5, h6 {{
+  color: {c['white']} !important;
+  font-weight: 700 !important;
+  font-family: {FONT_BODY} !important;
 }}
-h1, h2, .wc-hero h1 {{
+/* Sprintura ONLY on main content page titles (not sidebar tabs) */
+section.main .wc-page-title,
+section.main .wc-hero h1.wc-page-title,
+section.main .wc-brand-hero .wc-page-title,
+section.main .wc-brand-hero-body h1.wc-page-title {{
+  font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }}
-h3, .wc-section h3 {{
-  font-family: {FONT_HEADING} !important;
-  letter-spacing: 0.08em;
+section[data-testid="stSidebar"] .wc-page-title,
+section[data-testid="stSidebar"] .wc-page-title-sm {{
+  font-family: {FONT_BODY} !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}}
+h3, .wc-section h3, .wc-section-title {{
+  font-family: {FONT_BODY} !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }}
 .stApp {{
@@ -173,6 +183,16 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
 section[data-testid="stSidebar"] [data-testid="stRadio"] label p {{
   color: {c['white']} !important;
   font-size: 0.98rem !important;
+  font-family: {FONT_BODY} !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}}
+section[data-testid="stSidebar"] .wc-sidebar-brand-title {{
+  font-family: {FONT_BODY} !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
 }}
 section[data-testid="stSidebar"] [data-testid="stRadio"] input {{
   accent-color: {c['primary']} !important;
@@ -186,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {{
 }}
 [data-testid="stMetricValue"] {{
   color: {c['primary']} !important;
-  font-family: {FONT_HEADING} !important;
+  font-family: {FONT_BODY} !important;
   font-weight: 700 !important;
 }}
 [data-testid="stMetricLabel"] {{
@@ -243,13 +263,32 @@ section[data-testid="stSidebar"] * {{
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
+  font-family: {FONT_BODY} !important;
   margin-bottom: 0.35rem;
 }}
-.wc-hero h1 {{
+.wc-hero h1,
+.wc-page-title {{
   margin: 0 0 0.35rem 0 !important;
   font-size: 2rem !important;
   font-weight: 800 !important;
   color: {c['white']} !important;
+  font-family: {FONT_HEADING} !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}}
+.wc-brand-hero-body h1,
+.wc-brand-hero .wc-page-title {{
+  margin: 0.25rem 0 0.35rem 0 !important;
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  font-family: {FONT_HEADING} !important;
+}}
+.wc-page-subtitle {{
+  font-family: {FONT_BODY} !important;
+  color: {c['muted']};
+}}
+.wc-page-eyebrow {{
+  font-family: {FONT_BODY} !important;
 }}
 .wc-hero p {{
   color: {c['muted']};
@@ -304,8 +343,6 @@ section[data-testid="stSidebar"] * {{
 .wc-brand-hero-body h1 {{
   margin: 0.25rem 0 0.35rem 0 !important;
 }}
-
-/* ─── Sidebar brand (upper-left) ────────────────────────────── */
 .wc-sidebar-brand {{
   display: flex;
   align-items: center;
@@ -389,12 +426,12 @@ section[data-testid="stSidebar"] * {{
   border-radius: 50%;
 }}
 .wc-sidebar-brand-title {{
-  font-family: {FONT_HEADING};
+  font-family: {FONT_BODY} !important;
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 700;
   color: {c['white']};
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: normal;
+  text-transform: none;
   line-height: 1.15;
 }}
 .wc-sidebar-brand-sub {{
@@ -503,12 +540,14 @@ section[data-testid="stSidebar"] * {{
 
 /* ─── Section headers ──────────────────────────────────────── */
 .wc-section {{ margin: 1.4rem 0 0.5rem 0; }}
-.wc-section h3 {{
+.wc-section h3,
+.wc-section-title {{
   margin: 0 !important;
   color: {c['primary']} !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
-  letter-spacing: 0.06em;
+  font-family: {FONT_BODY} !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }}
 .wc-pitch-line {{
@@ -1187,6 +1226,26 @@ html[data-theme="light"] p,
 html[data-theme="light"] .stMarkdown,
 html[data-theme="light"] [data-testid="stSidebarNav"] a {{
   color: {c['white']} !important;
+}}
+html[data-theme="light"] section.main .wc-page-title,
+html[data-theme="light"] section.main .wc-brand-hero .wc-page-title {{
+  font-family: {FONT_HEADING} !important;
+}}
+
+/* Sprintura lock — main page hero titles only (never sidebar) */
+section.main .wc-page-title,
+section.main .wc-hero h1.wc-page-title,
+section.main .wc-brand-hero .wc-page-title,
+section.main .wc-brand-hero-body h1.wc-page-title {{
+  font-family: {FONT_HEADING} !important;
+}}
+section[data-testid="stSidebar"] *,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label span,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label p,
+.stTabs [data-baseweb="tab"] {{
+  font-family: {FONT_BODY} !important;
+  font-style: normal !important;
 }}
 html[data-theme="light"] header[data-testid="stHeader"],
 html[data-theme="light"] [data-testid="stToolbar"] button {{

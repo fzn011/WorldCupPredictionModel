@@ -40,9 +40,9 @@ def render_hero(
     st.markdown(
         f"""
 <div class="wc-hero">
-  <div class="wc-hero-eyebrow">{_esc(eyebrow)}</div>
-  <h1>{_esc(title)}</h1>
-  <p>{_esc(subtitle)}</p>
+  <div class="wc-hero-eyebrow wc-page-eyebrow">{_esc(eyebrow)}</div>
+  <h1 class="wc-page-title">{_esc(title)}</h1>
+  <p class="wc-page-subtitle">{_esc(subtitle)}</p>
 </div>
         """,
         unsafe_allow_html=True,
@@ -53,7 +53,7 @@ def render_hero(
 
 def render_section_header(title: str, *, subtitle: str | None = None) -> None:
     st.markdown(
-        f'<div class="wc-section"><h3>{_esc(title)}</h3></div>',
+        f'<div class="wc-section"><h3 class="wc-section-title">{_esc(title)}</h3></div>',
         unsafe_allow_html=True,
     )
     st.markdown('<div class="wc-pitch-line"></div>', unsafe_allow_html=True)
