@@ -7,7 +7,6 @@ import sys
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any
 
 import streamlit as st
 
@@ -82,19 +81,22 @@ def _nav_options() -> list[str]:
     return options
 
 
-def _set_active_page(page: str) -> str:
-    """Single source of truth for active page + sidebar radio widget."""
+def _normalize_page(page: str, options: list[str]) -> str:
+    return page if page in options else "Home"
+
+
+def _prepare_nav_state(page: str) -> str:
+    """Update nav state before widgets render (safe to touch widget keys)."""
     _init_session()
     options = _nav_options()
-    if page not in options:
-        page = "Home"
+    page = _normalize_page(page, options)
     st.session_state[_SESSION_ACTIVE] = page
     st.session_state[_NAV_RADIO_KEY] = page
     return page
 
 
 def navigate_to(page: str) -> None:
-    """Switch active page and rerun — single routing entry point."""
+    """Switch active page and rerun — use via on_click callbacks."""
     _init_session()
     if page not in MAIN_PAGES and page not in ADMIN_PAGES:
         return
@@ -102,7 +104,7 @@ def navigate_to(page: str) -> None:
         return
     if st.session_state[_SESSION_ACTIVE] == page:
         return
-    _set_active_page(page)
+    _prepare_nav_state(page)
     st.rerun()
 
 
@@ -159,8 +161,12 @@ def render_sidebar_navigation(*, home_renderer: Callable[[], None] | None = None
     st.session_state[_SESSION_ADVANCED] = show_advanced
 
     options = _nav_options()
-    if st.session_state[_SESSION_ACTIVE] not in options:
-        _set_active_page("Home")
+    active = _normalize_page(st.session_state[_SESSION_ACTIVE], options)
+
+    if active != st.session_state[_SESSION_ACTIVE]:
+        _prepare_nav_state(active)
+    elif st.session_state.get(_NAV_RADIO_KEY) not in options:
+        _prepare_nav_state(active)
 
     selected = st.radio(
         "Navigation",
@@ -169,8 +175,9 @@ def render_sidebar_navigation(*, home_renderer: Callable[[], None] | None = None
         key=_NAV_RADIO_KEY,
     )
 
+    # After the radio exists, only update active_page — never the widget key.
     if selected != st.session_state[_SESSION_ACTIVE]:
-        _set_active_page(selected)
+        st.session_state[_SESSION_ACTIVE] = _normalize_page(selected, options)
         st.rerun()
 
     return st.session_state[_SESSION_ACTIVE]
@@ -191,3 +198,8 @@ def render_app_shell(home_renderer: Callable[[], None]) -> None:
     except Exception as exc:
         st.error(f"Unable to load {active!r}. Check the terminal for details.")
         st.exception(exc)
+
+
+# Back-compat alias used in tests
+def _set_active_page(page: str) -> str:
+    return _prepare_nav_state(page)
