@@ -88,6 +88,7 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_action_card",
         "render_page_header",
         "render_empty_state",
+        "render_app_footer",
         "render_clean_table",
         "inject_global_theme",
         "inject_page_theme",

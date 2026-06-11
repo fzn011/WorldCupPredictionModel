@@ -1008,6 +1008,27 @@ details[open] > summary::before {{
   margin: 0.5rem 0 1rem 0;
   line-height: 1.4;
 }}
+.wc-app-footer {{
+  margin-top: 2rem;
+  padding: 1.25rem 0 0.5rem 0;
+  border-top: 1px solid {c['card_border']};
+  text-align: center;
+}}
+.wc-app-footer p {{
+  margin: 0;
+  color: {c['muted']} !important;
+  font-size: 0.82rem !important;
+  font-family: {FONT_BODY} !important;
+}}
+.wc-app-footer a {{
+  color: {c['primary']} !important;
+  font-weight: 600;
+  text-decoration: none;
+}}
+.wc-app-footer a:hover {{
+  color: {c['green']} !important;
+  text-decoration: underline;
+}}
 
 /* Slider */
 .stSlider [data-baseweb="slider"] div {{

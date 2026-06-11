@@ -541,6 +541,25 @@ def render_empty_state(title: str, message: str) -> None:
     )
 
 
+def render_app_footer(
+    *,
+    author_name: str = "Faiaz Zahin",
+    author_url: str = "https://fzn011.github.io/portfolio/",
+    year: int = 2026,
+) -> None:
+    """Site-wide footer with portfolio link."""
+    st.markdown(
+        f"""
+<footer class="wc-app-footer">
+  <p>© {year} All rights reserved by
+    <a href="{_esc(author_url)}" target="_blank" rel="noopener noreferrer">{_esc(author_name)}</a>
+  </p>
+</footer>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def render_team_formation(players_df: pd.DataFrame, *, name_col: str = "player_name") -> None:
     """4-3-3 formation from dataframe with formation_slot column."""
     if players_df.empty or "formation_slot" not in players_df.columns:
