@@ -15,7 +15,7 @@ for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().pare
         sys.path.insert(0, _entry)
 
 from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
-from app.components.ui import render_metric_card, render_section_header
+from app.components.ui import render_hero, render_metric_card, render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
 
@@ -138,4 +138,4 @@ def render_page() -> None:
         if path.is_file():
             st.download_button(label=label, data=path.read_bytes(), file_name=file_name, mime=mime)
 
-    st.caption("One sampled path only — use Monte Carlo Forecast for probability dashboards.")
+    st.caption("One sampled path only — use Tournament Forecast for probability dashboards.")

@@ -815,11 +815,9 @@ select,
   color: {c['white']} !important;
 }}
 
-/* Hide broken Material icon / keyboard text leaks (sidebar only) */
+/* Hide broken Material icon text in sidebar only (keep collapse controls) */
 section[data-testid="stSidebar"] [data-testid="stSidebarHeader"],
-section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"],
-section[data-testid="stSidebar"] [data-testid="collapsedControl"],
-section[data-testid="stSidebar"] [data-testid="stIconMaterial"],
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"] [data-testid="stIconMaterial"],
 section[data-testid="stSidebar"] span[data-testid="stIconMaterial"],
 section[data-testid="stSidebar"] span.material-icons,
 section[data-testid="stSidebar"] span.material-symbols-rounded,

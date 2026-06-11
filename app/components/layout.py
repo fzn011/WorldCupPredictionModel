@@ -62,7 +62,7 @@ PAGE_FILES: dict[str, str] = {
 _SESSION_ACTIVE = "active_page"
 _SESSION_ADVANCED = "show_advanced_tools"
 _NAV_RADIO_KEY = "wc_sidebar_nav_radio"
-_RENDERER_CACHE: dict[str, Callable[[], None]] = {}
+_RENDERER_CACHE: dict[str, tuple[int, Callable[[], None]]] = {}
 
 
 def _init_session() -> None:
@@ -99,8 +99,10 @@ def navigate_to(page: str) -> None:
     """Switch active page and rerun — use via on_click callbacks."""
     _init_session()
     if page not in MAIN_PAGES and page not in ADMIN_PAGES:
+        st.warning(f"Unknown page: {page}")
         return
     if page in ADMIN_PAGES and not st.session_state[_SESSION_ADVANCED]:
+        st.warning("Enable Advanced tools in the sidebar to open this page.")
         return
     if st.session_state[_SESSION_ACTIVE] == page:
         return
@@ -121,14 +123,16 @@ def render_page_frame(title: str, subtitle: str | None = None):
 
 
 def _load_renderer(page_name: str) -> Callable[[], None]:
-    if page_name in _RENDERER_CACHE:
-        return _RENDERER_CACHE[page_name]
-
     rel = PAGE_FILES.get(page_name)
     if not rel:
         raise KeyError(f"No page file registered for {page_name!r}")
 
     path = _APP_DIR / rel
+    mtime_ns = path.stat().st_mtime_ns if path.is_file() else 0
+    cached = _RENDERER_CACHE.get(page_name)
+    if cached is not None and cached[0] == mtime_ns:
+        return cached[1]
+
     mod_name = f"wc_page_{page_name.replace(' ', '_').lower()}"
     spec = importlib.util.spec_from_file_location(mod_name, path)
     if spec is None or spec.loader is None:
@@ -138,7 +142,7 @@ def _load_renderer(page_name: str) -> Callable[[], None]:
     renderer = getattr(module, "render_page", None)
     if renderer is None or not callable(renderer):
         raise AttributeError(f"{path} must define render_page()")
-    _RENDERER_CACHE[page_name] = renderer
+    _RENDERER_CACHE[page_name] = (mtime_ns, renderer)
     return renderer
 
 

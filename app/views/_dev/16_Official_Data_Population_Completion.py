@@ -59,9 +59,9 @@ from src.official.population_completeness import create_population_completeness_
 
 def render_page() -> None:
     render_hero(
-        "Population Completion",
+        "Import Completion",
         "Build populated official import files from FIFA schedule/squad uploads. No auto-apply — official_final stays gated.",
-        eyebrow="Population completion",
+        eyebrow="Import completion",
     )
     render_warning_panel(
         "Step 18 Awards must wait until official_final readiness passes. Uploads stage data only until you explicitly apply."

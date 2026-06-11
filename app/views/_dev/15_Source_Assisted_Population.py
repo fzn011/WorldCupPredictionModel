@@ -14,6 +14,11 @@ sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(app_dir))
 
 try:
+    from app.components.layout import navigate_to
+except ModuleNotFoundError:
+    from components.layout import navigate_to
+
+try:
     from app.components.ui import (
         inject_page_theme,
         render_download_card,
@@ -52,9 +57,9 @@ from src.official.staging_validation import load_staged_data, validate_all_stage
 
 def render_page() -> None:
     render_hero(
-        "Source-Assisted Population",
+        "Source Import Tools",
         "Official FIFA sources first, manual CSV/XLSX fallback. Staging only — does not auto-promote official_final.",
-        eyebrow="Source-assisted population",
+        eyebrow="Source import",
     )
     render_warning_panel(
         "No whole-internet scraping. Only fifa.com / fdp.fifa.org URLs or user-provided files. "
@@ -177,8 +182,10 @@ def render_page() -> None:
         else:
             st.success("All checks passed — promotion available via Official Data Population page.")
 
-        st.page_link(
-            "pages/_dev/16_Official_Data_Population_Completion.py",
-            label="Import Completion",
+        st.button(
+            "Import Completion",
             use_container_width=True,
+            key="nav_import_completion",
+            on_click=navigate_to,
+            kwargs={"page": "Import Completion"},
         )

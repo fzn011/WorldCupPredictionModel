@@ -24,14 +24,14 @@ from src.simulation.simulate_tournament import simulate_tournament  # noqa: E402
 
 def render_page() -> None:
     render_hero(
-        "Tournament Forecast",
-        "Quick bracket simulation for fast champion probability estimates. "
-        "For full probabilistic forecasts, use Monte Carlo Forecast in the sidebar.",
+        "Quick Simulation",
+        "Lightweight bracket simulation for fast exploration. "
+        "For full probabilistic forecasts with charts and reports, open Tournament Forecast in the sidebar.",
         eyebrow="Quick simulation",
     )
     render_info_panel(
         "This page runs a lightweight simulation for rapid exploration. "
-        "Use **Monte Carlo Forecast** for production-grade tournament estimates."
+        "Use **Tournament Forecast** in the sidebar for production-grade Monte Carlo estimates."
     )
 
     render_section_header("Simulation settings")

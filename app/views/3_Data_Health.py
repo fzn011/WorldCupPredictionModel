@@ -266,6 +266,8 @@ def render_page() -> None:
                 result = promote_to_official_final(confirmed=True)
                 if result.get("status") == "promoted":
                     render_success_panel("Promoted to official final mode.")
+                    st.session_state.readiness_report = evaluate_official_final_readiness()
+                    st.rerun()
                 else:
                     render_warning_panel(f"Promotion blocked: {result.get('message', 'unknown')}")
         elif not final_enabled:

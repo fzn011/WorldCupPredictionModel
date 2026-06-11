@@ -13,8 +13,8 @@ for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().pare
     if _entry not in sys.path:
         sys.path.insert(0, _entry)
 
-from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
-from app.components.ui import render_hero, render_info_panel, render_section_header
+from app.page_bootstrap import setup_streamlit_paths
+from app.components.ui import render_empty_state, render_hero, render_info_panel, render_section_header
 
 ROOT, _ = setup_streamlit_paths(__file__)
 
@@ -47,13 +47,36 @@ def render_page() -> None:
 
     reports_dir = ROOT / "reports"
 
-    comparison_path = reports_dir / BASELINE_VS_IMPROVED_METRICS_FILE
+    report_paths = [
+        reports_dir / BASELINE_VS_IMPROVED_METRICS_FILE,
+        reports_dir / IMPROVED_MODEL_METRICS_FILE,
+        reports_dir / TEMPORAL_BACKTEST_RESULTS_FILE,
+        reports_dir / PROBABILITY_QUALITY_REPORT_FILE,
+        reports_dir / RANKING_ENHANCED_MODEL_METRICS_FILE,
+        reports_dir / RANKING_VS_PREVIOUS_METRICS_FILE,
+        reports_dir / RANKING_FEATURE_IMPORTANCE_FILE,
+        reports_dir / GLOBAL_EXPLANATION_REPORT_FILE,
+    ]
+    if not any(path.is_file() for path in report_paths):
+        render_empty_state(
+            "No model reports yet",
+            "Train models first, then return here for metrics and explanations.",
+        )
+        st.code(
+            "python scripts/train_improved_models.py\n"
+            "python scripts/train_ranking_enhanced_model.py\n"
+            "python scripts/inspect_global_explanation.py",
+            language="bash",
+        )
+        return
+
+    comparison_path = report_paths[0]
     if comparison_path.is_file():
         render_section_header("Baseline vs improved metrics")
         comparison_df = pd.read_csv(comparison_path)
         st.dataframe(comparison_df, use_container_width=True)
 
-    improved_metrics_path = reports_dir / IMPROVED_MODEL_METRICS_FILE
+    improved_metrics_path = report_paths[1]
     if improved_metrics_path.is_file():
         render_section_header("Improved model metrics")
         improved_df = pd.read_csv(improved_metrics_path)
@@ -61,19 +84,19 @@ def render_page() -> None:
             improved_df = improved_df.sort_values("log_loss", ascending=True)
         st.dataframe(improved_df, use_container_width=True)
 
-    backtest_path = reports_dir / TEMPORAL_BACKTEST_RESULTS_FILE
+    backtest_path = report_paths[2]
     if backtest_path.is_file():
         render_section_header("Temporal backtesting")
         backtest_df = pd.read_csv(backtest_path)
         st.dataframe(backtest_df, use_container_width=True)
 
-    probability_quality_path = reports_dir / PROBABILITY_QUALITY_REPORT_FILE
+    probability_quality_path = report_paths[3]
     if probability_quality_path.is_file():
         render_section_header("Probability quality ranking")
         quality_df = pd.read_csv(probability_quality_path)
         st.dataframe(quality_df, use_container_width=True)
 
-    ranking_metrics_path = reports_dir / RANKING_ENHANCED_MODEL_METRICS_FILE
+    ranking_metrics_path = report_paths[4]
     if ranking_metrics_path.is_file():
         render_section_header("Ranking-enhanced model metrics")
         ranking_df = pd.read_csv(ranking_metrics_path)
@@ -81,12 +104,12 @@ def render_page() -> None:
             ranking_df = ranking_df.sort_values("log_loss", ascending=True)
         st.dataframe(ranking_df, use_container_width=True)
 
-    ranking_vs_previous_path = reports_dir / RANKING_VS_PREVIOUS_METRICS_FILE
+    ranking_vs_previous_path = report_paths[5]
     if ranking_vs_previous_path.is_file():
         render_section_header("Ranking vs previous model")
         st.dataframe(pd.read_csv(ranking_vs_previous_path), use_container_width=True)
 
-    ranking_importance_path = reports_dir / RANKING_FEATURE_IMPORTANCE_FILE
+    ranking_importance_path = report_paths[6]
     if ranking_importance_path.is_file():
         render_section_header("Ranking feature importance")
         st.dataframe(pd.read_csv(ranking_importance_path).head(30), use_container_width=True)
@@ -98,7 +121,7 @@ def render_page() -> None:
         "- Explanations are approximate — use for interpretation, not certainty."
     )
 
-    global_explanation_path = reports_dir / GLOBAL_EXPLANATION_REPORT_FILE
+    global_explanation_path = report_paths[7]
     if global_explanation_path.is_file():
         render_section_header("Global model explanation")
         global_df = pd.read_csv(global_explanation_path)
@@ -116,17 +139,8 @@ def render_page() -> None:
 
     if not any(
         path.is_file()
-        for path in [
-            comparison_path,
-            improved_metrics_path,
-            backtest_path,
-            probability_quality_path,
-            ranking_metrics_path,
-            ranking_vs_previous_path,
-            ranking_importance_path,
-        ]
+        for path in report_paths[:7]
     ):
         st.info(
-            "No model reports found yet. Run `python scripts/train_improved_models.py` "
-            "or `python scripts/train_ranking_enhanced_model.py` first."
+            "Partial reports loaded. Run training scripts to populate remaining metrics."
         )
