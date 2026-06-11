@@ -18,6 +18,11 @@ from app.components.ui import (
     render_warning_panel,
 )
 
+try:
+    from app.components.ui import render_quick_nav_grid
+except ImportError:
+    render_quick_nav_grid = render_quick_nav_cards
+
 __all__ = [
     "inject_page_theme",
     "render_data_quality_card",
@@ -29,6 +34,7 @@ __all__ = [
     "render_pipeline_stepper",
     "render_podium_cards",
     "render_quick_nav_cards",
+    "render_quick_nav_grid",
     "render_section_header",
     "render_status_badge",
     "render_status_card",

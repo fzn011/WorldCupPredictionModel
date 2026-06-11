@@ -59,18 +59,47 @@ try:
         render_warning_panel,
         render_success_panel,
     )
-except ModuleNotFoundError:
-    from components.ui import (
+except ImportError:
+    from app.components.ui import (
         inject_page_theme,
         load_json_if_exists,
         render_champion_spotlight,
         render_metric_card,
         render_progress_bar,
-        render_quick_nav_grid,
+        render_quick_nav_cards,
         render_section_header,
         render_warning_panel,
         render_success_panel,
     )
+
+    render_quick_nav_grid = render_quick_nav_cards  # older ui.py without nav grid helper
+except ModuleNotFoundError:
+    try:
+        from components.ui import (
+            inject_page_theme,
+            load_json_if_exists,
+            render_champion_spotlight,
+            render_metric_card,
+            render_progress_bar,
+            render_quick_nav_grid,
+            render_section_header,
+            render_warning_panel,
+            render_success_panel,
+        )
+    except ImportError:
+        from components.ui import (
+            inject_page_theme,
+            load_json_if_exists,
+            render_champion_spotlight,
+            render_metric_card,
+            render_progress_bar,
+            render_quick_nav_cards,
+            render_section_header,
+            render_warning_panel,
+            render_success_panel,
+        )
+
+        render_quick_nav_grid = render_quick_nav_cards
 
 
 import src.utils.constants as C
