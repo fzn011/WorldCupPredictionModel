@@ -271,6 +271,9 @@ def prepare_step17a_official_worldcup_data(data_mode: str = DATA_MODE_OFFICIAL, 
     if not teams_path.is_file():
         official_teams_df = _create_official_teams_template(official_groups_df)
         _save_csv(official_teams_df, teams_path)
+    from src.official.team_name_enrichment import repair_official_teams_artifact
+
+    repair_official_teams_artifact(persist=True)
     official_teams_df = load_official_teams()
 
     if not fixtures_path.is_file():

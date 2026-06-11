@@ -35,8 +35,11 @@ def _load_csv_required(path: Path) -> pd.DataFrame:
 
 
 def load_official_teams(path: str | None = None) -> pd.DataFrame:
-    """Load official teams table and standardize team names."""
+    """Load official teams table, enrich missing names, and standardize team labels."""
     df = _load_csv_required(Path(path) if path else official_path(OFFICIAL_TEAMS_FILE))
+    from src.official.team_name_enrichment import enrich_official_teams_dataframe
+
+    df = enrich_official_teams_dataframe(df)
     if "team" in df.columns:
         df["team"] = df["team"].map(standardize_team_name)
     return df
