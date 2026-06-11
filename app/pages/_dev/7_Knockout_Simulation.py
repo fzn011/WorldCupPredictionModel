@@ -1,4 +1,4 @@
-"""Streamlit page for Step 13 knockout simulation."""
+"""Streamlit page: Knockout simulation."""
 
 from __future__ import annotations
 
@@ -9,9 +9,15 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().parents[1]):
+    _entry = str(_path)
+    if _entry not in sys.path:
+        sys.path.insert(0, _entry)
+
+from app.page_bootstrap import begin_themed_page, setup_streamlit_paths
+from app.components.ui import render_metric_card, render_section_header
+
+ROOT, _ = setup_streamlit_paths(__file__)
 
 from src.simulation.prepare_knockout import prepare_step13_knockout_simulation  # noqa: E402
 import src.utils.constants as C  # noqa: E402
@@ -27,21 +33,25 @@ KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE = getattr(
     "knockout_simulation_validation_report.csv",
 )
 
-st.title("Knockout Simulation")
-st.caption("Step 13 simulates one full knockout bracket only — no Monte Carlo champion probabilities yet.")
+begin_themed_page(
+    __file__,
+    "Knockout Simulation",
+    "Simulate one full knockout bracket from Round of 32 through the final.",
+    eyebrow="Knockout stage",
+)
 
-st.subheader("Overview")
+render_section_header("Overview")
 st.markdown(
-    "- Consumes the 32 Round-of-32 qualifiers from Step 12\n"
+    "- Consumes the 32 Round-of-32 qualifiers from group stage\n"
     "- Fills a deterministic simulation seed-order bracket\n"
     "- Simulates Round of 32 through the Final\n"
     "- Uses no-draw adjusted probabilities for winner selection\n"
-    "- Produces champion, runner-up, third place, and fourth place for one tournament run"
+    "- Produces champion, runner-up, third place, and fourth place for one run"
 )
 
 seed = int(st.number_input("Simulation seed", min_value=0, max_value=1_000_000, value=42, step=1))
 
-if st.button("Run knockout simulation"):
+if st.button("Run knockout simulation", type="primary"):
     summary = prepare_step13_knockout_simulation(random_seed=seed)
     if summary.get("validation_passed"):
         st.success("Knockout simulation completed successfully.")
@@ -67,13 +77,16 @@ def _load_json(file_name: str) -> dict:
 
 summary = _load_json(KNOCKOUT_SIMULATION_SUMMARY_FILE)
 if summary:
-    st.subheader("Latest summary")
+    render_section_header("Latest summary")
     st.json(summary)
-    st.metric("Champion", summary.get("champion", "—"))
+    render_metric_card("Champion", str(summary.get("champion", "—")), variant="accent")
     cols = st.columns(3)
-    cols[0].metric("Runner-up", summary.get("runner_up", "—"))
-    cols[1].metric("Third place", summary.get("third_place", "—"))
-    cols[2].metric("Fourth place", summary.get("fourth_place", "—"))
+    with cols[0]:
+        render_metric_card("Runner-up", str(summary.get("runner_up", "—")))
+    with cols[1]:
+        render_metric_card("Third place", str(summary.get("third_place", "—")))
+    with cols[2]:
+        render_metric_card("Fourth place", str(summary.get("fourth_place", "—")))
 
 bracket_df = _load_csv(KNOCKOUT_BRACKET_FILLED_FILE)
 matches_df = _load_csv(KNOCKOUT_SIMULATED_MATCHES_FILE)
@@ -81,11 +94,11 @@ validation_df = _load_csv(KNOCKOUT_SIMULATION_VALIDATION_REPORT_FILE)
 single_result = _load_json(SINGLE_TOURNAMENT_RESULT_FILE)
 
 if not bracket_df.empty:
-    st.subheader("Filled bracket")
+    render_section_header("Filled bracket")
     st.dataframe(bracket_df, use_container_width=True)
 
 if not matches_df.empty:
-    st.subheader("Round-by-round results")
+    render_section_header("Round-by-round results")
     for round_name in ["round_of_32", "round_of_16", "quarter_final", "semi_final", "third_place", "final"]:
         round_df = matches_df.loc[matches_df["round"] == round_name].copy()
         if round_df.empty:
@@ -110,14 +123,14 @@ if not matches_df.empty:
             st.dataframe(display_df, use_container_width=True)
 
 if not validation_df.empty:
-    st.subheader("Validation report")
+    render_section_header("Validation report")
     st.dataframe(validation_df, use_container_width=True)
 
 if single_result:
-    st.subheader("Single tournament result")
+    render_section_header("Single tournament result")
     st.json(single_result)
 
-st.subheader("Downloads")
+render_section_header("Downloads")
 for file_name, label in [
     (KNOCKOUT_BRACKET_FILLED_FILE, "Download filled bracket CSV"),
     (KNOCKOUT_SIMULATED_MATCHES_FILE, "Download simulated matches CSV"),
@@ -130,6 +143,4 @@ for file_name, label in [
         data = path.read_bytes()
         st.download_button(label, data=data, file_name=file_name)
 
-st.caption(
-    "This page shows one simulated knockout path only. Champion probabilities and Monte Carlo come later."
-)
+st.caption("One simulated knockout path only — use Monte Carlo Forecast for champion probabilities.")

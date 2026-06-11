@@ -24,12 +24,16 @@ try:
 except ModuleNotFoundError:
     from components.ui import inject_page_theme, render_hero, render_section_header
 
-from src.utils.constants import (
-    PROJECT_ROOT,
-    OFFICIAL_PROCESSED_DIR,
-    PROCESSED_DATA_DIR,
-)
+try:
+    from app.streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR
+except ModuleNotFoundError:
+    from streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR
+
 from src.official.prepare_squads import prepare_step17b_official_squads_and_priors
+
+
+def _cols(df: pd.DataFrame, names: list[str]) -> list[str]:
+    return [c for c in names if c in df.columns]
 
 
 def format_bytes(num_bytes: int) -> str:
@@ -80,7 +84,7 @@ with col3:
 st.divider()
 
 # Load squad summary
-summary_path = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_squad_summary.json"
+summary_path = OFFICIAL_PROCESSED_DIR / "official_squad_summary.json"
 
 if not summary_path.exists():
     st.warning("Squad data not found. Click 'Prepare/Refresh Squads' above to generate.")
@@ -148,14 +152,17 @@ st.divider()
 st.header("Official Players")
 
 try:
-    players_path = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_players.csv"
+    players_path = OFFICIAL_PROCESSED_DIR / "official_players.csv"
     players = pd.read_csv(players_path)
     
     col1, col2 = st.columns(2)
     with col1:
         st.metric("Total Players", len(players))
     with col2:
-        sample_count = len(players[players["source"] == "sample_to_be_verified"])
+        if "source" in players.columns:
+            sample_count = len(players[players["source"] == "sample_to_be_verified"])
+        else:
+            sample_count = 0
         st.metric("Sample/Template", sample_count)
     
     # Filterable view
@@ -163,31 +170,57 @@ try:
     
     col1, col2, col3 = st.columns(3)
     with col1:
-        selected_teams = st.multiselect(
-            "Filter by team:",
-            sorted(players["team"].unique()),
-            default=sorted(players["team"].unique())[:5]
+        team_col = "team" if "team" in players.columns else None
+        selected_teams = (
+            st.multiselect(
+                "Filter by team:",
+                sorted(players[team_col].dropna().unique()),
+                default=sorted(players[team_col].dropna().unique())[:5],
+            )
+            if team_col
+            else []
         )
     with col2:
-        selected_positions = st.multiselect(
-            "Filter by position:",
-            sorted(players["position"].unique()),
-            default=sorted(players["position"].unique())
+        pos_col = "position" if "position" in players.columns else None
+        selected_positions = (
+            st.multiselect(
+                "Filter by position:",
+                sorted(players[pos_col].dropna().unique()),
+                default=sorted(players[pos_col].dropna().unique()),
+            )
+            if pos_col
+            else []
         )
     with col3:
         show_sample_only = st.checkbox("Sample/template only?")
     
-    filtered_players = players[
-        (players["team"].isin(selected_teams)) &
-        (players["position"].isin(selected_positions))
-    ]
+    filtered_players = players.copy()
+    if team_col and selected_teams:
+        filtered_players = filtered_players[filtered_players[team_col].isin(selected_teams)]
+    if pos_col and selected_positions:
+        filtered_players = filtered_players[filtered_players[pos_col].isin(selected_positions)]
     
-    if show_sample_only:
+    if show_sample_only and "source" in filtered_players.columns:
         filtered_players = filtered_players[filtered_players["source"] == "sample_to_be_verified"]
     
-    display_cols = ["player_name", "team", "position_code", "position", "shirt_number", 
-                    "club", "age_at_tournament_start", "source"]
-    st.dataframe(filtered_players[display_cols].sort_values("team"), use_container_width=True)
+    display_cols = _cols(
+        filtered_players,
+        [
+            "player_name",
+            "team",
+            "position_code",
+            "position",
+            "shirt_number",
+            "club",
+            "age_at_tournament_start",
+            "source",
+        ],
+    )
+    sort_col = team_col or (display_cols[0] if display_cols else None)
+    view = filtered_players[display_cols] if display_cols else filtered_players
+    if sort_col and sort_col in view.columns:
+        view = view.sort_values(sort_col)
+    st.dataframe(view, use_container_width=True)
     
 except Exception as e:
     st.error(f"Error loading players: {e}")
@@ -198,10 +231,12 @@ st.divider()
 st.header("Squad Summary by Team")
 
 try:
-    squads_path = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_squads.csv"
+    squads_path = OFFICIAL_PROCESSED_DIR / "official_squads.csv"
     squads = pd.read_csv(squads_path)
     
-    st.dataframe(squads.sort_values("team"), use_container_width=True)
+    sort_col = "team" if "team" in squads.columns else None
+    squads_view = squads.sort_values(sort_col) if sort_col else squads
+    st.dataframe(squads_view, use_container_width=True)
     
 except Exception as e:
     st.error(f"Error loading squad summary: {e}")
@@ -212,19 +247,32 @@ st.divider()
 st.header("Official Award Candidates Preview")
 
 try:
-    candidates_path = PROJECT_ROOT / PROCESSED_DATA_DIR / "official_award_candidates.csv"
+    candidates_path = PROCESSED_DATA_DIR / "official_award_candidates.csv"
     candidates = pd.read_csv(candidates_path)
     
     col1, col2 = st.columns(2)
     with col1:
         st.metric("Total Candidates", len(candidates))
     with col2:
-        with_priors = len(candidates[candidates["has_player_prior"] == True])
+        if "has_player_prior" in candidates.columns:
+            with_priors = len(candidates[candidates["has_player_prior"] == True])  # noqa: E712
+        else:
+            with_priors = 0
         st.metric("With User Priors", with_priors)
     
-    display_cols = ["player_name", "team", "position", "base_player_rating", 
-                    "expected_minutes_share", "has_player_prior", "source"]
-    st.dataframe(candidates[display_cols].head(50), use_container_width=True)
+    display_cols = _cols(
+        candidates,
+        [
+            "player_name",
+            "team",
+            "position",
+            "base_player_rating",
+            "expected_minutes_share",
+            "has_player_prior",
+            "source",
+        ],
+    )
+    st.dataframe(candidates[display_cols].head(50) if display_cols else candidates.head(50), use_container_width=True)
     
 except Exception as e:
     st.error(f"Error loading award candidates: {e}")
@@ -235,7 +283,7 @@ st.divider()
 st.header("Validation Report")
 
 try:
-    report_path = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_squad_validation_report.csv"
+    report_path = OFFICIAL_PROCESSED_DIR / "official_squad_validation_report.csv"
     if report_path.exists():
         report = pd.read_csv(report_path)
         
@@ -270,7 +318,7 @@ st.divider()
 st.header("Unmatched Priors Report")
 
 try:
-    merge_path = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_player_prior_merge_report.csv"
+    merge_path = OFFICIAL_PROCESSED_DIR / "official_player_prior_merge_report.csv"
     if merge_path.exists():
         unmatched = pd.read_csv(merge_path)
         
@@ -294,7 +342,7 @@ col1, col2, col3, col4 = st.columns(4)
 
 try:
     with col1:
-        players = pd.read_csv(PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_players.csv")
+        players = pd.read_csv(OFFICIAL_PROCESSED_DIR / "official_players.csv")
         st.download_button(
             "📥 Official Players",
             players.to_csv(index=False),
@@ -303,7 +351,7 @@ try:
         )
     
     with col2:
-        squads = pd.read_csv(PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_squads.csv")
+        squads = pd.read_csv(OFFICIAL_PROCESSED_DIR / "official_squads.csv")
         st.download_button(
             "📥 Squad Summary",
             squads.to_csv(index=False),
@@ -312,7 +360,7 @@ try:
         )
     
     with col3:
-        team_map = pd.read_csv(PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / "official_team_player_map.csv")
+        team_map = pd.read_csv(OFFICIAL_PROCESSED_DIR / "official_team_player_map.csv")
         st.download_button(
             "📥 Team-Player Map",
             team_map.to_csv(index=False),
@@ -321,7 +369,7 @@ try:
         )
     
     with col4:
-        candidates = pd.read_csv(PROJECT_ROOT / PROCESSED_DATA_DIR / "official_award_candidates.csv")
+        candidates = pd.read_csv(PROCESSED_DATA_DIR / "official_award_candidates.csv")
         st.download_button(
             "📥 Award Candidates",
             candidates.to_csv(index=False),

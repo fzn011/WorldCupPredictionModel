@@ -1,4 +1,4 @@
-"""Streamlit page: Step 11 tournament fixture and group setup."""
+"""Streamlit page: Tournament setup."""
 
 from __future__ import annotations
 
@@ -8,9 +8,15 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+for _path in (Path(__file__).resolve().parents[2], Path(__file__).resolve().parents[1]):
+    _entry = str(_path)
+    if _entry not in sys.path:
+        sys.path.insert(0, _entry)
+
+from app.page_bootstrap import begin_themed_page, safe_sort_dataframe, setup_streamlit_paths
+from app.components.ui import render_section_header
+
+ROOT, _ = setup_streamlit_paths(__file__)
 
 import src.utils.constants as C  # noqa: E402
 from src.tournament.prepare_tournament import prepare_step11_tournament_setup  # noqa: E402
@@ -21,11 +27,14 @@ TOURNAMENT_FIXTURES_FILE = getattr(C, "TOURNAMENT_FIXTURES_FILE", "tournament_fi
 TOURNAMENT_VALIDATION_REPORT_FILE = getattr(C, "TOURNAMENT_VALIDATION_REPORT_FILE", "tournament_validation_report.csv")
 KNOCKOUT_PLACEHOLDER_FILE = getattr(C, "KNOCKOUT_PLACEHOLDER_FILE", "knockout_placeholders.csv")
 
+begin_themed_page(
+    __file__,
+    "Tournament Setup",
+    "Build tournament structure — groups, fixtures, and knockout placeholders. No outcome simulation.",
+    eyebrow="Tournament structure",
+)
 
-st.title("Tournament Setup")
-st.caption("Step 11 builds the tournament structure only (groups, fixtures, knockout placeholders).")
-
-st.subheader("Tournament format overview")
+render_section_header("Format overview")
 st.markdown(
     "- 48 teams\n"
     "- 12 groups of 4 teams\n"
@@ -34,13 +43,14 @@ st.markdown(
     "- No simulation/outcome prediction is performed on this page"
 )
 
-if st.button("Run / Refresh tournament setup"):
+if st.button("Run / Refresh tournament setup", type="primary"):
     summary = prepare_step11_tournament_setup()
     if summary.get("status") == "ok":
         st.success("Tournament setup prepared successfully.")
     else:
         st.warning("Tournament setup prepared with validation issues. Check validation report below.")
     st.json(summary)
+    st.rerun()
 
 
 def _safe_read_csv(path: Path) -> pd.DataFrame:
@@ -54,25 +64,25 @@ fixtures_df = _safe_read_csv(PROCESSED_DATA_DIR / TOURNAMENT_FIXTURES_FILE)
 validation_df = _safe_read_csv(PROCESSED_DATA_DIR / TOURNAMENT_VALIDATION_REPORT_FILE)
 knockout_df = _safe_read_csv(PROCESSED_DATA_DIR / KNOCKOUT_PLACEHOLDER_FILE)
 
-st.subheader("Groups table")
+render_section_header("Groups table")
 if groups_df.empty:
     st.info("No processed tournament groups found. Click 'Run / Refresh tournament setup'.")
 else:
-    st.dataframe(groups_df.sort_values(["group", "slot"]), use_container_width=True)
+    st.dataframe(safe_sort_dataframe(groups_df, ["group", "slot"]), use_container_width=True)
 
-st.subheader("Group-stage fixtures table")
+render_section_header("Group-stage fixtures")
 if fixtures_df.empty:
     st.info("No processed tournament fixtures found. Click 'Run / Refresh tournament setup'.")
 else:
-    st.dataframe(fixtures_df.sort_values(["group", "matchday", "match_id"]), use_container_width=True)
+    st.dataframe(safe_sort_dataframe(fixtures_df, ["group", "matchday", "match_id"]), use_container_width=True)
 
-st.subheader("Validation report")
+render_section_header("Validation report")
 if validation_df.empty:
     st.info("No validation report found yet.")
 else:
     st.dataframe(validation_df, use_container_width=True)
 
-st.subheader("Knockout placeholders")
+render_section_header("Knockout placeholders")
 if knockout_df.empty:
     st.info("No knockout placeholder file found yet.")
 else:

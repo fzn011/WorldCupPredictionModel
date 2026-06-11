@@ -1,4 +1,4 @@
-"""Streamlit page for Step 16 Monte Carlo dashboard and report polish."""
+"""Streamlit page: Monte Carlo forecast dashboard."""
 
 from __future__ import annotations
 
@@ -26,10 +26,11 @@ try:
         inject_page_theme,
         render_download_card,
         render_hero,
+        render_metric_card,
         render_section_header,
     )
 except ModuleNotFoundError:
-    from components.ui import inject_page_theme, render_download_card, render_hero, render_section_header  # noqa: E402
+    from components.ui import inject_page_theme, render_download_card, render_hero, render_metric_card, render_section_header  # noqa: E402
 
 from src.simulation.prepare_monte_carlo import prepare_step15_monte_carlo_simulation  # noqa: E402
 from src.reports.monte_carlo_report import (  # noqa: E402
@@ -128,12 +129,14 @@ with tab_overview:
             st.warning("Monte Carlo simulation completed with validation issues.")
         with st.expander("Run details"):
             st.json(run_summary)
+        st.rerun()
     if controls_col2.button("Generate report"):
         try:
             report_summary = prepare_step16_monte_carlo_report()
             st.success("Monte Carlo report artifacts generated successfully.")
             with st.expander("Report summary"):
                 st.json(report_summary)
+            st.rerun()
         except FileNotFoundError as exc:
             st.warning(str(exc))
     st.caption("Outputs are simulation estimates, not certainties.")
@@ -141,13 +144,29 @@ with tab_overview:
 with tab_results:
     render_section_header("Simulation summary")
     if summary:
-        col1, col2, col3, col4, col5, col6 = st.columns(6)
-        col1.metric("Total simulations", summary.get("num_simulations", 0))
-        col2.metric("Successful", summary.get("successful_simulations", 0))
-        col3.metric("Failed", summary.get("failed_simulations", 0))
-        col4.metric("Top champion", summary.get("top_champion", "—"))
-        col5.metric("Top champion probability", f"{float(summary.get('top_champion_probability', 0.0)):.2%}")
-        col6.metric("Validation", "passed" if summary.get("validation_passed") else "failed")
+        m1, m2, m3, m4, m5, m6 = st.columns(6)
+        with m1:
+            render_metric_card("Simulations", str(summary.get("num_simulations", 0)))
+        with m2:
+            render_metric_card("Successful", str(summary.get("successful_simulations", 0)), variant="ok")
+        with m3:
+            failed = summary.get("failed_simulations", 0)
+            render_metric_card("Failed", str(failed), variant="danger" if failed else "ok")
+        with m4:
+            render_metric_card("Top champion", str(summary.get("top_champion", "—")), variant="accent")
+        with m5:
+            render_metric_card(
+                "Champion prob.",
+                f"{float(summary.get('top_champion_probability', 0.0)):.1%}",
+                variant="accent",
+            )
+        with m6:
+            passed = summary.get("validation_passed")
+            render_metric_card(
+                "Validation",
+                "Passed" if passed else "Failed",
+                variant="ok" if passed else "danger",
+            )
         if not summary_cards_df.empty:
             st.dataframe(summary_cards_df, use_container_width=True, hide_index=True)
         with st.expander("Raw summary JSON"):

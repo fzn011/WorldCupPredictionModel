@@ -34,17 +34,31 @@ def test_worldcup_theme_colors_palette() -> None:
     assert colors["danger"] == "#EF4444"
 
 
+def test_worldcup_theme_no_legacy_gold_or_navy() -> None:
+    source = THEME_PATH.read_text(encoding="utf-8")
+    for forbidden in ("#0f2844", "214,168,79", "#b5832a", "rgba(14,27,42"):
+        assert forbidden not in source, f"Legacy color still in theme: {forbidden}"
+
+
 def test_worldcup_theme_inject_css_contains_key_classes() -> None:
     source = THEME_PATH.read_text(encoding="utf-8")
     for token in (
         ".wc-hero",
         ".wc-card",
         ".wc-badge-ok",
+        ".wc-brand-hero",
+        ".wc-sidebar-brand",
+        ".wc-nav-tile",
         ".wc-formation",
         "inject_worldcup_css",
+        "st.html",
         ".stTextInput input",
         "#8B0000",
         "#1F1F1F",
+        '[data-baseweb="select"]',
+        "Sprintura",
+        "html[data-theme=\"light\"]",
+        "stHeader",
     ):
         assert token in source
 
@@ -61,11 +75,13 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_warning_panel",
         "render_success_panel",
         "render_info_panel",
+        "render_error_panel",
         "render_podium_cards",
         "render_formation_diagram",
         "render_progress_bar",
         "render_readiness_item",
         "render_champion_spotlight",
+        "render_quick_nav_grid",
         "inject_page_theme",
     ):
         assert f"def {name}" in source
@@ -83,6 +99,34 @@ def test_app_components_package_exports() -> None:
 
     assert callable(render_hero)
     assert callable(render_metric_card)
+
+
+@pytest.mark.parametrize(
+    "page_path",
+    [
+        "app/pages/1_Match_Predictor.py",
+        "app/pages/2_Tournament_Simulator.py",
+        "app/pages/3_Data_Health.py",
+        "app/pages/4_Reports_Downloads.py",
+        "app/pages/9_Monte_Carlo_Simulator.py",
+        "app/pages/17_World_Cup_Awards.py",
+        "app/pages/_dev/4_Model_Explanation.py",
+        "app/pages/_dev/5_Tournament_Setup.py",
+        "app/pages/_dev/6_Group_Stage_Simulation.py",
+        "app/pages/_dev/7_Knockout_Simulation.py",
+        "app/pages/_dev/8_Full_Tournament_Run.py",
+        "app/pages/_dev/11_Official_Data_Health.py",
+        "app/pages/_dev/12_Official_Squads_Health.py",
+        "app/pages/_dev/14_Official_Data_Population.py",
+        "app/pages/_dev/15_Source_Assisted_Population.py",
+        "app/pages/_dev/16_Official_Data_Population_Completion.py",
+    ],
+)
+def test_all_streamlit_pages_apply_theme(page_path: str) -> None:
+    path = REPO_ROOT / page_path
+    assert path.is_file(), f"Missing page: {page_path}"
+    source = path.read_text(encoding="utf-8")
+    assert "inject_page_theme" in source or "begin_themed_page" in source
 
 
 @pytest.mark.parametrize(

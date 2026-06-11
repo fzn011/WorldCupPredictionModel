@@ -22,12 +22,13 @@ try:
     from app.components.ui import (  # noqa: E402
         inject_page_theme,
         render_hero,
+        render_info_panel,
         render_metric_card,
         render_section_header,
         render_warning_panel,
     )
 except ModuleNotFoundError:  # pragma: no cover
-    from components.ui import inject_page_theme, render_hero, render_metric_card, render_section_header, render_warning_panel  # noqa: E402
+    from components.ui import inject_page_theme, render_hero, render_info_panel, render_metric_card, render_section_header, render_warning_panel  # noqa: E402
 
 from src.features.future_match_features import get_available_teams  # noqa: E402
 from src.official.loaders import get_official_team_list  # noqa: E402
@@ -112,7 +113,10 @@ if mode == "Future Match Prediction":
         st.stop()
 
     if official_team_lock:
-        st.info("Official data lock is active: future match teams are restricted to the official World Cup 2026 team list.")
+        render_info_panel(
+            "Official data lock is active: future match teams are restricted to "
+            "the official World Cup 2026 team list."
+        )
 
     col1, col2 = st.columns(2)
     with col1:
@@ -134,7 +138,7 @@ if mode == "Future Match Prediction":
 
     neutral = st.checkbox("Neutral venue", value=bool(DEFAULT_FUTURE_NEUTRAL))
 
-    if st.button("Predict future match"):
+    if st.button("Predict future match", type="primary"):
         if team_a == team_b:
             st.error("Team A and Team B must be different teams.")
             st.stop()
@@ -166,11 +170,11 @@ if mode == "Future Match Prediction":
 
         p1, p2, p3 = st.columns(3)
         with p1:
-            render_metric_card("Team A loss", f"{probabilities['team_a_loss']:.1%}")
+            render_metric_card("Team A loss", f"{probabilities['team_a_loss']:.1%}", variant="danger")
         with p2:
-            render_metric_card("Draw", f"{probabilities['draw']:.1%}")
+            render_metric_card("Draw", f"{probabilities['draw']:.1%}", variant="warn")
         with p3:
-            render_metric_card("Team A win", f"{probabilities['team_a_win']:.1%}")
+            render_metric_card("Team A win", f"{probabilities['team_a_win']:.1%}", variant="ok")
 
         notes = prediction.get("notes", [])
         if notes:
@@ -217,13 +221,13 @@ if mode == "Future Match Prediction":
                 if support_df.empty:
                     st.info("No clear supporting factors were detected for this prediction.")
                 else:
-                    st.dataframe(support_df, width="stretch")
+                    st.dataframe(support_df, use_container_width=True)
 
                 st.markdown("**Top opposing factors**")
                 if oppose_df.empty:
                     st.info("No clear opposing factors were detected for this prediction.")
                 else:
-                    st.dataframe(oppose_df, width="stretch")
+                    st.dataframe(oppose_df, use_container_width=True)
             except Exception as exc:  # pragma: no cover - UI safety
                 st.warning(
                     "Prediction explanation is currently unavailable. "
@@ -254,15 +258,20 @@ else:
 
         selected_label = st.selectbox("Choose a match", list(options.keys()))
 
-        if st.button("Predict this existing match"):
+        if st.button("Predict this existing match", type="primary"):
             try:
                 prediction = predict_existing_match_by_id(options[selected_label])
-                st.subheader("Prediction")
-                st.write(f"**Model type used:** {prediction.get('model_type', 'baseline')}")
-                st.write(f"**Team A loss probability:** {prediction['probabilities']['team_a_loss']:.3f}")
-                st.write(f"**Draw probability:** {prediction['probabilities']['draw']:.3f}")
-                st.write(f"**Team A win probability:** {prediction['probabilities']['team_a_win']:.3f}")
+                render_section_header("Prediction results")
+                probs = prediction["probabilities"]
+                c1, c2, c3 = st.columns(3)
+                with c1:
+                    render_metric_card("Team A loss", f"{probs['team_a_loss']:.1%}", variant="danger")
+                with c2:
+                    render_metric_card("Draw", f"{probs['draw']:.1%}", variant="warn")
+                with c3:
+                    render_metric_card("Team A win", f"{probs['team_a_win']:.1%}", variant="ok")
                 st.write(f"**Predicted label:** {prediction['predicted_label']}")
-                st.write(f"**Actual label:** {prediction.get('actual_label')}")
+                if prediction.get("actual_label") is not None:
+                    st.write(f"**Actual label:** {prediction.get('actual_label')}")
             except Exception as exc:  # pragma: no cover - UI safety
                 st.error(str(exc))

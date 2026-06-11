@@ -43,36 +43,64 @@ except ModuleNotFoundError:
     )
 
 try:
+    from app.components.branding import render_branded_hero, render_sidebar_brand
+except ModuleNotFoundError:
+    from components.branding import render_branded_hero, render_sidebar_brand
+
+try:
     from app.components.ui import (
         inject_page_theme,
         load_json_if_exists,
         render_champion_spotlight,
-        render_hero,
         render_metric_card,
         render_progress_bar,
+        render_quick_nav_grid,
         render_section_header,
-        render_status_badge,
         render_warning_panel,
         render_success_panel,
     )
-except ModuleNotFoundError:
-    from components.ui import (
+except ImportError:
+    from app.components.ui import (
         inject_page_theme,
         load_json_if_exists,
         render_champion_spotlight,
-        render_hero,
         render_metric_card,
         render_progress_bar,
+        render_quick_nav_cards,
         render_section_header,
-        render_status_badge,
         render_warning_panel,
         render_success_panel,
     )
 
-try:
-    from app.styles.worldcup_theme import COLORS
+    render_quick_nav_grid = render_quick_nav_cards  # older ui.py without nav grid helper
 except ModuleNotFoundError:
-    from styles.worldcup_theme import COLORS
+    try:
+        from components.ui import (
+            inject_page_theme,
+            load_json_if_exists,
+            render_champion_spotlight,
+            render_metric_card,
+            render_progress_bar,
+            render_quick_nav_grid,
+            render_section_header,
+            render_warning_panel,
+            render_success_panel,
+        )
+    except ImportError:
+        from components.ui import (
+            inject_page_theme,
+            load_json_if_exists,
+            render_champion_spotlight,
+            render_metric_card,
+            render_progress_bar,
+            render_quick_nav_cards,
+            render_section_header,
+            render_warning_panel,
+            render_success_panel,
+        )
+
+        render_quick_nav_grid = render_quick_nav_cards
+
 
 import src.utils.constants as C
 
@@ -101,7 +129,7 @@ def _load_status() -> dict:
     return dict(mc=mc, awards=awards, official=official, mode=mode, readiness=readiness, rs=rs)
 
 
-# ─── Homepage ──────────────────────────────────────────────────────────────────
+# ─── Homepage ──────────────────────────────────────────────────
 def _homepage() -> None:
     inject_page_theme()
 
@@ -112,7 +140,6 @@ def _homepage() -> None:
 
     teams_count = rs.get("teams_count") or official.get("teams_count", 0)
     fixtures_count = rs.get("fixtures_count") or official.get("fixtures_count", 0)
-    players_count = rs.get("players_count", 0)
     checks_passed = rs.get("passed_checks", 0)
     checks_total = rs.get("total_checks", 15)
     is_final_ready = bool(readiness.get("is_official_final_ready", False))
@@ -123,62 +150,28 @@ def _homepage() -> None:
     mc_ready = bool(mc)
     awards_ready = bool(awards)
 
-    # Hero
-    render_hero(
+    render_branded_hero(
         "World Cup 2026 AI Predictor",
-        "Predict, simulate, and explore FIFA World Cup 2026 outcomes using ML models, "
-        "Monte Carlo simulation, and official team data.",
-        eyebrow="FIFA World Cup 2026 Analytics",
+        "Probabilistic forecasts for matches, the full tournament, and player awards — "
+        "powered by ML models and official squad data.",
+        eyebrow="Command Center",
     )
 
-    # Status row
-    render_section_header("Live status")
     s1, s2, s3, s4 = st.columns(4)
+    data_mode = (
+        "Official final" if official_final
+        else ("Official draft" if teams_count > 0 else "Sample data")
+    )
+    mode_variant = "ok" if official_final else ("warn" if teams_count > 0 else "")
 
     with s1:
-        data_mode = (
-            "official_final" if official_final
-            else ("official_draft" if teams_count > 0 else "sample")
-        )
-        mode_badge = "ok" if official_final else ("warn" if teams_count > 0 else "muted")
-        st.markdown(
-            f"""
-<div class="wc-card">
-  <div class="wc-card-label">Data mode</div>
-  <div style="margin:0.4rem 0;">{render_status_badge(data_mode, mode_badge)}</div>
-  <div class="wc-card-sub">{checks_passed}/{checks_total} readiness checks</div>
-</div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        render_metric_card("Data mode", data_mode, sub=f"{checks_passed}/{checks_total} checks", variant=mode_variant)
     with s2:
         if mc_ready and top_champion:
-            st.markdown(
-                f"""
-<div class="wc-card wc-card-gold">
-  <div class="wc-card-label">Monte Carlo forecast</div>
-  <div class="wc-card-value">{top_champion}</div>
-  <div class="wc-card-sub">{top_champ_prob:.1%} champion · {num_sims:,} simulations</div>
-</div>
-                """,
-                unsafe_allow_html=True,
-            )
+            render_metric_card(top_champion, f"{top_champ_prob:.1%}", sub=f"{num_sims:,} Monte Carlo runs", variant="accent")
         else:
-            st.markdown(
-                f"""
-<div class="wc-card">
-  <div class="wc-card-label">Monte Carlo forecast</div>
-  <div style="margin:0.4rem 0;">{render_status_badge("Not run yet", "muted")}</div>
-  <div class="wc-card-sub">Run simulation to generate champion probabilities</div>
-</div>
-                """,
-                unsafe_allow_html=True,
-            )
-
+            render_metric_card("Monte Carlo", "Not run", sub="Run simulation for forecasts", variant="warn")
     with s3:
-        awards_badge = "ok" if awards_ready else "muted"
-        awards_label = "Available" if awards_ready else "Not generated"
         gb_winner = ""
         if awards_ready:
             try:
@@ -190,181 +183,96 @@ def _homepage() -> None:
                         gb_winner = str(_gdf.iloc[0]["player_name"])
             except Exception:
                 pass
-        sub = f"Golden Ball: {gb_winner}" if gb_winner else "Generate awards to see top picks"
-        st.markdown(
-            f"""
-<div class="wc-card">
-  <div class="wc-card-label">Awards analytics</div>
-  <div style="margin:0.4rem 0;">{render_status_badge(awards_label, awards_badge)}</div>
-  <div class="wc-card-sub">{sub}</div>
-</div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        awards_sub = f"Golden Ball: {gb_winner}" if gb_winner else "Generate on Awards page"
+        render_metric_card("Awards", "Ready" if awards_ready else "Pending", sub=awards_sub, variant="ok" if awards_ready else "")
     with s4:
-        ready_badge = (
-            "ok" if is_final_ready
-            else ("warn" if checks_passed >= checks_total // 2 else "danger")
-        )
-        ready_label = (
-            "Ready" if is_final_ready
-            else ("In progress" if checks_passed > 0 else "Blocked")
-        )
-        st.markdown(
-            f"""
-<div class="wc-card">
-  <div class="wc-card-label">Official final gate</div>
-  <div style="margin:0.4rem 0;">{render_status_badge(ready_label, ready_badge)}</div>
-  <div class="wc-card-sub">{checks_passed} of {checks_total} checks passing</div>
-</div>
-            """,
-            unsafe_allow_html=True,
-        )
+        ready_variant = "ok" if is_final_ready else ("warn" if checks_passed >= checks_total // 2 else "danger")
+        ready_label = "Ready" if is_final_ready else ("In progress" if checks_passed > 0 else "Blocked")
+        render_metric_card("Official gate", ready_label, sub=f"{checks_passed} of {checks_total} checks", variant=ready_variant)
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
 
-    # Key metrics
-    render_section_header("Tournament data")
-    m1, m2, m3, m4, m5 = st.columns(5)
-    with m1:
-        render_metric_card("Teams", str(teams_count) if teams_count else "—", sub="48 total in WC 2026")
-    with m2:
-        render_metric_card("Fixtures", str(fixtures_count) if fixtures_count else "—", sub="104 total matches")
-    with m3:
-        render_metric_card("Players", str(players_count) if players_count else "—", sub="26 per squad")
-    with m4:
-        render_metric_card(
-            "Simulations",
-            f"{num_sims:,}" if num_sims else "—",
-            sub="Monte Carlo runs",
-        )
-    with m5:
-        prog_variant = "ok" if is_final_ready else ("warn" if checks_passed >= 8 else "danger")
-        render_metric_card(
-            "Readiness",
-            f"{checks_passed}/{checks_total}",
-            sub="Official data checks",
-            variant=prog_variant,
-        )
+    render_section_header("Go to")
+    render_quick_nav_grid([
+        {"icon": "⚽", "title": "Match Predictor", "hint": "Win / draw / loss probabilities", "page": "pages/1_Match_Predictor.py"},
+        {"icon": "📊", "title": "Monte Carlo", "hint": "Champion & stage probabilities", "page": "pages/9_Monte_Carlo_Simulator.py"},
+        {"icon": "🥇", "title": "World Cup Awards", "hint": "Golden Ball, Boot, Glove & more", "page": "pages/17_World_Cup_Awards.py"},
+        {"icon": "🏆", "title": "Tournament Sim", "hint": "Quick bracket simulation", "page": "pages/2_Tournament_Simulator.py"},
+        {"icon": "✅", "title": "Data Health", "hint": "Official data readiness", "page": "pages/3_Data_Health.py"},
+        {"icon": "📥", "title": "Reports", "hint": "Download all artifacts", "page": "pages/4_Reports_Downloads.py"},
+    ])
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
 
-    # Quick actions
-    render_section_header("Navigate")
-    a1, a2, a3, a4, a5, a6 = st.columns(6)
-    _nav = [
-        (a1, "⚽", "Match Predictor", "Win/draw/loss probabilities", "pages/1_Match_Predictor.py"),
-        (a2, "📊", "Monte Carlo", "Champion & stage reach forecast", "pages/9_Monte_Carlo_Simulator.py"),
-        (a3, "🥇", "Awards", "Golden Ball, Boot, Glove & more", "pages/17_World_Cup_Awards.py"),
-        (a4, "🏆", "Tournament", "Quick bracket simulation", "pages/2_Tournament_Simulator.py"),
-        (a5, "✅", "Data Health", "Official data completeness gate", "pages/3_Data_Health.py"),
-        (a6, "📥", "Reports", "Download all analytics artifacts", "pages/4_Reports_Downloads.py"),
-    ]
-    for col, icon, title, hint, page in _nav:
-        with col:
-            st.markdown(
-                f"""
-<div class="wc-action-card">
-  <div class="wc-action-icon">{icon}</div>
-  <div class="wc-action-title">{title}</div>
-  <div class="wc-action-hint">{hint}</div>
-</div>
-                """,
-                unsafe_allow_html=True,
-            )
-            st.page_link(page, label=f"Open {title}")
+    left, right = st.columns([3, 2], gap="large")
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    with left:
+        with st.container(border=True):
+            st.markdown('<div class="wc-dash-panel-title">Champion forecast</div>', unsafe_allow_html=True)
+            if mc_ready and top_champion:
+                try:
+                    import pandas as pd
 
-    # Monte Carlo spotlight
-    if mc_ready and top_champion:
-        render_section_header("Champion forecast")
-        try:
-            import pandas as pd
-            champ_path = PROCESSED_DATA_DIR / _MC_CHAMP
-            if champ_path.is_file():
-                champ_df = pd.read_csv(champ_path)
-                prob_col = next(
-                    (c for c in ["champion_probability", "probability", "win_probability"]
-                     if c in champ_df.columns),
-                    None,
-                )
-                name_col = next(
-                    (c for c in ["team", "team_name", "name"] if c in champ_df.columns),
-                    None,
-                )
-                if prob_col and name_col:
-                    champ_df = (
-                        champ_df[[name_col, prob_col]]
-                        .rename(columns={name_col: "Team", prob_col: "Probability"})
-                        .sort_values("Probability", ascending=False)
-                        .head(10)
-                    )
-                    champ_df["Probability"] = champ_df["Probability"].apply(
-                        lambda x: f"{float(x):.1%}"
-                    )
+                    champ_path = PROCESSED_DATA_DIR / _MC_CHAMP
                     cx1, cx2 = st.columns([2, 3])
                     with cx1:
                         render_champion_spotlight(top_champion, top_champ_prob)
                     with cx2:
-                        st.dataframe(champ_df, use_container_width=True, hide_index=True)
-        except Exception:
-            render_champion_spotlight(top_champion, top_champ_prob)
+                        if champ_path.is_file():
+                            champ_df = pd.read_csv(champ_path)
+                            prob_col = next(
+                                (
+                                    c
+                                    for c in ["champion_probability", "probability", "win_probability"]
+                                    if c in champ_df.columns
+                                ),
+                                None,
+                            )
+                            name_col = next(
+                                (c for c in ["team", "team_name", "name"] if c in champ_df.columns),
+                                None,
+                            )
+                            if prob_col and name_col:
+                                top_df = (
+                                    champ_df[[name_col, prob_col]]
+                                    .rename(columns={name_col: "Team", prob_col: "Prob."})
+                                    .sort_values("Prob.", ascending=False)
+                                    .head(8)
+                                )
+                                top_df["Prob."] = top_df["Prob."].apply(lambda x: f"{float(x):.1%}")
+                                st.dataframe(top_df, use_container_width=True, hide_index=True)
+                except Exception:
+                    render_champion_spotlight(top_champion, top_champ_prob)
+            else:
+                st.info("Run **Monte Carlo Forecast** from the sidebar to populate champion probabilities.")
 
-        st.markdown("<br>", unsafe_allow_html=True)
+    with right:
+        with st.container(border=True):
+            st.markdown('<div class="wc-dash-panel-title">Data readiness</div>', unsafe_allow_html=True)
+            m1, m2 = st.columns(2)
+            with m1:
+                render_metric_card("Teams", str(teams_count) if teams_count else "—", sub="WC 2026 squads")
+            with m2:
+                render_metric_card("Fixtures", str(fixtures_count) if fixtures_count else "—", sub="Scheduled matches")
+            progress_ratio = checks_passed / max(checks_total, 1)
+            prog_kind = "ok" if is_final_ready else ("warn" if progress_ratio >= 0.5 else "danger")
+            render_progress_bar(
+                progress_ratio,
+                label=f"Completeness — {checks_passed}/{checks_total}",
+                kind=prog_kind,
+            )
+            if is_final_ready:
+                render_success_panel("Official final mode enabled.")
+            else:
+                render_warning_panel("Complete checks on <strong>Data Health</strong> to unlock official final mode.")
 
-    # Readiness progress
-    render_section_header("Data readiness")
-    progress_ratio = checks_passed / max(checks_total, 1)
-    prog_kind = "ok" if is_final_ready else ("warn" if progress_ratio >= 0.5 else "danger")
-    render_progress_bar(
-        progress_ratio,
-        label=f"Official data completeness — {checks_passed}/{checks_total} checks",
-        kind=prog_kind,
-    )
-    if is_final_ready:
-        render_success_panel(
-            "All readiness checks passed. Official final mode is enabled for production analytics."
-        )
-    else:
-        blockers = len(readiness.get("blockers", []))
-        warnings_count = len(readiness.get("warnings", []))
-        parts = []
-        if blockers:
-            parts.append(f"{blockers} blocker{'s' if blockers > 1 else ''}")
-        if warnings_count:
-            parts.append(f"{warnings_count} warning{'s' if warnings_count > 1 else ''}")
-        msg = ", ".join(parts) or "data incomplete"
-        render_warning_panel(
-            f"Official final mode is blocked — {msg}. "
-            "Use the <strong>Data Health</strong> page to resolve issues."
-        )
+    st.caption("Analytics estimates only · Not affiliated with or endorsed by FIFA.")
 
-    st.markdown("<br>", unsafe_allow_html=True)
 
-    # About
-    render_section_header("About")
-    st.markdown(
-        f"""
-<div class="wc-card" style="padding:1.25rem 1.5rem;">
-  <div class="wc-card-value" style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">
-    FIFA World Cup 2026 AI Predictor
-  </div>
-  <div class="wc-card-sub" style="font-size:0.9rem;line-height:1.65;">
-    This dashboard uses machine learning models trained on historical international match data,
-    FIFA and Elo rankings, and official World Cup 2026 squad information to produce
-    probabilistic forecasts for match outcomes, tournament progression, and player awards.<br><br>
-    All outputs are <strong style="color:{COLORS['warning']}">analytics estimates</strong>
-    — not official FIFA predictions. Probabilities reflect model uncertainty across
-    many simulated scenarios.
-  </div>
-</div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.caption("Analytics estimates only. Not affiliated with or endorsed by FIFA.")
-
+# ─── Sidebar brand (logo upper-left, all pages) ────────────────────────────────
+inject_page_theme()
+with st.sidebar:
+    render_sidebar_brand()
 
 # ─── Navigation definition ─────────────────────────────────────────────────────
 _pg = st.navigation(

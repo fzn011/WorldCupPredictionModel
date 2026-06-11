@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html
 import json
 from pathlib import Path
 from typing import Any, Literal
@@ -15,6 +16,10 @@ except ModuleNotFoundError:
     from styles.worldcup_theme import COLORS, inject_worldcup_css
 
 BadgeKind = Literal["ok", "warn", "danger", "muted", "gold"]
+
+
+def _esc(text: Any) -> str:
+    return html.escape(str(text))
 
 
 # ─── Theme injection ───────────────────────────────────────────────────────────
@@ -35,9 +40,9 @@ def render_hero(
     st.markdown(
         f"""
 <div class="wc-hero">
-  <div class="wc-hero-eyebrow">{eyebrow}</div>
-  <h1>{title}</h1>
-  <p>{subtitle}</p>
+  <div class="wc-hero-eyebrow">{_esc(eyebrow)}</div>
+  <h1>{_esc(title)}</h1>
+  <p>{_esc(subtitle)}</p>
 </div>
         """,
         unsafe_allow_html=True,
@@ -48,7 +53,7 @@ def render_hero(
 
 def render_section_header(title: str, *, subtitle: str | None = None) -> None:
     st.markdown(
-        f'<div class="wc-section"><h3>{title}</h3></div>',
+        f'<div class="wc-section"><h3>{_esc(title)}</h3></div>',
         unsafe_allow_html=True,
     )
     st.markdown('<div class="wc-pitch-line"></div>', unsafe_allow_html=True)
@@ -60,7 +65,7 @@ def render_section_header(title: str, *, subtitle: str | None = None) -> None:
 
 def render_status_badge(label: str, kind: BadgeKind = "muted") -> str:
     """Return an HTML badge string (unsafe_allow_html caller's responsibility)."""
-    return f'<span class="wc-badge wc-badge-{kind}">{label}</span>'
+    return f'<span class="wc-badge wc-badge-{kind}">{_esc(label)}</span>'
 
 
 # ─── Status dot ────────────────────────────────────────────────────────────────
@@ -82,13 +87,15 @@ def render_metric_card(
 
     variant can be 'ok', 'warn', 'danger', 'gold' or '' (default white).
     """
+    if variant in ("gold", "accent"):
+        variant = "accent"
     cls = f"wc-card wc-card-{variant}" if variant else "wc-card"
-    sub_html = f'<div class="wc-card-sub">{sub}</div>' if sub else ""
+    sub_html = f'<div class="wc-card-sub">{_esc(sub)}</div>' if sub else ""
     st.markdown(
         f"""
 <div class="{cls}">
-  <div class="wc-card-label">{label}</div>
-  <div class="wc-card-value">{value}</div>
+  <div class="wc-card-label">{_esc(label)}</div>
+  <div class="wc-card-value">{_esc(value)}</div>
   {sub_html}
 </div>
         """,
@@ -224,6 +231,10 @@ def render_info_panel(message: str) -> None:
     st.markdown(f'<div class="wc-panel-info">{message}</div>', unsafe_allow_html=True)
 
 
+def render_error_panel(message: str) -> None:
+    st.markdown(f'<div class="wc-panel-error">{message}</div>', unsafe_allow_html=True)
+
+
 # ─── Pipeline stepper ──────────────────────────────────────────────────────────
 
 def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
@@ -241,7 +252,30 @@ def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
         )
 
 
-# ─── Quick nav cards ───────────────────────────────────────────────────────────
+def render_quick_nav_grid(items: list[dict[str, str]]) -> None:
+    """Navigation grid — icon, title, hint, and page link per tile."""
+    cols = st.columns(3)
+    for idx, item in enumerate(items):
+        with cols[idx % 3]:
+            icon = item.get("icon", "⚽")
+            title = item.get("title", "")
+            hint = item.get("hint", "")
+            page = item.get("page", "")
+            st.markdown(
+                f"""
+<div class="wc-nav-tile">
+  <div class="wc-nav-tile-icon">{icon}</div>
+  <div class="wc-nav-tile-title">{title}</div>
+  <div class="wc-nav-tile-hint">{hint}</div>
+</div>
+                """,
+                unsafe_allow_html=True,
+            )
+            if page:
+                st.page_link(page, label=f"Open {title}", use_container_width=True)
+
+
+# ─── Quick nav cards (legacy) ──────────────────────────────────────────────────
 
 def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
     """Quick-link action cards. Each item: title, hint, page (sidebar link)."""
@@ -380,8 +414,8 @@ def render_champion_spotlight(team: str, probability: float, *, sub: str = "") -
   <div class="wc-card-label" style="font-size:0.7rem;letter-spacing:0.15em;">
     Most likely champion
   </div>
-  <div class="wc-card-value" style="font-size:1.9rem;color:{COLORS['gold']};">{team}</div>
-  <div style="font-size:1.25rem;font-weight:700;color:{COLORS['gold_light']};margin-top:0.2rem;">{pct}</div>
+  <div class="wc-card-value" style="font-size:1.9rem;color:{COLORS['primary']};">{team}</div>
+  <div style="font-size:1.25rem;font-weight:700;color:{COLORS['primary_hover']};margin-top:0.2rem;">{pct}</div>
   {f'<div class="wc-card-sub">{sub}</div>' if sub else ''}
 </div>
         """,

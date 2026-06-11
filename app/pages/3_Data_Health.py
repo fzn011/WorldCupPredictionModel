@@ -412,7 +412,7 @@ guide_path = PROJECT_ROOT / OFFICIAL_POPULATION_DIR / OFFICIAL_POPULATION_GUIDE_
 if guide_path.is_file():
     render_download_card(
         "Population guide",
-        "Step-by-step data filling instructions",
+        "Data filling instructions",
         guide_path,
         file_name=OFFICIAL_POPULATION_GUIDE_FILE,
         mime="text/markdown",

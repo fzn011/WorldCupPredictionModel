@@ -103,7 +103,11 @@ with tab_overview:
         pack = st.session_state.population_pack
         st.json({k: pack[k] for k in ("status", "final_ready", "teams_count", "fixtures_count", "players_count") if k in pack})
 
-    st.page_link("pages/15_Source_Assisted_Population.py", label="Source-Assisted Population", icon="⚽")
+    st.page_link(
+        "pages/_dev/15_Source_Assisted_Population.py",
+        label="Source-Assisted Population",
+        icon="⚽",
+    )
 
 with tab_status:
     render_section_header("Population status")
