@@ -164,8 +164,8 @@ def render_data_quality_card(
     detail: str = "",
     progress: float | None = None,
 ) -> None:
-    kind: BadgeKind = "ok" if passed else "danger"
-    badge = render_status_badge("Passed" if passed else "Needs attention", kind)
+    kind: BadgeKind = "ok" if passed else "warn"
+    badge = render_status_badge("Ready" if passed else "Needs review", kind)
     prog_html = ""
     if progress is not None:
         pct = int(max(0, min(100, progress * 100)))
@@ -253,26 +253,44 @@ def render_pipeline_stepper(steps: list[tuple[str, str, str]]) -> None:
 
 
 def render_quick_nav_grid(items: list[dict[str, str]]) -> None:
-    """Navigation grid — icon, title, hint, and page link per tile."""
-    cols = st.columns(3)
+    """Product action cards with clear CTA buttons (no emoji icons)."""
+    render_action_grid(items)
+
+
+def render_action_grid(items: list[dict[str, str]]) -> None:
+    """Dashboard action cards — title, description, page link button."""
+    cols = st.columns(min(len(items), 3))
     for idx, item in enumerate(items):
-        with cols[idx % 3]:
-            icon = item.get("icon", "⚽")
-            title = item.get("title", "")
-            hint = item.get("hint", "")
-            page = item.get("page", "")
-            st.markdown(
-                f"""
-<div class="wc-nav-tile">
-  <div class="wc-nav-tile-icon">{icon}</div>
-  <div class="wc-nav-tile-title">{title}</div>
-  <div class="wc-nav-tile-hint">{hint}</div>
-</div>
-                """,
-                unsafe_allow_html=True,
+        with cols[idx % len(cols)]:
+            render_action_card(
+                item.get("title", ""),
+                item.get("hint", ""),
+                button_label=item.get("button") or f"Open {item.get('title', 'page')}",
+                page=item.get("page"),
             )
-            if page:
-                st.page_link(page, label=f"Open {title}", use_container_width=True)
+
+
+def render_action_card(
+    title: str,
+    description: str,
+    *,
+    button_label: str | None = None,
+    page: str | None = None,
+    status: str = "neutral",
+) -> None:
+    """Single clickable-style dashboard card with optional page link."""
+    status_cls = f" wc-card-{status}" if status in ("ok", "warn", "danger", "accent") else ""
+    st.markdown(
+        f"""
+<div class="wc-action-card{status_cls}">
+  <div class="wc-action-title">{_esc(title)}</div>
+  <div class="wc-action-hint">{_esc(description)}</div>
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+    if page and button_label:
+        st.page_link(page, label=button_label, use_container_width=True)
 
 
 # ─── Quick nav cards (legacy) ──────────────────────────────────────────────────
@@ -325,25 +343,29 @@ def render_download_card(
     file_name: str | None = None,
     mime: str = "text/csv",
 ) -> None:
+    fname = file_name or path.name
     st.markdown(
         f"""
 <div class="wc-download-card">
-  <div class="wc-card-label">{title}</div>
-  <div class="wc-card-sub">{description}</div>
+  <div class="wc-card-label">{_esc(title)}</div>
+  <div class="wc-card-sub">{_esc(description)}</div>
+  <div class="wc-filename-muted">{_esc(fname)}</div>
 </div>
         """,
         unsafe_allow_html=True,
     )
     if path.is_file():
         st.download_button(
-            label=f"Download {file_name or path.name}",
+            label="Download",
             data=path.read_bytes(),
-            file_name=file_name or path.name,
+            file_name=fname,
             mime=mime,
-            use_container_width=True,
+            use_container_width=False,
+            type="secondary",
+            key=f"dl_{abs(hash(title + str(path)))}",
         )
     else:
-        st.caption("Not yet generated")
+        st.caption("Not available yet")
 
 
 # ─── Formation diagram ─────────────────────────────────────────────────────────
@@ -430,3 +452,55 @@ def load_json_if_exists(path: Path) -> dict[str, Any]:
         return {}
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+# ─── Step 20C product aliases ──────────────────────────────────────────────────
+
+inject_global_theme = inject_page_theme
+
+
+def render_page_header(title: str, subtitle: str | None = None, *, eyebrow: str | None = None) -> None:
+    render_hero(title, subtitle or "", eyebrow=eyebrow or "World Cup 2026 Analytics")
+
+
+def render_section(title: str, *, subtitle: str | None = None) -> None:
+    render_section_header(title, subtitle=subtitle)
+
+
+def render_clean_table(
+    df: pd.DataFrame,
+    *,
+    title: str | None = None,
+    max_rows: int = 20,
+) -> None:
+    if title:
+        render_section_header(title)
+    if df.empty:
+        render_empty_state("No data", "Nothing to display yet.")
+        return
+    st.dataframe(df.head(max_rows), use_container_width=True, hide_index=True)
+
+
+def render_empty_state(title: str, message: str) -> None:
+    st.markdown(
+        f"""
+<div class="wc-empty-state">
+  <div class="wc-action-title">{_esc(title)}</div>
+  <div class="wc-action-hint">{_esc(message)}</div>
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_team_formation(players_df: pd.DataFrame, *, name_col: str = "player_name") -> None:
+    """4-3-3 formation from dataframe with formation_slot column."""
+    if players_df.empty or "formation_slot" not in players_df.columns:
+        render_empty_state("Formation", "Team lineup not available yet.")
+        return
+    slot_map = {row["formation_slot"]: str(row.get(name_col, "—")) for _, row in players_df.iterrows()}
+
+    def _line(prefix: str, count: int) -> list[str]:
+        return [slot_map.get(f"{prefix}{i}", "—") for i in range(1, count + 1)]
+
+    render_formation_diagram([_line("FWD", 3), _line("MID", 3), _line("DEF", 4), _line("GK", 1)])

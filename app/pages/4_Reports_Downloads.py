@@ -79,10 +79,9 @@ _OFF_SUMMARY = getattr(C, "OFFICIAL_DATA_SUMMARY_FILE", "official_data_summary.j
 
 inject_page_theme()
 render_hero(
-    "Reports & Downloads",
-    "Download all analytics artifacts — Monte Carlo forecasts, awards predictions, "
-    "official data, and portfolio files.",
-    eyebrow="Analytics output hub",
+    "Reports",
+    "Download tournament forecasts, awards analytics, official data exports, and project summaries.",
+    eyebrow="Download hub",
 )
 
 
@@ -139,54 +138,54 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # ─── Tabbed download sections ─────────────────────────────────────────────────
 tab_mc, tab_awards, tab_official, tab_portfolio, tab_charts = st.tabs(
-    ["Monte Carlo", "Awards", "Official Data", "Portfolio", "Charts & Visuals"]
+    ["Tournament Forecasts", "Awards Forecasts", "Official Data", "Project Reports", "Charts"]
 )
 
 with tab_mc:
-    render_section_header("Monte Carlo simulation outputs")
+    render_section_header("Tournament forecast reports")
     col1, col2 = st.columns(2)
     with col1:
         render_download_card(
-            "Champion probabilities",
-            "Team-level tournament champion estimates",
+            "Champion Probability Report",
+            "Estimated tournament winner probabilities by team",
             PROCESSED_DATA_DIR / _MC_CHAMP,
             file_name=_MC_CHAMP,
         )
         render_download_card(
-            "Stage probabilities",
-            "Per-team probability of reaching each round",
+            "Stage Progression Report",
+            "Probability of reaching each knockout round",
             PROCESSED_DATA_DIR / _MC_STAGE,
             file_name=_MC_STAGE,
         )
         render_download_card(
-            "Simulation results",
-            "Raw per-simulation outcome data",
+            "Simulation Results",
+            "Detailed outcomes from each simulation run",
             PROCESSED_DATA_DIR / _MC_SIM,
             file_name=_MC_SIM,
         )
     with col2:
         render_download_card(
-            "Finalists",
-            "Most frequent finalists across simulations",
+            "Finalists Report",
+            "Teams most frequently reaching the final",
             PROCESSED_DATA_DIR / _MC_FIN,
             file_name=_MC_FIN,
         )
         render_download_card(
-            "Semi-finalists",
-            "Most frequent semi-finalists",
+            "Semifinalists Report",
+            "Teams most frequently reaching the semifinal",
             PROCESSED_DATA_DIR / _MC_SEMI,
             file_name=_MC_SEMI,
         )
         render_download_card(
-            "Summary JSON",
-            "Top champion, run metadata",
+            "Monte Carlo Summary",
+            "Top-level forecast metadata and highlights",
             PROCESSED_DATA_DIR / _MC_SUMMARY,
             file_name=_MC_SUMMARY,
             mime="application/json",
         )
     render_download_card(
-        "Narrative report",
-        "Markdown report suitable for portfolio or presentation",
+        "Tournament Forecast Narrative",
+        "Written summary suitable for presentations",
         REPORTS_DIR / _MC_REPORT,
         file_name=_MC_REPORT,
         mime="text/markdown",
@@ -337,7 +336,7 @@ with tab_charts:
                 data=champion_chart.read_bytes(),
                 file_name=_MC_CHART,
                 mime="image/png",
-                use_container_width=True,
+                type="secondary",
             )
         else:
             st.info("Champion chart not yet generated. Run Monte Carlo simulation.")
@@ -350,7 +349,7 @@ with tab_charts:
                 data=heatmap.read_bytes(),
                 file_name=_MC_HEATMAP,
                 mime="image/png",
-                use_container_width=True,
+                type="secondary",
             )
         else:
             st.info("Stage heatmap not yet generated. Run Monte Carlo simulation.")

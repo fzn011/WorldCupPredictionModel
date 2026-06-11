@@ -1,15 +1,23 @@
 # World Cup 2026 logo
 
-Copy your logo PNG into this folder as **`world_cup_logo.png`**.
+Primary logo file (already configured in the app):
 
-Windows example:
+`hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png`
 
-```powershell
-copy "C:\Users\USER\Downloads\hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png" `
-  "E:\World Cup prediction model\world-cup-2026-ai-predictor\app\static\images\world_cup_logo.png"
+Place it in this folder:
+
+`app/static/images/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png`
+
+The logo is shown in the **sidebar** and on the **Home hero banner**.
+
+Optional alias: copy or rename to `world_cup_logo.png`.
+
+After adding or replacing the file, restart Streamlit and hard-refresh (`Ctrl+F5`).
+
+## Windows (your path)
+
+```
+E:\World Cup prediction model\world-cup-2026-ai-predictor\app\static\images\hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png
 ```
 
-Or keep the long filename — the app also checks for  
-`hd-official-2026-fifa-world-cup-transparent-png.png` in this folder.
-
-Restart Streamlit after copying.
+If the file is already there, pull the latest code and restart Streamlit — no rename needed.

@@ -23,13 +23,13 @@ def _load_module(path: Path, name: str):
 def test_worldcup_theme_colors_palette() -> None:
     theme = _load_module(THEME_PATH, "worldcup_theme_test")
     colors = theme.COLORS
-    assert colors["background"] == "#0B0B0B"
+    assert colors["background"] == "#050505"
     assert colors["primary"] == "#8B0000"
     assert colors["gold"] == "#8B0000"
     assert colors["green"] == "#16A36A"
     assert colors["white"] == "#F8F8F8"
-    assert colors["muted"] == "#C0C0C0"
-    assert colors["input_bg"] == "#1F1F1F"
+    assert colors["muted"] == "#C7C7C7"
+    assert colors["input_bg"] == "#161616"
     assert colors["warning"] == "#F59E0B"
     assert colors["danger"] == "#EF4444"
 
@@ -54,7 +54,7 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         "st.html",
         ".stTextInput input",
         "#8B0000",
-        "#1F1F1F",
+        "#161616",
         '[data-baseweb="select"]',
         "Sprintura",
         "html[data-theme=\"light\"]",
@@ -82,9 +82,15 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_readiness_item",
         "render_champion_spotlight",
         "render_quick_nav_grid",
+        "render_action_grid",
+        "render_action_card",
+        "render_page_header",
+        "render_empty_state",
+        "render_clean_table",
+        "inject_global_theme",
         "inject_page_theme",
-    ):
-        assert f"def {name}" in source
+        ):
+        assert f"def {name}" in source or f"{name} = inject_page_theme" in source
 
 
 def test_app_styles_package_exports() -> None:
@@ -151,4 +157,5 @@ def test_streamlit_app_uses_navigation() -> None:
     source = (REPO_ROOT / "app" / "streamlit_app.py").read_text(encoding="utf-8")
     assert "st.navigation" in source
     assert "pages/3_Data_Health.py" in source
+    assert "Advanced tools" in source
     assert "pages/_dev/" in source
