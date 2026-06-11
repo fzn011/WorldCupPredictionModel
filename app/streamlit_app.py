@@ -22,13 +22,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-try:
-    from app.styles.worldcup_theme import inject_worldcup_css
-except ModuleNotFoundError:
-    from styles.worldcup_theme import inject_worldcup_css
-
-inject_worldcup_css()
-
 # ─── Path / import bootstrapping ───────────────────────────────────────────────
 try:
     from app.streamlit_paths import (

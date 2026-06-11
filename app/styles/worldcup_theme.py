@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 
+import base64
+from pathlib import Path
+
 import streamlit as st
+
+_SESSION_CSS_KEY = "_worldcup_theme_css_injected"
 
 COLORS: dict[str, str] = {
     "background": "#0B0B0B",
@@ -36,19 +41,35 @@ FONT_BODY = "'Roboto', 'Segoe UI', sans-serif"
 FONT_MONO = "ui-monospace, 'Cascadia Code', monospace"
 
 
+def _sprintura_font_src() -> str:
+    """Embed Sprintura as data URL so fonts work on every OS without static path issues."""
+    fonts_dir = Path(__file__).resolve().parent.parent / "static" / "fonts"
+    for name, mime in (
+        ("Sprintura-Demo.woff2", "font/woff2"),
+        ("Sprintura-Demo.woff", "font/woff"),
+    ):
+        path = fonts_dir / name
+        if path.is_file():
+            encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+            return f"url(data:{mime};base64,{encoded}) format('{mime.split('/')[-1]}')"
+    return "local('Segoe UI')"
+
+
 def inject_worldcup_css() -> None:
-    """Inject global CSS once per page render."""
+    """Inject global CSS once per session — uses st.html so CSS is never shown as page text."""
+    if st.session_state.get(_SESSION_CSS_KEY):
+        return
+    st.session_state[_SESSION_CSS_KEY] = True
+
     c = COLORS
-    st.markdown(
+    sprintura_src = _sprintura_font_src()
+    st.html(
         f"""
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 @font-face {{
   font-family: 'Sprintura';
-  src: url('./static/fonts/Sprintura-Demo.woff2') format('woff2'),
-       url('./static/fonts/Sprintura-Demo.woff') format('woff');
+  src: {sprintura_src};
   font-weight: 400 800;
   font-style: normal;
   font-display: swap;
@@ -707,5 +728,5 @@ html[data-theme="light"] [data-baseweb="select"] > div {{
 }}
 </style>
         """,
-        unsafe_allow_html=True,
+        unsafe_allow_javascript=False,
     )

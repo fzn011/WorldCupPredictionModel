@@ -48,6 +48,7 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         ".wc-badge-ok",
         ".wc-formation",
         "inject_worldcup_css",
+        "st.html",
         ".stTextInput input",
         "#8B0000",
         "#1F1F1F",
