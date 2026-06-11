@@ -22,18 +22,29 @@ st.set_page_config(
 )
 
 try:
-    from app.streamlit_paths import OFFICIAL_DATA_DIR, OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT
+    from app.styles.worldcup_theme import inject_worldcup_css
 except ModuleNotFoundError:
-    from streamlit_paths import OFFICIAL_DATA_DIR, OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT
+    from styles.worldcup_theme import inject_worldcup_css
+
+inject_worldcup_css()
 
 try:
-    from app.components.branding import render_branded_hero, render_sidebar_brand
+    from app.streamlit_paths import OFFICIAL_DATA_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT
 except ModuleNotFoundError:
-    from components.branding import render_branded_hero, render_sidebar_brand
+    from streamlit_paths import OFFICIAL_DATA_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT
+
+try:
+    from app.components.branding import render_branded_hero
+except ModuleNotFoundError:
+    from components.branding import render_branded_hero
+
+try:
+    from app.components.layout import navigate_to, render_app_shell
+except ModuleNotFoundError:
+    from components.layout import navigate_to, render_app_shell
 
 try:
     from app.components.ui import (
-        inject_page_theme,
         load_json_if_exists,
         render_action_grid,
         render_champion_spotlight,
@@ -44,7 +55,6 @@ try:
     )
 except ImportError:
     from app.components.ui import (
-        inject_page_theme,
         load_json_if_exists,
         render_champion_spotlight,
         render_metric_card,
@@ -57,7 +67,6 @@ except ImportError:
     render_action_grid = render_quick_nav_cards
 except ModuleNotFoundError:
     from components.ui import (
-        inject_page_theme,
         load_json_if_exists,
         render_action_grid,
         render_champion_spotlight,
@@ -75,7 +84,6 @@ except ModuleNotFoundError:
 import src.utils.constants as C
 
 _MC_SUMMARY = getattr(C, "MONTE_CARLO_SUMMARY_FILE", "monte_carlo_summary.json")
-_MC_CHAMP = getattr(C, "MONTE_CARLO_CHAMPION_PROBABILITIES_FILE", "monte_carlo_champion_probabilities.csv")
 _AWARDS_SUMMARY = getattr(C, "WORLD_CUP_AWARDS_SUMMARY_FILE", "world_cup_awards_summary.json")
 _GOLDEN_BALL_FILE = getattr(C, "GOLDEN_BALL_PREDICTIONS_FILE", "golden_ball_predictions.csv")
 _GOLDEN_BOOT_FILE = getattr(C, "GOLDEN_BOOT_PREDICTIONS_FILE", "golden_boot_predictions.csv")
@@ -106,9 +114,9 @@ def _award_leader(file_name: str, col: str = "player_name") -> str:
         return ""
 
 
-def _homepage() -> None:
-    inject_page_theme()
-    d = _load_status()
+def render_home_page() -> None:
+    with st.spinner("Loading dashboard..."):
+        d = _load_status()
     mc, awards, pdata = d["mc"], d["awards"], d["pdata"]
 
     top_champion = mc.get("top_champion", "")
@@ -124,11 +132,14 @@ def _homepage() -> None:
 
     cta1, cta2, cta3 = st.columns(3)
     with cta1:
-        st.page_link("pages/1_Match_Predictor.py", label="Predict a Match", use_container_width=True)
+        if st.button("Predict a Match", use_container_width=True, type="primary", key="home_cta_match"):
+            navigate_to("Match Predictor")
     with cta2:
-        st.page_link("pages/9_Monte_Carlo_Simulator.py", label="Forecast Tournament", use_container_width=True)
+        if st.button("Forecast Tournament", use_container_width=True, type="primary", key="home_cta_forecast"):
+            navigate_to("Tournament Forecast")
     with cta3:
-        st.page_link("pages/17_World_Cup_Awards.py", label="Explore Awards", use_container_width=True)
+        if st.button("Explore Awards", use_container_width=True, type="primary", key="home_cta_awards"):
+            navigate_to("World Cup Awards")
 
     render_section_header("System status")
     s1, s2, s3, s4, s5, s6 = st.columns(6)
@@ -162,12 +173,12 @@ def _homepage() -> None:
                         "for stronger estimates."
                     )
                     if st.button("Refresh forecast", type="primary", key="home_refresh_mc"):
-                        st.session_state["_nav_mc"] = True
-                    st.page_link("pages/9_Monte_Carlo_Simulator.py", label="Go to Tournament Forecast", use_container_width=True)
+                        navigate_to("Tournament Forecast")
                 render_champion_spotlight(top_champion, top_champ_prob)
             else:
                 st.info("Run a tournament forecast to see champion probabilities.")
-                st.page_link("pages/9_Monte_Carlo_Simulator.py", label="Open Tournament Forecast", use_container_width=True)
+                if st.button("Open Tournament Forecast", use_container_width=True, key="home_open_forecast"):
+                    navigate_to("Tournament Forecast")
 
     with right:
         with st.container(border=True):
@@ -181,10 +192,10 @@ def _homepage() -> None:
 
     render_section_header("Start here")
     render_action_grid([
-        {"title": "Predict a Match", "hint": "Win, draw, and loss probabilities.", "button": "Launch Predictor", "page": "pages/1_Match_Predictor.py"},
-        {"title": "Forecast Tournament", "hint": "Champion and stage progression estimates.", "button": "Open Forecast", "page": "pages/9_Monte_Carlo_Simulator.py"},
-        {"title": "Explore Awards", "hint": "Golden Ball, Boot, Glove, and more.", "button": "View Awards", "page": "pages/17_World_Cup_Awards.py"},
-        {"title": "Download Reports", "hint": "Summaries, charts, and exports.", "button": "View Reports", "page": "pages/4_Reports_Downloads.py"},
+        {"title": "Predict a Match", "hint": "Win, draw, and loss probabilities.", "button": "Launch Predictor", "page": "Match Predictor"},
+        {"title": "Forecast Tournament", "hint": "Champion and stage progression estimates.", "button": "Open Forecast", "page": "Tournament Forecast"},
+        {"title": "Explore Awards", "hint": "Golden Ball, Boot, Glove, and more.", "button": "View Awards", "page": "World Cup Awards"},
+        {"title": "Download Reports", "hint": "Summaries, charts, and exports.", "button": "View Reports", "page": "Reports"},
     ])
 
     if pdata["is_verified"]:
@@ -192,50 +203,4 @@ def _homepage() -> None:
     st.caption("Analytics estimates only. Not official FIFA predictions.")
 
 
-def _user_navigation() -> dict:
-    return {
-        "": [
-            st.Page(_homepage, title="Home", default=True),
-            st.Page("pages/1_Match_Predictor.py", title="Match Predictor"),
-            st.Page("pages/9_Monte_Carlo_Simulator.py", title="Tournament Forecast"),
-            st.Page("pages/17_World_Cup_Awards.py", title="World Cup Awards"),
-            st.Page("pages/4_Reports_Downloads.py", title="Reports"),
-            st.Page("pages/3_Data_Health.py", title="Data Quality"),
-        ],
-    }
-
-
-def _admin_navigation() -> dict:
-    return {
-        "Advanced Tools": [
-            st.Page("pages/2_Tournament_Simulator.py", title="Quick Simulation"),
-            st.Page("pages/_dev/11_Official_Data_Health.py", title="Official Data Health"),
-            st.Page("pages/_dev/12_Official_Squads_Health.py", title="Squads Health"),
-            st.Page("pages/_dev/14_Official_Data_Population.py", title="Data Import Tools"),
-            st.Page("pages/_dev/15_Source_Assisted_Population.py", title="Source Import Tools"),
-            st.Page("pages/_dev/16_Official_Data_Population_Completion.py", title="Import Completion"),
-            st.Page("pages/_dev/5_Tournament_Setup.py", title="Tournament Setup"),
-            st.Page("pages/_dev/6_Group_Stage_Simulation.py", title="Group Stage Simulation"),
-            st.Page("pages/_dev/7_Knockout_Simulation.py", title="Knockout Simulation"),
-            st.Page("pages/_dev/8_Full_Tournament_Run.py", title="Full Tournament Run"),
-            st.Page("pages/_dev/4_Model_Explanation.py", title="Model Explanation"),
-        ],
-    }
-
-
-inject_page_theme()
-with st.sidebar:
-    render_sidebar_brand(tagline="AI Predictor")
-    st.markdown('<div class="wc-sidebar-advanced">', unsafe_allow_html=True)
-    show_technical = st.checkbox(
-        "Advanced tools",
-        value=False,
-        help="Show developer and diagnostic pages.",
-    )
-    st.markdown("</div>", unsafe_allow_html=True)
-
-nav = _user_navigation()
-if show_technical:
-    nav.update(_admin_navigation())
-
-st.navigation(nav).run()
+render_app_shell(home_renderer=render_home_page)

@@ -22,12 +22,17 @@ def _read_json(path: Path) -> dict[str, Any]:
 
 
 def load_product_data_status(*, refresh_readiness: bool = False) -> dict[str, Any]:
-    """Merge official summary, final mode, and readiness into one UI status dict."""
+    """Merge official summary, final mode, readiness, and CSV counts into one UI status dict."""
+    import pandas as pd
+
     official_summary = _read_json(
         OFFICIAL_PROCESSED_DIR / getattr(C, "OFFICIAL_DATA_SUMMARY_FILE", "official_data_summary.json")
     )
     mode = _read_json(
         OFFICIAL_PROCESSED_DIR / getattr(C, "OFFICIAL_FINAL_MODE_FLAG_FILE", "official_final_mode.json")
+    )
+    readiness_summary_file = _read_json(
+        OFFICIAL_PROCESSED_DIR / "official_final_readiness_summary.json"
     )
 
     readiness: dict[str, Any] = {}
@@ -38,14 +43,34 @@ def load_product_data_status(*, refresh_readiness: bool = False) -> dict[str, An
     except Exception:
         readiness = {}
 
-    rs = readiness.get("summary", {})
+    rs = readiness.get("summary", {}) or readiness_summary_file.get("summary", readiness_summary_file)
+
+    def _csv_rows(name: str) -> int:
+        path = OFFICIAL_PROCESSED_DIR / name
+        if not path.is_file():
+            return 0
+        try:
+            return len(pd.read_csv(path))
+        except Exception:
+            return 0
+
+    teams = int(rs.get("teams_count") or official_summary.get("teams_count") or _csv_rows("official_teams.csv") or 0)
+    fixtures = int(
+        rs.get("fixtures_count")
+        or official_summary.get("fixtures_count")
+        or _csv_rows(getattr(C, "OFFICIAL_FIXTURES_FILE", "official_fixtures.csv"))
+        or 0
+    )
+    players = int(
+        rs.get("players_count")
+        or official_summary.get("players_count")
+        or _csv_rows(getattr(C, "OFFICIAL_PLAYERS_FILE", "official_players.csv"))
+        or 0
+    )
+    squads_26 = int(rs.get("teams_with_26_players") or official_summary.get("teams_with_26_players") or 0)
+
     official_final_enabled = bool(mode.get("official_final_enabled", False))
     readiness_ready = bool(readiness.get("is_official_final_ready", False))
-
-    teams = int(rs.get("teams_count") or official_summary.get("teams_count") or 0)
-    fixtures = int(rs.get("fixtures_count") or official_summary.get("fixtures_count") or 0)
-    players = int(rs.get("players_count") or official_summary.get("players_count") or 0)
-    squads_26 = int(rs.get("teams_with_26_players") or official_summary.get("teams_with_26_players") or 0)
 
     counts_ok = teams >= 48 and fixtures >= 100 and players >= 1000 and squads_26 >= 48
     is_verified = official_final_enabled or readiness_ready or counts_ok
