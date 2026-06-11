@@ -911,6 +911,6 @@ All outputs are probabilistic analytics estimates based on available data, model
 
 ## Author
 
-Built by **Faiyaz Zahin** as a machine learning, data science, and sports analytics portfolio project.
+Built by **[Faiaz Zahin](https://fzn011.github.io/portfolio/)** as a machine learning, data science, and sports analytics portfolio project.
 
 GitHub: `fzn011`
