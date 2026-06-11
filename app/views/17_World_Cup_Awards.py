@@ -22,8 +22,12 @@ except ModuleNotFoundError:
     from streamlit_paths import OFFICIAL_PROCESSED_DIR, PROCESSED_DATA_DIR, PROJECT_ROOT, REPORTS_DIR
 
 try:
+    from app.components.layout import navigate_to
+except ModuleNotFoundError:
+    from components.layout import navigate_to
+
+try:
     from app.components.ui import (
-        inject_page_theme,
         render_data_table,
         render_download_card,
         render_empty_state,
@@ -37,7 +41,6 @@ try:
     )
 except ModuleNotFoundError:
     from components.ui import (
-        inject_page_theme,
         render_data_table,
         render_download_card,
         render_empty_state,
@@ -335,12 +338,13 @@ def render_page() -> None:
                 except (RuntimeError, FileNotFoundError, ValueError) as exc:
                     st.error(str(exc))
         elif not monte_carlo_path.is_file():
-            if st.button("Open Tournament Forecast", use_container_width=True, key="awards_open_forecast_empty"):
-                try:
-                    from app.components.layout import navigate_to
-                except ModuleNotFoundError:
-                    from components.layout import navigate_to
-                navigate_to("Tournament Forecast")
+            st.button(
+                "Open Tournament Forecast",
+                use_container_width=True,
+                key="awards_open_forecast_empty",
+                on_click=navigate_to,
+                kwargs={"page": "Tournament Forecast"},
+            )
 
     with st.expander("Dataset readiness", expanded=False):
         badge_kind = "ok" if pdata["is_verified"] else "warn"
@@ -369,12 +373,12 @@ def render_page() -> None:
             st.info("Official data must be verified before generating awards. Check the Data Quality page.")
         elif not monte_carlo_path.is_file():
             st.info("Monte Carlo team stage probabilities are required. Run a tournament forecast first.")
-            if st.button("Open Tournament Forecast", key="awards_open_forecast_tools"):
-                try:
-                    from app.components.layout import navigate_to
-                except ModuleNotFoundError:
-                    from components.layout import navigate_to
-                navigate_to("Tournament Forecast")
+            st.button(
+                "Open Tournament Forecast",
+                key="awards_open_forecast_tools",
+                on_click=navigate_to,
+                kwargs={"page": "Tournament Forecast"},
+            )
         else:
             col_gen, col_refresh = st.columns(2)
             with col_gen:

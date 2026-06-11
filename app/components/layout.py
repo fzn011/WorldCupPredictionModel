@@ -7,7 +7,6 @@ import sys
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any
 
 import streamlit as st
 
@@ -62,7 +61,8 @@ PAGE_FILES: dict[str, str] = {
 
 _SESSION_ACTIVE = "active_page"
 _SESSION_ADVANCED = "show_advanced_tools"
-_RENDERER_CACHE: dict[str, Callable[[], None]] = {}
+_NAV_RADIO_KEY = "wc_sidebar_nav_radio"
+_RENDERER_CACHE: dict[str, tuple[int, Callable[[], None]]] = {}
 
 
 def _init_session() -> None:
@@ -70,28 +70,51 @@ def _init_session() -> None:
         st.session_state[_SESSION_ACTIVE] = "Home"
     if _SESSION_ADVANCED not in st.session_state:
         st.session_state[_SESSION_ADVANCED] = False
+    if _NAV_RADIO_KEY not in st.session_state:
+        st.session_state[_NAV_RADIO_KEY] = "Home"
+
+
+def _nav_options() -> list[str]:
+    options = list(MAIN_PAGES)
+    if st.session_state.get(_SESSION_ADVANCED):
+        options.extend(ADMIN_PAGES)
+    return options
+
+
+def _normalize_page(page: str, options: list[str]) -> str:
+    return page if page in options else "Home"
+
+
+def _prepare_nav_state(page: str) -> str:
+    """Update nav state before widgets render (safe to touch widget keys)."""
+    _init_session()
+    options = _nav_options()
+    page = _normalize_page(page, options)
+    st.session_state[_SESSION_ACTIVE] = page
+    st.session_state[_NAV_RADIO_KEY] = page
+    return page
 
 
 def navigate_to(page: str) -> None:
-    """Switch active page and rerun — single routing entry point."""
+    """Switch active page and rerun — use via on_click callbacks."""
     _init_session()
     if page not in MAIN_PAGES and page not in ADMIN_PAGES:
+        st.warning(f"Unknown page: {page}")
         return
     if page in ADMIN_PAGES and not st.session_state[_SESSION_ADVANCED]:
+        st.warning("Enable Advanced tools in the sidebar to open this page.")
         return
-    if st.session_state[_SESSION_ACTIVE] != page:
-        st.session_state[_SESSION_ACTIVE] = page
-        st.rerun()
+    if st.session_state[_SESSION_ACTIVE] == page:
+        return
+    _prepare_nav_state(page)
+    st.rerun()
 
 
 @contextmanager
 def open_page_frame() -> Iterator[None]:
     """Stable min-height container to prevent blank layout during reruns."""
-    st.markdown('<div class="page-frame">', unsafe_allow_html=True)
-    try:
+    with st.container():
         yield
-    finally:
-        st.markdown("</div>", unsafe_allow_html=True)
 
 
 def render_page_frame(title: str, subtitle: str | None = None):
@@ -100,14 +123,16 @@ def render_page_frame(title: str, subtitle: str | None = None):
 
 
 def _load_renderer(page_name: str) -> Callable[[], None]:
-    if page_name in _RENDERER_CACHE:
-        return _RENDERER_CACHE[page_name]
-
     rel = PAGE_FILES.get(page_name)
     if not rel:
         raise KeyError(f"No page file registered for {page_name!r}")
 
     path = _APP_DIR / rel
+    mtime_ns = path.stat().st_mtime_ns if path.is_file() else 0
+    cached = _RENDERER_CACHE.get(page_name)
+    if cached is not None and cached[0] == mtime_ns:
+        return cached[1]
+
     mod_name = f"wc_page_{page_name.replace(' ', '_').lower()}"
     spec = importlib.util.spec_from_file_location(mod_name, path)
     if spec is None or spec.loader is None:
@@ -117,7 +142,7 @@ def _load_renderer(page_name: str) -> Callable[[], None]:
     renderer = getattr(module, "render_page", None)
     if renderer is None or not callable(renderer):
         raise AttributeError(f"{path} must define render_page()")
-    _RENDERER_CACHE[page_name] = renderer
+    _RENDERER_CACHE[page_name] = (mtime_ns, renderer)
     return renderer
 
 
@@ -139,48 +164,46 @@ def render_sidebar_navigation(*, home_renderer: Callable[[], None] | None = None
     )
     st.session_state[_SESSION_ADVANCED] = show_advanced
 
-    options = list(MAIN_PAGES)
-    if show_advanced:
-        options.extend(ADMIN_PAGES)
+    options = _nav_options()
+    active = _normalize_page(st.session_state[_SESSION_ACTIVE], options)
 
-    active = st.session_state[_SESSION_ACTIVE]
-    if active not in options:
-        active = "Home"
-        st.session_state[_SESSION_ACTIVE] = active
-
-    try:
-        index = options.index(active)
-    except ValueError:
-        index = 0
-        active = options[0]
-        st.session_state[_SESSION_ACTIVE] = active
+    if active != st.session_state[_SESSION_ACTIVE]:
+        _prepare_nav_state(active)
+    elif st.session_state.get(_NAV_RADIO_KEY) not in options:
+        _prepare_nav_state(active)
 
     selected = st.radio(
         "Navigation",
         options=options,
-        index=index,
         label_visibility="collapsed",
-        key="wc_sidebar_nav_radio",
+        key=_NAV_RADIO_KEY,
     )
 
+    # After the radio exists, only update active_page — never the widget key.
     if selected != st.session_state[_SESSION_ACTIVE]:
-        st.session_state[_SESSION_ACTIVE] = selected
+        st.session_state[_SESSION_ACTIVE] = _normalize_page(selected, options)
         st.rerun()
 
     return st.session_state[_SESSION_ACTIVE]
 
 
-def dispatch_page(page_name: str, *, home_renderer: Callable[[], None]) -> None:
-    """Render the selected page inside a stable frame."""
-    with open_page_frame():
-        if page_name == "Home":
-            home_renderer()
-            return
-        renderer = _load_renderer(page_name)
-        renderer()
-
-
 def render_app_shell(home_renderer: Callable[[], None]) -> None:
     """Full app: sidebar navigation + main content (no mixed routing)."""
-    active = render_sidebar_navigation()
-    dispatch_page(active, home_renderer=home_renderer)
+    with st.sidebar:
+        active = render_sidebar_navigation()
+    try:
+        if active == "Home":
+            with open_page_frame():
+                home_renderer()
+        else:
+            renderer = _load_renderer(active)
+            with open_page_frame():
+                renderer()
+    except Exception as exc:
+        st.error(f"Unable to load {active!r}. Check the terminal for details.")
+        st.exception(exc)
+
+
+# Back-compat alias used in tests
+def _set_active_page(page: str) -> str:
+    return _prepare_nav_state(page)

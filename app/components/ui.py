@@ -290,12 +290,17 @@ def render_action_card(
         unsafe_allow_html=True,
     )
     if page and button_label:
-        if st.button(button_label, use_container_width=True, key=f"nav_{page}_{title}"):
-            try:
-                from app.components.layout import navigate_to
-            except ModuleNotFoundError:
-                from components.layout import navigate_to
-            navigate_to(page)
+        try:
+            from app.components.layout import navigate_to as _navigate_to
+        except ModuleNotFoundError:
+            from components.layout import navigate_to as _navigate_to
+        st.button(
+            button_label,
+            use_container_width=True,
+            key=f"nav_{page}_{title}",
+            on_click=_navigate_to,
+            kwargs={"page": page},
+        )
 
 
 # ─── Quick nav cards (legacy) ──────────────────────────────────────────────────
@@ -320,7 +325,6 @@ def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
             if item.get("page"):
                 page_name = item["page"]
                 if page_name.startswith("pages/"):
-                    # Legacy file paths → page titles
                     legacy = {
                         "pages/1_Match_Predictor.py": "Match Predictor",
                         "pages/9_Monte_Carlo_Simulator.py": "Tournament Forecast",
@@ -329,12 +333,17 @@ def render_quick_nav_cards(items: list[dict[str, str]]) -> None:
                         "pages/3_Data_Health.py": "Data Quality",
                     }
                     page_name = legacy.get(page_name, page_name)
-                if st.button(f"Open {item.get('title', 'page')}", use_container_width=True, key=f"legacy_nav_{idx}"):
-                    try:
-                        from app.components.layout import navigate_to
-                    except ModuleNotFoundError:
-                        from components.layout import navigate_to
-                    navigate_to(page_name)
+                try:
+                    from app.components.layout import navigate_to as _navigate_to
+                except ModuleNotFoundError:
+                    from components.layout import navigate_to as _navigate_to
+                st.button(
+                    f"Open {item.get('title', 'page')}",
+                    use_container_width=True,
+                    key=f"legacy_nav_{idx}",
+                    on_click=_navigate_to,
+                    kwargs={"page": page_name},
+                )
 
 
 # ─── Data table ────────────────────────────────────────────────────────────────

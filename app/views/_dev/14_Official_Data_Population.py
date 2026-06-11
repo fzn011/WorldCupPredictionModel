@@ -14,6 +14,11 @@ sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(app_dir))
 
 try:
+    from app.components.layout import navigate_to
+except ModuleNotFoundError:
+    from components.layout import navigate_to
+
+try:
     from app.components.ui import (
         inject_page_theme,
         render_download_card,
@@ -57,9 +62,9 @@ from src.official.promotion import can_promote_to_official_final, load_official_
 
 def render_page() -> None:
     render_hero(
-        "Official Data Population",
+        "Data Import Tools",
         "Fill, validate, preview, and apply verified World Cup 2026 data. Manual FIFA verification only — no scraping.",
-        eyebrow="Data population",
+        eyebrow="Data import",
     )
 
     render_warning_panel(
@@ -103,10 +108,12 @@ def render_page() -> None:
             pack = st.session_state.population_pack
             st.json({k: pack[k] for k in ("status", "final_ready", "teams_count", "fixtures_count", "players_count") if k in pack})
 
-        st.page_link(
-            "pages/_dev/15_Source_Assisted_Population.py",
-            label="Source Import Tools",
+        st.button(
+            "Source Import Tools",
             use_container_width=True,
+            key="nav_source_import_tools",
+            on_click=navigate_to,
+            kwargs={"page": "Source Import Tools"},
         )
 
     with tab_status:
