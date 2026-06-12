@@ -128,6 +128,21 @@ def test_render_hero_uses_sprintura_title_class() -> None:
     "page_path",
     [
         "app/views/1_Match_Predictor.py",
+        "app/views/17_World_Cup_Awards.py",
+    ],
+)
+def test_action_pages_use_form_submit_buttons(page_path: str) -> None:
+    source = (REPO_ROOT / page_path).read_text(encoding="utf-8")
+    assert "st.form(" in source
+    assert "form_submit_button" in source
+    assert 'if st.button("Predict match outcome"' not in source
+    assert 'if st.button("Generate awards forecast"' not in source
+
+
+@pytest.mark.parametrize(
+    "page_path",
+    [
+        "app/views/1_Match_Predictor.py",
         "app/views/2_Tournament_Simulator.py",
         "app/views/3_Data_Health.py",
         "app/views/4_Reports_Downloads.py",

@@ -88,6 +88,8 @@ WORLD_CUP_AWARDS_VALIDATION_REPORT_FILE = getattr(
 )
 WORLD_CUP_AWARDS_REPORT_FILE = getattr(C, "WORLD_CUP_AWARDS_REPORT_FILE", "world_cup_awards_report.md")
 
+_SESSION_AWARDS_NOTICE = "awards_action_notice"
+
 
 def _load_csv(file_name: str) -> pd.DataFrame:
     path = PROCESSED_DATA_DIR / file_name
@@ -134,6 +136,61 @@ def _awards_outputs_exist() -> bool:
             TEAM_OF_THE_TOURNAMENT_FILE,
         )
     )
+
+
+def _pop_awards_notice() -> dict | None:
+    notice = st.session_state.pop(_SESSION_AWARDS_NOTICE, None)
+    return notice if isinstance(notice, dict) else None
+
+
+def _show_awards_notice() -> None:
+    notice = _pop_awards_notice()
+    if not notice:
+        return
+    level = notice.get("level", "info")
+    message = notice.get("message", "")
+    if level == "success":
+        st.success(message)
+    elif level == "error":
+        st.error(message)
+    elif level == "warning":
+        st.warning(message)
+    else:
+        st.info(message)
+    if notice.get("details") is not None:
+        with st.expander("Action details"):
+            st.json(notice["details"])
+
+
+def _run_awards_generation(*, use_enriched: bool = False, use_manual: bool = False, manual_prior_file=None) -> None:
+    with st.spinner("Generating World Cup awards predictions…"):
+        try:
+            kwargs: dict = {}
+            if use_enriched:
+                kwargs["use_enriched_candidates"] = True
+            if use_manual:
+                kwargs["use_enriched_candidates"] = True
+                kwargs["use_manual_priors"] = True
+                kwargs["manual_prior_file"] = manual_prior_file
+            result = prepare_step18_world_cup_awards(**kwargs)
+            st.session_state[_SESSION_AWARDS_NOTICE] = {
+                "level": "success",
+                "message": "World Cup awards artifacts generated successfully.",
+                "details": result,
+            }
+        except (RuntimeError, FileNotFoundError, ValueError) as exc:
+            st.session_state[_SESSION_AWARDS_NOTICE] = {
+                "level": "error",
+                "message": str(exc),
+                "details": None,
+            }
+        except Exception as exc:  # pragma: no cover - UI safety
+            st.session_state[_SESSION_AWARDS_NOTICE] = {
+                "level": "error",
+                "message": f"Awards generation failed: {exc}",
+                "details": None,
+            }
+    st.rerun()
 
 
 def render_page() -> None:
@@ -312,16 +369,17 @@ def render_page() -> None:
             "Awards forecast not generated yet",
             "Run a tournament forecast first, then generate awards predictions.",
         )
+        _show_awards_notice()
         monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
         if pdata["awards_allowed"] and monte_carlo_path.is_file():
-            if st.button("Generate awards forecast", type="primary", use_container_width=True):
-                try:
-                    result = prepare_step18_world_cup_awards()
-                    render_success_panel("World Cup awards artifacts generated successfully.")
-                    st.json(result)
-                    st.rerun()
-                except (RuntimeError, FileNotFoundError, ValueError) as exc:
-                    st.error(str(exc))
+            with st.form("awards_generate_empty_form", clear_on_submit=False):
+                generate_empty_clicked = st.form_submit_button(
+                    "Generate awards forecast",
+                    type="primary",
+                    use_container_width=True,
+                )
+            if generate_empty_clicked:
+                _run_awards_generation()
         elif not monte_carlo_path.is_file():
             st.button(
                 "Open Tournament Forecast",
@@ -351,8 +409,9 @@ def render_page() -> None:
     with st.expander("Advanced generation tools", expanded=False):
         enriched_path = PROCESSED_DATA_DIR / getattr(C, "ENRICHED_OFFICIAL_AWARD_CANDIDATES_FILE", "enriched_official_award_candidates.csv")
         quality_path = PROCESSED_DATA_DIR / getattr(C, "PLAYER_PRIOR_QUALITY_REPORT_FILE", "player_prior_quality_report.csv")
-        summary_pre = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
         monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
+
+        _show_awards_notice()
 
         if not pdata["awards_allowed"]:
             st.info("Official data must be verified before generating awards. Check the Data Quality page.")
@@ -365,42 +424,71 @@ def render_page() -> None:
                 kwargs={"page": "Tournament Forecast"},
             )
         else:
-            col_gen, col_refresh = st.columns(2)
-            with col_gen:
-                if st.button("Generate awards predictions", type="primary", use_container_width=True):
-                    try:
-                        result = prepare_step18_world_cup_awards()
-                        render_success_panel("World Cup awards artifacts generated successfully.")
-                        st.json(result)
-                        st.rerun()
-                    except (RuntimeError, FileNotFoundError, ValueError) as exc:
-                        st.error(str(exc))
-            with col_refresh:
-                if st.button("Refresh page", use_container_width=True):
-                    st.rerun()
+            with st.form("awards_generate_tools_form", clear_on_submit=False):
+                col_gen, col_refresh = st.columns(2)
+                with col_gen:
+                    generate_clicked = st.form_submit_button(
+                        "Generate awards predictions",
+                        type="primary",
+                        use_container_width=True,
+                    )
+                with col_refresh:
+                    refresh_clicked = st.form_submit_button("Refresh page", use_container_width=True)
+
+            if generate_clicked:
+                _run_awards_generation()
+            elif refresh_clicked:
+                st.rerun()
 
         render_section_header("Prior enrichment")
         st.caption(MANUAL_PRIOR_DISCLAIMER)
-        col_e1, col_e2 = st.columns(2)
-        with col_e1:
-            if st.button("Enrich player priors", use_container_width=True):
+        with st.form("awards_enrichment_form", clear_on_submit=False):
+            col_e1, col_e2 = st.columns(2)
+            with col_e1:
+                enrich_clicked = st.form_submit_button("Enrich player priors", use_container_width=True)
+            with col_e2:
+                regenerate_enriched_clicked = st.form_submit_button(
+                    "Regenerate with enriched priors",
+                    use_container_width=True,
+                )
+
+        if enrich_clicked:
+            with st.spinner("Enriching player priors…"):
                 try:
                     enrich_summary = create_enriched_player_priors()
                     merge_enriched_priors_into_award_candidates(update_official=False)
-                    render_success_panel(f"Enriched {enrich_summary.get('candidate_count')} candidates.")
+                    st.session_state[_SESSION_AWARDS_NOTICE] = {
+                        "level": "success",
+                        "message": f"Enriched {enrich_summary.get('candidate_count')} candidates.",
+                        "details": enrich_summary,
+                    }
                 except Exception as exc:
-                    st.error(str(exc))
-        with col_e2:
-            if st.button("Regenerate with enriched priors", use_container_width=True):
+                    st.session_state[_SESSION_AWARDS_NOTICE] = {
+                        "level": "error",
+                        "message": str(exc),
+                        "details": None,
+                    }
+            st.rerun()
+
+        if regenerate_enriched_clicked:
+            with st.spinner("Regenerating awards with enriched priors…"):
                 try:
                     if not enriched_path.is_file():
                         create_enriched_player_priors()
                         merge_enriched_priors_into_award_candidates(update_official=False)
                     result = prepare_step18_world_cup_awards(use_enriched_candidates=True)
-                    render_success_panel("Awards regenerated with enriched candidates.")
-                    st.json(result)
+                    st.session_state[_SESSION_AWARDS_NOTICE] = {
+                        "level": "success",
+                        "message": "Awards regenerated with enriched candidates.",
+                        "details": result,
+                    }
                 except Exception as exc:
-                    st.error(str(exc))
+                    st.session_state[_SESSION_AWARDS_NOTICE] = {
+                        "level": "error",
+                        "message": str(exc),
+                        "details": None,
+                    }
+            st.rerun()
 
         if quality_path.is_file():
             qdf = pd.read_csv(quality_path)
@@ -408,21 +496,36 @@ def render_page() -> None:
             flat_val = flat_row.iloc[0]["value"] if not flat_row.empty else "—"
             render_metric_card("Prior flatness score", str(flat_val))
 
-        if st.button("Generate with manual demo priors", use_container_width=True):
-            try:
-                demo_path = resolve_manual_prior_file(None)
-                if not enriched_path.is_file():
-                    create_enriched_player_priors()
-                    merge_enriched_priors_into_award_candidates(update_official=False)
-                result = prepare_step18_world_cup_awards(
-                    use_enriched_candidates=True,
-                    use_manual_priors=True,
-                    manual_prior_file=demo_path,
-                )
-                render_success_panel("Awards regenerated with enriched + manual demo priors.")
-                st.json(result)
-            except Exception as exc:
-                st.error(str(exc))
+        with st.form("awards_manual_priors_form", clear_on_submit=False):
+            manual_clicked = st.form_submit_button(
+                "Generate with manual demo priors",
+                use_container_width=True,
+            )
+
+        if manual_clicked:
+            with st.spinner("Generating awards with manual demo priors…"):
+                try:
+                    demo_path = resolve_manual_prior_file(None)
+                    if not enriched_path.is_file():
+                        create_enriched_player_priors()
+                        merge_enriched_priors_into_award_candidates(update_official=False)
+                    result = prepare_step18_world_cup_awards(
+                        use_enriched_candidates=True,
+                        use_manual_priors=True,
+                        manual_prior_file=demo_path,
+                    )
+                    st.session_state[_SESSION_AWARDS_NOTICE] = {
+                        "level": "success",
+                        "message": "Awards regenerated with enriched + manual demo priors.",
+                        "details": result,
+                    }
+                except Exception as exc:
+                    st.session_state[_SESSION_AWARDS_NOTICE] = {
+                        "level": "error",
+                        "message": str(exc),
+                        "details": None,
+                    }
+            st.rerun()
 
         with st.expander("Methodology and validation", expanded=False):
             st.markdown(
