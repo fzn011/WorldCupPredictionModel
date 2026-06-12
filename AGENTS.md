@@ -11,6 +11,7 @@ Single Python monolith: **FIFA World Cup 2026 AI Predictor** (ML pipeline + Stre
 - Use the project venv: `source .venv/bin/activate` (create with `python3 -m venv .venv` if missing).
 - Ubuntu images may need `python3.12-venv` installed once via apt before `python3 -m venv` works.
 - README mentions Python 3.14; the cloud VM runs **Python 3.12**, which works with current dependencies.
+- **scikit-learn is pinned to 1.8.x** in `requirements.txt` to match saved `.joblib` models. If you see `InconsistentVersionWarning` (1.8 vs 1.9), reinstall deps: `pip install -r requirements.txt`. To upgrade sklearn, retrain models with `python main.py` first.
 
 ### First-time artifact generation
 
