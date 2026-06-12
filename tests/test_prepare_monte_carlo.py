@@ -41,6 +41,7 @@ def _prepare_once() -> dict:
         num_simulations=2,
         base_seed=42,
         predictor=_FakePredictor(),
+        skip_readiness_check=True,
     )
 
 

@@ -597,6 +597,15 @@ MONTE_CARLO_VALIDATION_REPORT_FILE: str = "monte_carlo_validation_report.csv"
 DEFAULT_MONTE_CARLO_SIMULATIONS: int = 100
 DEFAULT_MONTE_CARLO_SEED: int = 42
 MAX_MONTE_CARLO_SIMULATIONS: int = 5000
+MONTE_CARLO_UI_DEFAULT_SIMULATIONS: int = 10
+MONTE_CARLO_UI_DEFAULT_SEED: int = 42
+MONTE_CARLO_UI_DEFAULT_PRESET: str = "Quick demo — 10 sims, seed 42"
+MONTE_CARLO_RUN_PRESETS: dict[str, dict[str, int]] = {
+    "Quick demo — 10 sims, seed 42": {"num_simulations": 10, "base_seed": 42},
+    "Standard — 50 sims, seed 42": {"num_simulations": 50, "base_seed": 42},
+    "Full forecast — 100 sims, seed 42": {"num_simulations": 100, "base_seed": 42},
+    "High volume — 500 sims, seed 2026": {"num_simulations": 500, "base_seed": 2026},
+}
 
 MONTE_CARLO_STAGE_COLUMNS: list[str] = [
     "group_stage",

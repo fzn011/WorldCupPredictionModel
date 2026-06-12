@@ -41,6 +41,7 @@ except ModuleNotFoundError:
     )
 
 from src.simulation.prepare_monte_carlo import prepare_step15_monte_carlo_simulation  # noqa: E402
+from src.simulation.monte_carlo_readiness import evaluate_monte_carlo_readiness  # noqa: E402
 from src.reports.monte_carlo_report import (  # noqa: E402
     create_champion_probability_table,
     create_monte_carlo_insight_text,
@@ -65,6 +66,27 @@ MONTE_CARLO_STAGE_HEATMAP_FILE = getattr(C, "MONTE_CARLO_STAGE_HEATMAP_FILE", "m
 DEFAULT_MONTE_CARLO_SIMULATIONS = int(getattr(C, "DEFAULT_MONTE_CARLO_SIMULATIONS", 100))
 DEFAULT_MONTE_CARLO_SEED = int(getattr(C, "DEFAULT_MONTE_CARLO_SEED", 42))
 MAX_MONTE_CARLO_SIMULATIONS = int(getattr(C, "MAX_MONTE_CARLO_SIMULATIONS", 5000))
+MONTE_CARLO_UI_DEFAULT_SIMULATIONS = int(getattr(C, "MONTE_CARLO_UI_DEFAULT_SIMULATIONS", 10))
+MONTE_CARLO_UI_DEFAULT_SEED = int(getattr(C, "MONTE_CARLO_UI_DEFAULT_SEED", 42))
+MONTE_CARLO_UI_DEFAULT_PRESET = str(getattr(C, "MONTE_CARLO_UI_DEFAULT_PRESET", "Quick demo — 10 sims, seed 42"))
+MONTE_CARLO_RUN_PRESETS: dict[str, dict[str, int]] = dict(
+    getattr(
+        C,
+        "MONTE_CARLO_RUN_PRESETS",
+        {
+            "Quick demo — 10 sims, seed 42": {"num_simulations": 10, "base_seed": 42},
+            "Standard — 50 sims, seed 42": {"num_simulations": 50, "base_seed": 42},
+            "Full forecast — 100 sims, seed 42": {"num_simulations": 100, "base_seed": 42},
+            "High volume — 500 sims, seed 2026": {"num_simulations": 500, "base_seed": 2026},
+        },
+    )
+)
+MONTE_CARLO_PRESET_CUSTOM = "Custom (manual settings)"
+
+_SESSION_MC_PENDING_RUN = "mc_pending_run"
+_SESSION_MC_PENDING_REPORT = "mc_pending_report"
+_SESSION_MC_RUN_NOTICE = "mc_run_notice"
+_SESSION_MC_REPORT_NOTICE = "mc_report_notice"
 
 
 def _load_csv(file_name: str) -> pd.DataFrame:
@@ -82,12 +104,126 @@ def _load_json(file_name: str) -> dict:
         return json.load(f)
 
 
+def _preset_options() -> list[str]:
+    return [*MONTE_CARLO_RUN_PRESETS.keys(), MONTE_CARLO_PRESET_CUSTOM]
+
+
+def _resolve_run_settings(preset: str, simulations: int, seed: int) -> tuple[int, int]:
+    if preset in MONTE_CARLO_RUN_PRESETS:
+        preset_values = MONTE_CARLO_RUN_PRESETS[preset]
+        return int(preset_values["num_simulations"]), int(preset_values["base_seed"])
+    return int(simulations), int(seed)
+
+
+def _execute_pending_monte_carlo_run() -> None:
+    pending = st.session_state.pop(_SESSION_MC_PENDING_RUN, None)
+    if not pending:
+        return
+
+    simulations = int(pending["num_simulations"])
+    seed = int(pending["base_seed"])
+    readiness = evaluate_monte_carlo_readiness(project_root=PROJECT_ROOT)
+    if not readiness.get("ready"):
+        st.session_state[_SESSION_MC_RUN_NOTICE] = {
+            "level": "error",
+            "message": "Monte Carlo cannot start yet. Fix the blockers below, then retry.",
+            "details": readiness,
+        }
+        return
+
+    progress_bar = st.progress(0.0, text="Starting Monte Carlo simulation…")
+    status_box = st.empty()
+    failed_samples: list[str] = []
+
+    def _on_progress(completed: int, total: int, latest: dict) -> None:
+        progress_bar.progress(completed / max(total, 1), text=f"Simulation {completed} of {total}")
+        if latest.get("status") == "failed" and latest.get("error_message"):
+            failed_samples.append(str(latest["error_message"]))
+
+    try:
+        run_summary = prepare_step15_monte_carlo_simulation(
+            num_simulations=simulations,
+            base_seed=seed,
+            progress_callback=_on_progress,
+            skip_readiness_check=True,
+        )
+        if run_summary.get("successful_simulations", 0) == 0:
+            st.session_state[_SESSION_MC_RUN_NOTICE] = {
+                "level": "error",
+                "message": "All simulations failed. See run details for the first error.",
+                "details": {
+                    **run_summary,
+                    "sample_errors": failed_samples[:3],
+                },
+            }
+        elif run_summary.get("validation_passed"):
+            st.session_state[_SESSION_MC_RUN_NOTICE] = {
+                "level": "success",
+                "message": (
+                    f"Monte Carlo completed: {run_summary.get('successful_simulations', 0):,} successful "
+                    f"simulations (seed {seed})."
+                ),
+                "details": run_summary,
+            }
+        else:
+            st.session_state[_SESSION_MC_RUN_NOTICE] = {
+                "level": "warning",
+                "message": "Monte Carlo finished but validation reported issues.",
+                "details": run_summary,
+            }
+    except Exception as exc:
+        st.session_state[_SESSION_MC_RUN_NOTICE] = {
+            "level": "error",
+            "message": f"Monte Carlo simulation failed: {exc}",
+            "details": {"sample_errors": failed_samples[:3]} if failed_samples else None,
+        }
+    finally:
+        progress_bar.empty()
+        status_box.empty()
+
+
+def _execute_pending_monte_carlo_report() -> None:
+    if not st.session_state.pop(_SESSION_MC_PENDING_REPORT, False):
+        return
+    try:
+        report_summary = prepare_step16_monte_carlo_report()
+        st.session_state[_SESSION_MC_REPORT_NOTICE] = {
+            "level": "success",
+            "message": "Monte Carlo report artifacts generated successfully.",
+            "details": report_summary,
+        }
+    except FileNotFoundError as exc:
+        st.session_state[_SESSION_MC_REPORT_NOTICE] = {
+            "level": "warning",
+            "message": str(exc),
+            "details": None,
+        }
+    except Exception as exc:
+        st.session_state[_SESSION_MC_REPORT_NOTICE] = {
+            "level": "error",
+            "message": f"Report generation failed: {exc}",
+            "details": None,
+        }
+
+
 def render_page() -> None:
     render_hero(
         "Tournament Forecast",
         "Monte Carlo simulation of the full tournament — champion and stage progression probabilities.",
         eyebrow="Tournament analytics",
     )
+
+    _execute_pending_monte_carlo_run()
+    _execute_pending_monte_carlo_report()
+
+    readiness = evaluate_monte_carlo_readiness(project_root=PROJECT_ROOT)
+    if readiness.get("ready"):
+        st.success("System ready for Monte Carlo simulation.")
+    else:
+        st.error("Monte Carlo is blocked until prerequisites are fixed:")
+        for item in readiness.get("blockers", []):
+            st.markdown(f"- {item}")
+        st.caption("Run `python main.py` and `python scripts/prepare_tournament_setup.py`, then refresh this page.")
 
     with st.spinner("Loading forecast data..."):
         summary = _load_json(MONTE_CARLO_SUMMARY_FILE)
@@ -111,6 +247,9 @@ def render_page() -> None:
             insights = create_monte_carlo_insight_text(outputs)
         except FileNotFoundError:
             outputs = None
+        except Exception as exc:
+            outputs = None
+            st.warning(f"Could not load full Monte Carlo dashboard bundle: {exc}")
 
     render_section_header("Current forecast")
     if summary:
@@ -140,8 +279,8 @@ def render_page() -> None:
     with tab_overview:
         render_section_header("Simulation settings")
 
-        if st.session_state.get("mc_run_notice"):
-            notice = st.session_state.pop("mc_run_notice")
+        if st.session_state.get(_SESSION_MC_RUN_NOTICE):
+            notice = st.session_state.pop(_SESSION_MC_RUN_NOTICE)
             level = notice.get("level", "info")
             message = notice.get("message", "")
             if level == "success":
@@ -156,8 +295,8 @@ def render_page() -> None:
                 with st.expander("Run details"):
                     st.json(notice["details"])
 
-        if st.session_state.get("mc_report_notice"):
-            notice = st.session_state.pop("mc_report_notice")
+        if st.session_state.get(_SESSION_MC_REPORT_NOTICE):
+            notice = st.session_state.pop(_SESSION_MC_REPORT_NOTICE)
             level = notice.get("level", "info")
             message = notice.get("message", "")
             if level == "success":
@@ -170,15 +309,35 @@ def render_page() -> None:
                 with st.expander("Report summary"):
                     st.json(notice["details"])
 
+        preset_options = _preset_options()
+        default_preset_index = (
+            preset_options.index(MONTE_CARLO_UI_DEFAULT_PRESET)
+            if MONTE_CARLO_UI_DEFAULT_PRESET in preset_options
+            else 0
+        )
+
         with st.form("mc_simulation_controls", clear_on_submit=False):
+            preset = st.selectbox(
+                "Simulation preset",
+                preset_options,
+                index=default_preset_index,
+                help="Pick a ready-made run profile or choose Custom to set simulations and seed yourself.",
+            )
+            custom_mode = preset == MONTE_CARLO_PRESET_CUSTOM
+            preset_simulations, preset_seed = _resolve_run_settings(
+                preset,
+                MONTE_CARLO_UI_DEFAULT_SIMULATIONS,
+                MONTE_CARLO_UI_DEFAULT_SEED,
+            )
             simulations = int(
                 st.number_input(
                     "Number of simulations",
                     min_value=1,
                     max_value=MAX_MONTE_CARLO_SIMULATIONS,
-                    value=DEFAULT_MONTE_CARLO_SIMULATIONS,
+                    value=preset_simulations,
                     step=1,
-                    help=f"Run between 1 and {MAX_MONTE_CARLO_SIMULATIONS:,} full-tournament simulations.",
+                    disabled=not custom_mode,
+                    help=f"Each simulation runs a full World Cup (1–{MAX_MONTE_CARLO_SIMULATIONS:,}).",
                 )
             )
             seed = int(
@@ -186,71 +345,32 @@ def render_page() -> None:
                     "Base seed",
                     min_value=0,
                     max_value=1_000_000,
-                    value=DEFAULT_MONTE_CARLO_SEED,
+                    value=preset_seed,
                     step=1,
+                    disabled=not custom_mode,
+                    help="Simulation i uses seed = base seed + i for reproducibility.",
                 )
             )
+            if not custom_mode:
+                st.caption(f"Preset run: **{simulations:,}** simulations with base seed **{seed}**.")
             controls_col1, controls_col2 = st.columns(2)
             run_clicked = controls_col1.form_submit_button(
                 "Run Monte Carlo simulation",
                 type="primary",
+                disabled=not readiness.get("ready"),
             )
             report_clicked = controls_col2.form_submit_button("Generate report")
 
         if run_clicked:
-            with st.spinner(f"Running {simulations:,} Monte Carlo simulations…"):
-                try:
-                    run_summary = prepare_step15_monte_carlo_simulation(
-                        num_simulations=simulations,
-                        base_seed=seed,
-                    )
-                    if run_summary.get("successful_simulations", 0) == 0:
-                        st.session_state["mc_run_notice"] = {
-                            "level": "error",
-                            "message": "All simulations failed. Check model/data readiness, then retry.",
-                            "details": run_summary,
-                        }
-                    elif run_summary.get("validation_passed"):
-                        st.session_state["mc_run_notice"] = {
-                            "level": "success",
-                            "message": "Monte Carlo simulation completed and validated.",
-                            "details": run_summary,
-                        }
-                    else:
-                        st.session_state["mc_run_notice"] = {
-                            "level": "warning",
-                            "message": "Monte Carlo simulation completed with validation issues.",
-                            "details": run_summary,
-                        }
-                except Exception as exc:
-                    st.session_state["mc_run_notice"] = {
-                        "level": "error",
-                        "message": f"Monte Carlo simulation failed: {exc}",
-                        "details": None,
-                    }
+            run_simulations, run_seed = _resolve_run_settings(preset, simulations, seed)
+            st.session_state[_SESSION_MC_PENDING_RUN] = {
+                "num_simulations": run_simulations,
+                "base_seed": run_seed,
+            }
             st.rerun()
 
         if report_clicked:
-            with st.spinner("Generating Monte Carlo report artifacts…"):
-                try:
-                    report_summary = prepare_step16_monte_carlo_report()
-                    st.session_state["mc_report_notice"] = {
-                        "level": "success",
-                        "message": "Monte Carlo report artifacts generated successfully.",
-                        "details": report_summary,
-                    }
-                except FileNotFoundError as exc:
-                    st.session_state["mc_report_notice"] = {
-                        "level": "warning",
-                        "message": str(exc),
-                        "details": None,
-                    }
-                except Exception as exc:
-                    st.session_state["mc_report_notice"] = {
-                        "level": "error",
-                        "message": f"Report generation failed: {exc}",
-                        "details": None,
-                    }
+            st.session_state[_SESSION_MC_PENDING_REPORT] = True
             st.rerun()
 
         st.caption("Outputs are simulation estimates, not certainties.")

@@ -241,3 +241,39 @@ def test_run_monte_carlo_simulations_uses_predictor_and_exposes_cache(monkeypatc
 
     assert len(result["simulation_results"]) == 3
     assert result["cache_info"]["total_requests"] == 3
+
+
+def test_run_monte_carlo_simulations_invokes_progress_callback(monkeypatch) -> None:
+    def _fake_run_full_tournament_single(random_seed: int, predictor=None) -> dict:
+        return {
+            "summary": {
+                "validation_passed": True,
+                "champion": "TeamA",
+                "runner_up": "TeamB",
+                "third_place": "T3",
+                "fourth_place": "T4",
+            },
+            "path_report": pd.DataFrame(
+                {
+                    "team": ["TeamA", "TeamB"],
+                    "reached_round": ["final", "final"],
+                    "final_position": ["champion", "runner_up"],
+                }
+            ),
+            "stage_results": pd.DataFrame({"stage": ["final"], "matches": [1]}),
+        }
+
+    monkeypatch.setattr(mc, "run_full_tournament_single", _fake_run_full_tournament_single)
+    progress_calls: list[tuple[int, int]] = []
+
+    def _callback(completed: int, total: int, latest: dict) -> None:
+        progress_calls.append((completed, total))
+        assert latest["status"] == "success"
+
+    mc.run_monte_carlo_simulations(
+        num_simulations=2,
+        base_seed=7,
+        predictor=_FakePredictor(),
+        progress_callback=_callback,
+    )
+    assert progress_calls == [(1, 2), (2, 2)]
