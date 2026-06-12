@@ -34,6 +34,7 @@ try:
         inject_page_theme,
         render_download_card,
         render_hero,
+        render_metric_card,
         render_section_header,
     )
 except ModuleNotFoundError:
@@ -41,6 +42,7 @@ except ModuleNotFoundError:
         inject_page_theme,
         render_download_card,
         render_hero,
+        render_metric_card,
         render_section_header,
     )
 
@@ -103,35 +105,29 @@ def render_page() -> None:
     with c1:
         mc_files = [PROCESSED_DATA_DIR / f for f in [_MC_CHAMP, _MC_STAGE, _MC_SUMMARY, _MC_REPORT]]
         n = _count_available(mc_files)
-        st.markdown(
-            f"""<div class="wc-card">
-      <div class="wc-card-label">Monte Carlo</div>
-      <div class="wc-card-value">{n}/{len(mc_files)}</div>
-      <div class="wc-card-sub">files available</div>
-    </div>""",
-            unsafe_allow_html=True,
+        render_metric_card(
+            "Monte Carlo",
+            f"{n}/{len(mc_files)}",
+            sub="files available",
+            variant="ok" if n == len(mc_files) else ("warn" if n else ""),
         )
     with c2:
         aw_files = [PROCESSED_DATA_DIR / f for f in [_AW_ALL, _AW_GB, _AW_GBT, _AW_GG, _AW_SUMMARY]]
         n = _count_available(aw_files)
-        st.markdown(
-            f"""<div class="wc-card">
-      <div class="wc-card-label">Awards</div>
-      <div class="wc-card-value">{n}/{len(aw_files)}</div>
-      <div class="wc-card-sub">files available</div>
-    </div>""",
-            unsafe_allow_html=True,
+        render_metric_card(
+            "Awards",
+            f"{n}/{len(aw_files)}",
+            sub="files available",
+            variant="ok" if n == len(aw_files) else ("warn" if n else ""),
         )
     with c3:
         off_files = [OFFICIAL_PROCESSED_DIR / f for f in [_OFF_TEAMS, _OFF_GROUPS, _OFF_FIXTURES]]
         n = _count_available(off_files)
-        st.markdown(
-            f"""<div class="wc-card">
-      <div class="wc-card-label">Official data</div>
-      <div class="wc-card-value">{n}/{len(off_files)}</div>
-      <div class="wc-card-sub">files available</div>
-    </div>""",
-            unsafe_allow_html=True,
+        render_metric_card(
+            "Official data",
+            f"{n}/{len(off_files)}",
+            sub="files available",
+            variant="ok" if n == len(off_files) else ("warn" if n else ""),
         )
 
     st.markdown("<br>", unsafe_allow_html=True)

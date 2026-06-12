@@ -31,24 +31,24 @@ try:
         render_data_table,
         render_download_card,
         render_empty_state,
-        render_formation_diagram,
         render_hero,
         render_metric_card,
         render_podium_cards,
         render_section_header,
         render_status_badge,
+        render_team_formation,
     )
 except ModuleNotFoundError:
     from components.ui import (
         render_data_table,
         render_download_card,
         render_empty_state,
-        render_formation_diagram,
         render_hero,
         render_metric_card,
         render_podium_cards,
         render_section_header,
         render_status_badge,
+        render_team_formation,
     )
 
 try:
@@ -111,17 +111,6 @@ def _player_col(df: pd.DataFrame) -> str:
         return resolve_player_sort_column(df)
     except KeyError:
         return "player_name"
-
-
-def _formation_lines(team_df: pd.DataFrame, name_col: str) -> list[list[str]]:
-    if team_df.empty or "formation_slot" not in team_df.columns:
-        return []
-    slot_map = {row["formation_slot"]: str(row.get(name_col, "—")) for _, row in team_df.iterrows()}
-
-    def _line(prefix: str, count: int) -> list[str]:
-        return [slot_map.get(f"{prefix}{i}", "—") for i in range(1, count + 1)]
-
-    return [_line("FWD", 3), _line("MID", 3), _line("DEF", 4), _line("GK", 1)]
 
 
 def _leader_from_df(df: pd.DataFrame, rank_col: str, name_col: str) -> str:
@@ -276,9 +265,7 @@ def render_page() -> None:
 
             render_section_header("Team of the Tournament — 4-3-3")
             if not team_of_tournament_df.empty:
-                lines = _formation_lines(team_of_tournament_df, player_col)
-                if lines:
-                    render_formation_diagram(lines)
+                render_team_formation(team_of_tournament_df, name_col=player_col)
             else:
                 st.info("Team of the Tournament not available.")
 

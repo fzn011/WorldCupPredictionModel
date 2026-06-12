@@ -35,6 +35,7 @@ Optional for richer data: place files under `data/raw/` or use `scripts/download
 - **Monte Carlo page:** Run/report actions use `st.form` + `form_submit_button` (not bare `st.button` inside tabs). Simulation cap is `MAX_MONTE_CARLO_SIMULATIONS` (5000) in `src/utils/constants.py`.
 - **Match Predictor & Awards:** Primary actions (predict, generate awards, enrich/regenerate) use `st.form` + `form_submit_button` with session-state feedback — same reliability pattern as Monte Carlo.
 - **Official team names:** `load_official_teams()` enriches blank processed rows from `official_groups.csv` / `populated_official_teams.csv` via `src/official/team_name_enrichment.py`. Step 17A calls `repair_official_teams_artifact(persist=True)` before validation. Data Quality shows friendly team columns via `format_official_teams_for_display()`.
+- **Team of the Tournament:** use `render_team_formation()` for the 4-3-3 pitch grid (player cards with team/position). Reports summary row uses `render_metric_card()` instead of raw HTML cards.
 
 ### Running services
 
