@@ -614,6 +614,14 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Saved ML models in `models/` were trained with **scikit-learn 1.8.x**. If Monte Carlo or Match Predictor floods the terminal with `InconsistentVersionWarning` (1.8 vs 1.9), reinstall pinned deps:
+
+```bash
+pip install "scikit-learn>=1.8.0,<1.9.0"
+```
+
+Or rerun `pip install -r requirements.txt`. To use sklearn 1.9+, retrain with `python main.py` first.
+
 ---
 
 ## How to Run

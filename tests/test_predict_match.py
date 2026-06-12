@@ -10,6 +10,7 @@ import pytest
 
 from src.models.predict_match import (
     load_baseline_model,
+    load_best_available_model,
     predict_existing_match_by_id,
     predict_from_feature_row,
 )
@@ -36,6 +37,16 @@ def _clear_preferred_model_artifacts() -> None:
 def test_load_baseline_model_raises_clear_error_for_missing_file() -> None:
     with pytest.raises(FileNotFoundError):
         load_baseline_model(model_path="models/baseline/does_not_exist.joblib")
+
+
+def test_load_best_available_model_reuses_cached_instance() -> None:
+    train_baseline_models(feature_df=_synthetic_feature_df(), test_start_date="2022-01-01")
+    _clear_preferred_model_artifacts()
+    first_model, first_type = load_best_available_model(prefer_ranking=False, prefer_improved=False)
+    second_model, second_type = load_best_available_model(prefer_ranking=False, prefer_improved=False)
+    assert first_type == "baseline"
+    assert second_type == "baseline"
+    assert first_model is second_model
 
 
 def test_predict_from_feature_row_returns_probability_keys() -> None:

@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
+import warnings
 from pathlib import Path
+from typing import Any
 
 import joblib
 import pandas as pd
+from sklearn.exceptions import InconsistentVersionWarning
 
 from src.features.future_match_features import generate_future_match_feature_row
 from src.models.model_features import load_feature_columns, load_feature_dataset
@@ -36,6 +39,31 @@ DEFAULT_FUTURE_CITY = getattr(C, "DEFAULT_FUTURE_CITY", "Unknown")
 DEFAULT_FUTURE_COUNTRY = getattr(C, "DEFAULT_FUTURE_COUNTRY", "Unknown")
 DEFAULT_FUTURE_NEUTRAL = getattr(C, "DEFAULT_FUTURE_NEUTRAL", 1)
 
+_MODEL_BUNDLE_CACHE: dict[str, tuple[Any, str]] = {}
+_BASELINE_MODEL_CACHE: dict[str, Any] = {}
+
+
+def _artifact_cache_key(path: Path) -> str:
+    stat = path.stat()
+    return f"{path.resolve()}:{stat.st_mtime_ns}:{stat.st_size}"
+
+
+def _model_bundle_cache_key(prefer_ranking: bool, prefer_improved: bool) -> str:
+    candidate_paths = [
+        Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE,
+        Path(IMPROVED_MODEL_DIR) / BEST_IMPROVED_MODEL_FILE,
+        Path(BASELINE_MODEL_DIR) / BEST_BASELINE_MODEL_FILE,
+    ]
+    artifact_keys = [_artifact_cache_key(path) for path in candidate_paths if path.is_file()]
+    return f"ranking={prefer_ranking}:improved={prefer_improved}|" + "|".join(artifact_keys)
+
+
+def _load_joblib_artifact(path: Path) -> Any:
+    """Load a persisted sklearn/joblib artifact, tolerating minor sklearn version drift."""
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+        return joblib.load(path)
+
 
 def load_baseline_model(model_path: str | None = None):
     """Load the saved best baseline model."""
@@ -44,7 +72,10 @@ def load_baseline_model(model_path: str | None = None):
         raise FileNotFoundError(
             f"Baseline model not found at {path}. Run `python scripts/train_baseline_models.py` first."
         )
-    return joblib.load(path)
+    cache_key = _artifact_cache_key(path)
+    if cache_key not in _BASELINE_MODEL_CACHE:
+        _BASELINE_MODEL_CACHE[cache_key] = _load_joblib_artifact(path)
+    return _BASELINE_MODEL_CACHE[cache_key]
 
 
 def load_best_available_model(
@@ -52,22 +83,27 @@ def load_best_available_model(
     prefer_improved: bool = True,
 ):
     """Load ranking-enhanced/improved/baseline model by preference order."""
+    cache_key = _model_bundle_cache_key(prefer_ranking, prefer_improved)
+    if cache_key in _MODEL_BUNDLE_CACHE:
+        return _MODEL_BUNDLE_CACHE[cache_key]
+
     ranking_path = Path(RANKING_ENHANCED_MODEL_DIR) / BEST_RANKING_ENHANCED_MODEL_FILE
     improved_path = Path(IMPROVED_MODEL_DIR) / BEST_IMPROVED_MODEL_FILE
     baseline_path = Path(BASELINE_MODEL_DIR) / BEST_BASELINE_MODEL_FILE
 
     if prefer_ranking and ranking_path.is_file():
-        return joblib.load(ranking_path), "ranking_enhanced"
+        bundle = (_load_joblib_artifact(ranking_path), "ranking_enhanced")
+    elif prefer_improved and improved_path.is_file():
+        bundle = (_load_joblib_artifact(improved_path), "improved")
+    elif baseline_path.is_file():
+        bundle = (_load_joblib_artifact(baseline_path), "baseline")
+    else:
+        raise FileNotFoundError(
+            "No trained model found. Run baseline, improved, or ranking-enhanced training scripts first."
+        )
 
-    if prefer_improved and improved_path.is_file():
-        return joblib.load(improved_path), "improved"
-
-    if baseline_path.is_file():
-        return joblib.load(baseline_path), "baseline"
-
-    raise FileNotFoundError(
-        "No trained model found. Run baseline, improved, or ranking-enhanced training scripts first."
-    )
+    _MODEL_BUNDLE_CACHE[cache_key] = bundle
+    return bundle
 
 
 def _load_feature_columns(feature_columns_path: str | None = None) -> list[str]:
