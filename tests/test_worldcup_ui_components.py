@@ -50,6 +50,8 @@ def test_worldcup_theme_inject_css_contains_key_classes() -> None:
         ".wc-sidebar-brand",
         ".wc-nav-tile",
         ".wc-formation",
+        ".wc-pitch",
+        ".wc-pitch-player",
         "inject_worldcup_css",
         "st.html",
         ".stTextInput input",
@@ -80,6 +82,8 @@ def test_ui_module_exports_render_helpers() -> None:
         "render_error_panel",
         "render_podium_cards",
         "render_formation_diagram",
+        "render_formation_pitch",
+        "render_team_formation",
         "render_progress_bar",
         "render_readiness_item",
         "render_champion_spotlight",
@@ -94,6 +98,12 @@ def test_ui_module_exports_render_helpers() -> None:
         "inject_page_theme",
         ):
         assert f"def {name}" in source or f"{name} = inject_page_theme" in source
+
+
+def test_reports_page_uses_metric_cards_for_summary_row() -> None:
+    source = (REPO_ROOT / "app/views/4_Reports_Downloads.py").read_text(encoding="utf-8")
+    assert "render_metric_card(" in source
+    assert '<div class="wc-card">' not in source
 
 
 def test_app_styles_package_exports() -> None:

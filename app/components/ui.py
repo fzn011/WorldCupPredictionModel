@@ -417,13 +417,147 @@ def render_download_card(
 
 # ─── Formation diagram ─────────────────────────────────────────────────────────
 
+_FORMATION_ROWS: tuple[tuple[str, int], ...] = (
+    ("FWD", 3),
+    ("MID", 3),
+    ("DEF", 4),
+    ("GK", 1),
+)
+
+
+def _clean_display_token(value: Any) -> str:
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return ""
+    token = str(value).strip()
+    if not token or token.lower() in {"nan", "none", "nat"}:
+        return ""
+    return token
+
+
+def _formation_player_payload(row: pd.Series, name_col: str) -> dict[str, str]:
+    name = ""
+    for col in (name_col, "player_name", "player"):
+        name = _clean_display_token(row.get(col))
+        if name:
+            break
+    if not name:
+        name = "—"
+
+    team = _clean_display_token(row.get("team"))
+    position = _clean_display_token(row.get("position_code")) or _clean_display_token(row.get("position"))
+    if position and len(position) > 3:
+        position = position.title()
+    meta = " · ".join(part for part in (team, position) if part)
+    slot = _clean_display_token(row.get("formation_slot"))
+    return {"name": name, "meta": meta, "slot": slot}
+
+
+def _pitch_lines_from_slots(players_df: pd.DataFrame, name_col: str) -> list[list[dict[str, str]]]:
+    if players_df.empty or "formation_slot" not in players_df.columns:
+        return []
+
+    slot_map = {
+        str(row["formation_slot"]): _formation_player_payload(row, name_col)
+        for _, row in players_df.iterrows()
+        if _clean_display_token(row.get("formation_slot"))
+    }
+    if not slot_map:
+        return []
+
+    lines: list[list[dict[str, str]]] = []
+    for prefix, count in _FORMATION_ROWS:
+        line: list[dict[str, str]] = []
+        for index in range(1, count + 1):
+            slot_key = f"{prefix}{index}"
+            line.append(slot_map.get(slot_key, {"name": "—", "meta": "", "slot": slot_key}))
+        lines.append(line)
+    return lines
+
+
+def _pitch_lines_from_positions(players_df: pd.DataFrame, name_col: str) -> list[list[dict[str, str]]]:
+    buckets: dict[str, list[dict[str, str]]] = {"FWD": [], "MID": [], "DEF": [], "GK": []}
+    for _, row in players_df.iterrows():
+        payload = _formation_player_payload(row, name_col)
+        group = _clean_display_token(row.get("position_group")).lower()
+        position = _clean_display_token(row.get("position")).lower()
+        code = _clean_display_token(row.get("position_code")).upper()
+        if "forward" in group or position.startswith("forward") or code.startswith("FW"):
+            buckets["FWD"].append(payload)
+        elif "mid" in group or "midfield" in position or code.startswith("MF"):
+            buckets["MID"].append(payload)
+        elif "goal" in group or "keeper" in position or code == "GK":
+            buckets["GK"].append(payload)
+        else:
+            buckets["DEF"].append(payload)
+
+    return [buckets["FWD"], buckets["MID"], buckets["DEF"], buckets["GK"]]
+
+
+def _render_pitch_player_card(player: dict[str, str]) -> str:
+    slot = player.get("slot", "")
+    badge = ""
+    if slot:
+        badge_label = slot.replace("FWD", "FW").replace("DEF", "DF").replace("MID", "MF")
+        badge = f'<span class="wc-pitch-player-badge">{_esc(badge_label)}</span>'
+    meta_html = (
+        f'<div class="wc-pitch-player-meta">{_esc(player.get("meta", ""))}</div>'
+        if player.get("meta")
+        else ""
+    )
+    return (
+        f'<div class="wc-pitch-player">{badge}'
+        f'<div class="wc-pitch-player-name">{_esc(player.get("name", "—"))}</div>'
+        f"{meta_html}</div>"
+    )
+
+
+def render_formation_pitch(players_by_line: list[list[dict[str, str]]]) -> None:
+    """Render a 4-3-3 lineup as player cards on a stylized pitch."""
+    if not players_by_line:
+        render_empty_state("Formation", "Team lineup not available yet.")
+        return
+
+    rows_html = "".join(
+        f'<div class="wc-pitch-row">{"".join(_render_pitch_player_card(player) for player in line)}</div>'
+        for line in players_by_line
+        if line
+    )
+    if not rows_html:
+        render_empty_state("Formation", "Team lineup not available yet.")
+        return
+
+    render_themed_html(
+        f"""
+<div class="wc-pitch">
+  <div class="wc-pitch-header">4-3-3 formation</div>
+  {rows_html}
+</div>
+        """
+    )
+
+
 def render_formation_diagram(players_by_line: list[list[str]]) -> None:
-    """Render ASCII-style formation blocks (forwards at top, GK at bottom)."""
-    lines: list[str] = []
-    for row in players_by_line:
-        lines.append("    ".join(row))
-    body = "\n".join(lines)
-    st.markdown(f'<pre class="wc-formation">{body}</pre>', unsafe_allow_html=True)
+    """Backward-compatible string lineup renderer (plain text fallback)."""
+    if not players_by_line:
+        render_empty_state("Formation", "Team lineup not available yet.")
+        return
+    rich_lines = [
+        [{"name": name, "meta": "", "slot": ""} for name in row]
+        for row in players_by_line
+    ]
+    render_formation_pitch(rich_lines)
+
+
+def render_team_formation(players_df: pd.DataFrame, *, name_col: str = "player_name") -> None:
+    """Render Team of the Tournament XI on a pitch grid with player cards."""
+    if players_df.empty:
+        render_empty_state("Formation", "Team lineup not available yet.")
+        return
+
+    lines = _pitch_lines_from_slots(players_df, name_col)
+    if not lines or all(player.get("name") == "—" for row in lines for player in row):
+        lines = _pitch_lines_from_positions(players_df, name_col)
+    render_formation_pitch(lines)
 
 
 # ─── Podium cards ──────────────────────────────────────────────────────────────
@@ -558,15 +692,3 @@ def render_app_footer(
         unsafe_allow_html=True,
     )
 
-
-def render_team_formation(players_df: pd.DataFrame, *, name_col: str = "player_name") -> None:
-    """4-3-3 formation from dataframe with formation_slot column."""
-    if players_df.empty or "formation_slot" not in players_df.columns:
-        render_empty_state("Formation", "Team lineup not available yet.")
-        return
-    slot_map = {row["formation_slot"]: str(row.get(name_col, "—")) for _, row in players_df.iterrows()}
-
-    def _line(prefix: str, count: int) -> list[str]:
-        return [slot_map.get(f"{prefix}{i}", "—") for i in range(1, count + 1)]
-
-    render_formation_diagram([_line("FWD", 3), _line("MID", 3), _line("DEF", 4), _line("GK", 1)])

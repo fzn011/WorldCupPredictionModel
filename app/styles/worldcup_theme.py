@@ -742,6 +742,66 @@ section[data-testid="stSidebar"] * {{
   text-align: center;
   font-size: 0.9rem;
 }}
+.wc-pitch {{
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 70, 35, 0.95) 0%, rgba(12, 45, 22, 0.98) 100%);
+  border: 1px solid {c['green']};
+  border-radius: 16px;
+  padding: 1rem 0.75rem 1.25rem;
+  margin: 0.5rem 0 1rem;
+  overflow: hidden;
+}}
+.wc-pitch-header {{
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 0.85rem;
+}}
+.wc-pitch-row {{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin: 0.45rem 0;
+}}
+.wc-pitch-player {{
+  min-width: 118px;
+  max-width: 168px;
+  flex: 1 1 118px;
+  background: rgba(10, 10, 10, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.55rem 0.5rem 0.65rem;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}}
+.wc-pitch-player-badge {{
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: {c['green']};
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  padding: 0.12rem 0.45rem;
+  margin-bottom: 0.35rem;
+}}
+.wc-pitch-player-name {{
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: {c['white']};
+  word-break: break-word;
+}}
+.wc-pitch-player-meta {{
+  margin-top: 0.28rem;
+  font-size: 0.68rem;
+  color: {c['muted']};
+  line-height: 1.25;
+}}
 .wc-podium-1 {{ border-top: 3px solid {c['primary']}; }}
 .wc-podium-2 {{ border-top: 3px solid {c['muted']}; }}
 .wc-podium-3 {{ border-top: 3px solid {c['primary_dim']}; }}
