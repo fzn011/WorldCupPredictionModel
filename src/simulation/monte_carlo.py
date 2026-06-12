@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Callable
 
 import numpy as np
 import pandas as pd
@@ -10,6 +10,8 @@ import pandas as pd
 from src.models.prediction_cache import CachedMatchPredictor
 from src.simulation.full_tournament import run_full_tournament_single
 import src.utils.constants as C
+
+MonteCarloProgressCallback = Callable[[int, int, dict[str, Any]], None]
 
 TOURNAMENT_STAGE_GROUP = getattr(C, "TOURNAMENT_STAGE_GROUP", "group_stage")
 TOURNAMENT_STAGE_ROUND_OF_32 = getattr(C, "TOURNAMENT_STAGE_ROUND_OF_32", "round_of_32")
@@ -98,6 +100,7 @@ def run_monte_carlo_simulations(
     num_simulations: int = DEFAULT_MONTE_CARLO_SIMULATIONS,
     base_seed: int = DEFAULT_MONTE_CARLO_SEED,
     predictor: Any | None = None,
+    progress_callback: MonteCarloProgressCallback | None = None,
 ) -> dict[str, Any]:
     """Run repeated full-tournament simulations with resilient error handling."""
     num_simulations = int(max(1, num_simulations))
@@ -117,6 +120,9 @@ def run_monte_carlo_simulations(
         )
 
         simulation_results.append(single)
+
+        if progress_callback is not None:
+            progress_callback(simulation_id, num_simulations, single)
 
         if single.get("status") == "success":
             path_reports.append(

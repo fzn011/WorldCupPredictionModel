@@ -9,7 +9,9 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from src.simulation.monte_carlo_readiness import require_monte_carlo_ready
 from src.simulation.monte_carlo import (
+    MonteCarloProgressCallback,
     build_champion_probabilities,
     build_finalists_table,
     build_semifinalists_table,
@@ -74,15 +76,21 @@ def prepare_step15_monte_carlo_simulation(
     num_simulations: int = DEFAULT_MONTE_CARLO_SIMULATIONS,
     base_seed: int = DEFAULT_MONTE_CARLO_SEED,
     predictor: Any | None = None,
+    progress_callback: MonteCarloProgressCallback | None = None,
+    skip_readiness_check: bool = False,
 ) -> dict[str, Any]:
     """Run and persist Step 15 Monte Carlo tournament simulation artifacts."""
     num_simulations = int(max(1, num_simulations))
     base_seed = int(base_seed)
 
+    if not skip_readiness_check:
+        require_monte_carlo_ready()
+
     raw = run_monte_carlo_simulations(
         num_simulations=num_simulations,
         base_seed=base_seed,
         predictor=predictor,
+        progress_callback=progress_callback,
     )
 
     simulation_results_df = build_simulation_results_table(raw["simulation_results"])

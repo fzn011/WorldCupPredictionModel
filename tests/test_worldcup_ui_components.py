@@ -129,6 +129,7 @@ def test_render_hero_uses_sprintura_title_class() -> None:
     [
         "app/views/1_Match_Predictor.py",
         "app/views/17_World_Cup_Awards.py",
+        "app/views/9_Monte_Carlo_Simulator.py",
     ],
 )
 def test_action_pages_use_form_submit_buttons(page_path: str) -> None:
@@ -137,6 +138,14 @@ def test_action_pages_use_form_submit_buttons(page_path: str) -> None:
     assert "form_submit_button" in source
     assert 'if st.button("Predict match outcome"' not in source
     assert 'if st.button("Generate awards forecast"' not in source
+
+
+def test_monte_carlo_page_exposes_presets_and_deferred_run() -> None:
+    source = (REPO_ROOT / "app/views/9_Monte_Carlo_Simulator.py").read_text(encoding="utf-8")
+    assert "MONTE_CARLO_RUN_PRESETS" in source
+    assert "_SESSION_MC_PENDING_RUN" in source
+    assert "evaluate_monte_carlo_readiness" in source
+    assert "progress_callback" in source
 
 
 @pytest.mark.parametrize(
