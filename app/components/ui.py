@@ -351,33 +351,45 @@ def _default_table_height(row_count: int, *, row_height: int = 35, header: int =
     return min(cap, header + row_height * max(row_count, 1) + 8)
 
 
+def _prepare_table_display(df: pd.DataFrame, *, hide_index: bool) -> pd.DataFrame:
+    """Normalize frames for Streamlit display (avoid PyArrow mixed-type failures)."""
+    display = df.reset_index(drop=True) if hide_index else df.copy()
+    for column in display.columns:
+        series = display[column]
+        if series.dtype == object:
+            display[column] = series.map(lambda value: "" if pd.isna(value) else str(value))
+    return display
+
+
 def render_data_table(
     df: pd.DataFrame,
     *,
     height: int | None = None,
     hide_index: bool = True,
     interactive: bool = False,
-    max_static_rows: int = 500,
+    max_static_rows: int = 10_000,
     **kwargs: Any,
 ) -> None:
     """Render tabular data with readable dark-theme styling.
 
-    Uses static ``st.table`` by default (reliable in tabs). Falls back to
-    ``st.dataframe`` only for large or explicitly interactive tables.
+    Uses static ``st.table`` by default (reliable in tabs on dark themes).
     """
     _ = kwargs  # absorb legacy st.dataframe kwargs (use_container_width, etc.)
     if df.empty:
         st.info("No data available.")
         return
 
-    display = df.reset_index(drop=True) if hide_index else df
+    display = _prepare_table_display(df, hide_index=hide_index)
 
     if not interactive and len(display) <= max_static_rows:
         st.table(display)
         return
 
     table_height = height if height is not None else _default_table_height(len(display))
-    st.dataframe(display, use_container_width=True, hide_index=hide_index, height=table_height)
+    try:
+        st.dataframe(display, width="stretch", hide_index=hide_index, height=table_height)
+    except TypeError:
+        st.dataframe(display, use_container_width=True, hide_index=hide_index, height=table_height)
 
 
 # ─── Download card ─────────────────────────────────────────────────────────────

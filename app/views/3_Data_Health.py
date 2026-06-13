@@ -201,13 +201,18 @@ def render_page() -> None:
         imp_col1, imp_col2 = st.columns([2, 3])
 
         with imp_col1:
-            uploaded = st.file_uploader("Upload import file", type=["csv"])
-            if uploaded:
+            with st.form("official_import_form", clear_on_submit=False):
+                uploaded = st.file_uploader("Upload import file", type=["csv"])
                 import_type = st.selectbox(
                     "Import type",
                     ["auto-detect", "teams", "groups", "fixtures", "venues", "players", "squads"],
                 )
-                if st.button("Apply Import", type="primary"):
+                apply_import_clicked = st.form_submit_button("Apply Import", type="primary")
+
+            if apply_import_clicked:
+                if uploaded is None:
+                    st.error("Choose a CSV file before applying the import.")
+                else:
                     temp_path = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR / f"temp_{uploaded.name}"
                     with open(temp_path, "wb") as f:
                         f.write(uploaded.getvalue())
@@ -269,15 +274,20 @@ def render_page() -> None:
 
         if final_ready_check:
             st.markdown("<br>", unsafe_allow_html=True)
-            confirm = st.checkbox("I confirm all data has been verified against official FIFA sources")
-            if confirm and st.button("Promote to Official Final Mode", type="primary"):
-                result = promote_to_official_final(confirmed=True)
-                if result.get("status") == "promoted":
-                    render_success_panel("Promoted to official final mode.")
-                    st.session_state.readiness_report = evaluate_official_final_readiness()
-                    st.rerun()
+            with st.form("promote_official_final_form", clear_on_submit=False):
+                confirm = st.checkbox("I confirm all data has been verified against official FIFA sources")
+                promote_clicked = st.form_submit_button("Promote to Official Final Mode", type="primary")
+            if promote_clicked:
+                if not confirm:
+                    st.error("Check the confirmation box before promoting.")
                 else:
-                    render_warning_panel(f"Promotion blocked: {result.get('message', 'unknown')}")
+                    result = promote_to_official_final(confirmed=True)
+                    if result.get("status") == "promoted":
+                        render_success_panel("Promoted to official final mode.")
+                        st.session_state.readiness_report = evaluate_official_final_readiness()
+                        st.rerun()
+                    else:
+                        render_warning_panel(f"Promotion blocked: {result.get('message', 'unknown')}")
         elif not final_enabled:
             render_warning_panel(
                 "Resolve all blockers before enabling official final mode. "
@@ -338,18 +348,23 @@ def render_page() -> None:
                     chk.get("passed", False),
                 )
 
-        ctrl1, ctrl2 = st.columns(2)
-        with ctrl1:
-            if st.button("Refresh evaluation", use_container_width=True):
-                st.session_state.readiness_report = evaluate_official_final_readiness()
-                st.rerun()
-        with ctrl2:
-            if st.button("Generate import templates", use_container_width=True):
-                with st.spinner("Generating templates..."):
-                    out_dir = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR
-                    templates = generate_all_import_templates(output_dir=out_dir)
-                    create_import_manifest(templates, out_dir)
-                st.success(f"{len(templates)} templates generated.")
-                st.rerun()
+        with st.form("readiness_tools_form", clear_on_submit=False):
+            ctrl1, ctrl2 = st.columns(2)
+            with ctrl1:
+                refresh_clicked = st.form_submit_button("Refresh evaluation", use_container_width=True)
+            with ctrl2:
+                templates_clicked = st.form_submit_button("Generate import templates", use_container_width=True)
+
+        if refresh_clicked:
+            st.session_state.readiness_report = evaluate_official_final_readiness()
+            st.rerun()
+
+        if templates_clicked:
+            with st.spinner("Generating templates..."):
+                out_dir = PROJECT_ROOT / OFFICIAL_PROCESSED_DIR
+                templates = generate_all_import_templates(output_dir=out_dir)
+                create_import_manifest(templates, out_dir)
+            st.success(f"{len(templates)} templates generated.")
+            st.rerun()
 
     st.caption("Analytics estimates only. Data completeness required for official final mode.")

@@ -129,7 +129,9 @@ def create_summary_cards(outputs: dict[str, Any]) -> pd.DataFrame:
         {"card": "Cache hits", "value": cache_info.get("cache_hits", 0)},
         {"card": "Cache misses", "value": cache_info.get("cache_misses", 0)},
     ]
-    return pd.DataFrame(rows)
+    cards = pd.DataFrame(rows)
+    cards["value"] = cards["value"].map(lambda value: "" if pd.isna(value) else str(value))
+    return cards
 
 
 def create_champion_probability_table(outputs: dict[str, Any], top_n: int = MONTE_CARLO_TOP_N_TEAMS) -> pd.DataFrame:

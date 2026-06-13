@@ -200,6 +200,8 @@ def render_page() -> None:
         eyebrow="Awards analytics",
     )
 
+    _show_awards_notice()
+
     pdata = load_product_data_status()
     summary = _load_json(WORLD_CUP_AWARDS_SUMMARY_FILE)
     golden_ball_df = _load_csv(GOLDEN_BALL_PREDICTIONS_FILE)
@@ -369,7 +371,6 @@ def render_page() -> None:
             "Awards forecast not generated yet",
             "Run a tournament forecast first, then generate awards predictions.",
         )
-        _show_awards_notice()
         monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
         if pdata["awards_allowed"] and monte_carlo_path.is_file():
             with st.form("awards_generate_empty_form", clear_on_submit=False):
@@ -380,6 +381,8 @@ def render_page() -> None:
                 )
             if generate_empty_clicked:
                 _run_awards_generation()
+        elif pdata.get("awards_blocker"):
+            st.warning(pdata["awards_blocker"])
         elif not monte_carlo_path.is_file():
             st.button(
                 "Open Tournament Forecast",
@@ -411,10 +414,8 @@ def render_page() -> None:
         quality_path = PROCESSED_DATA_DIR / getattr(C, "PLAYER_PRIOR_QUALITY_REPORT_FILE", "player_prior_quality_report.csv")
         monte_carlo_path = PROCESSED_DATA_DIR / MONTE_CARLO_TEAM_STAGE_PROBABILITIES_FILE
 
-        _show_awards_notice()
-
         if not pdata["awards_allowed"]:
-            st.info("Official data must be verified before generating awards. Check the Data Quality page.")
+            st.warning(pdata.get("awards_blocker") or "Official data must be verified before generating awards.")
         elif not monte_carlo_path.is_file():
             st.info("Monte Carlo team stage probabilities are required. Run a tournament forecast first.")
             st.button(

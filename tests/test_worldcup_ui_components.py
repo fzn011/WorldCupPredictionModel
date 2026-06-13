@@ -130,6 +130,7 @@ def test_render_hero_uses_sprintura_title_class() -> None:
         "app/views/1_Match_Predictor.py",
         "app/views/17_World_Cup_Awards.py",
         "app/views/9_Monte_Carlo_Simulator.py",
+        "app/views/3_Data_Health.py",
     ],
 )
 def test_action_pages_use_form_submit_buttons(page_path: str) -> None:
@@ -146,6 +147,21 @@ def test_monte_carlo_page_exposes_presets_and_deferred_run() -> None:
     assert "_SESSION_MC_PENDING_RUN" in source
     assert "evaluate_monte_carlo_readiness" in source
     assert "progress_callback" in source
+
+
+def test_quick_simulation_uses_real_monte_carlo_engine() -> None:
+    source = (REPO_ROOT / "app/views/2_Tournament_Simulator.py").read_text(encoding="utf-8")
+    assert "prepare_step15_monte_carlo_simulation" in source
+    assert "simulate_tournament" not in source
+    assert "st.form(" in source
+    assert "_SESSION_QUICK_MC_PENDING" in source
+
+
+def test_data_health_uses_forms_for_destructive_actions() -> None:
+    source = (REPO_ROOT / "app/views/3_Data_Health.py").read_text(encoding="utf-8")
+    assert 'st.form("official_import_form"' in source
+    assert 'st.form("promote_official_final_form"' in source
+    assert 'st.form("readiness_tools_form"' in source
 
 
 @pytest.mark.parametrize(
