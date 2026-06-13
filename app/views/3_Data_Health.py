@@ -96,6 +96,31 @@ OFFICIAL_POPULATION_GUIDE_FILE = getattr(
 OFFICIAL_IMPORT_TEMPLATES_DIR = getattr(
     C, "OFFICIAL_IMPORT_TEMPLATES_DIR", "data/official/import_templates"
 )
+OFFICIAL_AWARD_CANDIDATES_FILE = getattr(C, "OFFICIAL_AWARD_CANDIDATES_FILE", "official_award_candidates.csv")
+OFFICIAL_REQUIRED_TOTAL_PLAYERS = int(getattr(C, "OFFICIAL_REQUIRED_TOTAL_PLAYERS", 1248))
+
+
+def _format_readiness_detail(check: dict) -> str:
+    """Human-readable detail for a readiness checklist row."""
+    details = check.get("details") or {}
+    if not isinstance(details, dict) or not details:
+        return ""
+
+    check_id = str(check.get("id", ""))
+    if check_id == "award_candidates_ready":
+        count = details.get("candidate_count")
+        if count is not None:
+            return f"{count}/{OFFICIAL_REQUIRED_TOTAL_PLAYERS} candidates"
+        if details.get("error"):
+            return str(details["error"])
+    if check_id == "player_priors_merged":
+        with_priors = details.get("players_with_priors")
+        total = details.get("total_players")
+        if with_priors is not None and total is not None:
+            return f"{with_priors}/{total} with priors"
+
+    parts = [f"{key}={value}" for key, value in details.items() if value is not None]
+    return ", ".join(parts[:3])
 
 # ─────────────────────────────────────────────────────────────────────────────
 
