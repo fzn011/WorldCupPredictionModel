@@ -186,13 +186,28 @@ def render_page() -> None:
 
     render_section_header("Simulation settings")
     preset_names = list(QUICK_SIM_PRESETS.keys())
+    if "quick_mc_preset" not in st.session_state:
+        st.session_state.quick_mc_preset = preset_names[0]
+
+    preset = st.selectbox(
+        "Quick preset",
+        preset_names,
+        index=preset_names.index(st.session_state.quick_mc_preset)
+        if st.session_state.quick_mc_preset in preset_names
+        else 0,
+        key="quick_mc_preset",
+    )
+    preset_values = QUICK_SIM_PRESETS[preset]
+    sim_col, seed_col = st.columns(2)
+    with sim_col:
+        render_metric_card("Simulations", f"{preset_values['num_simulations']:,}", sub="From preset")
+    with seed_col:
+        render_metric_card("Base seed", str(preset_values["base_seed"]), sub="From preset")
+    st.caption(
+        f"Will run **{preset_values['num_simulations']:,}** simulations with base seed **{preset_values['base_seed']}**."
+    )
 
     with st.form("quick_simulation_form", clear_on_submit=False):
-        preset = st.selectbox("Quick preset", preset_names, index=0)
-        preset_values = QUICK_SIM_PRESETS[preset]
-        st.caption(
-            f"Will run **{preset_values['num_simulations']:,}** simulations with base seed **{preset_values['base_seed']}**."
-        )
         run_clicked = st.form_submit_button(
             "Run quick simulation",
             type="primary",
@@ -201,7 +216,7 @@ def render_page() -> None:
         open_forecast = st.form_submit_button("Open full Tournament Forecast")
 
     if run_clicked:
-        st.session_state[_SESSION_QUICK_MC_PENDING] = dict(preset_values)
+        st.session_state[_SESSION_QUICK_MC_PENDING] = dict(QUICK_SIM_PRESETS[st.session_state.quick_mc_preset])
         st.rerun()
 
     if open_forecast:
