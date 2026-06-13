@@ -74,6 +74,12 @@ def load_product_data_status(*, refresh_readiness: bool = False) -> dict[str, An
 
     counts_ok = teams >= 48 and fixtures >= 100 and players >= 1000 and squads_26 >= 48
     is_verified = official_final_enabled or readiness_ready or counts_ok
+    awards_allowed = official_final_enabled and readiness_ready
+    awards_blocker: str | None = None
+    if not official_final_enabled:
+        awards_blocker = "Promote to official final mode on the Data Quality page before generating awards."
+    elif not readiness_ready:
+        awards_blocker = "Official final readiness checks must pass before generating awards."
 
     if is_verified:
         data_label = "Ready"
@@ -99,5 +105,6 @@ def load_product_data_status(*, refresh_readiness: bool = False) -> dict[str, An
         "readiness_summary": rs,
         "official_summary": official_summary,
         "mode": mode,
-        "awards_allowed": official_final_enabled or readiness_ready or counts_ok,
+        "awards_allowed": awards_allowed,
+        "awards_blocker": awards_blocker,
     }

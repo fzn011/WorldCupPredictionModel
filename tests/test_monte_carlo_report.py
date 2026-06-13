@@ -54,6 +54,20 @@ def test_create_summary_cards_returns_expected_columns() -> None:
     cards = create_summary_cards(_synthetic_outputs())
     assert list(cards.columns) == ["card", "value"]
     assert not cards.empty
+    assert cards["value"].map(type).eq(str).all()
+
+
+def test_prepare_table_display_stringifies_mixed_object_column() -> None:
+    from app.components.ui import _prepare_table_display
+
+    df = pd.DataFrame(
+        [
+            {"card": "Total simulations", "value": 10},
+            {"card": "Validation status", "value": "passed"},
+        ]
+    )
+    out = _prepare_table_display(df, hide_index=True)
+    assert out["value"].tolist() == ["10", "passed"]
 
 
 def test_create_champion_probability_table_returns_sorted_top_n() -> None:
