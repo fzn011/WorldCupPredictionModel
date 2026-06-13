@@ -147,6 +147,25 @@ def test_monte_carlo_page_exposes_presets_and_deferred_run() -> None:
     assert "_SESSION_MC_PENDING_RUN" in source
     assert "evaluate_monte_carlo_readiness" in source
     assert "progress_callback" in source
+    assert 'key="mc_simulation_preset"' in source
+    assert source.index("mc_simulation_preset") < source.index('st.form("mc_simulation_controls"')
+
+
+def test_monte_carlo_resolve_run_settings_uses_preset_not_stale_widgets() -> None:
+    import importlib.util
+
+    path = REPO_ROOT / "app/views/9_Monte_Carlo_Simulator.py"
+    spec = importlib.util.spec_from_file_location("mc_page", path)
+    assert spec and spec.loader
+    mc_page = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mc_page)
+
+    sims, seed = mc_page._resolve_run_settings("Standard — 50 sims, seed 42", 10, 99)
+    assert sims == 50
+    assert seed == 42
+    sims_custom, seed_custom = mc_page._resolve_run_settings(mc_page.MONTE_CARLO_PRESET_CUSTOM, 25, 7)
+    assert sims_custom == 25
+    assert seed_custom == 7
 
 
 def test_quick_simulation_uses_real_monte_carlo_engine() -> None:

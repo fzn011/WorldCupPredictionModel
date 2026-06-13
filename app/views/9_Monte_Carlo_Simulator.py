@@ -310,33 +310,37 @@ def render_page() -> None:
                     st.json(notice["details"])
 
         preset_options = _preset_options()
-        default_preset_index = (
-            preset_options.index(MONTE_CARLO_UI_DEFAULT_PRESET)
-            if MONTE_CARLO_UI_DEFAULT_PRESET in preset_options
-            else 0
+        if "mc_simulation_preset" not in st.session_state:
+            st.session_state.mc_simulation_preset = MONTE_CARLO_UI_DEFAULT_PRESET
+        if st.session_state.mc_simulation_preset not in preset_options:
+            st.session_state.mc_simulation_preset = MONTE_CARLO_UI_DEFAULT_PRESET
+
+        preset = st.selectbox(
+            "Simulation preset",
+            preset_options,
+            index=preset_options.index(st.session_state.mc_simulation_preset),
+            key="mc_simulation_preset",
+            help="Changing the preset updates simulations and seed immediately. Choose Custom to set your own values.",
+        )
+        custom_mode = preset == MONTE_CARLO_PRESET_CUSTOM
+        preset_simulations, preset_seed = _resolve_run_settings(
+            preset,
+            MONTE_CARLO_UI_DEFAULT_SIMULATIONS,
+            MONTE_CARLO_UI_DEFAULT_SEED,
         )
 
-        with st.form("mc_simulation_controls", clear_on_submit=False):
-            preset = st.selectbox(
-                "Simulation preset",
-                preset_options,
-                index=default_preset_index,
-                help="Pick a ready-made run profile or choose Custom to set simulations and seed yourself.",
-            )
-            custom_mode = preset == MONTE_CARLO_PRESET_CUSTOM
-            preset_simulations, preset_seed = _resolve_run_settings(
-                preset,
-                MONTE_CARLO_UI_DEFAULT_SIMULATIONS,
-                MONTE_CARLO_UI_DEFAULT_SEED,
-            )
+        if custom_mode:
+            if "mc_custom_simulations" not in st.session_state:
+                st.session_state.mc_custom_simulations = MONTE_CARLO_UI_DEFAULT_SIMULATIONS
+            if "mc_custom_seed" not in st.session_state:
+                st.session_state.mc_custom_seed = MONTE_CARLO_UI_DEFAULT_SEED
             simulations = int(
                 st.number_input(
                     "Number of simulations",
                     min_value=1,
                     max_value=MAX_MONTE_CARLO_SIMULATIONS,
-                    value=preset_simulations,
                     step=1,
-                    disabled=not custom_mode,
+                    key="mc_custom_simulations",
                     help=f"Each simulation runs a full World Cup (1–{MAX_MONTE_CARLO_SIMULATIONS:,}).",
                 )
             )
@@ -345,14 +349,22 @@ def render_page() -> None:
                     "Base seed",
                     min_value=0,
                     max_value=1_000_000,
-                    value=preset_seed,
                     step=1,
-                    disabled=not custom_mode,
+                    key="mc_custom_seed",
                     help="Simulation i uses seed = base seed + i for reproducibility.",
                 )
             )
-            if not custom_mode:
-                st.caption(f"Preset run: **{simulations:,}** simulations with base seed **{seed}**.")
+        else:
+            simulations = preset_simulations
+            seed = preset_seed
+            sim_col, seed_col = st.columns(2)
+            with sim_col:
+                render_metric_card("Simulations", f"{simulations:,}", sub="From selected preset")
+            with seed_col:
+                render_metric_card("Base seed", str(seed), sub="From selected preset")
+            st.caption(f"Preset **{preset}** → **{simulations:,}** simulations, base seed **{seed}**.")
+
+        with st.form("mc_simulation_controls", clear_on_submit=False):
             controls_col1, controls_col2 = st.columns(2)
             run_clicked = controls_col1.form_submit_button(
                 "Run Monte Carlo simulation",
